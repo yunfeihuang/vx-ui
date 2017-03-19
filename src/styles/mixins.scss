@@ -1,0 +1,69 @@
+@mixin disabled{
+  &[disabled]{
+    opacity:0.6;
+    pointer-events: none;
+    @content;
+  }
+}
+@mixin active{
+  &:active{
+    background-color:rgba(0,0,0,0.1);
+  }
+}
+@mixin divider ($color:$border-color-base){
+  content:'';
+  display:block;
+  height:1px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(50%,transparent),color-stop(50%,transparent),color-stop(100%,$color));
+  background-image: -webkit-linear-gradient(top,transparent 50%,$color 50%,$color 100%);
+  background-image: linear-gradient(to bottom,transparent 50%,$color 50%,$color 100%);
+  -webkit-background-size: 100% 1px;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+@mixin divider-vertical($color:$border-color-base){
+  content:'';
+  display:block;
+  width:1px;
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  background-image: -webkit-linear-gradient(left,$color 50%,transparent 50%,transparent 100%);
+  background-image: linear-gradient(to right,$color 50%,transparent 50%,transparent 100%);
+  -webkit-background-size: 1px 100%;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+}
+@mixin arrow($rotate:45deg){
+  content:'';
+  display:inline-block;
+  width:8px;
+  position:absolute;
+  top:50%;
+  right:4px;
+  height:8px;
+  margin-top:-5px;
+  border-top:1px solid $border-color-base;
+  border-right:1px solid $border-color-base;
+  transform:rotate($rotate);
+}
+@mixin checkedIcon(){
+  width:20px;
+  height:20px;
+  box-shadow:0 0 1px #666 inset;
+  border-radius:20px;
+  display:inline-block;
+  transition:all 0.2s $ease-in-out;
+  background:url('./check.svg') no-repeat;
+  -webkit-background-size: 90%;
+  background-size: 90%;
+  vertical-align: middle;
+  margin-right:4px;
+  background-position: center 1px;
+}
