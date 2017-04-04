@@ -1,7 +1,7 @@
 <template>
   <label :class="_clas" :style="style" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
-    <span :class="[cssPrefix + 'radio-icon']"></span>
+    <span :class="[cssPrefix + 'radio-icon']"><i class="iconfont">&#xe632;</i></span>
     <slot></slot>
   </label>
 </template>
@@ -58,12 +58,14 @@ export default {
         width: 20px;
         height: 20px;
         margin-top:-11px;
-        transition:background 0.2s $ease-in-out;
+        display:none;
       }
       input:checked+.#{$css-prefix}radio-icon{
-        background:url('./radio.svg') no-repeat center;
-        -webkit-background-size: cover;
-        background-size: cover;
+        color:$primary-color;
+        display:block;
+        .iconfont{
+          font-size:20px;
+        }
       }
     }
   }

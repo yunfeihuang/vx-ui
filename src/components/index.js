@@ -20,6 +20,7 @@ import Toast from './toast'
 import XImg from './img'
 import Flow from './flow'
 import Ripple from './ripple'
+import '../../iconfont/iconfont.css'
 export {
   Actionsheet,
   ActionsheetItem,

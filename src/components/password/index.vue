@@ -18,7 +18,14 @@
       @on-keydown="keydownHandler" 
       @on-change="changeHandler"
     />
-    <button :class="[cssPrefix+'password-switch',this.hType!=='password'?'disabled':'']" type="button" @click="switchHandler"></button>
+    <button
+      :class="[cssPrefix+'password-switch']"
+      type="button"
+      @click="switchHandler"
+    >
+      <i v-if="this.hType==='password'" class="iconfont">&#xe602;</i>
+      <i v-if="this.hType==='text'" class="iconfont">&#xe63b;</i>
+    </button>
   </div>
 </template>
 
@@ -67,17 +74,12 @@ export default {
         right:0;
         top:0;
         @include button;
-        background:url('../../images/eye-close.svg') no-repeat center #fff;
-        -webkit-background-size: 20px;
-        background-size: 20px;
         width:40px;
         height:100%;
-        opacity:0.6;
-      }
-      &-switch.disabled{
-        background-image:url('../../images/eye-open.svg');
-        -webkit-background-size: 22px;
-        background-size: 22px;
+        .iconfont{
+          font-size:20px;
+          color:#666;
+        }
       }
     }
   }

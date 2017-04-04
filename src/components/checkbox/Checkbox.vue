@@ -1,7 +1,7 @@
 <template>
   <label :class="_clas" :style="style" :disabled="disabled" >
     <input type="checkbox" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
-    <i :class="[cssPrefix + 'checkbox-icon']"></i>
+    <i :class="[cssPrefix + 'checkbox-icon','iconfont']">&#xe632;</i>
     <slot></slot>
   </label>
 </template>
@@ -55,16 +55,16 @@ export default {
         border-radius:20px;
         display:inline-block;
         transition:all 0.2s $ease-in-out;
-        background:url('./check.svg') no-repeat;
-        -webkit-background-size: 90%;
-        background-size: 90%;
-        vertical-align: middle;
         margin-right:4px;
-        background-position: center 1px;
+        text-align: center;
+        vertical-align: middle;
+        color:transparent;
+        line-height: 1.3;
       }
       input:checked+.#{$css-prefix}checkbox-icon{
         background-color:$primary-color;
         box-shadow:none;
+        color:#fff;
       }
     }
     

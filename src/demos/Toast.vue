@@ -7,7 +7,7 @@
         <x-switch slot="value" :checked="topOpen" @on-change="changeTHandler"></x-switch>
       </cell>
       <cell :arrow="false">
-        <div slot="title">Toast Message Center</div>
+        <div slot="title">Toast Message Center Success</div>
         <x-switch slot="value" :checked="centerOpen" @on-change="changeCHandler"></x-switch>
       </cell>
       <cell :arrow="false">
@@ -16,7 +16,7 @@
       </cell>
     </group>
     <toast :open="topOpen" @on-close="changeTHandler">{{content}}</toast>
-    <toast :open="centerOpen" align="center" @on-close="changeCHandler">{{content}}</toast>
+    <toast :open="centerOpen" type="success" align="center" @on-close="changeCHandler">{{content}}</toast>
     <toast :open="bottomOpen" align="bottom" @on-close="changeBHandler">{{content}}</toast>
   </div>
 </template>

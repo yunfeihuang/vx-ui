@@ -2,8 +2,13 @@
   <div :class="_clas" :style="style">
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
+        <template v-if="type">
+          <i v-if="type==='success'" class="iconfont">&#xe654;</i>
+          <i v-if="type==='warn'" class="iconfont">&#xe653;</i>
+          <i v-if="type==='fail'" class="iconfont">&#xe725;</i>
+          <br/>
+        </template>
         <slot></slot>
-        <i :class="[cssPrefix + 'toast-icon']"></i>
       </div>
     </div>
   </div>
@@ -86,7 +91,7 @@ export default {
       &-content{
         background:rgba(0,0,0,0.7);
         color:#fff;
-        padding: 0.6rem;
+        padding: 0.7rem;
         border-radius:3px;
         box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
         display:inline-block;
@@ -104,14 +109,8 @@ export default {
       &-center{
         vertical-align: middle;
       }
-      &-icon{
-        height:25px;
-        width:25px;
-        border-radius:25px;
-        background:rgba(0,0,0,0.5);
-        display:inline-block;
-        margin:-7px -4px -7px 8px;
-        display:none;
+      .iconfont{
+        font-size:40px;
       }
     }
   }

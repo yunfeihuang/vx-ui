@@ -19,7 +19,9 @@
       @input="inputHandler"
       />
     <transition name="input-clear-fade">
-      <div v-if="clear&&isFocus" :class="cssPrefix + 'input-clear-button'" @click="clearHandler"></div>
+      <button type="button" v-if="clear&&isFocus" :class="cssPrefix + 'input-clear-button'" @click="clearHandler">
+        <i class="iconfont">&#xe641;</i>
+      </button>
     </transition>
   </label>
 </template>
@@ -102,13 +104,9 @@ export default {
       position:absolute;
       top:0;
       right:0;
+      @include button;
       width:40px;
       height:100%;
-      background:url('../../images/close.svg') no-repeat center #fff;
-      -webkit-background-size: 60%;
-      background-size: 60%;
-      border:1px solid transparent;
-      box-sizing:border-box;
       display:none;
     }
     &input-clear{
