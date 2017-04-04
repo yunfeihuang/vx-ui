@@ -1,5 +1,7 @@
 import XButton from './button'
 import XInput from './input'
+import Password from './password'
+import Range from './range'
 import XTextarea from './textarea'
 import XSwitch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
@@ -15,6 +17,9 @@ import Confirm from './confirm'
 import Alert from './alert'
 import Popup from './popup'
 import Toast from './toast'
+import XImg from './img'
+import Flow from './flow'
+import Ripple from './ripple'
 export {
   Actionsheet,
   ActionsheetItem,
@@ -24,6 +29,8 @@ export {
   ButtonTabItem,
   XButton,
   XInput,
+  Password,
+  Range,
   XTextarea,
   XSwitch,
   Checkbox,
@@ -37,5 +44,8 @@ export {
   Confirm,
   Alert,
   Popup,
-  Toast
+  Toast,
+  XImg,
+  Flow,
+  Ripple
 }

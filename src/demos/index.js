@@ -6,6 +6,7 @@ import Select from './Select'
 import Switch from './Switch'
 import Radio from './Radio'
 import Checkbox from './Checkbox'
+import Range from './Range'
 import Actionsheet from './Actionsheet'
 import Alert from './Alert'
 import Confirm from './Confirm'
@@ -13,6 +14,9 @@ import Tab from './Tab'
 import TabButton from './TabButton'
 import Popup from './Popup'
 import Toast from './Toast'
+import Img from './Img'
+import Flow from './Flow'
+import Ripple from './Ripple'
 export {
   App,
   Button,
@@ -22,11 +26,15 @@ export {
   Switch,
   Radio,
   Checkbox,
+  Range,
   Actionsheet,
   Alert,
   Confirm,
   Tab,
   TabButton,
   Popup,
-  Toast
+  Toast,
+  Img,
+  Flow,
+  Ripple
 }

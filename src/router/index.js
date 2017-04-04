@@ -10,13 +10,17 @@ import {
   Switch,
   Radio,
   Checkbox,
+  Range,
   Actionsheet,
   Alert,
   Confirm,
   Tab,
   TabButton,
   Popup,
-  Toast
+  Toast,
+  Img,
+  Flow,
+  Ripple
 } from 'demos'
 
 Vue.use(Router)
@@ -64,6 +68,11 @@ export default new Router({
       component: Checkbox
     },
     {
+      path: '/range',
+      name: 'range',
+      component: Range
+    },
+    {
       path: '/actionsheet',
       name: 'actionsheet',
       component: Actionsheet
@@ -97,6 +106,21 @@ export default new Router({
       path: '/toast',
       name: 'toast',
       component: Toast
+    },
+    {
+      path: '/img',
+      name: 'img',
+      component: Img
+    },
+    {
+      path: '/flow',
+      name: 'flow',
+      component: Flow
+    },
+    {
+      path: '/ripple',
+      name: 'ripple',
+      component: Ripple
     }
   ]
 })

@@ -29,9 +29,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .input-demo{
-    button{
-      margin-top:20px;
-    }
-  }
+
 </style>

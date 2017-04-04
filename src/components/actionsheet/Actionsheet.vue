@@ -74,7 +74,6 @@ export default {
       this.$emit('on-close')
     },
     enterHandler () {
-      console.log(this)
       if (!this.$children) return
       this.$children[0].$children.forEach((item) => {
         if (item.$el.className.indexOf('overlay') === -1) {

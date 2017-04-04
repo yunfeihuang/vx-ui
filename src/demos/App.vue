@@ -8,6 +8,9 @@
       <cell href="#/input">
         <div slot="title">XInput</div>
       </cell>
+      <cell href="#/input">
+        <div slot="title">Password</div>
+      </cell>
       <cell href="#/textarea">
         <div slot="title">XTextarea</div>
       </cell>
@@ -22,6 +25,9 @@
       </cell>
       <cell href="#/checkbox">
         <div slot="title">Checkbox</div>
+      </cell>
+      <cell href="#/range">
+        <div slot="title">Range</div>
       </cell>
     </group>
     <group title="弹框">
@@ -45,6 +51,17 @@
       </cell>
       <cell href="#/toast">
         <div slot="title">Toast</div>
+      </cell>
+      <cell href="#/flow">
+        <div slot="title">Flow</div>
+      </cell>
+      <cell href="#/ripple">
+        <div slot="title">Ripple</div>
+      </cell>
+    </group>
+    <group title="图片">
+      <cell href="#/img">
+        <div slot="title">XImg</div>
       </cell>
     </group>
   </div>

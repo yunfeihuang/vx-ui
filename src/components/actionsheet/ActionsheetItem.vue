@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" @click="clickHandler" :disabled="disabled">
+  <div :class="_clas" :style="style" :disabled="disabled" @click="clickHandler">
     <slot></slot>
   </div>
 </template>

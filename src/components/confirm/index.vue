@@ -4,7 +4,7 @@
       <overlay v-if="open"></overlay>
     </transition>
     <div :class="[cssPrefix + 'confirm-wrapper']">
-      <transition name="confirm-fade">
+      <transition name="confirm-scale">
         <div :class="[cssPrefix + 'confirm-inner']" v-if="open">
           <div :class="[cssPrefix + 'confirm-body']">
             <slot></slot>
@@ -141,18 +141,19 @@ export default {
     }
   }
   .confirm-scale-enter-active, .confirm-scale-leave-active {
-    transition: transform $transition-time ease
+    transition: transform $transition-time ease 0s,opacity $transition-time ease 0s;
   }
-  .confirm-scale-enter {
+  .confirm-scale-enter{
+    opacity:0;
     transform: scale(1.3);
   }
   .confirm-scale-leave-active{
-    opacity:0
+    opacity:0;
   }
   .confirm-fade-enter-active, .confirm-fade-leave-active {
-    transition: opacity $transition-time
+    transition: opacity $transition-time ease 0s;
   }
   .confirm-fade-enter, .confirm-fade-leave-active {
-    opacity: 0
+    opacity: 0;
   }
 </style>
