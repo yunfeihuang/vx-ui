@@ -18,6 +18,7 @@ import Img from './Img'
 import Flow from './Flow'
 import Ripple from './Ripple'
 import Search from './Search'
+import Header from './Header'
 export {
   App,
   Button,
@@ -38,5 +39,6 @@ export {
   Img,
   Flow,
   Ripple,
-  Search
+  Search,
+  Header
 }

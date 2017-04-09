@@ -21,7 +21,8 @@ import {
   Img,
   Flow,
   Ripple,
-  Search
+  Search,
+  Header
 } from 'demos'
 
 Vue.use(Router)
@@ -127,6 +128,11 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: Search
+    },
+    {
+      path: '/header',
+      name: 'header',
+      component: Header
     }
   ]
 })

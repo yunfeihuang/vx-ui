@@ -1,86 +1,55 @@
 <template>
-  <div class="demos">
-    <h1>demos</h1>
-    <group title="表单">
-      <cell href="#/button">
-        <div slot="title">XButton</div>
-      </cell>
-      <cell href="#/input">
-        <div slot="title">XInput</div>
-      </cell>
-      <cell href="#/input">
-        <div slot="title">Password</div>
-      </cell>
-      <cell href="#/textarea">
-        <div slot="title">XTextarea</div>
-      </cell>
-      <cell href="#/select">
-        <div slot="title">XSelect</div>
-      </cell>
-      <cell href="#/switch">
-        <div slot="title">XSwitch</div>
-      </cell>
-      <cell href="#/radio">
-        <div slot="title">Radio</div>
-      </cell>
-      <cell href="#/checkbox">
-        <div slot="title">Checkbox</div>
-      </cell>
-      <cell href="#/range">
-        <div slot="title">Range</div>
-      </cell>
-      <cell href="#/search">
-        <div slot="title">Search</div>
-      </cell>
-    </group>
-    <group title="弹框">
-      <cell href="#/actionsheet">
-        <div slot="title">Actionsheet</div>
-      </cell>
-      <cell href="#/alert">
-        <div slot="title">Alert</div>
-      </cell>
-      <cell href="#/confirm">
-        <div slot="title">Confirm</div>
-      </cell>
-      <cell href="#/tab">
-        <div slot="title">Tab</div>
-      </cell>
-      <cell href="#/tabbutton">
-        <div slot="title">TabButton</div>
-      </cell>
-      <cell href="#/popup">
-        <div slot="title">Popup</div>
-      </cell>
-      <cell href="#/toast">
-        <div slot="title">Toast</div>
-      </cell>
-      <cell href="#/flow">
-        <div slot="title">Flow</div>
-      </cell>
-      <cell href="#/ripple">
-        <div slot="title">Ripple</div>
-      </cell>
-    </group>
-    <group title="图片">
-      <cell href="#/img">
-        <div slot="title">XImg</div>
-      </cell>
-    </group>
-  </div>
+  <layout>
+    <x-header slot="header" :back="false">
+      <div slot="title" style="text-align:center">Demos</div>
+    </x-header>
+    <x-body class="demos" slot="body" style="background:#fff">
+      <div class="demos-actions">
+        <x-link href="#/button">XButton</x-link>
+        <x-link href="#/input">XInput</x-link>
+        <x-link href="#/input">Password</x-link>
+        <x-link href="#/textarea">XTextarea</x-link>
+        <x-link href="#/select">XSelect</x-link>
+        <x-link href="#/switch">XSwitch</x-link>
+        <x-link href="#/radio">Radio</x-link>
+        <x-link href="#/checkbox">Checkbox</x-link>
+        <x-link href="#/range">Range</x-link>
+        <x-link href="#/search">Search</x-link>
+        <x-link href="#/actionsheet">Actionsheet</x-link>
+        <x-link href="#/alert">Alert</x-link>
+        <x-link href="#/confirm">Confirm</x-link>
+        <x-link href="#/tab">Tab</x-link>
+        <x-link href="#/tabbutton">TabButton</x-link>
+        <x-link href="#/popup">Popup</x-link>
+        <x-link href="#/toast">Toast</x-link>
+        <x-link href="#/flow">Flow</x-link>
+        <x-link href="#/ripple">Ripple</x-link>
+        <x-link href="#/img">XImg</x-link>
+        <x-link href="#/header">XHeader</x-link>
+      </div>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Group,
   Divider,
-  Cell
+  Cell,
+  XLink
 } from 'components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Group,
     Divider,
-    Cell
+    Cell,
+    XLink
   }
 }
 </script>
@@ -91,6 +60,16 @@ export default {
       text-align:center;
       margin: 0;
       padding: 1rem 0;
+    }
+  }
+  .demos-actions{
+    display:flex;
+    flex-wrap: wrap;
+    text-align:center;
+    a{
+      display:block;
+      width:33.33%;
+      line-height: 44px;
     }
   }
 </style>

@@ -1,19 +1,29 @@
 <template>
-  <div class="demos img-demos">
-    <h1>Search</h1>
-    <search :value="value" placeholder="搜索商品/商店/用户" @on-change="changeHandler">
-      <div style="text-align:center;line-height:40px;">搜索结果<div>
-    </search>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Search</div>
+    </x-header>
+    <x-body slot="body"  class="demos img-demos">
+      <search :value="value" placeholder="搜索商品/商店/用户" @on-change="changeHandler">
+        <div style="text-align:center;line-height:40px;">搜索结果<div>
+      </search>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
-  Search
+  Search,
+  Layout,
+  XHeader,
+  XBody
 } from '../components'
 export default {
   components: {
-    Search
+    Search,
+    Layout,
+    XHeader,
+    XBody
   },
   methods: {
     changeHandler (value) {

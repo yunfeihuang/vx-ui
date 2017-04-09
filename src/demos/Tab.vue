@@ -1,22 +1,32 @@
 <template>
-  <div class="full-vh demos">
-    <h1>Tab</h1>
-    <tab :active="active" @on-change="changeHandler">
-      <tab-item>选项卡1</tab-item>
-      <tab-item>选项卡2</tab-item>
-      <tab-item>选项卡3</tab-item>
-      <tab-item>选项卡4</tab-item>
-    </tab>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Tab</div>
+    </x-header>
+    <x-body slot="body" style="background:#fff">
+      <tab :active="active" @on-change="changeHandler">
+        <tab-item>选项卡1</tab-item>
+        <tab-item>选项卡2</tab-item>
+        <tab-item>选项卡3</tab-item>
+        <tab-item>选项卡4</tab-item>
+      </tab>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Tab,
   TabItem
 } from '../components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Tab,
     TabItem
   },

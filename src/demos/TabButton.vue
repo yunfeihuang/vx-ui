@@ -1,22 +1,32 @@
 <template>
-  <div class="full-vh demos" style="padding:0 15px">
-    <h1>ButtonTab</h1>
-    <button-tab :active="active" @on-change="changeHandler">
-      <button-tab-item>选项1</button-tab-item>
-      <button-tab-item>选项2</button-tab-item>
-      <button-tab-item>选项3</button-tab-item>
-      <button-tab-item>选项4</button-tab-item>
-    </button-tab>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">ButtonTab</div>
+    </x-header>
+    <x-body slot="body" style="padding:15px;background:#fff">
+      <button-tab :active="active" @on-change="changeHandler">
+        <button-tab-item>选项1</button-tab-item>
+        <button-tab-item>选项2</button-tab-item>
+        <button-tab-item>选项3</button-tab-item>
+        <button-tab-item>选项4</button-tab-item>
+      </button-tab>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   ButtonTab,
   ButtonTabItem
 } from '../components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     ButtonTab,
     ButtonTabItem
   },

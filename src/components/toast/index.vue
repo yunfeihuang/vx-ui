@@ -111,6 +111,7 @@ export default {
       }
       .iconfont{
         font-size:40px;
+        margin-bottom:5px;
       }
     }
   }

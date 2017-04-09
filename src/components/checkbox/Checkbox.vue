@@ -60,6 +60,7 @@ export default {
         vertical-align: middle;
         color:transparent;
         line-height: 1.3;
+        font-size: 16px;
       }
       input:checked+.#{$css-prefix}checkbox-icon{
         background-color:$primary-color;

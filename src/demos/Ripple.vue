@@ -1,24 +1,31 @@
 <template>
-  <div class="demos">
-    <h1>Ripple</h1>
-    <group class="ripple-demo">
-      <ripple @click="clickHandler">
-        点击我会出现波纹
-      </ripple>
-      <divider></divider>
-      <ripple>
-        点击我会出现波纹
-      </ripple>
-      <divider></divider>
-      <ripple>
-        点击我会出现波纹
-      </ripple>
-    </group>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Ripple</div>
+    </x-header>
+    <x-body slot="body">
+      <group class="ripple-demo">
+        <ripple @click="clickHandler">
+          点击我会出现波纹
+        </ripple>
+        <divider></divider>
+        <ripple>
+          点击我会出现波纹
+        </ripple>
+        <divider></divider>
+        <ripple>
+          点击我会出现波纹
+        </ripple>
+      </group>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Group,
   Cell,
   Ripple,
@@ -26,6 +33,9 @@ import {
 } from 'components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Group,
     Cell,
     Ripple,

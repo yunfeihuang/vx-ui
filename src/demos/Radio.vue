@@ -1,20 +1,30 @@
 <template>
-  <div class="demos">
-    <h1>Radio</h1>
-    <group>
-      <radio-group :options="options" @on-change="changeHandler" name="radio" :value="value"/>
-    </group>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Radio</div>
+    </x-header>
+    <x-body slot="body">
+      <group>
+        <radio-group :options="options" @on-change="changeHandler" name="radio" :value="value"/>
+      </group>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Radio,
   RadioGroup,
   Group
 } from '../components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Radio,
     RadioGroup,
     Group

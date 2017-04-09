@@ -1,23 +1,30 @@
 <template>
-  <div class="demos">
-    <h1>Actionsheet</h1>
-    <group>
-      <cell :arrow="false">
-        <div slot="title">开关</div>
-        <x-switch slot="value" :checked="checked" @on-change="changeHandler"></x-switch>
-      </cell>
-    </group>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Actionsheet</div>
+    </x-header>
+    <x-body slot="body">
+      <group>
+        <cell :arrow="false">
+          <div slot="title">开关</div>
+          <x-switch slot="value" :checked="checked" @on-change="changeHandler"></x-switch>
+        </cell>
+      </group>
+    </x-body>
     <actionsheet :open="checked" :cancel="true" @on-menu="menuHandler" @on-close="changeHandler">
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
       <actionsheet-item value="4">删除</actionsheet-item>
     </actionsheet>
-  </div>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Group,
   Cell,
   XSwitch,
@@ -26,6 +33,9 @@ import {
 } from 'components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Group,
     Cell,
     XSwitch,

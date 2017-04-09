@@ -146,6 +146,7 @@ export default {
     &flow{
       overflow: auto;
       -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
       &-inner{
         position: relative;
         &.active .#{$css-prefix}flow-refresh span:before{

@@ -23,6 +23,10 @@ import XImg from './img'
 import Flow from './flow'
 import Ripple from './ripple'
 import Search from './search'
+import Layout from './layout'
+import XHeader from './header'
+import XBody from './body'
+import XLink from './link'
 export {
   Actionsheet,
   ActionsheetItem,
@@ -51,5 +55,9 @@ export {
   XImg,
   Flow,
   Ripple,
-  Search
+  Search,
+  Layout,
+  XHeader,
+  XBody,
+  XLink
 }

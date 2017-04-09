@@ -121,6 +121,7 @@ export default {
       display: flex;
       width: 100%;
       flex-direction: column;
+      z-index: 100;
     }
     &search-result{
       flex:1;

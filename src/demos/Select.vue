@@ -1,29 +1,39 @@
 <template>
-  <div class="demos">
-    <h1>XSelect</h1>
-    <group>
-      <cell>
-        <div slot="title">下拉框</div>
-        <x-select 
-          slot="value"
-          :options="options"
-          :value="value"
-          placeholder="请选择"
-          @on-change="changeHandler"
-        />
-      </cell>
-    </group>
-  </div>
+  <layout>
+    <x-header slot="header">
+      <div slot="title">XSelect</div>
+    </x-header>
+    <x-body slot="body">
+      <group>
+        <cell>
+          <div slot="title">下拉框</div>
+          <x-select 
+            slot="value"
+            :options="options"
+            :value="value"
+            placeholder="请选择"
+            @on-change="changeHandler"
+          />
+        </cell>
+      </group>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Group,
   Cell,
   XSelect
 } from 'components'
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Group,
     Cell,
     XSelect

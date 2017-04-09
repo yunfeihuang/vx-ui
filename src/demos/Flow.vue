@@ -1,24 +1,32 @@
 <template>
-  <div class="demos flow-demos">
-    <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" ref="flow" :loading="loading">
-      <template v-for="item in list">
-        <div class="flexbox">
-          <x-img :src="item.author.avatar_url" />
-          <div class="flex-item">
-            <h4>{{item.title}}</h4>
-            <div>
-              {{new Date().toLocaleString()}}
+  <layout>
+    <x-header slot="header">
+      <div slot="title">Flow</div>
+    </x-header>
+    <x-body slot="body" style="overflow:hidden;" class="demos flow-demos">
+      <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" ref="flow" :loading="loading">
+        <template v-for="item in list">
+          <div class="flexbox">
+            <x-img :src="item.author.avatar_url" />
+            <div class="flex-item">
+              <h4>{{item.title}}</h4>
+              <div>
+                {{new Date().toLocaleString()}}
+              </div>
             </div>
           </div>
-        </div>
-        <divider></divider>
-      </template>
-    </flow>
-  </div>
+          <divider></divider>
+        </template>
+      </flow>
+    </x-body>
+  </layout>
 </template>
 
 <script>
 import {
+  Layout,
+  XHeader,
+  XBody,
   Flow,
   Divider,
   XImg
@@ -26,6 +34,9 @@ import {
 let lastPage = 1
 export default {
   components: {
+    Layout,
+    XHeader,
+    XBody,
     Flow,
     Divider,
     XImg
@@ -70,8 +81,10 @@ export default {
 
 <style lang="scss">
   .flow-demos .v-flow{
-    height:100vh;
+    height:100%;
     background:#fff;
+    position: absolute;
+    width: 100%;
   }
   .flow-demos .flexbox{
     display:box;

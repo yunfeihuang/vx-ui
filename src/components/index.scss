@@ -4,3 +4,8 @@
   font-size:18px;
   line-height: 100%;
 }
+.scrollbox{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
