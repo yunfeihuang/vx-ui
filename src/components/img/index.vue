@@ -1,11 +1,14 @@
 <template>
-  <img
-    :class="_clas"
-    :style="style"
-    :alt="alt"
-    @error="errorHandler"
-    @load='loadHandler'
-  />
+  <div :class="[cssPrefix + 'img-wrapper']">
+    <img
+      :class="_clas"
+      :style="style"
+      :alt="alt"
+      @error="errorHandler"
+      @load='loadHandler'
+    />
+    <i class="iconfont" v-if="loading">&#xe609;</i>
+  </div>
 </template>
 
 <script>
@@ -27,6 +30,10 @@ export default {
     lazyload: {
       type: Boolean,
       default: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   mounted () {
@@ -58,8 +65,10 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          this.$el.src = this.src
-          this.$el.style.opacity = 1
+          let icon = this.$el.querySelector('.iconfont')
+          icon && (icon.style.display = 'none')
+          this.$el.querySelector('img').src = this.src
+          this.$el.querySelector('img').style.opacity = 1
         }
         image.src = this.src
       }
@@ -97,6 +106,18 @@ export default {
       &-lazyload{
         opacity:0;
         transition:opacity 0.4s ease 0s;
+      }
+      &-wrapper{
+        vertical-align: middle;
+        font-size:0;
+        position:relative;
+        .iconfont{
+          font-size:16px;
+          position:absolute;
+          top:50%;
+          left:50%;
+          margin:-8px;
+        }
       }
     }
   }

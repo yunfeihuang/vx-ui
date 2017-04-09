@@ -1,9 +1,9 @@
 <template>
-  <layout style="background:#fff">
+  <layout>
     <x-header slot="header">
       <div slot="title" >XButton</div>
     </x-header>
-    <x-body class="demos" slot="body">
+    <x-body class="demos" slot="body"  style="background:#fff">
       <div class="button-demo">
         <x-button>default</x-button>
         <x-button type="primary">primary</x-button>
