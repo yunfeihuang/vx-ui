@@ -1,5 +1,6 @@
 <template>
   <label :class="_clas" :style="style">
+    <slot name="icon"></slot>
     <input 
       :type="htmlType"
       :placeholder="placeholder"
@@ -72,6 +73,19 @@ export default {
       position:relative;
       display:block;
       height:2.6rem;
+      .iconfont{
+        color:$sub-color;
+      }
+      >.iconfont:first-child{
+        line-height: 100%;
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        margin: -8px 0;
+      }
+      >.iconfont:first-child+input{
+        padding-left:30px;
+      }
       input{
         border:0;
         width:100%;
