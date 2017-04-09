@@ -32,18 +32,14 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &btn{
-      text-align:center;
+      @include button;
       height:2.6rem;
       position:relative;
-      border:0;
       width:100%;
       box-sizing:border-box;
-      cursor: pointer;
       background-color:#fff;
       border-radius:$border-radius-base;
-      outline:none;
       font-size: inherit;
-      user-select: none;
       &:before{
         border:1px solid $border-color-base;
         box-sizing:border-box;

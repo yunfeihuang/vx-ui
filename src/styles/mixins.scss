@@ -16,6 +16,8 @@
   background-color:transparent;
   -webkit-appearance: none;
   appearance: none;
+  text-align:center;
+  user-select:none;
 }
 @mixin divider ($color:$border-color-base){
   content:'';

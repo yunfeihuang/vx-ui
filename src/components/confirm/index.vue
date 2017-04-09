@@ -149,6 +149,7 @@ export default {
   }
   .confirm-scale-leave-active{
     opacity:0;
+    transform: scale(0.9);
   }
   .confirm-fade-enter-active, .confirm-fade-leave-active {
     transition: opacity $transition-time ease 0s;
