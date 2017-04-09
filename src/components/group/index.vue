@@ -36,6 +36,8 @@ export default {
   .#{$css-prefix}{
     &group{
       margin: 1.1rem 0;
+      padding-top:1px;
+      padding-bottom:1px;
       &-title{
         padding:0.4rem 0.5rem;
       }

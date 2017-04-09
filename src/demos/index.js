@@ -19,6 +19,7 @@ import Flow from './Flow'
 import Ripple from './Ripple'
 import Search from './Search'
 import Header from './Header'
+import Divider from './Divider'
 export {
   App,
   Button,
@@ -40,5 +41,6 @@ export {
   Flow,
   Ripple,
   Search,
-  Header
+  Header,
+  Divider
 }

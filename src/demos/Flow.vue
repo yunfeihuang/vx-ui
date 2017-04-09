@@ -7,7 +7,7 @@
       <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" ref="flow" :loading="loading">
         <template v-for="item in list">
           <div class="flexbox">
-            <x-img :src="item.author.avatar_url" />
+            <x-img class="avator" :src="item.author.avatar_url" />
             <div class="flex-item">
               <h4>{{item.title}}</h4>
               <div>
@@ -86,22 +86,24 @@ export default {
     position: absolute;
     width: 100%;
   }
-  .flow-demos .flexbox{
-    display:box;
-    display:flex;
-    align-items: center;
-    padding:10px 0px;
-  }
-  .flow-demos .flex-item{
-    flex:1;
-    padding:0px 10px;
-  }
-  .flow-demos img{
-    width:50px;
-    height:50px;
-    margin-left:10px;
-  }
-  .flow-demos h4{
-    margin:0;
+  .flow-demos{
+    .flexbox{
+      display:box;
+      display:flex;
+      align-items: center;
+      padding:10px 0px;
+    }
+    .flex-item{
+      flex:1;
+      padding:0px 10px;
+    }
+    .avator{
+      width:50px;
+      height:50px;
+      margin-left:10px;
+    }
+    h4{
+      margin:0;
+    }
   }
 </style>

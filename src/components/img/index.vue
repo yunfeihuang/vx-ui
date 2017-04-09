@@ -1,5 +1,5 @@
 <template>
-  <div :class="[cssPrefix + 'img-wrapper']">
+  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']">
     <img
       :class="_clas"
       :style="style"
@@ -8,6 +8,7 @@
       @load='loadHandler'
     />
     <i class="iconfont" v-if="loading">&#xe609;</i>
+    <i class="iconfont" v-if="!loading">&#xe728;</i>
   </div>
 </template>
 
@@ -103,9 +104,12 @@ export default {
     &img{
       min-height:1px;
       min-width:1px;
+      max-width:100%;
+      max-height:100%;
       &-lazyload{
         opacity:0;
         transition:opacity 0.4s ease 0s;
+        background-color: #fff;
       }
       &-wrapper{
         vertical-align: middle;
@@ -117,6 +121,14 @@ export default {
           top:50%;
           left:50%;
           margin:-8px;
+        }
+      }
+      &-placeholder{
+        background:#f5f5f5;
+        .iconfont{
+          font-size:26px;
+          color:#fff;
+          margin:-13px;
         }
       }
     }

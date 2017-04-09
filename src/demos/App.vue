@@ -26,6 +26,7 @@
         <x-link href="#/ripple">Ripple</x-link>
         <x-link href="#/img">XImg</x-link>
         <x-link href="#/header">XHeader</x-link>
+        <x-link href="#/divider">Divider</x-link>
       </div>
     </x-body>
   </layout>

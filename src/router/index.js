@@ -22,7 +22,8 @@ import {
   Flow,
   Ripple,
   Search,
-  Header
+  Header,
+  Divider
 } from 'demos'
 
 Vue.use(Router)
@@ -133,6 +134,11 @@ export default new Router({
       path: '/header',
       name: 'header',
       component: Header
+    },
+    {
+      path: '/divider',
+      name: 'divider',
+      component: Divider
     }
   ]
 })
