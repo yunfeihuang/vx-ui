@@ -73,7 +73,7 @@ export default {
       @include active;
       .#{$css-prefix}cell-ft{
         padding-right:12px;
-        color:$subsidiary-color;
+        color:$sub-color;
         &:after{
           @include arrow;
         }

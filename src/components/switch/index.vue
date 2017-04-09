@@ -56,7 +56,7 @@ export default {
       button{
         height:100%;
         border-radius:30px;
-        background-color:#999;
+        background-color:$sub-color;
         margin: 0;
         padding: 0;
         transition:all 0.3s $ease-in-out;

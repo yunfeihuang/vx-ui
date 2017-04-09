@@ -1,3 +1,5 @@
+import '../../iconfont/iconfont.css'
+import './index.scss'
 import XButton from './button'
 import XInput from './input'
 import Password from './password'
@@ -20,7 +22,7 @@ import Toast from './toast'
 import XImg from './img'
 import Flow from './flow'
 import Ripple from './ripple'
-import '../../iconfont/iconfont.css'
+import Search from './search'
 export {
   Actionsheet,
   ActionsheetItem,
@@ -48,5 +50,6 @@ export {
   Toast,
   XImg,
   Flow,
-  Ripple
+  Ripple,
+  Search
 }

@@ -95,7 +95,6 @@ export default {
         transition:width 0.4s $ease-in-out;
         z-index:2;
       }
-      
     }
     &input-focus:after{
       width:100%;

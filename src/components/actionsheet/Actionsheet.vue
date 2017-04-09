@@ -99,7 +99,7 @@ export default {
       &-cancel{
         padding: $item-padding;
         border-top:10px solid #eee;
-        color:#999;
+        color:$sub-color;
       }
     }
   }

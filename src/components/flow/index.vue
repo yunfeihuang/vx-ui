@@ -1,8 +1,12 @@
 <template>
   <div :class="_clas" :style="style">
     <div :class="[cssPrefix + 'flow-inner']">
+      <div :class="[cssPrefix + 'flow-refresh']">
+        <i class="iconfont"></i>
+        <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
+      </div>
       <slot></slot>
-      <div :class="[cssPrefix + 'flow-loading']" v-if="loading">数据加载中...</div>
+      <div :class="[cssPrefix + 'flow-loading']" v-if="loading"><i class="iconfont">&#xe609;</i>{{loadingText}}</div>
     </div>
   </div>
 </template>
@@ -17,6 +21,18 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    loadingText: {
+      type: String,
+      default: '数据加载...'
+    },
+    pullDownText: {
+      type: String,
+      default: '下拉刷新'
+    },
+    refreshText: {
+      type: String,
+      default: '释放刷新'
     }
   },
   computed: {
@@ -132,36 +148,55 @@ export default {
       -webkit-overflow-scrolling: touch;
       &-inner{
         position: relative;
-        &:before{
-          padding:1px 0;
-          content: "下拉刷新";
-          position: absolute;
-          top: -40px;
-          left: 50%;
-          line-height: 40px;
-          width: 90px;
-          margin-left: -45px;
-          color: #999;
-          background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUI3NTgzMkE1OTFDMTFFNkEzQkNEQzI5NDU3QTcwMkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUI3NTgzMkI1OTFDMTFFNkEzQkNEQzI5NDU3QTcwMkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQjc1ODMyODU5MUMxMUU2QTNCQ0RDMjk0NTdBNzAyQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQjc1ODMyOTU5MUMxMUU2QTNCQ0RDMjk0NTdBNzAyQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoqXvUoAAAH2SURBVHja7Jq9SwNBEMX3JH/V/R2K3xgECyE2NqKFWCoGxE4LrSwVtLC1SJFOTaGVBLTRIIIGJYFoPN/ilIb7cGd3LzcDj3R7+d3Nzb63SRBFkTJd9Xpdf5hcOAjD0MhCI6pgVTjgEuPagY/AAcc7LC097C1NU9pomZrSnO9w5OM8kG1JgAVYprQYD2lpMR5iPMR4yDsswAIswAIswAIswAIswAIswE4r1YlHypzrJB7G5eYsT/iAYOJkOlvH6YirpZeghmedegctcgF3oFGo7QlsD5qE3jmHVhMqM7RullqFLm1M6VOo6hj2HNqxuS3pu1tzBPsEzaftsv8C96EJqGUZ9huagZ5dGA99p8cJ3lZtQRcunZZu6zVLsNr9rPtgLbehM2bYN2ga+vIBWA+POdqyuGoBuvcpPGgzMgZ1GWD3oWMf09I1VDG85i207HM8PCSZqC5tfR3f83DFUMjQT/YmDwcAXQMh4wTay9OJR5Mmd5aQ8UBTWeUJWNHenDZk6H12CnrNI3CWkLFBjkrlFbhPfjtJyNAeeZPri9g8tWwlCBkv0CxnELF9TFuj9h5kTcvQI+cXcHEuXR0QMnbpBEMNG/BfIeMKWrFxcVe/PLTJlGhz8kHWsWfjwiXlrhpkPz/V77myGnZgZTBgJK7C/Zv2R4ABAHf8h3gIMT/lAAAAAElFTkSuQmCC') no-repeat left center;
-          -webkit-background-size: 23px 18px;
-          background-size: 23px 18px;
-          padding-left: 20px;
-          white-space: nowrap;
+        &.active .#{$css-prefix}flow-refresh span:before{
+          content:attr(data-refresh);
         }
-        &.active:before{
-          content:"释放刷新";
-          background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUI3NTgzMkU1OTFDMTFFNkEzQkNEQzI5NDU3QTcwMkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUI3NTgzMkY1OTFDMTFFNkEzQkNEQzI5NDU3QTcwMkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQjc1ODMyQzU5MUMxMUU2QTNCQ0RDMjk0NTdBNzAyQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQjc1ODMyRDU5MUMxMUU2QTNCQ0RDMjk0NTdBNzAyQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgSZUqsAAAHlSURBVHja7Jq9S8NAGMYTUwotlOogtJNgcXJRx4AdXB1EcHRRl44KfswKfiw66aKDCEUU/TsC/g3+LRKfw7fQoSa55r3LJbwPPEt6JP1xH3mfu/hxHHtZFUWR57rCMEz8fabg/7cH79p8YK1A2BX4Hv6Bv+BvGw8tqofb8CfchFvwG1yvKrAPP8O9sWtr8HVVgY/h7QnXj+DNqgGvJ/TkqOe7VQHuwO9wkNBmHh6mtCkFcECwWXpvAz4tO/Al3Ndof6FqiLICb03RY6o+eIVnywa8CL/QgqSrBfipTMANKi7aOe6xAw/KAqzKxlWG+9zCy64Dq1Cwz3SvJq3wDVeBR6GAU6qH71wEHg8F3BrQnHYGeFIo4NYjrd5OAP8XCjg1R+/nWtHAfVvxjiqw8yKBOxTgA8+ezqjmtg6sEwq4w8iQ0pVV4CvNUMCpLi2Svi1gFQpOvGKldkgObQD3coQCbt14f3tixoBVifeRMxRwqk6LZssUMFco4NQS/JA1aOvqgJymmBGIber4OmdLWUVnUKzAaWdGrux4OCcBFmABFmABFmABFmABFmABFuBMMvlhmu8isJE8LEO66kPaxFe3XDseJuewk3ta8loSYAGWVVoKDxnSUnhI4SGFh8xheS1Np18BBgCEbkVE53v/8wAAAABJRU5ErkJggg==');
+        &.active{
+          .#{$css-prefix}flow-refresh{
+            color:$primary-color;
+            span:before{
+              content:attr(data-refresh);
+            }
+            .iconfont{
+              transform: rotate(180deg);
+              position:relative;
+              top:-2px;
+            }
+          }
         }
-        &.loading:before{
-          content:"数据加载...";
-          background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAMAUExURYeHhz8/P1dXVycnJ8/Pz7e3t5+fn29vb////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG/igaQAAAAJdFJOU///////////AFNPeBIAAAB+SURBVHjabJFJFkMhCATL2fuf1tksEozkxxWU/YRuTeZ57KnGeMIBQ8E5pe1d4ISJB0+HDvjzkNeDHLh3FyDIvTuaIMq17h1rBcuCi1ao1/LKkb1tkSDh+REncVSKoNZkzwIf2qCplPZWjjJkNmwiRHH0DTrqPA2YU//7jtcA33IgGu5w0lkAAAAASUVORK5CYII=');
-          -webkit-background-size:20px;
-          background-size:20px;
+        &.loading{
+          .#{$css-prefix}flow-refresh{ 
+            span:before{
+              content:attr(data-loading);
+            }
+            .iconfont:before{
+              content:'\e609';
+            }
+          }
+        }
+      }
+      &-refresh{
+        color:$sub-color;
+        line-height:46px;
+        margin-top:-46px;
+        text-align:center;
+        .iconfont{
+          vertical-align: middle;
+          display: inline-block;
+          line-height: 100%;
+          font-size:18px;
+          &:before{
+            content:'\e6d5';
+          }
+        }
+        span:before{
+          content:attr(data-pulldown)
         }
       }
       &-loading{
         text-align:center;
         line-height:40px;
+        color:$sub-color;
       }
     }
   }

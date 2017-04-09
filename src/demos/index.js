@@ -17,6 +17,7 @@ import Toast from './Toast'
 import Img from './Img'
 import Flow from './Flow'
 import Ripple from './Ripple'
+import Search from './Search'
 export {
   App,
   Button,
@@ -36,5 +37,6 @@ export {
   Toast,
   Img,
   Flow,
-  Ripple
+  Ripple,
+  Search
 }

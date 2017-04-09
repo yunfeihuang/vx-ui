@@ -20,7 +20,8 @@ import {
   Toast,
   Img,
   Flow,
-  Ripple
+  Ripple,
+  Search
 } from 'demos'
 
 Vue.use(Router)
@@ -121,6 +122,11 @@ export default new Router({
       path: '/ripple',
       name: 'ripple',
       component: Ripple
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     }
   ]
 })

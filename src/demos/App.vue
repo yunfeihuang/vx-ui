@@ -29,6 +29,9 @@
       <cell href="#/range">
         <div slot="title">Range</div>
       </cell>
+      <cell href="#/search">
+        <div slot="title">Search</div>
+      </cell>
     </group>
     <group title="弹框">
       <cell href="#/actionsheet">

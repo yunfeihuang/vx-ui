@@ -5,7 +5,7 @@
         <template v-if="type">
           <i v-if="type==='success'" class="iconfont">&#xe654;</i>
           <i v-if="type==='warn'" class="iconfont">&#xe653;</i>
-          <i v-if="type==='fail'" class="iconfont">&#xe725;</i>
+          <i v-if="type==='fail'" class="iconfont">&#xe605;</i>
           <br/>
         </template>
         <slot></slot>
