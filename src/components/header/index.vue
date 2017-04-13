@@ -68,7 +68,7 @@ export default {
       }
       &-back{
         margin-right:-10px;
-        postion:relative;
+        position:relative;
         z-index:1;
         &:active{
           background:transparent!important;
