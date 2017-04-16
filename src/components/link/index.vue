@@ -1,7 +1,7 @@
 <template>
-  <a :class="_clas" :style="style" :href="href">
+  <router-link :class="_clas" :style="style" :to="href">
     <slot></slot>
-  </a>
+  </router-link>
 </template>
 
 <script>

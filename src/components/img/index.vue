@@ -1,5 +1,5 @@
 <template>
-  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']">
+  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
     <img
       :class="_clas"
       :style="style"
@@ -15,7 +15,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { base } from 'utils/mixins.js'
-let node = null
+
 export default {
   mixins: [base],
   props: {
@@ -38,12 +38,33 @@ export default {
     }
   },
   mounted () {
-    node = this.$el.closest('.scrollbox') || window
+    let node = this.scrollElement = this.$el.closest('.scrollbox') || window
+    if (!node.lazyloadImages) {
+      node.lazyloadImages = []
+      node.scrollTimer = null
+      node.onscroll = (e) => {
+        e.target.scrollTimer && clearTimeout(e.target.scrollTimer)
+        e.target.scrollTimer = setTimeout(() => {
+          e.target.lazyloadImages = e.target.lazyloadImages.filter((item) => {
+            if (item.loaded === false && item.img.inViewPort()) {
+              item.img.setSource()
+              return false
+            } else {
+              return true
+            }
+          })
+          console.log(e.target.lazyloadImages)
+        }, 500)
+      }
+    }
     if (this.lazyload) {
       if (this.inViewPort()) {
         this.setSource()
       } else {
-        node.addEventListener('scroll', this.scrollHandler)
+        node.lazyloadImages.push({
+          img: this,
+          loaded: false
+        })
       }
     } else {
       this.setSource()
@@ -53,6 +74,12 @@ export default {
     _clas () {
       return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '', this.clas]
     }
+  },
+  destroyed () {
+    let self = this
+    this.scrollElement.lazyloadImages = this.scrollElement.lazyloadImages.filter((item) => {
+      return item !== self
+    })
   },
   methods: {
     inViewPort () {
@@ -82,11 +109,13 @@ export default {
       }
     },
     errorHandler (e) {
-      this.$emit('on-error', e)
+      this.$emit('error', e)
     },
     loadHandler (e) {
-      this.$emit('on-load', e)
-      node = null
+      this.$emit('load', e)
+    },
+    clickHandler (e) {
+      this.$emit('click', e)
     }
   },
   data () {
@@ -102,8 +131,8 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &img{
-      min-height:1px;
-      min-width:1px;
+      min-height:20px;
+      min-width:20px;
       max-width:100%;
       max-height:100%;
       &-lazyload{

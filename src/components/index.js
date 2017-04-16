@@ -27,6 +27,7 @@ import Layout from './layout'
 import XHeader from './header'
 import XBody from './body'
 import XLink from './link'
+import Preview from './preview'
 export {
   Actionsheet,
   ActionsheetItem,
@@ -59,5 +60,6 @@ export {
   Layout,
   XHeader,
   XBody,
-  XLink
+  XLink,
+  Preview
 }

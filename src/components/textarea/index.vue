@@ -76,6 +76,8 @@ export default {
         line-height: inherit;
         font-family: inherit;
         box-sizing:border-box;
+        min-height:inherit;
+        color:inherit;
       }
       textarea{
         height:100%;
@@ -85,7 +87,6 @@ export default {
         outline: none;
         overflow: hidden;
         vertical-align: middle;
-        color:inherit;
       }
       
       &:before{
