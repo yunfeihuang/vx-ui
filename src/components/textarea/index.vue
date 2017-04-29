@@ -53,7 +53,7 @@ export default {
       this.renderAutoHeight(e.target.value)
     },
     renderAutoHeight (value) {
-      this.$shadow.innerHTML = value.replace(/\n$/, '<br/>s').replace(/\n/g, '<br/>')
+      this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/>s').replace(/(\r|\n)/g, '<br/>')
       this.$el.style.height = this.$shadow.clientHeight + 'px'
     }
   }
