@@ -1,33 +1,41 @@
 <template>
   <div :class="_clas" :style="style">
     <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed' : '']">
-      <div :class="[cssPrefix + 'search']">
-        <button :class="[cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
-          <i class="iconfont">&#xe660;</i>
-        </button>
-        <x-input
-          :htmlType="htmlType"
-          :placeholder="placeholder"
-          :readonly="readonly"
-          :value="value"
-          :disabled="disabled" 
-          :autocomplete="autocomplete"
-          :autofocus="autofocus"
-          :maxlength="maxlength"
-          :name="name" 
-          :clear="clear"
-          :required="required"
-          @on-focus="focusHandler"
-          @on-blur="blurHandler"
-          @on-keyup="keyupHandler"
-          @on-keydown="keydownHandler" 
-          @on-change="changeHandler"
-        >
-          <i slot="icon" :class="['iconfont',cssPrefix + 'search-icon']">&#xe651;</i>
-        </x-input>
-      </div>
-      <div :class="[cssPrefix + 'search-result']" v-if="fixed">
-        <slot></slot>
+      <form @submit="submitHandler">
+        <div :class="[cssPrefix + 'search']">
+          <button :class="[cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
+            <i class="iconfont">&#xe660;</i>
+          </button>
+          <x-input
+            htmlType="search"
+            :placeholder="placeholder"
+            :readonly="readonly"
+            :value="value"
+            :disabled="disabled" 
+            :autocomplete="autocomplete"
+            :autofocus="autofocus"
+            :maxlength="maxlength"
+            :name="name" 
+            :clear="clear"
+            :required="required"
+            @on-focus="focusHandler"
+            @on-blur="blurHandler"
+            @on-keyup="keyupHandler"
+            @on-keydown="keydownHandler" 
+            @on-input="inputHandler"
+            @on-change="changeHandler"
+          >
+            <i slot="icon" :class="['iconfont',cssPrefix + 'search-icon']">&#xe651;</i>
+          </x-input>
+        </div>
+      </form>
+      <div :class="[cssPrefix + 'search-container']" v-if="fixed">
+        <div v-if="!value" class="keywords" @click="keywordChangeHandler">
+          <slot name="keywords"></slot>
+        </div>
+        <div v-if="value">
+          <slot name="result"></slot>
+        </div>
       </div>
     </div>
   </div>
@@ -55,19 +63,42 @@ export default {
   data () {
     return {
       cssPrefix: cssPrefix,
-      fixed: false
+      fixed: false,
+      yreadonly: true
     }
   },
   methods: {
     focusHandler (e) {
       this.isFocus = this.fixed = true
+      if (this.$el.children[0]) {
+        this.childFixed = this.$el.children[0]
+        this.childFixed && document.body.appendChild(this.childFixed)
+        this.childFixed.querySelector('input').focus()
+      }
       this.$emit('on-focus', e)
     },
+    inputHandler (value) {
+      this.$emit('on-input', value)
+    },
     changeHandler (value) {
-      this.$emit('on-change', value)
+      this.$emit('on-input', value)
     },
     cancelHandler () {
       this.fixed = false
+      this.childFixed && this.$el.appendChild(this.childFixed)
+    },
+    keywordChangeHandler (e) {
+      let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
+      if (target) {
+        let value = target.dataset.value || target.innerText
+        this.$emit('on-input', value)
+        this.$emit('on-submit', value)
+      }
+    },
+    submitHandler (e) {
+      e.stopPropagation()
+      e.preventDefault()
+      this.value && this.$emit('on-submit', this.value)
     }
   }
 }
@@ -102,6 +133,14 @@ export default {
       }
       input{
         padding-left:30px;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      input::-webkit-search-cancel-button{
+        display:none;
+      }
+      input::search-cancel-button{
+        display:none;
       }
       &-cancel{
         @include button;
@@ -110,6 +149,7 @@ export default {
           position:relative;
           top:2px;
         }
+        color:#fff;
       }
     }
     &search-fixed{
@@ -122,9 +162,24 @@ export default {
       width: 100%;
       flex-direction: column;
       z-index: 100;
+      .#{$css-prefix}search{
+        background:$primary-color;
+      }
     }
-    &search-result{
+    &search-container{
       flex:1;
+      .keywords{
+        padding:15px;
+        .keyword{
+          display:inline-block;
+          border:1px solid #eee;
+          border-radius:30px;
+          vertical-align: middle;
+          padding:6px 15px;
+          margin:5px;
+          @include active;
+        }
+      }
     }
   }
 </style>

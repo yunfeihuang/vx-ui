@@ -68,6 +68,7 @@ export default {
       position:relative;
       display:block;
       height:2.6rem;
+      min-height: 2.6rem;
       textarea,.#{$css-prefix}textarea-shadow{
         padding:0.8rem;
         width:100%;

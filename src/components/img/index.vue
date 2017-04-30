@@ -53,7 +53,6 @@ export default {
               return true
             }
           })
-          console.log(e.target.lazyloadImages)
         }, 500)
       }
     }

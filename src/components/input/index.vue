@@ -60,6 +60,7 @@ export default {
       } else {
         this.$el.classList.remove(this.cssPrefix + 'input-clear')
       }
+      this.$emit('on-input', e.target.value)
     }
   }
 }
