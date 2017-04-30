@@ -1,6 +1,11 @@
 # vue-components
 
 > vue components
+>
+浏览地址：
+http://assets.bittyos.com/vue-components/#/
+
+
 
 ## Build Setup
 
