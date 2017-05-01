@@ -20,6 +20,7 @@
         <x-link href="/confirm">Confirm</x-link>
         <x-link href="/tab">Tab</x-link>
         <x-link href="/tabbutton">TabButton</x-link>
+        <x-link href="/tabbar">Tabbar</x-link>
         <x-link href="/popup">Popup</x-link>
         <x-link href="/toast">Toast</x-link>
         <x-link href="/flow">Flow</x-link>
@@ -40,7 +41,9 @@ import {
   Group,
   Divider,
   Cell,
-  XLink
+  XLink,
+  Tabbar,
+  TabbarItem
 } from 'components'
 
 export default {
@@ -51,10 +54,22 @@ export default {
     Group,
     Divider,
     Cell,
-    XLink
+    XLink,
+    Tabbar,
+    TabbarItem
   },
   mounted () {
     // console.log(this.$router.push)
+  },
+  methods: {
+    tabbarChangeHandler (active) {
+      this.tabbarActive = active
+    }
+  },
+  data () {
+    return {
+      tabbarActive: 0
+    }
   }
 }
 </script>

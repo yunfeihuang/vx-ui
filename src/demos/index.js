@@ -11,6 +11,7 @@ import Actionsheet from './Actionsheet'
 import Alert from './Alert'
 import Confirm from './Confirm'
 import Tab from './Tab'
+import Tabbar from './Tabbar'
 import TabButton from './TabButton'
 import Popup from './Popup'
 import Toast from './Toast'
@@ -42,5 +43,6 @@ export {
   Ripple,
   Search,
   Header,
-  Divider
+  Divider,
+  Tabbar
 }

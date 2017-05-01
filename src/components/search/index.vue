@@ -50,6 +50,9 @@ export default {
   components: {
     XInput
   },
+  destroyed () {
+    this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
+  },
   computed: {
     _clas () {
       return [cssPrefix + 'search-wrapper', this.clas]

@@ -11,6 +11,7 @@ import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Tab, TabItem} from './tab'
+import {Tabbar, TabbarItem} from './tabbar'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import Divider from './divider'
 import Group from './group'
@@ -33,6 +34,8 @@ export {
   ActionsheetItem,
   Tab,
   TabItem,
+  Tabbar,
+  TabbarItem,
   ButtonTab,
   ButtonTabItem,
   XButton,

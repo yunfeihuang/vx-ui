@@ -15,6 +15,7 @@ import {
   Alert,
   Confirm,
   Tab,
+  Tabbar,
   TabButton,
   Popup,
   Toast,
@@ -29,7 +30,7 @@ import {
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -95,6 +96,11 @@ export default new Router({
       path: '/tab',
       name: 'tab',
       component: Tab
+    },
+    {
+      path: '/tabbar',
+      name: 'tabbar',
+      component: Tabbar
     },
     {
       path: '/tabbutton',
