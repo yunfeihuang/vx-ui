@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="style" onselectstart="return false;">
     <slot></slot>
     <div :class="[cssPrefix+'tab-line']" :style="lineStyle"></div>
   </div>

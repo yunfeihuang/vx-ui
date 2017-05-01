@@ -37,10 +37,10 @@ export default {
 
 <style lang="scss">
   @import '~styles/variable.scss';
+  @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &tabbar-item{
       flex:1;
-      cursor: pointer;
       padding:0.5rem 0;
       &-active{
         color:$primary-color;

@@ -35,6 +35,7 @@ export default {
       color:$primary-color;
       text-decoration: none;
       box-sizing: border-box;
+      cursor: default;
       @include active;
     }
   }

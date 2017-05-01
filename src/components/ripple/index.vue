@@ -1,5 +1,7 @@
 <template>
-  <div :class="_clas" :style="style" @click="clickHandler"><slot></slot></div>
+  <div :class="_clas" :style="style" @click="clickHandler" onselectstart="return false;">
+    <slot></slot>
+  </div>
 </template>
 
 <script>

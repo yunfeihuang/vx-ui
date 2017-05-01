@@ -28,10 +28,10 @@ export default {
 
 <style lang="scss">
   @import '~styles/variable.scss';
+  @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &button-tab-item{
       flex:1;
-      cursor: pointer;
       border-left:1px solid $primary-color;
       padding:0.55rem 0;
       &-active{
