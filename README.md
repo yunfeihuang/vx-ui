@@ -1,6 +1,6 @@
 # vue-components
 
-> vue components
+> vue components 移动端UI组件库
 >
 浏览地址：
 http://assets.bittyos.com/vue-components/#/
