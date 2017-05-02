@@ -24,7 +24,9 @@ import {
   Ripple,
   Search,
   Header,
-  Divider
+  Divider,
+  Swiper,
+  Preview
 } from 'demos'
 
 Vue.use(Router)
@@ -146,6 +148,16 @@ export default new Router({
       path: '/divider',
       name: 'divider',
       component: Divider
+    },
+    {
+      path: '/swiper',
+      name: 'swiper',
+      component: Swiper
+    },
+    {
+      path: '/preview',
+      name: 'preview',
+      component: Preview
     }
   ]
 })

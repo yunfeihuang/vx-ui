@@ -40,6 +40,7 @@ export default {
       background-color:#fff;
       border-radius:$border-radius-base;
       font-size: inherit;
+      cursor: default;
       &:before{
         border:1px solid $border-color-base;
         box-sizing:border-box;

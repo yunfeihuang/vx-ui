@@ -9,7 +9,6 @@
       </div>
     </div>
   </popup>
-  </div>
 </template>
 
 <script>

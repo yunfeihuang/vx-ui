@@ -10,6 +10,7 @@ import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
+import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
 import {ButtonTab, ButtonTabItem} from './button-tab'
@@ -32,6 +33,8 @@ import Preview from './preview'
 export {
   Actionsheet,
   ActionsheetItem,
+  Swiper,
+  SwiperItem,
   Tab,
   TabItem,
   Tabbar,

@@ -21,6 +21,8 @@ import Ripple from './Ripple'
 import Search from './Search'
 import Header from './Header'
 import Divider from './Divider'
+import Swiper from './Swiper'
+import Preview from './Preview'
 export {
   App,
   Button,
@@ -44,5 +46,7 @@ export {
   Search,
   Header,
   Divider,
-  Tabbar
+  Tabbar,
+  Swiper,
+  Preview
 }

@@ -63,8 +63,7 @@ export default {
       default: 0
     },
     options: {
-      type: Object,
-      default: {}
+      type: Object
     }
   },
   computed: {

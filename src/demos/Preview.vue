@@ -1,17 +1,13 @@
 <template>
   <layout class="demos img-demos">
     <x-header slot="header">
-      <div slot="title">XImg</div>
+      <div slot="title">Preview</div>
     </x-header>
     <x-body slot="body" class="scrollbox">
       <div class="img-container">
-        <x-img @click="clickHandler" @load="loadHandler" src="http://assets.bittyos.com/images/gallery/img1.jpg" :loading="true"/>
-      </div>
-      <div class="img-container">
-        <x-img @click="clickHandler" @load="loadHandler" src="http://assets.bittyos.com/images/gallery/img2.jpg" :loading="true"/>
-      </div>
-      <div class="img-container">
-        <x-img @click="clickHandler" @load="loadHandler" src="http://assets.bittyos.com/images/gallery/img3.jpg" :loading="true"/>
+        <img data-index="0" src="http://assets.bittyos.com/images/gallery/img1.jpg" @load="loadHandler" @click="clickHandler"/>
+        <img data-index="1" src="http://assets.bittyos.com/images/gallery/img2.jpg" @load="loadHandler" @click="clickHandler"/>
+        <img data-index="2" src="http://assets.bittyos.com/images/gallery/img3.jpg" @load="loadHandler" @click="clickHandler"/>
       </div>
     </x-body>
     <preview :list="images" ref="preview"/>
@@ -23,7 +19,6 @@ import {
   Layout,
   XHeader,
   XBody,
-  XImg,
   Preview
 } from '../components'
 
@@ -34,7 +29,6 @@ export default {
     Layout,
     XHeader,
     XBody,
-    XImg,
     Preview
   },
   data () {
@@ -54,17 +48,10 @@ export default {
         w: natural.w > windowWidth ? windowWidth : img.w,
         h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : img.h
       }
-      console.log(item)
       this.images.push(item)
     },
     clickHandler (e) {
-      let index = 0
-      this.images.forEach((item, i) => {
-        if (item.src === e.target.src) {
-          index = i
-        }
-      })
-      this.$refs.preview.open(index)
+      this.$refs.preview.open(e.target.dataset.index)
     }
   }
 }

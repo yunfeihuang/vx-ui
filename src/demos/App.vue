@@ -28,6 +28,8 @@
         <x-link href="/img">XImg</x-link>
         <x-link href="/header">XHeader</x-link>
         <x-link href="/divider">Divider</x-link>
+        <x-link href="/swiper">Swiper</x-link>
+        <x-link href="/preview">Preview</x-link>
       </div>
     </x-body>
   </layout>
