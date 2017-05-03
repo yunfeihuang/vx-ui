@@ -10,6 +10,28 @@
         <tab-item>选项卡3</tab-item>
         <tab-item>选项卡4</tab-item>
       </tab>
+      <swiper :active="active" @on-change="changeHandler" class="tab-swiper">
+        <swiper-item>
+          <div class="tab-content">
+            内容1
+          </div>
+        </swiper-item>
+        <swiper-item>
+          <div class="tab-content">
+            内容2
+          </div>
+        </swiper-item>
+        <swiper-item>
+          <div class="tab-content">
+            内容3
+          </div>
+        </swiper-item>
+        <swiper-item>
+          <div class="tab-content">
+            内容4
+          </div>
+        </swiper-item>
+      </swiper>
     </x-body>
   </layout>
 </template>
@@ -20,7 +42,9 @@ import {
   XHeader,
   XBody,
   Tab,
-  TabItem
+  TabItem,
+  Swiper,
+  SwiperItem
 } from '../components'
 export default {
   components: {
@@ -28,7 +52,9 @@ export default {
     XHeader,
     XBody,
     Tab,
-    TabItem
+    TabItem,
+    Swiper,
+    SwiperItem
   },
   methods: {
     changeHandler (value) {
@@ -37,12 +63,17 @@ export default {
   },
   data () {
     return {
-      active: 0
+      active: 1
     }
   }
 }
 </script>
 
 <style lang="scss">
-  
+  .tab-swiper{
+    height:400px;
+  }
+  .tab-content{
+    padding:10px;
+  }
 </style>

@@ -136,6 +136,9 @@ export default {
           &+button:before{
             @include divider-vertical();
           }
+          &:last-child{
+            color:$primary-color;
+          }
         }
       }
     }

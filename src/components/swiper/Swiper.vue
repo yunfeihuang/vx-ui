@@ -34,11 +34,17 @@ export default {
   mounted () {
     let options = Object.assign({
       pagination: '.swiper-pagination',
-      onSlideChangeEnd: (swiper) => {
+      initialSlide: this.active,
+      onSlideChangeStart: (swiper) => {
         this.$emit('on-change', swiper.activeIndex)
       }
     }, this.options)
     this.swiper = new Swiper(this.$el, options)
+  },
+  watch: {
+    active (val) {
+      this.swiper.activeIndex !== val && this.swiper.slideTo(val)
+    }
   },
   data () {
     return {

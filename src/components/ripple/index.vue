@@ -37,8 +37,8 @@ export default {
       node.style.cssText = 'top:' + (e.changedTouches[0].pageY - rect.top) + 'px;left:' + (e.changedTouches[0].pageX - rect.left) + 'px;'
       this.$el.appendChild(node)
       timer = setTimeout(() => {
-        node.style.transition = node.style.webkitTransition = 'transform 0.1s ease-in-out 0s'
-        node.style.transform = node.style.webkitTransform = 'scale(6)'
+        node.style.transition = node.style.webkitTransition = 'transform 0.3s ease-in-out 0s'
+        node.style.transform = node.style.webkitTransform = 'scale(1.4)'
       })
     },
     touchEndHandler (e) {
@@ -70,11 +70,11 @@ export default {
       &-shadow{
         position:absolute;
         background:rgba(0,0,0,0.15);
-        min-height:10px;
-        min-width:10px;
+        min-height:40px;
+        min-width:40px;
         border-radius:50%;
-        margin:-5px;
-        transition:transform 0.5s ease-in-out 0s,opacity 0.4s linear 0s;
+        margin:-20px;
+        transition:transform 0.6s ease-in-out 0s,opacity 0.4s linear 0s;
         pointer-events: none;
       }
     }

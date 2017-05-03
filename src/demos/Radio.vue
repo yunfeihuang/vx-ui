@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-header slot="header">
-      <div slot="title">Radio</div>
+      <div slot="title">RadioGroup</div>
     </x-header>
     <x-body slot="body">
       <group>
