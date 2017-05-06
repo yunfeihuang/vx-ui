@@ -23,6 +23,7 @@ import Header from './Header'
 import Divider from './Divider'
 import Swiper from './Swiper'
 import Preview from './Preview'
+import Flexbox from './Flexbox'
 export {
   App,
   Button,
@@ -42,6 +43,7 @@ export {
   Toast,
   Img,
   Flow,
+  Flexbox,
   Ripple,
   Search,
   Header,

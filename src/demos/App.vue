@@ -11,7 +11,7 @@
         <x-link href="/textarea">XTextarea</x-link>
         <x-link href="/select">XSelect</x-link>
         <x-link href="/switch">XSwitch</x-link>
-        <x-link href="/radio">RadioGroup</x-link>
+        <x-link href="/radio">Radio</x-link>
         <x-link href="/checkbox">Checkbox</x-link>
         <x-link href="/range">Range</x-link>
         <x-link href="/search">Search</x-link>
@@ -30,6 +30,7 @@
         <x-link href="/divider">Divider</x-link>
         <x-link href="/swiper">Swiper</x-link>
         <x-link href="/preview">Preview</x-link>
+        <x-link href="/flexbox">Flexbox</x-link>
       </div>
     </x-body>
   </layout>

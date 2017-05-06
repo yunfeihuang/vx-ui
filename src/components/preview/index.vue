@@ -74,7 +74,7 @@ export default {
   methods: {
     open (index) {
       let options = Object.assign({
-        history: true,
+        history: false,
         shareEl: false,
         tapToClose: true,
         fullscreenEl: false,

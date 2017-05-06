@@ -1,10 +1,14 @@
 <template>
   <layout>
     <x-header slot="header">
-      <div slot="title">RadioGroup</div>
+      <div slot="title">Radio</div>
     </x-header>
     <x-body slot="body">
-      <group>
+      <group title="Radio" class="radio-wrapper">
+        <radio name="radio1">篮球</radio>
+        <radio name="radio1">羽毛球</radio>
+      </group>
+      <group title="RadioGroup">
         <radio-group :options="options" @on-change="changeHandler" name="radio" :value="value"/>
       </group>
     </x-body>
@@ -61,5 +65,9 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  .radio-wrapper{
+    label{
+      padding-left:0.5rem;
+    }
+  }
 </style>

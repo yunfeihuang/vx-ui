@@ -13,6 +13,7 @@ import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
+import {Flexbox, FlexItem} from './flexbox'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import Divider from './divider'
 import Group from './group'
@@ -39,6 +40,8 @@ export {
   TabItem,
   Tabbar,
   TabbarItem,
+  Flexbox,
+  FlexItem,
   ButtonTab,
   ButtonTabItem,
   XButton,

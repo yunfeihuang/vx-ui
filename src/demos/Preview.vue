@@ -45,13 +45,13 @@ export default {
       }
       let item = {
         src: img.src,
-        w: natural.w > windowWidth ? windowWidth : img.w,
-        h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : img.h
+        w: natural.w > windowWidth ? windowWidth : natural.w,
+        h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : natural.h
       }
       this.images.push(item)
     },
     clickHandler (e) {
-      this.$refs.preview.open(e.target.dataset.index)
+      this.$refs.preview.open(parseInt(e.target.dataset.index))
     }
   }
 }

@@ -1,12 +1,15 @@
 <template>
   <div :class="_clas" :style="style">
-    <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
-      <i class="iconfont">&#xe660;</i>
-    </button>
-    <div :class="[cssPrefix + 'header-title']">
-      <slot name="title"></slot>
+    <div :class="[cssPrefix + 'header-nav']">
+      <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
+        <i class="iconfont">&#xe660;</i>
+      </button>
+      <div :class="[cssPrefix + 'header-title']">
+        <slot name="title"></slot>
+      </div>
+      <slot name="pull"></slot>
     </div>
-    <slot name="pull"></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -53,11 +56,14 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &header{
-      color:#fff;
-      background-color:$primary-color;
-      display:flex;
-      align-items:center;
-      height:2.7rem;
+      background:#fff;
+      &-nav{
+        color:#fff;
+        background-color:$primary-color;
+        display:flex;
+        align-items:center;
+        height:2.7rem;
+      }
       .btn-pull{
         color:inherit;
         height:inherit;

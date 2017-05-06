@@ -54,7 +54,6 @@ export default {
         w: natural.w > windowWidth ? windowWidth : img.w,
         h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : img.h
       }
-      console.log(item)
       this.images.push(item)
     },
     clickHandler (e) {
