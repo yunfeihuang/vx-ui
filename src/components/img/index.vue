@@ -95,7 +95,9 @@ export default {
           let icon = this.$el.querySelector('.iconfont')
           icon && (icon.style.display = 'none')
           this.$el.querySelector('img').src = this.src
-          this.$el.querySelector('img').style.opacity = 1
+          requestAnimationFrame(() => {
+            this.$el.querySelector('img').style.opacity = 1
+          })
         }
         image.src = this.src
       }

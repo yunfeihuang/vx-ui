@@ -11,12 +11,16 @@ export default {
   mixins: [base],
   computed: {
     _clas () {
-      return [cssPrefix + 'link', this.clas]
+      return [cssPrefix + 'link', this.active ? cssPrefix + 'link-active' : '', this.clas]
     }
   },
   props: {
     href: {
       type: String
+    },
+    active: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -36,7 +40,9 @@ export default {
       text-decoration: none;
       box-sizing: border-box;
       cursor: default;
-      @include active;
+      &-active{
+        @include active;
+      }
     }
   }
 </style>

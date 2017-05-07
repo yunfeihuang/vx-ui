@@ -35,7 +35,7 @@ export default {
       padding:0.8rem 0;
       &-active{
         color:$primary-color;
-        transition: color $transition-time $ease-in-out;
+        // transition: color $transition-time $ease-in-out;
       }
     }
   }

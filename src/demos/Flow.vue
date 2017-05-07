@@ -4,7 +4,7 @@
       <div slot="title">Flow</div>
     </x-header>
     <x-body slot="body" style="overflow:hidden;" class="demos flow-demos">
-      <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" ref="flow" :loading="loading">
+      <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
         <template v-for="item in list">
           <div class="flexbox">
             <x-img class="avator" :src="item.author.avatar_url" />
@@ -49,9 +49,7 @@ export default {
       this.fetch(lastPage + 1)
     },
     pulldownHandler (e) {
-      this.fetch(1, () => {
-        this.$refs.flow.stopLoading()
-      })
+      this.fetch(1)
     },
     fetch (page = 1, cb) {
       let bool = page > lastPage

@@ -18,6 +18,9 @@ export default {
         item.index = i
         item.active = item.index === this.active
       })
+      requestAnimationFrame(() => {
+        this.$el.querySelector('.' + cssPrefix + 'tab-line').style.display = 'block'
+      })
     },
     props: {
       active: {
@@ -79,6 +82,7 @@ export default {
         width:100px;
         border-bottom:1px solid $primary-color;
         transition: left $transition-time $ease-in-out;
+        display:none;
       }
     }
   }

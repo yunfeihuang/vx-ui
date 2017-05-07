@@ -14,7 +14,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { base } from 'utils/mixins.js'
-let touch = {}
+
 export default {
   mixins: [base],
   props: {
@@ -35,9 +35,16 @@ export default {
       default: '释放刷新'
     }
   },
+  watch: {
+    loading (val) {
+      if (val === false) {
+        this.stopLoading()
+      }
+    }
+  },
   computed: {
     _clas () {
-      return [cssPrefix + 'flow', this.clas]
+      return [cssPrefix + 'flow', 'scrollbox', this.clas]
     }
   },
   mounted () {
@@ -67,73 +74,76 @@ export default {
       }
     },
     touchStartHandler (e) {
-      if (!touch.inner) {
-        touch.inner = this.$el.querySelector('.' + cssPrefix + 'flow-inner')
+      if (!this.touch.inner) {
+        this.touch.inner = this.$el.querySelector('.' + cssPrefix + 'flow-inner')
       }
-      if (!touch.pageY && this.$el.scrollTop === 0) {
-        touch.pageY = e.changedTouches[0].pageY
+      if (!this.touch.pageY && this.$el.scrollTop === 0) {
+        this.touch.pageY = e.changedTouches[0].pageY
       }
     },
     touchMoveHandler (e) {
       let pageY = e.changedTouches[0].pageY
-      if (touch.pageY && touch.pageY < pageY) {
+      if (this.touch.pageY && this.touch.pageY < pageY) {
         e.preventDefault()
         e.stopPropagation()
-        if (touch.inner) {
-          let top = pageY - touch.pageY
+        if (this.touch.inner) {
+          let top = pageY - this.touch.pageY
           top = top > 100 ? 100 : top
           let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translateY(' + top + 'px);transform:translateY(' + top + 'px);'
-          touch.inner.style.cssText = cssText
-          if (touch.pageY && pageY - touch.pageY > 60) {
-            touch.inner.classList.add('active')
+          this.touch.inner.style.cssText = cssText
+          if (this.touch.pageY && pageY - this.touch.pageY > 60) {
+            this.touch.inner.classList.add('active')
           } else {
-            touch.inner.classList.remove('active')
+            this.touch.inner.classList.remove('active')
           }
         }
       }
-      if (!touch.pageY && this.scrollTop <= 0) {
-        touch.pageY = pageY
+      if (!this.touch.pageY && this.scrollTop <= 0) {
+        this.touch.pageY = pageY
       } else if (this.scrollTop > 0) {
-        touch.pageY = 0
+        this.touch.pageY = 0
       }
     },
     touchEndHandler (e) {
       let pageY = e.changedTouches[0].pageY
-      if (touch.pageY && touch.inner && touch.pageY < pageY) {
-        if (pageY - touch.pageY > 60) {
+      if (this.touch.pageY && this.touch.inner && this.touch.pageY < pageY) {
+        if (pageY - this.touch.pageY > 60) {
           setTimeout(() => {
             let cssText = '-webkit-transform:translateY(40px);transform:translateY(40px);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;'
-            touch.inner.style.cssText = cssText
+            this.touch.inner.style.cssText = cssText
             setTimeout(() => {
-              touch.inner.classList.remove('active')
-              touch.inner.classList.add('loading')
+              this.touch.inner.classList.remove('active')
+              this.touch.inner.classList.add('loading')
               this.$emit('on-pulldown', e)
             }, 500)
           }, 600)
         } else {
           let cssText = '-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-          touch.inner.style.cssText = cssText
+          this.touch.inner.style.cssText = cssText
           setTimeout(() => {
-            touch.inner.classList.remove('active')
-            touch.inner.style.cssText = ''
+            this.touch.inner.classList.remove('active')
+            this.touch.inner.style.cssText = ''
           }, 500)
         }
-        if (touch.pageY !== pageY) {
+        if (this.touch.pageY !== pageY) {
           e.stopPropagation()
           e.preventDefault()
         }
       }
-      touch.pageY = 0
+      this.touch.pageY = 0
     },
     stopLoading () {
-      let cssText = '-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-      touch.inner.style.cssText = cssText
-      touch.inner.classList.remove('loading')
+      if (this.touch && this.touch.inner && this.touch.inner.className.indexOf('loading') > -1) {
+        let cssText = '-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
+        this.touch.inner.style.cssText = cssText
+        this.touch.inner.classList.remove('loading')
+      }
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix
+      cssPrefix: cssPrefix,
+      touch: {}
     }
   }
 }
@@ -144,11 +154,12 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &flow{
-      overflow: auto;
+      overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       overflow-scrolling: touch;
       &-inner{
         position: relative;
+        padding-top: 5px;
         &.active .#{$css-prefix}flow-refresh span:before{
           content:attr(data-refresh);
         }
