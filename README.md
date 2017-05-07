@@ -5,7 +5,8 @@
 浏览地址：
 http://assets.bittyos.com/vue-components/#/
 
-
+cnodejs示例：
+http://assets.bittyos.com/vue-components/#/cnode
 
 ## Build Setup
 
