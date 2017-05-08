@@ -6,6 +6,7 @@
     <x-body slot="body">
       <group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>
+        <divider></divider>
         <radio name="radio1">羽毛球</radio>
       </group>
       <group title="RadioGroup">
@@ -22,7 +23,8 @@ import {
   XBody,
   Radio,
   RadioGroup,
-  Group
+  Group,
+  Divider
 } from '../components'
 export default {
   components: {
@@ -31,7 +33,8 @@ export default {
     XBody,
     Radio,
     RadioGroup,
-    Group
+    Group,
+    Divider
   },
   methods: {
     changeHandler (value) {

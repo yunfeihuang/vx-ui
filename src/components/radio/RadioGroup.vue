@@ -10,7 +10,7 @@
           {{item.label}}
       </radio>
       <divider v-if="divider"></divider>
-    <template>
+    </template>
   </div>
 </template>
 
