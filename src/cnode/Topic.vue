@@ -131,6 +131,7 @@ export default {
       background:#fff;
       padding:10px;
       word-break: break-all;
+      overflow:hidden;
     }
     a{
       color:#3399ff;
