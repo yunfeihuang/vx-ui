@@ -15,7 +15,11 @@ export default {
   mixins: [base, input],
   computed: {
     _clas () {
-      return cssPrefix + 'range-wrapper'
+      let array = [cssPrefix + 'range-wrapper']
+      if (this.disabled) {
+        array.push(cssPrefix + 'range-disabled')
+      }
+      return array
     },
     offsetLeft () {
       return {
@@ -80,36 +84,38 @@ export default {
     },
     touchStartHandler (e) {
       e.preventDefault()
-      let position = this.getPosition(e)
-      let button = e.target
-      let start = true
-      let buttonLeft = button.style.left
-      let touch = Object.assign({
-        left: buttonLeft ? parseFloat(buttonLeft) : 0,
-        maxLeft: this.$el.querySelector('.' + cssPrefix + 'range-mask').offsetWidth - button.offsetWidth
-      }, position)
-      let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
-      let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
-      tipsDom.style.display = 'block'
-      let self = this
-      let value = this._value
-      document.ontouchmove = document.onmousemove = (event) => {
-        if (start) {
-          let movePosition = self.getPosition(event)
-          let left = movePosition.pageX - position.pageX + touch.left
-          left = left < 0 ? 0 : left
-          left = left > touch.maxLeft ? touch.maxLeft : left
-          buttonLeft = left
-          button.style.left = valueDom.style.width = left + 'px'
-          tipsDom.innerHTML = value = Math.round((buttonLeft / touch.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
-          event.preventDefault()
+      if (!this.disabled) {
+        let position = this.getPosition(e)
+        let button = e.target
+        let start = true
+        let buttonLeft = button.style.left
+        let touch = Object.assign({
+          left: buttonLeft ? parseFloat(buttonLeft) : 0,
+          maxLeft: this.$el.querySelector('.' + cssPrefix + 'range-mask').offsetWidth - button.offsetWidth
+        }, position)
+        let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
+        let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
+        tipsDom.style.display = 'block'
+        let self = this
+        let value = this._value
+        document.ontouchmove = document.onmousemove = (event) => {
+          if (start) {
+            let movePosition = self.getPosition(event)
+            let left = movePosition.pageX - position.pageX + touch.left
+            left = left < 0 ? 0 : left
+            left = left > touch.maxLeft ? touch.maxLeft : left
+            buttonLeft = left
+            button.style.left = valueDom.style.width = left + 'px'
+            tipsDom.innerHTML = value = Math.round((buttonLeft / touch.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
+            event.preventDefault()
+          }
         }
-      }
-      document.ontouchend = document.onmouseup = () => {
-        document.ontouchmove = document.onmousemove = null
-        start = false
-        tipsDom.style.display = 'none'
-        self.changeHandler(value)
+        document.ontouchend = document.onmouseup = () => {
+          document.ontouchmove = document.onmousemove = null
+          start = false
+          tipsDom.style.display = 'none'
+          self.changeHandler(value)
+        }
       }
     },
     getPosition (e) {
@@ -130,6 +136,10 @@ export default {
       &-wrapper{
         height:2.6rem;
         position:relative;
+      }
+      &-disabled{
+        opacity: 0.6;
+        pointer-events: none;
       }
       &-mask{
         @include divider(#ccc);
