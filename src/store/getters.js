@@ -1,7 +1,3 @@
-import types from './mutation-types'
-
 export default {
-  get: () => {
-    console.log(types)
-  }
+  global: state => state.global
 }
