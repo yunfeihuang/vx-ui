@@ -133,6 +133,7 @@ export default {
           @include active;
           user-select:none;
           position:relative;
+          font-size: inherit;
           &+button:before{
             @include divider-vertical();
           }
