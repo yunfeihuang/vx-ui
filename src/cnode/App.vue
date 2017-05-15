@@ -22,7 +22,7 @@
     </x-header>
     <x-body slot="body" style="overflow: visible;position:relative;background:#fff">
       <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
-        <topic-item v-for="item in topics" :item="item"/>
+        <topic-item v-for="item in topics" :item="item" :key="item.id"/>
       </flow>
     </x-body>
   </layout>

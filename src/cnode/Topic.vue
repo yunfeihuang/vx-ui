@@ -20,7 +20,7 @@
         <div style="margin:15px 5px 5px 5px;">主题回复</div>
         <div class="topic-comments">
           <divider></divider>
-          <base-item v-if="topic.replies" v-for="item in topic.replies" >
+          <base-item v-if="topic.replies" v-for="item in topic.replies" :key="item.id">
             <x-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url" />
             </x-link>

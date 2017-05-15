@@ -14,7 +14,7 @@
         <div class="user-title">最近创建的话题</div>
         <div class="user-comments">
           <divider></divider>
-          <base-item v-for="item in user.recent_topics" >
+          <base-item v-for="item in user.recent_topics" :key="item.id+'topics'">
             <x-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url"/>
             </x-link>
@@ -29,7 +29,7 @@
         <div class="user-title">最近参与的话题</div>
         <div class="user-comments">
           <divider></divider>
-          <base-item v-for="item in user.recent_replies" >
+          <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
             <x-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url"/>
             </x-link>
