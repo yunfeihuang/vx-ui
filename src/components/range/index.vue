@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <div :class="[cssPrefix+'range-mask']"></div>
     <div :class="[cssPrefix+'range-value']" ></div>
     <div :class="[cssPrefix+'range-button']" @mousedown="touchStartHandler" @touchstart="touchStartHandler">

@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <div :class="[cssPrefix + 'header-nav']">
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>

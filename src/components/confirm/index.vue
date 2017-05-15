@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>

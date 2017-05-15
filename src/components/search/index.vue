@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed' : '']">
       <form @submit="submitHandler">
         <div :class="[cssPrefix + 'search']">

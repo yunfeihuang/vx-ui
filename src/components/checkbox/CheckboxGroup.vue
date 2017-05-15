@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" :disabled="disabled">
+  <div :class="_clas" :style="styles" :disabled="disabled">
     <template v-for="item in options">
       <checkbox 
         :name="item.name"

@@ -3,7 +3,7 @@ const base = {
     clas: {
       type: [String, Array]
     },
-    style: {
+    styles: {
       type: [String, Object]
     }
   }

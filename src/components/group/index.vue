@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <div v-if="title" :class="[cssPrefix+'group-title']">{{title}}</div>
     <div :class="[cssPrefix+'group-inner']">
       <slot></slot>

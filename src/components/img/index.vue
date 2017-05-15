@@ -1,8 +1,8 @@
 <template>
-  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
+  <div :style="styles" :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
     <img
       :class="_clas"
-      :style="style"
+      :style="styles"
       :alt="alt"
       @error="errorHandler"
       @load='loadHandler'

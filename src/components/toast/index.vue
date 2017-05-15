@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
         <template v-if="type">

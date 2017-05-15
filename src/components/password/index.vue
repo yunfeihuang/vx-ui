@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles">
     <x-input
       :htmlType="hType"
       :placeholder="placeholder"

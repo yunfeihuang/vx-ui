@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" onselectstart="return false;">
+  <div :class="_clas" :style="styles" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>

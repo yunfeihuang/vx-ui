@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="style" :disabled="disabled" >
+  <label :class="_clas" :style="styles" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <span :class="[cssPrefix + 'radio-icon']"><i class="iconfont">&#xe632;</i></span>
     <slot></slot>

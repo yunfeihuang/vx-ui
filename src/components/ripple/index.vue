@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" @click="clickHandler" onselectstart="return false;">
+  <div :class="_clas" :style="styles" @click="clickHandler" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>

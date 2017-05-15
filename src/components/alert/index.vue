@@ -1,5 +1,5 @@
 <template>
-  <confirm  :class="clas" :style="style" :open="open" :confirmText="confirmText" :cancel="false" @on-confirm="confirmHandler">
+  <confirm  :class="clas" :style="styles" :open="open" :confirmText="confirmText" :cancel="false" @on-confirm="confirmHandler">
     <slot></slot>
   </confirm>
 </template>

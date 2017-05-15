@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" @click="clickHandler">
+  <div :class="_clas" :style="styles" @click="clickHandler">
     <div :class="cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>

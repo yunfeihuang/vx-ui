@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :class="_clas" :style="style" @on-close="closeHandler" @on-enter="enterHandler">
+  <popup :open="open" :class="_clas" :style="styles" @on-close="closeHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[cssPrefix + 'actionsheet-item-list']">
         <slot></slot>

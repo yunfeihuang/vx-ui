@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style" @click="clickHandler">
+  <div :class="_clas" :style="styles" @click="clickHandler">
     <button type="button" :class="!option ? cssPrefix + 'select-placeholder':''" >{{option?option.label:placeholder}}</button>
     <select v-if="option" @focus="clickHandler" :value="value">
       <option v-for="item in options" :value="item.value" >{{item.label}}</option>

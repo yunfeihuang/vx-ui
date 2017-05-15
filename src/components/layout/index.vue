@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="style">
+  <div :class="_clas" :style="styles" >
     <div :class="[cssPrefix + 'layout-flexbox']">
       <slot name="header"></slot>
       <slot name="body"></slot>

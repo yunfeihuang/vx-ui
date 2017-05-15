@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="style">
+  <label :class="_clas" :style="styles">
     <slot name="icon"></slot>
     <input 
       :type="htmlType"

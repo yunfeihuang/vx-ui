@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="style">
+  <label :class="_clas" :style="styles">
     <div :class="[cssPrefix+'textarea-shadow']"></div>
     <textarea 
       :placeholder="placeholder"
