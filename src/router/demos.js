@@ -27,6 +27,35 @@ import {
   Flexbox
 } from 'demos'
 
+/*
+const App = r => require.ensure([], () => r(require('demos/App')), 'App')
+const Button = r => require.ensure([], () => r(require('demos/Button')), 'Button')
+const Input = r => require.ensure([], () => r(require('demos/Input')), 'Input')
+const Textarea = r => require.ensure([], () => r(require('demos/Textarea')), 'Textarea')
+const Select = r => require.ensure([], () => r(require('demos/Select')), 'Select')
+const Switch = r => require.ensure([], () => r(require('demos/Switch')), 'Switch')
+const Radio = r => require.ensure([], () => r(require('demos/Radio')), 'Radio')
+const Checkbox = r => require.ensure([], () => r(require('demos/Checkbox')), 'Checkbox')
+const Range = r => require.ensure([], () => r(require('demos/Range')), 'Range')
+const Actionsheet = r => require.ensure([], () => r(require('demos/Actionsheet')), 'Actionsheet')
+const Alert = r => require.ensure([], () => r(require('demos/Alert')), 'Alert')
+const Confirm = r => require.ensure([], () => r(require('demos/Confirm')), 'Confirm')
+const Tab = r => require.ensure([], () => r(require('demos/Tab')), 'Tab')
+const Tabbar = r => require.ensure([], () => r(require('demos/Tabbar')), 'Tabbar')
+const TabButton = r => require.ensure([], () => r(require('demos/TabButton')), 'TabButton')
+const Popup = r => require.ensure([], () => r(require('demos/Popup')), 'Popup')
+const Toast = r => require.ensure([], () => r(require('demos/Toast')), 'Toast')
+const Img = r => require.ensure([], () => r(require('demos/Img')), 'Img')
+const Flow = r => require.ensure([], () => r(require('demos/Flow')), 'Flow')
+const Ripple = r => require.ensure([], () => r(require('demos/Ripple')), 'Ripple')
+const Search = r => require.ensure([], () => r(require('demos/Search')), 'Search')
+const Header = r => require.ensure([], () => r(require('demos/Header')), 'Header')
+const Divider = r => require.ensure([], () => r(require('demos/Divider')), 'Divider')
+const Swiper = r => require.ensure([], () => r(require('demos/Swiper')), 'Swiper')
+const Preview = r => require.ensure([], () => r(require('demos/Preview')), 'Preview')
+const Flexbox = r => require.ensure([], () => r(require('demos/Flexbox')), 'Flexbox')
+*/
+
 export default [
   {
     path: '/',

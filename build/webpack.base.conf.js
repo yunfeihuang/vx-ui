@@ -30,7 +30,9 @@ module.exports = {
       'assets': resolve('src/assets'),
       'components': resolve('src/components'),
       'styles': resolve('src/styles'),
-      'utils':resolve('src/utils')
+      'utils':resolve('src/utils'),
+      'demos':resolve('src/demos'),
+      'cnode':resolve('src/cnode')
     }
   },
   module: {
