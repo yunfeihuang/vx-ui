@@ -52,7 +52,7 @@ export default {
     this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
-        this.scrollHandler(e)
+        !this.loading && this.scrollHandler(e)
       }, 200)
     })
     if (this._events['on-pulldown']) {
@@ -74,11 +74,13 @@ export default {
       }
     },
     touchStartHandler (e) {
-      if (!this.touch.inner) {
-        this.touch.inner = this.$el.querySelector('.' + cssPrefix + 'flow-inner')
-      }
-      if (!this.touch.pageY && this.$el.scrollTop === 0) {
-        this.touch.pageY = e.changedTouches[0].pageY
+      if (!this.loading) {
+        if (!this.touch.inner) {
+          this.touch.inner = this.$el.querySelector('.' + cssPrefix + 'flow-inner')
+        }
+        if (!this.touch.pageY && this.$el.scrollTop === 0) {
+          this.touch.pageY = e.changedTouches[0].pageY
+        }
       }
     },
     touchMoveHandler (e) {
