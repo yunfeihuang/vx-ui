@@ -72,6 +72,7 @@ export default {
 <style lang="scss">
   .tab-swiper{
     height:100%;
+    min-height:300px;
   }
   .tab-content{
     padding:10px;
