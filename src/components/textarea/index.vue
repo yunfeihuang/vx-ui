@@ -16,9 +16,7 @@
       @keydown="keydownHandler" 
       @change="changeHandler"
       @input="inputHandler"
-      >
-      <slot></slot>
-    </textarea>
+      >{{value}}</textarea>
   </label>
 </template>
 
@@ -30,7 +28,7 @@ export default {
   mounted () {
     this.$textarea = this.$el.querySelector('textarea')
     this.$shadow = this.$el.querySelector('.' + cssPrefix + 'textarea-shadow')
-    this.renderAutoHeight(this.$el.querySelector('textarea').value)
+    this.renderAutoHeight(this.$textarea.value)
   },
   computed: {
     _clas () {
@@ -69,6 +67,7 @@ export default {
       display:block;
       height:2.6rem;
       min-height: 2.6rem;
+      line-height: 16px;
       textarea,.#{$css-prefix}textarea-shadow{
         padding:0.8rem;
         width:100%;
@@ -79,6 +78,7 @@ export default {
         box-sizing:border-box;
         min-height:inherit;
         color:inherit;
+        word-break: break-all;
       }
       textarea{
         height:100%;
@@ -109,8 +109,6 @@ export default {
       position:absolute;
       left:0;
       top:0;
-      min-height:2.6rem;
-      word-break: break-all;
       opacity:0;
       z-index: -1
     }

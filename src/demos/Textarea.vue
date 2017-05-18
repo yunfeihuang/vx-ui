@@ -6,7 +6,7 @@
     <x-body slot="body">
       <div class="input-demo demos">
         <div class="fieldset">
-          <x-textarea placeholder="请输入消息内容" @on-change="changeHandler">{{content}}</x-textarea>
+          <x-textarea :value="content" placeholder="请输入消息内容" @on-change="changeHandler"/>
         </div>
       </div>
     </x-body>
