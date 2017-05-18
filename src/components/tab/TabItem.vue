@@ -32,7 +32,7 @@ export default {
   .#{$css-prefix}{
     &tab-item{
       flex:1;
-      padding:0.8rem 0;
+      padding:0.85rem 0;
       &-active{
         color:$primary-color;
         // transition: color $transition-time $ease-in-out;
