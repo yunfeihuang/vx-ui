@@ -69,9 +69,9 @@ export default {
       user-select:none;
       &-shadow{
         position:absolute;
-        background:rgba(0,0,0,0.15);
-        min-height:40px;
-        min-width:40px;
+        background:rgba(0,0,0,0.09);
+        min-height:44px;
+        min-width:44px;
         border-radius:50%;
         margin:-20px;
         transition:transform 0.6s ease-in-out 0s,opacity 0.4s linear 0s;
