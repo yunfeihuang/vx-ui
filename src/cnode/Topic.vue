@@ -81,7 +81,7 @@ export default {
       return this.topic.tab
     }
   },
-  mounted () {
+  created () {
     this.$store.dispatch('topic', {
       id: this.$route.params.id
     })

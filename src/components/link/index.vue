@@ -16,7 +16,7 @@ export default {
   },
   props: {
     href: {
-      type: String
+      type: [String, Object]
     },
     active: {
       type: Boolean,

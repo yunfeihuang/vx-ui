@@ -73,7 +73,7 @@ export default {
       return this.home[tabs[this.home.active]].data
     }
   },
-  mounted () {
+  created () {
     let tab = tabs[this.home.active]
     if (this.home[tab].data.length === 0) {
       this.$store.dispatch('home', {

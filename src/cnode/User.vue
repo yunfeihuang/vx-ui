@@ -80,7 +80,7 @@ export default {
       return array
     }
   },
-  mounted () {
+  created () {
     this.$store.dispatch('user', {
       id: this.$route.params.id
     })
