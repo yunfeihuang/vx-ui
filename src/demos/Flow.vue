@@ -3,8 +3,8 @@
     <x-header slot="header">
       <div slot="title">Flow</div>
     </x-header>
-    <x-body slot="body" style="overflow:hidden;" class="demos flow-demos">
-      <flow class="scrollbox" @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
+    <x-body slot="body" :scroll="false" class="demos flow-demos">
+      <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
         <template v-for="item in list">
           <div class="flexbox">
             <x-img class="avator" :src="item.author.avatar_url" />
@@ -31,6 +31,9 @@ import {
   Divider,
   XImg
 } from '../components'
+
+import api from '../api'
+
 let lastPage = 1
 export default {
   components: {
@@ -56,9 +59,9 @@ export default {
       if (bool) {
         lastPage = page
       }
-      window.fetch('https://cnodejs.org/api/v1/topics?limit=20&page=' + page).then((response) => {
-        return response.json()
-      }).then((data) => {
+      this.loading = true
+      api.cnode.list({page: page, tab: ''}).then((data) => {
+        this.loading = false
         if (bool) {
           this.list = this.list.concat(data.data)
         } else {

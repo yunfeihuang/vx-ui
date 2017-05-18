@@ -1,6 +1,6 @@
 <template>
   <div :class="_clas" :style="styles">
-    <div :class="[cssPrefix + 'header-nav']">
+    <nav>
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>
       </button>
@@ -8,7 +8,7 @@
         <slot name="title"></slot>
       </div>
       <slot name="pull"></slot>
-    </div>
+    </nav>
     <slot></slot>
   </div>
 </template>
@@ -57,7 +57,7 @@ export default {
   .#{$css-prefix}{
     &header{
       background:#fff;
-      &-nav{
+      nav{
         color:#fff;
         background-color:$primary-color;
         display:flex;

@@ -35,6 +35,7 @@ export default {
     &body{
       overflow:auto;
       flex:1;
+      position:relative;
     }
   }
 </style>

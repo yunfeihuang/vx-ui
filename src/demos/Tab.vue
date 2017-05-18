@@ -2,14 +2,14 @@
   <layout>
     <x-header slot="header">
       <div slot="title">Tab</div>
-    </x-header>
-    <x-body slot="body" style="background:#fff">
       <tab :active="active" @on-change="changeHandler">
         <tab-item>选项卡1</tab-item>
         <tab-item>选项卡2</tab-item>
         <tab-item>选项卡3</tab-item>
         <tab-item>选项卡4</tab-item>
       </tab>
+    </x-header>
+    <x-body slot="body" style="background:#fff" :scroll="false">
       <swiper :active="active" @on-change="changeHandler" class="tab-swiper">
         <swiper-item>
           <div class="tab-content">
@@ -71,7 +71,7 @@ export default {
 
 <style lang="scss">
   .tab-swiper{
-    height:400px;
+    height:100%;
   }
   .tab-content{
     padding:10px;
