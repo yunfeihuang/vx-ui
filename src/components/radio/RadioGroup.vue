@@ -6,7 +6,8 @@
         :disabled="item.disabled"
         :value="item.value"
         :checked="value===item.value"
-        @change="changeHandler">
+        @change="changeHandler"
+        >
           {{item.label}}
       </radio>
       <divider v-if="divider"></divider>
@@ -51,8 +52,9 @@ export default {
     }
   },
   methods: {
-    changeHandler (e) {
-      this.$emit('on-change', e.target.value, this.name)
+    changeHandler (value) {
+      this.$emit('on-change', value)
+      this.$emit('input', value)
     }
   }
 }

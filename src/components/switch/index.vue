@@ -5,8 +5,9 @@
       :disabled="disabled" 
       :name="name" 
       :checked="checked"
-      @change="changeHandler"
       type="checkbox"
+      @change="changeHandler"
+      @input="inputHandler"
       />
     <button type="button"></button>
   </div>
@@ -21,6 +22,9 @@ export default {
     checked: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: [String, Array]
     }
   },
   computed: {
@@ -35,7 +39,11 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      this.$emit('on-change', e.target.checked, this.name)
+      if (this.value) {
+        this.$emit('on-change', this.value instanceof Array ? this.value[Number(e.target.checked)] : (e.target.checked ? e.target.value : ''))
+      } else {
+        this.$emit('on-change', e.target.checked)
+      }
     }
   }
 }

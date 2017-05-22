@@ -81,6 +81,7 @@ export default {
   methods: {
     changeHandler (val) {
       this.$emit('on-change', val)
+      this.$emit('input', val)
     },
     touchStartHandler (e) {
       e.preventDefault()

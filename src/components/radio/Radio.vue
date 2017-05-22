@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      this.$emit('on-change', e)
+      this.$emit('on-change', e.target.value)
+      this.$emit('input', e.target.value)
     }
   }
 }

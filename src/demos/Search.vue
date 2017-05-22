@@ -6,7 +6,7 @@
     <x-body slot="body"  class="demos img-demos">
       <search :value="value" placeholder="搜索商品/商店/用户"
         @on-submit="submitHandler"
-        @on-input="inputHandler"
+        @input="inputHandler"
         @on-change="inputHandler">
         <div slot="keywords">
           <span class="keyword">

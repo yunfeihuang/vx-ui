@@ -81,7 +81,10 @@ const input = {
       this.$emit('on-blur', e)
     },
     changeHandler (e) {
-      this.$emit('on-change', e.target.value, this.name)
+      this.$emit('on-change', e.target.value)
+    },
+    inputHandler (e) {
+      this.$emit('input', e.target.value)
     },
     keyupHandler (e) {
       e.keyCode === 13 && this.$emit('on-keyenter', e)

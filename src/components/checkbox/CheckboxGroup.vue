@@ -6,7 +6,8 @@
         :disabled="item.disabled"
         :value="item.value"
         :checked="value.indexOf(item.value)>-1"
-        @on-change="changeHandler">
+        @on-change="changeHandler"
+        >
         {{item.label}}
       </checkbox>
       <divider v-if="divider"></divider>
@@ -58,7 +59,8 @@ export default {
       } else {
         value.splice(value.indexOf(e.target.value), 1)
       }
-      this.$emit('on-change', value, this.name)
+      this.$emit('on-change', value)
+      this.$emit('input', value)
     }
   }
 }

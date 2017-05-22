@@ -22,7 +22,7 @@
             @on-blur="blurHandler"
             @on-keyup="keyupHandler"
             @on-keydown="keydownHandler" 
-            @on-input="inputHandler"
+            @input="inputHandler"
             @on-change="changeHandler"
           >
             <i slot="icon" :class="['iconfont',cssPrefix + 'search-icon']">&#xe651;</i>
@@ -81,10 +81,10 @@ export default {
       this.$emit('on-focus', e)
     },
     inputHandler (value) {
-      this.$emit('on-input', value)
+      this.$emit('input', value)
     },
     changeHandler (value) {
-      this.$emit('on-input', value)
+      this.$emit('input', value)
     },
     cancelHandler () {
       this.fixed = false
@@ -94,7 +94,7 @@ export default {
       let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
       if (target) {
         let value = target.dataset.value || target.innerText
-        this.$emit('on-input', value)
+        this.$emit('input', value)
         this.$emit('on-submit', value)
       }
     },

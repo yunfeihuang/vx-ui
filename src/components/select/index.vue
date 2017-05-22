@@ -9,7 +9,8 @@
       :disabled="disabled"
       :readonly="readonly"
       @focus="clickHandler"
-      @invalid="invalidHandler">
+      @invalid="invalidHandler"
+      >
       <option v-for="item in options" :value="item.value" >{{item.label}}</option>
     </select>
   </div>
@@ -46,6 +47,9 @@ export default {
     }
   },
   methods: {
+    inputHandler (e) {
+      this.$emit('input', e.target.checked)
+    },
     clickHandler () {
       let select = this
       let node = document.createElement('div')
@@ -76,7 +80,8 @@ export default {
             }, 1000)
           },
           menuHandler (val) {
-            select.$emit('on-change', val, select.name)
+            select.$emit('on-change', val)
+            select.$emit('input', val)
           }
         }
       })

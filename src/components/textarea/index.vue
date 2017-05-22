@@ -49,6 +49,7 @@ export default {
   methods: {
     inputHandler (e) {
       this.renderAutoHeight(e.target.value)
+      this.$emit('input', e.target.value)
     },
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
