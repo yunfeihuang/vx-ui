@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -10,7 +10,7 @@ import { base } from 'utils/mixins.js'
 export default {
   mixins: [base],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'body', this.scroll ? 'scrollbox' : '', this.clas]
     }
   },

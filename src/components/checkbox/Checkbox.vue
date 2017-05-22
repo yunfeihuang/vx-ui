@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="styles" :disabled="disabled" >
+  <label :class="classes" :style="styles" :disabled="disabled" >
     <input type="checkbox" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <i :class="[cssPrefix + 'checkbox-icon','iconfont']">&#xe632;</i>
     <slot></slot>
@@ -12,7 +12,7 @@ import { base, input } from 'utils/mixins.js'
 export default {
   mixins: [base, input],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'checkbox', this.clas]
     }
   },

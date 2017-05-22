@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" >
+  <div :class="classes" :style="styles" >
     <div :class="[cssPrefix + 'layout-flexbox']">
       <slot name="header"></slot>
       <slot name="body"></slot>
@@ -15,7 +15,7 @@ import { base } from 'utils/mixins.js'
 export default {
   mixins: [base],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'layout', this.clas]
     }
   },

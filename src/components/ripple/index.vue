@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" @click="clickHandler" onselectstart="return false;">
+  <div :class="classes" :style="styles" @click="clickHandler" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -13,7 +13,7 @@ let timer = null
 export default {
   mixins: [base],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'ripple']
     }
   },

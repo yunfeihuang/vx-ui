@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="_style" @click="clickHandler">
+  <div :class="classes" :style="_style" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'overlay', this.clas]
     },
     _style () {

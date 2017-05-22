@@ -66,6 +66,9 @@ const input = {
     },
     checked: {
       type: [String, Boolean]
+    },
+    pattern: {
+      type: String
     }
   },
   methods: {
@@ -78,7 +81,7 @@ const input = {
       this.$emit('on-blur', e)
     },
     changeHandler (e) {
-      this.$emit('on-change', e.target.value)
+      this.$emit('on-change', e.target.value, this.name)
     },
     keyupHandler (e) {
       e.keyCode === 13 && this.$emit('on-keyenter', e)
@@ -86,6 +89,9 @@ const input = {
     },
     keydownHandler (e) {
       this.$emit('on-keydown', e)
+    },
+    invalidHandler (e) {
+      this.$emit('invalid', e)
     }
   }
 }

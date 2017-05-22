@@ -15,6 +15,7 @@
         <x-link href="/checkbox">Checkbox</x-link>
         <x-link href="/range">Range</x-link>
         <x-link href="/search">Search</x-link>
+        <x-link href="/form">Form</x-link>
         <x-link href="/actionsheet">Actionsheet</x-link>
         <x-link href="/alert">Alert</x-link>
         <x-link href="/confirm">Confirm</x-link>

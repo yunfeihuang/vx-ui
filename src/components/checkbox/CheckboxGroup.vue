@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" :disabled="disabled">
+  <div :class="classes" :style="styles" :disabled="disabled">
     <template v-for="item in options">
       <checkbox 
         :name="item.name"
@@ -41,7 +41,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'checkbox-group', this.clas]
     }
   },
@@ -58,7 +58,7 @@ export default {
       } else {
         value.splice(value.indexOf(e.target.value), 1)
       }
-      this.$emit('on-change', value)
+      this.$emit('on-change', value, this.name)
     }
   }
 }

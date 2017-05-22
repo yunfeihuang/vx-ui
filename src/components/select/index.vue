@@ -1,7 +1,15 @@
 <template>
-  <div :class="_clas" :style="styles" @click="clickHandler">
+  <div :class="classes" :style="styles" @click="clickHandler">
     <button type="button" :class="!option ? cssPrefix + 'select-placeholder':''" >{{option?option.label:placeholder}}</button>
-    <select v-if="option" @focus="clickHandler" :value="value">
+    <select 
+      :required="required"
+      :pattern="pattern"
+      :value="value"
+      :name="name"
+      :disabled="disabled"
+      :readonly="readonly"
+      @focus="clickHandler"
+      @invalid="invalidHandler">
       <option v-for="item in options" :value="item.value" >{{item.label}}</option>
     </select>
   </div>
@@ -21,7 +29,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'select', this.clas]
     }
   },
@@ -56,7 +64,9 @@ export default {
           this.open = true
         },
         destroyed () {
-          document.body.removeChild(this.$el)
+          requestAnimationFrame(() => {
+            this.$el.remove()
+          })
         },
         methods: {
           closeHandler () {
@@ -66,7 +76,7 @@ export default {
             }, 1000)
           },
           menuHandler (val) {
-            select.$emit('on-change', val)
+            select.$emit('on-change', val, select.name)
           }
         }
       })
@@ -89,7 +99,6 @@ export default {
   data () {
     return {
       cssPrefix: cssPrefix,
-      selected: false,
       option: null
     }
   }

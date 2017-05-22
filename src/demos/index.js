@@ -7,6 +7,7 @@ import Switch from './Switch'
 import Radio from './Radio'
 import Checkbox from './Checkbox'
 import Range from './Range'
+import Form from './Form'
 import Actionsheet from './Actionsheet'
 import Alert from './Alert'
 import Confirm from './Confirm'
@@ -34,6 +35,7 @@ export {
   Radio,
   Checkbox,
   Range,
+  Form,
   Actionsheet,
   Alert,
   Confirm,

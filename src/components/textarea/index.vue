@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="styles">
+  <label :class="classes" :style="styles">
     <div :class="[cssPrefix+'textarea-shadow']"></div>
     <textarea 
       :placeholder="placeholder"
@@ -31,7 +31,7 @@ export default {
     this.renderAutoHeight(this.$textarea.value)
   },
   computed: {
-    _clas () {
+    classes () {
       let styles = {}
       styles[cssPrefix + 'textarea-focus'] = this.isFocus
       return [
@@ -51,8 +51,10 @@ export default {
       this.renderAutoHeight(e.target.value)
     },
     renderAutoHeight (value) {
-      this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/>s').replace(/(\r|\n)/g, '<br/>')
-      this.$el.style.height = this.$shadow.clientHeight + 'px'
+      requestAnimationFrame(() => {
+        this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/>s').replace(/(\r|\n)/g, '<br/>')
+        this.$el.style.height = this.$shadow.clientHeight + 'px'
+      })
     }
   }
 }

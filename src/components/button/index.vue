@@ -1,5 +1,5 @@
 <template>
-  <button :class="_clas" :style="styles" :disabled="disabled" :type="htmlType" @click="clickHandler">
+  <button :class="classes" :style="styles" :disabled="disabled" :type="htmlType" @click="clickHandler">
     <slot></slot>
   </button>
 </template>
@@ -10,7 +10,7 @@ import { base, button } from 'utils/mixins.js'
 export default {
   mixins: [base, button],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'btn', this.type ? (cssPrefix + 'btn-' + this.type) : this.clas]
     }
   },

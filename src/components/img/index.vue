@@ -1,7 +1,7 @@
 <template>
   <div :style="styles" :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
     <img
-      :class="_clas"
+      :class="classes"
       :style="styles"
       :alt="alt"
       @error="errorHandler"
@@ -70,7 +70,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '', this.clas]
     }
   },
@@ -93,10 +93,11 @@ export default {
         let image = new Image()
         image.onload = (e) => {
           let icon = this.$el.querySelector('.iconfont')
-          icon && (icon.style.display = 'none')
-          this.$el.querySelector('img').src = this.src
+          let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
-            this.$el.querySelector('img').style.opacity = 1
+            icon && (icon.style.display = 'none')
+            img.src = this.src
+            img.style.opacity = 1
           })
         }
         image.src = this.src

@@ -20,6 +20,16 @@
   user-select:none;
   cursor: default;
 }
+@mixin input{
+  border:0;
+  outline:none;
+  background-color:transparent;
+  user-select:none;
+  text-align:inherit;
+  box-sizing:border-box;
+  height:2.6rem;
+  width:100%;
+}
 @mixin divider ($color:$border-color-base){
   content:'';
   display:block;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <x-input
       :htmlType="hType"
       :placeholder="placeholder"
@@ -39,7 +39,7 @@ export default {
     XInput
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'password', this.clas]
     }
   },

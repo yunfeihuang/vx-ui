@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <transition name="popup-fade" v-if="!full">
       <overlay @click="closeHandler" v-if="open"></overlay>
     </transition>
@@ -22,7 +22,9 @@ export default {
   },
   mounted () {
     if (this.open) {
-      this.$el.style.display = 'block'
+      requestAnimationFrame(() => {
+        this.$el.style.display = 'block'
+      })
     }
   },
   props: {
@@ -36,18 +38,22 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'popup', this.clas]
     }
   },
   watch: {
     open (val) {
       if (val) {
-        this.$el.style.display = 'block'
-        this.$emit('on-open')
+        requestAnimationFrame(() => {
+          this.$el.style.display = 'block'
+          this.$emit('on-open')
+        })
       } else {
         setTimeout(() => {
-          this.$el.style.display = 'none'
+          requestAnimationFrame(() => {
+            this.$el.style.display = 'none'
+          })
         }, 300)
       }
     }

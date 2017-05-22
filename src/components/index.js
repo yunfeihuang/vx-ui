@@ -1,5 +1,6 @@
 import '../../iconfont/iconfont.css'
 import './index.scss'
+import Vue from 'vue'
 import XButton from './button'
 import XInput from './input'
 import Password from './password'
@@ -9,6 +10,7 @@ import XSwitch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
+import {XForm, FormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
@@ -31,6 +33,19 @@ import XHeader from './header'
 import XBody from './body'
 import XLink from './link'
 import Preview from './preview'
+
+window.toast = (props, mounted = document.body) => {
+  props = Object.assign({destroy: true, open: true, type: ''}, props)
+  let node = document.createElement('div')
+  mounted.appendChild(node)
+  return new Vue({ //eslint-disable-line
+    el: node,
+    template: `<toast :open="props.open" :type="props.type" :destroy="props.destroy" :align="props.align" @on-close="props.onClose">{{props.content}}</toast>`,
+    components: {Toast},
+    data: {props: props}
+  })
+}
+
 export {
   Actionsheet,
   ActionsheetItem,
@@ -48,6 +63,8 @@ export {
   XInput,
   Password,
   Range,
+  XForm,
+  FormItem,
   XTextarea,
   XSwitch,
   Checkbox,

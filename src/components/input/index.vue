@@ -1,5 +1,5 @@
 <template>
-  <label :class="_clas" :style="styles">
+  <label :class="classes" :style="styles">
     <slot name="icon"></slot>
     <input 
       :type="htmlType"
@@ -33,7 +33,7 @@ import { base, input } from 'utils/mixins.js'
 export default {
   mixins: [base, input],
   computed: {
-    _clas () {
+    classes () {
       let styles = {}
       styles[cssPrefix + 'input-focus'] = this.isFocus
       styles[cssPrefix + 'input-clear'] = !!this.value

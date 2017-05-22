@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed' : '']">
       <form @submit="submitHandler">
         <div :class="[cssPrefix + 'search']">
@@ -54,7 +54,7 @@ export default {
     this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'search-wrapper', this.clas]
     }
   },

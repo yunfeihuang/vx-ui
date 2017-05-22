@@ -1,31 +1,34 @@
 <template>
-  <div :class="classes" :style="styles">
+  <form :class="classes" :style="styles" :data-action="action" @submit="submitHandler">
     <slot></slot>
-  </div>
+  </form>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { base } from 'utils/mixins.js'
+
 export default {
   mixins: [base],
   props: {
-    direction: {
+    action: {
       type: String,
-      default: 'row'
+      default: ''
     }
   },
   computed: {
     classes () {
-      return [
-        cssPrefix + 'flexbox',
-        this.clas
-      ]
+      return [cssPrefix + 'form', this.clas]
     }
   },
   data () {
     return {
       cssPrefix: cssPrefix
+    }
+  },
+  methods: {
+    submitHandler () {
+      this.$emit('on-submit')
     }
   }
 }
@@ -35,9 +38,6 @@ export default {
   @import '~styles/variable.scss';
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
-    &flexbox{
-      display: -webkit-flex;
-      display: flex;
-    }
+    
   }
 </style>

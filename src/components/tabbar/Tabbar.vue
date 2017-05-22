@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" onselectstart="return false;">
+  <div :class="classes" :style="styles" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
     }
   }],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'tabbar', this.clas]
     }
   },

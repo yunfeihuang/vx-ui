@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" @click="clickHandler">
+  <div :class="classes" :style="styles" @click="clickHandler">
     <div :class="cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>
@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'cell', this.arrow ? cssPrefix + 'cell-access' : '', this.clas]
     }
   },

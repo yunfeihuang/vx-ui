@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'flex-item', this.clas]
     }
   },

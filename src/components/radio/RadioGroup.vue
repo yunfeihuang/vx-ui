@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" :disabled="disabled">
+  <div :class="classes" :style="styles" :disabled="disabled">
     <template v-for="item in options">
       <radio 
         :name="name"
@@ -41,7 +41,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'radio-group', this.clas]
     }
   },
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      this.$emit('on-change', e.target.value)
+      this.$emit('on-change', e.target.value, this.name)
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <nav>
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>
@@ -29,7 +29,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'header', this.clas]
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :class="_clas" :style="styles" @on-close="closeHandler" @on-enter="enterHandler">
+  <popup :open="open" :class="classes" :style="styles" @on-close="closeHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[cssPrefix + 'actionsheet-item-list']">
         <slot></slot>
@@ -22,7 +22,9 @@ export default {
   },
   mounted () {
     if (this.open) {
-      this.$el.style.display = 'block'
+      requestAnimationFrame(() => {
+        this.$el.style.display = 'block'
+      })
     }
   },
   props: {
@@ -43,18 +45,22 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'actionsheet', this.clas]
     }
   },
   watch: {
     open (val) {
       if (val) {
-        this.$el.style.display = 'block'
-        this.$emit('on-open')
+        requestAnimationFrame(() => {
+          this.$el.style.display = 'block'
+          this.$emit('on-open')
+        })
       } else {
         setTimeout(() => {
-          this.$el.style.display = 'none'
+          requestAnimationFrame(() => {
+            this.$el.style.display = 'none'
+          })
         }, 300)
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <router-link :class="_clas" :style="styles" :to="href">
+  <router-link :class="classes" :style="styles" :to="href">
     <slot></slot>
   </router-link>
 </template>
@@ -10,7 +10,7 @@ import { base } from 'utils/mixins.js'
 export default {
   mixins: [base],
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'link', this.active ? cssPrefix + 'link-active' : '', this.clas]
     }
   },

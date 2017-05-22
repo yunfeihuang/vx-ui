@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" @click="clickHandler">
+  <div :class="classes" @click="clickHandler">
     <i class="iconfont" v-html="icon"></i>
     <span>{{text}}</span>
   </div>
@@ -22,7 +22,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'tabbar-item', this.active ? cssPrefix + 'tabbar-item-active' : '']
     }
   },

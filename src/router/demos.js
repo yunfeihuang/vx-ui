@@ -8,6 +8,7 @@ import {
   Radio,
   Checkbox,
   Range,
+  Form,
   Actionsheet,
   Alert,
   Confirm,
@@ -101,6 +102,11 @@ export default [
     path: '/range',
     name: 'range',
     component: Range
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: Form
   },
   {
     path: '/actionsheet',

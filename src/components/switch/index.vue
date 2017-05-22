@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <input 
       :value="value"
       :disabled="disabled" 
@@ -24,7 +24,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'switch-wrapper', this.clas]
     }
   },
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      this.$emit('on-change', e.target.checked)
+      this.$emit('on-change', e.target.checked, this.name)
     }
   }
 }

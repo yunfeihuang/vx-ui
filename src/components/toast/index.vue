@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
         <template v-if="type">
@@ -18,6 +18,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import { base } from 'utils/mixins.js'
 import Popup from '../popup'
+
 export default {
   mixins: [base],
   components: {
@@ -41,23 +42,39 @@ export default {
     },
     type: {
       type: String
+    },
+    destroy: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'toast', this.clas]
     }
   },
   methods: {
     openChange (val) {
       if (val) {
-        this.$el.style.display = 'table'
+        requestAnimationFrame(() => {
+          this.$el.style.display = 'table'
+        })
         setTimeout(() => {
-          this.$el.style.display = 'none'
-          this.$emit('on-close')
+          requestAnimationFrame(() => {
+            this.$el.style.display = 'none'
+            this.$emit('on-close')
+            if (this.destroy) {
+              this.$destroy()
+            }
+          })
         }, this.duration)
       }
     }
+  },
+  destroyed () {
+    requestAnimationFrame(() => {
+      this.$el.remove()
+    })
   },
   watch: {
     open (val) {

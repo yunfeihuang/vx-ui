@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" @click="clickHandler">
+  <div :class="classes" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'button-tab-item', this.active ? cssPrefix + 'button-tab-item-active' : '']
     }
   },

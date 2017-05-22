@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" >
+  <div :class="classes" :style="styles" >
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'swiper', 'swiper-container', this.clas]
     }
   },

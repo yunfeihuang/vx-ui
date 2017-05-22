@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" onselectstart="return false;">
+  <div :class="classes" :style="styles" onselectstart="return false;">
     <slot></slot>
     <div :class="[cssPrefix+'tab-line']" :style="lineStyle"></div>
   </div>
@@ -42,7 +42,7 @@ export default {
         width: `${100 / this.childLength}%`
       }
     },
-    _clas () {
+    classes () {
       return [cssPrefix + 'tab', this.clas]
     }
   },

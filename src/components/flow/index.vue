@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles">
+  <div :class="classes" :style="styles">
     <div :class="[cssPrefix + 'flow-inner']">
       <div :class="[cssPrefix + 'flow-refresh']">
         <i class="iconfont"></i>
@@ -43,7 +43,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'flow', 'scrollbox', this.clas]
     }
   },

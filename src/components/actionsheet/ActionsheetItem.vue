@@ -1,5 +1,5 @@
 <template>
-  <div :class="_clas" :style="styles" :disabled="disabled" @click="clickHandler">
+  <div :class="classes" :style="styles" :disabled="disabled" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
     }
   },
   computed: {
-    _clas () {
+    classes () {
       return [cssPrefix + 'action-sheet-item', this.checked ? cssPrefix + 'action-sheet-item-active' : '', this.clas]
     }
   },
