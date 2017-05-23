@@ -3,9 +3,7 @@
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
         <template v-if="type">
-          <i v-if="type==='success'" class="iconfont">&#xe654;</i>
-          <i v-if="type==='warn'" class="iconfont">&#xe653;</i>
-          <i v-if="type==='fail'" class="iconfont">&#xe605;</i>
+          <i v-if="type==='success'" v-html="iconCode[type]" class="iconfont"></i>
           <br/>
         </template>
         <slot></slot>
@@ -18,6 +16,13 @@
 import { cssPrefix } from 'utils/variable.js'
 import { base } from 'utils/mixins.js'
 import Popup from '../popup'
+
+const iconCode = {
+  success: '&#xe654;',
+  warn: '&#xe653;',
+  fail: '&#xe605;',
+  loading: '&#xe609;'
+}
 
 export default {
   mixins: [base],
@@ -83,7 +88,8 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix
+      cssPrefix: cssPrefix,
+      iconCode: iconCode
     }
   }
 }

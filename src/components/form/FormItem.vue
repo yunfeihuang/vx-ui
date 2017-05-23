@@ -37,15 +37,8 @@ export default {
   },
   methods: {
     invalidHandler (e) {
-      if (!this.$parent.invalid) {
-        this.$parent.invalid = true
-        window.toast({
-          content: e.target.validationMessage,
-          onClose: () => {
-            this.$parent.invalid = false
-          }
-        })
-      }
+      let message = this.$parent.getValidityMessage(e.target.validity, this.label)
+      this.$parent.showValidityMessage(message)
       e.preventDefault()
     }
   },

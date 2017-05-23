@@ -7,26 +7,22 @@
       <br />
       <x-form>
         <form-item label="姓名">
-          <input name="name" required @change="changeHandler"/>
+          <input v-model="form.name" required />
         </form-item>
         <form-item label="邮箱">
-          <input name="email" required @change="changeHandler"/>
+          <input pattern="^[0-9]$" v-model="form.email" required />
         </form-item>
         <form-item label="性别">
           <x-select
-            name="sex"
-            :value="formStore.sex"
+            v-model="form.sex"
             :options="sexOptions"
             placeholder="请选择"
             required
-            @on-change="changeHandler"
             />
         </form-item>
         <form-item label="是否已婚" >
           <x-switch
-            name="accpet"
-            :checked="formStore.accpet"
-            @on-change="changeHandler"
+            v-model="form.accpet"
           />
         </form-item>
         <br />
@@ -62,19 +58,9 @@ export default {
     XSwitch,
     XButton
   },
-  methods: {
-    changeHandler (value, name) {
-      if (value.target) {
-        this.formStore[value.target.name] = value.target.value
-      } else {
-        this.formStore[name] = value
-      }
-      console.log(this.formStore)
-    }
-  },
   data () {
     return {
-      formStore: {
+      form: {
         name: '',
         sex: '',
         type: '',

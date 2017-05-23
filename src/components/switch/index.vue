@@ -1,13 +1,11 @@
 <template>
   <div :class="classes" :style="styles">
     <input 
-      :value="value"
       :disabled="disabled" 
       :name="name" 
-      :checked="checked"
+      :checked="value"
       type="checkbox"
       @change="changeHandler"
-      @input="inputHandler"
       />
     <button type="button"></button>
   </div>
@@ -19,12 +17,9 @@ import { base, input } from 'utils/mixins.js'
 export default {
   mixins: [base, input],
   props: {
-    checked: {
+    value: {
       type: Boolean,
       default: false
-    },
-    value: {
-      type: [String, Array]
     }
   },
   computed: {
@@ -39,11 +34,9 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      if (this.value) {
-        this.$emit('on-change', this.value instanceof Array ? this.value[Number(e.target.checked)] : (e.target.checked ? e.target.value : ''))
-      } else {
-        this.$emit('on-change', e.target.checked)
-      }
+      let value = e.target.checked
+      this.$emit('on-change', value)
+      this.$emit('input', value)
     }
   }
 }
