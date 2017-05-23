@@ -7,6 +7,7 @@
       </div>
       <slot></slot>
       <div :class="[cssPrefix + 'flow-loading']" v-if="loading"><i class="iconfont">&#xe609;</i>{{loadingText}}</div>
+      <div :class="[cssPrefix + 'flow-loading']" v-if="end">{{endText}}</div>
     </div>
   </div>
 </template>
@@ -33,6 +34,14 @@ export default {
     refreshText: {
       type: String,
       default: '释放刷新'
+    },
+    end: {
+      type: Boolean,
+      default: false
+    },
+    endText: {
+      type: String,
+      default: '没有更多'
     }
   },
   watch: {
@@ -52,7 +61,7 @@ export default {
     this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
-        !this.loading && this.scrollHandler(e)
+        !this.loading && !this.end && this.scrollHandler(e)
       }, 200)
     })
     if (this._events['on-pulldown']) {

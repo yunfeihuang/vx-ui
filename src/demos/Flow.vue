@@ -4,7 +4,7 @@
       <div slot="title">Flow</div>
     </x-header>
     <x-body slot="body" :scroll="false" class="demos flow-demos">
-      <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
+      <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
         <template v-for="item in list">
           <div class="flexbox">
             <x-img class="avator" :src="item.author.avatar_url" />
@@ -67,6 +67,9 @@ export default {
         } else {
           this.list = data.data.concat(this.list)
         }
+        if (page > 2 && !this.end) {
+          this.end = true
+        }
         cb && cb()
       })
     }
@@ -74,7 +77,8 @@ export default {
   data () {
     return {
       list: [],
-      loading: true
+      loading: true,
+      end: false
     }
   }
 }
