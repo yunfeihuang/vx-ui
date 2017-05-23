@@ -3,10 +3,24 @@
     <x-header slot="header">
       <div slot="title">Tabbar</div>
     </x-header>
-    <x-body slot="body" style="text-align:center;line-height:40px">
-      <div v-if="active===0">我是主页</div>
-      <div v-if="active===1">消息在这</div>
-      <div v-if="active===2">这里我的</div>
+    <x-body slot="body">
+      <swiper :active="active" @on-change="changeHandler" class="tabbar-swiper">
+        <swiper-item>
+          <div class="tab-content">
+            我是主页
+          </div>
+        </swiper-item>
+        <swiper-item>
+          <div class="tab-content">
+            消息在这
+          </div>
+        </swiper-item>
+        <swiper-item>
+          <div class="tab-content">
+            这里我的
+          </div>
+        </swiper-item>
+      </swiper>
     </x-body>
     <tabbar slot="footer" @on-change="changeHandler" :active="active">
       <tabbar-item text="主页" icon="&#xe651;"/>
@@ -22,7 +36,9 @@ import {
   XHeader,
   XBody,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  Swiper,
+  SwiperItem
 } from '../components'
 export default {
   components: {
@@ -30,7 +46,9 @@ export default {
     XHeader,
     XBody,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Swiper,
+    SwiperItem
   },
   methods: {
     changeHandler (value) {
@@ -46,5 +64,10 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  .tabbar-swiper{
+    height:100%;
+    min-height:300px;
+    text-align:center;
+    line-height:40px
+  }
 </style>

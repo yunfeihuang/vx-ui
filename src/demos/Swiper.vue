@@ -6,13 +6,13 @@
     <x-body slot="body" style="background:#fff">
       <swiper :active="active" @on-change="changeHandler" :options="options" class="swiper-demo">
         <swiper-item>
-          <img src="http://assets.bittyos.com/images/gallery/img1.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img1.jpg" />
         </swiper-item>
         <swiper-item>
-          <img src="http://assets.bittyos.com/images/gallery/img2.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img2.jpg" />
         </swiper-item>
         <swiper-item>
-          <img src="http://assets.bittyos.com/images/gallery/img3.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img3.jpg" />
         </swiper-item>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -26,7 +26,8 @@ import {
   XHeader,
   XBody,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  XImg
 } from '../components'
 export default {
   components: {
@@ -34,7 +35,8 @@ export default {
     XHeader,
     XBody,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    XImg
   },
   methods: {
     changeHandler (value) {

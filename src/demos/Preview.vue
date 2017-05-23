@@ -33,7 +33,7 @@ export default {
   },
   data () {
     return {
-      images: []
+      images: [{}, {}, {}]
     }
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
         w: natural.w > windowWidth ? windowWidth : natural.w,
         h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : natural.h
       }
-      this.images.push(item)
+      this.images[e.target.dataset.index] = item
     },
     clickHandler (e) {
       this.$refs.preview.open(parseInt(e.target.dataset.index))
