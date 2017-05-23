@@ -7,15 +7,15 @@
       <group>
         <cell :arrow="false">
           <div slot="title">Toast Message Top</div>
-          <x-switch slot="value" :checked="topOpen" @on-change="changeTHandler"></x-switch>
+          <x-switch slot="value" :value="topOpen" @on-change="changeTHandler"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Message Center Success</div>
-          <x-switch slot="value" :checked="centerOpen" @on-change="changeCHandler"></x-switch>
+          <x-switch slot="value" :value="centerOpen" @on-change="changeCHandler"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Message Bottom</div>
-          <x-switch slot="value" :checked="bottomOpen" @on-change="changeBHandler"></x-switch>
+          <x-switch slot="value" :value="bottomOpen" @on-change="changeBHandler"/>
         </cell>
       </group>
     </x-body>

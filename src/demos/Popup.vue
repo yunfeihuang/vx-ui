@@ -7,11 +7,11 @@
       <group>
         <cell :arrow="false">
           <div slot="title">popup default</div>
-          <x-switch slot="value" :checked="checked" @on-change="changeHandler"></x-switch>
+          <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup full</div>
-          <x-switch slot="value" :checked="fullChecked" @on-change="changeFullHandler"></x-switch>
+          <x-switch slot="value" :value="fullChecked" @on-change="changeFullHandler"/>
         </cell>
       </group>
     </x-body>
@@ -20,7 +20,7 @@
         <group>
           <cell :arrow="false">
             <div slot="title">popup default close</div>
-            <x-switch slot="value" :checked="checked" @on-change="changeHandler"></x-switch>
+            <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
           </cell>
         </group>
       </div>
@@ -30,7 +30,7 @@
         <group>
           <cell :arrow="false">
             <div slot="title">popup full close</div>
-            <x-switch slot="value" :checked="fullChecked" @on-change="changeFullHandler"></x-switch>
+            <x-switch slot="value" :value="fullChecked" @on-change="changeFullHandler"/>
           </cell>
         </group>
       </div>
