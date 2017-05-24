@@ -4,7 +4,7 @@
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>
       </button>
-      <div :class="[cssPrefix + 'header-title']">
+      <div :class="[cssPrefix + 'header-title', back===false ? cssPrefix + 'header-title-center' : '']">
         <slot name="title"></slot>
       </div>
       <slot name="pull"></slot>
@@ -18,7 +18,7 @@ import { cssPrefix } from 'utils/variable.js'
 export default {
   props: {
     back: {
-      type: [String, Boolean],
+      type: [String, Boolean, Function],
       default: true
     },
     backText: {
@@ -43,6 +43,9 @@ export default {
       }
       if (typeof this.back === 'string') {
         location.href = this.back
+      }
+      if (typeof this.back === 'function') {
+        this.back()
       }
     }
   }
@@ -82,6 +85,9 @@ export default {
         flex:1;
         font-size:1.1rem;
         overflow: hidden;
+        &-center{
+          text-align:center;
+        }
       }
     }
   }

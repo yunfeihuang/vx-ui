@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-header slot="header" :back="false">
-      <div slot="title" style="text-align:center">Demos</div>
+      <div slot="title">Demos</div>
     </x-header>
     <x-body class="demos" slot="body" style="background:#fff">
       <div class="demos-actions">

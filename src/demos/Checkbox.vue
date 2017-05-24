@@ -10,7 +10,7 @@
       <group title="CheckboxGroup">
         <checkbox-group :options="options" @on-change="changeHandler" name="checkbox" :value="value"/>
       </group>
-      <group title="Layout-Reverse">
+      <group title="CheckboxGroup-Reverse">
         <checkbox-group direction="reverse" :options="options" @on-change="changeReverseHandler" name="checkboxReverse" :value="reverseValue"/>
       </group>
     </x-body>
