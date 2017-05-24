@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :class="classes" :style="styles" @on-close="closeHandler" @on-enter="enterHandler">
+  <popup :open="open" @on-close="closeHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[cssPrefix + 'actionsheet-item-list']">
         <slot></slot>
@@ -13,10 +13,8 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import Popup from '../popup'
 export default {
-  mixins: [base],
   components: {
     Popup
   },
@@ -46,7 +44,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'actionsheet', this.clas]
+      return [cssPrefix + 'actionsheet']
     }
   },
   watch: {

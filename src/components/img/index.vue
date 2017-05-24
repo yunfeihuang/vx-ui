@@ -1,8 +1,7 @@
 <template>
-  <div :style="styles" :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
+  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
     <img
       :class="classes"
-      :style="styles"
       :alt="alt"
       @error="errorHandler"
       @load='loadHandler'
@@ -14,10 +13,8 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 
 export default {
-  mixins: [base],
   props: {
     src: {
       type: String
@@ -71,7 +68,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '', this.clas]
+      return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '']
     }
   },
   destroyed () {
@@ -133,10 +130,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &img{
-      min-height:20px;
-      min-width:20px;
-      max-width:100%;
-      max-height:100%;
       &-lazyload{
         opacity:0;
         transition:opacity 0.4s ease 0s;
@@ -146,6 +139,12 @@ export default {
         vertical-align: middle;
         font-size:0;
         position:relative;
+        img{
+          min-height:20px;
+          min-width:20px;
+          max-width:100%;
+          max-height:100%;
+        }
         .iconfont{
           font-size:16px;
           position:absolute;

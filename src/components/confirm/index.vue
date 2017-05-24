@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>
@@ -22,11 +22,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import Overlay from '../overlay'
 import Divider from '../divider'
 export default {
-  mixins: [base],
   components: {
     Overlay,
     Divider
@@ -58,7 +56,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'confirm', this.clas]
+      return [cssPrefix + 'confirm']
     }
   },
   watch: {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
         <template v-if="type">
@@ -14,7 +14,6 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import Popup from '../popup'
 
 const iconCode = {
@@ -25,7 +24,6 @@ const iconCode = {
 }
 
 export default {
-  mixins: [base],
   components: {
     Popup
   },
@@ -55,7 +53,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'toast', this.clas]
+      return [cssPrefix + 'toast']
     }
   },
   methods: {

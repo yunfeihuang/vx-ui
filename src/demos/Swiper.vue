@@ -6,13 +6,13 @@
     <x-body slot="body" style="background:#fff">
       <swiper :active="active" @on-change="changeHandler" :options="options" class="swiper-demo">
         <swiper-item>
-          <x-img src="http://assets.bittyos.com/images/gallery/img1.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img1.jpg" class="swiper-img" />
         </swiper-item>
         <swiper-item>
-          <x-img src="http://assets.bittyos.com/images/gallery/img2.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img2.jpg" class="swiper-img" />
         </swiper-item>
         <swiper-item>
-          <x-img src="http://assets.bittyos.com/images/gallery/img3.jpg" />
+          <x-img src="http://assets.bittyos.com/images/gallery/img3.jpg" class="swiper-img" />
         </swiper-item>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -59,6 +59,9 @@ export default {
     height:300px;
     img{
       max-width:100%;
+    }
+    .swiper-img{
+      min-height:300px;
     }
   }
 </style>

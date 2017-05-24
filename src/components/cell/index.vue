@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" @click="clickHandler">
+  <div :class="classes" @click="clickHandler">
     <div :class="cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>
@@ -14,9 +14,7 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     arrow: {
       type: Boolean,
@@ -28,7 +26,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'cell', this.arrow ? cssPrefix + 'cell-access' : '', this.clas]
+      return [cssPrefix + 'cell', this.arrow ? cssPrefix + 'cell-access' : '']
     }
   },
   data () {

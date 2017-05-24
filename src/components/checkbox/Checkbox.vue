@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" :style="styles" :disabled="disabled" >
+  <label :class="classes" :disabled="disabled" >
     <input type="checkbox" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <i :class="[cssPrefix + 'checkbox-icon','iconfont']">&#xe632;</i>
     <slot></slot>
@@ -8,12 +8,18 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   computed: {
     classes () {
-      return [cssPrefix + 'checkbox', this.clas]
+      return [cssPrefix + 'checkbox', this.direction === 'reverse' ? cssPrefix + 'checkbox-reverse' : '']
+    }
+  },
+  props: {
+    direction: {
+      type: String,
+      default: 'normal'
     }
   },
   data () {
@@ -34,8 +40,9 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &checkbox{
-      display: inline-block;
+      display:block;
       position:relative;
+      padding:0.86rem 0.5rem;
       @include disabled;
       input{
         position:absolute;
@@ -62,7 +69,15 @@ export default {
         line-height: 1.3;
         font-size: 16px;
       }
-      input:checked+.#{$css-prefix}checkbox-icon{
+      &-reverse{
+        .#{$css-prefix}checkbox-icon{
+          position:absolute;
+          top:50%;
+          right:0.5rem;
+          margin-top:-10px;
+        }
+      }
+      input:checked + &-icon{
         background-color:$primary-color;
         box-shadow:none;
         color:#fff;

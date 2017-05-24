@@ -1,17 +1,15 @@
 <template>
-  <div :class="classes" :style="styles" @click="clickHandler" onselectstart="return false;">
+  <div :class="classes" @click="clickHandler" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 let node = null
 let offset = {}
 let timer = null
 export default {
-  mixins: [base],
   computed: {
     classes () {
       return [cssPrefix + 'ripple']
@@ -74,7 +72,7 @@ export default {
         min-width:44px;
         border-radius:50%;
         margin:-20px;
-        transition:transform 0.6s ease-in-out 0s,opacity 0.4s linear 0s;
+        transition:transform 1s ease-in-out 0s,opacity 0.4s linear 0s;
         pointer-events: none;
       }
     }

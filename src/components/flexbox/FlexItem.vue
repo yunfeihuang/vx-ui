@@ -1,14 +1,12 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     open: {
       type: Boolean,
@@ -17,7 +15,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'flex-item', this.clas]
+      return [cssPrefix + 'flex-item']
     }
   },
   data () {

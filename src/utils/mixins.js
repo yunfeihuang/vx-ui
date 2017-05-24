@@ -1,14 +1,3 @@
-const base = {
-  props: {
-    clas: {
-      type: [String, Array]
-    },
-    styles: {
-      type: [String, Object]
-    }
-  }
-}
-
 const button = {
   props: {
     disabled: {
@@ -99,8 +88,33 @@ const input = {
   }
 }
 
+const tab = {
+  mounted () {
+    if (!this.$children) return
+    this.childLength = this.$children.length
+    this.$children.forEach((item, i) => {
+      this.$children[i].$on('on-change', this.changeHandler)
+      item.index = i
+      item.active = item.index === this.active
+    })
+    this.afterMounted && this.afterMounted()
+  },
+  props: {
+    active: {
+      type: Number,
+      default: 0
+    }
+  },
+  watch: {
+    active (val, oldVal) {
+      this.$children[oldVal].active = false
+      this.$children[val].active = true
+    }
+  }
+}
+
 export {
-  base,
   button,
-  input
+  input,
+  tab
 }

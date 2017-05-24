@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <transition name="popup-fade" v-if="!full">
       <overlay @click="closeHandler" v-if="open"></overlay>
     </transition>
@@ -13,10 +13,8 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import Overlay from '../overlay'
 export default {
-  mixins: [base],
   components: {
     Overlay
   },
@@ -39,7 +37,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'popup', this.clas]
+      return [cssPrefix + 'popup']
     }
   },
   watch: {

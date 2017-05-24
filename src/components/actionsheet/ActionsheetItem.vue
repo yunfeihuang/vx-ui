@@ -1,14 +1,12 @@
 <template>
-  <div :class="classes" :style="styles" :disabled="disabled" @click="clickHandler">
+  <div :class="classes" :disabled="disabled" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     disabled: {
       type: Boolean,
@@ -21,7 +19,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'action-sheet-item', this.checked ? cssPrefix + 'action-sheet-item-active' : '', this.clas]
+      return [cssPrefix + 'action-sheet-item', this.checked ? cssPrefix + 'action-sheet-item-active' : '']
     }
   },
   data () {

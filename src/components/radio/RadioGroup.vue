@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" :disabled="disabled">
+  <div :class="classes" :disabled="disabled">
     <template v-for="item in options">
       <radio 
         :name="name"
@@ -17,12 +17,12 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 import Radio from './Radio'
 import Divider from '../divider'
 
 export default {
-  mixins: [base, input],
+  mixins: [input],
   components: {
     Radio,
     Divider
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'radio-group', this.clas]
+      return [cssPrefix + 'radio-group']
     }
   },
   data () {

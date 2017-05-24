@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" :style="styles">
+  <label :class="classes">
     <slot name="icon"></slot>
     <input 
       :type="htmlType"
@@ -29,9 +29,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   computed: {
     classes () {
       let styles = {}

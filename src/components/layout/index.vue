@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" >
+  <div :class="classes">
     <div :class="[cssPrefix + 'layout-flexbox']">
       <slot name="header"></slot>
       <slot name="body"></slot>
@@ -11,12 +11,10 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   computed: {
     classes () {
-      return [cssPrefix + 'layout', this.clas]
+      return [cssPrefix + 'layout']
     }
   },
   data () {

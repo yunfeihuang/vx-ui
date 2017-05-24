@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <input 
       :disabled="disabled" 
       :name="name" 
@@ -13,9 +13,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   props: {
     value: {
       type: Boolean,
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'switch-wrapper', this.clas]
+      return [cssPrefix + 'switch-wrapper']
     }
   },
   data () {

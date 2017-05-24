@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <div :class="[cssPrefix + 'flow-inner']">
       <div :class="[cssPrefix + 'flow-refresh']">
         <i class="iconfont"></i>
@@ -14,10 +14,8 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 
 export default {
-  mixins: [base],
   props: {
     loading: {
       type: Boolean,
@@ -53,7 +51,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'flow', 'scrollbox', this.clas]
+      return [cssPrefix + 'flow', 'scrollbox']
     }
   },
   mounted () {

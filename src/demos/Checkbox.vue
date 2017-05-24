@@ -5,10 +5,13 @@
     </x-header>
     <x-body slot="body">
       <group title="Checkbox">
-        <checkbox :checked="checked" style="padding:0.8rem 0.5rem" @on-change="checkedHandler">{{checked}}</checkbox>
+        <checkbox :checked="checked" @on-change="checkedHandler">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
         <checkbox-group :options="options" @on-change="changeHandler" name="checkbox" :value="value"/>
+      </group>
+      <group title="Layout-Reverse">
+        <checkbox-group direction="reverse" :options="options" @on-change="changeReverseHandler" name="checkboxReverse" :value="reverseValue"/>
       </group>
     </x-body>
   </layout>
@@ -36,6 +39,9 @@ export default {
     changeHandler (value) {
       this.value = value
     },
+    changeReverseHandler (value) {
+      this.reverseValue = value
+    },
     checkedHandler (e) {
       this.checked = e.target.checked
     }
@@ -61,7 +67,8 @@ export default {
           value: '4',
           label: '高尔夫'
         }
-      ]
+      ],
+      reverseValue: ['1']
     }
   }
 }

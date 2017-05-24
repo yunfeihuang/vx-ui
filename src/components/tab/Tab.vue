@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" onselectstart="return false;">
+  <div :class="classes" onselectstart="return false;">
     <slot></slot>
     <div :class="[cssPrefix+'tab-line']" :style="lineStyle"></div>
   </div>
@@ -7,34 +7,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
+import { tab } from 'utils/mixins.js'
 export default {
-  mixins: [base, {
-    mounted () {
-      if (!this.$children) return
-      this.childLength = this.$children.length
-      this.$children.forEach((item, i) => {
-        this.$children[i].$on('on-change', this.changeHandler)
-        item.index = i
-        item.active = item.index === this.active
-      })
-      requestAnimationFrame(() => {
-        this.$el.querySelector('.' + cssPrefix + 'tab-line').style.display = 'block'
-      })
-    },
-    props: {
-      active: {
-        type: Number,
-        default: 0
-      }
-    },
-    watch: {
-      active (val, oldVal) {
-        this.$children[oldVal].active = false
-        this.$children[val].active = true
-      }
-    }
-  }],
+  mixins: [tab],
   computed: {
     lineStyle () {
       return {
@@ -43,7 +18,7 @@ export default {
       }
     },
     classes () {
-      return [cssPrefix + 'tab', this.clas]
+      return [cssPrefix + 'tab']
     }
   },
   data () {
@@ -53,6 +28,12 @@ export default {
     }
   },
   methods: {
+    afterMounted () {
+      let tabLine = this.$el.querySelector('.' + cssPrefix + 'tab-line')
+      tabLine && requestAnimationFrame(() => {
+        tabLine.style.display = 'block'
+      })
+    },
     changeHandler (val) {
       this.$emit('click', val)
       if (val !== this.active) {

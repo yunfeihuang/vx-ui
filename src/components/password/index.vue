@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <x-input
       :htmlType="hType"
       :placeholder="placeholder"
@@ -31,16 +31,16 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 import XInput from '../input'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   components: {
     XInput
   },
   computed: {
     classes () {
-      return [cssPrefix + 'password', this.clas]
+      return [cssPrefix + 'password']
     }
   },
   data () {

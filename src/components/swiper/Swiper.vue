@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" >
+  <div :class="classes" >
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
@@ -12,11 +12,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import Swiper from 'swiper/dist/js/swiper.min.js'
 import 'swiper/dist/css/swiper.min.css'
 export default {
-  mixins: [base],
   props: {
     active: {
       type: Number,
@@ -28,7 +26,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'swiper', 'swiper-container', this.clas]
+      return [cssPrefix + 'swiper', 'swiper-container']
     }
   },
   mounted () {

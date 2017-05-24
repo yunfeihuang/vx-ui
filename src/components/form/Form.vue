@@ -1,12 +1,11 @@
 <template>
-  <form :class="classes" :style="styles" :action="action" @submit="submitHandler">
+  <form :class="classes" :action="action" @submit="submitHandler">
     <slot></slot>
   </form>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import messages from './messages.js'
 
 const validityStateArrayMap = [
@@ -15,7 +14,6 @@ const validityStateArrayMap = [
 ]
 
 export default {
-  mixins: [base],
   props: {
     action: {
       type: String
@@ -26,7 +24,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'form', this.clas]
+      return [cssPrefix + 'form']
     },
     messages: messages
   },

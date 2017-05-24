@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" tabindex="-1" role="dialog" aria-hidden="true">
+  <div :class="classes" tabindex="-1" role="dialog" aria-hidden="true">
     <!-- Background of PhotoSwipe.
            It's a separate element as animating opacity is faster than rgba(). -->
       <div class="pswp__bg"></div>
@@ -47,12 +47,10 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 import PhotoSwipe from 'photoswipe/dist/photoswipe.min.js'
 import UI from 'photoswipe/dist/photoswipe-ui-default'
 
 export default {
-  mixins: [base],
   props: {
     list: {
       type: Array,
@@ -68,7 +66,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'photoswiper', this.clas]
+      return [cssPrefix + 'photoswiper']
     }
   },
   methods: {

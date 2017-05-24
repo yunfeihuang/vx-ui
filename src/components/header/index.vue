@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <nav>
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>
@@ -15,9 +15,7 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     back: {
       type: [String, Boolean],
@@ -30,7 +28,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'header', this.clas]
+      return [cssPrefix + 'header']
     }
   },
   data () {

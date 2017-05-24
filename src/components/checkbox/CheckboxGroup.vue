@@ -1,11 +1,12 @@
 <template>
-  <div :class="classes" :style="styles" :disabled="disabled">
+  <div :class="classes" :disabled="disabled">
     <template v-for="item in options">
       <checkbox 
         :name="item.name"
         :disabled="item.disabled"
         :value="item.value"
         :checked="value.indexOf(item.value)>-1"
+        :direction="direction"
         @on-change="changeHandler"
         >
         {{item.label}}
@@ -17,12 +18,12 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 import Checkbox from './Checkbox'
 import Divider from '../divider'
 
 export default {
-  mixins: [base, input],
+  mixins: [input],
   components: {
     Checkbox,
     Divider
@@ -39,11 +40,15 @@ export default {
     divider: {
       type: Boolean,
       default: true
+    },
+    direction: {
+      type: String,
+      default: 'normal'
     }
   },
   computed: {
     classes () {
-      return [cssPrefix + 'checkbox-group', this.clas]
+      return [cssPrefix + 'checkbox-group']
     }
   },
   data () {
@@ -73,10 +78,6 @@ export default {
     &checkbox-group{
       user-select: none;
       @include disabled;
-      .#{$css-prefix}checkbox{
-        padding:0.86rem 0.5rem;
-        display:block;
-      }
     }
   }
 </style>

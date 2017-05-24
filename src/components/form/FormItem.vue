@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'form-item', this.divider ? cssPrefix + 'form-divider' : '', this.clas]
+      return [cssPrefix + 'form-item', this.divider ? cssPrefix + 'form-divider' : '']
     }
   },
   mounted () {

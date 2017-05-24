@@ -1,17 +1,15 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   computed: {
     classes () {
-      return [cssPrefix + 'swiper-item', 'swiper-slide', this.clas]
+      return [cssPrefix + 'swiper-item', 'swiper-slide']
     }
   },
   data () {

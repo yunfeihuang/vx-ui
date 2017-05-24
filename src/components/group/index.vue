@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <div v-if="title" :class="[cssPrefix+'group-title']">{{title}}</div>
     <div :class="[cssPrefix+'group-inner']">
       <slot></slot>
@@ -9,9 +9,7 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     title: {
       type: String
@@ -19,7 +17,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'group', this.clas]
+      return [cssPrefix + 'group']
     }
   },
   data () {

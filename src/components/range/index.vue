@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <div :class="[cssPrefix+'range-mask']"></div>
     <div :class="[cssPrefix+'range-value']" ></div>
     <div :class="[cssPrefix+'range-button']" @mousedown="touchStartHandler" @touchstart="touchStartHandler">
@@ -10,9 +10,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   computed: {
     classes () {
       let array = [cssPrefix + 'range-wrapper']

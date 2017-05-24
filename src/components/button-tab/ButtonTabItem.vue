@@ -33,7 +33,7 @@ export default {
     &button-tab-item{
       flex:1;
       border-left:1px solid $primary-color;
-      padding:0.55rem 0;
+      padding:0.7rem 0;
       &-active{
         background-color:$primary-color;
         color:#fff;

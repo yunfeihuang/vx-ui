@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" :style="styles" :disabled="disabled" >
+  <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <span :class="[cssPrefix + 'radio-icon']"><i class="iconfont">&#xe632;</i></span>
     <slot></slot>
@@ -8,12 +8,12 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   computed: {
     classes () {
-      return [cssPrefix + 'radio', this.clas]
+      return [cssPrefix + 'radio']
     }
   },
   data () {
@@ -37,9 +37,7 @@ export default {
     &radio{
       display:block;
       position:relative;
-      padding-right:32px;
-      padding-top:0.8rem;
-      padding-bottom:0.8rem;
+      padding: 0.86rem 0.5rem;
       @include disabled;
       input{
         position:absolute;
@@ -52,21 +50,21 @@ export default {
         padding:0;
         margin:0;
       }
-      .#{$css-prefix}radio-icon{
+      &-icon{
         position:absolute;
-        right:6px;
+        right:0.5rem;
         top:50%;
         width: 20px;
         height: 20px;
-        margin-top:-11px;
+        margin-top:-10px;
         display:none;
-      }
-      input:checked+.#{$css-prefix}radio-icon{
-        color:$primary-color;
-        display:block;
         .iconfont{
           font-size:20px;
         }
+      }
+      input:checked + &-icon{
+        color:$primary-color;
+        display:block;
       }
     }
   }

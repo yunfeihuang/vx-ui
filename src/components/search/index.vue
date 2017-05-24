@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles">
+  <div :class="classes">
     <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed' : '']">
       <form @submit="submitHandler">
         <div :class="[cssPrefix + 'search']">
@@ -43,10 +43,10 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 import XInput from '../input'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   components: {
     XInput
   },
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'search-wrapper', this.clas]
+      return [cssPrefix + 'search-wrapper']
     }
   },
   watch: {

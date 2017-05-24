@@ -1,14 +1,14 @@
 <template>
-  <button :class="classes" :style="styles" :disabled="disabled" :type="htmlType" @click="clickHandler">
+  <button :class="classes" :disabled="disabled" :type="htmlType" @click="clickHandler">
     <slot></slot>
   </button>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, button } from 'utils/mixins.js'
+import { button } from 'utils/mixins.js'
 export default {
-  mixins: [base, button],
+  mixins: [button],
   computed: {
     classes () {
       return [cssPrefix + 'btn', this.type ? (cssPrefix + 'btn-' + this.type) : this.clas]

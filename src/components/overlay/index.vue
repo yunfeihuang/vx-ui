@@ -1,14 +1,12 @@
 <template>
-  <div :class="classes" :style="_style" @click="clickHandler">
+  <div :class="classes" :style="styles" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   props: {
     opacity: {
       type: Number,
@@ -17,9 +15,9 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'overlay', this.clas]
+      return [cssPrefix + 'overlay']
     },
-    _style () {
+    styles () {
       return 'opacity:' + this.opacity
     }
   },

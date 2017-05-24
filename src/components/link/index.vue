@@ -1,17 +1,15 @@
 <template>
-  <router-link :class="classes" :style="styles" :to="href">
+  <router-link :class="classes" :to="href">
     <slot></slot>
   </router-link>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
 export default {
-  mixins: [base],
   computed: {
     classes () {
-      return [cssPrefix + 'link', this.active ? cssPrefix + 'link-active' : '', this.clas]
+      return [cssPrefix + 'link', this.active ? cssPrefix + 'link-active' : '']
     }
   },
   props: {

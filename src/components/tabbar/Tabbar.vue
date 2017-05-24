@@ -1,43 +1,21 @@
 <template>
-  <div :class="classes" :style="styles" onselectstart="return false;">
+  <div :class="classes" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base } from 'utils/mixins.js'
+import { tab } from 'utils/mixins.js'
 import Divider from '../divider'
 export default {
   components: {
     Divider
   },
-  mixins: [base, {
-    mounted () {
-      if (!this.$children) return
-      this.childLength = this.$children.length
-      this.$children.forEach((item, i) => {
-        this.$children[i].$on('on-change', this.changeHandler)
-        item.index = i
-        item.active = item.index === this.active
-      })
-    },
-    props: {
-      active: {
-        type: Number,
-        default: 0
-      }
-    },
-    watch: {
-      active (val, oldVal) {
-        this.$children[oldVal].active = false
-        this.$children[val].active = true
-      }
-    }
-  }],
+  mixins: [tab],
   computed: {
     classes () {
-      return [cssPrefix + 'tabbar', this.clas]
+      return [cssPrefix + 'tabbar']
     }
   },
   data () {

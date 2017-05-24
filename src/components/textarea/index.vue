@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" :style="styles">
+  <label :class="classes">
     <div :class="[cssPrefix+'textarea-shadow']"></div>
     <textarea 
       :placeholder="placeholder"
@@ -22,9 +22,9 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { base, input } from 'utils/mixins.js'
+import { input } from 'utils/mixins.js'
 export default {
-  mixins: [base, input],
+  mixins: [input],
   mounted () {
     this.$textarea = this.$el.querySelector('textarea')
     this.$shadow = this.$el.querySelector('.' + cssPrefix + 'textarea-shadow')

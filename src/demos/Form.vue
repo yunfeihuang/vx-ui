@@ -10,7 +10,7 @@
           <input v-model="form.name" required />
         </form-item>
         <form-item label="邮箱">
-          <input pattern="^[0-9]$" v-model="form.email" required />
+          <input pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" v-model="form.email" required />
         </form-item>
         <form-item label="性别">
           <x-select
