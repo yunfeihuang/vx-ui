@@ -35,15 +35,108 @@ import XLink from './link'
 import Preview from './preview'
 
 window.toast = (props, mounted = document.body) => {
-  props = Object.assign({destroy: true, open: true, type: ''}, props)
+  props = Object.assign({
+    open: true,
+    onClose: () => {
+      return true
+    }
+  }, props)
   let node = document.createElement('div')
   mounted.appendChild(node)
-  return new Vue({ //eslint-disable-line
+  
+  let vue = new Vue({ //eslint-disable-line
     el: node,
-    template: `<toast :open="props.open" :type="props.type" :destroy="props.destroy" :align="props.align" @on-close="props.onClose">{{props.content}}</toast>`,
+    template: `<toast :open="props.open" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
     components: {Toast},
-    data: {props: props}
+    data: {props: props},
+    methods: {
+      closeHandler: () => {
+        props.open = props.onClose() === false
+        !props.open && setTimeout(() => {
+          vue.$destroy()
+        }, 1000)
+      }
+    },
+    destroyed: () => {
+      requestAnimationFrame(() => {
+        vue.$el.remove()
+      })
+    }
   })
+  return vue
+}
+
+window.alert = (props, mounted = document.body) => {
+  props = Object.assign({
+    open: true,
+    onConfirm: () => {
+      return true
+    }
+  }, props)
+  let node = document.createElement('div')
+  mounted.appendChild(node)
+  
+  let vue = new Vue({ //eslint-disable-line
+    el: node,
+    template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler">{{props.content}}</alert>`,
+    components: {Alert},
+    data: {props: props},
+    methods: {
+      confirmHandler: () => {
+        props.open = props.onConfirm() === false
+        !props.open && setTimeout(() => {
+          vue.$destroy()
+        }, 1000)
+      }
+    },
+    destroyed: () => {
+      requestAnimationFrame(() => {
+        vue.$el.remove()
+      })
+    }
+  })
+  return vue
+}
+
+window.confirm = (props, mounted = document.body) => {
+  props = Object.assign({
+    open: true,
+    onConfirm: () => {
+      return true
+    },
+    onCancel: () => {
+      return true
+    }
+  }, props)
+  let node = document.createElement('div')
+  mounted.appendChild(node)
+  
+  let vue = new Vue({ //eslint-disable-line
+    el: node,
+    template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler">{{props.content}}</confirm>`,
+    components: {Confirm},
+    data: {props: props},
+    methods: {
+      confirmHandler: () => {
+        props.open = props.onConfirm() === false
+        !props.open && setTimeout(() => {
+          vue.$destroy()
+        }, 1000)
+      },
+      cancelHandler: () => {
+        props.open = props.onCancel() === false
+        !props.open && setTimeout(() => {
+          vue.$destroy()
+        }, 1000)
+      }
+    },
+    destroyed: () => {
+      requestAnimationFrame(() => {
+        vue.$el.remove()
+      })
+    }
+  })
+  return vue
 }
 
 export {
