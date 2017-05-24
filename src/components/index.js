@@ -43,7 +43,6 @@ window.toast = (props, mounted = document.body) => {
   }, props)
   let node = document.createElement('div')
   mounted.appendChild(node)
-  
   let vue = new Vue({ //eslint-disable-line
     el: node,
     template: `<toast :open="props.open" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
@@ -75,7 +74,6 @@ window.alert = (props, mounted = document.body) => {
   }, props)
   let node = document.createElement('div')
   mounted.appendChild(node)
-  
   let vue = new Vue({ //eslint-disable-line
     el: node,
     template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler">{{props.content}}</alert>`,
@@ -110,7 +108,6 @@ window.confirm = (props, mounted = document.body) => {
   }, props)
   let node = document.createElement('div')
   mounted.appendChild(node)
-  
   let vue = new Vue({ //eslint-disable-line
     el: node,
     template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler">{{props.content}}</confirm>`,
