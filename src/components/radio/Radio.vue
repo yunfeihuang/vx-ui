@@ -37,7 +37,8 @@ export default {
     &radio{
       display:block;
       position:relative;
-      padding: 0.86rem 0.5rem;
+      padding:0.7rem 0.5rem;
+      line-height:20px;
       @include disabled;
       input{
         position:absolute;

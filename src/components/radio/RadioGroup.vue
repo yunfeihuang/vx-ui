@@ -67,9 +67,6 @@ export default {
     &radio-group{
       user-select: none;
       @include disabled;
-      .#{$css-prefix}radio{
-        padding:0.86rem 0.5rem;
-      }
     }
   }
 </style>

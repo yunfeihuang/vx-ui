@@ -108,6 +108,7 @@ export default {
     },
     touchStartHandler () {
       this.scrollEnd = false
+      this.timer && clearTimeout(this.timer)
     },
     scrollHandlder () {
       if (this.scrollEnd) {
