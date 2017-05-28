@@ -25,6 +25,7 @@ import Divider from './Divider'
 import Swiper from './Swiper'
 import Preview from './Preview'
 import Flexbox from './Flexbox'
+import Picker from './Picker'
 export {
   App,
   Button,
@@ -52,5 +53,6 @@ export {
   Divider,
   Tabbar,
   Swiper,
-  Preview
+  Preview,
+  Picker
 }

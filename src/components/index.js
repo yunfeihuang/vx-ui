@@ -23,6 +23,7 @@ import Cell from './cell'
 import Confirm from './confirm'
 import Alert from './alert'
 import Popup from './popup'
+import PopupPicker from './popup-picker'
 import Toast from './toast'
 import XImg from './img'
 import Flow from './flow'
@@ -33,6 +34,8 @@ import XHeader from './header'
 import XBody from './body'
 import XLink from './link'
 import Preview from './preview'
+// import Loading from './loading'
+import Picker from './picker'
 
 window.toast = (props, mounted = document.body) => {
   props = Object.assign({
@@ -168,6 +171,7 @@ export {
   Confirm,
   Alert,
   Popup,
+  PopupPicker,
   Toast,
   XImg,
   Flow,
@@ -177,5 +181,7 @@ export {
   XHeader,
   XBody,
   XLink,
-  Preview
+  Preview,
+  // Loading,
+  Picker
 }
