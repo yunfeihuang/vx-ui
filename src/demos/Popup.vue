@@ -52,7 +52,6 @@ import {
   Cell,
   XSwitch,
   Popup,
-  Loading,
   Picker,
   PopupPicker
 } from 'components'
@@ -72,7 +71,6 @@ export default {
     Cell,
     XSwitch,
     Popup,
-    Loading,
     Picker,
     PopupPicker
   },

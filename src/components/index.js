@@ -34,7 +34,7 @@ import XHeader from './header'
 import XBody from './body'
 import XLink from './link'
 import Preview from './preview'
-// import Loading from './loading'
+import Spinner from './spinner'
 import Picker from './picker'
 
 window.toast = (props, mounted = document.body) => {
@@ -182,6 +182,6 @@ export {
   XBody,
   XLink,
   Preview,
-  // Loading,
+  Spinner,
   Picker
 }

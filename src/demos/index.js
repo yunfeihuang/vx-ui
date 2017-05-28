@@ -26,6 +26,7 @@ import Swiper from './Swiper'
 import Preview from './Preview'
 import Flexbox from './Flexbox'
 import Picker from './Picker'
+import Spinner from './Spinner'
 export {
   App,
   Button,
@@ -54,5 +55,6 @@ export {
   Tabbar,
   Swiper,
   Preview,
-  Picker
+  Picker,
+  Spinner
 }

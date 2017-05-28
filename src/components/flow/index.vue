@@ -3,10 +3,14 @@
     <div :class="[cssPrefix + 'flow-inner']">
       <div :class="[cssPrefix + 'flow-refresh']">
         <i class="iconfont"></i>
+        <spinner :class="[cssPrefix + 'flow-spinner']"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div :class="[cssPrefix + 'flow-loading']" v-if="loading"><i class="iconfont">&#xe609;</i>{{loadingText}}</div>
+      <div :class="[cssPrefix + 'flow-loading']" v-if="loading">
+        <spinner :class="[cssPrefix + 'flow-spinner']"/>
+        {{loadingText}}
+      </div>
       <div :class="[cssPrefix + 'flow-loading']" v-if="end">{{endText}}</div>
     </div>
   </div>
@@ -14,8 +18,12 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import Spinner from '../spinner'
 
 export default {
+  components: {
+    Spinner
+  },
   props: {
     loading: {
       type: Boolean,
@@ -191,7 +199,10 @@ export default {
               content:attr(data-loading);
             }
             .iconfont:before{
-              content:'\e609';
+              display:none
+            }
+            .#{$css-prefix}flow-spinner{
+              display: inline-block
             }
           }
         }
@@ -210,6 +221,9 @@ export default {
             content:'\e6d5';
           }
         }
+        .#{$css-prefix}flow-spinner{
+          display: none
+        }
         span:before{
           content:attr(data-pulldown)
         }
@@ -218,6 +232,9 @@ export default {
         text-align:center;
         line-height:40px;
         color:$sub-color;
+      }
+      &-spinner{
+        margin-right:4px;
       }
     }
   }

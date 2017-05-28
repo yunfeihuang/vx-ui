@@ -161,8 +161,8 @@ export default {
       &-wrapper{
         position:relative;
         background:#fff;
-        color:#999;
         text-align: center;
+        overflow:hidden;
       }
       &-scroller{
         padding:126px 0;
@@ -171,20 +171,21 @@ export default {
         line-height:42px;
         overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
         padding: 0px 0.5rem;
       }
       &-active{
-        color:$primary-color;
+        // color:$primary-color;
       }
       &-indicator{
         &:before{
           @include divider
           top:126px;
+          box-shadow: 0px -63px 0px 63px rgba(255,255,255,0.5);
         }
         &:after{
           @include divider
           top:168px;
+          box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.5);
         }
       }
       &-placeholder{

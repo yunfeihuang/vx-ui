@@ -32,6 +32,7 @@
         <x-link href="/swiper">Swiper</x-link>
         <x-link href="/preview">Preview</x-link>
         <x-link href="/picker">Picker</x-link>
+        <x-link href="/spinner">Spinner</x-link>
         <!--
         <x-link href="/flexbox">Flexbox</x-link>
         -->

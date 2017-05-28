@@ -26,7 +26,8 @@ import {
   Swiper,
   Preview,
   Flexbox,
-  Picker
+  Picker,
+  Spinner
 } from 'demos'
 
 /*
@@ -198,5 +199,10 @@ export default [
     path: '/picker',
     name: 'picker',
     component: Picker
+  },
+  {
+    path: '/spinner',
+    name: 'spinner',
+    component: Spinner
   }
 ]

@@ -103,6 +103,7 @@ export default {
       }
       &-item{
         flex:1;
+        min-width:0;
       }
       &-header{
         display:flex;

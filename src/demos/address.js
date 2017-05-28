@@ -5,7 +5,7 @@ let provinces = [
   },
   {
     value: '02',
-    label: '广西自治区'
+    label: '广西壮族自治区'
   }
 ]
 let citys = {
