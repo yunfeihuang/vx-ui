@@ -180,12 +180,12 @@ export default {
         &:before{
           @include divider
           top:126px;
-          box-shadow: 0px -63px 0px 63px rgba(255,255,255,0.5);
+          box-shadow: 0px -63px 0px 63px rgba(255, 255, 255, 0.4), 0px -64px 0px 21px rgba(255, 255, 255, 0.3), 0px -106px 0px 21px rgba(255, 255, 255, 0.45);
         }
         &:after{
           @include divider
           top:168px;
-          box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.5);
+          box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.4), 0px 64px 0px 21px rgba(255, 255, 255, 0.3), 0px 106px 0px 21px rgba(255, 255, 255, 0.45);
         }
       }
       &-placeholder{

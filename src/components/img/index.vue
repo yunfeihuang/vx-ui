@@ -6,15 +6,19 @@
       @error="errorHandler"
       @load='loadHandler'
     />
-    <i class="iconfont" v-if="loading">&#xe609;</i>
+    <spinner v-if="loading" :class="cssPrefix + 'img-spinner'"/>
     <i class="iconfont" v-if="!loading">&#xe728;</i>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import Spinner from '../spinner'
 
 export default {
+  components: {
+    Spinner
+  },
   props: {
     src: {
       type: String
@@ -89,7 +93,7 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.iconfont')
+          let icon = this.$el.querySelector('.iconfont') || this.$el.querySelector('.' + cssPrefix + 'img-spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
@@ -160,6 +164,12 @@ export default {
           color:#fff;
           margin:-13px;
         }
+      }
+      &-spinner{
+        position:absolute;
+        margin:-10px;
+        top:50%;
+        left:50%;
       }
     }
   }
