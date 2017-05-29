@@ -137,7 +137,8 @@ export default {
           @include active;
           user-select:none;
           position:relative;
-          font-size: inherit;
+          font-size:inherit;
+          line-height:100%;
           &+button:before{
             @include divider-vertical();
           }

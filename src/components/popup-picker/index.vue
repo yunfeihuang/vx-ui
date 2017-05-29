@@ -3,16 +3,16 @@
     <div :class="classes">
       <div :class="[cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
-        <div :class="[cssPrefix + 'popup-picker-title']"></div>
+        <button type="button" :class="[cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
         <button type="button" :class="[cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="[cssPrefix + 'popup-picker']" @touchstart="touchStartHandler">
+      <div :class="[cssPrefix + 'popup-picker']">
         <picker
           v-if="open && myPickers"
           v-for="(item,index) in myPickers"
           :class="[cssPrefix + 'popup-picker-item']"
-          :data-index="index"
+          :index="index"
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
@@ -42,6 +42,9 @@ export default {
     },
     pickers: {
       type: Array
+    },
+    placeholder: {
+      type: String
     },
     cancelText: {
       type: String,
@@ -81,12 +84,9 @@ export default {
       }
       this.$emit('on-confirm', value)
     },
-    changeHandler (value) {
-      this.myPickers[this.pickerIndex].value = value
-      this.$emit('on-change', value, this.pickerIndex)
-    },
-    touchStartHandler (e) {
-      this.pickerIndex = parseInt(e.target.closest('.' + cssPrefix + 'popup-picker-item').dataset.index)
+    changeHandler (value, index) {
+      this.myPickers[index].value = value
+      this.$emit('on-change', value, index)
     }
   }
 }
@@ -108,8 +108,15 @@ export default {
       &-header{
         display:flex;
       }
-      &-title{
+      &-placeholder{
         flex:1;
+        line-height: 2.6rem;
+        color:#999;
+        min-width:0;
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include button;
       }
       &-cancel,&-confirm{
         @include button;

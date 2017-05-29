@@ -3,12 +3,12 @@
     <x-header slot="header">
       <div slot="title">Preview</div>
     </x-header>
-    <x-body slot="body" class="scrollbox">
-      <div class="img-container">
-        <img data-index="0" src="http://assets.bittyos.com/images/gallery/img1.jpg" @load="loadHandler" @click="clickHandler"/>
-        <img data-index="1" src="http://assets.bittyos.com/images/gallery/img2.jpg" @load="loadHandler" @click="clickHandler"/>
-        <img data-index="2" src="http://assets.bittyos.com/images/gallery/img3.jpg" @load="loadHandler" @click="clickHandler"/>
-      </div>
+    <x-body slot="body" class="img-container">
+      <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="loadHandler" @click="clickHandler"/>
+      <x-img :loading="true" data-index="1" src="http://assets.bittyos.com/images/swiper/02.jpg" @load="loadHandler" @click="clickHandler"/>
+      <x-img :loading="true" data-index="2" src="http://assets.bittyos.com/images/swiper/03.jpg" @load="loadHandler" @click="clickHandler"/>
+      <x-img :loading="true" data-index="3" src="http://assets.bittyos.com/images/swiper/04.jpg" @load="loadHandler" @click="clickHandler"/>
+      <x-img :loading="true" data-index="4" src="http://assets.bittyos.com/images/swiper/05.jpg" @load="loadHandler" @click="clickHandler"/>
     </x-body>
     <preview :list="images" ref="preview"/>
   </layout>
@@ -19,7 +19,8 @@ import {
   Layout,
   XHeader,
   XBody,
-  Preview
+  Preview,
+  XImg
 } from '../components'
 
 let windowWidth = window.innerWidth
@@ -29,7 +30,8 @@ export default {
     Layout,
     XHeader,
     XBody,
-    Preview
+    Preview,
+    XImg
   },
   data () {
     return {
@@ -48,10 +50,10 @@ export default {
         w: natural.w > windowWidth ? windowWidth : natural.w,
         h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : natural.h
       }
-      this.images[e.target.dataset.index] = item
+      this.images[e.target.parentNode.dataset.index] = item
     },
     clickHandler (e) {
-      this.$refs.preview.open(parseInt(e.target.dataset.index))
+      this.$refs.preview.open(parseInt(e.target.parentNode.dataset.index))
     }
   }
 }
@@ -62,7 +64,7 @@ export default {
     display:block;
     width:100%;
   }
-  .img-demos .img-container{
-    min-height:400px;
+  .img-container>div{
+    min-height:150px;
   }
 </style>

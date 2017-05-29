@@ -63,6 +63,10 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    index: {
+      type: [Number, String],
+      default: 0
     }
   },
   watch: {
@@ -96,10 +100,17 @@ export default {
       let pageY = e.changedTouches[0].pageY
       if (this.pageY) {
         if (this.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
+          this.pullTimer && clearTimeout(this.pullTimer)
+          this.pullTimer = setTimeout(() => {
+            this.$emit('on-pulldown')
+          }, 500)
           e.preventDefault()
           e.stopPropagation()
-        }
-        if (this.scrollElement.scrollTop === this.maxScrollTop && pageY - this.pageY < 0) {
+        } else if (Math.round(this.scrollElement.scrollTop) === this.maxScrollTop && pageY - this.pageY < 0) {
+          this.pullTimer && clearTimeout(this.pullTimer)
+          this.pullTimer = setTimeout(() => {
+            this.$emit('on-pullup')
+          }, 500)
           e.preventDefault()
           e.stopPropagation()
         }
@@ -132,8 +143,8 @@ export default {
           let active = this.$el.querySelectorAll('.' + cssPrefix + 'picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            this.$emit('on-change', value)
-            this.$emit('input', value)
+            this.$emit('on-change', value, this.index)
+            this.$emit('input', value, this.index)
           }
         })
       }, 51)
@@ -173,6 +184,7 @@ export default {
         overflow: hidden;
         white-space: nowrap;
         padding: 0px 0.5rem;
+        height:42px;
       }
       &-active{
         // color:$primary-color;
@@ -185,7 +197,7 @@ export default {
         }
         &:after{
           @include divider
-          top:168px;
+          top:167px;
           box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.4), 0px 64px 0px 21px rgba(255, 255, 255, 0.3), 0px 106px 0px 21px rgba(255, 255, 255, 0.45);
         }
       }

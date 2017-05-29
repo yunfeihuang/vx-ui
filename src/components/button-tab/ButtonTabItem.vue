@@ -33,11 +33,11 @@ export default {
     &button-tab-item{
       flex:1;
       border-left:1px solid $primary-color;
-      padding:0.65rem 0;
+      padding:0.68rem 0;
       &-active{
         background-color:$primary-color;
         color:#fff;
-        transition: all $transition-time $ease-in-out;
+        // transition: all $transition-time $ease-in-out;
       }
       &:first-child{
         border-left:0;

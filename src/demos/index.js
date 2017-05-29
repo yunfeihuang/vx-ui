@@ -26,6 +26,8 @@ import Swiper from './Swiper'
 import Preview from './Preview'
 import Flexbox from './Flexbox'
 import Picker from './Picker'
+import PopupPicker from './PopupPicker'
+import DatetimePicker from './DatetimePicker'
 import Spinner from './Spinner'
 export {
   App,
@@ -56,5 +58,7 @@ export {
   Swiper,
   Preview,
   Picker,
+  PopupPicker,
+  DatetimePicker,
   Spinner
 }

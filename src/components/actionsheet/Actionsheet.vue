@@ -1,7 +1,7 @@
 <template>
   <popup :open="open" @on-close="closeHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
-      <div :class="[cssPrefix + 'actionsheet-item-list']">
+      <div :class="[cssPrefix + 'actionsheet-items']">
         <slot></slot>
       </div>
       <div v-if="cancel" :class="cssPrefix + 'actionsheet-cancel'" @click="closeHandler">

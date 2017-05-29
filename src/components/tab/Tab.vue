@@ -29,9 +29,9 @@ export default {
   },
   methods: {
     afterMounted () {
-      let tabLine = this.$el.querySelector('.' + cssPrefix + 'tab-line')
-      tabLine && requestAnimationFrame(() => {
-        tabLine.style.display = 'block'
+      let underline = this.$el.querySelector('.' + cssPrefix + 'tab-underline')
+      underline && requestAnimationFrame(() => {
+        underline.style.display = 'block'
       })
     },
     changeHandler (val) {
@@ -57,7 +57,7 @@ export default {
       &:before{
         @include divider;
       }
-      &-line{
+      &-underline{
         position:absolute;
         bottom:0;
         left:0;

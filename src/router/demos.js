@@ -27,6 +27,8 @@ import {
   Preview,
   Flexbox,
   Picker,
+  PopupPicker,
+  DatetimePicker,
   Spinner
 } from 'demos'
 
@@ -199,6 +201,16 @@ export default [
     path: '/picker',
     name: 'picker',
     component: Picker
+  },
+  {
+    path: '/popuppicker',
+    name: 'popuppicker',
+    component: PopupPicker
+  },
+  {
+    path: '/datetimepicker',
+    name: 'datetimepicker',
+    component: DatetimePicker
   },
   {
     path: '/spinner',

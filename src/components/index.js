@@ -36,6 +36,7 @@ import XLink from './link'
 import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
+import DatetimePicker from './datetime-picker'
 
 window.toast = (props, mounted = document.body) => {
   props = Object.assign({
@@ -183,5 +184,6 @@ export {
   XLink,
   Preview,
   Spinner,
-  Picker
+  Picker,
+  DatetimePicker
 }

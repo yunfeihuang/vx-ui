@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-header slot="header" :back="false">
-      <div slot="title">Demos</div>
+      <div slot="title">Vue Components Demos</div>
     </x-header>
     <x-body class="demos" slot="body" style="background:#fff">
       <div class="demos-actions">
@@ -32,6 +32,8 @@
         <x-link href="/swiper">Swiper</x-link>
         <x-link href="/preview">Preview</x-link>
         <x-link href="/picker">Picker</x-link>
+        <x-link href="/popuppicker">PopupPicker</x-link>
+        <x-link href="/datetimepicker">DatetimePicker</x-link>
         <x-link href="/spinner">Spinner</x-link>
         <!--
         <x-link href="/flexbox">Flexbox</x-link>
