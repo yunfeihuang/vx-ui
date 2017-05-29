@@ -83,6 +83,7 @@ export default {
         })
       }
       this.$emit('on-confirm', value)
+      this.$emit('input', value)
     },
     changeHandler (value, index) {
       this.myPickers[index].value = value

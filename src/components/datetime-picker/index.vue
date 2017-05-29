@@ -255,6 +255,7 @@ export default {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
       this.$emit('on-confirm', value)
+      this.$emit('input', value)
     },
     changeHandler (value, index) {
       let type = index.split('-')[1]

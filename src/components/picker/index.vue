@@ -94,7 +94,6 @@ export default {
     touchEndHandler () {
       this.scrollEnd = true
       this.computedScrollTop()
-      this.maxScrollTop = this.scrollElement.scrollHeight - this.scrollElement.offsetHeight
     },
     touchMoveHandler (e) {
       let pageY = e.changedTouches[0].pageY
@@ -117,8 +116,10 @@ export default {
       }
       this.pageY = pageY
     },
-    touchStartHandler () {
+    touchStartHandler (e) {
       this.scrollEnd = false
+      this.maxScrollTop = this.scrollElement.scrollHeight - this.scrollElement.offsetHeight
+      this.pageY = e.changedTouches[0].pageY
       this.timer && clearTimeout(this.timer)
     },
     scrollHandlder () {
