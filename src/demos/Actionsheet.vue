@@ -6,12 +6,22 @@
     <x-body slot="body">
       <group>
         <cell :arrow="false">
-          <div slot="title">开关</div>
+          <div slot="title">Actionsheet</div>
           <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">Actionsheet(cancel)</div>
+          <x-switch slot="value" :value="checked1" @on-change="changeHandler1"/>
         </cell>
       </group>
     </x-body>
-    <actionsheet :open="checked" :cancel="true" @on-menu="menuHandler" @on-close="changeHandler">
+    <actionsheet :open="checked" @on-menu="menuHandler" @on-close="changeHandler">
+      <actionsheet-item value="1">编辑</actionsheet-item>
+      <actionsheet-item value="2">收藏</actionsheet-item>
+      <actionsheet-item value="3">分享</actionsheet-item>
+      <actionsheet-item value="4">删除</actionsheet-item>
+    </actionsheet>
+    <actionsheet :open="checked1" :cancel="true" @on-menu="menuHandler" @on-close="changeHandler1">
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
@@ -46,6 +56,9 @@ export default {
     changeHandler (value) {
       this.checked = !this.checked
     },
+    changeHandler1 (value) {
+      this.checked1 = !this.checked1
+    },
     menuCloseHandler () {
       console.log('menuCloseHandler')
       this.checked = false
@@ -57,7 +70,8 @@ export default {
   },
   data () {
     return {
-      checked: false
+      checked: false,
+      checked1: false
     }
   }
 }

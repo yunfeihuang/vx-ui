@@ -1,7 +1,7 @@
 <template>
   <div :class="classes" onselectstart="return false;">
     <slot></slot>
-    <div :class="[cssPrefix+'tab-line']" :style="lineStyle"></div>
+    <div :class="[cssPrefix+'tab-underline']" :style="lineStyle"></div>
   </div>
 </template>
 

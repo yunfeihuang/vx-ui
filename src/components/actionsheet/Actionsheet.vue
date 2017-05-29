@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" @on-close="closeHandler" @on-enter="enterHandler">
+  <popup :open="open" @on-close="closePopupHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[cssPrefix + 'actionsheet-items']">
         <slot></slot>
@@ -75,6 +75,9 @@ export default {
     },
     closeHandler () {
       this.$emit('on-close')
+    },
+    closePopupHandler () {
+      !this.cancel && this.$emit('on-close')
     },
     enterHandler () {
       if (!this.$children) return
