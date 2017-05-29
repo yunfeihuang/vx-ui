@@ -49,7 +49,7 @@ window.toast = (props, mounted = document.body) => {
   mounted.appendChild(node)
   let vue = new Vue({ //eslint-disable-line
     el: node,
-    template: `<toast :open="props.open" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
+    template: `<toast :open="props.open" :duration="props.duration" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
     components: {Toast},
     data: {props: props},
     methods: {

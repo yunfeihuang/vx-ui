@@ -64,7 +64,7 @@ export default {
         requestAnimationFrame(() => {
           this.$el.style.display = 'table'
         })
-        setTimeout(() => {
+        this.duration && setTimeout(() => {
           requestAnimationFrame(() => {
             this.$el.style.display = 'none'
             this.$emit('on-close')
