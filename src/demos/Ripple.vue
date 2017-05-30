@@ -13,7 +13,7 @@
           点击我会出现波纹
         </ripple>
         <divider></divider>
-        <ripple>
+        <ripple color="rgba(255,0,0,0.1)">
           点击我会出现波纹
         </ripple>
       </group>

@@ -4,7 +4,7 @@
       <div slot="title">Swiper</div>
     </x-header>
     <x-body slot="body" style="background:#fff">
-      <swiper :active="active" @on-change="changeHandler" :options="options" class="swiper-demo">
+      <swiper :active="active" :pagination="true" @on-change="changeHandler" :options="options" class="swiper-demo">
         <swiper-item>
           <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
         </swiper-item>
@@ -17,7 +17,6 @@
         </swiper-item><swiper-item>
           <x-img src="http://assets.bittyos.com/images/swiper/05.jpg" class="swiper-img" />
         </swiper-item>
-        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </x-body>
   </layout>

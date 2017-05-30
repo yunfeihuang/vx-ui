@@ -52,7 +52,7 @@ export default {
       text-align:center;
       position:relative;
       user-select: none;
-      line-height: 100%;
+      line-height: 2.6rem;
       &:before{
         @include divider;
       }

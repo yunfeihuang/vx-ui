@@ -10,6 +10,11 @@ let node = null
 let offset = {}
 let timer = null
 export default {
+  props: {
+    color: {
+      type: String
+    }
+  },
   computed: {
     classes () {
       return [cssPrefix + 'ripple']
@@ -33,6 +38,9 @@ export default {
       node = document.createElement('div')
       node.classList.add(cssPrefix + 'ripple-shadow')
       node.style.cssText = 'top:' + (e.changedTouches[0].pageY - rect.top) + 'px;left:' + (e.changedTouches[0].pageX - rect.left) + 'px;'
+      if (this.color) {
+        node.style.backgroundColor = this.color
+      }
       this.$el.appendChild(node)
       timer = setTimeout(() => {
         node.style.transition = node.style.webkitTransition = 'transform 0.3s ease-in-out 0s'

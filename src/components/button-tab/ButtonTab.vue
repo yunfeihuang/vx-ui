@@ -33,15 +33,15 @@ export default {
 
 <style lang="scss">
   @import '~styles/variable.scss';
+  @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &button-tab{
       text-align:center;
       position:relative;
-      border:1px solid $primary-color;
       border-radius:48px;
-      overflow:hidden;
       user-select: none;
-      line-height:100%;
+      line-height:2.4rem;
+      @include round-border($border-color-base,48px);
     }
   }
 </style>

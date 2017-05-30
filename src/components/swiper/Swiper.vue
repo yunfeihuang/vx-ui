@@ -3,10 +3,10 @@
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
-    <slot name="pagination"></slot>
-    <slot name="prev"></slot>
-    <slot name="next"></slot>
-    <slot name="scrollbar"></slot>
+    <div v-if="pagination" class="swiper-pagination"></div>
+    <div v-if="prev" class="swiper-button-prev"></div>
+    <div v-if="next" class="swiper-button-next"></div>
+    <div v-if="scrollbar" class="swiper-scrollbar"></div>
   </div>
 </template>
 
@@ -22,6 +22,22 @@ export default {
     },
     options: {
       type: Object
+    },
+    pagination: {
+      type: Boolean,
+      default: false
+    },
+    prev: {
+      type: Boolean,
+      default: false
+    },
+    next: {
+      type: Boolean,
+      default: false
+    },
+    scrollbar: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -31,12 +47,23 @@ export default {
   },
   mounted () {
     let options = Object.assign({
-      pagination: '.swiper-pagination',
       initialSlide: this.active,
       onSlideChangeStart: (swiper) => {
         this.$emit('on-change', swiper.activeIndex)
       }
     }, this.options)
+    if (this.pagination) {
+      options.pagination = '.swiper-pagination'
+    }
+    if (this.prev) {
+      options.prev = '.swiper-button-prev'
+    }
+    if (this.next) {
+      options.nextButton = '.swiper-button-prev'
+    }
+    if (this.scrollbar) {
+      options.scrollbar = '.swiper-scrollbar'
+    }
     this.swiper = new Swiper(this.$el, options)
   },
   watch: {

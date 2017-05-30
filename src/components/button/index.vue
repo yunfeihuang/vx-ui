@@ -41,18 +41,7 @@ export default {
       border-radius:$border-radius-base;
       font-size: inherit;
       cursor: default;
-      &:before{
-        border:1px solid $border-color-base;
-        box-sizing:border-box;
-        width:200%;
-        height:200%;
-        position:absolute;
-        left:-50%;
-        top:-50%;
-        transform:scale(0.5);
-        content:'';
-        border-radius:2*$border-radius-base;
-      }
+      @include round-border;
       &:active{
         box-shadow:1px 0 100px rgba(0,0,0,0.15) inset;
       }

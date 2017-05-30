@@ -14,7 +14,12 @@ export default {
   },
   computed: {
     classes () {
-      return ['flexbox-item', cssPrefix + 'tab-item', this.active ? cssPrefix + 'tab-item-active' : '']
+      let array = ['flexbox-item', cssPrefix + 'tab-item']
+      if (this.active) {
+        array.push(cssPrefix + 'tab-item-active')
+        array.push(this.$parent.activeClass)
+      }
+      return array
     }
   },
   data () {
@@ -31,7 +36,8 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &tab-item{
-      padding:0.85rem 0;
+      white-space: nowrap;
+      overflow: hidden;
       &-active{
         color:$primary-color;
         // transition: color $transition-time $ease-in-out;

@@ -14,7 +14,12 @@ export default {
   },
   computed: {
     classes () {
-      return ['flexbox-item', cssPrefix + 'button-tab-item', this.active ? cssPrefix + 'button-tab-item-active' : '']
+      let array = ['flexbox-item', cssPrefix + 'button-tab-item']
+      if (this.active) {
+        array.push(cssPrefix + 'button-tab-item-active')
+        array.push(this.$parent.activeClass)
+      }
+      return array
     }
   },
   data () {
@@ -31,15 +36,37 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &button-tab-item{
-      border-left:1px solid $primary-color;
-      padding:0.68rem 0;
+      position:relative;
+      z-index:1;
+      white-space: nowrap;
+      overflow: hidden;
       &-active{
         background-color:$primary-color;
         color:#fff;
         // transition: all $transition-time $ease-in-out;
+        &:before{
+          display:none;
+        }
       }
       &:first-child{
-        border-left:0;
+        border-top-left-radius:46px;
+        border-bottom-left-radius:46px;
+        &:before{
+          display:none;
+        }
+      }
+      &:last-child{
+        border-top-right-radius:46px;
+        border-bottom-right-radius:46px;
+      }
+      &:before{
+        content:'';
+        border-left:1px solid $border-color-base;
+        transform:scaleX(0.5);
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
       }
     }
   }

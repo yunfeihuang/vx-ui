@@ -106,6 +106,10 @@ const tab = {
     active: {
       type: Number,
       default: 0
+    },
+    activeClass: {
+      type: [String, Array],
+      default: ''
     }
   },
   watch: {
