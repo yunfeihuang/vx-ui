@@ -88,7 +88,7 @@ export default {
       bottomOpen: false,
       failOpen: false,
       warnOpen: false,
-      content: '亲，收到我的祝福么？'
+      content: '操作成功'
     }
   }
 }

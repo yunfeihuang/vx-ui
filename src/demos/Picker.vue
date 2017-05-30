@@ -5,7 +5,7 @@
     </x-header>
     <x-body slot="body">
       <group>
-        <picker :value="value" :options="options" @on-change="changePickerHandler"></picker>
+        <picker placeholder="请选择" :value="value" :options="options" @on-change="changePickerHandler"></picker>
       </group>
       <group>
         <div class="address-pickers">
@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     changePickerHandler (value) {
+      console.log(value)
       this.value = value
     },
     changePickerHandler1 (value) {

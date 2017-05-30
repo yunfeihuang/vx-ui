@@ -3,8 +3,8 @@
     <transition name="popup-fade" v-if="!full">
       <overlay @click="closeHandler" v-if="open"></overlay>
     </transition>
-    <transition :name="full?'popup-full-slide-up':'popup-slide-up'" @enter="enterHandler">
-      <div :class="[cssPrefix + 'popup-inner',full ? cssPrefix + 'popup-full' : '']" v-if="open">
+    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="enterHandler">
+      <div :class="[cssPrefix + 'popup-inner',cssPrefix + 'popup-'+direction,full ? cssPrefix + 'full' : '']" v-if="open">
         <slot></slot>
       </div>
     </transition>
@@ -33,6 +33,10 @@ export default {
     full: {
       type: Boolean,
       default: false
+    },
+    direction: {
+      type: String,
+      default: 'down'
     }
   },
   computed: {
@@ -88,32 +92,65 @@ export default {
       display:none;
       user-select:none;
       &-inner{
-        background:#f7f7f7;
+        background:#fff;
         position:absolute;
+        overflow: auto;
+      }
+      &-up{
+        top:0;
+        left:0;
+        width:100%;
+        max-height: 90%;
+        &.#{$css-prefix}full{
+          height:100%;
+          max-height: 100%;
+        }
+      }
+      &-down{
         bottom:0;
         left:0;
         width:100%;
         max-height: 90%;
-        overflow: auto;
+        &.#{$css-prefix}full{
+          height:100%;
+          max-height: 100%;
+        }
       }
-      &-full{
+      &-left{
+        top:0;
+        left:0;
         height:100%;
-        max-height: 100%;
+        max-width: 80%;  
+        &.#{$css-prefix}full{
+          width:100%;
+          max-width: 100%;
+        }
+      }
+      &-right{
+        top:0;
+        right:0;
+        height:100%;
+        max-width: 80%;
+        &.#{$css-prefix}full{
+          width:100%;
+          max-width: 100%;
+        }
+      }
+      &-center{
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        background: transparent;
+        &.#{$css-prefix}full{
+          display:block;
+          background:#fff;
+        }
       }
     }
-  }
-  .popup-slide-up-enter-active, .popup-slide-up-leave-active {
-    transition: transform $transition-time
-  }
-  .popup-slide-up-enter, .popup-slide-up-leave-active {
-    transform: translateY(100%);
-  }
-  
-  .popup-full-slide-up-enter-active, .popup-full-slide-up-leave-active {
-    transition: transform 0.4s;
-  }
-  .popup-full-slide-up-enter, .popup-full-slide-up-leave-active {
-    transform: translateY(100%);
   }
   
   .popup-fade-enter-active, .popup-fade-leave-active {
@@ -121,5 +158,70 @@ export default {
   }
   .popup-fade-enter, .popup-fade-leave-active {
     opacity: 0
+  }
+  
+  .popup-slide-up-enter-active, .popup-slide-up-leave-active {
+    transition: transform $transition-time
+  }
+  .popup-slide-up-enter, .popup-slide-up-leave-active {
+    transform: translateY(-100%);
+  }
+  .popup-full-slide-up-enter-active, .popup-full-slide-up-leave-active {
+    transition: transform 0.4s;
+  }
+  .popup-full-slide-up-enter, .popup-full-slide-up-leave-active {
+    transform: translateY(-100%);
+  }
+  
+  .popup-slide-down-enter-active, .popup-slide-down-leave-active {
+    transition: transform $transition-time
+  }
+  .popup-slide-down-enter, .popup-slide-down-leave-active {
+    transform: translateY(100%);
+  }
+  .popup-full-slide-down-enter-active, .popup-full-slide-down-leave-active {
+    transition: transform 0.4s;
+  }
+  .popup-full-slide-down-enter, .popup-full-slide-down-leave-active {
+    transform: translateY(100%);
+  }
+  
+  .popup-slide-left-enter-active, .popup-slide-left-leave-active {
+    transition: transform $transition-time
+  }
+  .popup-slide-left-enter, .popup-slide-left-leave-active {
+    transform: translateX(-100%);
+  }
+  .popup-full-slide-left-enter-active, .popup-full-slide-left-leave-active {
+    transition: transform 0.4s;
+  }
+  .popup-full-slide-left-enter, .popup-full-slide-left-leave-active {
+    transform: translateX(-100%);
+  }
+  
+  .popup-slide-right-enter-active, .popup-slide-right-leave-active {
+    transition: transform $transition-time
+  }
+  .popup-slide-right-enter, .popup-slide-right-leave-active {
+    transform: translateX(100%);
+  }
+  .popup-full-slide-right-enter-active, .popup-full-slide-right-leave-active {
+    transition: transform 0.4s;
+  }
+  .popup-full-slide-right-enter, .popup-full-slide-right-leave-active {
+    transform: translateX(100%);
+  }
+  
+  .popup-slide-center-enter-active, .popup-slide-center-leave-active {
+    transition: opacity $transition-time
+  }
+  .popup-slide-center-enter, .popup-slide-center-leave-active {
+    transform: 0;
+  }
+  .popup-full-slide-center-enter-active, .popup-full-slide-center-leave-active {
+    transition: opacity 0.4s;
+  }
+  .popup-full-slide-center-enter, .popup-full-slide-center-leave-active {
+    transform: 0;
   }
 </style>

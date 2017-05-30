@@ -10,6 +10,22 @@
           <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
         </cell>
         <cell :arrow="false">
+          <div slot="title">popup up</div>
+          <x-switch slot="value" :value="checkedUp" @on-change="changeUpHandler"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">popup left</div>
+          <x-switch slot="value" :value="checkedLeft" @on-change="changeLeftHandler"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">popup right</div>
+          <x-switch slot="value" :value="checkedRight" @on-change="changeRightHandler"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">popup center</div>
+          <x-switch slot="value" :value="checkedCenter" @on-change="changeCenterHandler"/>
+        </cell>
+        <cell :arrow="false">
           <div slot="title">popup full</div>
           <x-switch slot="value" :value="fullChecked" @on-change="changeFullHandler"/>
         </cell>
@@ -19,8 +35,48 @@
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup default close</div>
+            <div slot="title">popup close</div>
             <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
+          </cell>
+        </group>
+      </div>
+    </popup>
+    <popup direction="up" :open="checkedUp" @on-close="changeUpHandler">
+      <div style="padding:20px 0;">
+        <group>
+          <cell :arrow="false">
+            <div slot="title">popup close</div>
+            <x-switch slot="value" :value="checkedUp" @on-change="changeUpHandler"/>
+          </cell>
+        </group>
+      </div>
+    </popup>
+    <popup direction="left" :open="checkedLeft" @on-close="changeLeftHandler">
+      <div style="padding:20px 0;min-width:200px;">
+        <group>
+          <cell :arrow="false">
+            <div slot="title">popup close</div>
+            <x-switch slot="value" :value="checkedLeft" @on-change="changeLeftHandler"/>
+          </cell>
+        </group>
+      </div>
+    </popup>
+    <popup direction="right" :open="checkedRight" @on-close="changeRightHandler">
+      <div style="padding:20px 0;min-width:200px;">
+        <group>
+          <cell :arrow="false">
+            <div slot="title">popup close</div>
+            <x-switch slot="value" :value="checkedRight" @on-change="changeRightHandler"/>
+          </cell>
+        </group>
+      </div>
+    </popup>
+    <popup direction="center" :open="checkedCenter" @on-close="changeCenterHandler">
+      <div style="padding:20px;min-width:200px;background:#fff;border-radius:5px;">
+        <group>
+          <cell :arrow="false">
+            <div slot="title">popup close</div>
+            <x-switch slot="value" :value="checkedCenter" @on-change="changeCenterHandler"/>
           </cell>
         </group>
       </div>
@@ -60,16 +116,32 @@ export default {
     Popup
   },
   methods: {
-    changeHandler (value) {
+    changeHandler () {
       this.checked = !this.checked
     },
-    changeFullHandler (value) {
+    changeUpHandler () {
+      this.checkedUp = !this.checkedUp
+    },
+    changeLeftHandler () {
+      this.checkedLeft = !this.checkedLeft
+    },
+    changeRightHandler () {
+      this.checkedRight = !this.checkedRight
+    },
+    changeCenterHandler () {
+      this.checkedCenter = !this.checkedCenter
+    },
+    changeFullHandler () {
       this.fullChecked = !this.fullChecked
     }
   },
   data () {
     return {
       checked: false,
+      checkedUp: false,
+      checkedLeft: false,
+      checkedRight: false,
+      checkedCenter: false,
       fullChecked: false
     }
   }
