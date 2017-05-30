@@ -4,7 +4,7 @@
       <overlay @click="closeHandler" v-if="open"></overlay>
     </transition>
     <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="enterHandler">
-      <div :class="[cssPrefix + 'popup-inner',cssPrefix + 'popup-'+direction,full ? cssPrefix + 'full' : '']" v-if="open">
+      <div :class="innerClasses" v-if="open">
         <slot></slot>
       </div>
     </transition>
@@ -42,6 +42,13 @@ export default {
   computed: {
     classes () {
       return [cssPrefix + 'popup']
+    },
+    innerClasses () {
+      let array = [cssPrefix + 'popup-inner', cssPrefix + 'popup-' + this.direction, this.full ? cssPrefix + 'full' : '']
+      if (this.direction === 'center') {
+        array.push('flexbox flexbox-align-center flexbox-content-center')
+      }
+      return array
     }
   },
   watch: {
@@ -141,9 +148,6 @@ export default {
         left:0;
         width:100%;
         height:100%;
-        display:flex;
-        align-items:center;
-        justify-content: center;
         background: transparent;
         &.#{$css-prefix}full{
           display:block;

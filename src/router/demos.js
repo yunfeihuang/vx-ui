@@ -29,6 +29,7 @@ import {
   Picker,
   PopupPicker,
   DatetimePicker,
+  Badge,
   Spinner
 } from 'demos'
 
@@ -211,6 +212,11 @@ export default [
     path: '/datetimepicker',
     name: 'datetimepicker',
     component: DatetimePicker
+  },
+  {
+    path: '/badge',
+    name: 'badge',
+    component: Badge
   },
   {
     path: '/spinner',

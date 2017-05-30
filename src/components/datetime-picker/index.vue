@@ -1,9 +1,9 @@
 <template>
   <popup :open="open">
     <div :class="classes">
-      <div :class="[cssPrefix + 'datetime-picker-header']">
+      <div :class="['flexbox',cssPrefix + 'datetime-picker-header']">
         <button type="button" :class="[cssPrefix + 'datetime-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
-        <div :class="[cssPrefix + 'datetime-picker-today']">
+        <div :class="['flexbox-item',cssPrefix + 'datetime-picker-today']">
           <!--
           <button type="button" :class="[cssPrefix + 'datetime-picker-today']" @click="todayHandler">{{todayText}}</button>
           -->
@@ -11,11 +11,11 @@
         <button type="button" :class="[cssPrefix + 'datetime-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="[cssPrefix + 'datetime-picker']">
+      <div :class="['flexbox',cssPrefix + 'datetime-picker']">
         <picker
           v-if="pickers"
           v-for="(item,index) in pickers"
-          :class="[cssPrefix + 'datetime-picker-item']"
+          :class="['flexbox-item',cssPrefix + 'datetime-picker-item']"
           :index="index+'-'+item.type"
           :data-type="item.type"
           :value="item.value"
@@ -315,7 +315,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &datetime-picker{
-      display:flex;
       &-wrapper{
         background:#fff;
       }
@@ -327,9 +326,7 @@ export default {
         display:flex;
       }
       &-today{
-        flex:1;
         line-height: 2.6rem;
-        min-width:0;
         overflow:hidden;
         white-space: nowrap;
         text-overflow: ellipsis;

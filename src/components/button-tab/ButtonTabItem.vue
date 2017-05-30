@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'button-tab-item', this.active ? cssPrefix + 'button-tab-item-active' : '']
+      return ['flexbox-item', cssPrefix + 'button-tab-item', this.active ? cssPrefix + 'button-tab-item-active' : '']
     }
   },
   data () {
@@ -31,7 +31,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &button-tab-item{
-      flex:1;
       border-left:1px solid $primary-color;
       padding:0.68rem 0;
       &-active{

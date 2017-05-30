@@ -1,7 +1,7 @@
 ﻿import Flexbox from './Flexbox'
-import FlexItem from './FlexItem'
+import FlexboxItem from './FlexboxItem'
 
 export {
   Flexbox,
-  FlexItem
+  FlexboxItem
 }

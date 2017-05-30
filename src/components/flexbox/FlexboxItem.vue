@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div :class="classes" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -8,14 +8,19 @@
 import { cssPrefix } from 'utils/variable.js'
 export default {
   props: {
-    open: {
-      type: Boolean,
-      default: false
+    span: {
+      type: Number,
+      default: 1
     }
   },
   computed: {
     classes () {
-      return [cssPrefix + 'flex-item']
+      return [this.span > 1 ? 'flexbox-item flexbox-item' + this.span : 'flexbox-item']
+    }
+  },
+  methods: {
+    clickHandler (e) {
+      this.$emit('click', e)
     }
   },
   data () {
@@ -30,9 +35,8 @@ export default {
   @import '~styles/variable.scss';
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
-    &flex-item{
-      -webkit-flex:1;
-      flex:1;
+    &flexbox-item{
+      
     }
   }
 </style>

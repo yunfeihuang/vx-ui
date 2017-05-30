@@ -1,25 +1,29 @@
 <template>
   <div class="base-item">
-    <div class="flexbox">
+    <flexbox align="center">
       <div class="base-item-photo">
         <slot name="img"></slot>
       </div>
-      <div class="flexitem">
+      <flexbox-item>
         <slot name="content"></slot>
-      </div>
-    </div>
+      </flexbox-item>
+    </flexbox>
     <divider></divider>
   </div>
 </template>
 
 <script>
 import {
-  Divider
+  Divider,
+  Flexbox,
+  FlexboxItem
 } from 'components'
 
 export default {
   components: {
-    Divider
+    Divider,
+    Flexbox,
+    FlexboxItem
   }
 }
 </script>
@@ -30,12 +34,9 @@ export default {
     .flexbox{
       padding:5px;
       color: inherit;
-      align-items: center;
-      display:flex;
     }
-    .flexitem{
+    .flexbox-item{
       overflow: hidden;
-      flex:1;
     }
     h4{
       margin:0 0 5px 0;
@@ -46,6 +47,7 @@ export default {
       .v-img-wrapper{
         width:3rem;
         height:3rem;
+        border-radius:3px;
       }
     }
     .weak{

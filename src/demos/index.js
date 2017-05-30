@@ -28,6 +28,7 @@ import Flexbox from './Flexbox'
 import Picker from './Picker'
 import PopupPicker from './PopupPicker'
 import DatetimePicker from './DatetimePicker'
+import Badge from './Badge'
 import Spinner from './Spinner'
 export {
   App,
@@ -60,5 +61,6 @@ export {
   Picker,
   PopupPicker,
   DatetimePicker,
+  Badge,
   Spinner
 }

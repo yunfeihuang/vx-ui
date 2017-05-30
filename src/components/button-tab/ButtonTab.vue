@@ -11,7 +11,7 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return [cssPrefix + 'button-tab']
+      return ['flexbox', cssPrefix + 'button-tab']
     }
   },
   data () {
@@ -35,7 +35,6 @@ export default {
   @import '~styles/variable.scss';
   .#{$css-prefix}{
     &button-tab{
-      display:flex;
       text-align:center;
       position:relative;
       border:1px solid $primary-color;

@@ -1,16 +1,20 @@
 <template>
-  <div :class="classes">
+  <flexbox :class="classes" align="center">
     <div :class="[cssPrefix+'form-label']">{{this.label}}</div>
-    <div :class="[cssPrefix+'form-control']">
+    <flexbox-item :class="[cssPrefix+'form-control']">
       <slot></slot>
-    </div>
-  </div>
+    </flexbox-item>
+  </flexbox>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-
+import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
+  components: {
+    Flexbox,
+    FlexboxItem
+  },
   props: {
     label: {
       type: String,
@@ -56,8 +60,6 @@ export default {
   .#{$css-prefix}{
     &form{
       &-item{
-        display:flex;
-        align-items: center;
         background:#fff;
         height: 2.6rem;
         position:relative;
@@ -67,7 +69,6 @@ export default {
         color:$sub-color;
       }
       &-control{
-        flex:1;
         text-align:right;
         padding:0 10px;
         >input{

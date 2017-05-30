@@ -15,7 +15,7 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return [cssPrefix + 'tabbar']
+      return ['flexbox', cssPrefix + 'tabbar']
     }
   },
   data () {
@@ -40,7 +40,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &tabbar{
-      display:flex;
       text-align:center;
       position:relative;
       user-select: none;

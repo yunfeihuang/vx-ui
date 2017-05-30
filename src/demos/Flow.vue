@@ -6,15 +6,15 @@
     <x-body slot="body" :scroll="false" class="demos flow-demos">
       <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
         <template v-for="item in list">
-          <div class="flexbox">
+          <flexbox align="center" class="flow-item">
             <x-img class="avator" :src="item.author.avatar_url" />
-            <div class="flex-item">
+            <flexbox-item>
               <h4>{{item.title}}</h4>
               <div>
                 {{new Date().toLocaleString()}}
               </div>
-            </div>
-          </div>
+            </flexbox-item>
+          </flexbox>
           <divider></divider>
         </template>
       </flow>
@@ -29,7 +29,9 @@ import {
   XBody,
   Flow,
   Divider,
-  XImg
+  XImg,
+  Flexbox,
+  FlexboxItem
 } from '../components'
 
 import api from '../api'
@@ -42,7 +44,9 @@ export default {
     XBody,
     Flow,
     Divider,
-    XImg
+    XImg,
+    Flexbox,
+    FlexboxItem
   },
   mounted () {
     this.fetch()
@@ -92,20 +96,14 @@ export default {
     width: 100%;
   }
   .flow-demos{
-    .flexbox{
-      display:box;
-      display:flex;
-      align-items: center;
-      padding:10px 0px;
-    }
-    .flex-item{
-      flex:1;
-      padding:0px 10px;
-    }
     .avator{
       width:50px;
       height:50px;
-      margin-left:10px;
+      margin-right:6px;
+      border-radius:3px;
+    }
+    .flow-item{
+      padding:6px
     }
     h4{
       margin:0;

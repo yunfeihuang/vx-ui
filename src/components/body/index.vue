@@ -1,12 +1,16 @@
 <template>
-  <div :class="classes">
+  <flexbox-item :class="classes">
     <slot></slot>
-  </div>
+  </flexbox-item>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import {FlexboxItem} from '../flexbox'
 export default {
+  components: {
+    FlexboxItem
+  },
   computed: {
     classes () {
       return [cssPrefix + 'body', this.scroll ? 'scrollbox' : '']

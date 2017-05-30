@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'tabbar-item', this.active ? cssPrefix + 'tabbar-item-active' : '']
+      return ['flexbox-item', cssPrefix + 'tabbar-item', this.active ? cssPrefix + 'tabbar-item-active' : '']
     }
   },
   data () {
@@ -40,7 +40,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &tabbar-item{
-      flex:1;
       padding:0.5rem 0;
       &-active{
         color:$primary-color;

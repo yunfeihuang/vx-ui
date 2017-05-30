@@ -8,11 +8,17 @@
         <picker placeholder="请选择" :value="value" :options="options" @on-change="changePickerHandler"></picker>
       </group>
       <group>
-        <div class="address-pickers">
-          <picker class="address-picker" :value="value1" :options="options1" @on-change="changePickerHandler1"></picker>
-          <picker class="address-picker" :value="value2" :options="options2" @on-change="changePickerHandler2"></picker>
-          <picker class="address-picker" :value="value3" :options="options3" @on-change="changePickerHandler3"></picker>
-        </div>
+        <flexbox>
+          <flexbox-item>
+            <picker :value="value1" :options="options1" @on-change="changePickerHandler1"></picker>
+          </flexbox-item>
+          <flexbox-item>
+            <picker :value="value2" :options="options2" @on-change="changePickerHandler2"></picker>
+          </flexbox-item>
+          <flexbox-item>
+            <picker :value="value3" :options="options3" @on-change="changePickerHandler3"></picker>
+          </flexbox-item>
+        </flexbox>
       </group>
     </x-body>
   </layout>
@@ -24,7 +30,9 @@ import {
   XHeader,
   XBody,
   Picker,
-  Group
+  Group,
+  Flexbox,
+  FlexboxItem
 } from 'components'
 
 import {
@@ -39,7 +47,9 @@ export default {
     XHeader,
     XBody,
     Picker,
-    Group
+    Group,
+    Flexbox,
+    FlexboxItem
   },
   methods: {
     changePickerHandler (value) {
@@ -78,11 +88,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .address-pickers{
-    display:flex;
-    .address-picker{
-      flex:1;
-      min-width:0;
-    }
-  }
+  
 </style>

@@ -1,9 +1,9 @@
 <template>
   <popup :open="open">
     <div :class="classes">
-      <div :class="[cssPrefix + 'popup-picker-header']">
+      <div :class="['flexbox',cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
-        <button type="button" :class="[cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
+        <button type="button" :class="['flexbox-item',cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
         <button type="button" :class="[cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>

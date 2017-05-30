@@ -1,20 +1,25 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <flexbox :class="classes" align="center" justify="center" @click="clickHandler">
     <div :class="cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>
-    <div :class="cssPrefix + 'cell-bd'">
+    <flexbox-item :class="cssPrefix + 'cell-bd'">
       <slot name="title"></slot>
-    </div>
+    </flexbox-item>
     <div :class="cssPrefix + 'cell-ft'">
       <slot name="value"></slot>
     </div>
-  </div>
+  </flexbox>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
+  components: {
+    Flexbox,
+    FlexboxItem
+  },
   props: {
     arrow: {
       type: Boolean,
@@ -50,14 +55,10 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &cell{
-      display:flex;
       padding:0.4rem 0.6rem;
       height:2rem;
       position:relative;
-      justify-content: center;
-      align-items: center;
       &-bd{
-        flex:1;
         text-align:left;
       }
       &-ft{

@@ -4,7 +4,7 @@
       <div slot="title">Vue Components Demos</div>
     </x-header>
     <x-body class="demos" slot="body" style="background:#fff">
-      <div class="demos-actions">
+      <flexbox wrap="wrap" class="demos-actions">
         <x-link href="/button">XButton</x-link>
         <x-link href="/input">XInput</x-link>
         <x-link href="/input">Password</x-link>
@@ -35,10 +35,9 @@
         <x-link href="/popuppicker">PopupPicker</x-link>
         <x-link href="/datetimepicker">DatetimePicker</x-link>
         <x-link href="/spinner">Spinner</x-link>
-        <!--
         <x-link href="/flexbox">Flexbox</x-link>
-        -->
-      </div>
+        <x-link href="/badge">Badge</x-link>
+      </flexbox>
     </x-body>
   </layout>
 </template>
@@ -52,8 +51,8 @@ import {
   Divider,
   Cell,
   XLink,
-  Tabbar,
-  TabbarItem
+  Flexbox,
+  FlexboxItem
 } from 'components'
 
 export default {
@@ -65,8 +64,8 @@ export default {
     Divider,
     Cell,
     XLink,
-    Tabbar,
-    TabbarItem
+    Flexbox,
+    FlexboxItem
   },
   mounted () {
     // console.log(this.$router.push)
@@ -93,8 +92,6 @@ export default {
     }
   }
   .demos-actions{
-    display:flex;
-    flex-wrap: wrap;
     text-align:center;
     a{
       display:block;

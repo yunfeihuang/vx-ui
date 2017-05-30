@@ -143,11 +143,14 @@ export default {
         vertical-align: middle;
         font-size:0;
         position:relative;
+        overflow:hidden;
         img{
           min-height:20px;
           min-width:20px;
           max-width:100%;
           max-height:100%;
+          border-radius: inherit;
+          background-color: inherit
         }
         .iconfont{
           font-size:16px;

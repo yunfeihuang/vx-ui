@@ -9,3 +9,88 @@
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
 }
+.flexbox{
+  display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: flex;
+}
+.flexbox-content-center{
+  -ms-flex-align: center;
+	-moz-box-pack: center;
+  -webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+  justify-content: center;
+}
+.flexbox-align-center{
+  -ms-flex-align: center;
+	-moz-box-align: center;
+  -webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+  align-items: center;
+}
+.flexbox-wrap{
+  -ms-flex-wrap: wrap;
+  -moz-box-lines: multiple;
+  -webkit-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.flexbox-column{
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+}
+.flexbox-item{
+  -ms-flex:1;
+  -webkit-box-flex:1;
+	-moz-box-flex:1;
+	-webkit-flex:1;
+	-moz-flex:1;
+	flex:1;
+  min-width:0;
+}
+.flexbox-item2{
+  -ms-flex:2;
+  -webkit-box-flex:2;
+	-moz-box-flex:2;
+	-webkit-flex:2;
+	-moz-flex:2;
+	flex:2;
+  min-width:0;
+}
+.flexbox-item3{
+  -ms-flex:3;
+  -webkit-box-flex:3;
+	-moz-box-flex:3;
+	-webkit-flex:3;
+	-moz-flex:3;
+	flex:3;
+  min-width:0;
+}
+.flexbox-item4{
+  -ms-flex:4;
+  -webkit-box-flex:4;
+	-moz-box-flex:4;
+	-webkit-flex:4;
+	-moz-flex:4;
+	flex:4;
+  min-width:0;
+}
+.flexbox-item5{
+  -ms-flex:5;
+  -webkit-box-flex:5;
+	-moz-box-flex:5;
+	-webkit-flex:5;
+	-moz-flex:5;
+	flex:5;
+  min-width:0;
+}

@@ -1,12 +1,13 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed' : '']">
+    <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed flexbox' : '']">
       <form @submit="submitHandler">
-        <div :class="[cssPrefix + 'search']">
+        <flexbox :class="[cssPrefix + 'search']">
           <button :class="[cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
             <i class="iconfont">&#xe660;</i>
           </button>
           <x-input
+            class="flexbox-item"
             htmlType="search"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -27,16 +28,16 @@
           >
             <i slot="icon" :class="['iconfont',cssPrefix + 'search-icon']">&#xe651;</i>
           </x-input>
-        </div>
+        </flexbox>
       </form>
-      <div :class="[cssPrefix + 'search-container']" v-if="fixed">
+      <flexbox-item :class="[cssPrefix + 'search-container']" v-if="fixed">
         <div v-if="!value" class="keywords" @click="keywordChangeHandler">
           <slot name="keywords"></slot>
         </div>
         <div v-if="value">
           <slot name="result"></slot>
         </div>
-      </div>
+      </flexbox-item>
     </div>
   </div>
 </template>
@@ -45,10 +46,13 @@
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import XInput from '../input'
+import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   mixins: [input],
   components: {
-    XInput
+    XInput,
+    Flexbox,
+    FlexboxItem
   },
   destroyed () {
     this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
@@ -115,10 +119,8 @@ export default {
       position:relative;
       background:#ddd;
       padding:1px;
-      display:flex;
       .#{$css-prefix}input-wrapper{
         height:1.8rem;
-        flex:1;
         margin: 4px;
         input{
           border-radius:1rem;
@@ -161,7 +163,6 @@ export default {
       left: 0;
       height: 100%;
       background: #fff;
-      display: flex;
       width: 100%;
       flex-direction: column;
       z-index: 100;
@@ -170,7 +171,6 @@ export default {
       }
     }
     &search-container{
-      flex:1;
       .keywords{
         padding:15px;
         .keyword{

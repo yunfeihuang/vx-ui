@@ -1,17 +1,21 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix + 'layout-flexbox']">
+    <flexbox :class="[cssPrefix + 'layout-flexbox']" direction="column">
       <slot name="header"></slot>
       <slot name="body"></slot>
       <slot name="footer"></slot>
-    </div>
+    </flexbox>
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import {Flexbox} from '../flexbox'
 export default {
+  components: {
+    Flexbox
+  },
   computed: {
     classes () {
       return [cssPrefix + 'layout']
@@ -31,10 +35,8 @@ export default {
   .#{$css-prefix}{
     &layout-flexbox{
       position:absolute;
-      display:flex;
       height:100%;
       width:100%;
-      flex-direction: column;
     }
   }
 </style>

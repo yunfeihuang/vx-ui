@@ -15,7 +15,7 @@ import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
-import {Flexbox, FlexItem} from './flexbox'
+import {Flexbox, FlexboxItem} from './flexbox'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import Divider from './divider'
 import Group from './group'
@@ -36,6 +36,7 @@ import XLink from './link'
 import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
+import Badge from './badge'
 import DatetimePicker from './datetime-picker'
 
 window.toast = (props, mounted = document.body) => {
@@ -150,7 +151,7 @@ export {
   Tabbar,
   TabbarItem,
   Flexbox,
-  FlexItem,
+  FlexboxItem,
   ButtonTab,
   ButtonTabItem,
   XButton,
@@ -185,5 +186,6 @@ export {
   Preview,
   Spinner,
   Picker,
+  Badge,
   DatetimePicker
 }

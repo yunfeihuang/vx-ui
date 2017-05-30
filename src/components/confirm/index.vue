@@ -10,9 +10,9 @@
             <slot></slot>
           </div>
           <divider></divider>
-          <div :class="cssPrefix + 'confirm-footer'" onselectstart="return false;">
-            <button v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
-            <button type="button" @click="confirmHandler">{{confirmText}}</button>
+          <div :class="[cssPrefix + 'confirm-footer','flexbox']" onselectstart="return false;">
+            <button class="flexbox-item" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
+            <button class="flexbox-item" type="button" @click="confirmHandler">{{confirmText}}</button>
           </div>
         </div>
       </transition>
@@ -127,12 +127,8 @@ export default {
         padding:2.5rem 1rem;
       }
       &-footer{
-        display:flex;
         button{
-          flex:1;
-          border:0;
-          background:transparent;
-          outline:none;
+          @include button;
           padding:$item-padding;
           @include active;
           user-select:none;

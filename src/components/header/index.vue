@@ -1,21 +1,26 @@
 <template>
   <div :class="classes">
-    <nav>
+    <flexbox class="nav" align="center">
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <i class="iconfont">&#xe660;</i>
       </button>
-      <div :class="[cssPrefix + 'header-title', back===false ? cssPrefix + 'header-title-center' : '']">
+      <flexbox-item :class="[cssPrefix + 'header-title', back===false ? cssPrefix + 'header-title-center' : '']">
         <slot name="title"></slot>
-      </div>
+      </flexbox-item>
       <slot name="pull"></slot>
-    </nav>
+    </flexbox>
     <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
+  components: {
+    Flexbox,
+    FlexboxItem
+  },
   props: {
     back: {
       type: [String, Boolean, Function],
@@ -58,11 +63,9 @@ export default {
   .#{$css-prefix}{
     &header{
       background:#fff;
-      nav{
+      .nav{
         color:#fff;
         background-color:$primary-color;
-        display:flex;
-        align-items:center;
         height:2.7rem;
       }
       .btn-pull{
@@ -82,7 +85,6 @@ export default {
         }
       }
       &-title{
-        flex:1;
         font-size:1.1rem;
         overflow: hidden;
         &-center{
