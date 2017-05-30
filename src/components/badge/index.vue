@@ -46,7 +46,6 @@ export default {
   .#{$css-prefix}{
     &badge{
       display: inline-block;
-      text-align: center;
       background: $error-color;
       color: #fff;
       font-size: 12px;

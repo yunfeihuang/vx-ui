@@ -10,6 +10,7 @@ import XSwitch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
+import Checker from './checker'
 import {XForm, FormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
@@ -167,6 +168,7 @@ export {
   Radio,
   RadioGroup,
   XSelect,
+  Checker,
   Divider,
   Group,
   Cell,

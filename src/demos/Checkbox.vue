@@ -8,10 +8,16 @@
         <checkbox :checked="checked" @on-change="checkedHandler">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
-        <checkbox-group :options="options" @on-change="changeHandler" name="checkbox" :value="value"/>
+        <checkbox-group :options="options" @on-change="changeHandler" :value="value"/>
+        <div style="padding:15px 10px;">
+          value：{{value}}
+        </div>
       </group>
       <group title="CheckboxGroup-Reverse">
-        <checkbox-group direction="reverse" :options="options" @on-change="changeReverseHandler" name="checkboxReverse" :value="reverseValue"/>
+        <checkbox-group direction="reverse" :options="options" @on-change="changeReverseHandler" :value="reverseValue"/>
+        <div style="padding:15px 10px;">
+        value：{{reverseValue}}
+        </div>
       </group>
     </x-body>
   </layout>
@@ -61,7 +67,8 @@ export default {
         },
         {
           value: '3',
-          label: '乒乓球'
+          label: '乒乓球',
+          disabled: true
         },
         {
           value: '4',

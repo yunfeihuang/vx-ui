@@ -1,18 +1,21 @@
 <template>
   <layout>
     <x-header slot="header">
-      <div slot="title">Radio</div>
+      <div slot="title">Checker</div>
     </x-header>
     <x-body slot="body">
-      <group title="Radio" class="radio-wrapper">
-        <radio name="radio1">篮球</radio>
-        <divider></divider>
-        <radio name="radio1">羽毛球</radio>
+      <group title="Checker 多选">
+        <div style="padding:20px 10px">
+          <Checker :options="options" @on-change="changeCheckboxHandler" :value="checkboxValue"/>
+          <br />
+          value：{{checkboxValue}}
+        </div>
       </group>
-      <group title="RadioGroup">
-        <radio-group :options="options" @on-change="changeHandler" :value="value"/>
-        <div style="padding:15px 10px;">
-          value：{{value}}
+      <group title="Checker 单选">
+        <div style="padding:20px 10px">
+          <Checker type="radio" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
+          <br />
+          value：{{radioValue}}
         </div>
       </group>
     </x-body>
@@ -24,29 +27,29 @@ import {
   Layout,
   XHeader,
   XBody,
-  Radio,
-  RadioGroup,
-  Group,
-  Divider
+  Checker,
+  Group
 } from '../components'
 export default {
   components: {
     Layout,
     XHeader,
     XBody,
-    Radio,
-    RadioGroup,
-    Group,
-    Divider
+    Checker,
+    Group
   },
   methods: {
-    changeHandler (value) {
-      this.value = value
+    changeCheckboxHandler (value) {
+      this.checkboxValue = value
+    },
+    changeRadioHandler (value) {
+      this.radioValue = value
     }
   },
   data () {
     return {
-      value: '1',
+      checkboxValue: ['1'],
+      radioValue: '1',
       options: [
         {
           value: '1',
@@ -72,9 +75,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .radio-wrapper{
-    label{
-      padding-left:0.5rem;
-    }
-  }
+  
 </style>

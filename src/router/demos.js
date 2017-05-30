@@ -4,6 +4,7 @@ import {
   Input,
   Textarea,
   Select,
+  Checker,
   Switch,
   Radio,
   Checkbox,
@@ -217,6 +218,11 @@ export default [
     path: '/badge',
     name: 'badge',
     component: Badge
+  },
+  {
+    path: '/checker',
+    name: 'checker',
+    component: Checker
   },
   {
     path: '/spinner',

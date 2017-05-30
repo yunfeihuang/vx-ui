@@ -2,7 +2,7 @@
   <div :class="classes" :disabled="disabled">
     <template v-for="item in options">
       <checkbox 
-        :name="item.name"
+        :name="name"
         :disabled="item.disabled"
         :value="item.value"
         :checked="value.indexOf(item.value)>-1"

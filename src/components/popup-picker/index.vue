@@ -52,7 +52,7 @@ export default {
     },
     confirmText: {
       type: String,
-      default: '确定'
+      default: '完成'
     }
   },
   computed: {
@@ -123,6 +123,10 @@ export default {
         @include button;
         height: 2.6rem;
         width: 5rem;
+        color:$sub-color;
+      }
+      &-confirm{
+        color:$primary-color;
       }
     }
   }

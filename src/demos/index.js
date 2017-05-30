@@ -3,6 +3,7 @@ import Button from './Button'
 import Input from './Input'
 import Textarea from './Textarea'
 import Select from './Select'
+import Checker from './Checker'
 import Switch from './Switch'
 import Radio from './Radio'
 import Checkbox from './Checkbox'
@@ -36,6 +37,7 @@ export {
   Input,
   Textarea,
   Select,
+  Checker,
   Switch,
   Radio,
   Checkbox,

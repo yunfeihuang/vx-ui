@@ -48,7 +48,10 @@ const input = {
       type: String
     },
     name: {
-      type: String
+      type: String,
+      default () {
+        return 'name_' + Math.random()
+      }
     },
     required: {
       type: [String, Boolean]

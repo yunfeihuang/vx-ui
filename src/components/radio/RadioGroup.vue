@@ -6,7 +6,7 @@
         :disabled="item.disabled"
         :value="item.value"
         :checked="value===item.value"
-        @change="changeHandler"
+        @on-change="changeHandler"
         >
           {{item.label}}
       </radio>
@@ -30,10 +30,6 @@ export default {
   props: {
     options: {
       type: Array,
-      required: true
-    },
-    name: {
-      type: String,
       required: true
     },
     divider: {
