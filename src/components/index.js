@@ -16,6 +16,7 @@ import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
+import {Sidebar, SidebarItem} from './sidebar'
 import {Flexbox, FlexboxItem} from './flexbox'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import Divider from './divider'
@@ -151,6 +152,8 @@ export {
   TabItem,
   Tabbar,
   TabbarItem,
+  Sidebar,
+  SidebarItem,
   Flexbox,
   FlexboxItem,
   ButtonTab,

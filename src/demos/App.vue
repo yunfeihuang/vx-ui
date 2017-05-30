@@ -23,6 +23,7 @@
         <x-link href="/tab">Tab</x-link>
         <x-link href="/tabbutton">TabButton</x-link>
         <x-link href="/tabbar">Tabbar</x-link>
+        <x-link href="/sidebar">Sidebar</x-link>
         <x-link href="/popup">Popup</x-link>
         <x-link href="/toast">Toast</x-link>
         <x-link href="/flow">Flow</x-link>

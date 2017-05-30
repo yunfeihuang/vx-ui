@@ -1,21 +1,12 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <i class="iconfont" v-html="icon"></i>
-    <span>{{text}}</span>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
-  props: {
-    text: {
-      type: String
-    },
-    icon: {
-      type: String
-    }
-  },
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)
@@ -24,9 +15,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = ['flexbox-item', cssPrefix + 'tabbar-item']
+      let array = [cssPrefix + 'sidebar-item']
       if (this.active) {
-        array.push(cssPrefix + 'tabbar-item-active')
+        array.push(cssPrefix + 'sidebar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array
@@ -45,17 +36,28 @@ export default {
   @import '~styles/variable.scss';
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
-    &tabbar-item{
-      padding:0.5rem 0;
+    &sidebar-item{
+      line-height:2.6rem;
+      position:relative;
+      overflow:hidden;
+      white-space: nowrap;
+      &:after{
+        @include divider;
+      }
+      &:before{
+        @include divider-vertical;
+        right:0;
+        left:auto;
+      }
       &-active{
         color:$primary-color;
+        background:#fff;
         transition: color $transition-time $ease-in-out;
-      }
-      .iconfont{
-        display:block;
-      }
-      span{
-        font-size:0.7rem;
+        position:relative;
+        z-index:1;
+        &:before{
+          display:none;
+        }
       }
     }
   }

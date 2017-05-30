@@ -14,6 +14,7 @@ import Alert from './Alert'
 import Confirm from './Confirm'
 import Tab from './Tab'
 import Tabbar from './Tabbar'
+import Sidebar from './Sidebar'
 import TabButton from './TabButton'
 import Popup from './Popup'
 import Toast from './Toast'
@@ -58,6 +59,7 @@ export {
   Header,
   Divider,
   Tabbar,
+  Sidebar,
   Swiper,
   Preview,
   Picker,

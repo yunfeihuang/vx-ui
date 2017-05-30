@@ -15,6 +15,7 @@ import {
   Confirm,
   Tab,
   Tabbar,
+  Sidebar,
   TabButton,
   Popup,
   Toast,
@@ -223,6 +224,11 @@ export default [
     path: '/checker',
     name: 'checker',
     component: Checker
+  },
+  {
+    path: '/sidebar',
+    name: 'sidebar',
+    component: Sidebar
   },
   {
     path: '/spinner',
