@@ -33,6 +33,7 @@ import PopupPicker from './PopupPicker'
 import DatetimePicker from './DatetimePicker'
 import Badge from './Badge'
 import Spinner from './Spinner'
+import Rater from './Rater'
 export {
   App,
   Button,
@@ -68,5 +69,6 @@ export {
   PopupPicker,
   DatetimePicker,
   Badge,
-  Spinner
+  Spinner,
+  Rater
 }

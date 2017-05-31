@@ -35,8 +35,6 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &body{
-      overflow:auto;
-      flex:1;
       position:relative;
     }
   }

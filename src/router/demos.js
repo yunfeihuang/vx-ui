@@ -33,6 +33,7 @@ import {
   PopupPicker,
   DatetimePicker,
   Badge,
+  Rater,
   Spinner
 } from 'demos'
 
@@ -235,6 +236,11 @@ export default [
     path: '/sidebar',
     name: 'sidebar',
     component: Sidebar
+  },
+  {
+    path: '/rater',
+    name: 'rater',
+    component: Rater
   },
   {
     path: '/spinner',
