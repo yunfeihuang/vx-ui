@@ -107,7 +107,7 @@ export default {
         top:0;
         left:0;
         width:100%;
-        max-height: 90%;
+        max-height: 80%;
         &.#{$css-prefix}full{
           height:100%;
           max-height: 100%;
@@ -117,7 +117,7 @@ export default {
         bottom:0;
         left:0;
         width:100%;
-        max-height: 90%;
+        max-height: 80%;
         &.#{$css-prefix}full{
           height:100%;
           max-height: 100%;

@@ -7,6 +7,7 @@
       <group>
         <picker placeholder="请选择" :value="value" :options="options" @on-change="changePickerHandler"></picker>
       </group>
+      <!--
       <group>
         <flexbox>
           <flexbox-item>
@@ -20,6 +21,7 @@
           </flexbox-item>
         </flexbox>
       </group>
+      -->
     </x-body>
   </layout>
 </template>

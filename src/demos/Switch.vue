@@ -6,7 +6,7 @@
     <x-body slot="body">
       <group>
         <cell :arrow="false">
-          <div slot="title">开关</div>
+          <div slot="title">开关（{{checked}}）</div>
           <x-switch slot="value" :value="checked" @on-change="changeHandler" />
         </cell>
       </group>

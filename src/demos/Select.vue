@@ -9,10 +9,20 @@
           <div slot="title">下拉框</div>
           <x-select 
             slot="value"
-            :options="options"
+            :options="options.slice(0,4)"
             :value="value"
             placeholder="请选择"
             @on-change="changeHandler"
+          />
+        </cell>
+        <cell>
+          <div slot="title">下拉框(选项很多)</div>
+          <x-select 
+            slot="value"
+            :options="options"
+            :value="value2"
+            placeholder="请选择"
+            @on-change="changeHandler2"
           />
         </cell>
       </group>
@@ -41,11 +51,15 @@ export default {
   methods: {
     changeHandler (value) {
       this.value = value
+    },
+    changeHandler2 (value) {
+      this.value2 = value
     }
   },
   data () {
     return {
       value: '',
+      value2: '',
       options: [
         {
           value: '1',
@@ -61,6 +75,39 @@ export default {
         },
         {
           value: '4',
+          label: '高尔夫',
+          disabled: true
+        },
+        {
+          value: '5',
+          label: '篮球'
+        },
+        {
+          value: '6',
+          label: '羽毛球'
+        },
+        {
+          value: '7',
+          label: '乒乓球'
+        },
+        {
+          value: '12',
+          label: '高尔夫'
+        },
+        {
+          value: '8',
+          label: '篮球'
+        },
+        {
+          value: '9',
+          label: '羽毛球'
+        },
+        {
+          value: '10',
+          label: '乒乓球'
+        },
+        {
+          value: '11',
           label: '高尔夫'
         }
       ]

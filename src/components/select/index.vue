@@ -57,12 +57,13 @@ export default {
       /* eslint-disable no-new */
       this.popup = new Vue({
         el: node,
-        template: '<actionsheet :open="open" :value="value" @on-close="closeHandler" @on-menu="menuHandler"><actionsheet-item v-for="item in options" :value="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item></actionsheet>',
+        template: '<actionsheet :class="classes" :open="open" :value="value" @on-close="closeHandler" @on-menu="menuHandler"><actionsheet-item v-for="item in options" :value="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item></actionsheet>',
         components: { Actionsheet, ActionsheetItem },
         data: {
           options: this.options,
           open: false,
-          value: this.value
+          value: this.value,
+          classes: cssPrefix + 'select-actionsheet'
         },
         mounted () {
           this.open = true
@@ -134,6 +135,12 @@ export default {
       }
       &-placeholder{
         color: #999;
+      }
+      &-actionsheet{
+        .#{$css-prefix}popup-inner{
+          max-height:65%;
+          min-height:300px;
+        }
       }
     }
   }
