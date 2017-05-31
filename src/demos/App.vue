@@ -32,6 +32,7 @@
         <x-link href="/header">XHeader</x-link>
         <x-link href="/divider">Divider</x-link>
         <x-link href="/swiper">Swiper</x-link>
+        <x-link href="/swipeout">Swipeout</x-link>
         <x-link href="/preview">Preview</x-link>
         <x-link href="/picker">Picker</x-link>
         <x-link href="/popuppicker">PopupPicker</x-link>

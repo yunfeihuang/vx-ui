@@ -26,6 +26,7 @@ import {
   Header,
   Divider,
   Swiper,
+  Swipeout,
   Preview,
   Flexbox,
   Picker,
@@ -189,6 +190,11 @@ export default [
     path: '/swiper',
     name: 'swiper',
     component: Swiper
+  },
+  {
+    path: '/swipeout',
+    name: 'swipeout',
+    component: Swipeout
   },
   {
     path: '/preview',

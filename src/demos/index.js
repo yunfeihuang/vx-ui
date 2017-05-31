@@ -25,6 +25,7 @@ import Search from './Search'
 import Header from './Header'
 import Divider from './Divider'
 import Swiper from './Swiper'
+import Swipeout from './Swipeout'
 import Preview from './Preview'
 import Flexbox from './Flexbox'
 import Picker from './Picker'
@@ -61,6 +62,7 @@ export {
   Tabbar,
   Sidebar,
   Swiper,
+  Swipeout,
   Preview,
   Picker,
   PopupPicker,

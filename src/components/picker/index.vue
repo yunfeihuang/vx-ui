@@ -74,8 +74,14 @@ export default {
       requestAnimationFrame(this.scrollToActive)
     }
   },
+  created () {
+    this.$touch = {}
+  },
+  destroyed () {
+    this.$touch = null
+  },
   mounted () {
-    this.scrollElement = this.$el.querySelector('.' + cssPrefix + 'picker')
+    this.$touch.scrollElement = this.$el.querySelector('.' + cssPrefix + 'picker')
     requestAnimationFrame(this.scrollToActive)
   },
   methods: {
@@ -88,24 +94,24 @@ export default {
         }
       })
       requestAnimationFrame(() => {
-        this.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
+        this.$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
       })
     },
     touchEndHandler () {
-      this.scrollEnd = true
+      this.$touch.scrollEnd = true
       this.computedScrollTop()
     },
     touchMoveHandler (e) {
       let pageY = e.changedTouches[0].pageY
       if (this.pageY) {
-        if (this.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
+        if (this.$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
           this.pullTimer && clearTimeout(this.pullTimer)
           this.pullTimer = setTimeout(() => {
             this.$emit('on-pulldown')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
-        } else if (Math.round(this.scrollElement.scrollTop) === this.maxScrollTop && pageY - this.pageY < 0) {
+        } else if (Math.round(this.$touch.scrollElement.scrollTop) === this.$touch.maxScrollTop && pageY - this.pageY < 0) {
           this.pullTimer && clearTimeout(this.pullTimer)
           this.pullTimer = setTimeout(() => {
             this.$emit('on-pullup')
@@ -117,20 +123,20 @@ export default {
       this.pageY = pageY
     },
     touchStartHandler (e) {
-      this.scrollEnd = false
-      this.maxScrollTop = this.scrollElement.scrollHeight - this.scrollElement.offsetHeight
+      this.$touch.scrollEnd = false
+      this.$touch.maxScrollTop = this.$touch.scrollElement.scrollHeight - this.$touch.scrollElement.offsetHeight
       this.pageY = e.changedTouches[0].pageY
       this.timer && clearTimeout(this.timer)
     },
     scrollHandlder () {
-      if (this.scrollEnd) {
+      if (this.$touch.scrollEnd) {
         this.computedScrollTop()
       }
     },
     computedScrollTop () {
       this.timer && clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        this.scrollEnd = false
+        this.$touch.scrollEnd = false
         let node = this.$el.querySelector('.' + cssPrefix + 'picker')
         let _scrollTop = node.scrollTop
         let index = Math.round(_scrollTop / 42)

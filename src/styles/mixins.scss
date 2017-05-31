@@ -76,7 +76,7 @@
 @mixin round-border($border-color : $border-color-base,$border-radius : $border-radius-base) {
   position:relative;
   &:before{
-    border:1px solid $border-color;
+    border:1px solid darken($border-color,10%);
     box-sizing:border-box;
     width:200%;
     height:200%;

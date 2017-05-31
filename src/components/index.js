@@ -39,6 +39,7 @@ import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
 import Badge from './badge'
+import Swipeout from './swipeout'
 import DatetimePicker from './datetime-picker'
 
 window.toast = (props, mounted = document.body) => {
@@ -192,5 +193,6 @@ export {
   Spinner,
   Picker,
   Badge,
+  Swipeout,
   DatetimePicker
 }
