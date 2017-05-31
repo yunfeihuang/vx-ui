@@ -139,7 +139,6 @@ export default {
       &-actionsheet{
         .#{$css-prefix}popup-inner{
           max-height:65%;
-          min-height:300px;
         }
       }
     }

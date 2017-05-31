@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
     <transition name="popup-fade" v-if="!full">
-      <overlay @click="closeHandler" v-if="open"></overlay>
+      <overlay v-if="open" @click="closeHandler"></overlay>
     </transition>
     <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="enterHandler">
-      <div :class="innerClasses" v-if="open">
+      <div v-if="open" :class="innerClasses">
         <slot></slot>
       </div>
     </transition>

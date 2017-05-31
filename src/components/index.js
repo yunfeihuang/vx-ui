@@ -42,7 +42,7 @@ import Badge from './badge'
 import Swipeout from './swipeout'
 import DatetimePicker from './datetime-picker'
 
-window.toast = (props, mounted = document.body) => {
+window.$toast = (props, mounted = document.body) => {
   props = Object.assign({
     open: true,
     onClose: () => {
@@ -73,7 +73,7 @@ window.toast = (props, mounted = document.body) => {
   return vue
 }
 
-window.alert = (props, mounted = document.body) => {
+window.$alert = (props, mounted = document.body) => {
   props = Object.assign({
     open: true,
     onConfirm: () => {
@@ -104,7 +104,7 @@ window.alert = (props, mounted = document.body) => {
   return vue
 }
 
-window.confirm = (props, mounted = document.body) => {
+window.$confirm = (props, mounted = document.body) => {
   props = Object.assign({
     open: true,
     onConfirm: () => {

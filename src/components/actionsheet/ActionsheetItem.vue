@@ -1,6 +1,8 @@
 <template>
-  <div :class="classes" :disabled="disabled" @click="clickHandler">
-    <slot></slot>
+  <div :class="classes" @click="clickHandler">
+    <div :class="cssPrefix + 'action-sheet-item-text'" :disabled="disabled">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -46,8 +48,12 @@ export default {
       border-left: 0.8rem solid transparent;
       border-right: 0.8rem solid transparent;
       user-select:none;
+      white-space: nowrap;
+      overflow: hidden;
       @include active;
-      @include disabled;
+      &-text{
+        @include disabled;
+      }
       &:after{
         @include divider;
       }

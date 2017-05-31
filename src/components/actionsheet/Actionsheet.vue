@@ -81,11 +81,13 @@ export default {
     },
     enterHandler () {
       if (!this.$children) return
-      this.$children[0].$children.forEach((item) => {
-        if (item.$el.className.indexOf('overlay') === -1) {
-          item.$off('click').$on('click', this.menuHandler)
-          item.value === this.value && (item.checked = true)
-        }
+      requestAnimationFrame(() => {
+        this.$children[0].$children.forEach((item) => {
+          if (item.$el.className.indexOf('overlay') === -1) {
+            item.value === this.value && (item.checked = true)
+            item.$off('click').$on('click', this.menuHandler)
+          }
+        })
       })
     }
   }
@@ -99,8 +101,10 @@ export default {
     &actionsheet{
       &-inner{
         background:#fff;
-        max-height: 90%;
-        overflow: auto;
+        max-height: 80%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
       }
       &-cancel{
         padding: $item-padding;

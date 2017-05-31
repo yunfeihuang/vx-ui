@@ -91,10 +91,6 @@ export default {
           label: '乒乓球'
         },
         {
-          value: '12',
-          label: '高尔夫'
-        },
-        {
           value: '8',
           label: '篮球'
         },

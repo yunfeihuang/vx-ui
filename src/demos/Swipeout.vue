@@ -66,7 +66,7 @@ export default {
       console.log('openSwipeoutHandler')
     },
     actionHandler (e) {
-      window.toast({content: '点击了' + e.target.innerHTML})
+      window.$toast({content: '点击了' + e.target.innerHTML})
     },
     fetch (page = 1, cb) {
       let bool = page > lastPage
