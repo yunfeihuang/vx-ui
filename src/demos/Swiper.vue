@@ -61,5 +61,8 @@ export default {
     img{
       max-width:100%;
     }
+    .swiper-img{
+      min-height:120px;
+    }
   }
 </style>

@@ -49,6 +49,9 @@ export default {
     this.$touch = {}
   },
   destroyed () {
+    if (swipeoutVue === this) {
+      swipeoutVue = null
+    }
     this.$touch = null
   },
   mounted () {
@@ -89,7 +92,8 @@ export default {
       let pageY = e.changedTouches[0].pageY
       let pageX = e.changedTouches[0].pageX
       if (this.$touch.start && Math.abs(pageY - this.$touch.pageY) < Math.abs(pageX - this.$touch.pageX)) {
-        this.$touch.translateX = pageX - this.$touch.pageX + this.$touch.currentTranslateX
+        this.$touch.diffX = pageX - this.$touch.pageX
+        this.$touch.translateX = this.$touch.diffX + this.$touch.currentTranslateX
         this.$touch.translateX = this.$touch.translateX > 0 ? 0 : this.$touch.translateX
         if (Math.abs(this.$touch.translateX) > this.$touch.maxTranslateX) {
           this.$touch.translateX = this.$touch.translateX > 0 ? this.$touch.maxTranslateX : -this.$touch.maxTranslateX
@@ -102,7 +106,11 @@ export default {
     touchEndHandler () {
       if (this.$touch.start) {
         this.$touch.start = false
-        this.$touch.translateX = Math.abs(this.$touch.translateX) > 60 ? -this.$touch.maxTranslateX : 0
+        if (Math.abs(this.$touch.diffX) > 60) {
+          this.$touch.translateX = this.$touch.diffX < 0 ? -this.$touch.maxTranslateX : 0
+        } else {
+          this.$touch.translateX = this.$touch.currentTranslateX
+        }
         requestAnimationFrame(() => {
           this.setTranslateX(this.$touch.translateX)
         })

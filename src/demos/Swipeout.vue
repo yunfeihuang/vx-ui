@@ -16,9 +16,9 @@
                 </div>
               </flexbox-item>
             </flexbox>
-            <button class="swipeout-button" slot="action" type="button">顶置</button>
-            <button class="swipeout-button" slot="action" type="button">收藏</button>
-            <button class="swipeout-button" slot="action" type="button">删除</button>
+            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">顶置</button>
+            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">收藏</button>
+            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">删除</button>
           </swipeout>
           <divider></divider>
         </template>
@@ -64,6 +64,9 @@ export default {
     },
     openSwipeoutHandler () {
       console.log('openSwipeoutHandler')
+    },
+    actionHandler (e) {
+      window.toast({content: '点击了' + e.target.innerHTML})
     },
     fetch (page = 1, cb) {
       let bool = page > lastPage
