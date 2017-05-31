@@ -21,6 +21,10 @@
           <div slot="title">喜欢({{value}})</div>
           <rater slot="value" star="♡" color="rgb(255, 204, 102)" :value="value" @on-change="changeHandler"/>
         </cell>
+        <cell :arrow="false">
+          <div slot="title">滑块控制</div>
+          <range style="width:200px" slot="value" v-model="value" :max="5"/>
+        </cell>
       </group>
     </x-body>
   </layout>
@@ -33,6 +37,7 @@ import {
   XBody,
   Group,
   Cell,
+  Range,
   Rater
 } from '../components'
 export default {
@@ -42,6 +47,7 @@ export default {
     XBody,
     Group,
     Cell,
+    Range,
     Rater
   },
   methods: {
