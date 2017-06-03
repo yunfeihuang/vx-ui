@@ -19,6 +19,7 @@
   text-align:center;
   user-select:none;
   cursor: default;
+  box-shadow: none;
 }
 @mixin input{
   border:0;
@@ -30,14 +31,8 @@
   height:2.6rem;
   width:100%;
 }
-@mixin divider ($color:$border-color-base){
-  content:'';
-  display:block;
-  height:1px;
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
+@mixin _1px($color:$border-color-base) {
+  border-bottom:none;
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(50%,transparent),color-stop(50%,transparent),color-stop(100%,$color));
   background-image: -webkit-linear-gradient(top,transparent 50%,$color 50%,$color 100%);
   background-image: linear-gradient(to bottom,transparent 50%,$color 50%,$color 100%);
@@ -45,6 +40,30 @@
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom;
+}
+@mixin divider ($color:$border-color-base){
+  border-bottom:1px solid $color;
+  content:'';
+  display:block;
+  height:1px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    @include _1px($color);
+  }
+  @media screen and (min-resolution: 2dppx) {
+    @include _1px($color);
+  }
+}
+@mixin _1px-vertical($color:$border-color-base) {
+  border-left:none;
+  background-image: -webkit-linear-gradient(left,$color 50%,transparent 50%,transparent 100%);
+  background-image: linear-gradient(to right,$color 50%,transparent 50%,transparent 100%);
+  -webkit-background-size: 1px 100%;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
 }
 @mixin divider-vertical($color:$border-color-base){
   content:'';
@@ -54,11 +73,13 @@
   top:0;
   left:0;
   height:100%;
-  background-image: -webkit-linear-gradient(left,$color 50%,transparent 50%,transparent 100%);
-  background-image: linear-gradient(to right,$color 50%,transparent 50%,transparent 100%);
-  -webkit-background-size: 1px 100%;
-  background-size: 1px 100%;
-  background-repeat: no-repeat;
+  background-color:$border-color-base;
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    @include _1px-vertical;
+  }
+  @media screen and (min-resolution: 2dppx) {
+    @include _1px-vertical;
+  }
 }
 @mixin arrow($rotate:45deg){
   content:'';
@@ -73,18 +94,42 @@
   border-right:1px solid $border-color-base;
   transform:rotate($rotate);
 }
+@mixin _round-border($border-color : $border-color-base,$border-radius : $border-radius-base,$resolution:1) {
+  @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
+    border:1px solid darken($border-color,$resolution*3%);
+    width:$resolution*100%;
+    height:$resolution*100%;
+    transform:scale(1/$resolution);
+    border-radius:$resolution*$border-radius;
+    left:if($resolution%2==1,-100%,-50%);
+    top:if($resolution%2==1,-100%,-50%);
+  }
+  @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
+    border:1px solid darken($border-color,$resolution*3%);
+    width:$resolution*100%;
+    height:$resolution*100%;
+    transform:scale(1/$resolution);
+    border-radius:$resolution*$border-radius;
+    left:if($resolution%2==1,-100%,-50%);
+    top:if($resolution%2==1,-100%,-50%);
+  }
+}
 @mixin round-border($border-color : $border-color-base,$border-radius : $border-radius-base) {
   position:relative;
   &:before{
-    border:1px solid darken($border-color,10%);
+    border:1px solid $border-color;
     box-sizing:border-box;
-    width:200%;
-    height:200%;
+    width:100%;
+    height:100%;
     position:absolute;
-    left:-50%;
-    top:-50%;
-    transform:scale(0.5);
+    left:0;
+    top:0;
     content:'';
-    border-radius:2*$border-radius;
+    border-radius:$border-radius;
+    @include _round-border($border-color,$border-radius,2);
+    @include _round-border($border-color,$border-radius,3);
+    @include _round-border($border-color,$border-radius,4);
+    @include _round-border($border-color,$border-radius,5);
+    @include _round-border($border-color,$border-radius,6);
   }
 }

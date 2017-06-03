@@ -69,7 +69,7 @@ export default {
           box-shadow:none;
         }
         &:before{
-          border-color:darken($primary-color,10%);
+          border-color:darken($primary-color,5%);
         }
       }
       @include disabled;

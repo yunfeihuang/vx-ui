@@ -22,7 +22,7 @@
         </swiper-item>
       </swiper>
     </x-body>
-    <tabbar slot="footer" @on-change="changeHandler" :active="active">
+    <tabbar slot="footer" :ripple="true" @on-change="changeHandler" :active="active">
       <tabbar-item text="主页" icon="&#xe651;"/>
       <tabbar-item text="消息" icon="&#xe653;"/>
       <tabbar-item text="我的" icon="&#xe63b;"/>

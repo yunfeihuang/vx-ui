@@ -50,7 +50,7 @@ const input = {
     name: {
       type: String,
       default () {
-        return 'name_' + Math.random()
+        return Math.random().toString(36).substr(2)
       }
     },
     required: {
@@ -76,7 +76,7 @@ const input = {
       this.$emit('on-change', e.target.value)
     },
     inputHandler (e) {
-      this.$emit('input', e.target.value)
+      this.$emit('input', e.target ? e.target.value : e)
     },
     keyupHandler (e) {
       e.keyCode === 13 && this.$emit('on-keyenter', e)

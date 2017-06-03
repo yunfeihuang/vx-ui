@@ -36,7 +36,7 @@ export default {
     },
     direction: {
       type: String,
-      default: 'down'
+      default: 'bottom'
     }
   },
   computed: {
@@ -103,7 +103,7 @@ export default {
         position:absolute;
         overflow: auto;
       }
-      &-up{
+      &-top{
         top:0;
         left:0;
         width:100%;
@@ -113,7 +113,7 @@ export default {
           max-height: 100%;
         }
       }
-      &-down{
+      &-bottom{
         bottom:0;
         left:0;
         width:100%;
@@ -164,29 +164,29 @@ export default {
     opacity: 0
   }
   
-  .popup-slide-up-enter-active, .popup-slide-up-leave-active {
+  .popup-slide-top-enter-active, .popup-slide-top-leave-active {
     transition: transform $transition-time
   }
-  .popup-slide-up-enter, .popup-slide-up-leave-active {
+  .popup-slide-top-enter, .popup-slide-top-leave-active {
     transform: translateY(-100%);
   }
-  .popup-full-slide-up-enter-active, .popup-full-slide-up-leave-active {
+  .popup-full-slide-top-enter-active, .popup-full-slide-top-leave-active {
     transition: transform 0.4s;
   }
-  .popup-full-slide-up-enter, .popup-full-slide-up-leave-active {
+  .popup-full-slide-top-enter, .popup-full-slide-top-leave-active {
     transform: translateY(-100%);
   }
   
-  .popup-slide-down-enter-active, .popup-slide-down-leave-active {
+  .popup-slide-bottom-enter-active, .popup-slide-bottom-leave-active {
     transition: transform $transition-time
   }
-  .popup-slide-down-enter, .popup-slide-down-leave-active {
+  .popup-slide-bottom-enter, .popup-slide-bottom-leave-active {
     transform: translateY(100%);
   }
-  .popup-full-slide-down-enter-active, .popup-full-slide-down-leave-active {
+  .popup-full-slide-bottom-enter-active, .popup-full-slide-bottom-leave-active {
     transition: transform 0.4s;
   }
-  .popup-full-slide-down-enter, .popup-full-slide-down-leave-active {
+  .popup-full-slide-bottom-enter, .popup-full-slide-bottom-leave-active {
     transform: translateY(100%);
   }
   

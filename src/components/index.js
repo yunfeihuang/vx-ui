@@ -12,6 +12,7 @@ import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
 import Checker from './checker'
 import {XForm, FormItem} from './form'
+import Field from './field'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Tab, TabItem} from './tab'
@@ -166,6 +167,7 @@ export {
   Range,
   XForm,
   FormItem,
+  Field,
   XTextarea,
   XSwitch,
   Checkbox,

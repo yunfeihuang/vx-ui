@@ -140,7 +140,7 @@ export default {
       &-spinner{
         width:36px!important;
         height:36px!important;
-        margin-bottom:5px;
+        margin-bottom:8px;
       }
     }
   }

@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    submitHandler () {
+    submitHandler (e) {
       if (this.validator) {
         let message = this.validator()
         if (message) {
@@ -45,6 +45,7 @@ export default {
       } else {
         this.$emit('on-submit')
       }
+      e.preventDefault()
     },
     getValidityMessage (validityState, name) {
       let message = ''
@@ -58,7 +59,7 @@ export default {
     showValidityMessage (message) {
       if (!this.invalid) {
         this.invalid = true
-        window.toast({
+        window.$toast({
           content: message,
           onClose: () => {
             this.invalid = false

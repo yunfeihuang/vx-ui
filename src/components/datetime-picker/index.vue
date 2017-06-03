@@ -53,7 +53,7 @@ export default {
     },
     max: {
       type: String,
-      default: now.getFullYear() + 20 + '-01-01'
+      default: `${now.getFullYear() + 20}-01-01`
     },
     value: {
       type: String,
@@ -61,7 +61,7 @@ export default {
     },
     format: {
       type: String,
-      default: 'yyyy-MM-dd'
+      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
     },
     locale: {
       type: Object,

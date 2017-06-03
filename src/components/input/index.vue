@@ -12,12 +12,14 @@
       :maxlength="maxlength"
       :name="name" 
       :required="required"
+      :pattern="pattern"
       @focus="focusHandler"
       @blur="blurHandler"
       @keyup="keyupHandler"
       @keydown="keydownHandler" 
       @change="changeHandler"
       @input="inputHandler"
+      @invalid="invalidHandler"
       />
     <transition name="input-clear-fade">
       <button type="button" v-if="clear&&isFocus" :class="cssPrefix + 'input-clear-button'" @click="clearHandler">
@@ -34,12 +36,12 @@ export default {
   mixins: [input],
   computed: {
     classes () {
-      let styles = {}
-      styles[cssPrefix + 'input-focus'] = this.isFocus
-      styles[cssPrefix + 'input-clear'] = !!this.value
+      let classes = {}
+      classes[cssPrefix + 'input-focus'] = this.isFocus
+      classes[cssPrefix + 'input-clear'] = !!this.value && this.clear
       return [
         cssPrefix + 'input-wrapper',
-        styles
+        classes
       ]
     }
   },
@@ -51,14 +53,15 @@ export default {
   },
   methods: {
     clearHandler (e) {
-      this.$el.classList.remove(this.cssPrefix + 'input-clear')
+      this.clear && this.$el.classList.remove(this.cssPrefix + 'input-clear')
       this.$emit('on-change', '')
+      this.$emit('input', '')
     },
     inputHandler (e) {
       if (e.target.value) {
-        this.$el.classList.add(this.cssPrefix + 'input-clear')
+        this.clear && this.$el.classList.add(this.cssPrefix + 'input-clear')
       } else {
-        this.$el.classList.remove(this.cssPrefix + 'input-clear')
+        this.clear && this.$el.classList.remove(this.cssPrefix + 'input-clear')
       }
       this.$emit('input', e.target.value)
     }
@@ -74,6 +77,7 @@ export default {
       position:relative;
       display:block;
       height:2.6rem;
+      background:#fff;
       .iconfont{
         color:$sub-color;
       }
@@ -97,6 +101,7 @@ export default {
         font-size: inherit;
         padding-left: 0.8rem;
         vertical-align: middle;
+        background: transparent;
         @include disabled;
       }
       

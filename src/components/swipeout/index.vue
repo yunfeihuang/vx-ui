@@ -2,8 +2,7 @@
   <div 
     :class="classes"
     @touchstart="touchStartHandler"
-    @touchmove="touchMoveHandler"
-    @touchend="touchEndHandler"
+    @mousedown="touchStartHandler"
     onselectstart="return false;"
     >
     <div :class="cssPrefix + 'swipeout-inner'">
@@ -80,17 +79,18 @@ export default {
             currentTranslateX = parseInt(transform.match(/[-\d]+/g)[0])
           }
         }
-        Object.assign(this.$touch, {
+        Object.assign(this.$touch, this.getPosition(e), {
           start: true,
-          pageX: e.changedTouches[0].pageX,
-          pageY: e.changedTouches[0].pageY,
           currentTranslateX: currentTranslateX
         })
+        document.addEventListener('touchmove', this.touchMoveHandler, false)
+        document.addEventListener('touchend', this.touchEndHandler, false)
+        document.addEventListener('mousemove', this.touchMoveHandler, false)
+        document.addEventListener('mouseup', this.touchEndHandler, false)
       }
     },
     touchMoveHandler (e) {
-      let pageY = e.changedTouches[0].pageY
-      let pageX = e.changedTouches[0].pageX
+      let {pageY, pageX} = this.getPosition(e)
       if (this.$touch.start && Math.abs(pageY - this.$touch.pageY) < Math.abs(pageX - this.$touch.pageX)) {
         this.$touch.diffX = pageX - this.$touch.pageX
         this.$touch.translateX = this.$touch.diffX + this.$touch.currentTranslateX
@@ -103,9 +103,12 @@ export default {
         e.preventDefault()
       }
     },
-    touchEndHandler () {
+    touchEndHandler (e) {
       if (this.$touch.start) {
         this.$touch.start = false
+        if (this.$touch.diffX === 0) {
+          this.$emit('click', this.$el)
+        }
         if (Math.abs(this.$touch.diffX) > 60) {
           this.$touch.translateX = this.$touch.diffX < 0 ? -this.$touch.maxTranslateX : 0
         } else {
@@ -117,6 +120,10 @@ export default {
         if (this.$touch.currentTranslateX !== this.$touch.translateX) {
           this.$emit(this.$touch.translateX === 0 ? 'on-close' : 'on-open')
         }
+        document.removeEventListener('touchmove', this.touchMoveHandler)
+        document.removeEventListener('touchend', this.touchEndHandler)
+        document.removeEventListener('mousemove', this.touchMoveHandler)
+        document.removeEventListener('mouseup', this.touchEndHandler)
       }
     },
     actionHandler () {
@@ -124,6 +131,12 @@ export default {
         this.setTranslateX(0, 0)
       })
       this.$emit('on-close')
+    },
+    getPosition (e) {
+      return {
+        pageX: e.changedTouches ? e.changedTouches[0].pageX : e.pageX,
+        pageY: e.changedTouches ? e.changedTouches[0].pageY : e.pageY
+      }
     }
   },
   data () {

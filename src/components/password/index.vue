@@ -17,6 +17,8 @@
       @on-keyup="keyupHandler"
       @on-keydown="keydownHandler" 
       @on-change="changeHandler"
+      @input="inputHandler"
+      @invalid="invalidHandler"
     />
     <button
       :class="[cssPrefix+'password-switch']"

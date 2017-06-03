@@ -10,8 +10,8 @@
           <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup up</div>
-          <x-switch slot="value" :value="checkedUp" @on-change="changeUpHandler"/>
+          <div slot="title">popup top</div>
+          <x-switch slot="value" :value="checkedTop" @on-change="changeTopHandler"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup left</div>
@@ -41,12 +41,12 @@
         </group>
       </div>
     </popup>
-    <popup direction="up" :open="checkedUp" @on-close="changeUpHandler">
+    <popup direction="top" :open="checkedTop" @on-close="changeTopHandler">
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checkedUp" @on-change="changeUpHandler"/>
+            <x-switch slot="value" :value="checkedTop" @on-change="changeTopHandler"/>
           </cell>
         </group>
       </div>
@@ -119,8 +119,8 @@ export default {
     changeHandler () {
       this.checked = !this.checked
     },
-    changeUpHandler () {
-      this.checkedUp = !this.checkedUp
+    changeTopHandler () {
+      this.checkedTop = !this.checkedTop
     },
     changeLeftHandler () {
       this.checkedLeft = !this.checkedLeft
@@ -138,7 +138,7 @@ export default {
   data () {
     return {
       checked: false,
-      checkedUp: false,
+      checkedTop: false,
       checkedLeft: false,
       checkedRight: false,
       checkedCenter: false,

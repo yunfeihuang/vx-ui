@@ -122,9 +122,7 @@ export default {
       .#{$css-prefix}input-wrapper{
         height:1.8rem;
         margin: 4px;
-        input{
-          border-radius:1rem;
-        }
+        border-radius:1rem;
         &:before,&:after{
           display:none;
         }

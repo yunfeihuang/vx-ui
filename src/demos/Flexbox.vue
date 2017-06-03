@@ -19,10 +19,10 @@
         <flexbox-item>
           1
         </flexbox-item>
-        <flexbox-item span="2">
+        <flexbox-item :span="2">
           2
         </flexbox-item>
-        <flexbox-item span="3">
+        <flexbox-item :span="3">
           3
         </flexbox-item>
       </flexbox>

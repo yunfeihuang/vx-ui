@@ -53,7 +53,7 @@ export default {
     },
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
-        this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/>s').replace(/(\r|\n)/g, '<br/>')
+        this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
         this.$el.style.height = this.$shadow.clientHeight + 'px'
       })
     }
@@ -71,6 +71,7 @@ export default {
       height:2.6rem;
       min-height: 2.6rem;
       line-height: 16px;
+      background:#fff;
       textarea,.#{$css-prefix}textarea-shadow{
         padding:0.8rem;
         width:100%;
@@ -91,6 +92,9 @@ export default {
         outline: none;
         overflow: hidden;
         vertical-align: middle;
+        background:transparent;
+        position:relative;
+        z-index:1;
       }
       
       &:before{
@@ -113,7 +117,6 @@ export default {
       left:0;
       top:0;
       opacity:0;
-      z-index: -1
     }
   }
 </style>

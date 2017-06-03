@@ -31,7 +31,7 @@ export default {
         width: this.value / this.max * this.$el.offsetWidth + 'px'
       }
     },
-    _value () {
+    myValue () {
       if (this.value < this.min) {
         return this.min
       }
@@ -71,12 +71,12 @@ export default {
     }
   },
   mounted () {
-    let left = (this._value - this.min) / this.range * this.$el.offsetWidth
+    let left = (this.myValue - this.min) / this.range * this.$el.offsetWidth
     let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
     let buttonDom = this.$el.querySelector('.' + cssPrefix + 'range-button')
     let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
     valueDom.style.width = buttonDom.style.left = left + 'px'
-    tipsDom.innerHTML = Math.round(this._value * this.stepRate) / this.stepRate
+    tipsDom.innerHTML = Math.round(this.myValue * this.stepRate) / this.stepRate
   },
   methods: {
     changeHandler (val) {
@@ -98,8 +98,8 @@ export default {
         let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
         tipsDom.style.display = 'block'
         let self = this
-        let value = this._value
-        document.ontouchmove = document.onmousemove = (event) => {
+        let value = this.myValue
+        let touchMoveHandler = (event) => {
           if (start) {
             let movePosition = self.getPosition(event)
             let left = movePosition.pageX - position.pageX + touch.left
@@ -111,12 +111,15 @@ export default {
             event.preventDefault()
           }
         }
-        document.ontouchend = document.onmouseup = () => {
-          document.ontouchmove = document.onmousemove = null
+        let touchEndHandler = () => {
+          document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', touchMoveHandler)
+          document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', touchEndHandler)
           start = false
           tipsDom.style.display = 'none'
           self.changeHandler(value)
         }
+        document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', touchMoveHandler, false)
+        document.addEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', touchEndHandler, false)
       }
     },
     getPosition (e) {
@@ -137,6 +140,7 @@ export default {
       &-wrapper{
         height:2.6rem;
         position:relative;
+        min-width:100px;
       }
       &-disabled{
         opacity: 0.6;

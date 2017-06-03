@@ -12,6 +12,12 @@ export default {
   components: {
     Divider
   },
+  props: {
+    ripple: {
+      type: Boolean,
+      default: false
+    }
+  },
   mixins: [tab],
   computed: {
     classes () {

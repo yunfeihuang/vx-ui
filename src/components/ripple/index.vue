@@ -13,6 +13,9 @@ export default {
   props: {
     color: {
       type: String
+    },
+    position: {
+      type: String
     }
   },
   computed: {
@@ -28,16 +31,28 @@ export default {
     clickHandler (e) {
       this.$emit('click', e)
     },
-    touchStartHandler (e) {
-      let rect = this.$el.getBoundingClientRect()
-      offset = {
-        width: this.$el.offsetWidth,
-        height: this.$el.offsetHeight
+    getOffset (rect, {pageX, pageY}) {
+      if (this.position === 'center') {
+        return {
+          top: rect.height / 2,
+          left: rect.width / 2,
+          width: rect.width,
+          height: rect.height
+        }
+      } else {
+        return {
+          top: pageY - rect.top,
+          left: pageX - rect.left,
+          width: rect.width,
+          height: rect.height
+        }
       }
-      offset.max = Math.max(offset.height, offset.width)
+    },
+    touchStartHandler (e) {
+      offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches[0])
       node = document.createElement('div')
       node.classList.add(cssPrefix + 'ripple-shadow')
-      node.style.cssText = 'top:' + (e.changedTouches[0].pageY - rect.top) + 'px;left:' + (e.changedTouches[0].pageX - rect.left) + 'px;'
+      node.style.cssText = 'top:' + offset.top + 'px;left:' + offset.left + 'px;'
       if (this.color) {
         node.style.backgroundColor = this.color
       }
@@ -50,7 +65,7 @@ export default {
     touchEndHandler (e) {
       timer && clearTimeout(timer)
       node.style.transition = node.style.webkitTransition = ''
-      node.style.transform = node.style.webkitTransform = 'scale(' + (offset.max / 5) + ')'
+      node.style.transform = node.style.webkitTransform = 'scale(' + (Math.max(offset.height, offset.width) / 5) + ')'
       node.style.opacity = '0'
       setTimeout(((node) => {
         node.parentNode.removeChild(node)
