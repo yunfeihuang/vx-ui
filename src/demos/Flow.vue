@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-header slot="header">
-      <div slot="title">Flow</div>
+      <div slot="title">Flow (pulldown and pullup)</div>
     </x-header>
     <x-body slot="body" :scroll="false" class="demos flow-demos">
       <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">

@@ -60,8 +60,8 @@ export default {
     }
   },
   watch: {
-    open (val) {
-      if (val) {
+    open (value) {
+      if (value) {
         requestAnimationFrame(() => {
           this.$el.style.display = 'table'
           this.$emit('on-open')

@@ -80,17 +80,17 @@ export default {
               this.$destroy()
             }, 1000)
           },
-          menuHandler (val) {
-            select.$emit('on-change', val)
-            select.$emit('input', val)
+          menuHandler (value) {
+            select.$emit('on-change', value)
+            select.$emit('input', value)
           }
         }
       })
     },
-    optionUpdate (val) {
+    optionUpdate (value) {
       let option = null
       this.options.forEach((item) => {
-        if (item.value === val) {
+        if (item.value === value) {
           option = item
         }
       })

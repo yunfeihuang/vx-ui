@@ -14,10 +14,21 @@
         </ripple>
         <divider></divider>
         <ripple color="rgba(255,0,0,0.1)">
-          点击我会出现波纹
+          自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
       </group>
+      
     </x-body>
+    <div slot="footer">
+      <div style="text-align:center;padding:10px">
+        ripple prop position:center
+      </div>
+      <tabbar :ripple="true" :active="active">
+        <tabbar-item text="主页" icon="&#xe651;"/>
+        <tabbar-item text="消息" icon="&#xe653;"/>
+        <tabbar-item text="我的" icon="&#xe63b;"/>
+      </tabbar>
+    </div>
   </layout>
 </template>
 
@@ -29,6 +40,8 @@ import {
   Group,
   Cell,
   Ripple,
+  Tabbar,
+  TabbarItem,
   Divider
 } from 'components'
 export default {
@@ -39,11 +52,18 @@ export default {
     Group,
     Cell,
     Ripple,
+    Tabbar,
+    TabbarItem,
     Divider
   },
   methods: {
     clickHandler (e) {
       console.log(e)
+    }
+  },
+  data () {
+    return {
+      active: 0
     }
   }
 }

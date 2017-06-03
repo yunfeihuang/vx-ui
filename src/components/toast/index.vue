@@ -59,8 +59,8 @@ export default {
     }
   },
   methods: {
-    openChange (val) {
-      if (val) {
+    openChange (value) {
+      if (value) {
         requestAnimationFrame(() => {
           this.$el.style.display = 'table'
         })
@@ -82,8 +82,8 @@ export default {
     })
   },
   watch: {
-    open (val) {
-      this.openChange(val)
+    open (value) {
+      this.openChange(value)
     }
   },
   data () {

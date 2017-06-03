@@ -35,6 +35,7 @@ export default {
       this.$emit('click', val)
       if (val !== this.active) {
         this.$emit('on-change', val)
+        this.$emit('input', val)
       }
     }
   }

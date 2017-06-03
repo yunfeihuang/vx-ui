@@ -58,7 +58,7 @@
   }
 }
 @mixin _1px-vertical($color:$border-color-base) {
-  border-left:none;
+  background-color:transparent;
   background-image: -webkit-linear-gradient(left,$color 50%,transparent 50%,transparent 100%);
   background-image: linear-gradient(to right,$color 50%,transparent 50%,transparent 100%);
   -webkit-background-size: 1px 100%;
@@ -75,10 +75,10 @@
   height:100%;
   background-color:$border-color-base;
   @media screen and (-webkit-min-device-pixel-ratio: 2) {
-    @include _1px-vertical;
+    @include _1px-vertical($color);
   }
   @media screen and (min-resolution: 2dppx) {
-    @include _1px-vertical;
+    @include _1px-vertical($color);
   }
 }
 @mixin arrow($rotate:45deg){

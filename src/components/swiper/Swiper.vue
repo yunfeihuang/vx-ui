@@ -67,8 +67,8 @@ export default {
     this.swiper = new Swiper(this.$el, options)
   },
   watch: {
-    active (val) {
-      this.swiper.activeIndex !== val && this.swiper.slideTo(val)
+    active (value) {
+      this.swiper.activeIndex !== value && this.swiper.slideTo(value)
     }
   },
   data () {

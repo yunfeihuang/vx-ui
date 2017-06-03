@@ -34,10 +34,11 @@ export default {
         underline.style.display = 'block'
       })
     },
-    changeHandler (val) {
-      this.$emit('click', val)
-      if (val !== this.active) {
-        this.$emit('on-change', val)
+    changeHandler (value) {
+      this.$emit('click', value)
+      if (value !== this.active) {
+        this.$emit('on-change', value)
+        this.$emit('input', value)
       }
     }
   }
