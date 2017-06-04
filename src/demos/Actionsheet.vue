@@ -15,13 +15,13 @@
         </cell>
       </group>
     </x-body>
-    <actionsheet :open="checked" @on-menu="menuHandler" @on-close="changeHandler">
+    <actionsheet :open="checked" @on-click="clickHandler" @on-close="changeHandler">
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
       <actionsheet-item value="4">删除</actionsheet-item>
     </actionsheet>
-    <actionsheet :open="checked1" :cancel="true" @on-menu="menuHandler" @on-close="changeHandler1">
+    <actionsheet :open="checked1" :cancel="true" @on-click="clickHandler" @on-close="changeHandler1">
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
@@ -59,12 +59,8 @@ export default {
     changeHandler1 (value) {
       this.checked1 = !this.checked1
     },
-    menuCloseHandler () {
-      console.log('menuCloseHandler')
-      this.checked = false
-    },
-    menuHandler (value) {
-      console.log('menuHandler')
+    clickHandler (value) {
+      console.log('clickHandler')
       // this.checked = false
     }
   },

@@ -69,9 +69,9 @@ export default {
     }
   },
   methods: {
-    menuHandler (value) {
+    clickHandler (value) {
       this.$emit('on-close')
-      this.$emit('on-menu', value)
+      this.$emit('on-click', value)
     },
     closeHandler () {
       this.$emit('on-close')
@@ -85,7 +85,7 @@ export default {
         this.$children[0].$children.forEach((item) => {
           if (item.$el.className.indexOf('overlay') === -1) {
             item.value === this.value && (item.checked = true)
-            item.$off('click').$on('click', this.menuHandler)
+            item.$off('click').$on('click', this.clickHandler)
           }
         })
       })
