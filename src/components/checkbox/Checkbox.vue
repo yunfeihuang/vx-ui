@@ -59,16 +59,17 @@ export default {
       &-icon{
         width:20px;
         height:20px;
-        box-shadow:0 0 1px #666 inset;
+        //box-shadow:0 0 1px #666 inset;
         border-radius:20px;
         display:inline-block;
-        transition:all 0.2s $ease-in-out;
+        //transition:all 0.2s $ease-in-out;
         margin-right:4px;
         text-align: center;
         vertical-align: middle;
         color:transparent;
         line-height: 1.3;
         font-size: 16px;
+        @include round-border($border-color-base,200px);
       }
       &-reverse{
         .#{$css-prefix}checkbox-icon{
@@ -82,6 +83,9 @@ export default {
         background-color:$primary-color;
         box-shadow:none;
         color:#fff;
+        &:before{
+          border-color:$primary-color;
+        }
       }
     }
     

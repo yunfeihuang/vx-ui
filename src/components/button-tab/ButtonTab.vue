@@ -23,10 +23,7 @@ export default {
   methods: {
     changeHandler (value) {
       this.$emit('click', value)
-      if (value !== this.active) {
-        this.$emit('on-change', value)
-        this.$emit('input', value)
-      }
+      value !== this.active && this.$emit('on-change', value) && this.$emit('input', value)
     }
   }
 }

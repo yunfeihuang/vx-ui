@@ -34,6 +34,7 @@ import DatetimePicker from './DatetimePicker'
 import Badge from './Badge'
 import Spinner from './Spinner'
 import Rater from './Rater'
+import Datetime from './Datetime'
 export {
   App,
   Button,
@@ -70,5 +71,6 @@ export {
   DatetimePicker,
   Badge,
   Spinner,
-  Rater
+  Rater,
+  Datetime
 }

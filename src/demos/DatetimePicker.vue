@@ -24,21 +24,21 @@
       :open="pickerOpen1"
       :value="pickerValue1"
       @on-cancel="changeHandler1"
-      @on-confirm="confirmHandler1"
+      @on-change="confirmHandler1"
       />
     <datetime-picker
       format="yyyy-MM-dd HH:mm:ss"
       :open="pickerOpen2"
       :value="pickerValue2"
       @on-cancel="changeHandler2"
-      @on-confirm="confirmHandler2"
+      @on-change="confirmHandler2"
       />
     <datetime-picker
       format="HH:mm:ss"
       :open="pickerOpen3"
       :value="pickerValue3"
       @on-cancel="changeHandler3"
-      @on-confirm="confirmHandler3"
+      @on-change="confirmHandler3"
       />
   </layout>
 </template>

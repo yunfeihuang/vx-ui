@@ -27,10 +27,7 @@ export default {
   methods: {
     changeHandler (value) {
       this.$emit('click', value)
-      if (value !== this.active) {
-        this.$emit('on-change', value)
-        this.$emit('input', value)
-      }
+      value !== this.active && this.$emit('on-change', value) && this.$emit('input', value)
     }
   }
 }
@@ -49,6 +46,11 @@ export default {
       overflow-scrolling: touch;
       &::-webkit-scrollbar{
         display:none;
+      }
+      &:before{
+        @include divider-vertical;
+        right:0;
+        left:auto;
       }
     }
   }

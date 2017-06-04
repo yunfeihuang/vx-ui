@@ -7,11 +7,11 @@
         <button type="button" :class="[cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="[cssPrefix + 'popup-picker']">
+      <div :class="['flexbox',cssPrefix + 'popup-picker']">
         <picker
           v-if="open && myPickers"
           v-for="(item,index) in myPickers"
-          :class="[cssPrefix + 'popup-picker-item']"
+          :class="['flexbox-item',cssPrefix + 'popup-picker-item']"
           :index="index"
           :value="item.value"
           :placeholder="item.placeholder"
@@ -82,12 +82,16 @@ export default {
           value: item.value
         })
       }
-      this.$emit('on-confirm', value)
-      this.$emit('input', value)
+      if (!this.value || value.toString() !== this.value.toString()) {
+        this.$emit('on-change', value)
+        this.$emit('input', value)
+      } else {
+        this.$emit('on-cancel')
+      }
     },
     changeHandler (value, index) {
       this.myPickers[index].value = value
-      this.$emit('on-change', value, index)
+      this.$emit('on-pickerchange', value, index)
     }
   }
 }

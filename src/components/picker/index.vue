@@ -129,7 +129,7 @@ export default {
       this.timer && clearTimeout(this.timer)
     },
     scrollHandlder () {
-      if (this.$touch.scrollEnd) {
+      if (this.$touch && this.$touch.scrollEnd) {
         this.computedScrollTop()
       }
     },
@@ -150,8 +150,7 @@ export default {
           let active = this.$el.querySelectorAll('.' + cssPrefix + 'picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            this.$emit('on-change', value, this.index)
-            this.$emit('input', value, this.index)
+            value !== this.value && this.$emit('on-change', value, this.index) && this.$emit('input', value, this.index)
           }
         })
       }, 51)

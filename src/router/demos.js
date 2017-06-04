@@ -34,6 +34,7 @@ import {
   DatetimePicker,
   Badge,
   Rater,
+  Datetime,
   Spinner
 } from 'demos'
 
@@ -246,5 +247,10 @@ export default [
     path: '/spinner',
     name: 'spinner',
     component: Spinner
+  },
+  {
+    path: '/datetime',
+    name: 'datetime',
+    component: Datetime
   }
 ]

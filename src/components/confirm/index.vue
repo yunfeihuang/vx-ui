@@ -135,6 +135,7 @@ export default {
           position:relative;
           font-size:inherit;
           line-height:100%;
+          color:$sub-color;
           &+button:before{
             @include divider-vertical();
           }

@@ -89,12 +89,15 @@ export default {
           &:checked+span{
             border-color:$primary-color;
             color:$primary-color;
+            &:before{
+              border-color:$primary-color;
+            }
           }
         }
         span{
           display:inline-block;
           vertical-align: middle;
-          border:1px solid $border-color-base;
+          @include round-border($border-color-base,0);
           min-width:50px;
           padding:0 0.5rem;
           text-align:center;

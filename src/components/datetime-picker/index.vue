@@ -57,11 +57,11 @@ export default {
     },
     value: {
       type: String,
-      default: '2017-01-01'
+      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
     },
     format: {
       type: String,
-      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+      default: 'yyyy-MM-dd'
     },
     locale: {
       type: Object,
@@ -190,7 +190,7 @@ export default {
     },
     getMonths () {
       let months = []
-      for (let i = 1; i <= 24; i++) {
+      for (let i = 1; i <= 12; i++) {
         months.push({
           label: (i < 10 ? '0' + String(i) : String(i)) + this.locale.month,
           value: String(i)
@@ -254,8 +254,8 @@ export default {
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.$emit('on-confirm', value)
-      this.$emit('input', value)
+      value !== this.value && this.$emit('on-change', value) && this.$emit('input', value)
+      value === this.value && this.$emit('on-cancel')
     },
     changeHandler (value, index) {
       let type = index.split('-')[1]

@@ -38,11 +38,11 @@ export default {
     this.optionUpdate(this.value)
   },
   destroyed () {
-    if (this.popup) {
-      this.popup.open = false
+    if (this.$popup) {
+      this.$popup.open = false
       setTimeout(() => {
-        this.popup.$destroy()
-        this.popup = null
+        this.$popup.$destroy()
+        this.$popup = null
       }, 2000)
     }
   },
@@ -55,7 +55,7 @@ export default {
       let node = document.createElement('div')
       document.body.appendChild(node)
       /* eslint-disable no-new */
-      this.popup = new Vue({
+      this.$popup = new Vue({
         el: node,
         template: '<actionsheet :class="classes" :open="open" :value="value" @on-close="closeHandler" @on-menu="menuHandler"><actionsheet-item v-for="item in options" :value="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item></actionsheet>',
         components: { Actionsheet, ActionsheetItem },
@@ -81,8 +81,12 @@ export default {
             }, 1000)
           },
           menuHandler (value) {
-            select.$emit('on-change', value)
-            select.$emit('input', value)
+            if (select.value !== value) {
+              select.$emit('on-change', value)
+              select.$emit('input', value)
+            } else {
+              this.closeHandler()
+            }
           }
         }
       })

@@ -18,16 +18,16 @@
     <popup-picker
       :open="pickerChecked"
       :pickers="pickers"
-      @on-change="changePickerHandler"
+      @on-pickerchange="changePickerHandler"
       @on-cancel="changePickerOpenHandler"
-      @on-confirm="confirmHandler"
+      @on-change="confirmHandler"
       />
     <popup-picker 
       :open="pickerAddressChecked"
       :pickers="addressPickers"
-      @on-change="changeAddressPickerHandler"
+      @on-pickerchange="changeAddressPickerHandler"
       @on-cancel="changeAddressPickerOpenHandler"
-      @on-confirm="confirmAddressHandler"
+      @on-change="confirmAddressHandler"
       />
   </layout>
 </template>

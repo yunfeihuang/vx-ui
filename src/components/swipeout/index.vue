@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'swipeout']
+      return [cssPrefix + 'swipeout', this.divider ? cssPrefix + 'swipeout-divider' : '']
     }
   },
   props: {
@@ -37,6 +37,10 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    divider: {
+      type: Boolean,
+      default: true
     }
   },
   watch: {
@@ -158,7 +162,6 @@ export default {
       &::-webkit-scrollbar{
         display:none;
       }
-      
       &-inner{
         transition:transform 0.2s ease-out 0s;
       }
@@ -176,6 +179,11 @@ export default {
           @include button;
           height:100%;
           min-width:50px;
+        }
+      }
+      &-divider{
+        &:after{
+          @include divider;
         }
       }
     }

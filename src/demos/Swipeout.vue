@@ -20,7 +20,6 @@
             <button @click="actionHandler" class="swipeout-button" slot="action" type="button">收藏</button>
             <button @click="actionHandler" class="swipeout-button" slot="action" type="button">删除</button>
           </swipeout>
-          <divider></divider>
         </template>
       </flow>
     </x-body>

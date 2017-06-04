@@ -39,6 +39,11 @@
           <span slot="label">邮箱</span>
           <x-input :clear="false" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" v-model="form.email" required />
         </field>
+        <field label="生日">
+          <x-input>
+            <datetime v-model="form.date" placeholder="请输入日期" required/>
+          </x-input>
+        </field>
         <field>
           <span slot="label">性别</span>
           <x-select
@@ -74,6 +79,7 @@ import {
   Divider,
   XSelect,
   XSwitch,
+  Datetime,
   XButton
 } from 'components'
 export default {
@@ -88,6 +94,7 @@ export default {
     Divider,
     XSelect,
     XSwitch,
+    Datetime,
     XButton
   },
   methods: {
@@ -111,7 +118,8 @@ export default {
         sex: '',
         type: '',
         email: '',
-        accpet: true
+        accpet: true,
+        date: undefined
       },
       sexOptions: [
         {

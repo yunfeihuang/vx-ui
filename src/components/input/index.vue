@@ -1,7 +1,9 @@
 <template>
-  <label :class="classes">
+  <label :class="classes" @focusin="focusHandler" @focusout="blurHandler">
     <slot name="icon"></slot>
-    <input 
+    <slot v-if="$slots.default"></slot>
+    <input
+      v-else
       :type="htmlType"
       :placeholder="placeholder"
       :readonly="readonly"
@@ -13,8 +15,6 @@
       :name="name" 
       :required="required"
       :pattern="pattern"
-      @focus="focusHandler"
-      @blur="blurHandler"
       @keyup="keyupHandler"
       @keydown="keydownHandler" 
       @change="changeHandler"

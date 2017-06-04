@@ -15,6 +15,7 @@
         <x-link href="/checkbox">Checkbox</x-link>
         <x-link href="/checker">Checker</x-link>
         <x-link href="/range">Range</x-link>
+        <x-link href="/datetime">Datetime</x-link>
         <x-link href="/search">Search</x-link>
         <x-link href="/form">Form</x-link>
         <x-link href="/actionsheet">Actionsheet</x-link>
@@ -36,7 +37,9 @@
         <x-link href="/preview">Preview</x-link>
         <x-link href="/picker">Picker</x-link>
         <x-link href="/popuppicker">PopupPicker</x-link>
+        <!--
         <x-link href="/datetimepicker">DatetimePicker</x-link>
+        -->
         <x-link href="/spinner">Spinner</x-link>
         <x-link href="/flexbox">Flexbox</x-link>
         <x-link href="/badge">Badge</x-link>
