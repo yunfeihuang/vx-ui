@@ -35,6 +35,7 @@ import Badge from './Badge'
 import Spinner from './Spinner'
 import Rater from './Rater'
 import Datetime from './Datetime'
+import Marquee from './Marquee'
 export {
   App,
   Button,
@@ -72,5 +73,6 @@ export {
   Badge,
   Spinner,
   Rater,
-  Datetime
+  Datetime,
+  Marquee
 }

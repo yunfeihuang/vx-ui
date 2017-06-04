@@ -9,7 +9,7 @@ import { cssPrefix } from 'utils/variable.js'
 export default {
   computed: {
     classes () {
-      return [cssPrefix + 'swiper-item', 'swiper-slide']
+      return [cssPrefix + 'marquee-item', 'swiper-slide']
     }
   },
   methods: {
@@ -29,8 +29,9 @@ export default {
   @import '~styles/variable.scss';
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
-    &swiper-item{
+    &marquee-item{
       box-sizing: border-box;
+      line-height: inherit;
     }
   }
 </style>

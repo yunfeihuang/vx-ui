@@ -57,7 +57,7 @@ export default {
     },
     value: {
       type: String,
-      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}: ${now.getMinutes()}: ${now.getSeconds()}`
     },
     format: {
       type: String,

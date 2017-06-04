@@ -35,7 +35,8 @@ import {
   Badge,
   Rater,
   Datetime,
-  Spinner
+  Spinner,
+  Marquee
 } from 'demos'
 
 /*
@@ -252,5 +253,10 @@ export default [
     path: '/datetime',
     name: 'datetime',
     component: Datetime
+  },
+  {
+    path: '/marquee',
+    name: 'marquee',
+    component: Marquee
   }
 ]

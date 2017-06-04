@@ -3,10 +3,6 @@
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
-    <div v-if="pagination" class="swiper-pagination"></div>
-    <div v-if="prev" class="swiper-button-prev"></div>
-    <div v-if="next" class="swiper-button-next"></div>
-    <div v-if="scrollbar" class="swiper-scrollbar"></div>
   </div>
 </template>
 
@@ -23,48 +19,39 @@ export default {
     options: {
       type: Object
     },
-    pagination: {
-      type: Boolean,
-      default: false
+    direction: {
+      type: String,
+      default: 'vertical'
     },
-    prev: {
-      type: Boolean,
-      default: false
+    autoplay: {
+      type: Number,
+      default: 1500
     },
-    next: {
-      type: Boolean,
-      default: false
+    effect: {
+      type: String,
+      default: 'slide'
     },
-    scrollbar: {
+    loop: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   computed: {
     classes () {
-      return [cssPrefix + 'swiper', 'swiper-container']
+      return [cssPrefix + 'marquee', 'swiper-container']
     }
   },
   mounted () {
     let options = Object.assign({
       initialSlide: this.active,
+      direction: this.direction,
+      autoplay: this.autoplay,
+      loop: this.loop,
       onSlideChangeStart: (swiper) => {
         this.$emit('on-change', swiper.activeIndex)
         this.$emit('input', swiper.activeIndex)
       }
     }, this.options)
-    if (this.pagination) {
-      options.pagination = '.swiper-pagination'
-    }
-    if (this.prev) {
-      options.prev = '.swiper-button-prev'
-    }
-    if (this.next) {
-      options.nextButton = '.swiper-button-prev'
-    }
-    if (this.scrollbar) {
-      options.scrollbar = '.swiper-scrollbar'
-    }
     this.swiper = new Swiper(this.$el, options)
   },
   watch: {
@@ -89,16 +76,10 @@ export default {
   @import '~styles/variable.scss';
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
-    &swiper{
-      .swiper-pagination-bullet{
-        background-color:#fff;
-        margin: 0 4px!important;
-        box-shadow:0 0 3px rgba(0,0,0,0.2);
-        opacity:0.4;
-      }
-      .swiper-pagination-bullet-active{
-        opacity:1;
-      }
+    &marquee{
+      height:2.6rem;
+      line-height:2.6rem;
+      text-align:center;
     }
   }
 </style>

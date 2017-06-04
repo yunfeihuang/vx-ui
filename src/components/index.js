@@ -15,6 +15,7 @@ import {XForm, FormItem} from './form'
 import Field from './field'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
+import {Marquee, MarqueeItem} from './marquee'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
 import {Sidebar, SidebarItem} from './sidebar'
@@ -152,6 +153,8 @@ export {
   ActionsheetItem,
   Swiper,
   SwiperItem,
+  Marquee,
+  MarqueeItem,
   Tab,
   TabItem,
   Tabbar,
