@@ -12,6 +12,7 @@ import Form from './Form'
 import Actionsheet from './Actionsheet'
 import Alert from './Alert'
 import Confirm from './Confirm'
+import Prompt from './Prompt'
 import Tab from './Tab'
 import Tabbar from './Tabbar'
 import Sidebar from './Sidebar'
@@ -51,6 +52,7 @@ export {
   Actionsheet,
   Alert,
   Confirm,
+  Prompt,
   Tab,
   TabButton,
   Popup,

@@ -13,6 +13,7 @@ import {
   Actionsheet,
   Alert,
   Confirm,
+  Prompt,
   Tab,
   Tabbar,
   Sidebar,
@@ -133,6 +134,11 @@ export default [
     path: '/confirm',
     name: 'confirm',
     component: Confirm
+  },
+  {
+    path: '/prompt',
+    name: 'prompt',
+    component: Prompt
   },
   {
     path: '/tab',

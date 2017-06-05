@@ -25,6 +25,7 @@ import Divider from './divider'
 import Group from './group'
 import Cell from './cell'
 import Confirm from './confirm'
+import Prompt from './prompt'
 import Alert from './alert'
 import Popup from './popup'
 import PopupPicker from './popup-picker'
@@ -45,108 +46,159 @@ import Swipeout from './swipeout'
 import Rater from './rater'
 import DatetimePicker from './datetime-picker'
 import Datetime from './datetime'
-
-window.$toast = (props, mounted = document.body) => {
-  props = Object.assign({
-    open: true,
-    onClose: () => {
-      return true
-    }
-  }, props)
-  let node = document.createElement('div')
-  mounted.appendChild(node)
-  let vue = new Vue({ //eslint-disable-line
-    el: node,
-    template: `<toast :open="props.open" :duration="props.duration" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
-    components: {Toast},
-    data: {props: props},
-    methods: {
-      closeHandler: () => {
-        props.open = props.onClose() === false
-        !props.open && setTimeout(() => {
-          vue.$destroy()
-        }, 1000)
+((win) => {
+  win.$toast = (props, mounted = document.body) => {
+    props = Object.assign({
+      open: true,
+      onClose: () => {
+        return true
       }
-    },
-    destroyed: () => {
-      requestAnimationFrame(() => {
-        vue.$el.remove()
-      })
-    }
-  })
-  return vue
-}
-
-window.$alert = (props, mounted = document.body) => {
-  props = Object.assign({
-    open: true,
-    onConfirm: () => {
-      return true
-    }
-  }, props)
-  let node = document.createElement('div')
-  mounted.appendChild(node)
-  let vue = new Vue({ //eslint-disable-line
-    el: node,
-    template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler">{{props.content}}</alert>`,
-    components: {Alert},
-    data: {props: props},
-    methods: {
-      confirmHandler: () => {
-        props.open = props.onConfirm() === false
-        !props.open && setTimeout(() => {
-          vue.$destroy()
-        }, 1000)
-      }
-    },
-    destroyed: () => {
-      requestAnimationFrame(() => {
-        vue.$el.remove()
-      })
-    }
-  })
-  return vue
-}
-
-window.$confirm = (props, mounted = document.body) => {
-  props = Object.assign({
-    open: true,
-    onConfirm: () => {
-      return true
-    },
-    onCancel: () => {
-      return true
-    }
-  }, props)
-  let node = document.createElement('div')
-  mounted.appendChild(node)
-  let vue = new Vue({ //eslint-disable-line
-    el: node,
-    template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler">{{props.content}}</confirm>`,
-    components: {Confirm},
-    data: {props: props},
-    methods: {
-      confirmHandler: () => {
-        props.open = props.onConfirm() === false
-        !props.open && setTimeout(() => {
-          vue.$destroy()
-        }, 1000)
+    }, props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      template: `<toast :open="props.open" :duration="props.duration" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
+      components: {Toast},
+      data: {props: props},
+      methods: {
+        closeHandler: () => {
+          props.open = props.onClose() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
       },
-      cancelHandler: () => {
-        props.open = props.onCancel() === false
-        !props.open && setTimeout(() => {
-          vue.$destroy()
-        }, 1000)
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.remove()
+        })
       }
-    },
-    destroyed: () => {
-      requestAnimationFrame(() => {
-        vue.$el.remove()
-      })
-    }
-  })
-  return vue
-}
+    })
+    return vue
+  }
+
+  win.$alert = (props, mounted = document.body) => {
+    props = Object.assign({
+      open: true,
+      onConfirm: () => {
+        return true
+      }
+    }, props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler">{{props.content}}</alert>`,
+      components: {Alert},
+      data: {props: props},
+      methods: {
+        confirmHandler: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.remove()
+        })
+      }
+    })
+    return vue
+  }
+
+  win.$confirm = (props, mounted = document.body) => {
+    props = Object.assign({
+      open: true,
+      onConfirm: () => {
+        return true
+      },
+      onCancel: () => {
+        return true
+      }
+    }, props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler">{{props.content}}</confirm>`,
+      components: {Confirm},
+      data: {props: props},
+      methods: {
+        confirmHandler: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        cancelHandler: () => {
+          props.open = props.onCancel() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.remove()
+        })
+      }
+    })
+    return vue
+  }
+  win.$prompt = (props, mounted = document.body) => {
+    props = Object.assign({
+      open: true,
+      disabled: true,
+      onConfirm: () => {
+        return true
+      },
+      onCancel: () => {
+        return true
+      },
+      onChange: (value) => {
+        if (value && value.trim()) {
+          return false
+        } else {
+          return true
+        }
+      }
+    }, props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      template: `<prompt :title="props.title" :open="props.open" :disabled="props.disabled" :input="props.input" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler" @on-change="changeHandler"/>`,
+      components: {Prompt},
+      data: {props: props},
+      methods: {
+        confirmHandler: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        cancelHandler: () => {
+          props.open = props.onCancel() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        changeHandler: (value) => {
+          props.disabled = props.onChange(value)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.remove()
+        })
+      }
+    })
+    return vue
+  }
+})(window)
 
 export {
   Actionsheet,
@@ -184,6 +236,7 @@ export {
   Group,
   Cell,
   Confirm,
+  Prompt,
   Alert,
   Popup,
   PopupPicker,

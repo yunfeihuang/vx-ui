@@ -21,6 +21,7 @@
         <x-link href="/actionsheet">Actionsheet</x-link>
         <x-link href="/alert">Alert</x-link>
         <x-link href="/confirm">Confirm</x-link>
+        <x-link href="/prompt">Prompt</x-link>
         <x-link href="/tab">Tab</x-link>
         <x-link href="/tabbutton">TabButton</x-link>
         <x-link href="/tabbar">Tabbar</x-link>

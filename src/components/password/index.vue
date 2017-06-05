@@ -68,6 +68,9 @@ export default {
   .#{$css-prefix}{
     &password{
       position:relative;
+      input{
+        padding-right:40px;
+      }
       label{
         position:static;
       }

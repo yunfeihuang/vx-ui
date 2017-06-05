@@ -86,7 +86,7 @@ export default {
       this.$emit('on-cancel')
     },
     confirmHandler () {
-      this.$emit('on-confirm')
+      this.open && this.$emit('on-confirm')
     }
   }
 }
