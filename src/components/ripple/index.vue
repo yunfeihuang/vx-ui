@@ -26,6 +26,8 @@ export default {
   mounted () {
     this.$el.addEventListener('touchstart', this.touchStartHandler, false)
     this.$el.addEventListener('touchend', this.touchEndHandler, false)
+    this.$el.addEventListener('mousedown', this.touchStartHandler, false)
+    this.$el.addEventListener('mouseup', this.touchEndHandler, false)
   },
   methods: {
     clickHandler (e) {
@@ -49,7 +51,7 @@ export default {
       }
     },
     touchStartHandler (e) {
-      offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches[0])
+      offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
       node = document.createElement('div')
       node.classList.add(cssPrefix + 'ripple-shadow')
       node.style.cssText = 'top:' + offset.top + 'px;left:' + offset.left + 'px;'
@@ -90,7 +92,7 @@ export default {
       user-select:none;
       &-shadow{
         position:absolute;
-        background:rgba(0,0,0,0.09);
+        background:rgba(0,0,0,0.06);
         min-height:44px;
         min-width:44px;
         border-radius:50%;

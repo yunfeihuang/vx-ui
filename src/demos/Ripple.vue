@@ -23,7 +23,7 @@
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
-      <tabbar :ripple="true" :active="active">
+      <tabbar :ripple="true" :active="active" @on-change="changeHandler">
         <tabbar-item text="主页" icon="&#xe651;"/>
         <tabbar-item text="消息" icon="&#xe653;"/>
         <tabbar-item text="我的" icon="&#xe63b;"/>
@@ -59,6 +59,9 @@ export default {
   methods: {
     clickHandler (e) {
       console.log(e)
+    },
+    changeHandler (active) {
+      this.active = active
     }
   },
   data () {

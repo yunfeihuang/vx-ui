@@ -143,7 +143,7 @@ export default {
     }
   }
   .input-clear-fade-enter-active, .input-clear-fade-leave-active {
-    transition: opacity $transition-time ease 1s
+    transition: opacity $transition-time;
   }
   .input-clear-fade-enter, .confirm-fade-leave-active {
     opacity: 0
