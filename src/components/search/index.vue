@@ -120,13 +120,12 @@ export default {
       background:#ddd;
       padding:1px;
       .#{$css-prefix}input-wrapper{
-        height:1.8rem;
+        height:2rem;
         margin: 4px;
         border-radius:1rem;
         &:before,&:after{
           display:none;
         }
-        
       }
       .#{$css-prefix}input-clear-button{
         width:40px;

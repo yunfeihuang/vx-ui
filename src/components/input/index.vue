@@ -22,7 +22,12 @@
       @invalid="invalidHandler"
       />
     <transition name="input-clear-fade">
-      <button type="button" v-if="clear&&isFocus" :class="cssPrefix + 'input-clear-button'" @click="clearHandler">
+      <button
+        type="button"
+        v-show="clear&&isFocus"
+        :class="cssPrefix + 'input-clear-button'"
+        @click="clearHandler"
+        >
         <i class="iconfont">&#xe641;</i>
       </button>
     </transition>
@@ -138,7 +143,7 @@ export default {
     }
   }
   .input-clear-fade-enter-active, .input-clear-fade-leave-active {
-    transition: opacity $transition-time
+    transition: opacity $transition-time ease 1s
   }
   .input-clear-fade-enter, .confirm-fade-leave-active {
     opacity: 0
