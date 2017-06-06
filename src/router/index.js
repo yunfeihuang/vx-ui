@@ -7,7 +7,22 @@ Vue.use(Router)
 
 let routes = demosRoutes.concat(cnodeRoutes)
 
-export default new Router({
+const router = new Router({
   // mode: 'history',
   routes: routes
 })
+let toast = null
+router.beforeEach((to, from, next) => {
+  if (window.$toast) {
+    toast = window.$toast({
+      type: 'loading',
+      content: '加载中',
+      duration: 0
+    })
+  }
+  next()
+})
+router.afterEach((to, from) => {
+  toast && toast.$destroy()
+})
+export default router

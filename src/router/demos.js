@@ -1,3 +1,4 @@
+/*
 import {
   App,
   Button,
@@ -39,8 +40,8 @@ import {
   Spinner,
   Marquee
 } from 'demos'
+*/
 
-/*
 const App = r => require.ensure([], () => r(require('demos/App')), 'App')
 const Button = r => require.ensure([], () => r(require('demos/Button')), 'Button')
 const Input = r => require.ensure([], () => r(require('demos/Input')), 'Input')
@@ -67,7 +68,19 @@ const Divider = r => require.ensure([], () => r(require('demos/Divider')), 'Divi
 const Swiper = r => require.ensure([], () => r(require('demos/Swiper')), 'Swiper')
 const Preview = r => require.ensure([], () => r(require('demos/Preview')), 'Preview')
 const Flexbox = r => require.ensure([], () => r(require('demos/Flexbox')), 'Flexbox')
-*/
+const Prompt = r => require.ensure([], () => r(require('demos/Prompt')), 'Prompt')
+const Form = r => require.ensure([], () => r(require('demos/Form')), 'Form')
+const Swipeout = r => require.ensure([], () => r(require('demos/Swipeout')), 'Swipeout')
+const Picker = r => require.ensure([], () => r(require('demos/Picker')), 'Picker')
+const PopupPicker = r => require.ensure([], () => r(require('demos/PopupPicker')), 'PopupPicker')
+const DatetimePicker = r => require.ensure([], () => r(require('demos/DatetimePicker')), 'DatetimePicker')
+const Badge = r => require.ensure([], () => r(require('demos/Badge')), 'Badge')
+const Checker = r => require.ensure([], () => r(require('demos/Checker')), 'Checker')
+const Sidebar = r => require.ensure([], () => r(require('demos/Sidebar')), 'Sidebar')
+const Rater = r => require.ensure([], () => r(require('demos/Rater')), 'Rater')
+const Spinner = r => require.ensure([], () => r(require('demos/Spinner')), 'Spinner')
+const Datetime = r => require.ensure([], () => r(require('demos/Datetime')), 'Datetime')
+const Marquee = r => require.ensure([], () => r(require('demos/Marquee')), 'Marquee')
 
 export default [
   {
