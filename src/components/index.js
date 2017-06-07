@@ -1,5 +1,6 @@
 import '../../iconfont/iconfont.css'
 import './index.scss'
+import '../utils/polyfill'
 import Vue from 'vue'
 import XButton from './button'
 import XInput from './input'
@@ -46,8 +47,8 @@ import Swipeout from './swipeout'
 import Rater from './rater'
 import DatetimePicker from './datetime-picker'
 import Datetime from './datetime'
-((win) => {
-  win.$toast = (props, mounted = document.body) => {
+((w) => {
+  w.$toast = (props, mounted = document.body) => {
     props = Object.assign({
       open: true,
       onClose: () => {
@@ -78,7 +79,7 @@ import Datetime from './datetime'
     return vue
   }
 
-  win.$alert = (props, mounted = document.body) => {
+  w.$alert = (props, mounted = document.body) => {
     props = Object.assign({
       open: true,
       onConfirm: () => {
@@ -109,7 +110,7 @@ import Datetime from './datetime'
     return vue
   }
 
-  win.$confirm = (props, mounted = document.body) => {
+  w.$confirm = (props, mounted = document.body) => {
     props = Object.assign({
       open: true,
       onConfirm: () => {
@@ -148,7 +149,7 @@ import Datetime from './datetime'
     })
     return vue
   }
-  win.$prompt = (props, mounted = document.body) => {
+  w.$prompt = (props, mounted = document.body) => {
     props = Object.assign({
       open: true,
       disabled: true,

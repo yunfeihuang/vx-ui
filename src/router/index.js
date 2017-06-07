@@ -17,7 +17,8 @@ router.beforeEach((to, from, next) => {
     toast = window.$toast({
       type: 'loading',
       content: '加载中',
-      duration: 0
+      duration: 0,
+      align: 'center'
     })
   }
   next()

@@ -8,8 +8,9 @@ function resolve (dir) {
 }
 
 module.exports = {
+  cache: true,
   entry: {
-    'components': './src/components',
+    'components': './src/components/index.js',
     app: ["babel-polyfill",'./src/main.js']
   },
   output: {
@@ -54,7 +55,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory=true',
         include: [resolve('src'), resolve('test')]
       },
       {
