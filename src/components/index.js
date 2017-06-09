@@ -47,6 +47,7 @@ import Swipeout from './swipeout'
 import Rater from './rater'
 import DatetimePicker from './datetime-picker'
 import Datetime from './datetime'
+import Popover from './popover'
 ((w) => {
   w.$toast = (props, mounted = document.body) => {
     props = Object.assign({
@@ -257,5 +258,6 @@ export {
   Swipeout,
   Rater,
   DatetimePicker,
-  Datetime
+  Datetime,
+  Popover
 }

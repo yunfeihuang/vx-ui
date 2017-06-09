@@ -37,6 +37,7 @@ import Spinner from './Spinner'
 import Rater from './Rater'
 import Datetime from './Datetime'
 import Marquee from './Marquee'
+import Popover from './Popover'
 export {
   App,
   Button,
@@ -76,5 +77,6 @@ export {
   Spinner,
   Rater,
   Datetime,
-  Marquee
+  Marquee,
+  Popover
 }

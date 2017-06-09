@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-header slot="header" :back="false">
-      <div slot="title" style="text-align:center">CNode-专业中文社区</div>
+      <div slot="title">CNode-专业中文社区</div>
       <tab :active="home.active" @on-change="activeHandler">
         <tab-item>
           全部
@@ -20,7 +20,7 @@
         </tab-item>
       </tab>
     </x-header>
-    <x-body slot="body" style="overflow: visible;position:relative;background:#fff">
+    <x-body slot="body" :scroll="false" style="background:#fff">
       <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
         <topic-item v-for="item in topics" :item="item" :key="item.id"/>
       </flow>

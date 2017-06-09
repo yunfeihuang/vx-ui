@@ -46,6 +46,7 @@
         <x-link href="/badge">Badge</x-link>
         <x-link href="/rater">Rater</x-link>
         <x-link href="/marquee">Marquee</x-link>
+        <x-link href="/popover">Popover</x-link>
       </flexbox>
     </x-body>
   </layout>

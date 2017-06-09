@@ -81,6 +81,7 @@ const Rater = r => require.ensure([], () => r(require('demos/Rater')), 'Rater')
 const Spinner = r => require.ensure([], () => r(require('demos/Spinner')), 'Spinner')
 const Datetime = r => require.ensure([], () => r(require('demos/Datetime')), 'Datetime')
 const Marquee = r => require.ensure([], () => r(require('demos/Marquee')), 'Marquee')
+const Popover = r => require.ensure([], () => r(require('demos/Popover')), 'Popover')
 
 export default [
   {
@@ -277,5 +278,10 @@ export default [
     path: '/marquee',
     name: 'marquee',
     component: Marquee
+  },
+  {
+    path: '/popover',
+    name: 'popover',
+    component: Popover
   }
 ]
