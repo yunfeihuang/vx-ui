@@ -69,6 +69,9 @@ export default {
       })
     }
   },
+  destroyed () {
+    this.$datetimePicker && this.$datetimePicker.$destroy()
+  },
   data () {
     return {
       cssPrefix: cssPrefix
