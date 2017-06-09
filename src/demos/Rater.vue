@@ -39,7 +39,7 @@ import {
   Cell,
   Range,
   Rater
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

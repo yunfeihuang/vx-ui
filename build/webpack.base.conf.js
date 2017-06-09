@@ -10,7 +10,7 @@ function resolve (dir) {
 module.exports = {
   cache: true,
   entry: {
-    'components': './src/components/index.js',
+    'vendor': ['./src/components/index.js'],
     app: ["babel-polyfill",'./src/main.js']
   },
   output: {

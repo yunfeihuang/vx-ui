@@ -49,7 +49,7 @@ import {
   XSwitch,
   Group,
   Cell
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

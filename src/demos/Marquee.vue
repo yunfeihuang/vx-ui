@@ -23,7 +23,7 @@ import {
   XBody,
   Marquee,
   MarqueeItem
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

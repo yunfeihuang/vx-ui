@@ -29,7 +29,7 @@ import {
   XBody,
   ButtonTab,
   ButtonTabItem
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

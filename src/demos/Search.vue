@@ -39,7 +39,7 @@ import {
   Layout,
   XHeader,
   XBody
-} from '../components'
+} from 'components'
 export default {
   components: {
     Search,

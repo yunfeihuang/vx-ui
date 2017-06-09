@@ -37,7 +37,7 @@ import {
   XImg,
   Flexbox,
   FlexboxItem
-} from '../components'
+} from 'components'
 
 import api from '../api'
 

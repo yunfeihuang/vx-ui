@@ -21,6 +21,16 @@
             <datetime format="HH:mm:ss" v-model="time" placeholder="请输入时间" required/>
           </x-input>
         </field>
+        <field label="yyyy-MM">
+          <x-input>
+            <datetime v-model="date2" format="yyyy-MM" placeholder="请输入年月" required/>
+          </x-input>
+        </field>
+        <field label="yyyy">
+          <x-input>
+            <datetime v-model="date3" format="yyyy" placeholder="请输入年份" required/>
+          </x-input>
+        </field>
       </x-form>
     </x-body>
   </layout>
@@ -73,6 +83,8 @@ export default {
   data () {
     return {
       date: undefined,
+      date2: undefined,
+      date3: undefined,
       datetime: undefined,
       time: undefined
     }

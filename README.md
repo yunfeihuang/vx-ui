@@ -3,10 +3,10 @@
 > vue components 移动端UI组件库
 >
 浏览地址：
-http://assets.bittyos.com/vue-components/#/
+http://vue.bittyos.com/#/
 
 cnodejs示例：
-http://assets.bittyos.com/vue-components/#/cnode
+http://vue.bittyos.com/#/cnode
 
 ## Build Setup
 

@@ -21,7 +21,7 @@ import {
   XHeader,
   XBody,
   XButton
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

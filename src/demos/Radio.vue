@@ -28,7 +28,7 @@ import {
   RadioGroup,
   Group,
   Divider
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

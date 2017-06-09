@@ -23,7 +23,7 @@ import {
   XHeader,
   XBody,
   XTextarea
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

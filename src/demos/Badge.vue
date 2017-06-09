@@ -34,7 +34,7 @@ import {
   Badge,
   Group,
   Cell
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

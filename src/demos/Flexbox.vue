@@ -62,7 +62,7 @@ import {
   XBody,
   Flexbox,
   FlexboxItem
-} from '../components'
+} from 'components'
 
 export default {
   components: {

@@ -29,7 +29,7 @@ import {
   XBody,
   Checker,
   Group
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

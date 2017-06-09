@@ -36,7 +36,7 @@ import {
   XBody,
   XImg,
   Preview
-} from '../components'
+} from 'components'
 
 let windowWidth = window.innerWidth
 

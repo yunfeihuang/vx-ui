@@ -30,7 +30,7 @@ import {
   Swiper,
   SwiperItem,
   XImg
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

@@ -31,7 +31,7 @@ import {
   Checkbox,
   CheckboxGroup,
   Group
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

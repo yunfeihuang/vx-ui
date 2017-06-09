@@ -39,7 +39,7 @@ import {
   TabbarItem,
   Swiper,
   SwiperItem
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,

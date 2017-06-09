@@ -34,7 +34,7 @@ import {
   Cell,
   Divider,
   Group
-} from '../components'
+} from 'components'
 export default {
   components: {
     Layout,
