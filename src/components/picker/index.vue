@@ -77,12 +77,12 @@ export default {
   created () {
     this.$touch = {}
   },
-  destroyed () {
-    this.$touch = null
-  },
   mounted () {
     this.$touch.scrollElement = this.$el.querySelector('.' + cssPrefix + 'picker')
     requestAnimationFrame(this.scrollToActive)
+  },
+  destroyed () {
+    this.$touch = null
   },
   methods: {
     scrollToActive () {

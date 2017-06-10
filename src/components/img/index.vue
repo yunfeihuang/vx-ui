@@ -38,6 +38,11 @@ export default {
       default: false
     }
   },
+  computed: {
+    classes () {
+      return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '']
+    }
+  },
   mounted () {
     let node = this.scrollElement = this.$el.closest('.scrollbox') || window
     if (!node.lazyloadImages) {
@@ -68,11 +73,6 @@ export default {
       }
     } else {
       this.setSource()
-    }
-  },
-  computed: {
-    classes () {
-      return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '']
     }
   },
   destroyed () {

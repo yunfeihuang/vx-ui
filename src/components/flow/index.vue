@@ -65,9 +65,6 @@ export default {
   created () {
     this.$touch = {}
   },
-  destroyed () {
-    this.$touch = null
-  },
   mounted () {
     let timer = null
     this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
@@ -81,6 +78,9 @@ export default {
       this.$el.addEventListener('touchmove', this.touchMoveHandler)
       this.$el.addEventListener('touchend', this.touchEndHandler)
     }
+  },
+  destroyed () {
+    this.$touch = null
   },
   methods: {
     pullDownHandler () {

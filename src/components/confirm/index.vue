@@ -29,13 +29,6 @@ export default {
     Overlay,
     Divider
   },
-  mounted () {
-    if (this.open) {
-      requestAnimationFrame(() => {
-        this.$el.style.display = 'table'
-      })
-    }
-  },
   props: {
     open: {
       type: Boolean,
@@ -57,6 +50,13 @@ export default {
   computed: {
     classes () {
       return [cssPrefix + 'confirm']
+    }
+  },
+  mounted () {
+    if (this.open) {
+      requestAnimationFrame(() => {
+        this.$el.style.display = 'table'
+      })
     }
   },
   watch: {

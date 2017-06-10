@@ -29,9 +29,6 @@ export default {
     Popup,
     Spinner
   },
-  mounted () {
-    this.openChange(this.open)
-  },
   props: {
     open: {
       type: Boolean,
@@ -57,6 +54,9 @@ export default {
     classes () {
       return [cssPrefix + 'toast']
     }
+  },
+  mounted () {
+    this.openChange(this.open)
   },
   methods: {
     openChange (value) {

@@ -7,17 +7,17 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
-  computed: {
-    classes () {
-      return [cssPrefix + 'spinner-wrapper']
-    }
-  },
   props: {
     color: {
       type: String
     },
     primaryColor: {
       type: String
+    }
+  },
+  computed: {
+    classes () {
+      return [cssPrefix + 'spinner-wrapper']
     }
   },
   mounted () {

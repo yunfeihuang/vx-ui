@@ -18,13 +18,6 @@ export default {
   components: {
     Popup
   },
-  mounted () {
-    if (this.open) {
-      requestAnimationFrame(() => {
-        this.$el.style.display = 'block'
-      })
-    }
-  },
   props: {
     open: {
       type: Boolean,
@@ -45,6 +38,13 @@ export default {
   computed: {
     classes () {
       return [cssPrefix + 'actionsheet']
+    }
+  },
+  mounted () {
+    if (this.open) {
+      requestAnimationFrame(() => {
+        this.$el.style.display = 'block'
+      })
     }
   },
   watch: {

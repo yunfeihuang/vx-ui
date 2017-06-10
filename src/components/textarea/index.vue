@@ -25,11 +25,6 @@ import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 export default {
   mixins: [input],
-  mounted () {
-    this.$textarea = this.$el.querySelector('textarea')
-    this.$shadow = this.$el.querySelector('.' + cssPrefix + 'textarea-shadow')
-    this.renderAutoHeight(this.$textarea.value)
-  },
   computed: {
     classes () {
       let styles = {}
@@ -39,6 +34,11 @@ export default {
         styles
       ]
     }
+  },
+  mounted () {
+    this.$textarea = this.$el.querySelector('textarea')
+    this.$shadow = this.$el.querySelector('.' + cssPrefix + 'textarea-shadow')
+    this.renderAutoHeight(this.$textarea.value)
   },
   data () {
     return {

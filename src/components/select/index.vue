@@ -27,6 +27,9 @@ export default {
   props: {
     options: {
       type: Array
+    },
+    getPopupMounted: {
+      type: Function
     }
   },
   computed: {
@@ -50,10 +53,14 @@ export default {
     inputHandler (e) {
       this.$emit('input', e.target.checked)
     },
-    clickHandler () {
+    clickHandler (e) {
       let select = this
       let node = document.createElement('div')
-      document.body.appendChild(node)
+      if (this.getPopupMounted) {
+        this.getPopupMounted(e).appendChild(node)
+      } else {
+        document.body.appendChild(node)
+      }
       /* eslint-disable no-new */
       this.$popup = new Vue({
         el: node,

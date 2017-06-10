@@ -18,13 +18,6 @@ export default {
   components: {
     Overlay
   },
-  mounted () {
-    if (this.open) {
-      requestAnimationFrame(() => {
-        this.$el.style.display = 'block'
-      })
-    }
-  },
   props: {
     open: {
       type: Boolean,
@@ -49,6 +42,13 @@ export default {
         array.push('flexbox flexbox-align-center flexbox-content-center')
       }
       return array
+    }
+  },
+  mounted () {
+    if (this.open) {
+      requestAnimationFrame(() => {
+        this.$el.style.display = 'block'
+      })
     }
   },
   watch: {

@@ -24,11 +24,6 @@ export default {
   components: {
     Flexbox
   },
-  computed: {
-    classes () {
-      return [cssPrefix + 'swipeout', this.divider ? cssPrefix + 'swipeout-divider' : '']
-    }
-  },
   props: {
     disabled: {
       type: Boolean,
@@ -43,6 +38,11 @@ export default {
       default: true
     }
   },
+  computed: {
+    classes () {
+      return [cssPrefix + 'swipeout', this.divider ? cssPrefix + 'swipeout-divider' : '']
+    }
+  },
   watch: {
     open (value) {
       this.setTranslateX(value ? -this.$touch.maxTranslateX : 0)
@@ -50,12 +50,6 @@ export default {
   },
   created () {
     this.$touch = {}
-  },
-  destroyed () {
-    if (swipeoutVue === this) {
-      swipeoutVue = null
-    }
-    this.$touch = null
   },
   mounted () {
     let node = this.$el.querySelector('.' + cssPrefix + 'swipeout-action')
@@ -65,6 +59,12 @@ export default {
       node.style.height = node.parentNode.offsetHeight + 'px'
       this.open && this.setTranslateX(-this.$touch.maxTranslateX, null, false)
     })
+  },
+  destroyed () {
+    if (swipeoutVue === this) {
+      swipeoutVue = null
+    }
+    this.$touch = null
   },
   methods: {
     setTranslateX (x, el, transition = true) {

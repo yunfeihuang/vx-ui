@@ -65,11 +65,6 @@ export default {
       default: 0
     }
   },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
-  },
   mounted () {
     let left = (this.myValue - this.min) / this.range * this.$el.offsetWidth
     let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
@@ -77,6 +72,11 @@ export default {
     let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
     valueDom.style.width = buttonDom.style.left = left + 'px'
     tipsDom.innerHTML = Math.round(this.myValue * this.stepRate) / this.stepRate
+  },
+  data () {
+    return {
+      cssPrefix: cssPrefix
+    }
   },
   methods: {
     changeHandler (val) {

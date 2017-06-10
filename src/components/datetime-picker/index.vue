@@ -94,13 +94,13 @@ export default {
       return [cssPrefix + 'popup-picker-wrapper']
     }
   },
+  mounted () {
+    this.open && this.initial()
+  },
   watch: {
     open (value) {
       value && this.initial()
     }
-  },
-  mounted () {
-    this.open && this.initial()
   },
   data () {
     return {

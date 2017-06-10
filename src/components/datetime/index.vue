@@ -31,13 +31,20 @@ export default {
     format: {
       type: String,
       default: 'yyyy-MM-dd'
+    },
+    getPopupMounted: {
+      type: Function
     }
   },
   methods: {
-    clickHandler () {
+    clickHandler (e) {
       let datetime = this
       let node = document.createElement('div')
-      document.body.appendChild(node)
+      if (this.getPopupMounted) {
+        this.getPopupMounted(e).appendChild(node)
+      } else {
+        document.body.appendChild(node)
+      }
       /* eslint-disable no-new */
       this.$datetimePicker = new Vue({
         el: node,

@@ -8,7 +8,7 @@
       <x-form @on-submit="submitHandler">
         <field label="yyyy-MM-dd">
           <x-input>
-            <datetime v-model="date" placeholder="请输入日期" required/>
+            <datetime :get-popup-mounted="popupMounted" v-model="date" placeholder="请输入日期" required/>
           </x-input>
         </field>
         <field label="yyyy-MM-dd HH:mm:ss">
@@ -78,6 +78,9 @@ export default {
           })
         }
       })
+    },
+    popupMounted () {
+      return document.querySelector('.v-body')
     }
   },
   data () {
