@@ -6,12 +6,12 @@
     <x-body slot="body">
       <div class="input-demo demos">
         <x-form class="fieldset">
-          <field align="left" validity-label="帐号">
+          <form-item align="left" validity-label="帐号">
             <x-input placeholder="请输入帐号" v-model="account" required/>
-          </field>
-          <field align="left" validity-label="密码">
+          </form-item>
+          <form-item align="left" validity-label="密码">
             <password placeholder="请输入密码" v-model="password" required/>
-          </field>
+          </form-item>
           <div style="padding:0px 15px">
             <x-button class="btn-login" type="primary" htmlType="submit">立即登录</x-button>
           </div>
@@ -27,7 +27,7 @@ import {
   XHeader,
   XBody,
   XForm,
-  Field,
+  FormItem,
   XButton,
   XInput,
   Password
@@ -38,7 +38,7 @@ export default {
     XHeader,
     XBody,
     XForm,
-    Field,
+    FormItem,
     XButton,
     XInput,
     Password

@@ -77,7 +77,7 @@ export default {
       this.$emit('on-close')
     },
     closePopupHandler () {
-      !this.cancel && this.$emit('on-close')
+      this.$emit('on-close')
     },
     enterHandler () {
       if (!this.$children) return

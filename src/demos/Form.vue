@@ -5,46 +5,21 @@
     </x-header>
     <x-body slot="body">
       <br />
-      <!--
-      <x-form>
-        <form-item label="姓名">
-          <input v-model="form.name" required />
-        </form-item>
-        <form-item label="邮箱">
-          <input pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" v-model="form.email" required />
-        </form-item>
-        <form-item label="性别">
-          <x-select
-            v-model="form.sex"
-            :options="sexOptions"
-            placeholder="请选择"
-            required
-            />
-        </form-item>
-        <form-item label="是否已婚" >
-          <x-switch v-model="form.accpet" />
-        </form-item>
-        <br />
-        <div style="padding:0px 10px;">
-          <x-button type="primary" htmlType="submit">提交</x-button>
-        </div>
-      </x-form>
-      -->
-      <x-form @on-submit="submitHandler">
-        <field>
+      <x-form @on-submit="submitHandler" :validator="formValidator">
+        <form-item>
           <span slot="label">姓名</span>
           <x-input v-model="form.name" :clear="false" required/>
-        </field>
-        <field>
+        </form-item>
+        <form-item>
           <span slot="label">邮箱</span>
           <x-input :clear="false" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" v-model="form.email" required />
-        </field>
-        <field label="生日">
+        </form-item>
+        <form-item label="生日">
           <x-input>
             <datetime v-model="form.date" placeholder="请输入日期" required/>
           </x-input>
-        </field>
-        <field>
+        </form-item>
+        <form-item>
           <span slot="label">性别</span>
           <x-select
             v-model="form.sex"
@@ -52,12 +27,12 @@
             placeholder="请选择"
             required
             />
-        </field>
+        </form-item>
         <divider></divider>
-        <field>
+        <form-item>
           <span slot="label">是否已婚</span>
           <x-switch v-model="form.accpet"/>
-        </field>
+        </form-item>
         <br />
         <div style="padding:0px 10px;">
           <x-button type="primary" htmlType="submit">提交</x-button>
@@ -74,7 +49,6 @@ import {
   XBody,
   XForm,
   FormItem,
-  Field,
   XInput,
   Divider,
   XSelect,
@@ -89,7 +63,6 @@ export default {
     XBody,
     XForm,
     FormItem,
-    Field,
     XInput,
     Divider,
     XSelect,
@@ -98,6 +71,9 @@ export default {
     XButton
   },
   methods: {
+    formValidator () {
+      console.log('formValidator')
+    },
     submitHandler () {
       window.$toast({
         type: 'loading',

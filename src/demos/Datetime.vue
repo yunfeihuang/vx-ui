@@ -6,31 +6,31 @@
     <x-body slot="body">
       <br />
       <x-form @on-submit="submitHandler">
-        <field label="yyyy-MM-dd">
+        <form-item label="yyyy-MM-dd">
           <x-input>
             <datetime :get-popup-mounted="popupMounted" v-model="date" placeholder="请输入日期" required/>
           </x-input>
-        </field>
-        <field label="yyyy-MM-dd HH:mm:ss">
+        </form-item>
+        <form-item label="yyyy-MM-dd HH:mm:ss">
           <x-input>
             <datetime format="yyyy-MM-dd HH:mm:ss" v-model="datetime" placeholder="请输入日期时间" required/>
           </x-input>
-        </field>
-        <field label="HH:mm:ss">
+        </form-item>
+        <form-item label="HH:mm:ss">
           <x-input>
             <datetime format="HH:mm:ss" v-model="time" placeholder="请输入时间" required/>
           </x-input>
-        </field>
-        <field label="yyyy-MM">
+        </form-item>
+        <form-item label="yyyy-MM">
           <x-input>
             <datetime v-model="date2" format="yyyy-MM" placeholder="请输入年月" required/>
           </x-input>
-        </field>
-        <field label="yyyy">
+        </form-item>
+        <form-item label="yyyy">
           <x-input>
             <datetime v-model="date3" format="yyyy" placeholder="请输入年份" required/>
           </x-input>
-        </field>
+        </form-item>
       </x-form>
     </x-body>
   </layout>
@@ -43,7 +43,6 @@ import {
   XBody,
   XForm,
   FormItem,
-  Field,
   XInput,
   Divider,
   XSelect,
@@ -58,7 +57,6 @@ export default {
     XBody,
     XForm,
     FormItem,
-    Field,
     XInput,
     Divider,
     XSelect,
