@@ -87,7 +87,7 @@ export default {
       this.$emit('on-cancel')
     },
     confirmHandler () {
-      this.open && this.$emit('on-confirm', this.myValue) && this.$emit('input', this.myValue)
+      this.open && this.$emit('on-confirm', this.myValue).$emit('input', this.myValue)
     },
     inputHandler (value) {
       this.$emit('on-change', value)

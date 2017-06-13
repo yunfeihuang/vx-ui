@@ -83,7 +83,7 @@ export default {
         })
       }
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('on-change', value) && this.$emit('input', value)
+        this.open && this.$emit('on-change', value).$emit('input', value)
       } else {
         this.$emit('on-cancel')
       }
