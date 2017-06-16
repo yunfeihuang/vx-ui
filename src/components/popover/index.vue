@@ -10,7 +10,7 @@
 <script>
 import Vue from 'vue'
 import { cssPrefix } from 'utils/variable.js'
-import Overlay from '../overlay'
+import Popup from '../popup'
 export default {
   computed: {
     classes () {
@@ -21,6 +21,10 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    histroy: {
+      type: Boolean,
+      default: true
     },
     overlayOpacity: {
       type: Number
@@ -49,10 +53,12 @@ export default {
       /* eslint-disable no-new */
       this.$popover = new Vue({
         el: node,
-        template: '<overlay @click="clickHandler" :opacity="opacity" style="z-index:1000"></overlay>',
-        components: {Overlay},
+        template: '<popup :open="open" :histroy="histroy" @on-close="closeHandler" :opacity="opacity" style="z-index:1000"></popup>',
+        components: {Popup},
         data: {
-          opacity: popover.overlayOpacity
+          open: true,
+          opacity: popover.overlayOpacity,
+          histroy: popover.histroy
         },
         mounted () {
           let node = this.$popoverContent = document.createElement('div')
@@ -90,16 +96,23 @@ export default {
           })
         },
         methods: {
-          clickHandler () {
-            this.$destroy()
+          closeHandler () {
+            this.open = false
+            setTimeout(() => {
+              this.$destroy()
+            }, 200)
           }
         }
       })
       this.$emit('on-open')
     },
     clickPopoverHandler () {
-      this.$popover && this.$popover.$destroy()
-      this.$emit('on-close')
+      if (this.$popover) {
+        this.$popover.open = false
+        setTimeout(() => {
+          this.$popover.$destroy()
+        }, 200)
+      }
     }
   },
   data () {
