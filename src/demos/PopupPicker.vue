@@ -19,14 +19,14 @@
       :open="pickerChecked"
       :pickers="pickers"
       @on-pickerchange="changePickerHandler"
-      @on-cancel="changePickerOpenHandler"
+      @on-close="changePickerOpenHandler"
       @on-change="confirmHandler"
       />
     <popup-picker 
       :open="pickerAddressChecked"
       :pickers="addressPickers"
       @on-pickerchange="changeAddressPickerHandler"
-      @on-cancel="changeAddressPickerOpenHandler"
+      @on-close="changeAddressPickerOpenHandler"
       @on-change="confirmAddressHandler"
       />
   </layout>

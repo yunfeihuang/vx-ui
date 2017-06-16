@@ -5,7 +5,7 @@
     :cancel="true"
     :cancel-text="cancelText"
     :confirm-text="confirmText"
-    @on-cancel="cancelHandler"
+    @on-close="closeHandler"
     @on-confirm="confirmHandler"
     >
     <div v-if="title" :class="cssPrefix + 'prompt-title'">{{title}}</div>
@@ -83,8 +83,8 @@ export default {
     }
   },
   methods: {
-    cancelHandler () {
-      this.$emit('on-cancel')
+    closeHandler () {
+      this.$emit('on-close')
     },
     confirmHandler () {
       this.open && this.$emit('on-confirm', this.myValue).$emit('input', this.myValue)

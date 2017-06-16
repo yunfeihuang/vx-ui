@@ -13,11 +13,13 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 export default {
   components: {
     Overlay
   },
+  mixins: [historyPush],
   props: {
     open: {
       type: Boolean,
@@ -30,6 +32,10 @@ export default {
     direction: {
       type: String,
       default: 'bottom'
+    },
+    fastClose: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -47,6 +53,7 @@ export default {
   mounted () {
     if (this.open) {
       requestAnimationFrame(() => {
+        this.pushState()
         this.$el.style.display = 'block'
       })
     }
@@ -55,12 +62,14 @@ export default {
     open (value) {
       if (value) {
         requestAnimationFrame(() => {
+          this.pushState()
           this.$el.style.display = 'block'
           this.$emit('on-open')
         })
       } else {
         setTimeout(() => {
           requestAnimationFrame(() => {
+            this.goBack()
             this.$el.style.display = 'none'
           })
         }, 300)
@@ -77,7 +86,7 @@ export default {
       this.$emit('on-enter')
     },
     closeHandler () {
-      this.$emit('on-close')
+      this.fastClose && this.$emit('on-close')
     }
   }
 }

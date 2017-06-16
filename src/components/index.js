@@ -91,12 +91,18 @@ import Popover from './popover'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler">{{props.content}}</alert>`,
+      template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler" @on-close="closeHandler">{{props.content}}</alert>`,
       components: {Alert},
       data: {props: props},
       methods: {
         confirmHandler: () => {
           props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        closeHandler: () => {
+          props.open = props.onCancel() === false
           !props.open && setTimeout(() => {
             vue.$destroy()
           }, 1000)
@@ -125,7 +131,7 @@ import Popover from './popover'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler">{{props.content}}</confirm>`,
+      template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-close="closeHandler">{{props.content}}</confirm>`,
       components: {Confirm},
       data: {props: props},
       methods: {
@@ -135,7 +141,7 @@ import Popover from './popover'
             vue.$destroy()
           }, 1000)
         },
-        cancelHandler: () => {
+        closeHandler: () => {
           props.open = props.onCancel() === false
           !props.open && setTimeout(() => {
             vue.$destroy()
@@ -172,7 +178,7 @@ import Popover from './popover'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<prompt :title="props.title" :open="props.open" :disabled="props.disabled" :input="props.input" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-cancel="cancelHandler" @on-change="changeHandler"/>`,
+      template: `<prompt :title="props.title" :open="props.open" :disabled="props.disabled" :input="props.input" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-close="closeHandler" @on-change="changeHandler"/>`,
       components: {Prompt},
       data: {props: props},
       methods: {
@@ -182,7 +188,7 @@ import Popover from './popover'
             vue.$destroy()
           }, 1000)
         },
-        cancelHandler: () => {
+        closeHandler: () => {
           props.open = props.onCancel() === false
           !props.open && setTimeout(() => {
             vue.$destroy()

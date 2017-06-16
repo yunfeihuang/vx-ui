@@ -48,7 +48,7 @@ export default {
       /* eslint-disable no-new */
       this.$datetimePicker = new Vue({
         el: node,
-        template: '<datetime-picker :format="format" :value="value" :open="open" @on-change="changeHandler" @on-cancel="cancelHandler"/>',
+        template: '<datetime-picker :format="format" :value="value" :open="open" @on-change="changeHandler" @on-close="closeHandler"/>',
         components: { DatetimePicker },
         data: {
           open: false,
@@ -69,7 +69,7 @@ export default {
             datetime.$emit('on-change', value)
             datetime.$emit('input', value)
           },
-          cancelHandler () {
+          closeHandler () {
             this.open = false
           }
         }

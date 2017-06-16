@@ -22,9 +22,11 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
+import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 import Divider from '../divider'
 export default {
+  mixins: [historyPush],
   components: {
     Overlay,
     Divider
@@ -55,6 +57,7 @@ export default {
   mounted () {
     if (this.open) {
       requestAnimationFrame(() => {
+        this.pushState()
         this.$el.style.display = 'table'
       })
     }
@@ -63,14 +66,15 @@ export default {
     open (value) {
       if (value) {
         requestAnimationFrame(() => {
+          this.pushState()
           this.$el.style.display = 'table'
           this.$emit('on-open')
         })
       } else {
         setTimeout(() => {
           requestAnimationFrame(() => {
+            this.goBack()
             this.$el.style.display = 'none'
-            this.$emit('on-close')
           })
         }, 300)
       }
@@ -84,6 +88,7 @@ export default {
   methods: {
     cancelHandler () {
       this.$emit('on-cancel')
+      this.$emit('on-close')
     },
     confirmHandler () {
       this.open && this.$emit('on-confirm')

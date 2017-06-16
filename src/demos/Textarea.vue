@@ -4,6 +4,7 @@
       <div slot="title">XTextarea</div>
     </x-header>
     <x-body slot="body">
+      <br />
       <div class="input-demo demos">
         <div class="fieldset">
           <x-textarea v-model="content" placeholder="请输入消息内容" />

@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open">
+  <popup :open="open" :history="history" @on-close="closeHandler" :fast-close="false">
     <div :class="classes">
       <div :class="['flexbox',cssPrefix + 'datetime-picker-header']">
         <button type="button" :class="[cssPrefix + 'datetime-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
@@ -46,6 +46,10 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    history: {
+      type: Boolean,
+      default: true
     },
     min: {
       type: String,
@@ -247,7 +251,10 @@ export default {
       return seconds
     },
     cancelHandler () {
-      this.$emit('on-cancel')
+      this.$emit('on-close')
+    },
+    closeHandler () {
+      this.$emit('on-close')
     },
     confirmHandler () {
       let value = this.format
@@ -255,7 +262,7 @@ export default {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
       this.open && value !== this.value && this.$emit('on-change', value).$emit('input', value)
-      value === this.value && this.$emit('on-cancel')
+      value === this.value && this.closeHandler()
     },
     changeHandler (value, index) {
       let type = index.split('-')[1]

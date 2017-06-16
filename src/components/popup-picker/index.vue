@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open">
+  <popup :open="open" :history="history" @on-close="closeHandler">
     <div :class="classes">
       <div :class="['flexbox',cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
@@ -40,6 +40,10 @@ export default {
       type: Boolean,
       default: false
     },
+    history: {
+      type: Boolean,
+      default: true
+    },
     pickers: {
       type: Array
     },
@@ -73,7 +77,10 @@ export default {
   },
   methods: {
     cancelHandler () {
-      this.$emit('on-cancel')
+      this.$emit('on-close')
+    },
+    closeHandler () {
+      this.$emit('on-close')
     },
     confirmHandler () {
       let value = []
@@ -85,7 +92,7 @@ export default {
       if (!this.value || value.toString() !== this.value.toString()) {
         this.open && this.$emit('on-change', value).$emit('input', value)
       } else {
-        this.$emit('on-cancel')
+        this.closeHandler()
       }
     },
     changeHandler (value, index) {

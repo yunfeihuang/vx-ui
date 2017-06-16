@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" @on-close="closePopupHandler" @on-enter="enterHandler">
+  <popup :open="open" :history="history" :fast-close="fastClose" @on-close="closePopupHandler" @on-enter="enterHandler">
     <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[cssPrefix + 'actionsheet-items']">
         <slot></slot>
@@ -23,6 +23,10 @@ export default {
       type: Boolean,
       default: false
     },
+    history: {
+      type: Boolean,
+      default: true
+    },
     value: {
       type: [String, Number]
     },
@@ -33,6 +37,10 @@ export default {
     cancelText: {
       type: String,
       default: '取消'
+    },
+    fastClose: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {

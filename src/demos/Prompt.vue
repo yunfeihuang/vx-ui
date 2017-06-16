@@ -21,7 +21,7 @@
       :open="checked1"
       :disabled="disabled1"
       :input="{placeholder:'请输入用户名称'}"
-      @on-cancel="changeHandler1"
+      @on-close="changeHandler1"
       @on-confirm="changeHandler1"
       @on-change="changePromptHandler1">
     </Prompt>
@@ -31,7 +31,7 @@
       :open="checked2"
       :disabled="disabled2"
       :input="{placeholder:'请输入wifi密码',type:'password'}"
-      @on-cancel="changeHandler2"
+      @on-close="changeHandler2"
       @on-confirm="changeHandler2"
       @on-change="changePromptHandler2">
     </Prompt>

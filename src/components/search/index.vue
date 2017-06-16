@@ -44,18 +44,21 @@
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
-import { input } from 'utils/mixins.js'
+import { input, historyPush } from 'utils/mixins.js'
 import XInput from '../input'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
-  mixins: [input],
+  mixins: [input, historyPush],
   components: {
     XInput,
     Flexbox,
     FlexboxItem
   },
-  destroyed () {
-    this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
+  props: {
+    history: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     classes () {
@@ -65,13 +68,22 @@ export default {
   watch: {
     isFocus (value) {
       value && (this.fixed = true)
+    },
+    fixed (value) {
+      if (value) {
+        this.pushState()
+      } else {
+        this.goBack()
+      }
     }
+  },
+  destroyed () {
+    this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
   },
   data () {
     return {
       cssPrefix: cssPrefix,
-      fixed: false,
-      yreadonly: true
+      fixed: false
     }
   },
   methods: {
@@ -106,6 +118,9 @@ export default {
       e.stopPropagation()
       e.preventDefault()
       this.value && this.$emit('on-submit', this.value)
+    },
+    popStateBack () {
+      this.cancelHandler()
     }
   }
 }

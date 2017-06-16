@@ -11,7 +11,7 @@
         </cell>
       </group>
     </x-body>
-    <confirm :open="checked" @on-cancel="changeHandler" @on-confirm="changeHandler">确认删除？</confirm>
+    <confirm :open="checked" @on-close="changeHandler" @on-confirm="changeHandler">确认删除？</confirm>
   </layout>
 </template>
 
