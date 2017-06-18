@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
   .button-demo{
-    padding:0 1rem;
+    padding:0 0.15rem;
     button{
       margin-top:20px;
     }

@@ -52,8 +52,10 @@ export default {
       display:inline-block;
       vertical-align: middle;
       overflow:hidden;
-      height: 32px;
-      width: 50px;
+      //height: 32px;
+      //width: 50px;
+      width: 1.05rem;
+      height: 0.672rem;
       button{
         height:100%;
         border-radius:30px;

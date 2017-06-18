@@ -135,7 +135,7 @@ export default {
         background:#fff;
         border-radius:5px;
         color:#555;
-        padding: 0.6rem;
+        padding: 0.15rem;
         z-index:1001;
         margin: 12px 0;
         &:before{

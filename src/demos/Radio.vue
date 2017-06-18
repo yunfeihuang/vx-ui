@@ -72,9 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .radio-wrapper{
-    label{
-      padding-left:0.5rem;
-    }
-  }
+
 </style>

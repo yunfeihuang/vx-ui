@@ -45,14 +45,14 @@ export default {
     &-photo{
       margin-right:10px;
       .v-img-wrapper{
-        width:3rem;
-        height:3rem;
+        width:1rem;
+        height:1rem;
         border-radius:3px;
       }
     }
     .weak{
       color:#999;
-      font-size:0.8rem;
+      font-size:0.8em;
     }
     a{
       color:inherit!important;

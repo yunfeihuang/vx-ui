@@ -68,12 +68,12 @@ export default {
     &textarea-wrapper{
       position:relative;
       display:block;
-      height:2.6rem;
-      min-height: 2.6rem;
+      height:0.9rem;
+      min-height: 0.9rem;
       line-height: 16px;
       background:#fff;
       textarea,.#{$css-prefix}textarea-shadow{
-        padding:0.8rem;
+        padding:0.26rem 0.15rem;
         width:100%;
         text-align: inherit;
         font-size: inherit;

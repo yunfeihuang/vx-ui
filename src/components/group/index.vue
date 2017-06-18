@@ -33,11 +33,11 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &group{
-      margin: 1.1rem 0;
+      margin: 0.25rem 0;
       padding-top:1px;
       padding-bottom:1px;
       &-title{
-        padding:0.4rem 0.5rem;
+        padding:0.1rem 0.15rem;
       }
       &-inner{
         position:relative;

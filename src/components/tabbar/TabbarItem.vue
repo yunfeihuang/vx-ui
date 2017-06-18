@@ -55,7 +55,7 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &tabbar-item{
-      padding:0.5rem 0;
+      padding:0.15rem 0;
       &-active{
         color:$primary-color;
         transition: color $transition-time $ease-in-out;
@@ -64,7 +64,7 @@ export default {
         display:block;
       }
       span{
-        font-size:0.7rem;
+        font-size:0.2rem;
       }
     }
   }

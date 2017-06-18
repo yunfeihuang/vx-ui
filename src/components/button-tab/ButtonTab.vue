@@ -38,7 +38,7 @@ export default {
       position:relative;
       border-radius:48px;
       user-select: none;
-      line-height:2.4rem;
+      line-height:0.8rem;
       @include round-border($border-color-base,48px);
     }
   }

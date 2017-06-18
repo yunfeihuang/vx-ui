@@ -55,9 +55,9 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &cell{
-      padding:0.4rem 0.6rem;
-      height:2rem;
-      position:relative;
+      padding: 0.1rem 0.2rem;
+      height: 0.7rem;
+      position: relative;
       &-bd{
         text-align:left;
       }

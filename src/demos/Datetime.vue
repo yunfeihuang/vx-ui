@@ -77,8 +77,9 @@ export default {
         }
       })
     },
-    popupMounted () {
-      return document.querySelector('.v-body')
+    popupMounted (e) {
+      console.log(e)
+      return document.body
     }
   },
   data () {

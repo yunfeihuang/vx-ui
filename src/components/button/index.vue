@@ -33,7 +33,7 @@ export default {
   .#{$css-prefix}{
     &btn{
       @include button;
-      height:2.6rem;
+      height:0.9rem;
       position:relative;
       width:100%;
       box-sizing:border-box;

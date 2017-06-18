@@ -107,10 +107,10 @@ export default {
       }
       &-title{
         margin-bottom:5px;
-        font-size:1.05rem;
+        font-size:0.32rem;
       }
       .#{$css-prefix}confirm-body{
-        padding:2rem;
+        padding:0.7rem 0.5rem;
       }
       &-disabled{
         .#{$css-prefix}confirm-footer button:last-child{

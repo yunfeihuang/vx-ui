@@ -50,7 +50,7 @@ export default {
       text-align:center;
       position:relative;
       user-select: none;
-      line-height: 2.6rem;
+      line-height: 0.9rem;
       &:before{
         @include divider;
       }

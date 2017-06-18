@@ -138,7 +138,7 @@ export default {
   .#{$css-prefix}{
     &range{
       &-wrapper{
-        height:2.6rem;
+        height:0.9rem;
         position:relative;
         min-width:100px;
       }
@@ -159,15 +159,15 @@ export default {
       }
       &-button{
         border:0;
-        height:34px;
-        width:34px;
+        height:0.7rem;
+        width:0.7rem;
         border-radius:50%;
         background:#fff;
         box-shadow: 0 1px 3px rgba(0,0,0,.4);
         position:absolute;
         top:50%;
         left:0;
-        margin:-17px 0;
+        margin:-0.35rem 0;
         z-index:100;
       }
       &-tips{

@@ -37,7 +37,7 @@ export default {
     &radio{
       display:block;
       position:relative;
-      padding:0.7rem 0.5rem;
+      padding:0.25rem 0.15rem;
       line-height:20px;
       @include disabled;
       input{
@@ -53,7 +53,7 @@ export default {
       }
       &-icon{
         position:absolute;
-        right:0.5rem;
+        right:0.15rem;
         top:50%;
         width: 20px;
         height: 20px;

@@ -37,7 +37,7 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &sidebar-item{
-      line-height:2.6rem;
+      line-height:0.9rem;
       position:relative;
       overflow:hidden;
       white-space: nowrap;

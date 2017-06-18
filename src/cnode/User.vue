@@ -107,14 +107,14 @@ export default {
   .userinfo{
     text-align:center;
     background:#fff;
-    padding:1rem 0;
+    padding:0.2rem 0;
     h4{
-      font-size:1.1rem;
+      font-size:1.1em;
     }
   }
   .user-avatar{
-    width:5rem;
-    height:5rem;
+    width:1rem;
+    height:1rem;
     margin: auto;
   }
   .user-comments{

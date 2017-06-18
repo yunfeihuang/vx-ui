@@ -189,7 +189,7 @@ export default {
         line-height:42px;
         overflow: hidden;
         white-space: nowrap;
-        padding: 0px 0.5rem;
+        padding: 0px 0.15rem;
         height:42px;
       }
       &-active{

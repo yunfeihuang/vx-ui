@@ -45,8 +45,8 @@ export default {
     &action-sheet-item{
       padding:$item-padding;
       position:relative;
-      border-left: 0.8rem solid transparent;
-      border-right: 0.8rem solid transparent;
+      border-left: 0.1rem solid transparent;
+      border-right: 0.1rem solid transparent;
       user-select:none;
       white-space: nowrap;
       overflow: hidden;

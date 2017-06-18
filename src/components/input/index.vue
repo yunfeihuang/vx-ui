@@ -81,7 +81,7 @@ export default {
     &input-wrapper{
       position:relative;
       display:block;
-      height:2.6rem;
+      height:0.9rem;
       background:#fff;
       .iconfont{
         color:$sub-color;
@@ -104,7 +104,7 @@ export default {
         outline: none;
         text-align: inherit;
         font-size: inherit;
-        padding-left: 0.8rem;
+        padding-left: 0.4rem;
         vertical-align: middle;
         background: transparent;
         @include disabled;

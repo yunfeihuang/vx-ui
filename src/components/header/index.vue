@@ -66,7 +66,7 @@ export default {
       .nav{
         color:#fff;
         background-color:$primary-color;
-        height:2.7rem;
+        height:0.9rem;
       }
       .btn-pull{
         color:inherit;
@@ -85,7 +85,7 @@ export default {
         }
       }
       &-title{
-        font-size:1.1rem;
+        font-size:0.38rem;
         overflow: hidden;
         &-center{
           text-align:center;

@@ -77,8 +77,8 @@ export default {
   @import '~styles/mixins.scss';
   .#{$css-prefix}{
     &marquee{
-      height:2.6rem;
-      line-height:2.6rem;
+      height:0.9rem;
+      line-height:0.9rem;
       text-align:center;
     }
   }

@@ -333,15 +333,15 @@ export default {
         display:flex;
       }
       &-today{
-        line-height: 2.6rem;
+        line-height: 0.9rem;
         overflow:hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
       &-cancel,&-confirm,&-today{
         @include button;
-        height: 2.6rem;
-        width: 5rem;
+        height: 0.9rem;
+        width: 1.5rem;
         color:$sub-color
       }
       &-confirm{

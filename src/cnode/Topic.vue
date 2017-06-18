@@ -108,7 +108,7 @@ export default {
     h2,
     h3,
     h4{
-      font-size:1.1rem;
+      font-size:1.1em;
       font-weight: normal;
       margin:5px;
     }
@@ -117,12 +117,12 @@ export default {
     }
     .topic-header{
       h1{
-        font-size:1.2rem;
+        font-size:1.2em;
         margin:10px;
         font-weight: normal;
       }
       p{
-        font-size:0.8rem;
+        font-size:0.8em;
         color:#999;
         margin:8px;
       }

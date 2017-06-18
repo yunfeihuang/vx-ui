@@ -114,14 +114,14 @@ export default {
       &-content{
         background:rgba(0,0,0,0.7);
         color:#fff;
-        padding: 0.7rem;
+        padding: 0.2rem;
         border-radius:3px;
         box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
         display:inline-block;
         word-break: break-all;
         box-sizing: border-box;
         max-width: 80%;
-        min-width: 5.8rem;
+        min-width: 2rem;
       }
       &-top{
         padding-top:20%;

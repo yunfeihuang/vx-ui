@@ -128,7 +128,7 @@ export default {
   .#{$css-prefix}{
     &select{
       position:relative;
-      height:2.6rem;
+      height:0.9rem;
       select{
         display:none;
       }

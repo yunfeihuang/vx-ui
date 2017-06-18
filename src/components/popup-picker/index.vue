@@ -121,7 +121,7 @@ export default {
       }
       &-placeholder{
         flex:1;
-        line-height: 2.6rem;
+        line-height: 0.9rem;
         color:#999;
         min-width:0;
         overflow:hidden;
@@ -131,8 +131,8 @@ export default {
       }
       &-cancel,&-confirm{
         @include button;
-        height: 2.6rem;
-        width: 5rem;
+        height: 0.9rem;
+        width: 2rem;
         color:$sub-color;
       }
       &-confirm{

@@ -71,7 +71,7 @@ export default {
     &checker{
       user-select: none;
       @include disabled;
-      line-height:40px;
+      line-height:0.8rem;
       &-item{
         display:inline-block;
         vertical-align: middle;
@@ -99,9 +99,8 @@ export default {
           vertical-align: middle;
           @include round-border($border-color-base,0);
           min-width:50px;
-          padding:0 0.5rem;
+          padding:0 0.15rem;
           text-align:center;
-          overflow:hidden;
           @include disabled;
         }
       }

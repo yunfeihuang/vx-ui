@@ -42,7 +42,7 @@ export default {
     &checkbox{
       display:block;
       position:relative;
-      padding:0.7rem 0.5rem;
+      padding:0.25rem 0.15rem;
       line-height:20px;
       @include disabled;
       input{
@@ -75,7 +75,7 @@ export default {
         .#{$css-prefix}checkbox-icon{
           position:absolute;
           top:50%;
-          right:0.5rem;
+          right:0.15rem;
           margin-top:-10px;
         }
       }

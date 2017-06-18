@@ -33,7 +33,7 @@ export default {
     background-color: #3399ff;
     color: #fff;
     border: 0;
-    padding: .1rem;
+    padding: .05rem;
     vertical-align: middle;
     margin-right:2px;
   }

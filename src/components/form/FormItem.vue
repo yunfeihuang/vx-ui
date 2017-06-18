@@ -74,7 +74,7 @@ export default {
       @include disabled;
       position:relative;
       background:#fff;
-      height: 2.6rem;
+      height: 0.9rem;
       .#{$css-prefix}input-wrapper,.#{$css-prefix}password{
         position:static;
         background: transparent;
@@ -84,10 +84,10 @@ export default {
       }
       &-label{
         color:#999;
-        padding:0 0.5rem;
+        padding:0 0.15rem;
       }
       &-control{
-        padding:0 0.5rem;
+        padding:0 0.15rem;
         >input{
           @include input;
         }

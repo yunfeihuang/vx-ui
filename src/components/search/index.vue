@@ -135,7 +135,7 @@ export default {
       background:#ddd;
       padding:1px;
       .#{$css-prefix}input-wrapper{
-        height:2rem;
+        height:0.7rem;
         margin: 4px;
         border-radius:1rem;
         &:before,&:after{

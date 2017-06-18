@@ -128,7 +128,7 @@ export default {
       }
       &-body{
         max-height: 90%;
-        padding:2.5rem 1rem;
+        padding:0.8rem 0.5rem;
       }
       &-footer{
         button{
