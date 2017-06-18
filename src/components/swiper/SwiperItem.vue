@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     clickHandler (e) {
-      this.emit('click', e)
+      this.$emit('click', e)
     }
   },
   data () {

@@ -130,7 +130,7 @@ const historyPush = {
   methods: {
     getPushURL () {
       let array = [window.location.href.split('#')[0]]
-      array.push(window.location.hash ? '' : '#')
+      array.push(window.location.hash ? '&' : '#')
       array.push('popup=' + Math.random().toString(36).substr(2))
       return array.join('')
     },

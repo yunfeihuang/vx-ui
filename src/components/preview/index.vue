@@ -72,13 +72,13 @@ export default {
   methods: {
     open (index) {
       let options = Object.assign({
-        history: false,
+        history: true,
         shareEl: false,
         tapToClose: true,
         fullscreenEl: false,
         zoomEl: true,
         index: index
-      })
+      }, this.options)
       this.$el.style.display = 'block'
       this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
       this.photoswipe.init()

@@ -1,55 +1,58 @@
 <template>
-  <layout>
-    <x-header slot="header" :back="false">
-      <div slot="title">Vue Components Demos</div>
-    </x-header>
-    <x-body class="demos" slot="body" style="background:#fff">
-      <flexbox wrap="wrap" class="demos-actions">
-        <x-link href="/button">XButton</x-link>
-        <x-link href="/input">XInput</x-link>
-        <x-link href="/input">Password</x-link>
-        <x-link href="/textarea">XTextarea</x-link>
-        <x-link href="/select">XSelect</x-link>
-        <x-link href="/switch">XSwitch</x-link>
-        <x-link href="/radio">Radio</x-link>
-        <x-link href="/checkbox">Checkbox</x-link>
-        <x-link href="/checker">Checker</x-link>
-        <x-link href="/range">Range</x-link>
-        <x-link href="/datetime">Datetime</x-link>
-        <x-link href="/search">Search</x-link>
-        <x-link href="/form">Form</x-link>
-        <x-link href="/actionsheet">Actionsheet</x-link>
-        <x-link href="/alert">Alert</x-link>
-        <x-link href="/confirm">Confirm</x-link>
-        <x-link href="/prompt">Prompt</x-link>
-        <x-link href="/tab">Tab</x-link>
-        <x-link href="/tabbutton">TabButton</x-link>
-        <x-link href="/tabbar">Tabbar</x-link>
-        <x-link href="/sidebar">Sidebar</x-link>
-        <x-link href="/popup">Popup</x-link>
-        <x-link href="/toast">Toast</x-link>
-        <x-link href="/flow">Flow</x-link>
-        <x-link href="/ripple">Ripple</x-link>
-        <x-link href="/img">XImg</x-link>
-        <x-link href="/header">XHeader</x-link>
-        <x-link href="/divider">Divider</x-link>
-        <x-link href="/swiper">Swiper</x-link>
-        <x-link href="/swipeout">Swipeout</x-link>
-        <x-link href="/preview">Preview</x-link>
-        <x-link href="/picker">Picker</x-link>
-        <x-link href="/popuppicker">PopupPicker</x-link>
-        <!--
-        <x-link href="/datetimepicker">DatetimePicker</x-link>
-        -->
-        <x-link href="/spinner">Spinner</x-link>
-        <x-link href="/flexbox">Flexbox</x-link>
-        <x-link href="/badge">Badge</x-link>
-        <x-link href="/rater">Rater</x-link>
-        <x-link href="/marquee">Marquee</x-link>
-        <x-link href="/popover">Popover</x-link>
-      </flexbox>
-    </x-body>
-  </layout>
+  <div>
+    <layout>
+      <x-header slot="header" :back="false">
+        <div slot="title">Vue Components Demos</div>
+      </x-header>
+      <x-body class="demos" slot="body" style="background:#fff">
+        <flexbox wrap="wrap" class="demos-actions">
+          <x-link href="/demos/button">XButton</x-link>
+          <x-link href="/demos/input">XInput</x-link>
+          <x-link href="/demos/input">Password</x-link>
+          <x-link href="/demos/textarea">XTextarea</x-link>
+          <x-link href="/demos/select">XSelect</x-link>
+          <x-link href="/demos/switch">XSwitch</x-link>
+          <x-link href="/demos/radio">Radio</x-link>
+          <x-link href="/demos/checkbox">Checkbox</x-link>
+          <x-link href="/demos/checker">Checker</x-link>
+          <x-link href="/demos/range">Range</x-link>
+          <x-link href="/demos/datetime">Datetime</x-link>
+          <x-link href="/demos/search">Search</x-link>
+          <x-link href="/demos/form">Form</x-link>
+          <x-link href="/demos/actionsheet">Actionsheet</x-link>
+          <x-link href="/demos/alert">Alert</x-link>
+          <x-link href="/demos/confirm">Confirm</x-link>
+          <x-link href="/demos/prompt">Prompt</x-link>
+          <x-link href="/demos/tab">Tab</x-link>
+          <x-link href="/demos/tabbutton">TabButton</x-link>
+          <x-link href="/demos/tabbar">Tabbar</x-link>
+          <x-link href="/demos/sidebar">Sidebar</x-link>
+          <x-link href="/demos/popup">Popup</x-link>
+          <x-link href="/demos/toast">Toast</x-link>
+          <x-link href="/demos/flow">Flow</x-link>
+          <x-link href="/demos/ripple">Ripple</x-link>
+          <x-link href="/demos/img">XImg</x-link>
+          <x-link href="/demos/header">XHeader</x-link>
+          <x-link href="/demos/divider">Divider</x-link>
+          <x-link href="/demos/swiper">Swiper</x-link>
+          <x-link href="/demos/swipeout">Swipeout</x-link>
+          <x-link href="/demos/preview">Preview</x-link>
+          <x-link href="/demos/picker">Picker</x-link>
+          <x-link href="/demos/popuppicker">PopupPicker</x-link>
+          <!--
+          <x-link href="/demos/datetimepicker">DatetimePicker</x-link>
+          -->
+          <x-link href="/demos/spinner">Spinner</x-link>
+          <x-link href="/demos/flexbox">Flexbox</x-link>
+          <x-link href="/demos/badge">Badge</x-link>
+          <x-link href="/demos/rater">Rater</x-link>
+          <x-link href="/demos/marquee">Marquee</x-link>
+          <x-link href="/demos/popover">Popover</x-link>
+        </flexbox>
+      </x-body>
+    </layout>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

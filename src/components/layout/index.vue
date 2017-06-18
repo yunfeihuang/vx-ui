@@ -37,6 +37,8 @@ export default {
       position:absolute;
       height:100%;
       width:100%;
+      background:#f7f7f7;
+      z-index:10;
     }
   }
 </style>

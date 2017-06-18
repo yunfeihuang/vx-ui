@@ -87,7 +87,6 @@ export default {
   },
   methods: {
     cancelHandler () {
-      this.$emit('on-cancel')
       this.$emit('on-close')
     },
     confirmHandler () {

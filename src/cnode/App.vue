@@ -1,31 +1,34 @@
 <template>
-  <layout>
-    <x-header slot="header" :back="false">
-      <div slot="title">CNode-专业中文社区</div>
-      <tab :active="home.active" @on-change="activeHandler">
-        <tab-item>
-          全部
-        </tab-item>
-        <tab-item>
-          精华
-        </tab-item>
-        <tab-item>
-          分享
-        </tab-item>
-        <tab-item>
-          问答
-        </tab-item>
-        <tab-item>
-          招聘
-        </tab-item>
-      </tab>
-    </x-header>
-    <x-body slot="body" :scroll="false" style="background:#fff">
-      <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
-        <topic-item v-for="item in topics" :item="item" :key="item.id"/>
-      </flow>
-    </x-body>
-  </layout>
+  <div>
+    <layout>
+      <x-header slot="header" :back="false">
+        <div slot="title">CNode-专业中文社区</div>
+        <tab :active="home.active" @on-change="activeHandler">
+          <tab-item>
+            全部
+          </tab-item>
+          <tab-item>
+            精华
+          </tab-item>
+          <tab-item>
+            分享
+          </tab-item>
+          <tab-item>
+            问答
+          </tab-item>
+          <tab-item>
+            招聘
+          </tab-item>
+        </tab>
+      </x-header>
+      <x-body slot="body" :scroll="false" style="background:#fff">
+        <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
+          <topic-item v-for="item in topics" :item="item" :key="item.id"/>
+        </flow>
+      </x-body>
+    </layout>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -116,9 +119,9 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-flow{
+  .v-flow,.swiper{
     height:100%;
     width:100%;
-    position:absolute;
+    position:absolute!important;
   }
 </style>

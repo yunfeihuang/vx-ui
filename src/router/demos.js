@@ -42,7 +42,7 @@ import {
 } from 'demos'
 */
 
-const App = r => require.ensure([], () => r(require('demos/App')), 'App')
+const Demos = r => require.ensure([], () => r(require('demos/App')), 'Demos')
 const Button = r => require.ensure([], () => r(require('demos/Button')), 'Button')
 const Input = r => require.ensure([], () => r(require('demos/Input')), 'Input')
 const Textarea = r => require.ensure([], () => r(require('demos/Textarea')), 'Textarea')
@@ -86,202 +86,204 @@ const Popover = r => require.ensure([], () => r(require('demos/Popover')), 'Popo
 export default [
   {
     path: '/',
-    name: 'App',
-    component: App
-  },
-  {
-    path: '/button',
-    name: 'button',
-    component: Button
-  },
-  {
-    path: '/input',
-    name: 'Input',
-    component: Input
-  },
-  {
-    path: '/textarea',
-    name: 'Textarea',
-    component: Textarea
-  },
-  {
-    path: '/select',
-    name: 'select',
-    component: Select
-  },
-  {
-    path: '/switch',
-    name: 'switch',
-    component: Switch
-  },
-  {
-    path: '/radio',
-    name: 'radio',
-    component: Radio
-  },
-  {
-    path: '/checkbox',
-    name: 'checkbox',
-    component: Checkbox
-  },
-  {
-    path: '/range',
-    name: 'range',
-    component: Range
-  },
-  {
-    path: '/form',
-    name: 'form',
-    component: Form
-  },
-  {
-    path: '/actionsheet',
-    name: 'actionsheet',
-    component: Actionsheet
-  },
-  {
-    path: '/alert',
-    name: 'alert',
-    component: Alert
-  },
-  {
-    path: '/confirm',
-    name: 'confirm',
-    component: Confirm
-  },
-  {
-    path: '/prompt',
-    name: 'prompt',
-    component: Prompt
-  },
-  {
-    path: '/tab',
-    name: 'tab',
-    component: Tab
-  },
-  {
-    path: '/tabbar',
-    name: 'tabbar',
-    component: Tabbar
-  },
-  {
-    path: '/tabbutton',
-    name: 'tabbutton',
-    component: TabButton
-  },
-  {
-    path: '/popup',
-    name: 'popup',
-    component: Popup
-  },
-  {
-    path: '/toast',
-    name: 'toast',
-    component: Toast
-  },
-  {
-    path: '/img',
-    name: 'img',
-    component: Img
-  },
-  {
-    path: '/flow',
-    name: 'flow',
-    component: Flow
-  },
-  {
-    path: '/ripple',
-    name: 'ripple',
-    component: Ripple
-  },
-  {
-    path: '/search',
-    name: 'search',
-    component: Search
-  },
-  {
-    path: '/header',
-    name: 'header',
-    component: Header
-  },
-  {
-    path: '/divider',
-    name: 'divider',
-    component: Divider
-  },
-  {
-    path: '/swiper',
-    name: 'swiper',
-    component: Swiper
-  },
-  {
-    path: '/swipeout',
-    name: 'swipeout',
-    component: Swipeout
-  },
-  {
-    path: '/preview',
-    name: 'preview',
-    component: Preview
-  },
-  {
-    path: '/flexbox',
-    name: 'flexbox',
-    component: Flexbox
-  },
-  {
-    path: '/picker',
-    name: 'picker',
-    component: Picker
-  },
-  {
-    path: '/popuppicker',
-    name: 'popuppicker',
-    component: PopupPicker
-  },
-  {
-    path: '/datetimepicker',
-    name: 'datetimepicker',
-    component: DatetimePicker
-  },
-  {
-    path: '/badge',
-    name: 'badge',
-    component: Badge
-  },
-  {
-    path: '/checker',
-    name: 'checker',
-    component: Checker
-  },
-  {
-    path: '/sidebar',
-    name: 'sidebar',
-    component: Sidebar
-  },
-  {
-    path: '/rater',
-    name: 'rater',
-    component: Rater
-  },
-  {
-    path: '/spinner',
-    name: 'spinner',
-    component: Spinner
-  },
-  {
-    path: '/datetime',
-    name: 'datetime',
-    component: Datetime
-  },
-  {
-    path: '/marquee',
-    name: 'marquee',
-    component: Marquee
-  },
-  {
-    path: '/popover',
-    name: 'popover',
-    component: Popover
+    name: 'Demos',
+    component: Demos,
+    children: [
+      {
+        path: '/demos/button',
+        name: 'button',
+        component: Button
+      },
+      {
+        path: '/demos/input',
+        name: 'Input',
+        component: Input
+      },
+      {
+        path: '/demos/textarea',
+        name: 'Textarea',
+        component: Textarea
+      },
+      {
+        path: '/demos/select',
+        name: 'select',
+        component: Select
+      },
+      {
+        path: '/demos/switch',
+        name: 'switch',
+        component: Switch
+      },
+      {
+        path: '/demos/radio',
+        name: 'radio',
+        component: Radio
+      },
+      {
+        path: '/demos/checkbox',
+        name: 'checkbox',
+        component: Checkbox
+      },
+      {
+        path: '/demos/range',
+        name: 'range',
+        component: Range
+      },
+      {
+        path: '/demos/form',
+        name: 'form',
+        component: Form
+      },
+      {
+        path: '/demos/actionsheet',
+        name: 'actionsheet',
+        component: Actionsheet
+      },
+      {
+        path: '/demos/alert',
+        name: 'alert',
+        component: Alert
+      },
+      {
+        path: '/demos/confirm',
+        name: 'confirm',
+        component: Confirm
+      },
+      {
+        path: '/demos/prompt',
+        name: 'prompt',
+        component: Prompt
+      },
+      {
+        path: '/demos/tab',
+        name: 'tab',
+        component: Tab
+      },
+      {
+        path: '/demos/tabbar',
+        name: 'tabbar',
+        component: Tabbar
+      },
+      {
+        path: '/demos/tabbutton',
+        name: 'tabbutton',
+        component: TabButton
+      },
+      {
+        path: '/demos/popup',
+        name: 'popup',
+        component: Popup
+      },
+      {
+        path: '/demos/toast',
+        name: 'toast',
+        component: Toast
+      },
+      {
+        path: '/demos/img',
+        name: 'img',
+        component: Img
+      },
+      {
+        path: '/demos/flow',
+        name: 'flow',
+        component: Flow
+      },
+      {
+        path: '/demos/ripple',
+        name: 'ripple',
+        component: Ripple
+      },
+      {
+        path: '/demos/search',
+        name: 'search',
+        component: Search
+      },
+      {
+        path: '/demos/header',
+        name: 'header',
+        component: Header
+      },
+      {
+        path: '/demos/divider',
+        name: 'divider',
+        component: Divider
+      },
+      {
+        path: '/demos/swiper',
+        name: 'swiper',
+        component: Swiper
+      },
+      {
+        path: '/demos/swipeout',
+        name: 'swipeout',
+        component: Swipeout
+      },
+      {
+        path: '/demos/preview',
+        name: 'preview',
+        component: Preview
+      },
+      {
+        path: '/demos/flexbox',
+        name: 'flexbox',
+        component: Flexbox
+      },
+      {
+        path: '/demos/picker',
+        name: 'picker',
+        component: Picker
+      },
+      {
+        path: '/demos/popuppicker',
+        name: 'popuppicker',
+        component: PopupPicker
+      },
+      {
+        path: '/demos/datetimepicker',
+        name: 'datetimepicker',
+        component: DatetimePicker
+      },
+      {
+        path: '/demos/badge',
+        name: 'badge',
+        component: Badge
+      },
+      {
+        path: '/demos/checker',
+        name: 'checker',
+        component: Checker
+      },
+      {
+        path: '/demos/sidebar',
+        name: 'sidebar',
+        component: Sidebar
+      },
+      {
+        path: '/demos/rater',
+        name: 'rater',
+        component: Rater
+      },
+      {
+        path: '/demos/spinner',
+        name: 'spinner',
+        component: Spinner
+      },
+      {
+        path: '/demos/datetime',
+        name: 'datetime',
+        component: Datetime
+      },
+      {
+        path: '/demos/marquee',
+        name: 'marquee',
+        component: Marquee
+      },
+      {
+        path: '/demos/popover',
+        name: 'popover',
+        component: Popover
+      }
+    ]
   }
 ]
