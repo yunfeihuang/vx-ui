@@ -3,8 +3,9 @@
     <x-header slot="header">
       <div slot="title">Preview</div>
     </x-header>
-    <x-body slot="body" class="img-container">
+    <x-body id="body" slot="body" class="img-container">
       <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="loadHandler" @click="clickHandler"/>
+      <!--<sticky scroll-box="body" :offset="46"><div>fdafdafdsafdasf</div></sticky>-->
       <x-img :loading="true" data-index="1" src="http://assets.bittyos.com/images/swiper/02.jpg" @load="loadHandler" @click="clickHandler"/>
       <x-img :loading="true" data-index="2" src="http://assets.bittyos.com/images/swiper/03.jpg" @load="loadHandler" @click="clickHandler"/>
       <x-img :loading="true" data-index="3" src="http://assets.bittyos.com/images/swiper/04.jpg" @load="loadHandler" @click="clickHandler"/>
@@ -20,6 +21,7 @@ import {
   XHeader,
   XBody,
   Preview,
+  Sticky,
   XImg
 } from 'components'
 
@@ -31,6 +33,7 @@ export default {
     XHeader,
     XBody,
     Preview,
+    Sticky,
     XImg
   },
   data () {

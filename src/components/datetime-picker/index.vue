@@ -17,6 +17,7 @@
           v-for="(item,index) in pickers"
           :class="['flexbox-item',cssPrefix + 'datetime-picker-item']"
           :index="index+'-'+item.type"
+          :key="index+'-'+item.type"
           :data-type="item.type"
           :value="item.value"
           :placeholder="item.placeholder"

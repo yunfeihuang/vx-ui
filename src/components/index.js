@@ -48,6 +48,7 @@ import Rater from './rater'
 import DatetimePicker from './datetime-picker'
 import Datetime from './datetime'
 import Popover from './popover'
+import Sticky from './sticky'
 ((w) => {
   w.$toast = (props, mounted = document.body) => {
     props = Object.assign({
@@ -265,5 +266,6 @@ export {
   Rater,
   DatetimePicker,
   Datetime,
-  Popover
+  Popover,
+  Sticky
 }

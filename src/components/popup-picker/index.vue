@@ -13,6 +13,7 @@
           v-for="(item,index) in myPickers"
           :class="['flexbox-item',cssPrefix + 'popup-picker-item']"
           :index="index"
+          :key="index"
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"

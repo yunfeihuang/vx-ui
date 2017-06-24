@@ -109,7 +109,7 @@ export default {
     a{
       display:block;
       width:33.33%;
-      line-height: 44px;
+      line-height: 0.9rem;
     }
   }
 </style>
