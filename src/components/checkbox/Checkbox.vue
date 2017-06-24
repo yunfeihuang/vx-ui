@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input type="checkbox" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
-    <i :class="[cssPrefix + 'checkbox-icon','iconfont']">&#xe632;</i>
+    <icon :class="[cssPrefix + 'checkbox-icon']">&#xe632;</icon>
     <slot></slot>
   </label>
 </template>
@@ -9,7 +9,11 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
+import Icon from '../icon'
 export default {
+  components: {
+    Icon
+  },
   mixins: [input],
   computed: {
     classes () {

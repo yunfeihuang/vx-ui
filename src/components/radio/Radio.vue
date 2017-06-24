@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
-    <span :class="[cssPrefix + 'radio-icon']"><i class="iconfont">&#xe632;</i></span>
+    <span :class="[cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
     <slot></slot>
   </label>
 </template>
@@ -9,7 +9,11 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
+import Icon from '../icon'
 export default {
+  components: {
+    Icon
+  },
   mixins: [input],
   computed: {
     classes () {
@@ -59,7 +63,7 @@ export default {
         height: 20px;
         margin-top:-10px;
         display:none;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:20px;
         }
       }

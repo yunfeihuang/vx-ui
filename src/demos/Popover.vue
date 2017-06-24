@@ -9,11 +9,11 @@
           <popover :open="true">
             <x-button slot="trigger">left top</x-button>
             <ul class="popover-menu">
-            	<li @click="clickHandler"><i class="iconfont">&#xe651;</i>扫一扫</li>
+            	<li @click="clickHandler"><icon>&#xe651;</icon>扫一扫</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe727;</i>找朋友</li>
+            	<li @click="clickHandler"><icon>&#xe727;</icon>找朋友</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe654;</i>收付款</li>
+            	<li @click="clickHandler"><icon>&#xe654;</icon>收付款</li>
             </ul>
           </popover>
         </flexbox-item>
@@ -21,11 +21,11 @@
           <popover>
             <x-button slot="trigger">right top</x-button>
             <ul class="popover-menu">
-            	<li @click="clickHandler"><i class="iconfont">&#xe651;</i>扫一扫</li>
+            	<li @click="clickHandler"><icon>&#xe651;</icon>扫一扫</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe727;</i>找朋友</li>
+            	<li @click="clickHandler"><icon>&#xe727;</icon>找朋友</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe654;</i>收付款</li>
+            	<li @click="clickHandler"><icon>&#xe654;</icon>收付款</li>
             </ul>
           </popover>
         </flexbox-item>
@@ -35,11 +35,11 @@
           <popover>
             <x-button slot="trigger">left bottom</x-button>
             <ul class="popover-menu">
-            	<li @click="clickHandler"><i class="iconfont">&#xe651;</i>扫一扫</li>
+            	<li @click="clickHandler"><icon>&#xe651;</icon>扫一扫</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe727;</i>找朋友</li>
+            	<li @click="clickHandler"><icon>&#xe727;</icon>找朋友</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe654;</i>收付款</li>
+            	<li @click="clickHandler"><icon>&#xe654;</icon>收付款</li>
             </ul>
           </popover>
         </flexbox-item>
@@ -47,11 +47,11 @@
           <popover>
             <x-button slot="trigger">right bottom</x-button>
             <ul class="popover-menu">
-            	<li @click="clickHandler"><i class="iconfont">&#xe651;</i>扫一扫</li>
+            	<li @click="clickHandler"><icon>&#xe651;</icon>扫一扫</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe727;</i>找朋友</li>
+            	<li @click="clickHandler"><icon>&#xe727;</icon>找朋友</li>
               <divider></divider>
-            	<li @click="clickHandler"><i class="iconfont">&#xe654;</i>收付款</li>
+            	<li @click="clickHandler"><icon>&#xe654;</icon>收付款</li>
             </ul>
           </popover>
         </flexbox-item>
@@ -69,7 +69,8 @@ import {
   Popover,
   Divider,
   Flexbox,
-  FlexboxItem
+  FlexboxItem,
+  Icon
 } from 'components'
 export default {
   components: {
@@ -80,7 +81,8 @@ export default {
     Popover,
     Divider,
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    Icon
   },
   methods: {
     clickHandler (e) {
@@ -105,7 +107,7 @@ export default {
       line-height:42px;
       padding:0 15px;
     }
-    .iconfont{
+    .v-iconfont{
       margin-right:8px;
     }
   }

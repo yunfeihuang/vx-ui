@@ -3,7 +3,7 @@
     <x-header slot="header">
       <div slot="title">XHeader</div>
       <button class="btn-pull" slot="pull">
-        <i class="iconfont">&#xe78d;</i>
+        <icon>&#xe78d;</icon>
       </button>
     </x-header>
     <x-body slot="body">
@@ -16,13 +16,15 @@
 import {
   Layout,
   XHeader,
-  XBody
+  XBody,
+  Icon
 } from 'components'
 export default {
   components: {
     Layout,
     XHeader,
-    XBody
+    XBody,
+    Icon
   },
   data () {
     return {}

@@ -2,7 +2,7 @@
   <div :class="classes">
     <div :class="[cssPrefix + 'flow-inner']">
       <div :class="[cssPrefix + 'flow-refresh']">
-        <i class="iconfont"></i>
+        <icon></icon>
         <spinner :class="[cssPrefix + 'flow-spinner']"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
@@ -19,10 +19,11 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import Spinner from '../spinner'
-
+import Icon from '../icon'
 export default {
   components: {
-    Spinner
+    Spinner,
+    Icon
   },
   props: {
     loading: {
@@ -194,7 +195,7 @@ export default {
             span:before{
               content:attr(data-refresh);
             }
-            .iconfont{
+            .#{$css-prefix}iconfont{
               transform: rotate(180deg);
               position:relative;
               top:-2px;
@@ -206,7 +207,7 @@ export default {
             span:before{
               content:attr(data-loading);
             }
-            .iconfont:before{
+            .#{$css-prefix}iconfont:before{
               display:none
             }
             .#{$css-prefix}flow-spinner{
@@ -220,7 +221,7 @@ export default {
         line-height:46px;
         margin-top:-46px;
         text-align:center;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           vertical-align: middle;
           display: inline-block;
           line-height: 100%;

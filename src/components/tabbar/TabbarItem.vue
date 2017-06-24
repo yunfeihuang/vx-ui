@@ -1,29 +1,17 @@
 <template>
   <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click="clickHandler">
-    <template v-if="$slots.default">
-      <slot></slot>
-    </template>
-    <template v-else-if="text">
-      <i class="iconfont" v-html="icon"></i>
-      <span>{{text}}</span>
-    </template>
+    <slot></slot>
   </component>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import Ripple from '../ripple'
+import Icon from '../icon'
 export default {
   components: {
-    Ripple
-  },
-  props: {
-    text: {
-      type: String
-    },
-    icon: {
-      type: String
-    }
+    Ripple,
+    Icon
   },
   methods: {
     clickHandler (e) {
@@ -60,7 +48,7 @@ export default {
         color:$primary-color;
         transition: color $transition-time $ease-in-out;
       }
-      .iconfont{
+      .#{$css-prefix}iconfont{
         display:block;
       }
       span{

@@ -1,4 +1,3 @@
-import '../../iconfont/iconfont.css'
 import './index.scss'
 import '../utils/polyfill'
 import Vue from 'vue'
@@ -49,6 +48,7 @@ import DatetimePicker from './datetime-picker'
 import Datetime from './datetime'
 import Popover from './popover'
 import Sticky from './sticky'
+import Icon from './icon'
 ((w) => {
   w.$toast = (props, mounted = document.body) => {
     props = Object.assign({
@@ -267,5 +267,6 @@ export {
   DatetimePicker,
   Datetime,
   Popover,
-  Sticky
+  Sticky,
+  Icon
 }

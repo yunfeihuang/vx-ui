@@ -25,8 +25,8 @@
       type="button"
       @click="switchHandler"
     >
-      <i v-if="this.hType==='password'" class="iconfont">&#xe602;</i>
-      <i v-if="this.hType==='text'" class="iconfont">&#xe63b;</i>
+      <icon v-if="this.hType==='password'">&#xe602;</icon>
+      <icon v-if="this.hType==='text'">&#xe63b;</icon>
     </button>
   </div>
 </template>
@@ -35,10 +35,12 @@
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import XInput from '../input'
+import Icon from '../icon'
 export default {
   mixins: [input],
   components: {
-    XInput
+    XInput,
+    Icon
   },
   computed: {
     classes () {
@@ -81,7 +83,7 @@ export default {
         @include button;
         width:40px;
         height:100%;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:20px;
           color:#666;
         }

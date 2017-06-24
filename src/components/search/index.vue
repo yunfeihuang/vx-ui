@@ -4,7 +4,7 @@
       <form @submit="submitHandler">
         <flexbox :class="[cssPrefix + 'search']">
           <button :class="[cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
-            <i class="iconfont">&#xe660;</i>
+            <icon>&#xe660;</icon>
           </button>
           <x-input
             class="flexbox-item"
@@ -26,7 +26,7 @@
             @input="inputHandler"
             @on-change="changeHandler"
           >
-            <i slot="icon" :class="['iconfont',cssPrefix + 'search-icon']">&#xe651;</i>
+            <icon slot="icon" :class="[cssPrefix + 'search-icon']">&#xe651;</icon>
           </x-input>
         </flexbox>
       </form>
@@ -46,13 +46,15 @@
 import { cssPrefix } from 'utils/variable.js'
 import { input, historyPush } from 'utils/mixins.js'
 import XInput from '../input'
+import Icon from '../icon'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   mixins: [input, historyPush],
   components: {
     XInput,
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    Icon
   },
   props: {
     history: {
@@ -144,7 +146,7 @@ export default {
       }
       .#{$css-prefix}input-clear-button{
         width:40px;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:14px;
         }
       }
@@ -161,7 +163,7 @@ export default {
       }
       &-cancel{
         @include button;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:20px;
           position:relative;
           top:2px;

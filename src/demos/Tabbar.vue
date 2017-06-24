@@ -23,9 +23,18 @@
       </swiper>
     </x-body>
     <tabbar slot="footer" :ripple="true" @on-change="changeHandler" :active="active">
-      <tabbar-item text="主页" icon="&#xe651;"/>
-      <tabbar-item text="消息" icon="&#xe653;"/>
-      <tabbar-item text="我的" icon="&#xe63b;"/>
+      <tabbar-item>
+        <icon>&#xe651;</icon>
+        <span>主页</span>
+      </tabbar-item>
+      <tabbar-item>
+        <icon>&#xe653;</icon>
+        <span>消息</span>
+      </tabbar-item>
+      <tabbar-item>
+        <icon>&#xe63b;</icon>
+        <span>我的</span>
+      </tabbar-item>
     </tabbar>
   </layout>
 </template>
@@ -38,7 +47,8 @@ import {
   Tabbar,
   TabbarItem,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  Icon
 } from 'components'
 export default {
   components: {
@@ -48,7 +58,8 @@ export default {
     Tabbar,
     TabbarItem,
     Swiper,
-    SwiperItem
+    SwiperItem,
+    Icon
   },
   methods: {
     changeHandler (value) {

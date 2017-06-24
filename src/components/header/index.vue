@@ -2,7 +2,7 @@
   <div :class="classes">
     <flexbox class="nav" align="center">
       <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
-        <i class="iconfont">&#xe660;</i>
+        <icon>&#xe660;</icon>
       </button>
       <flexbox-item :class="[cssPrefix + 'header-title', back===false ? cssPrefix + 'header-title-center' : '']">
         <slot name="title"></slot>
@@ -16,10 +16,12 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
+import Icon from '../icon'
 export default {
   components: {
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    Icon
   },
   props: {
     back: {

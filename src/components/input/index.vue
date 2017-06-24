@@ -28,7 +28,7 @@
         :class="cssPrefix + 'input-clear-button'"
         @click="clearHandler"
         >
-        <i class="iconfont">&#xe641;</i>
+        <icon>&#xe641;</icon>
       </button>
     </transition>
   </label>
@@ -37,7 +37,11 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
+import Icon from '../icon'
 export default {
+  components: {
+    Icon
+  },
   mixins: [input],
   computed: {
     classes () {
@@ -83,17 +87,17 @@ export default {
       display:block;
       height:0.9rem;
       background:#fff;
-      .iconfont{
+      .#{$css-prefix}iconfont{
         color:$sub-color;
       }
-      >.iconfont:first-child{
+      >.#{$css-prefix}iconfont:first-child{
         line-height: 100%;
         position: absolute;
         left: 5px;
         top: 50%;
         margin: -8px 0;
       }
-      >.iconfont:first-child+input{
+      >.#{$css-prefix}iconfont:first-child+input{
         padding-left:30px;
       }
       input{

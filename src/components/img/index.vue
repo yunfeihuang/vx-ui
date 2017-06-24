@@ -7,17 +7,19 @@
       @load='loadHandler'
     />
     <spinner v-if="loading" :class="cssPrefix + 'img-spinner'"/>
-    <i class="iconfont" v-if="!loading">&#xe728;</i>
+    <icon v-if="!loading">&#xe728;</icon>
   </div>
 </template>
 
 <script>
 import { cssPrefix } from 'utils/variable.js'
 import Spinner from '../spinner'
+import Icon from '../icon'
 
 export default {
   components: {
-    Spinner
+    Spinner,
+    Icon
   },
   props: {
     src: {
@@ -93,7 +95,7 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.iconfont') || this.$el.querySelector('.' + cssPrefix + 'img-spinner')
+          let icon = this.$el.querySelector('.' + cssPrefix + 'iconfont') || this.$el.querySelector('.' + cssPrefix + 'img-spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
@@ -152,7 +154,7 @@ export default {
           border-radius: inherit;
           background-color: inherit
         }
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:16px;
           position:absolute;
           top:50%;
@@ -162,7 +164,7 @@ export default {
       }
       &-placeholder{
         background:#f5f5f5;
-        .iconfont{
+        .#{$css-prefix}iconfont{
           font-size:26px;
           color:#fff;
           margin:-13px;

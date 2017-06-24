@@ -3,7 +3,7 @@
     <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
       <div :class="[cssPrefix + 'toast-content']">
         <template v-if="type">
-          <i v-if="iconCode[type]" v-html="iconCode[type]" class="iconfont"></i>
+          <icon v-if="iconCode[type]" v-html="iconCode[type]"></icon>
           <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="[cssPrefix + 'toast-spinner']"/>
           <br/>
         </template>
@@ -17,6 +17,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 import Spinner from '../spinner'
+import Icon from '../icon'
 
 const iconCode = {
   success: '&#xe654;',
@@ -27,7 +28,8 @@ const iconCode = {
 export default {
   components: {
     Popup,
-    Spinner
+    Spinner,
+    Icon
   },
   props: {
     open: {
@@ -133,7 +135,7 @@ export default {
       &-center{
         vertical-align: middle;
       }
-      .iconfont{
+      .#{$css-prefix}iconfont{
         font-size:40px;
         margin-bottom:5px;
       }
