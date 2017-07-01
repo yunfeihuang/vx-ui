@@ -20,6 +20,7 @@
   user-select:none;
   cursor: default;
   box-shadow: none;
+  font-size: inherit;
 }
 @mixin input{
   border:0;

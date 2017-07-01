@@ -115,10 +115,7 @@ export default {
   },
   methods: {
     parseValue (value = this.value) {
-      if (this.format === 'yyyy') {
-        return {year: value}
-      }
-      if (!/[-\/]/.test(value)) { //eslint-disable-line
+      if (!/[-\/]/.test(value) && this.format !== 'yyyy') { //eslint-disable-line
         value = '1900-01-01 ' + value
       }
       let date = new Date(value.replace(/-/g, '/'))

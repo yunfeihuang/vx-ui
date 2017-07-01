@@ -199,12 +199,12 @@ export default {
       &-indicator{
         &:before{
           @include divider
-          top:126px;
+          top:125px;
           box-shadow: 0px -63px 0px 63px rgba(255, 255, 255, 0.4), 0px -64px 0px 21px rgba(255, 255, 255, 0.3), 0px -106px 0px 21px rgba(255, 255, 255, 0.45);
         }
         &:after{
           @include divider
-          top:167px;
+          top:166px;
           box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.4), 0px 64px 0px 21px rgba(255, 255, 255, 0.3), 0px 106px 0px 21px rgba(255, 255, 255, 0.45);
         }
       }
