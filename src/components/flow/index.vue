@@ -235,7 +235,7 @@ export default {
       }
       &-loading{
         text-align:center;
-        line-height:44px;
+        line-height:1rem;
         color:$sub-color;
       }
       &-spinner{

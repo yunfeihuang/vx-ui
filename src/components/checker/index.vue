@@ -53,11 +53,9 @@ export default {
         } else {
           value.splice(value.indexOf(e.target.value), 1)
         }
-        this.$emit('on-change', value)
-        this.$emit('input', value)
+        this.$emit('on-change', value).$emit('input', value)
       } else {
-        this.$emit('on-change', e.target.value)
-        this.$emit('input', e.target.value)
+        this.$emit('on-change', e.target.value).$emit('input', e.target.value)
       }
     }
   }

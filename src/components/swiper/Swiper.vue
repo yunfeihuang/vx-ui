@@ -49,8 +49,7 @@ export default {
     let options = Object.assign({
       initialSlide: this.active,
       onSlideChangeStart: (swiper) => {
-        this.$emit('on-change', swiper.activeIndex)
-        this.$emit('input', swiper.activeIndex)
+        this.$emit('on-change', swiper.activeIndex).$emit('input', swiper.activeIndex)
       }
     }, this.options)
     if (this.pagination) {

@@ -112,8 +112,7 @@ export default {
       let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
       if (target) {
         let value = target.dataset.value || target.innerText
-        this.$emit('input', value)
-        this.$emit('on-submit', value)
+        this.$emit('input', value).$emit('on-submit', value)
       }
     },
     submitHandler (e) {

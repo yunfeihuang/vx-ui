@@ -80,8 +80,7 @@ export default {
   },
   methods: {
     changeHandler (val) {
-      this.$emit('on-change', val)
-      this.$emit('input', val)
+      this.$emit('on-change', val).$emit('input', val)
     },
     touchStartHandler (e) {
       e.preventDefault()
