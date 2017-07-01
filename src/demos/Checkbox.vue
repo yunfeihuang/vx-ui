@@ -8,9 +8,9 @@
         <checkbox :checked="checked" @on-change="checkedHandler">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
-        <checkbox-group :options="options" @on-change="changeHandler" :value="value"/>
+        <checkbox-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
         <div style="padding:15px 10px;">
-          value：{{value}}
+          value：{{value}} label: {{label}}
         </div>
       </group>
       <group title="CheckboxGroup-Reverse">
@@ -54,6 +54,7 @@ export default {
   },
   data () {
     return {
+      label: [],
       checked: false,
       value: ['1'],
       options: [

@@ -39,6 +39,9 @@ export default {
       return [cssPrefix + 'checker']
     }
   },
+  mounted () {
+    this.value && this.updateLabel(this.value)
+  },
   data () {
     return {
       cssPrefix: cssPrefix
@@ -54,9 +57,18 @@ export default {
           value.splice(value.indexOf(e.target.value), 1)
         }
         this.$emit('on-change', value).$emit('input', value)
+        this.updateLabel(value)
       } else {
         this.$emit('on-change', e.target.value).$emit('input', e.target.value)
+        this.updateLabel(e.target.value)
       }
+    },
+    updateLabel (value) {
+      let label = []
+      this.options && this.options.forEach(item => {
+        value.indexOf(item.value) > -1 && label.push(item.label)
+      })
+      this.$emit('update:label', this.type === 'checkbox' ? label : label[0])
     }
   }
 }

@@ -6,16 +6,16 @@
     <x-body slot="body">
       <group title="Checker 多选">
         <div style="padding:20px 10px">
-          <Checker :options="options" @on-change="changeCheckboxHandler" :value="checkboxValue"/>
+          <Checker :label.sync="label1" :options="options" @on-change="changeCheckboxHandler" :value="checkboxValue"/>
           <br />
-          value：{{checkboxValue}}
+          value：{{checkboxValue}} label: {{label1}}
         </div>
       </group>
       <group title="Checker 单选">
         <div style="padding:20px 10px">
-          <Checker type="radio" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
+          <Checker :label.sync="label2" type="radio" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
           <br />
-          value：{{radioValue}}
+          value：{{radioValue}} label: {{label2}}
         </div>
       </group>
     </x-body>
@@ -48,6 +48,8 @@ export default {
   },
   data () {
     return {
+      label1: [],
+      label2: '',
       checkboxValue: ['1'],
       radioValue: '1',
       options: [

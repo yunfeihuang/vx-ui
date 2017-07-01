@@ -42,6 +42,9 @@ export default {
       return [cssPrefix + 'radio-group']
     }
   },
+  mounted () {
+    this.value && this.updateLabel(this.value)
+  },
   data () {
     return {
       cssPrefix: cssPrefix
@@ -50,6 +53,12 @@ export default {
   methods: {
     changeHandler (value) {
       this.$emit('on-change', value).$emit('input', value)
+      this.updateLabel(value)
+    },
+    updateLabel (value) {
+      this.options && this.options.forEach(item => {
+        value === item.value && this.$emit('update:label', item.label)
+      })
     }
   }
 }

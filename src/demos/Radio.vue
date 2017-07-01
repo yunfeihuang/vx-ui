@@ -10,9 +10,9 @@
         <radio name="radio1">羽毛球</radio>
       </group>
       <group title="RadioGroup">
-        <radio-group :options="options" @on-change="changeHandler" :value="value"/>
+        <radio-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
         <div style="padding:15px 10px;">
-          value：{{value}}
+          value：{{value}} label：{{label}}
         </div>
       </group>
     </x-body>
@@ -46,6 +46,7 @@ export default {
   },
   data () {
     return {
+      label: '',
       value: '1',
       options: [
         {

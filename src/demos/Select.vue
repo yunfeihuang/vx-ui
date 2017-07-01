@@ -6,8 +6,9 @@
     <x-body slot="body">
       <group>
         <cell>
-          <div slot="title">下拉框</div>
+          <div slot="title">下拉框({{label}})</div>
           <x-select 
+            :label.sync="label"
             slot="value"
             :options="options.slice(0,4)"
             :value="value"
@@ -58,6 +59,7 @@ export default {
   },
   data () {
     return {
+      label: '',
       value: '',
       value2: '',
       options: [

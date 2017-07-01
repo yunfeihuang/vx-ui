@@ -61,7 +61,16 @@ import Icon from './icon'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<toast :open="props.open" :duration="props.duration" :type="props.type" :align="props.align" @on-close="closeHandler">{{props.content}}</toast>`,
+      template: `
+        <toast
+          :open="props.open"
+          :duration="props.duration"
+          :type="props.type"
+          :align="props.align"
+          @on-close="closeHandler">
+          {{props.content}}
+        </toast>
+      `,
       components: {Toast},
       data: {props: props},
       methods: {
@@ -92,7 +101,15 @@ import Icon from './icon'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<alert :open="props.open" :confirm-text="props.confirmText" @on-confirm="confirmHandler" @on-close="closeHandler">{{props.content}}</alert>`,
+      template: `
+        <alert
+          :open="props.open"
+          :confirm-text="props.confirmText"
+          @on-confirm="confirmHandler"
+          @on-close="closeHandler">
+          {{props.content}}
+        </alert>
+      `,
       components: {Alert},
       data: {props: props},
       methods: {
@@ -132,7 +149,16 @@ import Icon from './icon'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<confirm :open="props.open" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-close="closeHandler">{{props.content}}</confirm>`,
+      template: `
+        <confirm
+          :open="props.open"
+          :confirm-text="props.confirmText"
+          :cancel-text="props.cancelText"
+          @on-confirm="confirmHandler"
+          @on-close="closeHandler">
+          {{props.content}}
+        </confirm>
+      `,
       components: {Confirm},
       data: {props: props},
       methods: {
@@ -179,7 +205,18 @@ import Icon from './icon'
     mounted.appendChild(node)
     let vue = new Vue({ //eslint-disable-line
       el: node,
-      template: `<prompt :title="props.title" :open="props.open" :disabled="props.disabled" :input="props.input" :confirm-text="props.confirmText" :cancel-text="props.cancelText" @on-confirm="confirmHandler" @on-close="closeHandler" @on-change="changeHandler"/>`,
+      template: `
+        <prompt
+          :title="props.title"
+          :open="props.open"
+          :disabled="props.disabled"
+          :input="props.input"
+          :confirm-text="props.confirmText"
+          :cancel-text="props.cancelText"
+          @on-confirm="confirmHandler"
+          @on-close="closeHandler"
+          @on-change="changeHandler"/>
+      `,
       components: {Prompt},
       data: {props: props},
       methods: {
