@@ -115,6 +115,9 @@ export default {
   },
   methods: {
     parseValue (value = this.value) {
+      if (this.format === 'yyyy') {
+        return {year: value}
+      }
       if (!/[-\/]/.test(value)) { //eslint-disable-line
         value = '1900-01-01 ' + value
       }
@@ -179,6 +182,7 @@ export default {
           type: 'ss'
         })
       }
+      console.log(pickers)
       this.pickers = pickers
     },
     getYears () {
