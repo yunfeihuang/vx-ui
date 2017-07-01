@@ -24,9 +24,18 @@
         ripple prop position:center
       </div>
       <tabbar :ripple="true" :active="active" @on-change="changeHandler">
-        <tabbar-item text="主页" icon="&#xe651;"/>
-        <tabbar-item text="消息" icon="&#xe653;"/>
-        <tabbar-item text="我的" icon="&#xe63b;"/>
+        <tabbar-item>
+          <icon>&#xe651;</icon>
+          <span>主页</span>
+        </tabbar-item>
+        <tabbar-item>
+          <icon>&#xe653;</icon>
+          <span>消息</span>
+        </tabbar-item>
+        <tabbar-item>
+          <icon>&#xe63b;</icon>
+          <span>我的</span>
+        </tabbar-item>
       </tabbar>
     </div>
   </layout>
@@ -42,7 +51,8 @@ import {
   Ripple,
   Tabbar,
   TabbarItem,
-  Divider
+  Divider,
+  Icon
 } from 'components'
 export default {
   components: {
@@ -54,7 +64,8 @@ export default {
     Ripple,
     Tabbar,
     TabbarItem,
-    Divider
+    Divider,
+    Icon
   },
   methods: {
     clickHandler (e) {

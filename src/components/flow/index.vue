@@ -7,7 +7,7 @@
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div :class="[cssPrefix + 'flow-loading']" v-if="loading">
+      <div :class="[cssPrefix + 'flow-loading']" v-if="!end">
         <spinner :class="[cssPrefix + 'flow-spinner']"/>
         {{loadingText}}
       </div>
@@ -63,9 +63,6 @@ export default {
       return [cssPrefix + 'flow', 'scrollbox']
     }
   },
-  created () {
-    this.$touch = {}
-  },
   mounted () {
     let timer = null
     this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
@@ -79,6 +76,10 @@ export default {
       this.$el.addEventListener('touchmove', this.touchMoveHandler)
       this.$el.addEventListener('touchend', this.touchEndHandler)
     }
+    this.$height = this.$el.offsetHeight
+    this.$touch = {
+      inner: this.$el.querySelector('.' + cssPrefix + 'flow-inner')
+    }
   },
   destroyed () {
     this.$touch = null
@@ -91,15 +92,12 @@ export default {
       this.$emit('on-pullup')
     },
     scrollHandler (e) {
-      if (this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= 1) {
+      if (this.$el.scrollHeight - this.$height - this.$el.scrollTop <= 1) {
         this.$emit('on-pullup', e)
       }
     },
     touchStartHandler (e) {
       if (!this.loading) {
-        if (!this.$touch.inner) {
-          this.$touch.inner = this.$el.querySelector('.' + cssPrefix + 'flow-inner')
-        }
         if (!this.$touch.pageY && this.$el.scrollTop === 0) {
           this.$touch.pageY = e.changedTouches[0].pageY
           this.$touch.pageX = e.changedTouches[0].pageX
@@ -112,16 +110,14 @@ export default {
       if (this.$touch.pageY && this.$touch.pageY < pageY && Math.abs(pageY - this.$touch.pageY) > Math.abs(pageX - this.$touch.pageX)) {
         e.preventDefault()
         e.stopPropagation()
-        if (this.$touch.inner) {
-          let top = pageY - this.$touch.pageY
-          top = top > 100 ? 100 : top
-          let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translateY(' + top + 'px);transform:translateY(' + top + 'px);'
-          this.$touch.inner.style.cssText = cssText
-          if (this.$touch.pageY && pageY - this.$touch.pageY > 60) {
-            this.$touch.inner.classList.add('active')
-          } else {
-            this.$touch.inner.classList.remove('active')
-          }
+        let top = pageY - this.$touch.pageY
+        top = top > 100 ? 100 : top
+        let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translateY(' + top + 'px);transform:translateY(' + top + 'px);'
+        this.$touch.inner.style.cssText = cssText
+        if (this.$touch.pageY && pageY - this.$touch.pageY > 60) {
+          this.$touch.inner.classList.add('active')
+        } else {
+          this.$touch.inner.classList.remove('active')
         }
       }
       if (!this.$touch.pageY && this.scrollTop <= 0) {
@@ -239,7 +235,7 @@ export default {
       }
       &-loading{
         text-align:center;
-        line-height:40px;
+        line-height:44px;
         color:$sub-color;
       }
       &-spinner{

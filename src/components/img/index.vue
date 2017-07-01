@@ -53,7 +53,7 @@ export default {
       node.onscroll = (e) => {
         e.target.scrollTimer && clearTimeout(e.target.scrollTimer)
         e.target.scrollTimer = setTimeout(() => {
-          e.target.lazyloadImages = e.target.lazyloadImages.filter((item) => {
+          e.target.lazyloadImages = e.target.lazyloadImages.filter((item, index) => {
             if (item.loaded === false && item.img.inViewPort()) {
               item.img.setSource()
               return false
@@ -73,8 +73,6 @@ export default {
           loaded: false
         })
       }
-    } else {
-      this.setSource()
     }
   },
   destroyed () {
@@ -89,7 +87,7 @@ export default {
         return false
       }
       let rect = this.$el.getBoundingClientRect()
-      return rect.top >= 0 && rect.left >= 0 && rect.top <= window.innerHeight
+      return rect.top < window.innerHeight && rect.left < window.innerWidth
     },
     setSource () {
       if (this.src) {
@@ -138,7 +136,7 @@ export default {
     &img{
       &-lazyload{
         opacity:0;
-        transition:opacity 0.4s ease 0s;
+        transition:opacity 0.168s ease 0s;
         background-color: #fff;
       }
       &-wrapper{

@@ -25,12 +25,12 @@ export default {
   computed: {
     classes () {
       return [cssPrefix + 'form']
-    },
-    messages: messages
+    }
   },
   data () {
     return {
-      cssPrefix: cssPrefix
+      cssPrefix: cssPrefix,
+      messages: messages
     }
   },
   methods: {

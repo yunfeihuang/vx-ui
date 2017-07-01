@@ -1,6 +1,6 @@
 <template>
   <div>
-    <layout>
+    <layout v-show="$route.path == '/cnode'">
       <x-header slot="header" :back="false">
         <div slot="title">CNode-专业中文社区</div>
         <tab :active="home.active" @on-change="activeHandler">
@@ -23,7 +23,7 @@
       </x-header>
       <x-body slot="body" :scroll="false" style="background:#fff">
         <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
-          <topic-item v-for="item in topics" :item="item" :key="item.id"/>
+          <topic-item v-for="item in topics" :item="item" :key="item.id" />
         </flow>
       </x-body>
     </layout>
@@ -88,14 +88,12 @@ export default {
   methods: {
     activeHandler (active) {
       let tab = tabs[active]
-      if (!this.home[tab].query.page) {
-        this.$store.dispatch('home', {
-          page: 1,
-          tab: tab,
-          active: active,
-          change: true
-        })
-      }
+      this.$store.dispatch('home', {
+        page: 1,
+        tab: tab,
+        active: active,
+        change: true
+      })
     },
     pullupHandler () {
       let tab = tabs[this.home.active]

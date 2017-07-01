@@ -8,7 +8,7 @@ Vue.use(Router)
 let routes = demosRoutes.concat(cnodeRoutes)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: routes
 })
 let toast = null

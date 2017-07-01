@@ -65,10 +65,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .button-demo{
-    padding:0 1rem;
-    button{
-      margin-top:20px;
-    }
-  }
+
 </style>

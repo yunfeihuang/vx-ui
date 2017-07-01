@@ -56,7 +56,9 @@ export default {
           format: datetime.format
         },
         mounted () {
-          this.open = true
+          requestAnimationFrame(() => {
+            this.open = true
+          })
         },
         destroyed () {
           requestAnimationFrame(() => {

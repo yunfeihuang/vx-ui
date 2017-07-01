@@ -5,27 +5,37 @@ const state = {
   home: {
     all: {
       loading: false,
-      query: {},
+      query: {
+        page: 1
+      },
       data: []
     },
     good: {
       loading: false,
-      query: {},
+      query: {
+        page: 1
+      },
       data: []
     },
     share: {
       loading: false,
-      query: {},
+      query: {
+        page: 1
+      },
       data: []
     },
     ask: {
       loading: false,
-      query: {},
+      query: {
+        page: 1
+      },
       data: []
     },
     job: {
       loading: false,
-      query: {},
+      query: {
+        page: 1
+      },
       data: []
     },
     active: 0
@@ -82,7 +92,7 @@ const mutations = {
       item.href = '/cnode/topic/' + item.id
       item.user_href = '/cnode/user/' + item.author.loginname
     })
-    if (state.home[query.tab].query.page && state.home[query.tab].query.page > query.page) {
+    if (state.home[query.tab].query.page && state.home[query.tab].query.page < query.page) {
       state.home[query.tab].query = query
       state.home[query.tab].data = state.home[query.tab].data.concat(data)
     } else {
