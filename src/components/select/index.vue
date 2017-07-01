@@ -40,6 +40,9 @@ export default {
   created () {
     this.optionUpdate(this.value)
   },
+  mounted () {
+    this.value && this.updateLabel(this.value)
+  },
   destroyed () {
     if (this.$popup) {
       this.$popup.open = false
@@ -94,9 +97,7 @@ export default {
           clickHandler (value) {
             if (select.value !== value) {
               select.$emit('on-change', value).$emit('input', value)
-              this.options && this.options.forEach(item => {
-                item.value === value && select.$emit('update:label', item.label)
-              })
+              select.updateLabel(value)
             } else {
               this.closeHandler()
             }
@@ -112,6 +113,11 @@ export default {
         }
       })
       this.option = option
+    },
+    updateLabel (value) {
+      this.options && this.options.forEach(item => {
+        item.value === value && this.$emit('update:label', item.label)
+      })
     }
   },
   watch: {
