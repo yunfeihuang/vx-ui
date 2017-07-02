@@ -24,10 +24,13 @@ export default {
     }
   },
   mounted () {
-    this.$el.addEventListener('touchstart', this.touchStartHandler, false)
-    this.$el.addEventListener('touchend', this.touchEndHandler, false)
-    this.$el.addEventListener('mousedown', this.touchStartHandler, false)
-    this.$el.addEventListener('mouseup', this.touchEndHandler, false)
+    if (document.touchstart === undefined) {
+      this.$el.addEventListener('mousedown', this.touchStartHandler, false)
+      this.$el.addEventListener('mouseup', this.touchEndHandler, false)
+    } else {
+      this.$el.addEventListener('touchstart', this.touchStartHandler, false)
+      this.$el.addEventListener('touchend', this.touchEndHandler, false)
+    }
   },
   methods: {
     clickHandler (e) {
@@ -51,6 +54,8 @@ export default {
       }
     },
     touchStartHandler (e) {
+      let shadow = this.$el.querySelector('.' + cssPrefix + 'ripple-shadow')
+      shadow && shadow.parentNode.removeChild(shadow)
       offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
       node = document.createElement('div')
       node.classList.add(cssPrefix + 'ripple-shadow')
@@ -63,6 +68,7 @@ export default {
         node.style.transition = node.style.webkitTransition = 'transform 0.3s ease-in-out 0s'
         node.style.transform = node.style.webkitTransform = 'scale(1.4)'
       })
+      e.preventDefault()
     },
     touchEndHandler (e) {
       timer && clearTimeout(timer)
@@ -70,7 +76,7 @@ export default {
       node.style.transform = node.style.webkitTransform = 'scale(' + (Math.max(offset.height, offset.width) / 5) + ')'
       node.style.opacity = '0'
       setTimeout(((node) => {
-        node.parentNode.removeChild(node)
+        node.parentNode && node.parentNode.removeChild(node)
       }).bind(this, node), 1000)
     }
   },
@@ -99,6 +105,8 @@ export default {
         margin:-20px;
         transition:transform 1s ease-in-out 0s,opacity 0.4s linear 0s;
         pointer-events: none;
+        top:0;
+        left:0;
       }
     }
   }

@@ -106,6 +106,7 @@ const mutations = {
       state.home.active = query.active
     }
     query.change && (state.home[query.tab].data = [])
+    query.change && (state.home[query.tab].query.page = 1)
   },
   [types.TOPIC] (state, {data, query}) {
     data.content = data.content.replace(/<a/gi, '<a target="_blank" ')// .replace(/<img/gi, '<x-img')
