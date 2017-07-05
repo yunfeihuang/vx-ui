@@ -62,6 +62,7 @@ export default {
         },
         mounted () {
           let node = this.$popoverContent = document.createElement('div')
+          node.style.visibility = 'hidden'
           node.className = cssPrefix + 'popover-content'
           popover.popoverClass && node.classList.add(popover.popoverClass)
           node.addEventListener('click', popover.clickPopoverHandler, false)
@@ -85,6 +86,7 @@ export default {
           requestAnimationFrame(() => {
             node.style.top = top
             node.style.left = left
+            node.style.visibility = ''
             isRight && node.classList.add(cssPrefix + 'popover-content-right')
             isBottom && node.classList.add(cssPrefix + 'popover-content-bottom')
           })
