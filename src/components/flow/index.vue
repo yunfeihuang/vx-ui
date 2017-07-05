@@ -8,7 +8,7 @@
       </div>
       <slot></slot>
       <div :class="[cssPrefix + 'flow-loading']" v-if="!end">
-        <spinner :class="[cssPrefix + 'flow-spinner']"/>
+        <spinner v-show="loading" :class="[cssPrefix + 'flow-spinner']"/>
         {{loadingText}}
       </div>
       <div :class="[cssPrefix + 'flow-loading']" v-if="end">{{endText}}</div>
