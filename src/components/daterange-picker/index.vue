@@ -2,11 +2,11 @@
   <popup :open="open" :history="history" @on-close="closeHandler" :fast-close="false" direction="top" :class="[cssPrefix + 'daterange-picker-wrapper']">
     <div :class="classes">
       <div :class="[cssPrefix + 'daterange-picker-header']">
-        <tab :active.sync="tab">
-          <tab-item>日历</tab-item>
-          <tab-item>周历</tab-item>
-          <tab-item>月历</tab-item>
-          <tab-item>季度</tab-item>
+        <tab :active.sync="tab" v-if="layout.length">
+          <tab-item v-show="layout.indexOf('date') > -1">日历</tab-item>
+          <tab-item v-show="layout.indexOf('week') > -1">周历</tab-item>
+          <tab-item v-show="layout.indexOf('month') > -1">月历</tab-item>
+          <tab-item v-show="layout.indexOf('quarter') > -1">季度</tab-item>
         </tab>
         <flexbox :class="[cssPrefix + 'daterange-picker-controls']">
           <flexbox-item>
@@ -38,8 +38,8 @@
         <flexbox v-if="tab==0||tab==1" :class="[cssPrefix + 'daterange-picker-week-title']">
           <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? cssPrefix + 'daterange-picker-weekend' : '']">{{item}}</flexbox-item>
         </flexbox>
-        <divider v-if="tab==0||tab==1"></divider>
-        <flexbox :class="[cssPrefix + 'daterange-picker-calendar']" :style="{height: tab===2?'6.8rem':''}">
+        <divider v-if="tab==0||tab==1" style="margin-top:-1px;"></divider>
+        <flexbox :class="[cssPrefix + 'daterange-picker-calendar' ,'divider']" v-if="tab==0||tab==1">
           <div 
             v-if="tab===0"
             v-for="item in dateList"
@@ -58,6 +58,8 @@
             >
             {{item.value.getDate()}}
           </div>
+        </flexbox>
+        <flexbox :class="[cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===2" :style="{height: '6.8rem'}" align="center">
           <div 
             v-if="tab===2"
             v-for="(item, i) in monthList"
@@ -67,6 +69,8 @@
             >
             {{i+1}}月
           </div>
+        </flexbox>
+        <flexbox :class="[cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===3">
           <div 
             v-if="tab===3"
             v-for="(item,i) in quarterList"
@@ -166,6 +170,12 @@ export default {
       type: Array,
       default () {
         return ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      }
+    },
+    layout: {
+      type: Array,
+      default () {
+        return ['date', 'week', 'month', 'quarter']
       }
     }
   },
@@ -382,7 +392,7 @@ export default {
       }
       button{
         @include button;
-        height:0.8rem;
+        height:0.9rem;
         width:1rem;
         &:disabled{
           opacity: 0.5;
