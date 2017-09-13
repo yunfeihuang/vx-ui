@@ -45,7 +45,9 @@ import Badge from './badge'
 import Swipeout from './swipeout'
 import Rater from './rater'
 import DatetimePicker from './datetime-picker'
+import DaterangePicker from './daterange-picker'
 import Datetime from './datetime'
+import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
@@ -302,7 +304,9 @@ export {
   Swipeout,
   Rater,
   DatetimePicker,
+  DaterangePicker,
   Datetime,
+  Daterange,
   Popover,
   Sticky,
   Icon

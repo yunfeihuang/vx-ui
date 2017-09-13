@@ -17,6 +17,7 @@
           <x-link href="/demos/checker">Checker</x-link>
           <x-link href="/demos/range">Range</x-link>
           <x-link href="/demos/datetime">Datetime</x-link>
+          <x-link href="/demos/daterange">Daterange</x-link>
           <x-link href="/demos/search">Search</x-link>
           <x-link href="/demos/form">Form</x-link>
           <x-link href="/demos/actionsheet">Actionsheet</x-link>

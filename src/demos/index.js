@@ -32,6 +32,7 @@ import Flexbox from './Flexbox'
 import Picker from './Picker'
 import PopupPicker from './PopupPicker'
 import DatetimePicker from './DatetimePicker'
+import Daterange from './Daterange'
 import Badge from './Badge'
 import Spinner from './Spinner'
 import Rater from './Rater'
@@ -77,6 +78,7 @@ export {
   Spinner,
   Rater,
   Datetime,
+  Daterange,
   Marquee,
   Popover
 }

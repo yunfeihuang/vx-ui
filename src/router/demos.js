@@ -80,6 +80,7 @@ const Sidebar = r => require.ensure([], () => r(require('demos/Sidebar')), 'Side
 const Rater = r => require.ensure([], () => r(require('demos/Rater')), 'Rater')
 const Spinner = r => require.ensure([], () => r(require('demos/Spinner')), 'Spinner')
 const Datetime = r => require.ensure([], () => r(require('demos/Datetime')), 'Datetime')
+const Daterange = r => require.ensure([], () => r(require('demos/Daterange')), 'Daterange')
 const Marquee = r => require.ensure([], () => r(require('demos/Marquee')), 'Marquee')
 const Popover = r => require.ensure([], () => r(require('demos/Popover')), 'Popover')
 
@@ -273,6 +274,11 @@ export default [
         path: '/demos/datetime',
         name: 'datetime',
         component: Datetime
+      },
+      {
+        path: '/demos/daterange',
+        name: 'daterange',
+        component: Daterange
       },
       {
         path: '/demos/marquee',

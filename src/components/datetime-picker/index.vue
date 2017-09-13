@@ -179,7 +179,6 @@ export default {
           type: 'ss'
         })
       }
-      console.log(pickers)
       this.pickers = pickers
     },
     getYears () {
