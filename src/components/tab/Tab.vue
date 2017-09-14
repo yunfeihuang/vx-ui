@@ -1,7 +1,7 @@
 <template>
   <div :class="classes" onselectstart="return false;">
     <slot></slot>
-    <div :class="[cssPrefix+'tab-underline']" :style="lineStyle"></div>
+    <div :class="[cssPrefix+'tab-underline']"></div>
   </div>
 </template>
 
@@ -29,14 +29,22 @@ export default {
   },
   methods: {
     afterMounted () {
-      let underline = this.$el.querySelector('.' + cssPrefix + 'tab-underline')
-      underline && requestAnimationFrame(() => {
-        underline.style.display = 'block'
+      this.computedStyle()
+    },
+    computedStyle () {
+      this.$nextTick(() => {
+        let node = this.$el.querySelector('.' + cssPrefix + 'tab-underline')
+        let activeNode = this.$el.querySelector('.' + cssPrefix + 'tab-item-active')
+        requestAnimationFrame(() => {
+          node.style.cssText = `width: ${activeNode.offsetWidth}px;left:${activeNode.offsetLeft}px;display:block`
+        })
       })
     },
     changeHandler (value) {
-      this.$emit('click', value)
-      value !== this.active && this.$emit('on-change', value).$emit('input', value).$emit('update:active', value)
+      if (value !== this.active) {
+        this.$emit('on-change', value).$emit('input', value).$emit('update:active', value)
+        this.computedStyle()
+      }
     }
   }
 }
