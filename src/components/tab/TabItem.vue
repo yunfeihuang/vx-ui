@@ -1,6 +1,9 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <slot></slot>
+    <span v-if="$parent.underlineWidth" :class="[cssPrefix + 'tab-item-text']">
+      <slot></slot>
+    </span>
+    <slot v-else></slot>
   </div>
 </template>
 

@@ -2,15 +2,27 @@
   <layout>
     <x-header slot="header">
       <div slot="title">Tab</div>
-      <tab :active="active" @on-change="changeHandler">
-        <tab-item>选项卡1</tab-item>
-        <tab-item>选项卡2</tab-item>
-        <tab-item>选项卡3</tab-item>
-        <tab-item>选项卡4</tab-item>
+       <tab :active.sync="active">
+        <tab-item>推荐</tab-item>
+        <tab-item>科技</tab-item>
+        <tab-item>活动</tab-item>
+        <tab-item>发现</tab-item>
+      </tab>
+      <tab :active.sync="active" :underline-width="10">
+        <tab-item>推荐</tab-item>
+        <tab-item>科技</tab-item>
+        <tab-item>活动</tab-item>
+        <tab-item>发现</tab-item>
+      </tab>
+      <tab :active.sync="active" underline-width="auto">
+        <tab-item>推荐</tab-item>
+        <tab-item>科技</tab-item>
+        <tab-item>活动</tab-item>
+        <tab-item>发现</tab-item>
       </tab>
     </x-header>
     <x-body slot="body" style="background:#fff" :scroll="false">
-      <swiper :active="active" @on-change="changeHandler" class="tab-swiper">
+      <swiper :active.sync="active" class="tab-swiper">
         <swiper-item>
           <div class="tab-content">
             内容1

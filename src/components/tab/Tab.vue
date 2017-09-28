@@ -10,22 +10,19 @@ import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 export default {
   mixins: [tab],
+  props: ['underlineWidth'],
   computed: {
-    lineStyle () {
-      return {
-        left: `${this.active * (100 / this.childLength)}%`,
-        width: `${100 / this.childLength}%`
-      }
-    },
     classes () {
       return ['flexbox', cssPrefix + 'tab']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
-      childLength: this.$children.length
+      cssPrefix: cssPrefix
     }
+  },
+  updated () {
+    this.computedStyle()
   },
   methods: {
     afterMounted () {
@@ -35,14 +32,24 @@ export default {
       this.$nextTick(() => {
         let node = this.$el.querySelector('.' + cssPrefix + 'tab-underline')
         let activeNode = this.$el.querySelector('.' + cssPrefix + 'tab-item-active')
+        let activeWidth = activeNode.offsetWidth
+        let width = activeWidth
+        let left = activeNode.offsetLeft
+        if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
+          width = activeNode.children[0].offsetWidth
+          left = activeNode.offsetLeft + (activeWidth - width) / 2
+        } else if (this.underlineWidth) {
+          width = this.underlineWidth
+          left = activeNode.offsetLeft + (activeWidth - this.underlineWidth) / 2
+        }
         requestAnimationFrame(() => {
-          node.style.cssText = `width: ${activeNode.offsetWidth}px;left:${activeNode.offsetLeft}px;display:block`
+          node.style.cssText = `width: ${width}px;left:${left}px;display:block`
         })
       })
     },
     changeHandler (value) {
       if (value !== this.active) {
-        this.$emit('on-change', value).$emit('input', value).$emit('update:active', value)
+        this.$emit('on-change', value).$emit('update:active', value)
         this.computedStyle()
       }
     }
@@ -67,8 +74,8 @@ export default {
         bottom:0;
         left:0;
         width:100px;
-        border-bottom:1px solid $primary-color;
-        transition: left $transition-time $ease-in-out;
+        border-bottom:2px solid $primary-color;
+        transition: left $transition-time $ease-in-out,width $transition-time $ease-in-out;
         display:none;
       }
     }
