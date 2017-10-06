@@ -1,8 +1,8 @@
 <template>
-  <popup :open="open" :history="history" @on-close="closeHandler" :fast-close="false" direction="top" :class="[cssPrefix + 'daterange-picker-wrapper']">
-    <div :class="classes">
+  <popup :open="open" :history="history" @on-open="openHandler" @on-close="closeHandler" :fast-close="false" direction="top" :class="[cssPrefix + 'daterange-picker-wrapper']">
+    <div :class="classes" v-if="open">
       <div :class="[cssPrefix + 'daterange-picker-header']">
-        <tab :active.sync="tab" v-if="layout.length">
+        <tab :active.sync="tab" v-if="layout.length" ref="tab">
           <tab-item v-show="layout.indexOf('date') > -1">日历</tab-item>
           <tab-item v-show="layout.indexOf('week') > -1">周历</tab-item>
           <tab-item v-show="layout.indexOf('month') > -1">月历</tab-item>
@@ -84,7 +84,7 @@
       </div>
       <divider></divider>
       <flexbox :class="[cssPrefix + 'daterange-picker-footer']">
-        <button type="button" :class="[cssPrefix + 'daterange-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
+        <button type="button" :class="[cssPrefix + 'daterange-picker-cancel']" @click="closeHandler">{{cancelText}}</button>
         <flexbox-item>
           <button type="button" :class="[cssPrefix + 'daterange-picker-clear']" @click="changeHandler([])">{{clearText}}</button>
         </flexbox-item>
@@ -221,14 +221,6 @@ export default {
       return result
     }
   },
-  mounted () {
-    this.open && this.initial()
-  },
-  watch: {
-    open (value) {
-      value && this.initial()
-    }
-  },
   data () {
     return {
       cssPrefix: cssPrefix,
@@ -339,9 +331,6 @@ export default {
       this.valueTab = this.tab
       this.myValue = value
     },
-    initial () {
-      console.log('ddddddd')
-    },
     yearChangeHandler (i) {
       let date = new Date(this.date.getTime())
       date.setFullYear(date.getFullYear() + i)
@@ -351,9 +340,6 @@ export default {
       let date = new Date(this.date.getTime())
       date.setMonth(date.getMonth() + i)
       this.date = date
-    },
-    cancelHandler () {
-      this.$emit('on-close')
     },
     closeHandler () {
       this.$emit('on-close')
@@ -375,6 +361,9 @@ export default {
           this.myValue = this.myValue[0] > value ? [] : [this.myValue[0], value]
         }
       }
+    },
+    openHandler () {
+      this.$refs.tab.computedStyle()
     }
   }
 }
