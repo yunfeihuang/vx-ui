@@ -37,23 +37,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &tabbar-item{
-      padding:0.15rem 0;
-      &-active{
-        color:$primary-color;
-        transition: color $transition-time $ease-in-out;
-      }
-      .#{$css-prefix}iconfont{
-        display:block;
-      }
-      span{
-        font-size:0.2rem;
-      }
-    }
-  }
-</style>

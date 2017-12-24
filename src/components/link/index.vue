@@ -28,19 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &link{
-      color:$primary-color;
-      text-decoration: none;
-      box-sizing: border-box;
-      cursor: default;
-      &-active{
-        @include active;
-      }
-    }
-  }
-</style>

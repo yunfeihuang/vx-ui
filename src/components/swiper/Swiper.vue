@@ -83,21 +83,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &swiper{
-      .swiper-pagination-bullet{
-        background-color:#fff;
-        margin: 0 4px!important;
-        box-shadow:0 0 3px rgba(0,0,0,0.2);
-        opacity:0.4;
-      }
-      .swiper-pagination-bullet-active{
-        opacity:1;
-      }
-    }
-  }
-</style>

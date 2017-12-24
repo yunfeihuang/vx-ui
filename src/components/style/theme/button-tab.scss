@@ -1,0 +1,46 @@
+@import '../styles/variable.scss';
+@import '../styles/mixins.scss';
+.#{$css-prefix}{
+  &button-tab{
+    text-align:center;
+    position:relative;
+    border-radius:48px;
+    user-select: none;
+    line-height:0.8rem;
+    @include round-border($border-color-base,48px);
+    &-item{
+      position:relative;
+      z-index:1;
+      white-space: nowrap;
+      overflow: hidden;
+      &-active{
+        background-color:$primary-color;
+        color:#fff;
+        // transition: all $transition-time $ease-in-out;
+        &:before{
+          display:none;
+        }
+      }
+      &:first-child{
+        border-top-left-radius:46px;
+        border-bottom-left-radius:46px;
+        &:before{
+          display:none;
+        }
+      }
+      &:last-child{
+        border-top-right-radius:46px;
+        border-bottom-right-radius:46px;
+      }
+      &:before{
+        content:'';
+        border-left:1px solid $border-color-base;
+        transform:scaleX(0.5);
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+      }
+    }
+  }
+}

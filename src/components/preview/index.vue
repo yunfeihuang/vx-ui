@@ -97,25 +97,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  @import '~photoswipe/dist/photoswipe.css';
-  @import '~photoswipe/dist/default-skin/default-skin.css';
-  .#{$css-prefix}{
-    &photoswiper{
-      z-index:1001;
-      position:fixed;
-      width: 100%;
-      height:100%;
-      text-align: center;
-      display:none;
-      top:0;
-      left:0;
-      .pswp__top-bar{
-        display:none;
-      }
-    }
-  }
-</style>

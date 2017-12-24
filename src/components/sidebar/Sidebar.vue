@@ -32,26 +32,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &sidebar{
-      text-align:center;
-      position:relative;
-      user-select: none;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overflow-scrolling: touch;
-      &::-webkit-scrollbar{
-        display:none;
-      }
-      &:before{
-        @include divider-vertical;
-        right:0;
-        left:auto;
-      }
-    }
-  }
-</style>

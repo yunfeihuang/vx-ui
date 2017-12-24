@@ -34,18 +34,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &tab-item{
-      white-space: nowrap;
-      overflow: hidden;
-      &-active{
-        color:$primary-color;
-        // transition: color $transition-time $ease-in-out;
-      }
-    }
-  }
-</style>

@@ -133,37 +133,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &select{
-      position:relative;
-      height:0.9rem;
-      select{
-        display:none;
-      }
-      button{
-        border: 0;
-        background-color: transparent;
-        font-size: inherit;
-        text-align: inherit;
-        height: 100%;
-        outline: none;
-        box-sizing: border-box;
-        width: 100%;
-        padding:0;
-        z-index:1;
-      }
-      &-placeholder{
-        color: #999;
-      }
-      &-actionsheet{
-        .#{$css-prefix}popup-inner{
-          max-height:65%;
-        }
-      }
-    }
-  }
-</style>

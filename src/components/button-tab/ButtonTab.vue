@@ -28,18 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &button-tab{
-      text-align:center;
-      position:relative;
-      border-radius:48px;
-      user-select: none;
-      line-height:0.8rem;
-      @include round-border($border-color-base,48px);
-    }
-  }
-</style>

@@ -85,6 +85,12 @@ export default {
       id: this.$route.params.id
     })
   },
+  beforeRouteUpdate (to, from, next) {
+    this.$store.dispatch('user', {
+      id: to.params.id
+    })
+    next()
+  },
   destroyed () {
     this.$store.dispatch('destroyed', {
       key: 'user',

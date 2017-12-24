@@ -1,0 +1,26 @@
+@import '../styles/variable.scss';
+  @import '../styles/mixins.scss';
+  .#{$css-prefix}{
+    &rater{
+      display:inline-block;
+      vertical-align: middle;
+      font-size:28px;
+      color:#ddd;
+      line-height:40px;
+      @include disabled;
+      &-item{
+        padding:5px 0;
+        transition:color 0.1s ease 0s;
+        text-align:center;
+        width:40px;
+        display: inline-block;
+        vertical-align: middle;
+        &-active{
+          color:$primary-color;
+        }
+        &:first-child{
+          margin-left:0!important
+        }
+      }
+    }
+  }

@@ -95,29 +95,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &prompt{
-      input{
-        text-align:left;
-        padding-left:0;
-      }
-      &-title{
-        margin-bottom:5px;
-        font-size:0.32rem;
-      }
-      .#{$css-prefix}confirm-body{
-        padding:0.7rem 0.5rem;
-      }
-      &-disabled{
-        .#{$css-prefix}confirm-footer button:last-child{
-          opacity:0.5;
-          pointer-events: none;
-        }
-      }
-    }
-  }
-</style>

@@ -70,15 +70,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &marquee{
-      height:0.9rem;
-      line-height:0.9rem;
-      text-align:center;
-    }
-  }
-</style>

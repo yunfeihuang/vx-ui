@@ -31,34 +31,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &sidebar-item{
-      line-height:0.9rem;
-      position:relative;
-      overflow:hidden;
-      white-space: nowrap;
-      &:after{
-        @include divider;
-      }
-      &:before{
-        @include divider-vertical;
-        right:0;
-        left:auto;
-      }
-      &-active{
-        color:$primary-color;
-        background:#fff;
-        transition: color $transition-time $ease-in-out;
-        position:relative;
-        z-index:1;
-        &:before{
-          display:none;
-        }
-      }
-    }
-  }
-</style>

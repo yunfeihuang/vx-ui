@@ -56,28 +56,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &tab{
-      text-align:center;
-      position:relative;
-      user-select: none;
-      line-height: 0.9rem;
-      &:before{
-        @include divider;
-      }
-      &-underline{
-        position:absolute;
-        bottom:0;
-        left:0;
-        width:100px;
-        border-bottom:2px solid $primary-color;
-        transition: left $transition-time $ease-in-out,width $transition-time $ease-in-out;
-        display:none;
-      }
-    }
-  }
-</style>

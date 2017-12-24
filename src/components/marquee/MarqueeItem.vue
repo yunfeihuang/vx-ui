@@ -24,14 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &marquee-item{
-      box-sizing: border-box;
-      line-height: inherit;
-    }
-  }
-</style>

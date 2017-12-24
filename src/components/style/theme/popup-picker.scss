@@ -1,0 +1,36 @@
+@import '../styles/variable.scss';
+  @import '../styles/mixins.scss';
+  .#{$css-prefix}{
+    &popup-picker{
+      display:flex;
+      &-wrapper{
+        background:#fff;
+      }
+      &-item{
+        flex:1;
+        min-width:0;
+      }
+      &-header{
+        display:flex;
+      }
+      &-placeholder{
+        flex:1;
+        line-height: 0.9rem;
+        color:#999;
+        min-width:0;
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include button;
+      }
+      &-cancel,&-confirm{
+        @include button;
+        height: 0.9rem;
+        width: 2rem;
+        color:$sub-color;
+      }
+      &-confirm{
+        color:$primary-color;
+      }
+    }
+  }

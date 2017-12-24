@@ -34,18 +34,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &overlay{
-      position:absolute;
-      left:0;
-      top:0;
-      height:100%;
-      width:100%;
-      background:#000;
-      user-select: none;
-    }
-  }
-</style>

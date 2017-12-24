@@ -47,26 +47,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &sticky{
-      &-sticky{
-        width: 100%;
-        position: sticky;
-        top: 0;
-      }
-      &-box{
-        z-index:100;
-        position: relative;
-      }
-      &-fixed{
-        width: 100%;
-        position: fixed;
-        top: 0;
-      }
-    }
-  }
-</style>

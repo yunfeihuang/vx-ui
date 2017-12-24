@@ -101,24 +101,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &actionsheet{
-      &-inner{
-        background:#fff;
-        max-height: 80%;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        overflow-scrolling: touch;
-      }
-      &-cancel{
-        padding: $item-padding;
-        border-top:10px solid #eee;
-        color:$sub-color;
-      }
-    }
-  }
-</style>

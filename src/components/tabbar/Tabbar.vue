@@ -40,20 +40,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &tabbar{
-      text-align:center;
-      position:relative;
-      user-select: none;
-      background: #fff;
-      &:before{
-        @include divider;
-        top:0;
-      }
-    }
-  }
-</style>

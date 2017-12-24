@@ -49,34 +49,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &cell{
-      padding: 0.1rem 0.2rem;
-      height: 0.7rem;
-      position: relative;
-      &-bd{
-        text-align:left;
-      }
-      &-ft{
-        position:relative;
-      }
-      &:after{
-        @include divider;
-      }
-    }
-    &cell-access{
-      @include active;
-      .#{$css-prefix}cell-ft{
-        padding-right:12px;
-        color:$sub-color;
-        &:after{
-          @include arrow;
-        }
-      }
-    }
-  }
-</style>

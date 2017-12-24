@@ -24,13 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &swiper-item{
-      box-sizing: border-box;
-    }
-  }
-</style>

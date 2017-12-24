@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <div :class="cssPrefix + 'action-sheet-item-text'" :disabled="disabled">
+    <div :class="cssPrefix + 'actionsheet-item-text'" :disabled="disabled">
       <slot></slot>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'action-sheet-item', this.checked ? cssPrefix + 'action-sheet-item-active' : '']
+      return [cssPrefix + 'actionsheet-item', this.checked ? cssPrefix + 'action-sheet-item-active' : '']
     }
   },
   data () {
@@ -37,32 +37,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &action-sheet-item{
-      padding:$item-padding;
-      position:relative;
-      border-left: 0.1rem solid transparent;
-      border-right: 0.1rem solid transparent;
-      user-select:none;
-      white-space: nowrap;
-      overflow: hidden;
-      @include active;
-      &-text{
-        @include disabled;
-      }
-      &:after{
-        @include divider;
-      }
-      &:last-child:after{
-        display:none;
-      }
-      &-active{
-        color:$primary-color;
-      }
-    }
-  }
-</style>

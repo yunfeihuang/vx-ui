@@ -14,14 +14,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
-  .#{$css-prefix}{
-    &divider{
-      @include divider;
-      position:static;
-    }
-  }
-</style>
