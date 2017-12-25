@@ -5,7 +5,7 @@
     </x-header>
     <x-body slot="body">
       <group title="Checkbox">
-        <checkbox :checked="checked" @on-change="checkedHandler">{{checked}}</checkbox>
+        <checkbox v-model="checked">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
         <checkbox-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
