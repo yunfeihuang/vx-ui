@@ -43,7 +43,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: "pre",
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('test'), resolve('example')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -56,7 +56,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader?cacheDirectory=true',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('test'), resolve('example')],
         exclude: [resolve('node_modules')]
       },
       {
@@ -73,6 +73,26 @@ module.exports = {
         query: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.md$/,
+        loader: 'vue-markdown-loader',
+        include: [resolve('example')],
+        options: {
+          // markdown-it config
+          preset: 'default',
+          breaks: true,
+          typographer:true,
+          linkify:true,
+          preprocess: function(markdownIt, source) {
+            // do any thing
+            return source
+          },
+          use: [
+            /* markdown-it plugin */
+            require('markdown-it')
+          ]
         }
       }
     ]
