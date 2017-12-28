@@ -21,10 +21,10 @@ config.dev = config.devExample
 delete baseWebpackConfig.entry
 module.exports = merge(baseWebpackConfig, {
     entry: {
-      app: ['./example/src/main.js']
+      app: ['./examples/src/main.js']
     },
     output: {
-        path: path.resolve(__dirname, '../example/dist'),
+        path: path.resolve(__dirname, '../examples/dist'),
         filename: '[name].js',
         publicPath: process.env.NODE_ENV !== 'development' ?  config.build.assetsPublicPath: config.dev.assetsPublicPath
     },
@@ -45,7 +45,7 @@ module.exports = merge(baseWebpackConfig, {
         new HtmlWebpackPlugin({
             hash: false,
             filename: 'index.html',
-            template: 'example/index.html',
+            template: 'examples/index.html',
             // favicon: resolveApp('favicon.ico'),
             inject: true,
             path:config.dev.staticPath

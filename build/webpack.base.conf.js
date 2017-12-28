@@ -43,7 +43,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: "pre",
-        include: [resolve('src'), resolve('test'), resolve('example')],
+        include: [resolve('src'), resolve('test'), resolve('examples')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -56,7 +56,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader?cacheDirectory=true',
-        include: [resolve('src'), resolve('test'), resolve('example')],
+        include: [resolve('src'), resolve('test'), resolve('examples')],
         exclude: [resolve('node_modules')]
       },
       {
@@ -78,7 +78,7 @@ module.exports = {
       {
         test: /\.md$/,
         loader: 'vue-markdown-loader',
-        include: [resolve('example')],
+        include: [resolve('examples')],
         options: {
           // markdown-it config
           preset: 'default',

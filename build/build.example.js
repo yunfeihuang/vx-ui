@@ -33,7 +33,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
         if(process.env.npm_config_preview){
             server.start({
                 port: 9528,
-                directory: './example/dist',
+                directory: './examples/dist',
                 file: '/index.html'
             });
             console.log('> Listening at ' +  'http://localhost:9528' + '\n')

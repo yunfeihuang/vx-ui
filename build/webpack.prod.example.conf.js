@@ -29,7 +29,7 @@ delete baseWebpackConfig.entry
 
 var webpackConfig = merge(baseWebpackConfig, {
     entry: {
-      app: ['./example/src/main.js']
+      app: ['./examples/src/main.js']
     },
     module: {
         rules: utils.styleLoaders({
