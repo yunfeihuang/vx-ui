@@ -11,8 +11,8 @@
           </div>
           <divider></divider>
           <div :class="[$cssPrefix + 'confirm-footer',$cssPrefix + 'flexbox']" onselectstart="return false;">
-            <button class="flexbox-item" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
-            <button class="flexbox-item" type="button" @click="confirmHandler">{{confirmText}}</button>
+            <button :class="$cssPrefix + 'flexbox-item'" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
+            <button :class="$cssPrefix + 'flexbox-item'" type="button" @click="confirmHandler">{{confirmText}}</button>
           </div>
         </div>
       </transition>
