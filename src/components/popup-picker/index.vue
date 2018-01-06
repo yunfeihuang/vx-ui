@@ -1,17 +1,17 @@
 <template>
   <popup :open="open" :history="history" @on-close="closeHandler">
     <div :class="classes">
-      <div :class="['flexbox',$cssPrefix + 'popup-picker-header']">
+      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
         <button type="button" :class="['flexbox-item',$cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
         <button type="button" :class="[$cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="['flexbox',$cssPrefix + 'popup-picker']">
+      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker']">
         <picker
           v-if="open && myPickers"
           v-for="(item,index) in myPickers"
-          :class="['flexbox-item',$cssPrefix + 'popup-picker-item']"
+          :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-item']"
           :index="index"
           :key="index"
           :value="item.value"

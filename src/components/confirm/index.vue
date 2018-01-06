@@ -10,7 +10,7 @@
             <slot></slot>
           </div>
           <divider></divider>
-          <div :class="[$cssPrefix + 'confirm-footer','flexbox']" onselectstart="return false;">
+          <div :class="[$cssPrefix + 'confirm-footer',$cssPrefix + 'flexbox']" onselectstart="return false;">
             <button class="flexbox-item" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
             <button class="flexbox-item" type="button" @click="confirmHandler">{{confirmText}}</button>
           </div>

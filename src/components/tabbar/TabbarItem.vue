@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     classes () {
-      let array = ['flexbox-item', this.$cssPrefix + 'tabbar-item']
+      let array = [this.$cssPrefix + 'flexbox-item', this.$cssPrefix + 'tabbar-item']
       if (this.active) {
         array.push(this.$cssPrefix + 'tabbar-item-active')
         array.push(this.$parent.activeClass)

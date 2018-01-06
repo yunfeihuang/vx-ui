@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     classes () {
-      let array = ['flexbox-item', this.$cssPrefix + 'button-tab-item']
+      let array = [this.$cssPrefix + 'flexbox-item', this.$cssPrefix + 'button-tab-item']
       if (this.active) {
         array.push(this.$cssPrefix + 'button-tab-item-active')
         array.push(this.$parent.activeClass)
