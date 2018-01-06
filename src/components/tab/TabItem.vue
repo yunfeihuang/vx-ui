@@ -13,7 +13,6 @@ export default {
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)
-      this.$emit('click', e)
     }
   },
   computed: {

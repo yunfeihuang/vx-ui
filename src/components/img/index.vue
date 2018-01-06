@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$cssPrefix + 'img-wrapper',!loading ? $cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
+  <div :class="[$cssPrefix + 'img-wrapper',!loading ? $cssPrefix + 'img-placeholder' : '']">
     <img
       :class="classes"
       :alt="alt"
@@ -116,9 +116,6 @@ export default {
     },
     loadHandler (e) {
       this.$emit('load', e)
-    },
-    clickHandler (e) {
-      this.$emit('click', e)
     }
   }
 }

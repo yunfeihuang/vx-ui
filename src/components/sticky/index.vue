@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes">
     <div :class="[this.$cssPrefix+'sticky-inner']">
       <slot></slot>
     </div>
@@ -34,11 +34,6 @@ export default {
       offset: this.offset,
       checkStickySupport: this.checkStickySupport
     })
-  },
-  methods: {
-    clickHandler (e) {
-      this.$emit('click', e)
-    }
   }
 }
 </script>

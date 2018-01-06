@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     changeHandler (value) {
-      this.$emit('click', value)
       value !== this.active && this.$emit('on-change', value).$emit('input', value)
     }
   }

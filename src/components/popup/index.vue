@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click="closeHandler"></overlay>
+      <overlay v-if="open" @click.native="closeHandler"></overlay>
     </transition>
     <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="enterHandler">
       <div v-if="open" :class="innerClasses">

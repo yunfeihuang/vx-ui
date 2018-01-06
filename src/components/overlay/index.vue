@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles" @click="clickHandler">
+  <div :class="classes" :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -19,11 +19,6 @@ export default {
     },
     styles () {
       return 'opacity:' + this.opacity
-    }
-  },
-  methods: {
-    clickHandler (e) {
-      this.$emit('click', e)
     }
   }
 }

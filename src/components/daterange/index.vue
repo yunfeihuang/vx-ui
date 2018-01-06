@@ -16,7 +16,7 @@
     @keydown="keydownHandler" 
     @change="changeHandler"
     @input="inputHandler"
-    @click="clickHandler"
+    @click.native="clickHandler"
     />
 </template>
 

@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     changeHandler (val) {
-      this.$emit('click', val)
       if (val !== this.active) {
         this.$emit('on-change', val).$emit('input', val)
       }

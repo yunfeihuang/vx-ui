@@ -1,5 +1,5 @@
 <template>
-  <flexbox :class="classes" align="center" justify="center" @click="clickHandler">
+  <flexbox :class="classes" align="center" justify="center" @click.native="clickHandler">
     <div :class="$cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>
@@ -39,7 +39,6 @@ export default {
       if (this.href) {
         location.href = this.href
       }
-      this.$emit('click', e)
     }
   }
 }

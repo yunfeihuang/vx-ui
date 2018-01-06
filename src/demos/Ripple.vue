@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group class="ripple-demo">
-        <ripple @click="clickHandler">
+        <ripple @click.native="clickHandler">
           点击我会出现波纹
         </ripple>
         <divider></divider>

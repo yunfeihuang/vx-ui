@@ -1,5 +1,5 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click="clickHandler">
+  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click.native="clickHandler">
     <slot></slot>
   </component>
 </template>
@@ -16,7 +16,6 @@ export default {
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)
-      this.$emit('click', e)
     }
   },
   computed: {
