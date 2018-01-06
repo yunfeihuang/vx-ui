@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Radio from './Radio'
 import Divider from '../divider'
@@ -40,16 +39,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'radio-group']
+      return [this.$cssPrefix + 'radio-group']
     }
   },
   mounted () {
     this.value && this.updateLabel(this.value)
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   },
   methods: {
     changeHandler (value) {

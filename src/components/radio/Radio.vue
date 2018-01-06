@@ -1,13 +1,12 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
-    <span :class="[cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
+    <span :class="[$cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
     <slot></slot>
   </label>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
@@ -18,12 +17,7 @@ export default {
   mixins: [input],
   computed: {
     classes () {
-      return [cssPrefix + 'radio']
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'radio']
     }
   },
   methods: {

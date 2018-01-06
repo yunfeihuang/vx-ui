@@ -1,23 +1,22 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix + 'flow-inner']">
-      <div :class="[cssPrefix + 'flow-refresh']">
+    <div :class="[$cssPrefix + 'flow-inner']">
+      <div :class="[$cssPrefix + 'flow-refresh']">
         <icon></icon>
-        <spinner :class="[cssPrefix + 'flow-spinner']"/>
+        <spinner :class="[$cssPrefix + 'flow-spinner']"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div :class="[cssPrefix + 'flow-loading']" v-if="!end">
-        <spinner v-show="loading" :class="[cssPrefix + 'flow-spinner']"/>
+      <div :class="[$cssPrefix + 'flow-loading']" v-if="!end">
+        <spinner v-show="loading" :class="[$cssPrefix + 'flow-spinner']"/>
         {{loadingText}}
       </div>
-      <div :class="[cssPrefix + 'flow-loading']" v-if="end">{{endText}}</div>
+      <div :class="[$cssPrefix + 'flow-loading']" v-if="end">{{endText}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Spinner from '../spinner'
 import Icon from '../icon'
 export default {
@@ -61,7 +60,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'flow', 'scrollbox']
+      return [this.$cssPrefix + 'flow', 'scrollbox']
     }
   },
   mounted () {
@@ -79,7 +78,7 @@ export default {
     }
     this.$height = this.$el.offsetHeight
     this.$touch = {
-      inner: this.$el.querySelector('.' + cssPrefix + 'flow-inner')
+      inner: this.$el.querySelector('.' + this.$cssPrefix + 'flow-inner')
     }
   },
   destroyed () {
@@ -161,12 +160,6 @@ export default {
         this.$touch.inner.style.cssText = cssText
         this.$touch.inner.classList.remove('loading')
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix,
-      touch: {}
     }
   }
 }

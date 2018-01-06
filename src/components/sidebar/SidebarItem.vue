@@ -5,20 +5,18 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'SidebarItem',
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)
-      this.$emit('click', e)
     }
   },
   computed: {
     classes () {
-      let array = [cssPrefix + 'sidebar-item']
+      let array = [this.$cssPrefix + 'sidebar-item']
       if (this.active) {
-        array.push(cssPrefix + 'sidebar-item-active')
+        array.push(this.$cssPrefix + 'sidebar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array
@@ -26,7 +24,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       active: false
     }
   }

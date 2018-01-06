@@ -5,17 +5,11 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Icon',
   computed: {
     classes () {
-      return [cssPrefix + 'iconfont']
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'iconfont']
     }
   }
 }

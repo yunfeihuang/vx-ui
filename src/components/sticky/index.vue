@@ -1,13 +1,12 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <div :class="[cssPrefix+'sticky-inner']">
+    <div :class="[this.$cssPrefix+'sticky-inner']">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import sticky from './sticky'
 export default {
   name: 'Sticky',
@@ -26,7 +25,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'sticky-box']
+      return [this.$cssPrefix + 'sticky-box']
     }
   },
   mounted () {
@@ -35,11 +34,6 @@ export default {
       offset: this.offset,
       checkStickySupport: this.checkStickySupport
     })
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   },
   methods: {
     clickHandler (e) {

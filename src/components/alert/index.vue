@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Confirm from '../confirm'
 export default {
   name: 'Alert',
@@ -30,11 +29,6 @@ export default {
     confirmText: {
       type: String,
       default: '确定'
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

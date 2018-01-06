@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" :disabled="disabled">
-    <label :class="cssPrefix + 'checker-item'" v-for="item in options">
+    <label :class="$cssPrefix + 'checker-item'" v-for="item in options">
       <input
         :type="type"
         :value="item.value"
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 
 export default {
@@ -37,16 +36,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'checker']
+      return [this.$cssPrefix + 'checker']
     }
   },
   mounted () {
     this.value && this.updateLabel(this.value)
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   },
   methods: {
     changeHandler (e) {

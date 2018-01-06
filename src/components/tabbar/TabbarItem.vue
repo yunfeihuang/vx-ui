@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Ripple from '../ripple'
 import Icon from '../icon'
 export default {
@@ -22,9 +21,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = ['flexbox-item', cssPrefix + 'tabbar-item']
+      let array = ['flexbox-item', this.$cssPrefix + 'tabbar-item']
       if (this.active) {
-        array.push(cssPrefix + 'tabbar-item-active')
+        array.push(this.$cssPrefix + 'tabbar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array
@@ -32,7 +31,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       active: false
     }
   }

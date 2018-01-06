@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import {FlexboxItem} from '../flexbox'
 export default {
   name: 'XBody',
@@ -14,18 +13,13 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'body', this.scroll ? 'scrollbox' : '']
+      return [this.$cssPrefix + 'body', this.scroll ? 'scrollbox' : '']
     }
   },
   props: {
     scroll: {
       type: Boolean,
       default: true
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

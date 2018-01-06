@@ -19,8 +19,6 @@
       display:none;
     }
     &-item{
-      white-space: nowrap;
-      overflow: hidden;
       &-active{
         color:$primary-color;
         // transition: color $transition-time $ease-in-out;

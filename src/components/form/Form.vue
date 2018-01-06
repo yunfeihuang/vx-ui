@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import messages from './messages.js'
 
 const validityStateArrayMap = [
@@ -25,12 +24,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'form']
+      return [this.$cssPrefix + 'form']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       messages: messages
     }
   },

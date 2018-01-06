@@ -3,12 +3,11 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Badge',
   computed: {
     classes () {
-      return [cssPrefix + 'badge', this.text === '' ? cssPrefix + 'badge-dot' : '']
+      return [this.$cssPrefix + 'badge', this.text === '' ? this.$cssPrefix + 'badge-dot' : '']
     },
     myText () {
       if (typeof this.text === 'number' && this.max) {
@@ -31,11 +30,6 @@ export default {
     ellipsis: {
       type: String,
       default: '<span class="badge-ellipsis">•••</span>'
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

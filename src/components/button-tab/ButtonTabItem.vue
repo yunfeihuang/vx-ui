@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'ButtonTabItem',
   methods: {
@@ -16,9 +15,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = ['flexbox-item', cssPrefix + 'button-tab-item']
+      let array = ['flexbox-item', this.$cssPrefix + 'button-tab-item']
       if (this.active) {
-        array.push(cssPrefix + 'button-tab-item-active')
+        array.push(this.$cssPrefix + 'button-tab-item-active')
         array.push(this.$parent.activeClass)
       }
       return array
@@ -26,7 +25,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       active: false
     }
   }

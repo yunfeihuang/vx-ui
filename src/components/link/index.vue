@@ -5,11 +5,10 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   computed: {
     classes () {
-      return [cssPrefix + 'link', this.active ? cssPrefix + 'link-active' : '']
+      return [this.$cssPrefix + 'link', this.active ? this.$cssPrefix + 'link-active' : '']
     }
   },
   props: {
@@ -19,11 +18,6 @@ export default {
     active: {
       type: Boolean,
       default: true
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 import Divider from '../divider'
 export default {
@@ -22,12 +21,11 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return ['flexbox', cssPrefix + 'tabbar']
+      return ['flexbox', this.$cssPrefix + 'tabbar']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       childLength: this.$children.length
     }
   },

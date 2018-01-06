@@ -1,11 +1,10 @@
 <template>
   <div :class="classes">
-    <div :class="cssPrefix + 'spinner'"></div>
+    <div :class="$cssPrefix + 'spinner'"></div>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Spinner',
   props: {
@@ -18,7 +17,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'spinner-wrapper']
+      return [this.$cssPrefix + 'spinner-wrapper']
     }
   },
   mounted () {
@@ -27,11 +26,6 @@ export default {
     }
     if (this.primaryColor) {
       this.$el.children[0].style.borderTopColor = this.primaryColor
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

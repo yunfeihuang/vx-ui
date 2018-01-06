@@ -9,13 +9,12 @@
 
 <script>
 import Vue from 'vue'
-import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 export default {
   name: 'Popover',
   computed: {
     classes () {
-      return [cssPrefix + 'popover']
+      return [this.$cssPrefix + 'popover']
     }
   },
   props: {
@@ -64,7 +63,7 @@ export default {
         mounted () {
           let node = this.$popoverContent = document.createElement('div')
           node.style.visibility = 'hidden'
-          node.className = cssPrefix + 'popover-content'
+          node.className = this.$cssPrefix + 'popover-content'
           popover.popoverClass && node.classList.add(popover.popoverClass)
           node.addEventListener('click', popover.clickPopoverHandler, false)
           popover.$slots.default.forEach((item) => {
@@ -88,8 +87,8 @@ export default {
             node.style.top = top
             node.style.left = left
             node.style.visibility = ''
-            isRight && node.classList.add(cssPrefix + 'popover-content-right')
-            isBottom && node.classList.add(cssPrefix + 'popover-content-bottom')
+            isRight && node.classList.add(this.$cssPrefix + 'popover-content-right')
+            isBottom && node.classList.add(this.$cssPrefix + 'popover-content-bottom')
           })
         },
         destroyed () {
@@ -116,11 +115,6 @@ export default {
           this.$popover.$destroy()
         }, 200)
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

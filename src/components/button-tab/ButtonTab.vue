@@ -5,19 +5,17 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 export default {
   name: 'ButtonTab',
   mixins: [tab],
   computed: {
     classes () {
-      return ['flexbox', cssPrefix + 'button-tab']
+      return ['flexbox', this.$cssPrefix + 'button-tab']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       childLength: this.$children.length
     }
   },

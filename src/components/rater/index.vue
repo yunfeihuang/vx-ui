@@ -2,7 +2,7 @@
   <div :class="classes" @click="changeHandler" :disabled="disabled">
     <span 
       v-for="item in max"
-      :class="[cssPrefix + 'rater-item',item<=value?cssPrefix + 'rater-item-active':'']"
+      :class="[$cssPrefix + 'rater-item',item<=value?$cssPrefix + 'rater-item-active':'']"
       :style="{color: item <= value && color ? color : '', marginLeft: margin}"
       :data-value="item"
       v-html="star"
@@ -12,12 +12,11 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Rater',
   computed: {
     classes () {
-      return [cssPrefix + 'rater']
+      return [this.$cssPrefix + 'rater']
     }
   },
   props: {
@@ -55,11 +54,6 @@ export default {
         value === 1 && this.value === value && (value = 0)
         this.$emit('on-change', value).$emit('input', value)
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

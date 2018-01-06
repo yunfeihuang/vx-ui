@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Overlay',
   props: {
@@ -16,15 +15,10 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'overlay']
+      return [this.$cssPrefix + 'overlay']
     },
     styles () {
       return 'opacity:' + this.opacity
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

@@ -1,19 +1,18 @@
 <template>
   <flexbox :class="classes" align="center">
-    <div v-if="$slots.label" :class="[cssPrefix + 'form-item-label']">
+    <div v-if="$slots.label" :class="[$cssPrefix + 'form-item-label']">
       <slot name="label"></slot>
     </div>
-    <div v-else-if="label" :class="[cssPrefix + 'form-item-label']">
+    <div v-else-if="label" :class="[$cssPrefix + 'form-item-label']">
       {{label}}
     </div>
-    <flexbox-item :class="[cssPrefix + 'form-item-control',cssPrefix + 'form-item-align-' + align]">
+    <flexbox-item :class="[$cssPrefix + 'form-item-control',$cssPrefix + 'form-item-align-' + align]">
       <slot></slot>
     </flexbox-item>
   </flexbox>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   name: 'XFormItem',
@@ -39,7 +38,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'form-item']
+      return [this.$cssPrefix + 'form-item']
     }
   },
   mounted () {
@@ -53,15 +52,10 @@ export default {
   },
   methods: {
     invalidHandler (e) {
-      let label = this.validityLabel || this.$el.querySelector('.' + cssPrefix + 'form-item-label').innerText
+      let label = this.validityLabel || this.$el.querySelector('.' + this.$cssPrefix + 'form-item-label').innerText
       let message = this.$parent.getValidityMessage(e.target.validity, label)
       this.$parent.showValidityMessage(message)
       e.preventDefault()
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

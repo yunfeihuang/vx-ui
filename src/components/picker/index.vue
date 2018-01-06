@@ -1,19 +1,19 @@
 <template>
   <div :class="classes" onselectstart="return false;">
     <div
-      :class="cssPrefix + 'picker'"
+      :class="$cssPrefix + 'picker'"
       @touchstart="touchStartHandler"
       @touchmove="touchMoveHandler"
       @touchend="touchEndHandler"
       @scroll="scrollHandlder"
       >
-      <div :class="cssPrefix + 'picker-scroller'">
-        <div v-if="placeholder" :class="[cssPrefix + 'picker-item',cssPrefix + 'picker-placeholder']">
+      <div :class="$cssPrefix + 'picker-scroller'">
+        <div v-if="placeholder" :class="[$cssPrefix + 'picker-item',$cssPrefix + 'picker-placeholder']">
           {{placeholder}}
         </div>
         <div
           v-for="(item, index) in options"
-          :class="[cssPrefix + 'picker-item', item.value === value ? cssPrefix + 'picker-active' : '']"
+          :class="[$cssPrefix + 'picker-item', item.value === value ? $cssPrefix + 'picker-active' : '']"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
@@ -21,13 +21,11 @@
         </div>
       </div>
     </div>
-    <div :class="cssPrefix + 'picker-indicator'"></div>
+    <div :class="$cssPrefix + 'picker-indicator'"></div>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
-
 let easeout = (A, B, rate, callback) => {
   if (A === B || typeof A !== 'number') {
     return
@@ -50,7 +48,7 @@ export default {
   name: 'Picker',
   computed: {
     classes () {
-      return [cssPrefix + 'picker-wrapper']
+      return [this.$cssPrefix + 'picker-wrapper']
     }
   },
   props: {
@@ -79,7 +77,7 @@ export default {
     this.$touch = {}
   },
   mounted () {
-    this.$touch.scrollElement = this.$el.querySelector('.' + cssPrefix + 'picker')
+    this.$touch.scrollElement = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
     requestAnimationFrame(this.scrollToActive)
   },
   destroyed () {
@@ -87,9 +85,9 @@ export default {
   },
   methods: {
     scrollToActive () {
-      let node = this.$el.querySelector('.' + cssPrefix + 'picker-active')
+      let node = this.$el.querySelector('.' + this.$cssPrefix + 'picker-active')
       let index = 0
-      Array.from(this.$el.querySelectorAll('.' + cssPrefix + 'picker-item')).forEach((item, i) => {
+      Array.from(this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')).forEach((item, i) => {
         if (item === node) {
           index = i
         }
@@ -139,7 +137,7 @@ export default {
       this.$timer && clearTimeout(this.$timer)
       this.$timer = setTimeout(() => {
         this.$touch.scrollEnd = false
-        let node = this.$el.querySelector('.' + cssPrefix + 'picker')
+        let node = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
         let _scrollTop = node.scrollTop
         let index = Math.round(_scrollTop / 42)
         let scrollTop = index * 42
@@ -149,18 +147,13 @@ export default {
               node.scrollTop = value
             })
           }
-          let active = this.$el.querySelectorAll('.' + cssPrefix + 'picker-item')[index]
+          let active = this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')[index]
           if (active) {
             let value = active.dataset.value
             value !== this.value && this.$emit('on-change', value, this.index).$emit('input', value, this.index)
           }
         })
       }, 51)
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

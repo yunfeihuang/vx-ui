@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 export default {
@@ -41,10 +40,10 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'popup']
+      return [this.$cssPrefix + 'popup']
     },
     innerClasses () {
-      let array = [cssPrefix + 'popup-inner', cssPrefix + 'popup-' + this.direction, this.full ? cssPrefix + 'full' : '']
+      let array = [this.$cssPrefix + 'popup-inner', this.$cssPrefix + 'popup-' + this.direction, this.full ? this.$cssPrefix + 'full' : '']
       if (this.direction === 'center') {
         array.push('flexbox flexbox-align-center flexbox-content-center')
       }
@@ -75,11 +74,6 @@ export default {
           })
         }, 300)
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

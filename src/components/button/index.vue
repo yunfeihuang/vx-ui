@@ -5,19 +5,13 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { button } from 'utils/mixins.js'
 export default {
   name: 'XButton',
   mixins: [button],
   computed: {
     classes () {
-      return [cssPrefix + 'btn', this.type ? (cssPrefix + 'btn-' + this.type) : this.clas]
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'btn', this.type ? (this.$cssPrefix + 'btn-' + this.type) : this.clas]
     }
   },
   methods: {

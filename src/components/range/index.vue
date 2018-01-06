@@ -1,24 +1,23 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix+'range-mask']"></div>
-    <div :class="[cssPrefix+'range-value']" ></div>
-    <div :class="[cssPrefix+'range-button']" @mousedown="touchStartHandler" @touchstart="touchStartHandler">
-      <div :class="[cssPrefix+'range-tips']">0</div>
+    <div :class="[$cssPrefix+'range-mask']"></div>
+    <div :class="[$cssPrefix+'range-value']" ></div>
+    <div :class="[$cssPrefix+'range-button']" @mousedown="touchStartHandler" @touchstart="touchStartHandler">
+      <div :class="[$cssPrefix+'range-tips']">0</div>
     </div>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 export default {
   name: 'Range',
   mixins: [input],
   computed: {
     classes () {
-      let array = [cssPrefix + 'range-wrapper']
+      let array = [this.$cssPrefix + 'range-wrapper']
       if (this.disabled) {
-        array.push(cssPrefix + 'range-disabled')
+        array.push(this.$cssPrefix + 'range-disabled')
       }
       return array
     },
@@ -68,16 +67,11 @@ export default {
   },
   mounted () {
     let left = (this.myValue - this.min) / this.range * this.$el.offsetWidth
-    let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
-    let buttonDom = this.$el.querySelector('.' + cssPrefix + 'range-button')
-    let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
+    let valueDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
+    let buttonDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-button')
+    let tipsDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
     valueDom.style.width = buttonDom.style.left = left + 'px'
     tipsDom.innerHTML = Math.round(this.myValue * this.stepRate) / this.stepRate
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   },
   methods: {
     changeHandler (val) {
@@ -92,10 +86,10 @@ export default {
         let buttonLeft = button.style.left
         let touch = Object.assign({
           left: buttonLeft ? parseFloat(buttonLeft) : 0,
-          maxLeft: this.$el.querySelector('.' + cssPrefix + 'range-mask').offsetWidth - button.offsetWidth
+          maxLeft: this.$el.querySelector('.' + this.$cssPrefix + 'range-mask').offsetWidth - button.offsetWidth
         }, position)
-        let valueDom = this.$el.querySelector('.' + cssPrefix + 'range-value')
-        let tipsDom = this.$el.querySelector('.' + cssPrefix + 'range-tips')
+        let valueDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
+        let tipsDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
         tipsDom.style.display = 'block'
         let self = this
         let value = this.myValue

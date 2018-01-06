@@ -1,19 +1,18 @@
 <template>
   <flexbox :class="classes" align="center" justify="center" @click="clickHandler">
-    <div :class="cssPrefix + 'cell-hd'">
+    <div :class="$cssPrefix + 'cell-hd'">
       <slot name="icon"></slot>
     </div>
-    <flexbox-item :class="cssPrefix + 'cell-bd'">
+    <flexbox-item :class="$cssPrefix + 'cell-bd'">
       <slot name="title"></slot>
     </flexbox-item>
-    <div :class="cssPrefix + 'cell-ft'">
+    <div :class="$cssPrefix + 'cell-ft'">
       <slot name="value"></slot>
     </div>
   </flexbox>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   name: 'Cell',
@@ -32,12 +31,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'cell', this.arrow ? cssPrefix + 'cell-access' : '']
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'cell', this.arrow ? this.$cssPrefix + 'cell-access' : '']
     }
   },
   methods: {

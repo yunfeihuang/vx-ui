@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 export default {
   name: 'XSwitch',
@@ -25,12 +24,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'switch-wrapper']
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'switch-wrapper']
     }
   },
   methods: {

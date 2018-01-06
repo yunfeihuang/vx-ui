@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DatetimePicker from '../datetime-picker'
@@ -81,11 +80,6 @@ export default {
   },
   destroyed () {
     this.$datetimePicker && this.$datetimePicker.$destroy()
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   }
 }
 </script>

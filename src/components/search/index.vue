@@ -1,13 +1,13 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix + 'search-inner',this.fixed ? cssPrefix+'search-fixed flexbox' : '']">
+    <div :class="[$cssPrefix + 'search-inner',this.fixed ? $cssPrefix+'search-fixed flexbox' : '']">
       <form @submit="submitHandler">
-        <flexbox :class="[cssPrefix + 'search']">
-          <button :class="[cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
+        <flexbox :class="[$cssPrefix + 'search']">
+          <button :class="[$cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
             <icon>&#xe660;</icon>
           </button>
           <x-input
-            class="flexbox-item"
+            :class="$cssPrefix +'flexbox-item'"
             htmlType="search"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -26,11 +26,11 @@
             @input="inputHandler"
             @on-change="changeHandler"
           >
-            <icon slot="icon" :class="[cssPrefix + 'search-icon']">&#xe651;</icon>
+            <icon slot="icon" :class="[$cssPrefix + 'search-icon']">&#xe651;</icon>
           </x-input>
         </flexbox>
       </form>
-      <flexbox-item :class="[cssPrefix + 'search-container']" v-if="fixed">
+      <flexbox-item :class="[$cssPrefix + 'search-container']" v-if="fixed">
         <div v-if="!value" class="keywords" @click="keywordChangeHandler">
           <slot name="keywords"></slot>
         </div>
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input, historyPush } from 'utils/mixins.js'
 import XInput from '../input'
 import Icon from '../icon'
@@ -65,7 +64,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'search-wrapper']
+      return [this.$cssPrefix + 'search-wrapper']
     }
   },
   watch: {
@@ -85,7 +84,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       fixed: false
     }
   },

@@ -1,26 +1,15 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'MargueeItem',
   computed: {
     classes () {
-      return [cssPrefix + 'marquee-item', 'swiper-slide']
-    }
-  },
-  methods: {
-    clickHandler (e) {
-      this.emit('click', e)
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'marquee-item', 'swiper-slide']
     }
   }
 }

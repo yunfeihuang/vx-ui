@@ -8,14 +8,14 @@
     @on-close="closeHandler"
     @on-confirm="confirmHandler"
     >
-    <div v-if="title" :class="cssPrefix + 'prompt-title'">{{title}}</div>
+    <div v-if="title" :class="$cssPrefix + 'prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <password
         v-if="input.type === 'password'"
         v-model="myValue"
         :clear="false"
-        :class="cssPrefix + 'prompt-input'"
+        :class="$cssPrefix + 'prompt-input'"
         :placeholder="input.placeholder"
         @input="inputHandler"
       />
@@ -23,7 +23,7 @@
         v-else
         v-model="myValue"
         :clear="false"
-        :class="cssPrefix + 'prompt-input'"
+        :class="$cssPrefix + 'prompt-input'"
         :htmlType="input.type"
         :placeholder="input.placeholder"
         @input="inputHandler"/>
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Confirm from '../confirm'
 import XInput from '../input'
 import Password from '../password'
@@ -74,12 +73,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'prompt', this.disabled ? cssPrefix + 'prompt-disabled' : '']
+      return [this.$cssPrefix + 'prompt', this.disabled ? this.$cssPrefix + 'prompt-disabled' : '']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       myValue: this.value
     }
   },

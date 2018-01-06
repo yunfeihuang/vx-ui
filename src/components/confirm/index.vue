@@ -3,14 +3,14 @@
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>
-    <div :class="[cssPrefix + 'confirm-wrapper']">
+    <div :class="[$cssPrefix + 'confirm-wrapper']">
       <transition name="confirm-scale">
-        <div :class="[cssPrefix + 'confirm-inner']" v-if="open">
-          <div :class="[cssPrefix + 'confirm-body']">
+        <div :class="[$cssPrefix + 'confirm-inner']" v-if="open">
+          <div :class="[$cssPrefix + 'confirm-body']">
             <slot></slot>
           </div>
           <divider></divider>
-          <div :class="[cssPrefix + 'confirm-footer','flexbox']" onselectstart="return false;">
+          <div :class="[$cssPrefix + 'confirm-footer','flexbox']" onselectstart="return false;">
             <button class="flexbox-item" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
             <button class="flexbox-item" type="button" @click="confirmHandler">{{confirmText}}</button>
           </div>
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 import Divider from '../divider'
@@ -52,7 +51,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'confirm']
+      return [this.$cssPrefix + 'confirm']
     }
   },
   mounted () {
@@ -79,11 +78,6 @@ export default {
           })
         }, 300)
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

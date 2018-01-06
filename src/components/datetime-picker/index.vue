@@ -1,21 +1,21 @@
 <template>
   <popup :open="open" :history="history" @on-close="closeHandler" :fast-close="false">
     <div :class="classes">
-      <div :class="['flexbox',cssPrefix + 'datetime-picker-header']">
-        <button type="button" :class="[cssPrefix + 'datetime-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
-        <div :class="['flexbox-item',cssPrefix + 'datetime-picker-today']">
+      <div :class="['flexbox',$cssPrefix + 'datetime-picker-header']">
+        <button type="button" :class="[$cssPrefix + 'datetime-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
+        <div :class="['flexbox-item',$cssPrefix + 'datetime-picker-today']">
           <!--
-          <button type="button" :class="[cssPrefix + 'datetime-picker-today']" @click="todayHandler">{{todayText}}</button>
+          <button type="button" :class="[$cssPrefix + 'datetime-picker-today']" @click="todayHandler">{{todayText}}</button>
           -->
         </div>
-        <button type="button" :class="[cssPrefix + 'datetime-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :class="[$cssPrefix + 'datetime-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="['flexbox',cssPrefix + 'datetime-picker']">
+      <div :class="['flexbox',$cssPrefix + 'datetime-picker']">
         <picker
           v-if="pickers"
           v-for="(item,index) in pickers"
-          :class="['flexbox-item',cssPrefix + 'datetime-picker-item']"
+          :class="['flexbox-item',$cssPrefix + 'datetime-picker-item']"
           :index="index+'-'+item.type"
           :key="index+'-'+item.type"
           :data-type="item.type"
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 import Picker from '../picker'
 import Divider from '../divider'
@@ -97,7 +96,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'popup-picker-wrapper']
+      return [this.$cssPrefix + 'popup-picker-wrapper']
     }
   },
   mounted () {
@@ -110,7 +109,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       pickers: []
     }
   },

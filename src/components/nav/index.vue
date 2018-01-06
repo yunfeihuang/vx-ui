@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
     <flexbox class="nav" align="center">
-      <button :class="['btn-pull',cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
+      <button :class="['btn-pull',$cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
         <icon>&#xe660;</icon>
       </button>
-      <flexbox-item :class="[cssPrefix + 'header-title', back===false ? cssPrefix + 'header-title-center' : '']">
+      <flexbox-item :class="[$cssPrefix + 'header-title', back===false ? $cssPrefix + 'header-title-center' : '']">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Icon from '../icon'
 export default {
@@ -36,12 +35,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'header']
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
+      return [this.$cssPrefix + 'header']
     }
   },
   methods: {

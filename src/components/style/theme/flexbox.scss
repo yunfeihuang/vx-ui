@@ -43,6 +43,14 @@
       flex-direction: column;
     }
     &-item{
+      white-space: nowrap;
+      overflow: hidden;
+      -ms-flex: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      flex: 1;
       min-width:0;
     }
   }

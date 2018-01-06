@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
-    <div :class="[cssPrefix + 'toast-inner',cssPrefix + 'toast-' + this.align]">
-      <div :class="[cssPrefix + 'toast-content']">
+    <div :class="[$cssPrefix + 'toast-inner',$cssPrefix + 'toast-' + this.align]">
+      <div :class="[$cssPrefix + 'toast-content']">
         <template v-if="type">
           <icon v-if="iconCode[type]" v-html="iconCode[type]"></icon>
-          <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="[cssPrefix + 'toast-spinner']"/>
+          <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="[$cssPrefix + 'toast-spinner']"/>
           <br/>
         </template>
         <slot></slot>
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 import Spinner from '../spinner'
 import Icon from '../icon'
@@ -55,7 +54,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'toast']
+      return [this.$cssPrefix + 'toast']
     }
   },
   mounted () {
@@ -91,7 +90,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       iconCode: iconCode
     }
   }

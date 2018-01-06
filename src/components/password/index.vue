@@ -21,7 +21,7 @@
       @invalid="invalidHandler"
     />
     <button
-      :class="[cssPrefix+'password-switch']"
+      :class="[$cssPrefix+'password-switch']"
       type="button"
       @click="switchHandler"
     >
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import XInput from '../input'
 import Icon from '../icon'
@@ -45,12 +44,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'password']
+      return [this.$cssPrefix + 'password']
     }
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       hType: 'password'
     }
   },

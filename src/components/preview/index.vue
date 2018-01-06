@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import PhotoSwipe from 'photoswipe/dist/photoswipe.min.js'
 import UI from 'photoswipe/dist/photoswipe-ui-default'
 
@@ -67,7 +66,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'photoswiper']
+      return [this.$cssPrefix + 'photoswiper']
     }
   },
   methods: {
@@ -89,11 +88,6 @@ export default {
     },
     close () {
       this.photoswipe.close()
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

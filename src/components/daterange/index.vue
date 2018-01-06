@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DaterangePicker from '../daterange-picker'
@@ -97,11 +96,6 @@ export default {
   },
   destroyed () {
     this.$daterangePicker && this.$daterangePicker.$destroy()
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   }
 }
 </script>

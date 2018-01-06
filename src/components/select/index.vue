@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <button type="button" :class="!option ? cssPrefix + 'select-placeholder':''" >{{option?option.label:placeholder}}</button>
+    <button type="button" :class="!option ? $cssPrefix + 'select-placeholder':''" >{{option?option.label:placeholder}}</button>
     <select 
       :required="required"
       :pattern="pattern"
@@ -19,7 +19,6 @@
 <script>
 import Vue from 'vue'
 import {Actionsheet, ActionsheetItem} from '../actionsheet'
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 
 export default {
@@ -35,7 +34,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'select']
+      return [this.$cssPrefix + 'select']
     }
   },
   created () {
@@ -78,7 +77,7 @@ export default {
           options: this.options,
           open: false,
           value: this.value,
-          classes: cssPrefix + 'select-actionsheet'
+          classes: this.$cssPrefix + 'select-actionsheet'
         },
         mounted () {
           this.open = true
@@ -128,7 +127,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       option: null
     }
   }

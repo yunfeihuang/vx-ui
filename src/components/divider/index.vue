@@ -5,12 +5,11 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'Divider',
   computed: {
     classes () {
-      return [cssPrefix + 'divider']
+      return [this.$cssPrefix + 'divider']
     }
   }
 }

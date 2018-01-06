@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Checkbox from './Checkbox'
 import Divider from '../divider'
@@ -49,16 +48,11 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'checkbox-group']
+      return [this.$cssPrefix + 'checkbox-group']
     }
   },
   mounted () {
     this.value && this.updateLabel(this.value)
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
-    }
   },
   methods: {
     changeHandler (e) {

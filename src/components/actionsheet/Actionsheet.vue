@@ -1,10 +1,10 @@
 <template>
   <popup :open="open" :history="history" :fast-close="fastClose" @on-close="closePopupHandler" @on-enter="enterHandler">
-    <div :class="[cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
-      <div :class="[cssPrefix + 'actionsheet-items']">
+    <div :class="[$cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
+      <div :class="[$cssPrefix + 'actionsheet-items']">
         <slot></slot>
       </div>
-      <div v-if="cancel" :class="cssPrefix + 'actionsheet-cancel'" @click="closeHandler">
+      <div v-if="cancel" :class="$cssPrefix + 'actionsheet-cancel'" @click="closeHandler">
         {{cancelText}}
       </div>
     </div>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 export default {
   name: 'Actionsheet',
@@ -46,7 +45,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'actionsheet']
+      return [this.$cssPrefix + 'actionsheet']
     }
   },
   mounted () {
@@ -70,11 +69,6 @@ export default {
           })
         }, 300)
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

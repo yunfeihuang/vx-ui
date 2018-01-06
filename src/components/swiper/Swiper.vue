@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Swiper from 'swiper/dist/js/swiper.min.js'
 import 'swiper/dist/css/swiper.min.css'
 export default {
@@ -43,7 +42,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'swiper', 'swiper-container']
+      return [this.$cssPrefix + 'swiper', 'swiper-container']
     }
   },
   mounted () {
@@ -70,11 +69,6 @@ export default {
   watch: {
     active (value) {
       this.swiper.activeIndex !== value && this.swiper.slideTo(value)
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   },
   methods: {

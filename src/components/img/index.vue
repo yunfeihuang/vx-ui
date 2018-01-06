@@ -1,18 +1,17 @@
 <template>
-  <div :class="[cssPrefix + 'img-wrapper',!loading ? cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
+  <div :class="[$cssPrefix + 'img-wrapper',!loading ? $cssPrefix + 'img-placeholder' : '']" @click="clickHandler">
     <img
       :class="classes"
       :alt="alt"
       @error="errorHandler"
       @load='loadHandler'
     />
-    <spinner v-if="loading" :class="cssPrefix + 'img-spinner'"/>
+    <spinner v-if="loading" :class="$cssPrefix + 'img-spinner'"/>
     <icon v-if="!loading">&#xe728;</icon>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Spinner from '../spinner'
 import Icon from '../icon'
 
@@ -43,7 +42,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'img', this.lazyload ? cssPrefix + 'img-lazyload' : '']
+      return [this.$cssPrefix + 'img', this.lazyload ? this.$cssPrefix + 'img-lazyload' : '']
     }
   },
   mounted () {
@@ -94,7 +93,7 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.' + cssPrefix + 'iconfont') || this.$el.querySelector('.' + cssPrefix + 'img-spinner')
+          let icon = this.$el.querySelector('.' + this.$cssPrefix + 'iconfont') || this.$el.querySelector('.' + this.$cssPrefix + 'img-spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
@@ -120,11 +119,6 @@ export default {
     },
     clickHandler (e) {
       this.$emit('click', e)
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

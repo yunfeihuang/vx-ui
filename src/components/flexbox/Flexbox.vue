@@ -5,20 +5,19 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 
 let flexMap = {
   direction: {
-    column: `${cssPrefix}flexbox-column`
+    column: `flexbox-column`
   },
   wrap: {
-    wrap: `${cssPrefix}flexbox-wrap`
+    wrap: `flexbox-wrap`
   },
   justify: {
-    center: `${cssPrefix}flexbox-content-center`
+    center: `flexbox-content-center`
   },
   align: {
-    center: `${cssPrefix}flexbox-align-center`
+    center: `flexbox-align-center`
   }
 }
 
@@ -49,11 +48,11 @@ export default {
   computed: {
     classes () {
       let array = [
-        cssPrefix + 'flexbox'
+        this.$cssPrefix + 'flexbox'
       ]
       for (let name in flexMap) {
         if (this[name] && flexMap[name][this[name]]) {
-          array.push(flexMap[name][this[name]])
+          array.push(this.$cssPrefix + flexMap[name][this[name]])
         }
       }
       return array
@@ -75,11 +74,6 @@ export default {
         this.$el.style.width = `${width + this.gutter}px`
         this.$el.style.marginLeft = `-${this.gutter / 2}px`
       })
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

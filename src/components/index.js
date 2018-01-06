@@ -52,6 +52,15 @@ import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
 
+Vue.mixin({
+  props: {
+    $cssPrefix: {
+      type: String,
+      default: 'v-'
+    }
+  }
+})
+
 let components = [
   Actionsheet,
   ActionsheetItem,

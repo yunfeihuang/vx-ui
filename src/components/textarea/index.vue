@@ -1,6 +1,6 @@
 <template>
   <label :class="classes">
-    <div :class="[cssPrefix+'textarea-shadow']"></div>
+    <div :class="[$cssPrefix+'textarea-shadow']"></div>
     <textarea 
       :placeholder="placeholder"
       :readonly="readonly"
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 export default {
   name: 'Textarea',
@@ -29,21 +28,20 @@ export default {
   computed: {
     classes () {
       let styles = {}
-      styles[cssPrefix + 'textarea-focus'] = this.isFocus
+      styles[this.$cssPrefix + 'textarea-focus'] = this.isFocus
       return [
-        cssPrefix + 'textarea-wrapper',
+        this.$cssPrefix + 'textarea-wrapper',
         styles
       ]
     }
   },
   mounted () {
     this.$textarea = this.$el.querySelector('textarea')
-    this.$shadow = this.$el.querySelector('.' + cssPrefix + 'textarea-shadow')
+    this.$shadow = this.$el.querySelector('.' + this.$cssPrefix + 'textarea-shadow')
     this.renderAutoHeight(this.$textarea.value)
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       isFocus: false
     }
   },

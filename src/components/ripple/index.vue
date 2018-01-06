@@ -1,11 +1,10 @@
 <template>
-  <div :class="classes" @click="clickHandler" onselectstart="return false;">
+  <div :class="classes" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 let node = null
 let offset = {}
 let timer = null
@@ -21,7 +20,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'ripple']
+      return [this.$cssPrefix + 'ripple']
     }
   },
   mounted () {
@@ -34,9 +33,6 @@ export default {
     }
   },
   methods: {
-    clickHandler (e) {
-      this.$emit('click', e)
-    },
     getOffset (rect, {pageX, pageY}) {
       if (this.position === 'center') {
         return {
@@ -55,11 +51,11 @@ export default {
       }
     },
     touchStartHandler (e) {
-      let shadow = this.$el.querySelector('.' + cssPrefix + 'ripple-shadow')
+      let shadow = this.$el.querySelector('.' + this.$cssPrefix + 'ripple-shadow')
       shadow && shadow.parentNode.removeChild(shadow)
       offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
       node = document.createElement('div')
-      node.classList.add(cssPrefix + 'ripple-shadow')
+      node.classList.add(this.$cssPrefix + 'ripple-shadow')
       node.style.cssText = 'top:' + offset.top + 'px;left:' + offset.left + 'px;'
       if (this.color) {
         node.style.backgroundColor = this.color
@@ -79,11 +75,6 @@ export default {
       setTimeout(((node) => {
         node.parentNode && node.parentNode.removeChild(node)
       }).bind(this, node), 1000)
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

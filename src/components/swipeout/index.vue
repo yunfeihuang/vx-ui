@@ -5,11 +5,11 @@
     @mousedown="touchStartHandler"
     onselectstart="return false;"
     >
-    <div :class="cssPrefix + 'swipeout-inner'">
-      <div :class="cssPrefix + 'swipeout-content'">
+    <div :class="$cssPrefix + 'swipeout-inner'">
+      <div :class="$cssPrefix + 'swipeout-content'">
         <slot></slot>
       </div>
-      <div :class="cssPrefix + 'swipeout-action'" @click="actionHandler">
+      <div :class="$cssPrefix + 'swipeout-action'" @click="actionHandler">
         <slot name="action"></slot>
       </div>
     </div>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import {Flexbox} from '../flexbox'
 let swipeoutVue = null
 export default {
@@ -41,7 +40,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'swipeout', this.divider ? cssPrefix + 'swipeout-divider' : '']
+      return [this.$cssPrefix + 'swipeout', this.divider ? this.$cssPrefix + 'swipeout-divider' : '']
     }
   },
   watch: {
@@ -53,9 +52,9 @@ export default {
     this.$touch = {}
   },
   mounted () {
-    let node = this.$el.querySelector('.' + cssPrefix + 'swipeout-action')
+    let node = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-action')
     this.$touch.maxTranslateX = node.offsetWidth
-    this.$touch.el = this.$el.querySelector('.' + cssPrefix + 'swipeout-inner')
+    this.$touch.el = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-inner')
     requestAnimationFrame(() => {
       node.style.height = node.parentNode.offsetHeight + 'px'
       this.open && this.setTranslateX(-this.$touch.maxTranslateX, null, false)
@@ -142,11 +141,6 @@ export default {
         pageX: e.changedTouches ? e.changedTouches[0].pageX : e.pageX,
         pageY: e.changedTouches ? e.changedTouches[0].pageY : e.pageY
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }

@@ -1,14 +1,14 @@
 <template>
-  <popup :open="open" :history="history" @on-open="openHandler" @on-close="closeHandler" :fast-close="false" direction="top" :class="[cssPrefix + 'daterange-picker-wrapper']">
+  <popup :open="open" :history="history" @on-open="openHandler" @on-close="closeHandler" :fast-close="false" direction="top" :class="[$cssPrefix + 'daterange-picker-wrapper']">
     <div :class="classes" v-if="open">
-      <div :class="[cssPrefix + 'daterange-picker-header']">
+      <div :class="[$cssPrefix + 'daterange-picker-header']">
         <tab :active.sync="tab" v-if="layout.length" ref="tab">
           <tab-item v-show="layout.indexOf('date') > -1">日历</tab-item>
           <tab-item v-show="layout.indexOf('week') > -1">周历</tab-item>
           <tab-item v-show="layout.indexOf('month') > -1">月历</tab-item>
           <tab-item v-show="layout.indexOf('quarter') > -1">季度</tab-item>
         </tab>
-        <flexbox :class="[cssPrefix + 'daterange-picker-controls']">
+        <flexbox :class="[$cssPrefix + 'daterange-picker-controls']">
           <flexbox-item>
             <flexbox align="center">
               <button :disabled="date.getFullYear() <= 1990" type="button" @click="yearChangeHandler(-1)">
@@ -34,12 +34,12 @@
         </flexbox>
         <divider></divider>
       </div>
-      <div :class="[cssPrefix + 'daterange-picker-body']">
-        <flexbox v-if="tab==0||tab==1" :class="[cssPrefix + 'daterange-picker-week-title']">
-          <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? cssPrefix + 'daterange-picker-weekend' : '']">{{item}}</flexbox-item>
+      <div :class="[$cssPrefix + 'daterange-picker-body']">
+        <flexbox v-if="tab==0||tab==1" :class="[$cssPrefix + 'daterange-picker-week-title']">
+          <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? $cssPrefix + 'daterange-picker-weekend' : '']">{{item}}</flexbox-item>
         </flexbox>
         <divider v-if="tab==0||tab==1" style="margin-top:-1px;"></divider>
-        <flexbox :class="[cssPrefix + 'daterange-picker-calendar' ,'divider']" v-if="tab==0||tab==1">
+        <flexbox :class="[$cssPrefix + 'daterange-picker-calendar' ,'divider']" v-if="tab==0||tab==1">
           <div 
             v-if="tab===0"
             v-for="item in dateList"
@@ -59,7 +59,7 @@
             {{item.value.getDate()}}
           </div>
         </flexbox>
-        <flexbox :class="[cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===2" :style="{height: '6.8rem'}" align="center">
+        <flexbox :class="[$cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===2" :style="{height: '6.8rem'}" align="center">
           <div 
             v-if="tab===2"
             v-for="(item, i) in monthList"
@@ -70,7 +70,7 @@
             {{i+1}}月
           </div>
         </flexbox>
-        <flexbox :class="[cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===3">
+        <flexbox :class="[$cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===3">
           <div 
             v-if="tab===3"
             v-for="(item,i) in quarterList"
@@ -83,19 +83,18 @@
         </flexbox>
       </div>
       <divider></divider>
-      <flexbox :class="[cssPrefix + 'daterange-picker-footer']">
-        <button type="button" :class="[cssPrefix + 'daterange-picker-cancel']" @click="closeHandler">{{cancelText}}</button>
+      <flexbox :class="[$cssPrefix + 'daterange-picker-footer']">
+        <button type="button" :class="[$cssPrefix + 'daterange-picker-cancel']" @click="closeHandler">{{cancelText}}</button>
         <flexbox-item>
-          <button type="button" :class="[cssPrefix + 'daterange-picker-clear']" @click="changeHandler([])">{{clearText}}</button>
+          <button type="button" :class="[$cssPrefix + 'daterange-picker-clear']" @click="changeHandler([])">{{clearText}}</button>
         </flexbox-item>
-        <button type="button" :class="[cssPrefix + 'daterange-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :class="[$cssPrefix + 'daterange-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
       </flexbox>
     </div>
   </popup>
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import {Tab, TabItem} from '../tab'
@@ -182,7 +181,7 @@ export default {
   },
   computed: {
     classes () {
-      return [cssPrefix + 'daterange-picker']
+      return [this.$cssPrefix + 'daterange-picker']
     },
     dateList () {
       return this.getCalendarItems()
@@ -224,7 +223,6 @@ export default {
   },
   data () {
     return {
-      cssPrefix: cssPrefix,
       myValue: this.value,
       valueTab: 0,
       tab: 0,
@@ -236,31 +234,31 @@ export default {
     calendarClasses (item) {
       let array = []
       if (this.tab === 0) {
-        array.push(cssPrefix + 'daterange-picker-calendar-item')
-        item.weekend && array.push(cssPrefix + 'daterange-picker-weekend')
-        item.today && array.push(cssPrefix + 'daterange-picker-today')
-        !item.currentMonth && array.push(cssPrefix + 'daterange-picker-outmonth')
+        array.push(this.$cssPrefix + 'daterange-picker-calendar-item')
+        item.weekend && array.push(this.$cssPrefix + 'daterange-picker-weekend')
+        item.today && array.push(this.$cssPrefix + 'daterange-picker-today')
+        !item.currentMonth && array.push(this.$cssPrefix + 'daterange-picker-outmonth')
         if (this.valueTab === 0) {
-          item.start && array.push(cssPrefix + 'daterange-picker-start')
-          item.end && array.push(cssPrefix + 'daterange-picker-end')
-          item.active && array.push(cssPrefix + 'daterange-picker-item-active')
+          item.start && array.push(this.$cssPrefix + 'daterange-picker-start')
+          item.end && array.push(this.$cssPrefix + 'daterange-picker-end')
+          item.active && array.push(this.$cssPrefix + 'daterange-picker-item-active')
         }
       } else if (this.tab === 1) {
-        array.push(cssPrefix + 'daterange-picker-calendar-item')
-        item.weekend && array.push(cssPrefix + 'daterange-picker-weekend')
-        item.today && array.push(cssPrefix + 'daterange-picker-today')
-        !item.currentMonth && array.push(cssPrefix + 'daterange-picker-outmonth')
+        array.push(this.$cssPrefix + 'daterange-picker-calendar-item')
+        item.weekend && array.push(this.$cssPrefix + 'daterange-picker-weekend')
+        item.today && array.push(this.$cssPrefix + 'daterange-picker-today')
+        !item.currentMonth && array.push(this.$cssPrefix + 'daterange-picker-outmonth')
         if (this.valueTab === 1) {
-          item.start && array.push(cssPrefix + 'daterange-picker-start')
-          item.end && array.push(cssPrefix + 'daterange-picker-end')
-          item.active && array.push(cssPrefix + 'daterange-picker-item-active')
+          item.start && array.push(this.$cssPrefix + 'daterange-picker-start')
+          item.end && array.push(this.$cssPrefix + 'daterange-picker-end')
+          item.active && array.push(this.$cssPrefix + 'daterange-picker-item-active')
         }
       } else if (this.tab === 2) {
-        array = [cssPrefix + 'daterange-picker-calendar-month']
-        item.active && array.push(cssPrefix + 'daterange-picker-active')
+        array = [this.$cssPrefix + 'daterange-picker-calendar-month']
+        item.active && array.push(this.$cssPrefix + 'daterange-picker-active')
       } else if (this.tab === 3) {
-        array = [cssPrefix + 'daterange-picker-calendar-quarter']
-        item.active && array.push(cssPrefix + 'daterange-picker-active')
+        array = [this.$cssPrefix + 'daterange-picker-calendar-quarter']
+        item.active && array.push(this.$cssPrefix + 'daterange-picker-active')
       }
       return array
     },

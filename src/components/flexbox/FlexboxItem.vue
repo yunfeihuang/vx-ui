@@ -1,5 +1,5 @@
 <template>
-  <div :style="styles" :class="`${cssPrefix}flexbox-item`">
+  <div :style="styles">
     <div
       :style="`
         padding-left: ${$parent.gutter / 2}px;
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { cssPrefix } from 'utils/variable.js'
 export default {
   name: 'FlexboxItem',
   props: {
@@ -37,13 +36,9 @@ export default {
           -webkit-flex: ${this.flex};
           -moz-flex: ${this.flex};
           flex: ${this.flex};
+          min-width: 0;
         `
       }
-    }
-  },
-  data () {
-    return {
-      cssPrefix: cssPrefix
     }
   }
 }
