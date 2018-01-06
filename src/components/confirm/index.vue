@@ -26,6 +26,7 @@ import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 import Divider from '../divider'
 export default {
+  name: 'Confirm',
   mixins: [historyPush],
   components: {
     Overlay,

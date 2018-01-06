@@ -11,6 +11,7 @@ import { cssPrefix } from 'utils/variable.js'
 import Swiper from 'swiper/dist/js/swiper.min.js'
 import 'swiper/dist/css/swiper.min.css'
 export default {
+  name: 'Marguee',
   props: {
     active: {
       type: Number,

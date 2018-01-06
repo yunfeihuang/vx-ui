@@ -9,6 +9,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 export default {
+  name: 'Tab',
   mixins: [tab],
   props: ['underlineWidth'],
   computed: {

@@ -7,6 +7,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'Overlay',
   props: {
     opacity: {
       type: Number,

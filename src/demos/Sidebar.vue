@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Sidebar</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="background:#fff">
       <sidebar @on-change="changeHandler" :active="active" class="sidebar">
         <sidebar-item>家电</sidebar-item>
@@ -33,7 +33,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Sidebar,
   SidebarItem
@@ -41,7 +41,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Sidebar,
     SidebarItem

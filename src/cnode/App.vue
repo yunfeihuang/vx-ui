@@ -1,7 +1,7 @@
 <template>
   <div>
     <layout v-show="$route.path == '/cnode'">
-      <x-header slot="header" :back="false">
+      <x-nav slot="header" :back="false">
         <div slot="title">CNode-专业中文社区</div>
         <tab :active="home.active" @on-change="activeHandler">
           <tab-item>
@@ -20,7 +20,7 @@
             招聘
           </tab-item>
         </tab>
-      </x-header>
+      </x-nav>
       <x-body slot="body" :scroll="false" style="background:#fff">
         <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
@@ -38,7 +38,7 @@ const tabs = ['all', 'good', 'share', 'ask', 'job']
 
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XImg,
   Flow,
@@ -55,7 +55,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XImg,
     Flow,

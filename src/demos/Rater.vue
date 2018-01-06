@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title" >Rater</div>
-    </x-header>
+    </x-nav>
     <x-body class="demos" slot="body">
       <group>
         <cell :arrow="false">
@@ -33,7 +33,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Cell,
@@ -43,7 +43,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Cell,

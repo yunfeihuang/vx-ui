@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Radio</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>
@@ -22,7 +22,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Radio,
   RadioGroup,
@@ -32,7 +32,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Radio,
     RadioGroup,

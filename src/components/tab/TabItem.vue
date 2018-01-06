@@ -10,6 +10,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'TabItem',
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)

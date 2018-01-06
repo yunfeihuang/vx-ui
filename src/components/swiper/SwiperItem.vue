@@ -7,6 +7,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'SwiperItem',
   computed: {
     classes () {
       return [cssPrefix + 'swiper-item', 'swiper-slide']

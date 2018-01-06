@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Form</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <br />
       <x-form @on-submit="submitHandler" :validator="formValidator">
@@ -45,7 +45,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XForm,
   FormItem,
@@ -59,7 +59,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XForm,
     FormItem,

@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Search</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body"  class="demos img-demos">
       <search :value="value" placeholder="搜索商品/商店/用户"
         @on-submit="submitHandler"
@@ -37,14 +37,14 @@
 import {
   Search,
   Layout,
-  XHeader,
+  XNav,
   XBody
 } from 'components'
 export default {
   components: {
     Search,
     Layout,
-    XHeader,
+    XNav,
     XBody
   },
   methods: {

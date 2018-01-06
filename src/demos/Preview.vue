@@ -1,8 +1,8 @@
 <template>
   <layout class="demos img-demos">
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Preview</div>
-    </x-header>
+    </x-nav>
     <x-body id="body" slot="body" class="img-container">
       <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="loadHandler" @click="clickHandler"/>
       <!--<sticky scroll-box="body" :offset="46"><div>fdafdafdsafdasf</div></sticky>-->
@@ -18,7 +18,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Preview,
   Sticky,
@@ -30,7 +30,7 @@ let windowWidth = window.innerWidth
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Preview,
     Sticky,

@@ -12,6 +12,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 export default {
+  name: 'Range',
   mixins: [input],
   computed: {
     classes () {

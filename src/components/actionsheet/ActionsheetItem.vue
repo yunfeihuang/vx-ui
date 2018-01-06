@@ -9,6 +9,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'ActionsheetItem',
   props: {
     disabled: {
       type: Boolean,

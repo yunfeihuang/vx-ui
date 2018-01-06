@@ -14,6 +14,7 @@ const validityStateArrayMap = [
 ]
 
 export default {
+  name: 'XForm',
   props: {
     action: {
       type: String

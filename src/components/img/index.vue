@@ -17,6 +17,7 @@ import Spinner from '../spinner'
 import Icon from '../icon'
 
 export default {
+  name: 'XImg',
   components: {
     Spinner,
     Icon

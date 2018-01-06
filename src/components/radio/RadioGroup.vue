@@ -22,6 +22,7 @@ import Radio from './Radio'
 import Divider from '../divider'
 
 export default {
+  name: 'RadioGroup',
   mixins: [input],
   components: {
     Radio,

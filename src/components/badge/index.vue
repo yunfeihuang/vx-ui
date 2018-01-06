@@ -5,6 +5,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'Badge',
   computed: {
     classes () {
       return [cssPrefix + 'badge', this.text === '' ? cssPrefix + 'badge-dot' : '']

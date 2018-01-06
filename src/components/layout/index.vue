@@ -13,6 +13,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import {Flexbox} from '../flexbox'
 export default {
+  name: 'Layout',
   components: {
     Flexbox
   },

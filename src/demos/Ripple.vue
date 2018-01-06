@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Ripple</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group class="ripple-demo">
         <ripple @click="clickHandler">
@@ -44,7 +44,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Cell,
@@ -57,7 +57,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Cell,

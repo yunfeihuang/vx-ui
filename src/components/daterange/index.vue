@@ -26,6 +26,7 @@ import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DaterangePicker from '../daterange-picker'
 export default {
+  name: 'DateRange',
   mixins: [input],
   props: {
     format: {

@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Popover</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="padding:15px;">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
@@ -63,7 +63,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XButton,
   Popover,
@@ -75,7 +75,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XButton,
     Popover,

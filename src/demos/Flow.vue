@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Flow (pulldown and pullup)</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" :scroll="false" class="demos flow-demos">
       <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
         <template v-for="item in list">
@@ -25,7 +25,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Flow,
   Divider,
@@ -41,7 +41,7 @@ let lastPage = 1
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Flow,
     Divider,

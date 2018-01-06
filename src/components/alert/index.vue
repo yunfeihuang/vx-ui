@@ -14,6 +14,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import Confirm from '../confirm'
 export default {
+  name: 'Alert',
   components: {
     Confirm
   },

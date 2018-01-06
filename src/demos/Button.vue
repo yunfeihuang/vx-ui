@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title" >XButton</div>
-    </x-header>
+    </x-nav>
     <x-body class="demos" slot="body"  style="background:#fff">
       <div class="button-demo">
         <x-button>default</x-button>
@@ -18,14 +18,14 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XButton
 } from 'components'
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XButton
   },

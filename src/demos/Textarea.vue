@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">XTextarea</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <div class="input-demo demos">
         <div class="fieldset">
@@ -20,14 +20,14 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XTextarea
 } from 'components'
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XTextarea
   },

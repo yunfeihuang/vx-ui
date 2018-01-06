@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">XInput,Password</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <div class="input-demo demos">
         <x-form class="fieldset">
@@ -24,7 +24,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XForm,
   FormItem,
@@ -35,7 +35,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XForm,
     FormItem,

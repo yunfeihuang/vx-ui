@@ -10,6 +10,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import sticky from './sticky'
 export default {
+  name: 'Sticky',
   props: {
     scrollBox: {
       type: String

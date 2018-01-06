@@ -11,6 +11,7 @@ import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
+  name: 'Checkbox',
   components: {
     Icon
   },

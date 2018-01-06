@@ -14,6 +14,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'Rater',
   computed: {
     classes () {
       return [cssPrefix + 'rater']

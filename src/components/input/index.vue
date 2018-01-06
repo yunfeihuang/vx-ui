@@ -39,6 +39,7 @@ import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
+  name: 'XInput',
   components: {
     Icon
   },

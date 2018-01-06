@@ -7,6 +7,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'MargueeItem',
   computed: {
     classes () {
       return [cssPrefix + 'marquee-item', 'swiper-slide']

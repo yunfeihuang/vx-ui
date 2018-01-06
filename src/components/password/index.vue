@@ -37,6 +37,7 @@ import { input } from 'utils/mixins.js'
 import XInput from '../input'
 import Icon from '../icon'
 export default {
+  name: 'Password',
   mixins: [input],
   components: {
     XInput,

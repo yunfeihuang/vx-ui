@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Swiper</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="background:#fff">
       <swiper :active="active" :pagination="true" @on-change="changeHandler" :options="options" class="swiper-demo">
         <swiper-item>
@@ -25,7 +25,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Swiper,
   SwiperItem,
@@ -34,7 +34,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Swiper,
     SwiperItem,

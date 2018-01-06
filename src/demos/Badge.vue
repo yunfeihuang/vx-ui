@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Badge</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" class="badge-demos">
       <group>
         <cell>
@@ -29,7 +29,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Badge,
   Group,
@@ -38,7 +38,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Badge,
     Group,

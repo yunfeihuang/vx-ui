@@ -23,6 +23,7 @@ import { cssPrefix } from 'utils/variable.js'
 import { input } from 'utils/mixins.js'
 
 export default {
+  name: 'Select',
   mixins: [input],
   props: {
     options: {

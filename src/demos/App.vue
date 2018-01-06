@@ -1,9 +1,9 @@
 <template>
   <div>
     <layout>
-      <x-header slot="header" :back="false">
+      <x-nav slot="header" :back="false">
         <div slot="title">Vue Components Demos</div>
-      </x-header>
+      </x-nav>
       <x-body class="demos" slot="body" style="background:#fff">
         <flexbox wrap="wrap" class="demos-actions">
           <x-link href="/demos/button">XButton</x-link>
@@ -33,7 +33,7 @@
           <x-link href="/demos/flow">Flow</x-link>
           <x-link href="/demos/ripple">Ripple</x-link>
           <x-link href="/demos/img">XImg</x-link>
-          <x-link href="/demos/header">XHeader</x-link>
+          <x-link href="/demos/header">XNav</x-link>
           <x-link href="/demos/divider">Divider</x-link>
           <x-link href="/demos/swiper">Swiper</x-link>
           <x-link href="/demos/swipeout">Swipeout</x-link>
@@ -59,7 +59,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Divider,
@@ -72,7 +72,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Divider,

@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">用户详情</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" :class="clas">
       <div>
         <div class="userinfo">
@@ -51,7 +51,7 @@ import { mapGetters } from 'vuex'
 
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XImg,
   XLink,
@@ -63,7 +63,7 @@ import BaseItem from './components/BaseItem'
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XImg,
     XLink,

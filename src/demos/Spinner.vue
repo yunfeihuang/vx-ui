@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Spinner</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" class="spinner-demo">
       <spinner></spinner>
     </x-body>
@@ -12,7 +12,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Spinner
 } from 'components'
@@ -20,7 +20,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Spinner
   }

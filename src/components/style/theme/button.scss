@@ -3,6 +3,7 @@
 .#{$css-prefix}{
   &btn{
     @include button;
+    display:block;
     height:0.9rem;
     position:relative;
     width:100%;

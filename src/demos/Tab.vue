@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Tab</div>
        <tab :active.sync="active">
         <tab-item>推荐</tab-item>
@@ -20,7 +20,7 @@
         <tab-item>活动</tab-item>
         <tab-item>发现</tab-item>
       </tab>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="background:#fff" :scroll="false">
       <swiper :active.sync="active" class="tab-swiper">
         <swiper-item>
@@ -51,7 +51,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Tab,
   TabItem,
@@ -61,7 +61,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Tab,
     TabItem,

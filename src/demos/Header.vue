@@ -1,11 +1,11 @@
 <template>
   <layout>
-    <x-header slot="header">
-      <div slot="title">XHeader</div>
+    <x-nav slot="header">
+      <div slot="title">XNav</div>
       <button class="btn-pull" slot="pull">
         <icon>&#xe78d;</icon>
       </button>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       
     </x-body>
@@ -15,14 +15,14 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Icon
 } from 'components'
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Icon
   },

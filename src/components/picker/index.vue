@@ -47,6 +47,7 @@ let easeout = (A, B, rate, callback) => {
 }
 
 export default {
+  name: 'Picker',
   computed: {
     classes () {
       return [cssPrefix + 'picker-wrapper']

@@ -16,6 +16,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
+  name: 'Field',
   components: {
     Flexbox,
     FlexboxItem

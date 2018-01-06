@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Checkbox</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group title="Checkbox">
         <checkbox v-model="checked">{{checked}}</checkbox>
@@ -26,7 +26,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Checkbox,
   CheckboxGroup,
@@ -35,7 +35,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Checkbox,
     CheckboxGroup,

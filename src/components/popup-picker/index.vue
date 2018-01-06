@@ -31,6 +31,7 @@ import Picker from '../picker'
 import Divider from '../divider'
 
 export default {
+  name: 'PopupPicker',
   components: {
     Popup,
     Picker,

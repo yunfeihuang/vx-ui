@@ -18,6 +18,7 @@ import { cssPrefix } from 'utils/variable.js'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Icon from '../icon'
 export default {
+  name: 'XNav',
   components: {
     Flexbox,
     FlexboxItem,

@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Checker</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group title="Checker 多选">
         <div style="padding:20px 10px">
@@ -25,7 +25,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Checker,
   Group
@@ -33,7 +33,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Checker,
     Group

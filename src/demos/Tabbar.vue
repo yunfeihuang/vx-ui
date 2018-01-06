@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Tabbar</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <swiper :active="active" @on-change="changeHandler" class="tabbar-swiper">
         <swiper-item>
@@ -42,7 +42,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Tabbar,
   TabbarItem,
@@ -53,7 +53,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Tabbar,
     TabbarItem,

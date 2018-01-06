@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Range</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group>
         <divider></divider>
@@ -28,7 +28,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Range,
   Cell,
@@ -38,7 +38,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Range,
     Cell,

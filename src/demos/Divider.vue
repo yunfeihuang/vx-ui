@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Divider</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <div style="background:#fff;margin:15px 0;padding:1px 10px;line-height:40px;">
         标题
@@ -16,7 +16,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Divider
@@ -24,7 +24,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Divider

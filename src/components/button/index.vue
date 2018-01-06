@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :disabled="disabled" :type="htmlType" @click="clickHandler">
+  <button :class="classes" :disabled="disabled" :type="nativeType" @click="clickHandler">
     <slot></slot>
   </button>
 </template>
@@ -8,6 +8,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import { button } from 'utils/mixins.js'
 export default {
+  name: 'XButton',
   mixins: [button],
   computed: {
     classes () {

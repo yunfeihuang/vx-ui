@@ -21,6 +21,7 @@ import { cssPrefix } from 'utils/variable.js'
 import {Flexbox} from '../flexbox'
 let swipeoutVue = null
 export default {
+  name: 'Swipeout',
   components: {
     Flexbox
   },

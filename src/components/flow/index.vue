@@ -21,6 +21,7 @@ import { cssPrefix } from 'utils/variable.js'
 import Spinner from '../spinner'
 import Icon from '../icon'
 export default {
+  name: 'Flow',
   components: {
     Spinner,
     Icon

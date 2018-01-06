@@ -8,6 +8,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 export default {
+  name: 'ButtonTab',
   mixins: [tab],
   computed: {
     classes () {

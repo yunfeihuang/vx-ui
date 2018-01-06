@@ -7,6 +7,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'SidebarItem',
   methods: {
     clickHandler (e) {
       this.$emit('on-change', this.index)

@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Picker</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group>
         <picker placeholder="请选择" :value="value" :options="options" @on-change="changePickerHandler"></picker>
@@ -29,7 +29,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Picker,
   Group,
@@ -46,7 +46,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Picker,
     Group,

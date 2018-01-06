@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Swipeout</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" :scroll="false" class="demos flow-demos">
       <flow :loading="loading" :end="end">
         <template v-for="(item,index) in list">
@@ -29,7 +29,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Flow,
   Divider,
@@ -45,7 +45,7 @@ let lastPage = 1
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Flow,
     Divider,

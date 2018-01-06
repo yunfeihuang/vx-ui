@@ -8,6 +8,7 @@
 import { cssPrefix } from 'utils/variable.js'
 import {FlexboxItem} from '../flexbox'
 export default {
+  name: 'XBody',
   components: {
     FlexboxItem
   },

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -9,20 +9,21 @@ import { cssPrefix } from 'utils/variable.js'
 
 let flexMap = {
   direction: {
-    column: 'flexbox-column'
+    column: `${cssPrefix}flexbox-column`
   },
   wrap: {
-    wrap: 'flexbox-wrap'
+    wrap: `${cssPrefix}flexbox-wrap`
   },
   justify: {
-    center: 'flexbox-content-center'
+    center: `${cssPrefix}flexbox-content-center`
   },
   align: {
-    center: 'flexbox-align-center'
+    center: `${cssPrefix}flexbox-align-center`
   }
 }
 
 export default {
+  name: 'Flexbox',
   props: {
     direction: {
       type: String,
@@ -39,13 +40,16 @@ export default {
     align: {
       type: String,
       default: 'normal'
+    },
+    gutter: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
     classes () {
       let array = [
-        cssPrefix + 'flexbox',
-        'flexbox'
+        cssPrefix + 'flexbox'
       ]
       for (let name in flexMap) {
         if (this[name] && flexMap[name][this[name]]) {
@@ -55,9 +59,22 @@ export default {
       return array
     }
   },
-  methods: {
-    clickHandler (e) {
-      this.$emit('click', e)
+  watch: {
+    gutter (value) {
+      let width = this.$el.clientWidth
+      requestAnimationFrame(() => {
+        this.$el.style.width = `${width + this.gutter}px`
+        this.$el.style.marginLeft = `-${this.gutter / 2}px`
+      })
+    }
+  },
+  mounted () {
+    if (this.gutter) {
+      let width = this.$el.clientWidth
+      requestAnimationFrame(() => {
+        this.$el.style.width = `${width + this.gutter}px`
+        this.$el.style.marginLeft = `-${this.gutter / 2}px`
+      })
     }
   },
   data () {

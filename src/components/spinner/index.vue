@@ -7,6 +7,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'Spinner',
   props: {
     color: {
       type: String

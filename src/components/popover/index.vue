@@ -12,6 +12,7 @@ import Vue from 'vue'
 import { cssPrefix } from 'utils/variable.js'
 import Popup from '../popup'
 export default {
+  name: 'Popover',
   computed: {
     classes () {
       return [cssPrefix + 'popover']

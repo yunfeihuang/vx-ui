@@ -26,6 +26,7 @@ import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DatetimePicker from '../datetime-picker'
 export default {
+  name: 'DateTime',
   mixins: [input],
   props: {
     format: {

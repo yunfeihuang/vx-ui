@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">主题详情</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" :class="clas">
       <div>
         <div class="topic-header">
@@ -42,7 +42,7 @@ import { mapGetters } from 'vuex'
 
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XImg,
   Divider,
@@ -54,7 +54,7 @@ import {BaseItem, TopicType} from './components/index'
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     XImg,
     Divider,

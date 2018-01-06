@@ -26,6 +26,7 @@ const iconCode = {
 }
 
 export default {
+  name: 'Toast',
   components: {
     Popup,
     Spinner,

@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title" style="text-align:center">
         <div class="header-tab-button">
           <button-tab class="tab-button" :active="active2" active-class="header-tab-active" @on-change="changeHandler2">
@@ -9,7 +9,7 @@
           </button-tab>
         </div>
       </div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="padding:15px;background:#fff">
       <h4 style="text-align:center;font-size:16px;margin:0 0 15px 0">ButtonTab</h4>
       <button-tab :active="active" @on-change="changeHandler">
@@ -25,7 +25,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   ButtonTab,
   ButtonTabItem
@@ -33,7 +33,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     ButtonTab,
     ButtonTabItem

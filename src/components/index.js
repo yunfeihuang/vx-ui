@@ -35,7 +35,7 @@ import Flow from './flow'
 import Ripple from './ripple'
 import Search from './search'
 import Layout from './layout'
-import XHeader from './header'
+import XNav from './nav'
 import XBody from './body'
 import XLink from './link'
 import Preview from './preview'
@@ -51,6 +51,77 @@ import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
+
+let components = [
+  Actionsheet,
+  ActionsheetItem,
+  Swiper,
+  SwiperItem,
+  Marquee,
+  MarqueeItem,
+  Tab,
+  TabItem,
+  Tabbar,
+  TabbarItem,
+  Sidebar,
+  SidebarItem,
+  Flexbox,
+  FlexboxItem,
+  ButtonTab,
+  ButtonTabItem,
+  XButton,
+  XInput,
+  Password,
+  Range,
+  XForm,
+  FormItem,
+  Field,
+  XTextarea,
+  XSwitch,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  XSelect,
+  Checker,
+  Divider,
+  Group,
+  Cell,
+  Confirm,
+  Prompt,
+  Alert,
+  Popup,
+  PopupPicker,
+  Toast,
+  XImg,
+  Flow,
+  Ripple,
+  Search,
+  Layout,
+  XNav,
+  XBody,
+  XLink,
+  Preview,
+  Spinner,
+  Picker,
+  Badge,
+  Swipeout,
+  Rater,
+  DatetimePicker,
+  DaterangePicker,
+  Datetime,
+  Daterange,
+  Popover,
+  Sticky,
+  Icon
+]
+
+const install = (Vue) => {
+  components.map(component => {
+    component.name && Vue.component(component.name, component)
+  })
+}
+
 ((w) => {
   w.$toast = (props, mounted = document.body) => {
     props = Object.assign({
@@ -249,6 +320,7 @@ import Icon from './icon'
 })(window)
 
 export {
+  install,
   Actionsheet,
   ActionsheetItem,
   Swiper,
@@ -294,7 +366,7 @@ export {
   Ripple,
   Search,
   Layout,
-  XHeader,
+  XNav,
   XBody,
   XLink,
   Preview,

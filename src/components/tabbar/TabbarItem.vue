@@ -9,6 +9,7 @@ import { cssPrefix } from 'utils/variable.js'
 import Ripple from '../ripple'
 import Icon from '../icon'
 export default {
+  name: 'TabbarItem',
   components: {
     Ripple,
     Icon

@@ -5,11 +5,9 @@ const button = {
     },
     type: {
       type: String,
-      validator (value) {
-        return ['primary', 'warning', 'dashed'].indexOf(value) > -1
-      }
+      default: 'default'
     },
-    htmlType: {
+    nativeType: {
       type: String,
       default: 'button'
     }

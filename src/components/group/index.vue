@@ -10,6 +10,7 @@
 <script>
 import { cssPrefix } from 'utils/variable.js'
 export default {
+  name: 'Group',
   props: {
     title: {
       type: String

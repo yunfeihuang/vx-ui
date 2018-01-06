@@ -105,6 +105,7 @@ import Icon from '../icon'
 let now = new Date()
 
 export default {
+  name: 'DateRangePicker',
   components: {
     Popup,
     Divider,

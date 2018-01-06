@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">XSelect</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group>
         <cell>
@@ -34,7 +34,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Cell,
@@ -43,7 +43,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Cell,

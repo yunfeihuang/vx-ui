@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Marquee</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body" style="background:#fff">
       <marquee>
         <marquee-item>
@@ -19,7 +19,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Marquee,
   MarqueeItem
@@ -27,7 +27,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Marquee,
     MarqueeItem

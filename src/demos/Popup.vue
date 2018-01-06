@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Popup</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group>
         <cell :arrow="false">
@@ -97,7 +97,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Group,
   Cell,
@@ -108,7 +108,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Group,
     Cell,

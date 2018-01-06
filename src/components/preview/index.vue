@@ -51,6 +51,7 @@ import PhotoSwipe from 'photoswipe/dist/photoswipe.min.js'
 import UI from 'photoswipe/dist/photoswipe-ui-default'
 
 export default {
+  name: 'Preview',
   props: {
     list: {
       type: Array,

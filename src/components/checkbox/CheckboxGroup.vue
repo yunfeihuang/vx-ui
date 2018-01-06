@@ -23,6 +23,7 @@ import Checkbox from './Checkbox'
 import Divider from '../divider'
 
 export default {
+  name: 'CheckboxGroup',
   mixins: [input],
   components: {
     Checkbox,

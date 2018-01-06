@@ -1,8 +1,8 @@
 <template>
   <layout>
-    <x-header slot="header">
+    <x-nav slot="header">
       <div slot="title">Toast</div>
-    </x-header>
+    </x-nav>
     <x-body slot="body">
       <group>
         <cell :arrow="false">
@@ -43,7 +43,7 @@
 <script>
 import {
   Layout,
-  XHeader,
+  XNav,
   XBody,
   Toast,
   XSwitch,
@@ -53,7 +53,7 @@ import {
 export default {
   components: {
     Layout,
-    XHeader,
+    XNav,
     XBody,
     Toast,
     XSwitch,

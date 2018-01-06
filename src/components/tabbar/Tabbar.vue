@@ -9,6 +9,7 @@ import { cssPrefix } from 'utils/variable.js'
 import { tab } from 'utils/mixins.js'
 import Divider from '../divider'
 export default {
+  name: 'Tabbar',
   components: {
     Divider
   },
