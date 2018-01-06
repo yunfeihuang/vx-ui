@@ -29,6 +29,7 @@ export default {
   methods: {
     changeHandler (e) {
       this.$emit('on-change', e)
+      this.$emit('update:checked', e.target.checked)
     }
   }
 }

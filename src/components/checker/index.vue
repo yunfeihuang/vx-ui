@@ -2,9 +2,9 @@
   <div :class="classes" :disabled="disabled">
     <label :class="$cssPrefix + 'checker-item'" v-for="item in options">
       <input
-        :type="type"
+        :type="checkedMaxItem === 1 ? 'radio' : 'checkbox'"
         :value="item.value"
-        :checked="type === 'checkbox' ? value.indexOf(item.value) > -1 : value === item.value"
+        :checked="checkedMaxItem !== 1 ? value.indexOf(item.value) > -1 : value === item.value"
         :disabled="item.disabled"
         :name="name"
         @change="changeHandler"
@@ -29,9 +29,9 @@ export default {
       type: [Array, String],
       default: []
     },
-    type: {
-      type: String,
-      default: 'checkbox'
+    checkedMaxItem: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
@@ -44,18 +44,23 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      if (this.type === 'checkbox') {
-        let value = Object.assign([], this.value)
-        if (e.target.checked) {
-          value.indexOf(e.target.value) === -1 && value.push(e.target.value)
-        } else {
-          value.splice(value.indexOf(e.target.value), 1)
-        }
-        this.$emit('on-change', value).$emit('input', value)
-        this.updateLabel(value)
-      } else {
+      if (this.checkedMaxItem === 1) {
         this.$emit('on-change', e.target.value).$emit('input', e.target.value)
         this.updateLabel(e.target.value)
+      } else {
+        if (e.target.checked && this.checkedMaxItem !== 0 && this.value.length === this.checkedMaxItem) {
+          e.target.checked = false
+          window.$toast({content: `选择项不得超过${this.checkedMaxItem}个`})
+        } else {
+          let value = Object.assign([], this.value)
+          if (e.target.checked) {
+            value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+          } else {
+            value.splice(value.indexOf(e.target.value), 1)
+          }
+          this.$emit('on-change', value).$emit('input', value)
+          this.updateLabel(value)
+        }
       }
     },
     updateLabel (value) {
@@ -63,7 +68,7 @@ export default {
       this.options && this.options.forEach(item => {
         value.indexOf(item.value) > -1 && label.push(item.label)
       })
-      this.$emit('update:label', this.type === 'checkbox' ? label : label[0])
+      this.$emit('update:label', this.checkedMaxItem !== 1 ? label : label[0])
     }
   }
 }

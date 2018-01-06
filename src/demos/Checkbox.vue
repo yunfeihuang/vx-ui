@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group title="Checkbox">
-        <checkbox v-model="checked">{{checked}}</checkbox>
+        <checkbox :checked.sync="checked">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
         <checkbox-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
@@ -47,9 +47,6 @@ export default {
     },
     changeReverseHandler (value) {
       this.reverseValue = value
-    },
-    checkedHandler (e) {
-      this.checked = e.target.checked
     }
   },
   data () {

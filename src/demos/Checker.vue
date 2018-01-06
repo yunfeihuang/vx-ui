@@ -11,9 +11,16 @@
           value：{{checkboxValue}} label: {{label1}}
         </div>
       </group>
+      <group title="Checker 最多选2个">
+        <div style="padding:20px 10px">
+          <Checker :label.sync="label2" :checked-max-item="2" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
+          <br />
+          value：{{radioValue}} label: {{label2}}
+        </div>
+      </group>
       <group title="Checker 单选">
         <div style="padding:20px 10px">
-          <Checker :label.sync="label2" type="radio" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
+          <Checker :label.sync="label2" :checked-max-item="1" :options="options" @on-change="changeRadioHandler" :value="radioValue"/>
           <br />
           value：{{radioValue}} label: {{label2}}
         </div>
