@@ -30,10 +30,10 @@
           <x-link href="/demos/sidebar">Sidebar</x-link>
           <x-link href="/demos/popup">Popup</x-link>
           <x-link href="/demos/toast">Toast</x-link>
-          <x-link href="/demos/flow">Flow</x-link>
+          <x-link href="/demos/listview">ListView</x-link>
           <x-link href="/demos/ripple">Ripple</x-link>
           <x-link href="/demos/img">XImg</x-link>
-          <x-link href="/demos/header">XNav</x-link>
+          <x-link href="/demos/nav">XNav</x-link>
           <x-link href="/demos/divider">Divider</x-link>
           <x-link href="/demos/swiper">Swiper</x-link>
           <x-link href="/demos/swipeout">Swipeout</x-link>

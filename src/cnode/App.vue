@@ -22,9 +22,9 @@
         </tab>
       </x-nav>
       <x-body slot="body" :scroll="false" style="background:#fff">
-        <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
+        <list-view @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading">
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
-        </flow>
+        </list-view>
       </x-body>
     </layout>
     <router-view></router-view>
@@ -41,7 +41,7 @@ import {
   XNav,
   XBody,
   XImg,
-  Flow,
+  ListView,
   Tab,
   TabItem,
   Swiper,
@@ -58,7 +58,7 @@ export default {
     XNav,
     XBody,
     XImg,
-    Flow,
+    ListView,
     Tab,
     TabItem,
     Swiper,

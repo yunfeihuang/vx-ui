@@ -60,10 +60,10 @@ const TabButton = r => require.ensure([], () => r(require('demos/TabButton')), '
 const Popup = r => require.ensure([], () => r(require('demos/Popup')), 'Popup')
 const Toast = r => require.ensure([], () => r(require('demos/Toast')), 'Toast')
 const Img = r => require.ensure([], () => r(require('demos/Img')), 'Img')
-const Flow = r => require.ensure([], () => r(require('demos/Flow')), 'Flow')
+const ListView = r => require.ensure([], () => r(require('demos/ListView')), 'ListView')
 const Ripple = r => require.ensure([], () => r(require('demos/Ripple')), 'Ripple')
 const Search = r => require.ensure([], () => r(require('demos/Search')), 'Search')
-const Header = r => require.ensure([], () => r(require('demos/Header')), 'Header')
+const Nav = r => require.ensure([], () => r(require('demos/Nav')), 'Nav')
 const Divider = r => require.ensure([], () => r(require('demos/Divider')), 'Divider')
 const Swiper = r => require.ensure([], () => r(require('demos/Swiper')), 'Swiper')
 const Preview = r => require.ensure([], () => r(require('demos/Preview')), 'Preview')
@@ -186,9 +186,9 @@ export default [
         component: Img
       },
       {
-        path: '/demos/flow',
-        name: 'flow',
-        component: Flow
+        path: '/demos/listview',
+        name: 'ListView',
+        component: ListView
       },
       {
         path: '/demos/ripple',
@@ -201,9 +201,9 @@ export default [
         component: Search
       },
       {
-        path: '/demos/header',
+        path: '/demos/nav',
         name: 'header',
-        component: Header
+        component: Nav
       },
       {
         path: '/demos/divider',

@@ -20,10 +20,10 @@ import TabButton from './TabButton'
 import Popup from './Popup'
 import Toast from './Toast'
 import Img from './Img'
-import Flow from './Flow'
+import ListView from './ListView'
 import Ripple from './Ripple'
 import Search from './Search'
-import Header from './Header'
+import Nav from './Nav'
 import Divider from './Divider'
 import Swiper from './Swiper'
 import Swipeout from './Swipeout'
@@ -60,11 +60,11 @@ export {
   Popup,
   Toast,
   Img,
-  Flow,
+  ListView,
   Flexbox,
   Ripple,
   Search,
-  Header,
+  Nav,
   Divider,
   Tabbar,
   Sidebar,

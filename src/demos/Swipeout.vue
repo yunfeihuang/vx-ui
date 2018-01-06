@@ -3,8 +3,8 @@
     <x-nav slot="header">
       <div slot="title">Swipeout</div>
     </x-nav>
-    <x-body slot="body" :scroll="false" class="demos flow-demos">
-      <flow :loading="loading" :end="end">
+    <x-body slot="body" :scroll="false" class="demos list-view-demos">
+      <list-view :loading="loading" :end="end">
         <template v-for="(item,index) in list">
           <swipeout :open="index===1" @on-close="closeSwipeoutHandler" @on-open="openSwipeoutHandler">
             <flexbox align="center" class="flow-item">
@@ -21,7 +21,7 @@
             <button @click="actionHandler" class="swipeout-button" slot="action" type="button">删除</button>
           </swipeout>
         </template>
-      </flow>
+      </list-view>
     </x-body>
   </layout>
 </template>
@@ -31,7 +31,7 @@ import {
   Layout,
   XNav,
   XBody,
-  Flow,
+  ListView,
   Divider,
   Swipeout,
   XImg,
@@ -47,7 +47,7 @@ export default {
     Layout,
     XNav,
     XBody,
-    Flow,
+    ListView,
     Divider,
     Swipeout,
     XImg,
@@ -98,13 +98,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .flow-demos .v-flow{
+  .list-view-demos .v-flow{
     height:100%;
     background:#fff;
     position: absolute;
     width: 100%;
   }
-  .flow-demos{
+  .list-view-demos{
     .avator{
       width:40px;
       height:40px;

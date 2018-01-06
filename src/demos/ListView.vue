@@ -1,10 +1,10 @@
 <template>
   <layout>
     <x-nav slot="header">
-      <div slot="title">Flow (pulldown and pullup)</div>
+      <div slot="title">ListView (pulldown and pullup)</div>
     </x-nav>
-    <x-body slot="body" :scroll="false" class="demos flow-demos">
-      <flow @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
+    <x-body slot="body" :scroll="false" class="demos list-view-demos">
+      <list-view @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
         <template v-for="item in list">
           <flexbox align="center" class="flow-item">
             <x-img class="avator" :src="item.author.avatar_url" />
@@ -17,7 +17,7 @@
           </flexbox>
           <divider></divider>
         </template>
-      </flow>
+      </list-view>
     </x-body>
   </layout>
 </template>
@@ -27,7 +27,7 @@ import {
   Layout,
   XNav,
   XBody,
-  Flow,
+  ListView,
   Divider,
   Swipeout,
   XImg,
@@ -43,7 +43,7 @@ export default {
     Layout,
     XNav,
     XBody,
-    Flow,
+    ListView,
     Divider,
     Swipeout,
     XImg,
@@ -91,13 +91,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .flow-demos .v-flow{
+  .list-view-demos .v-flow{
     height:100%;
     background:#fff;
     position: absolute;
     width: 100%;
   }
-  .flow-demos{
+  .list-view-demos{
     .avator{
       width:50px;
       height:50px;

@@ -31,7 +31,7 @@ import Popup from './popup'
 import PopupPicker from './popup-picker'
 import Toast from './toast'
 import XImg from './img'
-import Flow from './flow'
+import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
 import Layout from './layout'
@@ -94,7 +94,7 @@ let components = [
   PopupPicker,
   Toast,
   XImg,
-  Flow,
+  ListView,
   Ripple,
   Search,
   Layout,
@@ -362,7 +362,7 @@ export {
   PopupPicker,
   Toast,
   XImg,
-  Flow,
+  ListView,
   Ripple,
   Search,
   Layout,
