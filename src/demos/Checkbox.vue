@@ -19,6 +19,12 @@
         value：{{reverseValue}}
         </div>
       </group>
+      <group title="CheckboxGroup最多选2个">
+        <checkbox-group direction="reverse" :checked-max-item="2" :options="options" @on-change="changeReverseHandler" :value="reverseValue"/>
+        <div style="padding:15px 10px;">
+        value：{{reverseValue}}
+        </div>
+      </group>
     </x-body>
   </layout>
 </template>

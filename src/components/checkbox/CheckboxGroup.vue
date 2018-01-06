@@ -2,6 +2,7 @@
   <div :class="classes" :disabled="disabled">
     <template v-for="item in options">
       <checkbox 
+        :type="checkedMaxItem === 1 ? 'radio' : 'checkbox'"
         :name="name"
         :disabled="item.disabled"
         :value="item.value"
@@ -44,6 +45,10 @@ export default {
     direction: {
       type: String,
       default: 'normal'
+    },
+    checkedMaxItem: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
@@ -56,14 +61,24 @@ export default {
   },
   methods: {
     changeHandler (e) {
-      let value = Object.assign([], this.value)
-      if (e.target.checked) {
-        value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+      if (this.checkedMaxItem === 1) {
+        this.$emit('on-change', e.target.value).$emit('input', e.target.value)
+        this.updateLabel(e.target.value)
       } else {
-        value.splice(value.indexOf(e.target.value), 1)
+        if (e.target.checked && this.checkedMaxItem !== 0 && this.value.length === this.checkedMaxItem) {
+          e.target.checked = false
+          window.$toast({content: `选择项不得超过${this.checkedMaxItem}个`})
+        } else {
+          let value = Object.assign([], this.value)
+          if (e.target.checked) {
+            value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+          } else {
+            value.splice(value.indexOf(e.target.value), 1)
+          }
+          this.$emit('on-change', value).$emit('input', value)
+          this.updateLabel(value)
+        }
       }
-      this.$emit('on-change', value).$emit('input', value)
-      this.updateLabel(value)
     },
     updateLabel (value) {
       let label = []

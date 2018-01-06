@@ -1,6 +1,6 @@
 <template>
   <label :class="classes" :disabled="disabled" >
-    <input type="checkbox" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
+    <input :type="type" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <icon :class="[$cssPrefix + 'checkbox-icon']">&#xe632;</icon>
     <slot></slot>
   </label>
@@ -24,6 +24,10 @@ export default {
     direction: {
       type: String,
       default: 'normal'
+    },
+    type: {
+      type: String,
+      default: 'checkbox'
     }
   },
   methods: {
