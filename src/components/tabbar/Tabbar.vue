@@ -21,7 +21,7 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return [$cssPrefix + 'flexbox', this.$cssPrefix + 'tabbar']
+      return [this.$cssPrefix + 'flexbox', this.$cssPrefix + 'tabbar']
     }
   },
   data () {
