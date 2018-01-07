@@ -16,14 +16,12 @@
 import {
   Layout,
   XNav,
-  XBody,
   Icon
 } from 'components'
 export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Icon
   },
   data () {

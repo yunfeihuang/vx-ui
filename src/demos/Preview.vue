@@ -19,7 +19,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Preview,
   Sticky,
   XImg
@@ -31,7 +30,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Preview,
     Sticky,
     XImg

@@ -26,7 +26,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Swiper,
   SwiperItem,
   XImg
@@ -35,7 +34,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Swiper,
     SwiperItem,
     XImg

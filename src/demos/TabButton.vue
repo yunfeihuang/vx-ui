@@ -26,7 +26,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   ButtonTab,
   ButtonTabItem
 } from 'components'
@@ -34,7 +33,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     ButtonTab,
     ButtonTabItem
   },

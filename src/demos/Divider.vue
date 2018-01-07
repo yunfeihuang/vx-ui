@@ -17,7 +17,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Group,
   Divider
 } from 'components'
@@ -25,7 +24,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Group,
     Divider
   },

@@ -13,7 +13,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Spinner
 } from 'components'
 
@@ -21,7 +20,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Spinner
   }
 }

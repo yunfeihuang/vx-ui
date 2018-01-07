@@ -30,7 +30,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Picker,
   Group,
   Flexbox,
@@ -47,7 +46,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Picker,
     Group,
     Flexbox,

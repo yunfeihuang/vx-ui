@@ -30,7 +30,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Badge,
   Group,
   Cell
@@ -39,7 +38,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Badge,
     Group,
     Cell

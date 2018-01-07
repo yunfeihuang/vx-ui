@@ -19,14 +19,12 @@
 import {
   Layout,
   XNav,
-  XBody,
   XButton
 } from 'components'
 export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XButton
   },
   data () {

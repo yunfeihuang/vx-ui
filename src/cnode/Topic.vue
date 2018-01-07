@@ -21,9 +21,9 @@
         <div class="topic-comments">
           <divider></divider>
           <base-item v-if="topic.replies" v-for="item in topic.replies" :key="item.id">
-            <x-link slot="img" :href="item.user_href">
+            <router-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url" />
-            </x-link>
+            </router-link>
             <div slot="content">
               <div v-html="item.content"></div>
               <div class="weak">
@@ -43,10 +43,8 @@ import { mapGetters } from 'vuex'
 import {
   Layout,
   XNav,
-  XBody,
   XImg,
-  Divider,
-  XLink
+  Divider
 } from 'components'
 
 import {BaseItem, TopicType} from './components/index'
@@ -55,11 +53,9 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XImg,
     Divider,
     BaseItem,
-    XLink,
     TopicType
   },
   computed: {

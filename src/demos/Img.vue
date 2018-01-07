@@ -33,7 +33,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   XImg,
   Preview
 } from 'components'
@@ -44,7 +43,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XImg,
     Preview
   },

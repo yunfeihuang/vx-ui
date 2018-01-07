@@ -6,49 +6,49 @@
       </x-nav>
       <x-body class="demos" slot="body" style="background:#fff">
         <flexbox wrap="wrap" class="demos-actions">
-          <x-link href="/demos/button">XButton</x-link>
-          <x-link href="/demos/input">XInput</x-link>
-          <x-link href="/demos/input">Password</x-link>
-          <x-link href="/demos/textarea">XTextarea</x-link>
-          <x-link href="/demos/select">XSelect</x-link>
-          <x-link href="/demos/switch">XSwitch</x-link>
-          <x-link href="/demos/radio">Radio</x-link>
-          <x-link href="/demos/checkbox">Checkbox</x-link>
-          <x-link href="/demos/checker">Checker</x-link>
-          <x-link href="/demos/range">Range</x-link>
-          <x-link href="/demos/datetime">Datetime</x-link>
-          <x-link href="/demos/daterange">Daterange</x-link>
-          <x-link href="/demos/search">Search</x-link>
-          <x-link href="/demos/form">Form</x-link>
-          <x-link href="/demos/actionsheet">Actionsheet</x-link>
-          <x-link href="/demos/alert">Alert</x-link>
-          <x-link href="/demos/confirm">Confirm</x-link>
-          <x-link href="/demos/prompt">Prompt</x-link>
-          <x-link href="/demos/tab">Tab</x-link>
-          <x-link href="/demos/tabbutton">TabButton</x-link>
-          <x-link href="/demos/tabbar">Tabbar</x-link>
-          <x-link href="/demos/sidebar">Sidebar</x-link>
-          <x-link href="/demos/popup">Popup</x-link>
-          <x-link href="/demos/toast">Toast</x-link>
-          <x-link href="/demos/listview">ListView</x-link>
-          <x-link href="/demos/ripple">Ripple</x-link>
-          <x-link href="/demos/img">XImg</x-link>
-          <x-link href="/demos/nav">XNav</x-link>
-          <x-link href="/demos/divider">Divider</x-link>
-          <x-link href="/demos/swiper">Swiper</x-link>
-          <x-link href="/demos/swipeout">Swipeout</x-link>
-          <x-link href="/demos/preview">Preview</x-link>
-          <x-link href="/demos/picker">Picker</x-link>
-          <x-link href="/demos/popuppicker">PopupPicker</x-link>
+          <router-link to="/demos/button">XButton</router-link>
+          <router-link to="/demos/input">XInput</router-link>
+          <router-link to="/demos/input">Password</router-link>
+          <router-link to="/demos/textarea">XTextarea</router-link>
+          <router-link to="/demos/select">XSelect</router-link>
+          <router-link to="/demos/switch">XSwitch</router-link>
+          <router-link to="/demos/radio">Radio</router-link>
+          <router-link to="/demos/checkbox">Checkbox</router-link>
+          <router-link to="/demos/checker">Checker</router-link>
+          <router-link to="/demos/range">Range</router-link>
+          <router-link to="/demos/datetime">Datetime</router-link>
+          <router-link to="/demos/daterange">Daterange</router-link>
+          <router-link to="/demos/search">Search</router-link>
+          <router-link to="/demos/form">Form</router-link>
+          <router-link to="/demos/actionsheet">Actionsheet</router-link>
+          <router-link to="/demos/alert">Alert</router-link>
+          <router-link to="/demos/confirm">Confirm</router-link>
+          <router-link to="/demos/prompt">Prompt</router-link>
+          <router-link to="/demos/tab">Tab</router-link>
+          <router-link to="/demos/tabbutton">TabButton</router-link>
+          <router-link to="/demos/tabbar">Tabbar</router-link>
+          <router-link to="/demos/sidebar">Sidebar</router-link>
+          <router-link to="/demos/popup">Popup</router-link>
+          <router-link to="/demos/toast">Toast</router-link>
+          <router-link to="/demos/listview">ListView</router-link>
+          <router-link to="/demos/ripple">Ripple</router-link>
+          <router-link to="/demos/img">XImg</router-link>
+          <router-link to="/demos/nav">XNav</router-link>
+          <router-link to="/demos/divider">Divider</router-link>
+          <router-link to="/demos/swiper">Swiper</router-link>
+          <router-link to="/demos/swipeout">Swipeout</router-link>
+          <router-link to="/demos/preview">Preview</router-link>
+          <router-link to="/demos/picker">Picker</router-link>
+          <router-link to="/demos/popuppicker">PopupPicker</router-link>
           <!--
-          <x-link href="/demos/datetimepicker">DatetimePicker</x-link>
+          <router-link to="/demos/datetimepicker">DatetimePicker</router-link>
           -->
-          <x-link href="/demos/spinner">Spinner</x-link>
-          <x-link href="/demos/flexbox">Flexbox</x-link>
-          <x-link href="/demos/badge">Badge</x-link>
-          <x-link href="/demos/rater">Rater</x-link>
-          <x-link href="/demos/marquee">Marquee</x-link>
-          <x-link href="/demos/popover">Popover</x-link>
+          <router-link to="/demos/spinner">Spinner</router-link>
+          <router-link to="/demos/flexbox">Flexbox</router-link>
+          <router-link to="/demos/badge">Badge</router-link>
+          <router-link to="/demos/rater">Rater</router-link>
+          <router-link to="/demos/marquee">Marquee</router-link>
+          <router-link to="/demos/popover">Popover</router-link>
         </flexbox>
       </x-body>
     </layout>
@@ -60,11 +60,9 @@
 import {
   Layout,
   XNav,
-  XBody,
   Group,
   Divider,
   Cell,
-  XLink,
   Flexbox,
   FlexboxItem
 } from 'components'
@@ -73,11 +71,9 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Group,
     Divider,
     Cell,
-    XLink,
     Flexbox,
     FlexboxItem
   },

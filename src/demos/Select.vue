@@ -35,7 +35,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Group,
   Cell,
   XSelect
@@ -44,7 +43,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Group,
     Cell,
     XSelect

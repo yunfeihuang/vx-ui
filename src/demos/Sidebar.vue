@@ -34,7 +34,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Sidebar,
   SidebarItem
 } from 'components'
@@ -42,7 +41,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Sidebar,
     SidebarItem
   },

@@ -64,7 +64,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   XButton,
   Popover,
   Divider,
@@ -76,7 +75,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XButton,
     Popover,
     Divider,

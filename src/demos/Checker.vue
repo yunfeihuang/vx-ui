@@ -33,7 +33,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Checker,
   Group
 } from 'components'
@@ -41,7 +40,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Checker,
     Group
   },

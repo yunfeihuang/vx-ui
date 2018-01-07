@@ -10,11 +10,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~styles/variable.scss';
+@import '~styles/mixins.scss';
 #app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #555;
+}
+
+a{
+  color:$primary-color;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: default;
+  &.router-link-active{
+    @include active;
+  }
 }
 </style>

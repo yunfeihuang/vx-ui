@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Swiper from 'swiper/dist/js/swiper.min.js'
-import 'swiper/dist/css/swiper.min.css'
+// import Swiper from 'swiper/dist/js/swiper.min.js'
+// import 'swiper/dist/css/swiper.min.css'
 export default {
   name: 'Swiper',
   props: {
@@ -46,6 +46,9 @@ export default {
     }
   },
   mounted () {
+    let Swiper = require('swiper/dist/js/swiper.min.js')
+    console.log(Swiper)
+    require('swiper/dist/css/swiper.min.css') // eslint-disable-line
     let options = Object.assign({
       initialSlide: this.active,
       onSlideChangeStart: (swiper) => {

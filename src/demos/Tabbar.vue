@@ -43,7 +43,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Tabbar,
   TabbarItem,
   Swiper,
@@ -54,7 +53,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Tabbar,
     TabbarItem,
     Swiper,

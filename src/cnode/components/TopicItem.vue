@@ -1,22 +1,21 @@
 <template>
   <base-item class="topic-item">
-    <x-link slot="img" :href="item.user_href">
+    <router-link slot="img" :href="item.user_href">
       <x-img :src="item.author.avatar_url"/>
-    </x-link>
-    <x-link slot="content" :href="item.href" :active="false">
+    </router-link>
+    <router-link slot="content" :href="item.href" :active="false">
       <h4><topic-type :type="type"/>{{item.title}}</h4>
       <div class="weak">
       {{item.reply_count}}/{{item.visit_count}}
       {{new Date().toLocaleString()}}
       </div>
-    </x-link>
+    </router-link>
   </base-item>
 </template>
 
 <script>
 import {
-  XImg,
-  XLink
+  XImg
 } from 'components'
 
 import BaseItem from './BaseItem'
@@ -25,7 +24,6 @@ import TopicType from './TopicType'
 export default {
   components: {
     XImg,
-    XLink,
     BaseItem,
     TopicType
   },

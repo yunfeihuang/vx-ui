@@ -29,7 +29,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Range,
   Cell,
   Divider,
@@ -39,7 +38,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Range,
     Cell,
     Divider,

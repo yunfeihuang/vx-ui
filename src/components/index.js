@@ -36,8 +36,6 @@ import Ripple from './ripple'
 import Search from './search'
 import Layout from './layout'
 import XNav from './nav'
-import XBody from './body'
-import XLink from './link'
 import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
@@ -108,8 +106,6 @@ let components = [
   Search,
   Layout,
   XNav,
-  XBody,
-  XLink,
   Preview,
   Spinner,
   Picker,
@@ -393,8 +389,6 @@ export {
   Search,
   Layout,
   XNav,
-  XBody,
-  XLink,
   Preview,
   Spinner,
   Picker,

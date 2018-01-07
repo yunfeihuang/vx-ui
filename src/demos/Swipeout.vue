@@ -30,7 +30,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   ListView,
   Divider,
   Swipeout,
@@ -46,7 +45,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     ListView,
     Divider,
     Swipeout,

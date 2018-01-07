@@ -59,7 +59,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Flexbox,
   FlexboxItem
 } from 'components'
@@ -68,7 +67,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Flexbox,
     FlexboxItem
   }

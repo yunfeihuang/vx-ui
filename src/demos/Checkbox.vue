@@ -33,7 +33,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Checkbox,
   CheckboxGroup,
   Group
@@ -42,7 +41,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Checkbox,
     CheckboxGroup,
     Group

@@ -20,7 +20,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   XForm,
   FormItem,
   XInput,
@@ -34,7 +33,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XForm,
     FormItem,
     XInput,

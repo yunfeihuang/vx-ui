@@ -15,24 +15,24 @@
         <div class="user-comments">
           <divider></divider>
           <base-item v-for="item in user.recent_topics" :key="item.id+'topics'">
-            <x-link slot="img" :href="item.user_href">
+            <router-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url"/>
-            </x-link>
-            <x-link slot="content" :href="item.href">
+            </router-link>
+            <router-link slot="content" :href="item.href">
               <h4>{{item.title}}</h4>
               <div class="weak">
               {{item.last_reply_at}}
               </div>
-            </x-link>
+            </router-link>
           </base-item>
         </div>
         <div class="user-title">最近参与的话题</div>
         <div class="user-comments">
           <divider></divider>
           <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
-            <x-link slot="img" :href="item.user_href">
+            <router-link slot="img" :href="item.user_href">
               <x-img :src="item.author.avatar_url"/>
-            </x-link>
+            </router-link>
             <div slot="content">
               <h4>{{item.title}}</h4>
               <div class="weak">
@@ -52,9 +52,7 @@ import { mapGetters } from 'vuex'
 import {
   Layout,
   XNav,
-  XBody,
   XImg,
-  XLink,
   Divider
 } from 'components'
 
@@ -64,9 +62,7 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XImg,
-    XLink,
     Divider,
     BaseItem
   },

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {FlexboxItem} from '../flexbox'
+import {FlexboxItem} from 'src/components/flexbox'
 export default {
   name: 'XBody',
   components: {

@@ -20,7 +20,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Marquee,
   MarqueeItem
 } from 'components'
@@ -28,7 +27,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Marquee,
     MarqueeItem
   },

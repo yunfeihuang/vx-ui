@@ -36,7 +36,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Group,
   Cell,
   XSwitch,
@@ -53,7 +52,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Group,
     Cell,
     XSwitch,

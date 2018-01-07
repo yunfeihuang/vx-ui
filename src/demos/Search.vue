@@ -37,15 +37,13 @@
 import {
   Search,
   Layout,
-  XNav,
-  XBody
+  XNav
 } from 'components'
 export default {
   components: {
     Search,
     Layout,
-    XNav,
-    XBody
+    XNav
   },
   methods: {
     inputHandler (value) {

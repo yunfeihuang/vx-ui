@@ -25,7 +25,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   XForm,
   FormItem,
   XButton,
@@ -36,7 +35,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XForm,
     FormItem,
     XButton,

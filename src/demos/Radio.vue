@@ -23,7 +23,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Radio,
   RadioGroup,
   Group,
@@ -33,7 +32,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Radio,
     RadioGroup,
     Group,

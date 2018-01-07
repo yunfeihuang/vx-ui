@@ -45,7 +45,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Group,
   Cell,
   Ripple,
@@ -58,7 +57,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Group,
     Cell,
     Ripple,

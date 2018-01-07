@@ -44,7 +44,6 @@
 import {
   Layout,
   XNav,
-  XBody,
   Toast,
   XSwitch,
   Group,
@@ -54,7 +53,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     Toast,
     XSwitch,
     Group,

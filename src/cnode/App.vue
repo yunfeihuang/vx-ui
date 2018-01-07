@@ -39,7 +39,6 @@ const tabs = ['all', 'good', 'share', 'ask', 'job']
 import {
   Layout,
   XNav,
-  XBody,
   XImg,
   ListView,
   Tab,
@@ -56,7 +55,6 @@ export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XImg,
     ListView,
     Tab,

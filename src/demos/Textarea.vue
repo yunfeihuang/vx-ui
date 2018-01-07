@@ -21,14 +21,12 @@
 import {
   Layout,
   XNav,
-  XBody,
   XTextarea
 } from 'components'
 export default {
   components: {
     Layout,
     XNav,
-    XBody,
     XTextarea
   },
   methods: {
