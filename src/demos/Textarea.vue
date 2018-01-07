@@ -18,17 +18,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  XTextarea
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    XTextarea
-  },
   methods: {
     changeHandler (value) {
       this.content = value

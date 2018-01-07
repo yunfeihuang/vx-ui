@@ -49,23 +49,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Tab,
-  TabItem,
-  Swiper,
-  SwiperItem
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Tab,
-    TabItem,
-    Swiper,
-    SwiperItem
-  },
   methods: {
     changeHandler (value) {
       this.active = value

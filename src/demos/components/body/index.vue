@@ -5,12 +5,8 @@
 </template>
 
 <script>
-import {FlexboxItem} from 'src/components/flexbox'
 export default {
   name: 'XBody',
-  components: {
-    FlexboxItem
-  },
   computed: {
     classes () {
       return [this.$cssPrefix + 'body', this.scroll ? 'scrollbox' : '']

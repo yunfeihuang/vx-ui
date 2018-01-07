@@ -31,25 +31,8 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  Actionsheet,
-  ActionsheetItem
-} from 'components'
+
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    Actionsheet,
-    ActionsheetItem
-  },
   methods: {
     changeHandler (value) {
       this.checked = !this.checked

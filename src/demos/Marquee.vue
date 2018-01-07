@@ -4,32 +4,20 @@
       <div slot="title">Marquee</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <marquee>
-        <marquee-item>
+      <x-marquee>
+        <x-marquee-item>
           天猫双十一优惠！
-        </marquee-item>
-        <marquee-item>
+        </x-marquee-item>
+        <x-marquee-item>
           京东618优惠！
-        </marquee-item>
-      </marquee>
+        </x-marquee-item>
+      </x-marquee>
     </x-body>
   </layout>
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Marquee,
-  MarqueeItem
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Marquee,
-    MarqueeItem
-  },
   methods: {
     changeHandler (value) {
       this.active = value

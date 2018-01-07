@@ -28,29 +28,12 @@
 
 <script>
 import {
-  Layout,
-  XNav,
-  Picker,
-  Group,
-  Flexbox,
-  FlexboxItem
-} from 'components'
-
-import {
   provinces,
   citys,
   areas
 } from './address'
 
 export default {
-  components: {
-    Layout,
-    XNav,
-    Picker,
-    Group,
-    Flexbox,
-    FlexboxItem
-  },
   methods: {
     changePickerHandler (value) {
       console.log(value)

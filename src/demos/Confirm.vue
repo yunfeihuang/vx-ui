@@ -16,23 +16,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  Confirm
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    Confirm
-  },
   methods: {
     changeHandler (value) {
       this.checked = !this.checked

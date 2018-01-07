@@ -4,90 +4,87 @@
       <div slot="title">Flexbox</div>
     </x-nav>
     <x-body slot="body" class="flexbox-demos">
-      <flexbox>
+      <flexbox :gutter="10">
         <flexbox-item>
-          1
+          <div class="flexbox-item">1</div>
         </flexbox-item>
         <flexbox-item>
-          2
+          <div class="flexbox-item">2</div>
         </flexbox-item>
         <flexbox-item>
-          3
+          <div class="flexbox-item">3</div>
         </flexbox-item>
       </flexbox>
-      <flexbox>
+
+      ### 跨度
+      <flexbox :gutter="10">
         <flexbox-item>
-          1
+          <div class="flexbox-item">1</div>
         </flexbox-item>
-        <flexbox-item :span="2">
-          2
+        <flexbox-item :flex="2">
+          <div class="flexbox-item">2</div>
         </flexbox-item>
-        <flexbox-item :span="3">
-          3
+        <flexbox-item :flex="3">
+          <div class="flexbox-item">3</div>
         </flexbox-item>
       </flexbox>
+
+      ### 列布局
       <flexbox direction="column">
         <flexbox-item>
-          1
+          <div class="flexbox-item">1</div>
+        </flexbox-item>
+        <flexbox-item style="margin:10px 0">
+          <div class="flexbox-item">2</div>
         </flexbox-item>
         <flexbox-item>
-          2
-        </flexbox-item>
-        <flexbox-item>
-          3
+          <div class="flexbox-item">2</div>
         </flexbox-item>
       </flexbox>
-      <flexbox wrap="wrap" align="center" justify="center">
-        <div class="wrap-item">1</div>
-        <div class="wrap-item">2</div>
-        <div class="wrap-item">3</div>
-        <div class="wrap-item">4</div>
-        <div class="wrap-item">5</div>
-        <div class="wrap-item">6</div>
-        <div class="wrap-item">7</div>
-        <div class="wrap-item">8</div>
-        <div class="wrap-item">9</div>
-        <div class="wrap-item">10</div>
-        <div class="wrap-item">11</div>
-        <div class="wrap-item">12</div>
+
+      ### 项目换行
+      <flexbox :gutter="10" wrap="wrap" class="flex-wrap">
+        <flexbox-item width="25%">
+          <div class="flexbox-item">1</div>
+        </flexbox-item>
+        <flexbox-item width="25%">
+          <div class="flexbox-item">2</div>
+        </flexbox-item>
+        <flexbox-item width="25%">
+          <div class="flexbox-item">3</div>
+        </flexbox-item>
+        <flexbox-item width="25%">
+          <div class="flexbox-item">4</div>
+        </flexbox-item>
+        <flexbox-item width="25%">
+          <div class="flexbox-item">5</div>
+        </flexbox-item>
+        <flexbox-item width="25%">
+          <div class="flexbox-item">6</div>
+        </flexbox-item>
       </flexbox>
     </x-body>
   </layout>
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Flexbox,
-  FlexboxItem
-} from 'components'
 
-export default {
-  components: {
-    Layout,
-    XNav,
-    Flexbox,
-    FlexboxItem
-  }
-}
+export default {}
 </script>
 
 <style lang="scss">
   .flexbox-demos{
-    .flexbox{
-      margin:15px 0;
-    }
-    .flexbox-item,.wrap-item{
+    padding:10px;
+    overflow:hidden;
+    .flexbox-item{
       background:#3399ff;
       border-radius:6px;
       text-align:center;
       color:#fff;
       line-height:30px;
-      margin:3px;
     }
-    .wrap-item{
-      width:100px;
+    .flex-wrap .flexbox-item{
+      margin:5px 0;
     }
   }
 </style>

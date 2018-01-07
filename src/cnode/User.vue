@@ -15,10 +15,10 @@
         <div class="user-comments">
           <divider></divider>
           <base-item v-for="item in user.recent_topics" :key="item.id+'topics'">
-            <router-link slot="img" :href="item.user_href">
+            <router-link slot="img" :to="item.user_href">
               <x-img :src="item.author.avatar_url"/>
             </router-link>
-            <router-link slot="content" :href="item.href">
+            <router-link slot="content" :to="item.href">
               <h4>{{item.title}}</h4>
               <div class="weak">
               {{item.last_reply_at}}
@@ -30,7 +30,7 @@
         <div class="user-comments">
           <divider></divider>
           <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
-            <router-link slot="img" :href="item.user_href">
+            <router-link slot="img" :to="item.user_href">
               <x-img :src="item.author.avatar_url"/>
             </router-link>
             <div slot="content">
@@ -49,21 +49,10 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import {
-  Layout,
-  XNav,
-  XImg,
-  Divider
-} from 'components'
-
 import BaseItem from './components/BaseItem'
 
 export default {
   components: {
-    Layout,
-    XNav,
-    XImg,
-    Divider,
     BaseItem
   },
   computed: {

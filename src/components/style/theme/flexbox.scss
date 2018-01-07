@@ -8,6 +8,9 @@
     display: -webkit-flex;
     display: -moz-flex;
     display: flex;
+    &-wrapper{
+      overflow:hidden;
+    }
     &-content{
       &-center{
         -ms-flex-align: center;

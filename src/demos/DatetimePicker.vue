@@ -44,30 +44,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  Popup,
-  Picker,
-  PopupPicker,
-  DatetimePicker
-} from 'components'
-
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    Popup,
-    Picker,
-    PopupPicker,
-    DatetimePicker
-  },
   methods: {
     changeHandler1 () {
       this.pickerOpen1 = !this.pickerOpen1

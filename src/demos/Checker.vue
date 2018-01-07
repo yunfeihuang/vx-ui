@@ -30,19 +30,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Checker,
-  Group
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Checker,
-    Group
-  },
   methods: {
     changeCheckboxHandler (value) {
       this.checkboxValue = value

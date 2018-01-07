@@ -41,23 +41,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Toast,
-  XSwitch,
-  Group,
-  Cell
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Toast,
-    XSwitch,
-    Group,
-    Cell
-  },
   methods: {
     changeTHandler () {
       this.topOpen = !this.topOpen

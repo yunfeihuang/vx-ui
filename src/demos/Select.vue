@@ -32,21 +32,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSelect
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSelect
-  },
   methods: {
     changeHandler (value) {
       this.value = value

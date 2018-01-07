@@ -13,17 +13,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Icon
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Icon
-  },
   data () {
     return {}
   }

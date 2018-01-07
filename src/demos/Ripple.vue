@@ -42,29 +42,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  Ripple,
-  Tabbar,
-  TabbarItem,
-  Divider,
-  Icon
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    Ripple,
-    Tabbar,
-    TabbarItem,
-    Divider,
-    Icon
-  },
   methods: {
     clickHandler (e) {
       console.log(e)

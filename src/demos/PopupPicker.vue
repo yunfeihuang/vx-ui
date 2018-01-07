@@ -34,29 +34,12 @@
 
 <script>
 import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  PopupPicker
-} from 'components'
-
-import {
   provinces,
   citys,
   areas
 } from './address'
 
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    PopupPicker
-  },
   methods: {
     changePickerOpenHandler (value) {
       this.pickerChecked = !this.pickerChecked

@@ -20,23 +20,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Radio,
-  RadioGroup,
-  Group,
-  Divider
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Radio,
-    RadioGroup,
-    Group,
-    Divider
-  },
   methods: {
     changeHandler (value) {
       this.value = value

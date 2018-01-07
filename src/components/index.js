@@ -34,7 +34,6 @@ import XImg from './img'
 import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
-import Layout from './layout'
 import XNav from './nav'
 import Preview from './preview'
 import Spinner from './spinner'
@@ -104,7 +103,6 @@ let components = [
   ListView,
   Ripple,
   Search,
-  Layout,
   XNav,
   Preview,
   Spinner,
@@ -379,7 +377,6 @@ export {
   ListView,
   Ripple,
   Search,
-  Layout,
   XNav,
   Preview,
   Spinner,

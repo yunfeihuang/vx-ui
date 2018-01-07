@@ -23,7 +23,7 @@
 <script>
 import { input } from 'utils/mixins.js'
 export default {
-  name: 'Textarea',
+  name: 'XTextarea',
   mixins: [input],
   computed: {
     classes () {

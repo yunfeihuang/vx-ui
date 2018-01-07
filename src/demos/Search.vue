@@ -34,17 +34,7 @@
 </template>
 
 <script>
-import {
-  Search,
-  Layout,
-  XNav
-} from 'components'
 export default {
-  components: {
-    Search,
-    Layout,
-    XNav
-  },
   methods: {
     inputHandler (value) {
       this.value = value

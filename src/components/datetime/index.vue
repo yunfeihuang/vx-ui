@@ -16,7 +16,7 @@
     @keydown="keydownHandler" 
     @change="changeHandler"
     @input="inputHandler"
-    @click.native="clickHandler"
+    @click="clickHandler"
     />
 </template>
 
@@ -25,7 +25,7 @@ import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DatetimePicker from '../datetime-picker'
 export default {
-  name: 'DateTime',
+  name: 'Datetime',
   mixins: [input],
   props: {
     format: {

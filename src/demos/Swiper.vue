@@ -23,21 +23,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Swiper,
-  SwiperItem,
-  XImg
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Swiper,
-    SwiperItem,
-    XImg
-  },
   methods: {
     changeHandler (value) {
       this.active = value

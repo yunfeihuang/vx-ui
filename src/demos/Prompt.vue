@@ -39,23 +39,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  Prompt
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    Prompt
-  },
   methods: {
     changeHandler1 (value) {
       this.checked1 = !this.checked1

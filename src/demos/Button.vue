@@ -16,17 +16,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  XButton
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    XButton
-  },
   data () {
     return {
       account: '',

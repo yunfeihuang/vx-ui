@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Marguee',
+  name: 'XMarquee',
   props: {
     active: {
       type: Number,

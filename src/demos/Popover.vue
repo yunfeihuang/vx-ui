@@ -61,27 +61,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  XButton,
-  Popover,
-  Divider,
-  Flexbox,
-  FlexboxItem,
-  Icon
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    XButton,
-    Popover,
-    Divider,
-    Flexbox,
-    FlexboxItem,
-    Icon
-  },
   methods: {
     clickHandler (e) {
       console.log(e)

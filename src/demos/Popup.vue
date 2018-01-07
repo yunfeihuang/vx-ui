@@ -95,24 +95,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  XSwitch,
-  Popup
-} from 'components'
-
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    XSwitch,
-    Popup
-  },
   methods: {
     changeHandler () {
       this.checked = !this.checked

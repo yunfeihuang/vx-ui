@@ -31,23 +31,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Cell,
-  Range,
-  Rater
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Cell,
-    Range,
-    Rater
-  },
   methods: {
     changeHandler (value) {
       console.log(value)

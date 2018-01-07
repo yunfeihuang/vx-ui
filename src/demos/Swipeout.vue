@@ -27,31 +27,11 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  ListView,
-  Divider,
-  Swipeout,
-  XImg,
-  Flexbox,
-  FlexboxItem
-} from 'components'
 
 import api from '../api'
 
 let lastPage = 1
 export default {
-  components: {
-    Layout,
-    XNav,
-    ListView,
-    Divider,
-    Swipeout,
-    XImg,
-    Flexbox,
-    FlexboxItem
-  },
   mounted () {
     this.fetch()
   },

@@ -10,12 +10,8 @@
 </template>
 
 <script>
-import {Flexbox} from '../flexbox'
 export default {
   name: 'Layout',
-  components: {
-    Flexbox
-  },
   computed: {
     classes () {
       return [this.$cssPrefix + 'layout']

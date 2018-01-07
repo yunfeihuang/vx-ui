@@ -31,19 +31,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Sidebar,
-  SidebarItem
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Sidebar,
-    SidebarItem
-  },
   methods: {
     changeHandler (value) {
       this.active = value

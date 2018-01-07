@@ -16,24 +16,9 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Preview,
-  Sticky,
-  XImg
-} from 'components'
-
 let windowWidth = window.innerWidth
 
 export default {
-  components: {
-    Layout,
-    XNav,
-    Preview,
-    Sticky,
-    XImg
-  },
   data () {
     return {
       images: [{}, {}, {}]

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'MargueeItem',
+  name: 'XMarqueeItem',
   computed: {
     classes () {
       return [this.$cssPrefix + 'marquee-item', 'swiper-slide']

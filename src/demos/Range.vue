@@ -26,23 +26,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Range,
-  Cell,
-  Divider,
-  Group
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Range,
-    Cell,
-    Divider,
-    Group
-  },
   data () {
     return {
       value1: 0,

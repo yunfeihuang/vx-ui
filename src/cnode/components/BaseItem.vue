@@ -13,29 +13,17 @@
 </template>
 
 <script>
-import {
-  Divider,
-  Flexbox,
-  FlexboxItem
-} from 'components'
 
-export default {
-  components: {
-    Divider,
-    Flexbox,
-    FlexboxItem
-  }
-}
 </script>
 
 <style lang="scss">
   .base-item{
     overflow:hidden;
-    .flexbox{
+    .v-flexbox{
       padding:5px;
       color: inherit;
     }
-    .flexbox-item{
+    .v-flexbox-item{
       overflow: hidden;
     }
     h4{

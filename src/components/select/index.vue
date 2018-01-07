@@ -22,7 +22,7 @@ import {Actionsheet, ActionsheetItem} from '../actionsheet'
 import { input } from 'utils/mixins.js'
 
 export default {
-  name: 'Select',
+  name: 'XSelect',
   mixins: [input],
   props: {
     options: {

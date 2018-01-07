@@ -10,19 +10,8 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Spinner
-} from 'components'
 
-export default {
-  components: {
-    Layout,
-    XNav,
-    Spinner
-  }
-}
+export default {}
 </script>
 
 <style lang="scss">

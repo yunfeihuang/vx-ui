@@ -40,25 +40,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Tabbar,
-  TabbarItem,
-  Swiper,
-  SwiperItem,
-  Icon
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Tabbar,
-    TabbarItem,
-    Swiper,
-    SwiperItem,
-    Icon
-  },
   methods: {
     changeHandler (value) {
       this.active = value

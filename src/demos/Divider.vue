@@ -14,19 +14,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Divider
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Divider
-  },
   methods: {
     changeHandler (value) {
       this.value = value

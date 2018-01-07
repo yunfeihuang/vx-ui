@@ -57,26 +57,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Group,
-  Divider,
-  Cell,
-  Flexbox,
-  FlexboxItem
-} from 'components'
-
 export default {
-  components: {
-    Layout,
-    XNav,
-    Group,
-    Divider,
-    Cell,
-    Flexbox,
-    FlexboxItem
-  },
   mounted () {
     // console.log(this.$router.push)
   },

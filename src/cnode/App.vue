@@ -37,30 +37,11 @@ import { mapGetters } from 'vuex'
 const tabs = ['all', 'good', 'share', 'ask', 'job']
 
 import {
-  Layout,
-  XNav,
-  XImg,
-  ListView,
-  Tab,
-  TabItem,
-  Swiper,
-  SwiperItem
-} from 'components'
-
-import {
   TopicItem
 } from './components/index'
 
 export default {
   components: {
-    Layout,
-    XNav,
-    XImg,
-    ListView,
-    Tab,
-    TabItem,
-    Swiper,
-    SwiperItem,
     TopicItem
   },
   computed: {

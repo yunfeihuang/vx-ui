@@ -23,19 +23,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  ButtonTab,
-  ButtonTabItem
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    ButtonTab,
-    ButtonTabItem
-  },
   methods: {
     changeHandler (value) {
       this.active = value

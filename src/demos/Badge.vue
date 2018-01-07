@@ -27,21 +27,7 @@
 </template>
 
 <script>
-import {
-  Layout,
-  XNav,
-  Badge,
-  Group,
-  Cell
-} from 'components'
 export default {
-  components: {
-    Layout,
-    XNav,
-    Badge,
-    Group,
-    Cell
-  },
   methods: {
     clickHandler () {
       this.count++
