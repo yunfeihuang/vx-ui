@@ -71,27 +71,23 @@ export default {
   },
   methods: {
     open (index) {
-      /*
-      require.ensure(['photoswipe/dist/photoswipe.min.js'], (r) => {
-        let PhotoSwipe = r('photoswipe/dist/photoswipe.min.js')
-        console.log(PhotoSwipe)
-      })
-      */
-      let PhotoSwipe = require('photoswipe/dist/photoswipe.min.js')
-      let UI = require('photoswipe/dist/photoswipe-ui-default')
-      let options = Object.assign({
-        history: true,
-        shareEl: false,
-        tapToClose: true,
-        fullscreenEl: false,
-        zoomEl: true,
-        index: index
-      }, this.options)
-      this.$el.style.display = 'block'
-      this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
-      this.photoswipe.init()
-      this.photoswipe.listen('close', () => {
-        this.$emit('on-close')
+      require.ensure([], (r) => {
+        let PhotoSwipe = require('photoswipe/dist/photoswipe.min.js')
+        let UI = require('photoswipe/dist/photoswipe-ui-default')
+        let options = Object.assign({
+          history: true,
+          shareEl: false,
+          tapToClose: true,
+          fullscreenEl: false,
+          zoomEl: true,
+          index: index
+        }, this.options)
+        this.$el.style.display = 'block'
+        this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
+        this.photoswipe.init()
+        this.photoswipe.listen('close', () => {
+          this.$emit('on-close')
+        })
       })
     },
     close () {

@@ -46,37 +46,38 @@ export default {
     }
   },
   mounted () {
-    let Swiper = require('swiper/dist/js/swiper.min.js')
-    console.log(Swiper)
-    require('swiper/dist/css/swiper.min.css') // eslint-disable-line
-    let options = Object.assign({
-      initialSlide: this.active,
-      onSlideChangeStart: (swiper) => {
-        this.$emit('on-change', swiper.activeIndex).$emit('update:active', swiper.activeIndex)
+    require.ensure([], (r) => {
+      let Swiper = require('swiper/dist/js/swiper.min.js')
+      require('swiper/dist/css/swiper.min.css') // eslint-disable-line
+      let options = Object.assign({
+        initialSlide: this.active,
+        onSlideChangeStart: (swiper) => {
+          this.$emit('on-change', swiper.activeIndex).$emit('update:active', swiper.activeIndex)
+        }
+      }, this.options)
+      if (this.pagination) {
+        options.pagination = '.swiper-pagination'
       }
-    }, this.options)
-    if (this.pagination) {
-      options.pagination = '.swiper-pagination'
-    }
-    if (this.prev) {
-      options.prev = '.swiper-button-prev'
-    }
-    if (this.next) {
-      options.nextButton = '.swiper-button-prev'
-    }
-    if (this.scrollbar) {
-      options.scrollbar = '.swiper-scrollbar'
-    }
-    this.swiper = new Swiper(this.$el, options)
+      if (this.prev) {
+        options.prev = '.swiper-button-prev'
+      }
+      if (this.next) {
+        options.nextButton = '.swiper-button-prev'
+      }
+      if (this.scrollbar) {
+        options.scrollbar = '.swiper-scrollbar'
+      }
+      this.$swiper = new Swiper(this.$el, options)
+    })
   },
   watch: {
     active (value) {
-      this.swiper.activeIndex !== value && this.swiper.slideTo(value)
+      this.$swiper.activeIndex !== value && this.$swiper.slideTo(value)
     }
   },
   methods: {
     getSwiper () {
-      return this.swiper
+      return this.$swiper
     }
   }
 }

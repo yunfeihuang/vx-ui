@@ -143,9 +143,7 @@ if (process.browser) {
         render (createElement) {
           let content = props.content
           return createElement(Toast, {
-            props: {
-              ...props
-            },
+            props: props,
             on: {
               'on-close': this.closeHandler
             },
@@ -186,9 +184,7 @@ if (process.browser) {
         render (createElement) {
           let content = props.content
           return createElement(Alert, {
-            props: {
-              ...props
-            },
+            props: props,
             on: {
               'on-confirm': this.confirmHandler,
               'on-close': this.closeHandler
@@ -239,9 +235,7 @@ if (process.browser) {
         render (createElement) {
           let content = props.content
           return createElement(Confirm, {
-            props: {
-              ...props
-            },
+            props: props,
             on: {
               'on-confirm': this.confirmHandler,
               'on-close': this.closeHandler
@@ -299,9 +293,7 @@ if (process.browser) {
         render (createElement) {
           let content = props.content
           return createElement(Prompt, {
-            props: {
-              ...props
-            },
+            props: props,
             on: {
               'on-confirm': this.confirmHandler,
               'on-close': this.closeHandler,
