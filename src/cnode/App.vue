@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 const tabs = ['all', 'good', 'share', 'ask', 'job']
 
@@ -45,8 +45,8 @@ export default {
     TopicItem
   },
   computed: {
-    ...mapGetters({
-      home: 'home'
+    ...mapState({
+      home: state => state.cnode.home
     }),
     loading () {
       return this.home[tabs[this.home.active]].loading
@@ -58,7 +58,7 @@ export default {
   created () {
     let tab = tabs[this.home.active]
     if (this.home[tab].data.length === 0) {
-      this.$store.dispatch('home', {
+      this.$store.dispatch('cnode/home', {
         page: 1,
         tab: tabs[0]
       })
@@ -67,7 +67,7 @@ export default {
   methods: {
     activeHandler (active) {
       let tab = tabs[active]
-      this.$store.dispatch('home', {
+      this.$store.dispatch('cnode/home', {
         page: 1,
         tab: tab,
         active: active,
@@ -76,14 +76,14 @@ export default {
     },
     pullupHandler () {
       let tab = tabs[this.home.active]
-      this.$store.dispatch('home', {
+      this.$store.dispatch('cnode/home', {
         page: this.home[tab].query.page + 1,
         tab: tab
       })
     },
     pulldownHandler () {
       let tab = tabs[this.home.active]
-      this.$store.dispatch('home', {
+      this.$store.dispatch('cnode/home', {
         page: 1,
         tab: tab
       })

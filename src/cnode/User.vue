@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 import BaseItem from './components/BaseItem'
 
@@ -56,8 +56,8 @@ export default {
     BaseItem
   },
   computed: {
-    ...mapGetters({
-      user: 'user'
+    ...mapState({
+      user: state => state.cnode.user
     }),
     clas () {
       let array = ['user']
@@ -66,18 +66,18 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('user', {
+    this.$store.dispatch('cnode/user', {
       id: this.$route.params.id
     })
   },
   beforeRouteUpdate (to, from, next) {
-    this.$store.dispatch('user', {
+    this.$store.dispatch('cnode/user', {
       id: to.params.id
     })
     next()
   },
   destroyed () {
-    this.$store.dispatch('destroyed', {
+    this.$store.dispatch('cnode/destroyed', {
       key: 'user',
       value: {}
     })

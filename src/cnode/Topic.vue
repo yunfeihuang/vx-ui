@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 import {BaseItem, TopicType} from './components/index'
 
@@ -48,8 +48,8 @@ export default {
     TopicType
   },
   computed: {
-    ...mapGetters({
-      topic: 'topic'
+    ...mapState({
+      topic: state => state.cnode.topic
     }),
     clas () {
       let array = ['topic']
@@ -67,18 +67,18 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('topic', {
+    this.$store.dispatch('cnode/topic', {
       id: this.$route.params.id
     })
   },
   beforeRouteUpdate (to, from, next) {
-    this.$store.dispatch('topic', {
+    this.$store.dispatch('cnode/topic', {
       id: to.params.id
     })
     next()
   },
   destroyed () {
-    this.$store.dispatch('destroyed', {
+    this.$store.dispatch('cnode/destroyed', {
       key: 'topic',
       value: {}
     })

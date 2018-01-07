@@ -1,4 +1,3 @@
-import types from '../mutation-types'
 import api from '../../api'
 
 const state = {
@@ -43,21 +42,15 @@ const state = {
   topic: {},
   user: {}
 }
-// getters
-const getters = {
-  home: state => state.home,
-  topic: state => state.topic,
-  user: state => state.user
-}
 
 // actions
 const actions = {
   home ({commit, state}, query) {
-    commit(types.HOME_LOADING, {
+    commit('HOME_LOADING', {
       query: query
     })
     api.cnode.list(query).then((json) => {
-      commit(types.HOME, {
+      commit('HOME', {
         query: query,
         data: json.data
       })
@@ -65,20 +58,20 @@ const actions = {
   },
   topic ({commit, state}, query) {
     api.cnode.topic(query).then((json) => {
-      commit(types.TOPIC, {
+      commit('TOPIC', {
         query: query,
         data: json.data
       })
     })
   },
   destroyed ({commit, state}, query) {
-    commit(types.DESTROYED, {
+    commit('DESTROYED', {
       query: query
     })
   },
   user ({commit, state}, query) {
     api.cnode.user(query).then((json) => {
-      commit(types.USER, {
+      commit('USER', {
         query: query,
         data: json.data
       })
@@ -87,7 +80,7 @@ const actions = {
 }
 // mutations
 const mutations = {
-  [types.HOME] (state, {data, query}) {
+  HOME (state, {data, query}) {
     data.forEach((item) => {
       item.href = '/cnode/topic/' + item.id
       item.user_href = '/cnode/user/' + item.author.loginname
@@ -100,7 +93,7 @@ const mutations = {
     }
     state.home[query.tab].loading = false
   },
-  [types.HOME_LOADING] (state, {query}) {
+  HOME_LOADING (state, {query}) {
     state.home[query.tab].loading = true
     if (query.active !== undefined) {
       state.home.active = query.active
@@ -108,7 +101,7 @@ const mutations = {
     query.change && (state.home[query.tab].data = [])
     query.change && (state.home[query.tab].query.page = 1)
   },
-  [types.TOPIC] (state, {data, query}) {
+  TOPIC (state, {data, query}) {
     data.content = data.content.replace(/<a/gi, '<a target="_blank" ')// .replace(/<img/gi, '<x-img')
     if (data.replies && data.replies.forEach) {
       data.replies.forEach((item) => {
@@ -118,7 +111,7 @@ const mutations = {
     }
     state.topic = data
   },
-  [types.USER] (state, {data, query}) {
+  USER (state, {data, query}) {
     if (data.recent_topics && data.recent_topics.forEach) {
       data.recent_topics.forEach((item) => {
         item.user_href = '/cnode/user/' + item.author.loginname
@@ -133,14 +126,14 @@ const mutations = {
     }
     state.user = data
   },
-  [types.DESTROYED] (state, {query}) {
+  DESTROYED (state, {query}) {
     state[query.key] = query.value
   }
 }
 
 export default {
+  namespaced: true,
   state,
-  getters,
   actions,
   mutations
 }
