@@ -46,9 +46,6 @@
 </template>
 
 <script>
-// import PhotoSwipe from 'photoswipe/dist/photoswipe.min.js'
-// import UI from 'photoswipe/dist/photoswipe-ui-default'
-
 export default {
   name: 'Preview',
   props: {
@@ -72,6 +69,8 @@ export default {
   methods: {
     open (index) {
       require.ensure([], (r) => {
+        require('photoswipe/dist/photoswipe.css')
+        require('photoswipe/dist/default-skin/default-skin.css')
         let PhotoSwipe = require('photoswipe/dist/photoswipe.min.js')
         let UI = require('photoswipe/dist/photoswipe-ui-default')
         let options = Object.assign({

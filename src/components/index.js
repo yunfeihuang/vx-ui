@@ -129,13 +129,13 @@ const install = (Vue) => {
 
 if (process.browser) {
   ((w) => {
-    w.$toast = (props, mounted = document.body) => {
-      props = Object.assign({
+    w.$toast = (_props, mounted = document.body) => {
+      let props = Object.assign({
         open: true,
         onClose: () => {
           return true
         }
-      }, props)
+      }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = new Vue({ //eslint-disable-line
@@ -170,13 +170,13 @@ if (process.browser) {
       return vue
     }
 
-    w.$alert = (props, mounted = document.body) => {
-      props = Object.assign({
+    w.$alert = (_props, mounted = document.body) => {
+      let props = Object.assign({
         open: true,
         onConfirm: () => {
           return true
         }
-      }, props)
+      }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = new Vue({ //eslint-disable-line
@@ -218,8 +218,8 @@ if (process.browser) {
       return vue
     }
 
-    w.$confirm = (props, mounted = document.body) => {
-      props = Object.assign({
+    w.$confirm = (_props, mounted = document.body) => {
+      let props = Object.assign({
         open: true,
         onConfirm: () => {
           return true
@@ -227,7 +227,7 @@ if (process.browser) {
         onCancel: () => {
           return true
         }
-      }, props)
+      }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = new Vue({ //eslint-disable-line
@@ -268,8 +268,8 @@ if (process.browser) {
       })
       return vue
     }
-    w.$prompt = (props, mounted = document.body) => {
-      props = Object.assign({
+    w.$prompt = (_props, mounted = document.body) => {
+      let props = Object.assign({
         open: true,
         disabled: true,
         onConfirm: () => {
@@ -285,7 +285,7 @@ if (process.browser) {
             return true
           }
         }
-      }, props)
+      }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = new Vue({ //eslint-disable-line
