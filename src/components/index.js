@@ -1,4 +1,3 @@
-import './index.scss'
 import '../utils/polyfill'
 import Vue from 'vue'
 import XButton from './button'
@@ -11,8 +10,7 @@ import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
 import Checker from './checker'
-import {XForm, FormItem} from './form'
-import Field from './field'
+import {XForm, XFormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Marquee, MarqueeItem} from './marquee'
@@ -80,8 +78,7 @@ let components = [
   Password,
   Range,
   XForm,
-  FormItem,
-  Field,
+  XFormItem,
   XTextarea,
   XSwitch,
   Checkbox,
@@ -354,8 +351,7 @@ export {
   Password,
   Range,
   XForm,
-  FormItem,
-  Field,
+  XFormItem,
   XTextarea,
   XSwitch,
   Checkbox,

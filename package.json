@@ -68,6 +68,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",
     "lolex": "^1.5.2",
+    "markdown-it": "^8.4.0",
     "mocha": "^3.2.0",
     "nightwatch": "^0.9.12",
     "node-sass": "4.5.3",
@@ -84,9 +85,8 @@
     "strip-ansi": "^3.0.1",
     "swiper": "^3.4.2",
     "url-loader": "^0.5.7",
-    "markdown-it": "^8.4.0",
-    "vue-markdown-loader": "^2.3.0",
     "vue-loader": "^11.0.0",
+    "vue-markdown-loader": "^2.3.0",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "2.4.4",
     "vuex": "^2.3.1",
@@ -94,7 +94,8 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
-    "webpack-merge": "^2.6.1"
+    "webpack-merge": "^2.6.1",
+    "webpack-node-externals": "^1.6.0"
   },
   "engines": {
     "node": ">= 4.0.0",

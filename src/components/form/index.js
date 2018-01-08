@@ -1,7 +1,7 @@
 import XForm from './Form'
-import FormItem from './FormItem'
+import XFormItem from './FormItem'
 
 export {
   XForm,
-  FormItem
+  XFormItem
 }
