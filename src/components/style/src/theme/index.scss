@@ -15,7 +15,7 @@
 @import './divider.scss';
 @import './field.scss';
 @import './flexbox.scss';
-@import './flow.scss';
+@import './list-view.scss';
 @import './form.scss';
 @import './group.scss';
 @import './header.scss';
@@ -23,7 +23,6 @@
 @import './img.scss';
 @import './input.scss';
 @import './layout.scss';
-@import './link.scss';
 @import './marquee.scss';
 @import './overlay.scss';
 @import './password.scss';
@@ -49,3 +48,14 @@
 @import './tabbar.scss';
 @import './textarea.scss';
 @import './toast.scss';
+
+body{
+  font-size:0.28rem;
+  -webkit-tap-highlight-color:transparent;
+  tap-highlight-color:transparent;
+}
+.scrollbox{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; 
+  overflow-scrolling: touch;
+}

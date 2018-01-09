@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './demos/components'
-import './components/index.scss'
+import './components/style/src/theme/index.scss'
 import * as Components from 'components'
 
 Vue.use(Components)

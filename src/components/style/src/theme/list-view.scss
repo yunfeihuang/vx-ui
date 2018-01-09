@@ -1,18 +1,18 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 .#{$css-prefix}{
-  &flow{
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+  &list-view{
+    overlist-view-y: auto;
+    -webkit-overlist-view-scrolling: touch;
+    overlist-view-scrolling: touch;
     &-inner{
       position: relative;
       padding-top: 5px;
-      &.active .#{$css-prefix}flow-refresh span:before{
+      &.active .#{$css-prefix}list-view-refresh span:before{
         content:attr(data-refresh);
       }
       &.active{
-        .#{$css-prefix}flow-refresh{
+        .#{$css-prefix}list-view-refresh{
           color:$primary-color;
           span:before{
             content:attr(data-refresh);
@@ -25,14 +25,14 @@
         }
       }
       &.loading{
-        .#{$css-prefix}flow-refresh{ 
+        .#{$css-prefix}list-view-refresh{ 
           span:before{
             content:attr(data-loading);
           }
           .#{$css-prefix}iconfont:before{
             display:none
           }
-          .#{$css-prefix}flow-spinner{
+          .#{$css-prefix}list-view-spinner{
             display: inline-block
           }
         }
@@ -52,7 +52,7 @@
           content:'\e6d5';
         }
       }
-      .#{$css-prefix}flow-spinner{
+      .#{$css-prefix}list-view-spinner{
         display: none
       }
       span:before{

@@ -6,7 +6,7 @@
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
       <list-view @on-pullup="pullupHandler" @on-pulldown="pulldownHandler" :loading="loading" :end="end">
         <template v-for="item in list">
-          <flexbox align="center" class="flow-item">
+          <flexbox align="center" class="list-view-item">
             <x-img class="avator" :src="item.author.avatar_url" />
             <flexbox-item>
               <h4>{{item.title}}</h4>
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .list-view-demos .v-flow{
+  .list-view-demos .v-list-view{
     height:100%;
     background:#fff;
     position: absolute;
@@ -81,7 +81,7 @@ export default {
       margin-right:6px;
       border-radius:3px;
     }
-    .flow-item{
+    .list-view-item{
       padding:6px
     }
     h4{

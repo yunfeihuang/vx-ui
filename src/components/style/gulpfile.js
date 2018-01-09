@@ -13,13 +13,13 @@ gulp.task('compile', function() {
       cascade: false
     }))
     .pipe(cssmin())
-    .pipe(gulp.dest('./lib/theme'));
+    .pipe(gulp.dest('../../../lib/style/theme'));
 });
 
 gulp.task('copyfont', function() {
   return gulp.src('./src/iconfont/**')
     .pipe(cssmin())
-    .pipe(gulp.dest('./lib/iconfont'));
+    .pipe(gulp.dest('../../../lib/style/iconfont'));
 });
 
 gulp.task('build', ['compile', 'copyfont']);
