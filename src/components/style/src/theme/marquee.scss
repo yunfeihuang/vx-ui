@@ -1,0 +1,15 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &marquee{
+      height:0.9rem;
+      line-height:0.9rem;
+      text-align:center;
+    }
+  }
+  .#{$css-prefix}{
+    &marquee-item{
+      box-sizing: border-box;
+      line-height: inherit;
+    }
+  }

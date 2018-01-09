@@ -1,0 +1,44 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &sidebar{
+      text-align:center;
+      position:relative;
+      user-select: none;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+      &::-webkit-scrollbar{
+        display:none;
+      }
+      &:before{
+        @include divider-vertical;
+        right:0;
+        left:auto;
+      }
+      &-item{
+        line-height:0.9rem;
+        position:relative;
+        overflow:hidden;
+        white-space: nowrap;
+        &:after{
+          @include divider;
+        }
+        &:before{
+          @include divider-vertical;
+          right:0;
+          left:auto;
+        }
+        &-active{
+          color:$primary-color;
+          background:#fff;
+          transition: color $transition-time $ease-in-out;
+          position:relative;
+          z-index:1;
+          &:before{
+            display:none;
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &group{
+    margin: 0.25rem 0;
+    padding-top:1px;
+    padding-bottom:1px;
+    &-title{
+      padding:0.1rem 0.15rem;
+    }
+    &-inner{
+      position:relative;
+      background:#fff;
+      &:before,&:after{
+        @include divider
+      }
+      &:before{
+        top:0;
+      }
+    }
+  }
+}

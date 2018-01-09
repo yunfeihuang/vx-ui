@@ -1,0 +1,36 @@
+ @import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &swipeout{
+      white-space: nowrap;
+      position:relative;
+      overflow:hidden;
+      &::-webkit-scrollbar{
+        display:none;
+      }
+      &-inner{
+        transition:transform 0.2s ease-out 0s;
+      }
+      &-content{
+        width:100%;
+        display:inline-block;
+        vertical-align: top;
+        position:relative;
+      }
+      &-action{
+        display:inline-block;
+        vertical-align: top;
+        padding-left:10px;
+        button{
+          @include button;
+          height:100%;
+          min-width:50px;
+        }
+      }
+      &-divider{
+        &:after{
+          @include divider;
+        }
+      }
+    }
+  }

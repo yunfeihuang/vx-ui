@@ -1,0 +1,11 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &layout-flexbox{
+      position:absolute;
+      height:100%;
+      width:100%;
+      background:#f7f7f7;
+      z-index:10;
+    }
+  }

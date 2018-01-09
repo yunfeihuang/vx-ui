@@ -1,0 +1,46 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &img{
+    &-lazyload{
+      opacity:0;
+      transition:opacity 0.168s ease 0s;
+      background-color: #fff;
+    }
+    &-wrapper{
+      vertical-align: middle;
+      font-size:0;
+      position:relative;
+      overflow:hidden;
+      img{
+        min-height:20px;
+        min-width:20px;
+        max-width:100%;
+        max-height:100%;
+        border-radius: inherit;
+        background-color: inherit
+      }
+      .#{$css-prefix}iconfont{
+        font-size:16px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin:-8px;
+      }
+    }
+    &-placeholder{
+      background:#f5f5f5;
+      .#{$css-prefix}iconfont{
+        font-size:26px;
+        color:#fff;
+        margin:-13px;
+      }
+    }
+    &-spinner{
+      position:absolute;
+      margin:-10px;
+      top:50%;
+      left:50%;
+    }
+  }
+}

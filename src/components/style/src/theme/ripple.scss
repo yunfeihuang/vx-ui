@@ -1,0 +1,21 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &ripple{
+      position:relative;
+      overflow: hidden;
+      user-select:none;
+      &-shadow{
+        position:absolute;
+        background:rgba(0,0,0,0.06);
+        min-height:44px;
+        min-width:44px;
+        border-radius:50%;
+        margin:-20px;
+        transition:transform 1s ease-in-out 0s,opacity 0.4s linear 0s;
+        pointer-events: none;
+        top:0;
+        left:0;
+      }
+    }
+  }

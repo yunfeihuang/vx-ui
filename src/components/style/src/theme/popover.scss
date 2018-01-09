@@ -1,0 +1,39 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &popover{
+      display: inline-block;
+      vertical-align: middle;
+      &-content{
+        position:fixed;
+        background:#fff;
+        border-radius:5px;
+        color:#555;
+        padding: 0.15rem;
+        z-index:1001;
+        margin: 12px 0;
+        &:before{
+          content:'';
+          border:10px solid transparent;
+          border-bottom-color:#fff;
+          position:absolute;
+          left:10px;
+          top:-18px;
+        }
+        &-right{
+          &:before{
+            right:10px;
+            left:auto;
+          }
+        }
+        &-bottom{
+          &:before{
+            border:10px solid transparent;
+            border-top-color:#fff;
+            bottom:-18px;
+            top:auto;
+          }
+        }
+      }
+    }  
+  }

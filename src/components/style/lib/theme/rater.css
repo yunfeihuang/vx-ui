@@ -1,0 +1,1 @@
+.v-rater,.v-rater-item{display:inline-block;vertical-align:middle}.v-rater{font-size:28px;color:#ddd;line-height:40px}.v-rater[disabled]{opacity:.5;pointer-events:none}.v-rater-item{padding:5px 0;-webkit-transition:color .1s ease 0s;transition:color .1s ease 0s;text-align:center;width:40px}.v-rater-item-active{color:#39f}.v-rater-item:first-child{margin-left:0!important}

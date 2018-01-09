@@ -1,0 +1,8 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &divider{
+    @include divider;
+    position:static;
+  }
+}

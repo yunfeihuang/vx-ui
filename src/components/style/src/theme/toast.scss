@@ -1,0 +1,48 @@
+@import '../variable.scss';
+  @import '../mixins.scss';
+  .#{$css-prefix}{
+    &toast{
+      z-index:1001;
+      position:fixed;
+      width: 100%;
+      height:100%;
+      text-align: center;
+      display:none;
+      top:0;
+      left:0;
+      &-inner{
+        display:table-cell;
+      }
+      &-content{
+        background:rgba(0,0,0,0.7);
+        color:#fff;
+        padding: 0.2rem;
+        border-radius:3px;
+        box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+        display:inline-block;
+        word-break: break-all;
+        box-sizing: border-box;
+        max-width: 80%;
+        min-width: 2rem;
+      }
+      &-top{
+        padding-top:20%;
+      }
+      &-bottom{
+        vertical-align: bottom;
+        padding-bottom:20%;
+      }
+      &-center{
+        vertical-align: middle;
+      }
+      .#{$css-prefix}iconfont{
+        font-size:40px;
+        margin-bottom:5px;
+      }
+      &-spinner{
+        width:36px!important;
+        height:36px!important;
+        margin-bottom:8px;
+      }
+    }
+  }

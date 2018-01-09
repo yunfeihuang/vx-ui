@@ -1,0 +1,60 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &flexbox{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    &-wrapper{
+      overflow:hidden;
+    }
+    &-content{
+      &-center{
+        -ms-flex-align: center;
+        -moz-box-pack: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center;
+      }
+    }
+    &-align-center{
+      -ms-flex-align: center;
+      -moz-box-align: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+    }
+    &-wrap{
+      -ms-flex-wrap: wrap;
+      -moz-box-lines: multiple;
+      -webkit-box-lines: multiple;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    &-column{
+      -ms-flex-direction: column;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+    }
+    &-item{
+      white-space: nowrap;
+      overflow: hidden;
+      -ms-flex: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      flex: 1;
+      min-width:0;
+    }
+  }
+}
