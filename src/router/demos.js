@@ -39,6 +39,7 @@ const Datetime = r => require.ensure([], () => r(require('demos/Datetime')))
 const Daterange = r => require.ensure([], () => r(require('demos/Daterange')))
 const Marquee = r => require.ensure([], () => r(require('demos/Marquee')))
 const Popover = r => require.ensure([], () => r(require('demos/Popover')))
+const Carousel = r => require.ensure([], () => r(require('demos/Carousel')))
 
 export default [
   {
@@ -204,6 +205,10 @@ export default [
       {
         path: '/demos/popover',
         component: Popover
+      },
+      {
+        path: '/demos/carousel',
+        component: Carousel
       }
     ]
   }

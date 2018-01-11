@@ -35,6 +35,7 @@
           <router-link to="/demos/img">XImg</router-link>
           <router-link to="/demos/nav">XNav</router-link>
           <router-link to="/demos/divider">Divider</router-link>
+          <router-link to="/demos/carousel">Carousel</router-link>
           <router-link to="/demos/swiper">Swiper</router-link>
           <router-link to="/demos/swipeout">Swipeout</router-link>
           <router-link to="/demos/preview">Preview</router-link>

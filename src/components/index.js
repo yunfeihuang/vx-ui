@@ -46,6 +46,7 @@ import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
+import {Carousel, CarouselItem} from './carousel'
 
 Vue.mixin({
   props: {
@@ -113,7 +114,9 @@ let components = [
   Daterange,
   Popover,
   Sticky,
-  Icon
+  Icon,
+  Carousel,
+  CarouselItem
 ]
 
 const install = (Vue) => {
@@ -386,5 +389,7 @@ export {
   Daterange,
   Popover,
   Sticky,
-  Icon
+  Icon,
+  Carousel,
+  CarouselItem
 }
