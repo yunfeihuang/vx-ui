@@ -45,5 +45,6 @@
   "daterange": "./src/components/daterange",
   "popover": "./src/components/popover",
   "sticky": "./src/components/sticky",
+  "carousel": "./src/components/carousel",
   "icon": "./src/components/icon"
 }
