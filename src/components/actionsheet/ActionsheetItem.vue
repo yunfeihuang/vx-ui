@@ -21,7 +21,11 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'actionsheet-item', this.checked ? this.$cssPrefix + 'action-sheet-item-active' : '']
+      return [
+        this.$cssPrefix + 'actionsheet-item',
+        this.checked ? this.$cssPrefix + 'actionsheet-item-active' : '',
+        this.disabled ? this.$cssPrefix + 'actionsheet-item-disabled' : ''
+      ]
     }
   },
   data () {

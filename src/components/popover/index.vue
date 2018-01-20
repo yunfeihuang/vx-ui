@@ -53,7 +53,21 @@ export default {
       /* eslint-disable no-new */
       this.$popover = new Vue({
         el: node,
-        template: '<popup :open="open" :histroy="histroy" @on-close="closeHandler" :opacity="opacity" style="z-index:1000"></popup>',
+        render (createElement) {
+          return createElement(Popup, {
+            props: {
+              open: this.open,
+              histroy: this.histroy,
+              opacity: this.opacity
+            },
+            style: {
+              zIndex: 1000
+            },
+            on: {
+              'on-close': this.closeHandler
+            }
+          })
+        },
         components: {Popup},
         data: {
           open: true,

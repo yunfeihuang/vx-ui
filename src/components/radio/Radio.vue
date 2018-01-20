@@ -2,7 +2,9 @@
   <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <span :class="[$cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
-    <slot></slot>
+    <span :class="[$cssPrefix + 'radio-text']">
+      <slot></slot>
+    </span>
   </label>
 </template>
 

@@ -2,7 +2,9 @@
   <label :class="classes" :disabled="disabled" >
     <input :type="type" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
     <icon :class="[$cssPrefix + 'checkbox-icon']">&#xe632;</icon>
-    <slot></slot>
+    <span :class="[$cssPrefix + 'checkbox-text']">
+      <slot></slot>
+    </span>
   </label>
 </template>
 

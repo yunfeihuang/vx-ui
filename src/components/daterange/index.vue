@@ -66,7 +66,18 @@ export default {
       /* eslint-disable no-new */
       this.$daterangePicker = new Vue({
         el: node,
-        template: '<daterange-picker :value="value" :open="open" @on-change="changeHandler" @on-close="closeHandler"/>',
+        render (createElement) {
+          return createElement(DaterangePicker, {
+            props: {
+              value: this.value,
+              open: this.open
+            },
+            on: {
+              'on-change': this.changeHandler,
+              'on-close': this.closeHandler
+            }
+          })
+        },
         components: { DaterangePicker },
         data: {
           open: false,
