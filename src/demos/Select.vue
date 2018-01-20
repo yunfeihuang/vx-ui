@@ -17,6 +17,27 @@
           />
         </cell>
         <cell>
+          <div slot="title">下拉框(多选)</div>
+          <x-select 
+            slot="value"
+            :options="options.slice(0,4)"
+            v-model="value3"
+            :checked-max-item="0"
+            placeholder="请选择"
+          />
+        </cell>
+        <cell>
+          <div slot="title">下拉框(最多选2个)</div>
+          <x-select 
+            slot="value"
+            :options="options"
+            v-model="value3"
+            :required="true"
+            :checked-max-item="2"
+            placeholder="请选择"
+          />
+        </cell>
+        <cell>
           <div slot="title">下拉框(选项很多)</div>
           <x-select 
             slot="value"
@@ -46,6 +67,7 @@ export default {
       label: '',
       value: '',
       value2: '',
+      value3: [],
       options: [
         {
           value: '1',

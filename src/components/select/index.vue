@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="clickHandler">
-    <button type="button" :class="!option ? $cssPrefix + 'select-placeholder':''" >{{option?option.label:placeholder}}</button>
+    <button type="button" :class="!label ? $cssPrefix + 'select-placeholder':''" >{{label || placeholder}}</button>
     <select 
       :required="required"
       :pattern="pattern"
@@ -8,7 +8,6 @@
       :name="name"
       :disabled="disabled"
       :readonly="readonly"
-      :multiple="multiple"
       @focus="clickHandler"
       @invalid="invalidHandler"
       >
@@ -19,31 +18,31 @@
 
 <script>
 import Vue from 'vue'
-import {Actionsheet, ActionsheetItem} from '../actionsheet'
+import OptionPicker from './option-picker'
 import { input } from 'utils/mixins.js'
 
 export default {
   name: 'XSelect',
   mixins: [input],
   props: {
+    value: {
+      default: []
+    },
     options: {
       type: Array
     },
     getPopupMounted: {
       type: Function
     },
-    multiple: {
-      type: Boolean,
-      default: false
+    checkedMaxItem: {
+      type: Number,
+      default: 1
     }
   },
   computed: {
     classes () {
       return [this.$cssPrefix + 'select']
     }
-  },
-  created () {
-    this.optionUpdate(this.value)
   },
   mounted () {
     this.value && this.updateLabel(this.value)
@@ -73,39 +72,28 @@ export default {
       this.$popup = new Vue({
         el: node,
         render (createElement) {
-          return createElement(Actionsheet, {
+          return createElement(OptionPicker, {
             props: {
               open: this.open,
-              value: this.value
+              value: this.value,
+              options: this.options,
+              checkedMaxItem: this.checkedMaxItem,
+              required: this.required
             },
             class: [this.classes],
             on: {
               'on-close': this.closeHandler,
-              'on-click': this.clickHandler
-            },
-            scopedSlots: {
-              default (props) {
-                return self.options.map((item) => {
-                  return createElement(ActionsheetItem, {
-                    props: {
-                      value: item.value,
-                      disabled: item.disabled
-                    },
-                    domProps: {
-                      innerHTML: item.label
-                    }
-                  })
-                })
-              }
+              'on-change': this.changeHandler
             }
           })
         },
-        components: { Actionsheet, ActionsheetItem },
         data: {
           options: this.options,
           open: false,
           value: this.value,
-          classes: this.$cssPrefix + 'select-actionsheet'
+          classes: this.$cssPrefix + 'select-picker',
+          checkedMaxItem: this.checkedMaxItem,
+          required: this.required
         },
         mounted () {
           this.open = true
@@ -122,7 +110,8 @@ export default {
               this.$destroy()
             }, 1000)
           },
-          clickHandler (value) {
+          changeHandler (value) {
+            this.open = false
             if (self.value !== value) {
               self.$emit('on-change', value).$emit('input', value)
               self.updateLabel(value)
@@ -133,29 +122,32 @@ export default {
         }
       })
     },
-    optionUpdate (value) {
-      let option = null
-      this.options.forEach((item) => {
-        if (item.value === value) {
-          option = item
-        }
-      })
-      this.option = option
-    },
     updateLabel (value) {
-      this.options && this.options.forEach(item => {
-        item.value === value && this.$emit('update:label', item.label)
-      })
+      if (this.checkedMaxItem === 1) {
+        this.options && this.options.forEach(item => {
+          if (item.value === value) {
+            this.label = item.label
+            this.$emit('update:label', item.label)
+          }
+        })
+      } else {
+        let label = []
+        this.options && this.options.forEach(item => {
+          value && value.indexOf(item.value) > -1 && label.push(item.label)
+        })
+        this.label = label.toString()
+        this.$emit('update:label', label)
+      }
     }
   },
   watch: {
     value (val) {
-      this.optionUpdate(val)
+      this.updateLabel(val)
     }
   },
   data () {
     return {
-      option: null
+      label: this.checkedMaxItem === 1 ? null : []
     }
   }
 }

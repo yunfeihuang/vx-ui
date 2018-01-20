@@ -6,7 +6,7 @@
         :name="name"
         :disabled="item.disabled"
         :value="item.value"
-        :checked="value.indexOf(item.value)>-1"
+        :checked="checkedMaxItem === 1 ? value === item.value: value && value.indexOf && value.indexOf(item.value)>-1"
         :direction="direction"
         @on-change="changeHandler"
         >
@@ -35,7 +35,6 @@ export default {
       default: []
     },
     value: {
-      type: Array,
       default: []
     },
     divider: {
@@ -71,9 +70,9 @@ export default {
         } else {
           let value = Object.assign([], this.value)
           if (e.target.checked) {
-            value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+            value && value.indexOf && value.indexOf(e.target.value) === -1 && value.push(e.target.value)
           } else {
-            value.splice(value.indexOf(e.target.value), 1)
+            value && value.indexOf && value.splice(value.indexOf(e.target.value), 1)
           }
           this.$emit('on-change', value).$emit('input', value)
           this.updateLabel(value)
@@ -83,7 +82,7 @@ export default {
     updateLabel (value) {
       let label = []
       this.options && this.options.forEach(item => {
-        value.indexOf(item.value) > -1 && label.push(item.label)
+        value && value.indexOf && value.indexOf(item.value) > -1 && label.push(item.label)
       })
       this.$emit('update:label', label)
     }

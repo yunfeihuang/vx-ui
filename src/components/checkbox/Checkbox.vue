@@ -19,7 +19,11 @@ export default {
   mixins: [input],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'checkbox', this.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '']
+      return [
+        this.$cssPrefix + 'checkbox',
+        this.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
+        this.checked ? this.$cssPrefix + 'checkbox-active' : ''
+      ]
     }
   },
   props: {

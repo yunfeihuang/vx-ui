@@ -31,6 +31,9 @@
       }
       &-confirm{
         color:$primary-color;
+        &[disabled]{
+          color:$sub-color;
+        }
       }
     }
   }
