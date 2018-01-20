@@ -28,6 +28,9 @@
           >
             <icon slot="icon" :class="[$cssPrefix + 'search-icon']">&#xe651;</icon>
           </x-input>
+          <button :class="[$cssPrefix + 'search-button']" type="submit" v-if="fixed">
+            搜索
+          </button>
         </flexbox>
       </form>
       <flexbox-item :class="[$cssPrefix + 'search-container']" v-if="fixed">
