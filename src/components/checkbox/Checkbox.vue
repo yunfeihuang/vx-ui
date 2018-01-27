@@ -21,7 +21,7 @@ export default {
     classes () {
       return [
         this.$cssPrefix + 'checkbox',
-        this.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
+        this.direction === 'reverse' || this.$parent.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
         this.checked ? this.$cssPrefix + 'checkbox-active' : ''
       ]
     },
