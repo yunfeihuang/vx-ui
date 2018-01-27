@@ -22,7 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  @import '~styles/variable.scss';
+  @import '~styles/mixins.scss';
   aside{
     line-height:1;
     h4{
@@ -31,16 +32,21 @@ export default {
       font-size:12px;
       // color:$color-sub;
       font-weight: normal;
+      opacity: 0.8;
     }
     a{
       display:block;
       color:#666;
       padding:10px 0;
       &:hover{
-        // color:$color-primary;
+        color:$primary-color;
+      }
+      &:active{
+        background:transparent;
+        color:$primary-color;
       }
       &.router-link-exact-active{
-        // color:$color-primary;
+        color:$primary-color;
         font-weight: bold;
       }
     }

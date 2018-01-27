@@ -1,4 +1,4 @@
-# Actionsheet
+# Spinner旋转
 
 
 #### Props

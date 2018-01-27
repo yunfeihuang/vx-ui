@@ -113,7 +113,7 @@ export default {
           changeHandler (value) {
             this.open = false
             if (self.value !== value) {
-              self.$emit('on-change', value).$emit('input', value)
+              self.$emit('input', value).$emit('on-change', value)
               self.updateLabel(value)
             } else {
               this.closeHandler()

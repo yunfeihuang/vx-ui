@@ -1,6 +1,6 @@
 <template>
   <input 
-    :type="htmlType"
+    :type="nativeType"
     :placeholder="placeholder"
     readonly="readonly"
     :value="value"
@@ -64,7 +64,7 @@ export default {
         components: { DatetimePicker },
         data: {
           open: false,
-          value: datetime.value,
+          value: datetime.value === null ? undefined : datetime.value,
           format: datetime.format
         },
         mounted () {
@@ -80,8 +80,7 @@ export default {
         methods: {
           changeHandler (value) {
             this.open = false
-            datetime.$emit('on-change', value)
-            datetime.$emit('input', value)
+            datetime.$emit('input', value).$emit('on-change', value)
           },
           closeHandler () {
             this.open = false

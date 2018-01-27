@@ -12,11 +12,11 @@
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <password
-        v-if="input.type === 'password'"
+        v-if="inputProps.type === 'password'"
         v-model="myValue"
         :clear="false"
         :class="$cssPrefix + 'prompt-input'"
-        :placeholder="input.placeholder"
+        v-bind="inputProps"
         @input="inputHandler"
       />
       <x-input
@@ -24,8 +24,8 @@
         v-model="myValue"
         :clear="false"
         :class="$cssPrefix + 'prompt-input'"
-        :htmlType="input.type"
-        :placeholder="input.placeholder"
+        v-bind="inputProps"
+        :native-type="inputProps.type"
         @input="inputHandler"/>
     </template>
   </confirm>
@@ -56,7 +56,7 @@ export default {
     title: {
       type: String
     },
-    input: {
+    inputProps: {
       type: Object,
       default () {
         return {}
@@ -83,10 +83,10 @@ export default {
   },
   methods: {
     closeHandler () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     confirmHandler () {
-      this.open && this.$emit('on-confirm', this.myValue).$emit('input', this.myValue)
+      this.open && this.$emit('update:open', false).$emit('on-confirm', this.myValue).$emit('input', this.myValue)
     },
     inputHandler (value) {
       this.$emit('on-change', value)

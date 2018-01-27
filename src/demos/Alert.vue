@@ -7,24 +7,19 @@
       <group>
         <cell :arrow="false">
           <div slot="title">开关</div>
-          <x-switch slot="value" :value="checked" @on-change="changeHandler"/>
+          <x-switch slot="value" v-model="open"/>
         </cell>
       </group>
     </x-body>
-    <alert :open="checked" @on-confirm="changeHandler" @on-close="changeHandler">确认删除？</alert>
+    <alert :open.sync="open">确认删除？</alert>
   </layout>
 </template>
 
 <script>
 export default {
-  methods: {
-    changeHandler (value) {
-      this.checked = !this.checked
-    }
-  },
   data () {
     return {
-      checked: false
+      open: false
     }
   }
 }

@@ -4,7 +4,7 @@
     <slot v-if="$slots.default"></slot>
     <input
       v-else
-      :type="htmlType"
+      :type="nativeType"
       :placeholder="placeholder"
       :readonly="readonly"
       :value="value"

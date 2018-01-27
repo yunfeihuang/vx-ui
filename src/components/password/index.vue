@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <x-input
-      :htmlType="hType"
+      :native-type="hType"
       :placeholder="placeholder"
       :readonly="readonly"
       :value="value"

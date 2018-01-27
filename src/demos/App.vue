@@ -7,8 +7,8 @@
       <x-body class="demos" slot="body" style="background:#fff">
         <flexbox wrap="wrap" class="demos-actions">
           <router-link to="/demos/button">XButton</router-link>
-          <router-link to="/demos/input">XInput</router-link>
-          <router-link to="/demos/input">Password</router-link>
+          <router-link to="/demos/input">Input</router-link>
+          <router-link to="/demos/password">Password</router-link>
           <router-link to="/demos/textarea">XTextarea</router-link>
           <router-link to="/demos/select">XSelect</router-link>
           <router-link to="/demos/switch">XSwitch</router-link>

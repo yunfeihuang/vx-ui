@@ -1,4 +1,4 @@
-# Actionsheet
+# Checker选择按钮
 
 
 #### Props

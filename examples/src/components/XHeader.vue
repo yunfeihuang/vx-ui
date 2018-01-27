@@ -1,14 +1,21 @@
 <template>
   <header>
-    <div class="wrapper">
-      <img style="width:40px;height:40px" src="https://cn.vuejs.org/images/logo.png"/>
-      <h2>Vue-Components</h2>
+    <div class="header-inner">
+      <img style="width:40px;height:40px" :src="logo"/>
+      <h2>Components</h2>
     </div>
   </header>
 </template>
 
 <script>
-  export default {}
+  import logo from '../../../src/assets/logo.png'
+  export default {
+    data () {
+      return {
+        logo
+      }
+    }
+  }
 </script>
 <style lang="scss" scope>
   header{
@@ -30,8 +37,8 @@
       vertical-align: middle;
       margin:0
     }
-    .wrapper{
-      padding:10px 0;
+    .header-inner{
+      padding:10px;
     }
   }
 </style>

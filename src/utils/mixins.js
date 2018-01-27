@@ -23,7 +23,7 @@ const input = {
       type: [String, Boolean],
       default: true
     },
-    htmlType: {
+    nativeType: {
       type: String,
       default: 'text'
     },

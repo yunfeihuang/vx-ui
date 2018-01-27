@@ -1,4 +1,4 @@
-# Actionsheet
+# Prompt对话框
 
 
 #### Props

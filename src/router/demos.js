@@ -1,6 +1,7 @@
 const Demos = r => require.ensure([], () => r(require('demos/App')))
 const Button = r => require.ensure([], () => r(require('demos/Button')))
 const Input = r => require.ensure([], () => r(require('demos/Input')))
+const Password = r => require.ensure([], () => r(require('demos/Password')))
 const Textarea = r => require.ensure([], () => r(require('demos/Textarea')))
 const Select = r => require.ensure([], () => r(require('demos/Select')))
 const Switch = r => require.ensure([], () => r(require('demos/Switch')))
@@ -53,6 +54,10 @@ export default [
       {
         path: '/demos/input',
         component: Input
+      },
+      {
+        path: '/demos/password',
+        component: Password
       },
       {
         path: '/demos/textarea',

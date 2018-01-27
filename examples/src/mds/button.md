@@ -1,9 +1,4 @@
-# Button
-<x-button>default</x-button>
-<x-button type="primary">primary</x-button>
-<x-button type="dashed">dashed</x-button>
-<x-button type="warning">warning</x-button>
-<x-button type="primary" disabled>disabled</x-button>
+# Button按钮
 
 ```html
 <template>

@@ -1,6 +1,6 @@
 <template>
   <input 
-    :type="htmlType"
+    :type="nativeType"
     :placeholder="placeholder"
     readonly="readonly"
     :value="myValue"
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     myValue () {
-      if (this.value[0] && this.value[1]) {
+      if (this.value && this.value[0] && this.value[1]) {
         return this.value[0].format() + ' ~ ' + this.value[1].format()
       }
       return ''
@@ -95,8 +95,7 @@ export default {
         },
         methods: {
           changeHandler (value) {
-            daterange.$emit('on-change', value)
-            daterange.$emit('input', value)
+            daterange.$emit('input', value).$emit('on-change', value)
           },
           closeHandler () {
             this.open = false

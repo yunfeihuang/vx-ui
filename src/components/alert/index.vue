@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     confirmHandler () {
-      this.$emit('on-confirm')
+      this.$emit('update:open', false).$emit('on-confirm')
     },
     closeHandler () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     }
   }
 }

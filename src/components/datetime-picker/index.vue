@@ -261,7 +261,7 @@ export default {
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.open && value !== this.value && this.$emit('on-change', value).$emit('input', value)
+      this.open && value !== this.value && this.$emit('input', value).$emit('on-change', value)
       value === this.value && this.closeHandler()
     },
     changeHandler (value, index) {

@@ -90,7 +90,7 @@ export default {
         })
       }
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('on-change', value).$emit('input', value)
+        this.open && this.$emit('input', value).$emit('on-change', value)
       } else {
         this.closeHandler()
       }

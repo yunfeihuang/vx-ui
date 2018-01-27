@@ -1,11 +1,12 @@
 <template>
-  <div :class="classes" @click="changeHandler" :disabled="disabled">
+  <div :class="classes" :disabled="disabled">
     <span 
       v-for="item in max"
       :class="[$cssPrefix + 'rater-item',item<=value?$cssPrefix + 'rater-item-active':'']"
-      :style="{color: item <= value && color ? color : '', marginLeft: margin}"
+      :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
       :data-value="item"
       v-html="star"
+      @click="changeHandler(item)"
       >
     </span>
   </div>
@@ -39,20 +40,19 @@ export default {
     color: {
       type: String
     },
-    margin: {
+    gutter: {
       type: String,
       default: ''
     }
   },
   methods: {
-    changeHandler (e) {
+    changeHandler (value) {
       if (!this.disabled) {
-        let value = Number(e.target.dataset.value)
         if (value !== 1 && value === this.value) {
           return false
         }
         value === 1 && this.value === value && (value = 0)
-        this.$emit('on-change', value).$emit('input', value)
+        this.$emit('input', value).$emit('on-change', value)
       }
     }
   }

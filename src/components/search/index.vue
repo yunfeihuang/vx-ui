@@ -8,7 +8,7 @@
           </button>
           <x-input
             :class="$cssPrefix +'flexbox-item'"
-            htmlType="search"
+            native-type="search"
             :placeholder="placeholder"
             :readonly="readonly"
             :value="value"

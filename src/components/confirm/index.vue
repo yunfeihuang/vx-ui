@@ -82,10 +82,10 @@ export default {
   },
   methods: {
     cancelHandler () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     confirmHandler () {
-      this.open && this.$emit('on-confirm')
+      this.open && this.$emit('update:open', false).$emit('on-confirm')
     }
   }
 }

@@ -35,7 +35,7 @@
         </x-form-item>
         <br />
         <div style="padding:0px 10px;">
-          <x-button type="primary" htmlType="submit">提交</x-button>
+          <x-button type="primary" native-type="submit">提交</x-button>
         </div>
       </x-form>
     </x-body>

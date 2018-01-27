@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     changeHandler (value) {
-      this.$emit('on-change', value).$emit('input', value)
+      this.$emit('input', value).$emit('on-change', value)
       this.updateLabel(value)
     },
     updateLabel (value) {

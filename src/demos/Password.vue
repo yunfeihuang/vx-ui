@@ -1,11 +1,11 @@
 <template>
   <layout>
     <x-nav slot="header">
-      <div slot="title">XInput</div>
+      <div slot="title">Password</div>
     </x-nav>
     <x-body slot="body">
       <div class="input-demo demos">
-        <x-input placeholder="请输入帐号" v-model="account" required/>
+        <password placeholder="请输入密码" v-model="password" required/>
       </div>
     </x-body>
   </layout>
@@ -15,7 +15,7 @@
 export default {
   data () {
     return {
-      account: ''
+      password: ''
     }
   }
 }

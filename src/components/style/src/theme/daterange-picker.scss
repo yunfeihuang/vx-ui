@@ -10,7 +10,6 @@
     button{
       @include button;
       height:0.9rem;
-      width:1rem;
       &:disabled{
         opacity: 0.5;
       }
@@ -66,7 +65,7 @@
     &-cancel,&-clear, &-confirm{
       @include button;
       height: 1rem!important;
-      width: 1.5rem;
+      width: 1.8rem;
       color:$sub-color
     }
     &-confirm{
