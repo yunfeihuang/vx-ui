@@ -73,14 +73,13 @@ export default {
   },
   methods: {
     handleClick (value) {
-      this.$emit('on-close')
-      this.$emit('on-click', value)
+      this.$emit('update:open', false).$emit('on-close').$emit('on-click', value)
     },
     handleClose () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleClosePopup () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleEnter () {
       if (!this.$children) return

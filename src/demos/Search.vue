@@ -4,10 +4,8 @@
       <div slot="title">Search</div>
     </x-nav>
     <x-body slot="body"  class="demos img-demos">
-      <search :value="value" placeholder="搜索商品/商店/用户"
-        @on-submit="handleSubmit"
-        @input="handleInput"
-        @on-change="handleInput">
+      <search v-model="value" placeholder="搜索商品/商店/用户"
+        @on-submit="handleSubmit">
         <div slot="keywords">
           <span class="keyword">
             上海
@@ -36,9 +34,6 @@
 <script>
 export default {
   methods: {
-    handleInput (value) {
-      this.value = value
-    },
     handleSubmit (value) {
       console.log('handleSubmit')
     }

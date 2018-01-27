@@ -7,26 +7,24 @@
       <group>
         <cell :arrow="false">
           <div slot="title">area picker</div>
-          <x-switch slot="value" :value="pickerChecked" @on-change="changePickerhandleOpen"/>
+          <x-switch slot="value" v-model="pickerChecked"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">address picker</div>
-          <x-switch slot="value" :value="pickerAddressChecked" @on-change="changeAddressPickerhandleOpen"/>
+          <x-switch slot="value" v-model="pickerAddressChecked"/>
         </cell>
       </group>
     </x-body>
     <popup-picker
-      :open="pickerChecked"
+      :open.sync="pickerChecked"
       :pickers="pickers"
       @on-pickerchange="handleChangePicker"
-      @on-close="changePickerhandleOpen"
       @on-change="handleConfirm"
       />
     <popup-picker 
-      :open="pickerAddressChecked"
+      :open.sync="pickerAddressChecked"
       :pickers="addressPickers"
       @on-pickerchange="handleChangeAddressPicker"
-      @on-close="changeAddressPickerhandleOpen"
       @on-change="handleConfirmAddress"
       />
   </layout>
@@ -41,18 +39,12 @@ import {
 
 export default {
   methods: {
-    changePickerhandleOpen (value) {
-      this.pickerChecked = !this.pickerChecked
-    },
     handleChangePicker (value) {
       console.log(value)
     },
     handleConfirm (value) {
       console.log(value)
       this.pickerChecked = false
-    },
-    changeAddressPickerhandleOpen () {
-      this.pickerAddressChecked = !this.pickerAddressChecked
     },
     handleChangeAddressPicker (value, index) {
       if (index === 0) {

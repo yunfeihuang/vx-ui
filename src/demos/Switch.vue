@@ -7,7 +7,7 @@
       <group>
         <cell :arrow="false">
           <div slot="title">开关（{{checked}}）</div>
-          <x-switch slot="value" :value="checked" @on-change="handleChange" />
+          <x-switch slot="value" v-model="checked" />
         </cell>
       </group>
     </x-body>
@@ -16,11 +16,6 @@
 
 <script>
 export default {
-  methods: {
-    handleChange (value) {
-      this.checked = value
-    }
-  },
   data () {
     return {
       checked: true

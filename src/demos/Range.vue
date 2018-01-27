@@ -5,7 +5,6 @@
     </x-nav>
     <x-body slot="body">
       <group>
-        <divider></divider>
         <div class="range-demos">
           <label>0-100（value：{{value1}}）</label>
           <range v-model="value1" />

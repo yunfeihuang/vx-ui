@@ -7,61 +7,41 @@
       <group>
         <cell :arrow="false">
           <div slot="title">Toast Top</div>
-          <x-switch slot="value" :value="topOpen" @on-change="handleChangeT"/>
+          <x-switch slot="value" v-model="topOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Success</div>
-          <x-switch slot="value" :value="centerOpen" @on-change="handleChangeC"/>
+          <x-switch slot="value" v-model="centerOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Fail</div>
-          <x-switch slot="value" :value="failOpen" @on-change="handleChangeF"/>
+          <x-switch slot="value" v-model="failOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Warn</div>
-          <x-switch slot="value" :value="warnOpen" @on-change="handleChangeW"/>
+          <x-switch slot="value" v-model="warnOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Loading</div>
-          <x-switch slot="value" :value="loadingOpen" @on-change="handleChangeL"/>
+          <x-switch slot="value" v-model="loadingOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Bottom</div>
-          <x-switch slot="value" :value="bottomOpen" @on-change="handleChangeB"/>
+          <x-switch slot="value" v-model="bottomOpen"/>
         </cell>
       </group>
     </x-body>
-    <toast :open="topOpen" @on-close="handleChangeT">{{content}}</toast>
-    <toast :open="centerOpen" type="success" align="center" @on-close="handleChangeC">{{content}}</toast>
-    <toast :open="failOpen" type="fail" align="center" @on-close="handleChangeF">操作失败</toast>
-    <toast :open="warnOpen" type="warn" align="center" @on-close="handleChangeW">已经操作过了</toast>
-    <toast :open="loadingOpen" type="loading" align="center" @on-close="handleChangeL">Loading</toast>
-    <toast :open="bottomOpen" align="bottom" @on-close="handleChangeB">{{content}}</toast>
+    <toast :open.sync="topOpen">{{content}}</toast>
+    <toast :open.sync="centerOpen" type="success" align="center">{{content}}</toast>
+    <toast :open.sync="failOpen" type="fail" align="center">操作失败</toast>
+    <toast :open.sync="warnOpen" type="warn" align="center">已经操作过了</toast>
+    <toast :open.sync="loadingOpen" type="loading" align="center">Loading</toast>
+    <toast :open.sync="bottomOpen" align="bottom">{{content}}</toast>
   </layout>
 </template>
 
 <script>
 export default {
-  methods: {
-    handleChangeT () {
-      this.topOpen = !this.topOpen
-    },
-    handleChangeC () {
-      this.centerOpen = !this.centerOpen
-    },
-    handleChangeL () {
-      this.loadingOpen = !this.loadingOpen
-    },
-    handleChangeB () {
-      this.bottomOpen = !this.bottomOpen
-    },
-    handleChangeF () {
-      this.failOpen = !this.failOpen
-    },
-    handleChangeW () {
-      this.warnOpen = !this.warnOpen
-    }
-  },
   data () {
     return {
       topOpen: false,

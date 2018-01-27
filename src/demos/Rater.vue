@@ -7,19 +7,19 @@
       <group>
         <cell :arrow="false">
           <div slot="title">评分({{value}})</div>
-          <rater slot="value" :value="value" @on-change="handleChange"/>
+          <rater slot="value" v-model="value"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">评分({{value}})</div>
-          <rater slot="value" color="rgb(255, 204, 102)" :value="value" @on-change="handleChange"/>
+          <rater slot="value" color="rgb(255, 204, 102)" v-model="value"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" :value="value" @on-change="handleChange"/>
+          <rater slot="value" star="♡" v-model="value"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" color="rgb(255, 204, 102)" :value="value" @on-change="handleChange"/>
+          <rater slot="value" star="♡" color="rgb(255, 204, 102)" v-model="value"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">滑块控制</div>

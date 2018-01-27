@@ -77,10 +77,10 @@ export default {
   },
   methods: {
     handleCancel () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleClose () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleConfirm () {
       let value = []
@@ -90,7 +90,7 @@ export default {
         })
       }
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('input', value).$emit('on-change', value)
+        this.open && this.$emit('update:open', false).$emit('input', value).$emit('on-change', value)
       } else {
         this.handleClose()
       }

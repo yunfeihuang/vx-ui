@@ -7,86 +7,86 @@
       <group>
         <cell :arrow="false">
           <div slot="title">popup default</div>
-          <x-switch slot="value" :value="checked" @on-change="handleChange"/>
+          <x-switch slot="value" v-model="checked"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup top</div>
-          <x-switch slot="value" :value="checkedTop" @on-change="handleChangeTop"/>
+          <x-switch slot="value" v-model="checkedTop"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup left</div>
-          <x-switch slot="value" :value="checkedLeft" @on-change="handleChangeLeft"/>
+          <x-switch slot="value" v-model="checkedLeft"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup right</div>
-          <x-switch slot="value" :value="checkedRight" @on-change="handleChangeRight"/>
+          <x-switch slot="value" v-model="checkedRight"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup center</div>
-          <x-switch slot="value" :value="checkedCenter" @on-change="changeChandleEnter"/>
+          <x-switch slot="value" v-model="checkedCenter"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">popup full</div>
-          <x-switch slot="value" :value="fullChecked" @on-change="handleChangeFull"/>
+          <x-switch slot="value" v-model="fullChecked"/>
         </cell>
       </group>
     </x-body>
-    <popup :open="checked" @on-close="handleChange">
+    <popup :open.sync="checked">
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checked" @on-change="handleChange"/>
+            <x-switch slot="value" v-model="checked"/>
           </cell>
         </group>
       </div>
     </popup>
-    <popup direction="top" :open="checkedTop" @on-close="handleChangeTop">
+    <popup direction="top" :open.sync="checkedTop">
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checkedTop" @on-change="handleChangeTop"/>
+            <x-switch slot="value" v-model="checkedTop"/>
           </cell>
         </group>
       </div>
     </popup>
-    <popup direction="left" :open="checkedLeft" @on-close="handleChangeLeft">
+    <popup direction="left" :open.sync="checkedLeft">
       <div style="padding:20px 0;min-width:200px;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checkedLeft" @on-change="handleChangeLeft"/>
+            <x-switch slot="value" v-model="checkedLeft"/>
           </cell>
         </group>
       </div>
     </popup>
-    <popup direction="right" :open="checkedRight" @on-close="handleChangeRight">
+    <popup direction="right" :open.sync="checkedRight">
       <div style="padding:20px 0;min-width:200px;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checkedRight" @on-change="handleChangeRight"/>
+            <x-switch slot="value" v-model="checkedRight"/>
           </cell>
         </group>
       </div>
     </popup>
-    <popup direction="center" :open="checkedCenter" @on-close="changeChandleEnter">
+    <popup direction="center" :open.sync="checkedCenter">
       <div style="padding:20px;min-width:200px;background:#fff;border-radius:5px;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" :value="checkedCenter" @on-change="changeChandleEnter"/>
+            <x-switch slot="value" v-model="checkedCenter" />
           </cell>
         </group>
       </div>
     </popup>
-    <popup :open="fullChecked"  @on-close="handleChangeFull" :full="true">
+    <popup :open.sync="fullChecked" :full="true">
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
             <div slot="title">popup full close</div>
-            <x-switch slot="value" :value="fullChecked" @on-change="handleChangeFull"/>
+            <x-switch slot="value" v-model="fullChecked"/>
           </cell>
         </group>
       </div>
@@ -96,26 +96,6 @@
 
 <script>
 export default {
-  methods: {
-    handleChange () {
-      this.checked = !this.checked
-    },
-    handleChangeTop () {
-      this.checkedTop = !this.checkedTop
-    },
-    handleChangeLeft () {
-      this.checkedLeft = !this.checkedLeft
-    },
-    handleChangeRight () {
-      this.checkedRight = !this.checkedRight
-    },
-    changeChandleEnter () {
-      this.checkedCenter = !this.checkedCenter
-    },
-    handleChangeFull () {
-      this.fullChecked = !this.fullChecked
-    }
-  },
   data () {
     return {
       checked: false,

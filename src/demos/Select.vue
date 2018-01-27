@@ -11,9 +11,8 @@
             :label.sync="label"
             slot="value"
             :options="options.slice(0,4)"
-            :value="value"
+            v-model="value"
             placeholder="请选择"
-            @on-change="handleChange"
           />
         </cell>
         <cell>
@@ -42,9 +41,8 @@
           <x-select 
             slot="value"
             :options="options"
-            :value="value2"
+            v-model="value2"
             placeholder="请选择"
-            @on-change="handleChange2"
           />
         </cell>
       </group>
@@ -54,14 +52,6 @@
 
 <script>
 export default {
-  methods: {
-    handleChange (value) {
-      this.value = value
-    },
-    handleChange2 (value) {
-      this.value2 = value
-    }
-  },
   data () {
     return {
       label: '',

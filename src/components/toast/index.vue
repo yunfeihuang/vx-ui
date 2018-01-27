@@ -69,7 +69,7 @@ export default {
         this.duration && setTimeout(() => {
           requestAnimationFrame(() => {
             this.$el.style.display = 'none'
-            this.$emit('on-close')
+            this.$emit('update:open', false).$emit('on-close')
             if (this.destroy) {
               this.$destroy()
             }

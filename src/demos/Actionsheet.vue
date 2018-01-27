@@ -7,21 +7,21 @@
       <group>
         <cell :arrow="false">
           <div slot="title">Actionsheet</div>
-          <x-switch slot="value" :value="checked" @on-change="handleChange"/>
+          <x-switch slot="value" v-model="checked"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Actionsheet(cancel)</div>
-          <x-switch slot="value" :value="checked1" @on-change="handleChange1"/>
+          <x-switch slot="value" v-model="checked1"/>
         </cell>
       </group>
     </x-body>
-    <actionsheet :open="checked" @on-click="handleClick" @on-close="handleChange">
+    <actionsheet :open.sync="checked" @on-click="handleClick">
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
       <actionsheet-item value="4">删除</actionsheet-item>
     </actionsheet>
-    <actionsheet :open="checked1" :cancel="true" @on-click="handleClick" @on-close="handleChange1">
+    <actionsheet :open.sync="checked1" :cancel="true" @on-click="handleClick" >
       <actionsheet-item value="1">编辑</actionsheet-item>
       <actionsheet-item value="2">收藏</actionsheet-item>
       <actionsheet-item value="3">分享</actionsheet-item>
@@ -34,12 +34,6 @@
 
 export default {
   methods: {
-    handleChange (value) {
-      this.checked = !this.checked
-    },
-    handleChange1 (value) {
-      this.checked1 = !this.checked1
-    },
     handleClick (value) {
       console.log('handleClick')
       // this.checked = false

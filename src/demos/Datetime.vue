@@ -58,11 +58,11 @@ export default {
   },
   data () {
     return {
-      date: undefined,
-      date2: undefined,
-      date3: undefined,
-      datetime: undefined,
-      time: undefined
+      date: null,
+      date2: null,
+      date3: null,
+      datetime: null,
+      time: null
     }
   }
 }

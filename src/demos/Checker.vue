@@ -6,21 +6,21 @@
     <x-body slot="body">
       <group title="Checker 多选">
         <div style="padding:20px 10px">
-          <Checker :label.sync="label1" :options="options" @on-change="handleChangeCheckbox" :value="checkboxValue"/>
+          <Checker :label.sync="label1" :options="options" v-model="checkboxValue"/>
           <br />
           value：{{checkboxValue}} label: {{label1}}
         </div>
       </group>
       <group title="Checker 最多选2个">
         <div style="padding:20px 10px">
-          <Checker :label.sync="label2" :checked-max-item="2" :options="options" @on-change="handleChangeRadio" :value="radioValue"/>
+          <Checker :label.sync="label2" :checked-max-item="2" :options="options" v-model="radioValue"/>
           <br />
           value：{{radioValue}} label: {{label2}}
         </div>
       </group>
       <group title="Checker 单选">
         <div style="padding:20px 10px">
-          <Checker :label.sync="label2" :checked-max-item="1" :options="options" @on-change="handleChangeRadio" :value="radioValue"/>
+          <Checker :label.sync="label2" :checked-max-item="1" :options="options" v-model="radioValue"/>
           <br />
           value：{{radioValue}} label: {{label2}}
         </div>
@@ -31,14 +31,6 @@
 
 <script>
 export default {
-  methods: {
-    handleChangeCheckbox (value) {
-      this.checkboxValue = value
-    },
-    handleChangeRadio (value) {
-      this.radioValue = value
-    }
-  },
   data () {
     return {
       label1: [],

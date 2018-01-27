@@ -37,7 +37,7 @@ import Divider from '../divider'
 let now = new Date()
 
 export default {
-  name: 'DateTimePicker',
+  name: 'DatetimePicker',
   components: {
     Popup,
     Picker,
@@ -251,17 +251,17 @@ export default {
       return seconds
     },
     handleCancel () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleClose () {
-      this.$emit('on-close')
+      this.$emit('update:open', false).$emit('on-close')
     },
     handleConfirm () {
       let value = this.format
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.open && value !== this.value && this.$emit('input', value).$emit('on-change', value)
+      this.open && value !== this.value && this.$emit('update:open', false).$emit('input', value).$emit('on-change', value)
       value === this.value && this.handleClose()
     },
     handleChange (value, index) {

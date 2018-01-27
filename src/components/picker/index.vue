@@ -150,7 +150,7 @@ export default {
           let active = this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('on-change', value, this.index).$emit('input', value, this.index)
+            value !== this.value && this.$emit('input', value, this.index).$emit('on-change', value, this.index)
           }
         })
       }, 51)

@@ -7,67 +7,38 @@
       <group>
         <cell :arrow="false">
           <div slot="title">{{pickerValue1}}</div>
-          <x-switch slot="value" :value="pickerOpen1" @on-change="handleChange1"/>
+          <x-switch slot="value" v-model="pickerOpen1"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">{{pickerValue2}}</div>
-          <x-switch slot="value" :value="pickerOpen2" @on-change="handleChange2"/>
+          <x-switch slot="value" v-model="pickerOpen2"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">{{pickerValue3}}</div>
-          <x-switch slot="value" :value="pickerOpen3" @on-change="handleChange3"/>
+          <x-switch slot="value" v-model="pickerOpen3"/>
         </cell>
       </group>
     </x-body>
     <datetime-picker
       format="yyyy-MM-dd"
-      :open="pickerOpen1"
-      :value="pickerValue1"
-      @on-close="handleChange1"
-      @on-change="handleConfirm1"
+      :open.sync="pickerOpen1"
+      v-model="pickerValue1"
       />
     <datetime-picker
       format="yyyy-MM-dd HH:mm:ss"
-      :open="pickerOpen2"
-      :value="pickerValue2"
-      @on-close="handleChange2"
-      @on-change="handleConfirm2"
+      :open.sync="pickerOpen2"
+      v-model="pickerValue2"
       />
     <datetime-picker
       format="HH:mm:ss"
-      :open="pickerOpen3"
-      :value="pickerValue3"
-      @on-cancel="handleChange3"
-      @on-change="handleConfirm3"
+      :open.sync="pickerOpen3"
+      v-model="pickerValue3"
       />
   </layout>
 </template>
 
 <script>
 export default {
-  methods: {
-    handleChange1 () {
-      this.pickerOpen1 = !this.pickerOpen1
-    },
-    handleConfirm1 (value) {
-      this.pickerOpen1 = false
-      this.pickerValue1 = value
-    },
-    handleChange2 () {
-      this.pickerOpen2 = !this.pickerOpen2
-    },
-    handleConfirm2 (value) {
-      this.pickerOpen2 = false
-      this.pickerValue2 = value
-    },
-    handleChange3 () {
-      this.pickerOpen3 = !this.pickerOpen3
-    },
-    handleConfirm3 (value) {
-      this.pickerOpen3 = false
-      this.pickerValue3 = value
-    }
-  },
   data () {
     return {
       pickerOpen1: false,
