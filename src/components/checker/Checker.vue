@@ -1,29 +1,35 @@
 <template>
-  <label :class="classes" :disabled="disabled" >
-    <input :type="myType" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <icon :class="[$cssPrefix + 'checkbox-icon']">&#xe632;</icon>
-    <span :class="[$cssPrefix + 'checkbox-text']">
-      <slot></slot>
-    </span>
+  <label :class="$cssPrefix + 'checker'">
+    <input
+      :type="myType"
+      :checked="myChecked"
+      :name="name"
+      :value="value"
+      @change="handleChange"
+      />
+    <span :disabled="disabled"><slot></slot></span>
   </label>
 </template>
 
 <script>
 import { input } from 'utils/mixins.js'
-import Icon from '../icon'
+
 export default {
-  name: 'Checkbox',
-  components: {
-    Icon
-  },
+  name: 'Checker',
   mixins: [input],
+  props: {
+    value: {
+      type: [Array, String],
+      default: []
+    },
+    checkedMaxItem: {
+      type: Number,
+      default: 0
+    }
+  },
   computed: {
     classes () {
-      return [
-        this.$cssPrefix + 'checkbox',
-        this.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
-        this.checked ? this.$cssPrefix + 'checkbox-active' : ''
-      ]
+      return [this.$cssPrefix + 'checker']
     },
     myChecked () {
       if (this.$parent.value && this.$parent.value.constructor === Array) {
@@ -38,16 +44,6 @@ export default {
       } else {
         return this.type
       }
-    }
-  },
-  props: {
-    direction: {
-      type: String,
-      default: 'normal'
-    },
-    type: {
-      type: String,
-      default: 'checkbox'
     }
   },
   methods: {

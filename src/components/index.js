@@ -9,7 +9,7 @@ import XSwitch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import XSelect from './select'
-import Checker from './checker'
+import {Checker, CheckerGroup} from './checker'
 import {XForm, XFormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
@@ -112,6 +112,7 @@ let components = [
   RadioGroup,
   XSelect,
   Checker,
+  CheckerGroup,
   Divider,
   Group,
   Cell,
@@ -387,6 +388,7 @@ export {
   RadioGroup,
   XSelect,
   Checker,
+  CheckerGroup,
   Divider,
   Group,
   Cell,

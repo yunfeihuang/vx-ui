@@ -2,40 +2,40 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &checker{
-    user-select: none;
-    @include disabled;
-    line-height:0.8rem;
-    &-item{
-      display:inline-block;
-      vertical-align: middle;
-      position:relative;
-      margin-right:5px;
-      margin-bottom:5px;
-      input{
-        opacity:0;
-        width:100%;
-        height:100%;
-        position:absolute;
-        top:0;
-        left:0;
-        margin: 0;
-        &:checked+span{
+    display:inline-block;
+    vertical-align: middle;
+    position:relative;
+    margin-right:5px;
+    margin-bottom:5px;
+    input{
+      opacity:0;
+      width:100%;
+      height:100%;
+      position:absolute;
+      top:0;
+      left:0;
+      margin: 0;
+      &:checked+span{
+        border-color:$primary-color;
+        color:$primary-color;
+        &:before{
           border-color:$primary-color;
-          color:$primary-color;
-          &:before{
-            border-color:$primary-color;
-          }
         }
       }
-      span{
-        display:inline-block;
-        vertical-align: middle;
-        @include round-border($border-color-base,0);
-        min-width:50px;
-        padding:0 0.15rem;
-        text-align:center;
-        @include disabled;
-      }
+    }
+    span{
+      display:inline-block;
+      vertical-align: middle;
+      @include round-border($border-color-base,0);
+      min-width:50px;
+      padding:0 0.15rem;
+      text-align:center;
+      @include disabled;
+    }
+    &-group{
+      user-select: none;
+      @include disabled;
+      line-height:0.8rem;
     }
   }
 }

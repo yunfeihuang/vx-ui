@@ -47,5 +47,10 @@
   &radio-group{
     user-select: none;
     @include disabled;
+    &-divider{
+      .#{$css-prefix}radio:after{
+        @include divider()
+      }
+    }
   }
 }

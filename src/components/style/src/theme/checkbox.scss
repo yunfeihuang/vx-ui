@@ -10,6 +10,11 @@
     &-group{
       user-select: none;
       @include disabled;
+      &-divider{
+        .#{$css-prefix}checkbox:after{
+          @include divider()
+        }
+      }
     }
     input{
       position:absolute;

@@ -10,9 +10,18 @@
         <radio name="radio1">羽毛球</radio>
       </group>
       <group title="RadioGroup">
-        <radio-group :label.sync="label" :options="options" v-model="value"/>
+        <radio-group v-model="value">
+          <radio 
+            v-for="item in options"
+            :disabled="item.disabled"
+            :key="item.value"
+            :value="item.value"
+            >
+              {{item.label}}
+          </radio>
+        </radio-group>
         <div style="padding:15px 10px;">
-          value：{{value}} label：{{label}}
+          value：{{value}}
         </div>
       </group>
     </x-body>
@@ -23,7 +32,6 @@
 export default {
   data () {
     return {
-      label: '',
       value: '1',
       options: [
         {

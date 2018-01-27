@@ -8,19 +8,46 @@
         <checkbox :checked.sync="checked">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
-        <checkbox-group :label.sync="label" :options="options" v-model="value"/>
+        <checkbox-group v-model="value">
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
         <div style="padding:15px 10px;">
-          value：{{value}} label: {{label}}
+          value：{{value}}
         </div>
       </group>
       <group title="CheckboxGroup-Reverse">
-        <checkbox-group direction="reverse" :options="options" v-model="reverseValue"/>
+        <checkbox-group direction="reverse" v-model="reverseValue">
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
       </group>
       <group title="CheckboxGroup最多选2个">
-        <checkbox-group direction="reverse" :checked-max-item="2" :options="options" v-model="reverseValue"/>
+        <checkbox-group direction="reverse" :checked-max-item="2" v-model="reverseValue">
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
@@ -33,7 +60,6 @@
 export default {
   data () {
     return {
-      label: [],
       checked: false,
       value: ['1'],
       options: [
