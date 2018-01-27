@@ -25,11 +25,11 @@ export default {
   },
   mounted () {
     if (document.touchstart === undefined) {
-      this.$el.addEventListener('mousedown', this.touchStartHandler, false)
-      this.$el.addEventListener('mouseup', this.touchEndHandler, false)
+      this.$el.addEventListener('mousedown', this.handleTouchStart, false)
+      this.$el.addEventListener('mouseup', this.handleTouchEnd, false)
     } else {
-      this.$el.addEventListener('touchstart', this.touchStartHandler, false)
-      this.$el.addEventListener('touchend', this.touchEndHandler, false)
+      this.$el.addEventListener('touchstart', this.handleTouchStart, false)
+      this.$el.addEventListener('touchend', this.handleTouchEnd, false)
     }
   },
   methods: {
@@ -50,7 +50,7 @@ export default {
         }
       }
     },
-    touchStartHandler (e) {
+    handleTouchStart (e) {
       let shadow = this.$el.querySelector('.' + this.$cssPrefix + 'ripple-shadow')
       shadow && shadow.parentNode.removeChild(shadow)
       offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
@@ -67,7 +67,7 @@ export default {
       })
       e.preventDefault()
     },
-    touchEndHandler (e) {
+    handleTouchEnd (e) {
       timer && clearTimeout(timer)
       node.style.transition = node.style.webkitTransition = ''
       node.style.transform = node.style.webkitTransform = 'scale(' + (Math.max(offset.height, offset.width) / 5) + ')'

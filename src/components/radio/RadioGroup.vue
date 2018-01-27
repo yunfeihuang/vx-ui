@@ -6,7 +6,7 @@
         :disabled="item.disabled"
         :value="item.value"
         :checked="value===item.value"
-        @on-change="changeHandler"
+        @on-change="handleChange"
         >
           {{item.label}}
       </radio>
@@ -46,7 +46,7 @@ export default {
     this.value && this.updateLabel(this.value)
   },
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.$emit('input', value).$emit('on-change', value)
       this.updateLabel(value)
     },

@@ -11,8 +11,8 @@
           </div>
           <divider></divider>
           <div :class="[$cssPrefix + 'confirm-footer',$cssPrefix + 'flexbox']" onselectstart="return false;">
-            <button :class="$cssPrefix + 'flexbox-item'" v-if="cancel" type="button" @click="cancelHandler">{{cancelText}}</button>
-            <button :class="$cssPrefix + 'flexbox-item'" type="button" @click="confirmHandler">{{confirmText}}</button>
+            <button :class="$cssPrefix + 'flexbox-item'" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+            <button :class="$cssPrefix + 'flexbox-item'" type="button" @click="handleConfirm">{{confirmText}}</button>
           </div>
         </div>
       </transition>
@@ -81,10 +81,10 @@ export default {
     }
   },
   methods: {
-    cancelHandler () {
+    handleCancel () {
       this.$emit('update:open', false).$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       this.open && this.$emit('update:open', false).$emit('on-confirm')
     }
   }

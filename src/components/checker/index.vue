@@ -7,7 +7,7 @@
         :checked="checkedMaxItem !== 1 ? value.indexOf(item.value) > -1 : value === item.value"
         :disabled="item.disabled"
         :name="name"
-        @change="changeHandler"
+        @change="handleChange"
         />
       <span :disabled="item.disabled">{{item.label}}</span>
     </label>
@@ -43,7 +43,7 @@ export default {
     this.value && this.updateLabel(this.value)
   },
   methods: {
-    changeHandler (e) {
+    handleChange (e) {
       if (this.checkedMaxItem === 1) {
         this.$emit('on-change', e.target.value).$emit('input', e.target.value)
         this.updateLabel(e.target.value)

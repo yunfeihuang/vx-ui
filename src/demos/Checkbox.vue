@@ -8,19 +8,19 @@
         <checkbox :checked.sync="checked">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
-        <checkbox-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
+        <checkbox-group :label.sync="label" :options="options" @on-change="handleChange" :value="value"/>
         <div style="padding:15px 10px;">
           value：{{value}} label: {{label}}
         </div>
       </group>
       <group title="CheckboxGroup-Reverse">
-        <checkbox-group direction="reverse" :options="options" @on-change="changeReverseHandler" :value="reverseValue"/>
+        <checkbox-group direction="reverse" :options="options" @on-change="handleChangeReverse" :value="reverseValue"/>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
       </group>
       <group title="CheckboxGroup最多选2个">
-        <checkbox-group direction="reverse" :checked-max-item="2" :options="options" @on-change="changeReverseHandler" :value="reverseValue"/>
+        <checkbox-group direction="reverse" :checked-max-item="2" :options="options" @on-change="handleChangeReverse" :value="reverseValue"/>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
@@ -32,10 +32,10 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.value = value
     },
-    changeReverseHandler (value) {
+    handleChangeReverse (value) {
       this.reverseValue = value
     }
   },

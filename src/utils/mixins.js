@@ -62,28 +62,28 @@ const input = {
     }
   },
   methods: {
-    focusHandler (e) {
+    handleFocus (e) {
       this.isFocus = true
       this.$emit('on-focus', e)
     },
-    blurHandler (e) {
+    handleBlur (e) {
       this.isFocus = false
       this.$emit('on-blur', e)
     },
-    changeHandler (e) {
+    handleChange (e) {
       this.$emit('on-change', e.target.value)
     },
-    inputHandler (e) {
+    handleInput (e) {
       this.$emit('input', e.target ? e.target.value : e)
     },
-    keyupHandler (e) {
+    handleKeyup (e) {
       e.keyCode === 13 && this.$emit('on-keyenter', e)
       this.$emit('on-keyup', e)
     },
-    keydownHandler (e) {
+    handleKeydown (e) {
       this.$emit('on-keydown', e)
     },
-    invalidHandler (e) {
+    handleInvalid (e) {
       this.$emit('invalid', e)
     }
   }
@@ -94,7 +94,7 @@ const tab = {
     if (!this.$children) return
     this.childLength = this.$children.length
     this.$children.forEach((item, i) => {
-      this.$children[i].$on('on-change', this.changeHandler)
+      this.$children[i].$on('on-change', this.handleChange)
       item.index = i
       item.active = item.index === this.active
     })
@@ -135,16 +135,16 @@ const historyPush = {
     pushState () {
       if (this.history && window.location.href.indexOf('popup=') === -1) {
         window.history.pushState({}, '', this.getPushURL())
-        let popstateHandler = this.popstateHandler = () => {
+        let handlePopstate = this.handlePopstate = () => {
           this.$emit('on-close')
           this.popStateBack && this.popStateBack()
-          window.removeEventListener('popstate', popstateHandler)
+          window.removeEventListener('popstate', handlePopstate)
         }
-        window.addEventListener('popstate', popstateHandler)
+        window.addEventListener('popstate', handlePopstate)
       }
     },
     goBack () {
-      window.removeEventListener('popstate', this.popstateHandler)
+      window.removeEventListener('popstate', this.handlePopstate)
       this.history && window.location.href.indexOf('popup=') > -1 && history.back()
     }
   }

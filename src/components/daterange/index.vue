@@ -10,13 +10,13 @@
     :name="name" 
     :required="required"
     :format="format"
-    @focus="focusHandler"
-    @blur="blurHandler"
-    @keyup="keyupHandler"
-    @keydown="keydownHandler" 
-    @change="changeHandler"
-    @input="inputHandler"
-    @click="clickHandler"
+    @focus="handleFocus"
+    @blur="handleBlur"
+    @keyup="handleKeyup"
+    @keydown="handleKeydown" 
+    @change="handleChange"
+    @input="handleInput"
+    @click="handleClick"
     />
 </template>
 
@@ -51,7 +51,7 @@ export default {
     }
   },
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       let daterange = this
       let node = document.createElement('div')
       if (this.getPopupMounted) {
@@ -73,8 +73,8 @@ export default {
               open: this.open
             },
             on: {
-              'on-change': this.changeHandler,
-              'on-close': this.closeHandler
+              'on-change': this.handleChange,
+              'on-close': this.handleClose
             }
           })
         },
@@ -94,10 +94,10 @@ export default {
           })
         },
         methods: {
-          changeHandler (value) {
+          handleChange (value) {
             daterange.$emit('input', value).$emit('on-change', value)
           },
-          closeHandler () {
+          handleClose () {
             this.open = false
           }
         }

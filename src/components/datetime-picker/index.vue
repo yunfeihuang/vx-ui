@@ -1,14 +1,14 @@
 <template>
-  <popup :open="open" :history="history" @on-close="closeHandler" :fast-close="false">
+  <popup :open="open" :history="history" @on-close="handleClose" :fast-close="false">
     <div :class="classes">
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'datetime-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'datetime-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
+        <button type="button" :class="[$cssPrefix + 'datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <div :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'datetime-picker-today']">
           <!--
-          <button type="button" :class="[$cssPrefix + 'datetime-picker-today']" @click="todayHandler">{{todayText}}</button>
+          <button type="button" :class="[$cssPrefix + 'datetime-picker-today']" @click="handleToday">{{todayText}}</button>
           -->
         </div>
-        <button type="button" :class="[$cssPrefix + 'datetime-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :class="[$cssPrefix + 'datetime-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider></divider>
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'datetime-picker']">
@@ -22,7 +22,7 @@
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @on-change="changeHandler"
+          @on-change="handleChange"
         />
       </div>
     </div>
@@ -250,21 +250,21 @@ export default {
       }
       return seconds
     },
-    cancelHandler () {
+    handleCancel () {
       this.$emit('on-close')
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       let value = this.format
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
       this.open && value !== this.value && this.$emit('input', value).$emit('on-change', value)
-      value === this.value && this.closeHandler()
+      value === this.value && this.handleClose()
     },
-    changeHandler (value, index) {
+    handleChange (value, index) {
       let type = index.split('-')[1]
       index = index.split('-')[0]
       this.pickers[index].value = value
@@ -286,7 +286,7 @@ export default {
         })
       }
     },
-    todayHandler () {
+    handleToday () {
       let map = {
         'yyyy': () => {
           return new Date().getFullYear()

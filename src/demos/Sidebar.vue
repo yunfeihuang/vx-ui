@@ -4,7 +4,7 @@
       <div slot="title">Sidebar</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <sidebar @on-change="changeHandler" :active="active" class="sidebar">
+      <sidebar @on-change="handleChange" :active="active" class="sidebar">
         <sidebar-item>家电</sidebar-item>
         <sidebar-item>手机</sidebar-item>
         <sidebar-item>电脑</sidebar-item>
@@ -33,7 +33,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.active = value
     }
   },

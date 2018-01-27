@@ -1,15 +1,15 @@
 <template>
   <div 
     :class="classes"
-    @touchstart="touchStartHandler"
-    @mousedown="touchStartHandler"
+    @touchstart="handleTouchStart"
+    @mousedown="handleTouchStart"
     onselectstart="return false;"
     >
     <div :class="$cssPrefix + 'swipeout-inner'">
       <div :class="$cssPrefix + 'swipeout-content'">
         <slot></slot>
       </div>
-      <div :class="$cssPrefix + 'swipeout-action'" @click="actionHandler">
+      <div :class="$cssPrefix + 'swipeout-action'" @click="handleAction">
         <slot name="action"></slot>
       </div>
     </div>
@@ -73,9 +73,9 @@ export default {
       el.style.webkitTransition = el.style.transition = transition ? '' : 'none'
       el.style.webkitTransform = el.style.transform = 'translateX(' + x + 'px)'
     },
-    touchStartHandler (e) {
+    handleTouchStart (e) {
       if (!this.disabled) {
-        swipeoutVue && swipeoutVue !== this && swipeoutVue.actionHandler()
+        swipeoutVue && swipeoutVue !== this && swipeoutVue.handleAction()
         let currentTranslateX = 0
         if (this.$touch.el) {
           let transform = this.$touch.el.style.transform || this.$touch.el.style.webkitTransform
@@ -87,13 +87,13 @@ export default {
           start: true,
           currentTranslateX: currentTranslateX
         })
-        document.addEventListener('touchmove', this.touchMoveHandler, false)
-        document.addEventListener('touchend', this.touchEndHandler, false)
-        document.addEventListener('mousemove', this.touchMoveHandler, false)
-        document.addEventListener('mouseup', this.touchEndHandler, false)
+        document.addEventListener('touchmove', this.handleTouchMove, false)
+        document.addEventListener('touchend', this.handleTouchEnd, false)
+        document.addEventListener('mousemove', this.handleTouchMove, false)
+        document.addEventListener('mouseup', this.handleTouchEnd, false)
       }
     },
-    touchMoveHandler (e) {
+    handleTouchMove (e) {
       let {pageY, pageX} = this.getPosition(e)
       if (this.$touch.start && Math.abs(pageY - this.$touch.pageY) < Math.abs(pageX - this.$touch.pageX)) {
         this.$touch.diffX = pageX - this.$touch.pageX
@@ -107,7 +107,7 @@ export default {
         e.preventDefault()
       }
     },
-    touchEndHandler (e) {
+    handleTouchEnd (e) {
       if (this.$touch.start) {
         this.$touch.start = false
         if (this.$touch.diffX === 0) {
@@ -124,13 +124,13 @@ export default {
         if (this.$touch.currentTranslateX !== this.$touch.translateX) {
           this.$emit(this.$touch.translateX === 0 ? 'on-close' : 'on-open')
         }
-        document.removeEventListener('touchmove', this.touchMoveHandler)
-        document.removeEventListener('touchend', this.touchEndHandler)
-        document.removeEventListener('mousemove', this.touchMoveHandler)
-        document.removeEventListener('mouseup', this.touchEndHandler)
+        document.removeEventListener('touchmove', this.handleTouchMove)
+        document.removeEventListener('touchend', this.handleTouchEnd)
+        document.removeEventListener('mousemove', this.handleTouchMove)
+        document.removeEventListener('mouseup', this.handleTouchEnd)
       }
     },
-    actionHandler () {
+    handleAction () {
       requestAnimationFrame(() => {
         this.setTranslateX(0, 0)
       })

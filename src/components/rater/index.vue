@@ -6,7 +6,7 @@
       :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
       :data-value="item"
       v-html="star"
-      @click="changeHandler(item)"
+      @click="handleChange(item)"
       >
     </span>
   </div>
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       if (!this.disabled) {
         if (value !== 1 && value === this.value) {
           return false

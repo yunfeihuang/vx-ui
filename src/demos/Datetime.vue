@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <br />
-      <x-form @on-submit="submitHandler">
+      <x-form @on-submit="handleSubmit">
         <x-form-item label="yyyy-MM-dd">
           <x-input>
             <datetime :get-popup-mounted="popupMounted" v-model="date" placeholder="请输入日期" required/>
@@ -39,7 +39,7 @@
 <script>
 export default {
   methods: {
-    submitHandler () {
+    handleSubmit () {
       window.$toast({
         type: 'loading',
         content: '数据中...',

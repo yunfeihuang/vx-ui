@@ -1,5 +1,5 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click.native="clickHandler">
+  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click.native="handleClick">
     <slot></slot>
   </component>
 </template>
@@ -14,7 +14,7 @@ export default {
     Icon
   },
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       this.$emit('on-change', this.index)
     }
   },

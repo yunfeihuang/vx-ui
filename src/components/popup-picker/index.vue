@@ -1,10 +1,10 @@
 <template>
-  <popup :open="open" :history="history" @on-close="closeHandler">
+  <popup :open="open" :history="history" @on-close="handleClose">
     <div :class="classes">
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
+        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <button type="button" :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :class="[$cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :class="[$cssPrefix + 'popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider></divider>
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker']">
@@ -17,7 +17,7 @@
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @on-change="changeHandler"
+          @on-change="handleChange"
         />
       </div>
     </div>
@@ -76,13 +76,13 @@ export default {
     }
   },
   methods: {
-    cancelHandler () {
+    handleCancel () {
       this.$emit('on-close')
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       let value = []
       for (let item of this.myPickers) {
         value.push({
@@ -92,10 +92,10 @@ export default {
       if (!this.value || value.toString() !== this.value.toString()) {
         this.open && this.$emit('input', value).$emit('on-change', value)
       } else {
-        this.closeHandler()
+        this.handleClose()
       }
     },
-    changeHandler (value, index) {
+    handleChange (value, index) {
       this.myPickers[index].value = value
       this.$emit('on-pickerchange', value, index)
     }

@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @on-open="openHandler" @on-close="closeHandler" :fast-close="false" direction="top" :class="[$cssPrefix + 'daterange-picker-wrapper']">
+  <popup :open="open" :history="history" @on-open="handleOpen" @on-close="handleClose" :fast-close="false" direction="top" :class="[$cssPrefix + 'daterange-picker-wrapper']">
     <div :class="classes" v-if="open">
       <div :class="[$cssPrefix + 'daterange-picker-header']">
         <tab :active.sync="tab" v-if="layout.length" ref="tab">
@@ -11,22 +11,22 @@
         <flexbox :class="[$cssPrefix + 'daterange-picker-controls']">
           <flexbox-item>
             <flexbox align="center">
-              <button :disabled="date.getFullYear() <= 1990" type="button" @click="yearChangeHandler(-1)">
+              <button :disabled="date.getFullYear() <= 1990" type="button" @click="yearhandleChange(-1)">
                 <icon>&#xe660;</icon>
               </button>
               <flexbox-item>{{date.getFullYear()}}年</flexbox-item>
-              <button type="button" @click="yearChangeHandler(1)">
+              <button type="button" @click="yearhandleChange(1)">
                 <icon>&#xe65f;</icon>
               </button>
             </flexbox>
           </flexbox-item>
           <flexbox-item v-if="tab==0||tab==1">
             <flexbox align="center">
-              <button :disabled="date.getMonth() === 0" type="button" @click="monthChangeHandler(-1)">
+              <button :disabled="date.getMonth() === 0" type="button" @click="monthhandleChange(-1)">
                 <icon>&#xe660;</icon>
               </button>
               <flexbox-item>{{date.getMonth() + 1}}月</flexbox-item>
-              <button :disabled="date.getMonth() === 11" type="button" @click="monthChangeHandler(1)">
+              <button :disabled="date.getMonth() === 11" type="button" @click="monthhandleChange(1)">
                 <icon>&#xe65f;</icon>
               </button>
             </flexbox>
@@ -45,7 +45,7 @@
             v-for="item in dateList"
             :key="item.value.getTime()"
             :class="calendarClasses(item)"
-            @click="changeHandler(item.value)"
+            @click="handleChange(item.value)"
             >
             {{item.value.getDate()}}
           </div>
@@ -54,7 +54,7 @@
             v-for="(item,i) in dateList"
             :key="item.value.getTime()"
             :class="calendarClasses(item)"
-            @click="changeHandler([dateList[Math.floor(i/7)*7].value,dateList[(Math.floor(i/7)+1)*7-1].value])"
+            @click="handleChange([dateList[Math.floor(i/7)*7].value,dateList[(Math.floor(i/7)+1)*7-1].value])"
             >
             {{item.value.getDate()}}
           </div>
@@ -65,7 +65,7 @@
             v-for="(item, i) in monthList"
             :key="i"
             :class="calendarClasses(item)"
-            @click="changeHandler([item.startDate,item.endDate])"
+            @click="handleChange([item.startDate,item.endDate])"
             >
             {{i+1}}月
           </div>
@@ -76,7 +76,7 @@
             v-for="(item,i) in quarterList"
             :key="i"
             :class="calendarClasses(item)"
-            @click="changeHandler([item.startDate,item.endDate])"
+            @click="handleChange([item.startDate,item.endDate])"
             >
             {{i+1}}季度
           </div>
@@ -84,11 +84,11 @@
       </div>
       <divider></divider>
       <flexbox :class="[$cssPrefix + 'daterange-picker-footer']">
-        <button type="button" :class="[$cssPrefix + 'daterange-picker-cancel']" @click="closeHandler">{{cancelText}}</button>
+        <button type="button" :class="[$cssPrefix + 'daterange-picker-cancel']" @click="handleClose">{{cancelText}}</button>
         <flexbox-item>
-          <button type="button" :class="[$cssPrefix + 'daterange-picker-clear']" @click="changeHandler([])">{{clearText}}</button>
+          <button type="button" :class="[$cssPrefix + 'daterange-picker-clear']" @click="handleChange([])">{{clearText}}</button>
         </flexbox-item>
-        <button type="button" :class="[$cssPrefix + 'daterange-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :class="[$cssPrefix + 'daterange-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </flexbox>
     </div>
   </popup>
@@ -330,24 +330,24 @@ export default {
       this.valueTab = this.tab
       this.myValue = value
     },
-    yearChangeHandler (i) {
+    yearhandleChange (i) {
       let date = new Date(this.date.getTime())
       date.setFullYear(date.getFullYear() + i)
       this.date = date
     },
-    monthChangeHandler (i) {
+    monthhandleChange (i) {
       let date = new Date(this.date.getTime())
       date.setMonth(date.getMonth() + i)
       this.date = date
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       this.$emit('on-change', this.myValue).$emit('input', this.myValue)
-      this.closeHandler()
+      this.handleClose()
     },
-    changeHandler (value) {
+    handleChange (value) {
       if (value instanceof Array) {
         this.setValue(value)
       } else {
@@ -361,7 +361,7 @@ export default {
         }
       }
     },
-    openHandler () {
+    handleOpen () {
       this.$refs.tab.computedStyle()
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <form :class="classes" :action="action" @submit="submitHandler">
+  <form :class="classes" :action="action" @submit="handleSubmit">
     <slot></slot>
   </form>
 </template>
@@ -33,7 +33,7 @@ export default {
     }
   },
   methods: {
-    submitHandler (e) {
+    handleSubmit (e) {
       if (this.validator) {
         let message = this.validator()
         if (message) {

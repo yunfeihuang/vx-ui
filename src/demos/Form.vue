@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <br />
-      <x-form @on-submit="submitHandler" :validator="formValidator">
+      <x-form @on-submit="handleSubmit" :validator="formValidator">
         <x-form-item>
           <span slot="label">姓名</span>
           <x-input v-model="form.name" :clear="false" required/>
@@ -48,7 +48,7 @@ export default {
     formValidator () {
       console.log('formValidator')
     },
-    submitHandler () {
+    handleSubmit () {
       window.$toast({
         type: 'loading',
         content: '数据中...',

@@ -4,8 +4,8 @@
     :confirmText="confirmText"
     :cancel="false"
     :history="history"
-    @on-confirm="confirmHandler"
-    @on-close="closeHandler">
+    @on-confirm="handleConfirm"
+    @on-close="handleClose">
     <slot></slot>
   </confirm>
 </template>
@@ -32,10 +32,10 @@ export default {
     }
   },
   methods: {
-    confirmHandler () {
+    handleConfirm () {
       this.$emit('update:open', false).$emit('on-confirm')
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('update:open', false).$emit('on-close')
     }
   }

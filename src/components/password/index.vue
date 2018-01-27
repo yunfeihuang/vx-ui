@@ -12,18 +12,18 @@
       :name="name" 
       :clear="false"
       :required="required"
-      @on-focus="focusHandler"
-      @on-blur="blurHandler"
-      @on-keyup="keyupHandler"
-      @on-keydown="keydownHandler" 
-      @on-change="changeHandler"
-      @input="inputHandler"
-      @invalid="invalidHandler"
+      @on-focus="handleFocus"
+      @on-blur="handleBlur"
+      @on-keyup="handleKeyup"
+      @on-keydown="handleKeydown" 
+      @on-change="handleChange"
+      @input="handleInput"
+      @invalid="handleInvalid"
     />
     <button
       :class="[$cssPrefix+'password-switch']"
       type="button"
-      @click="switchHandler"
+      @click="handleSwitch"
     >
       <icon v-if="this.hType==='password'">&#xe602;</icon>
       <icon v-if="this.hType==='text'">&#xe63b;</icon>
@@ -53,10 +53,10 @@ export default {
     }
   },
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.$emit('on-change', value)
     },
-    switchHandler () {
+    handleSwitch () {
       this.hType = this.hType === 'password' ? 'text' : 'password'
     }
   }

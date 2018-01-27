@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (val) {
+    handleChange (val) {
       if (val !== this.active) {
         this.$emit('on-change', val).$emit('input', val)
       }

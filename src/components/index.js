@@ -167,7 +167,7 @@ if (process.browser) {
           return createElement(Toast, {
             props: props,
             on: {
-              'on-close': this.closeHandler
+              'on-close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -176,7 +176,7 @@ if (process.browser) {
         },
         data: {props: props},
         methods: {
-          closeHandler: () => {
+          handleClose: () => {
             props.open = props.onClose() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
@@ -208,8 +208,8 @@ if (process.browser) {
           return createElement(Alert, {
             props: props,
             on: {
-              'on-confirm': this.confirmHandler,
-              'on-close': this.closeHandler
+              'on-confirm': this.handleConfirm,
+              'on-close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -218,13 +218,13 @@ if (process.browser) {
         },
         data: {props: props},
         methods: {
-          confirmHandler: () => {
+          handleConfirm: () => {
             props.open = props.onConfirm() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
           },
-          closeHandler: () => {
+          handleClose: () => {
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
@@ -259,8 +259,8 @@ if (process.browser) {
           return createElement(Confirm, {
             props: props,
             on: {
-              'on-confirm': this.confirmHandler,
-              'on-close': this.closeHandler
+              'on-confirm': this.handleConfirm,
+              'on-close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -269,13 +269,13 @@ if (process.browser) {
         },
         data: {props: props},
         methods: {
-          confirmHandler: () => {
+          handleConfirm: () => {
             props.open = props.onConfirm() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
           },
-          closeHandler: () => {
+          handleClose: () => {
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
@@ -317,9 +317,9 @@ if (process.browser) {
           return createElement(Prompt, {
             props: props,
             on: {
-              'on-confirm': this.confirmHandler,
-              'on-close': this.closeHandler,
-              'on-change': this.changeHandler
+              'on-confirm': this.handleConfirm,
+              'on-close': this.handleClose,
+              'on-change': this.handleChange
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -328,19 +328,19 @@ if (process.browser) {
         },
         data: {props: props},
         methods: {
-          confirmHandler: () => {
+          handleConfirm: () => {
             props.open = props.onConfirm() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
           },
-          closeHandler: () => {
+          handleClose: () => {
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
           },
-          changeHandler: (value) => {
+          handleChange: (value) => {
             props.disabled = props.onChange(value)
           }
         },

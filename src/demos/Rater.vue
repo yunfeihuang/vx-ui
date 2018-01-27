@@ -7,19 +7,19 @@
       <group>
         <cell :arrow="false">
           <div slot="title">评分({{value}})</div>
-          <rater slot="value" :value="value" @on-change="changeHandler"/>
+          <rater slot="value" :value="value" @on-change="handleChange"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">评分({{value}})</div>
-          <rater slot="value" color="rgb(255, 204, 102)" :value="value" @on-change="changeHandler"/>
+          <rater slot="value" color="rgb(255, 204, 102)" :value="value" @on-change="handleChange"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" :value="value" @on-change="changeHandler"/>
+          <rater slot="value" star="♡" :value="value" @on-change="handleChange"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" color="rgb(255, 204, 102)" :value="value" @on-change="changeHandler"/>
+          <rater slot="value" star="♡" color="rgb(255, 204, 102)" :value="value" @on-change="handleChange"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">滑块控制</div>
@@ -33,7 +33,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       console.log(value)
       this.value = value
     }

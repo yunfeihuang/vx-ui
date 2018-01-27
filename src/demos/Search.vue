@@ -5,9 +5,9 @@
     </x-nav>
     <x-body slot="body"  class="demos img-demos">
       <search :value="value" placeholder="搜索商品/商店/用户"
-        @on-submit="submitHandler"
-        @input="inputHandler"
-        @on-change="inputHandler">
+        @on-submit="handleSubmit"
+        @input="handleInput"
+        @on-change="handleInput">
         <div slot="keywords">
           <span class="keyword">
             上海
@@ -36,11 +36,11 @@
 <script>
 export default {
   methods: {
-    inputHandler (value) {
+    handleInput (value) {
       this.value = value
     },
-    submitHandler (value) {
-      console.log('submitHandler')
+    handleSubmit (value) {
+      console.log('handleSubmit')
     }
   },
   data () {

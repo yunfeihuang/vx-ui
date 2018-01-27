@@ -20,7 +20,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       value !== this.active && this.$emit('input', value).$emit('update:active', value).$emit('on-change', value)
     }
   }

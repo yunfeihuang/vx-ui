@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes" @click="handleClick">
     <div :class="$cssPrefix + 'actionsheet-item-text'" :disabled="disabled">
       <slot></slot>
     </div>
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    clickHandler () {
+    handleClick () {
       !this.disabled && this.$emit('click', this.value)
     }
   }

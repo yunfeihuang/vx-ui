@@ -5,19 +5,19 @@
     </x-nav>
     <x-body slot="body">
       <group>
-        <picker placeholder="请选择" :value="value" :options="options" @on-change="changePickerHandler"></picker>
+        <picker placeholder="请选择" :value="value" :options="options" @on-change="handleChangePicker"></picker>
       </group>
       <!--
       <group>
         <flexbox>
           <flexbox-item>
-            <picker :value="value1" :options="options1" @on-change="changePickerHandler1"></picker>
+            <picker :value="value1" :options="options1" @on-change="handleChangePicker1"></picker>
           </flexbox-item>
           <flexbox-item>
-            <picker :value="value2" :options="options2" @on-change="changePickerHandler2"></picker>
+            <picker :value="value2" :options="options2" @on-change="handleChangePicker2"></picker>
           </flexbox-item>
           <flexbox-item>
-            <picker :value="value3" :options="options3" @on-change="changePickerHandler3"></picker>
+            <picker :value="value3" :options="options3" @on-change="handleChangePicker3"></picker>
           </flexbox-item>
         </flexbox>
       </group>
@@ -35,23 +35,23 @@ import {
 
 export default {
   methods: {
-    changePickerHandler (value) {
+    handleChangePicker (value) {
       console.log(value)
       this.value = value
     },
-    changePickerHandler1 (value) {
+    handleChangePicker1 (value) {
       this.value1 = value
       this.value2 = value + '01'
       this.options2 = citys[value]
       this.value3 = this.value2 + '01'
       this.options3 = areas[this.value2]
     },
-    changePickerHandler2 (value) {
+    handleChangePicker2 (value) {
       this.value2 = value
       this.value3 = value + '01'
       this.options3 = areas[value]
     },
-    changePickerHandler3 (value) {
+    handleChangePicker3 (value) {
       this.value3 = value
     }
   },

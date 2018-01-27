@@ -63,7 +63,7 @@ export default {
     // console.log(this.$router.push)
   },
   methods: {
-    tabbarChangeHandler (active) {
+    tabbarhandleChange (active) {
       this.tabbarActive = active
     }
   },

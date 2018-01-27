@@ -4,12 +4,12 @@
       <div slot="title">Preview</div>
     </x-nav>
     <x-body id="body" slot="body" class="img-container">
-      <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="loadHandler" @click.native="clickHandler"/>
+      <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="handleLoad" @click.native="handleClick"/>
       <!--<sticky scroll-box="body" :offset="46"><div>fdafdafdsafdasf</div></sticky>-->
-      <x-img :loading="true" data-index="1" src="http://assets.bittyos.com/images/swiper/02.jpg" @load="loadHandler" @click.native="clickHandler"/>
-      <x-img :loading="true" data-index="2" src="http://assets.bittyos.com/images/swiper/03.jpg" @load="loadHandler" @click.native="clickHandler"/>
-      <x-img :loading="true" data-index="3" src="http://assets.bittyos.com/images/swiper/04.jpg" @load="loadHandler" @click.native="clickHandler"/>
-      <x-img :loading="true" data-index="4" src="http://assets.bittyos.com/images/swiper/05.jpg" @load="loadHandler" @click.native="clickHandler"/>
+      <x-img :loading="true" data-index="1" src="http://assets.bittyos.com/images/swiper/02.jpg" @load="handleLoad" @click.native="handleClick"/>
+      <x-img :loading="true" data-index="2" src="http://assets.bittyos.com/images/swiper/03.jpg" @load="handleLoad" @click.native="handleClick"/>
+      <x-img :loading="true" data-index="3" src="http://assets.bittyos.com/images/swiper/04.jpg" @load="handleLoad" @click.native="handleClick"/>
+      <x-img :loading="true" data-index="4" src="http://assets.bittyos.com/images/swiper/05.jpg" @load="handleLoad" @click.native="handleClick"/>
     </x-body>
     <preview :list="images" ref="preview"/>
   </layout>
@@ -25,7 +25,7 @@ export default {
     }
   },
   methods: {
-    loadHandler (e) {
+    handleLoad (e) {
       let img = e.target
       let natural = {
         w: img.naturalWidth,
@@ -38,7 +38,7 @@ export default {
       }
       this.images[e.target.parentNode.dataset.index] = item
     },
-    clickHandler (e) {
+    handleClick (e) {
       this.$refs.preview.open(parseInt(e.target.parentNode.dataset.index))
     }
   }

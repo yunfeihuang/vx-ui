@@ -4,7 +4,7 @@
       <div slot="title">Carousel</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <carousel :active="active" :pagination="true" @on-change="changeHandler" :options="options" class="swiper-demo">
+      <carousel :active="active" :pagination="true" @on-change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>
           <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
         </carousel-item>
@@ -25,7 +25,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.active = value
     }
   },

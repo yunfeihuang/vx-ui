@@ -44,14 +44,14 @@ export default {
   mounted () {
     this.$slots.default.forEach((node) => {
       if (node.componentInstance) {
-        node.componentInstance.$on('invalid', this.invalidHandler)
+        node.componentInstance.$on('invalid', this.handleInvalid)
       } else {
-        node.elm.oninvalid = this.invalidHandler
+        node.elm.oninvalid = this.handleInvalid
       }
     })
   },
   methods: {
-    invalidHandler (e) {
+    handleInvalid (e) {
       let label = this.validityLabel || this.$el.querySelector('.' + this.$cssPrefix + 'form-item-label').innerText
       let message = this.$parent.getValidityMessage(e.target.validity, label)
       this.$parent.showValidityMessage(message)

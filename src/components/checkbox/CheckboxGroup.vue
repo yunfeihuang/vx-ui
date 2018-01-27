@@ -8,7 +8,7 @@
         :value="item.value"
         :checked="checkedMaxItem === 1 ? value === item.value: value && value.indexOf && value.indexOf(item.value)>-1"
         :direction="direction"
-        @on-change="changeHandler"
+        @on-change="handleChange"
         >
         {{item.label}}
       </checkbox>
@@ -59,7 +59,7 @@ export default {
     this.value && this.updateLabel(this.value)
   },
   methods: {
-    changeHandler (e) {
+    handleChange (e) {
       if (this.checkedMaxItem === 1) {
         this.$emit('on-change', e.target.value).$emit('input', e.target.value)
         this.updateLabel(e.target.value)

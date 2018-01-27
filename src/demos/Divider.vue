@@ -16,7 +16,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.value = value
     }
   },

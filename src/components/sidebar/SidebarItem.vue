@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes" @click="handleClick">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +8,7 @@
 export default {
   name: 'SidebarItem',
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       this.$emit('on-change', this.index)
     }
   },

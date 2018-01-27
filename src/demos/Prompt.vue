@@ -21,7 +21,7 @@
       :open.sync="open1"
       :disabled="disabled1"
       :input-props="{placeholder:'请输入用户名称'}"
-      @on-change="changePromptHandler1">
+      @on-change="handleChangePrompt1">
     </Prompt>
     <Prompt
       v-model="value2"
@@ -29,7 +29,7 @@
       :open.sync="open2"
       :disabled="disabled2"
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
-      @on-change="changePromptHandler2">
+      @on-change="handleChangePrompt2">
     </Prompt>
   </layout>
 </template>
@@ -37,14 +37,14 @@
 <script>
 export default {
   methods: {
-    changePromptHandler1 (value) {
+    handleChangePrompt1 (value) {
       if (value && value.trim()) {
         this.disabled1 = false
       } else {
         this.disabled1 = true
       }
     },
-    changePromptHandler2 (value) {
+    handleChangePrompt2 (value) {
       if (value && value.trim()) {
         this.disabled2 = false
       } else {

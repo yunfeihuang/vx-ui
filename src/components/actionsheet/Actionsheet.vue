@@ -1,10 +1,10 @@
 <template>
-  <popup :open="open" :history="history" :fast-close="fastClose" @on-close="closePopupHandler" @on-enter="enterHandler">
+  <popup :open="open" :history="history" :fast-close="fastClose" @on-close="handleClosePopup" @on-enter="handleEnter">
     <div :class="[$cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[$cssPrefix + 'actionsheet-items']">
         <slot></slot>
       </div>
-      <div v-if="cancel" :class="$cssPrefix + 'actionsheet-cancel'" @click="closeHandler">
+      <div v-if="cancel" :class="$cssPrefix + 'actionsheet-cancel'" @click="handleClose">
         {{cancelText}}
       </div>
     </div>
@@ -72,23 +72,23 @@ export default {
     }
   },
   methods: {
-    clickHandler (value) {
+    handleClick (value) {
       this.$emit('on-close')
       this.$emit('on-click', value)
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('on-close')
     },
-    closePopupHandler () {
+    handleClosePopup () {
       this.$emit('on-close')
     },
-    enterHandler () {
+    handleEnter () {
       if (!this.$children) return
       requestAnimationFrame(() => {
         this.$children[0].$children.forEach((item) => {
           if (item.$el.className.indexOf('overlay') === -1) {
             item.value === this.value && (item.checked = true)
-            item.$off('click').$on('click', this.clickHandler)
+            item.$off('click').$on('click', this.handleClick)
           }
         })
       })

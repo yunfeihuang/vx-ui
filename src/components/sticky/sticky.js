@@ -43,7 +43,7 @@ export default function (nav, options = {}) {
     }
   }
 
-  const scrollHandler = function () {
+  const handleScroll = function () {
     const distance = getTop()
     if (distance >= navOffsetY) {
       nav.style.top = offset + 'px'
@@ -59,7 +59,7 @@ export default function (nav, options = {}) {
   } else {
     setTimeout(() => {
       navOffsetY = nav.offsetTop - offset
-      scrollBox.addEventListener('scroll', scrollHandler)
+      scrollBox.addEventListener('scroll', handleScroll)
     }, 1000)
   }
 }

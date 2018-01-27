@@ -68,13 +68,13 @@ export default {
     this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
-        !this.loading && !this.end && this.scrollHandler(e)
+        !this.loading && !this.end && this.handleScroll(e)
       }, 200)
     })
     if (this._events['on-pulldown']) {
-      this.$el.addEventListener('touchstart', this.touchStartHandler)
-      this.$el.addEventListener('touchmove', this.touchMoveHandler)
-      this.$el.addEventListener('touchend', this.touchEndHandler)
+      this.$el.addEventListener('touchstart', this.handleTouchStart)
+      this.$el.addEventListener('touchmove', this.handleTouchMove)
+      this.$el.addEventListener('touchend', this.handleTouchEnd)
     }
     this.$height = this.$el.offsetHeight
     this.$touch = {
@@ -85,18 +85,18 @@ export default {
     this.$touch = null
   },
   methods: {
-    pullDownHandler () {
+    handlePulldown () {
       this.$emit('on-pulldown')
     },
-    pullUpHandler () {
+    handlePullup () {
       this.$emit('on-pullup')
     },
-    scrollHandler (e) {
+    handleScroll (e) {
       if (this.$el.scrollHeight - this.$height - this.$el.scrollTop <= 1) {
         this.$emit('on-pullup', e)
       }
     },
-    touchStartHandler (e) {
+    handleTouchStart (e) {
       if (!this.loading) {
         if (!this.$touch.pageY && this.$el.scrollTop === 0) {
           this.$touch.pageY = e.changedTouches[0].pageY
@@ -104,7 +104,7 @@ export default {
         }
       }
     },
-    touchMoveHandler (e) {
+    handleTouchMove (e) {
       let pageY = e.changedTouches[0].pageY
       let pageX = e.changedTouches[0].pageX
       if (this.$touch.pageY && this.$touch.pageY < pageY && Math.abs(pageY - this.$touch.pageY) > Math.abs(pageX - this.$touch.pageX)) {
@@ -126,7 +126,7 @@ export default {
         this.$touch.pageY = 0
       }
     },
-    touchEndHandler (e) {
+    handleTouchEnd (e) {
       let pageY = e.changedTouches[0].pageY
       if (this.$touch.pageY && this.$touch.inner && this.$touch.pageY < pageY) {
         if (pageY - this.$touch.pageY > 60) {

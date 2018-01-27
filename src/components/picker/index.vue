@@ -2,9 +2,9 @@
   <div :class="classes" onselectstart="return false;">
     <div
       :class="$cssPrefix + 'picker'"
-      @touchstart="touchStartHandler"
-      @touchmove="touchMoveHandler"
-      @touchend="touchEndHandler"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
       @scroll="scrollHandlder"
       >
       <div :class="$cssPrefix + 'picker-scroller'">
@@ -96,11 +96,11 @@ export default {
         this.$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
       })
     },
-    touchEndHandler () {
+    handleTouchEnd () {
       this.$touch.scrollEnd = true
       this.computedScrollTop()
     },
-    touchMoveHandler (e) {
+    handleTouchMove (e) {
       let pageY = e.changedTouches[0].pageY
       if (this.pageY) {
         if (this.$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
@@ -121,7 +121,7 @@ export default {
       }
       this.pageY = pageY
     },
-    touchStartHandler (e) {
+    handleTouchStart (e) {
       this.$touch.scrollEnd = false
       this.$touch.maxScrollTop = this.$touch.scrollElement.scrollHeight - this.$touch.scrollElement.offsetHeight
       this.pageY = e.changedTouches[0].pageY

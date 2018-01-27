@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes" @click="handleClick">
     <span v-if="$parent.underlineWidth" :class="[$cssPrefix + 'tab-item-text']">
       <slot></slot>
     </span>
@@ -11,7 +11,7 @@
 export default {
   name: 'TabItem',
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       this.$emit('on-change', this.index)
     }
   },

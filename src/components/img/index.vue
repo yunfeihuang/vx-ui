@@ -3,8 +3,8 @@
     <img
       :class="classes"
       :alt="alt"
-      @error="errorHandler"
-      @load='loadHandler'
+      @error="handleError"
+      @load='handleLoad'
     />
     <spinner v-if="loading" :class="$cssPrefix + 'img-spinner'"/>
     <icon v-if="!loading">&#xe728;</icon>
@@ -105,16 +105,16 @@ export default {
       }
       this.srcset && (this.$el.srcset = this.srcset)
     },
-    scrollHandler (e) {
+    handleScroll (e) {
       if (this.inViewPort()) {
-        e.currentTarget && e.currentTarget.removeEventListener('scroll', this.scrollHandler)
+        e.currentTarget && e.currentTarget.removeEventListener('scroll', this.handleScroll)
         this.setSource()
       }
     },
-    errorHandler (e) {
+    handleError (e) {
       this.$emit('error', e)
     },
-    loadHandler (e) {
+    handleLoad (e) {
       this.$emit('load', e)
     }
   }

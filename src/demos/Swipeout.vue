@@ -6,7 +6,7 @@
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
       <list-view :loading="loading" :end="end">
         <template v-for="(item,index) in list">
-          <swipeout :open="index===1" @on-close="closeSwipeoutHandler" @on-open="openSwipeoutHandler">
+          <swipeout :open="index===1" @on-close="handleCloseSwipeout" @on-open="handleOpenSwipeout">
             <flexbox align="center" class="flow-item">
               <x-img class="avator" :src="item.author.avatar_url" />
               <flexbox-item>
@@ -16,9 +16,9 @@
                 </div>
               </flexbox-item>
             </flexbox>
-            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">顶置</button>
-            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">收藏</button>
-            <button @click="actionHandler" class="swipeout-button" slot="action" type="button">删除</button>
+            <button @click="handleAction" class="swipeout-button" slot="action" type="button">顶置</button>
+            <button @click="handleAction" class="swipeout-button" slot="action" type="button">收藏</button>
+            <button @click="handleAction" class="swipeout-button" slot="action" type="button">删除</button>
           </swipeout>
         </template>
       </list-view>
@@ -36,13 +36,13 @@ export default {
     this.fetch()
   },
   methods: {
-    closeSwipeoutHandler () {
-      console.log('closeSwipeoutHandler')
+    handleCloseSwipeout () {
+      console.log('handleCloseSwipeout')
     },
-    openSwipeoutHandler () {
-      console.log('openSwipeoutHandler')
+    handleOpenSwipeout () {
+      console.log('handleOpenSwipeout')
     },
-    actionHandler (e) {
+    handleAction (e) {
       window.$toast({content: '点击了' + e.target.innerHTML})
     },
     fetch (page = 1, cb) {

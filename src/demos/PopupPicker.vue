@@ -7,27 +7,27 @@
       <group>
         <cell :arrow="false">
           <div slot="title">area picker</div>
-          <x-switch slot="value" :value="pickerChecked" @on-change="changePickerOpenHandler"/>
+          <x-switch slot="value" :value="pickerChecked" @on-change="changePickerhandleOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">address picker</div>
-          <x-switch slot="value" :value="pickerAddressChecked" @on-change="changeAddressPickerOpenHandler"/>
+          <x-switch slot="value" :value="pickerAddressChecked" @on-change="changeAddressPickerhandleOpen"/>
         </cell>
       </group>
     </x-body>
     <popup-picker
       :open="pickerChecked"
       :pickers="pickers"
-      @on-pickerchange="changePickerHandler"
-      @on-close="changePickerOpenHandler"
-      @on-change="confirmHandler"
+      @on-pickerchange="handleChangePicker"
+      @on-close="changePickerhandleOpen"
+      @on-change="handleConfirm"
       />
     <popup-picker 
       :open="pickerAddressChecked"
       :pickers="addressPickers"
-      @on-pickerchange="changeAddressPickerHandler"
-      @on-close="changeAddressPickerOpenHandler"
-      @on-change="confirmAddressHandler"
+      @on-pickerchange="handleChangeAddressPicker"
+      @on-close="changeAddressPickerhandleOpen"
+      @on-change="handleConfirmAddress"
       />
   </layout>
 </template>
@@ -41,20 +41,20 @@ import {
 
 export default {
   methods: {
-    changePickerOpenHandler (value) {
+    changePickerhandleOpen (value) {
       this.pickerChecked = !this.pickerChecked
     },
-    changePickerHandler (value) {
+    handleChangePicker (value) {
       console.log(value)
     },
-    confirmHandler (value) {
+    handleConfirm (value) {
       console.log(value)
       this.pickerChecked = false
     },
-    changeAddressPickerOpenHandler () {
+    changeAddressPickerhandleOpen () {
       this.pickerAddressChecked = !this.pickerAddressChecked
     },
-    changeAddressPickerHandler (value, index) {
+    handleChangeAddressPicker (value, index) {
       if (index === 0) {
         this.addressPickers[1].options = citys[value]
         this.addressPickers[1].value = citys[value][0].value
@@ -66,7 +66,7 @@ export default {
         this.addressPickers[2].value = areas[value][0].value
       }
     },
-    confirmAddressHandler (value) {
+    handleConfirmAddress (value) {
       this.pickerAddressChecked = false
       console.log(value)
     }

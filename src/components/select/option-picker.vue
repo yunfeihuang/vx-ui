@@ -1,14 +1,14 @@
 <template>
-  <popup :open="open" :history="history" @on-close="closeHandler">
+  <popup :open="open" :history="history" @on-close="handleClose">
     <div :class="classes">
       <div v-if="checkedMaxItem != 1" :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="cancelHandler">{{cancelText}}</button>
+        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <button type="button" :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :disabled="this.required && !this.myValue.length" :class="[$cssPrefix + 'popup-picker-confirm']" @click="confirmHandler">{{confirmText}}</button>
+        <button type="button" :disabled="this.required && !this.myValue.length" :class="[$cssPrefix + 'popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider v-if="checkedMaxItem != 1"></divider>
       <div :class="[$cssPrefix + 'option-picker']">
-        <checkbox-group direction="reverse" :checked-max-item="checkedMaxItem" :options="myOptions" @on-change="changeHandler" :value="myValue"/>
+        <checkbox-group direction="reverse" :checked-max-item="checkedMaxItem" :options="myOptions" @on-change="handleChange" :value="myValue"/>
       </div>
     </div>
   </popup>
@@ -73,16 +73,16 @@ export default {
     }
   },
   methods: {
-    cancelHandler () {
+    handleCancel () {
       this.$emit('on-close')
     },
-    closeHandler () {
+    handleClose () {
       this.$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       this.open && this.$emit('on-change', this.myValue).$emit('input', this.myValue)
     },
-    changeHandler (value) {
+    handleChange (value) {
       if (this.checkedMaxItem === 1) {
         this.open && this.$emit('input', value).$emit('on-change', value)
       } else {

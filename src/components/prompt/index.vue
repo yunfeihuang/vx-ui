@@ -5,8 +5,8 @@
     :cancel="true"
     :cancel-text="cancelText"
     :confirm-text="confirmText"
-    @on-close="closeHandler"
-    @on-confirm="confirmHandler"
+    @on-close="handleClose"
+    @on-confirm="handleConfirm"
     >
     <div v-if="title" :class="$cssPrefix + 'prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
@@ -17,7 +17,7 @@
         :clear="false"
         :class="$cssPrefix + 'prompt-input'"
         v-bind="inputProps"
-        @input="inputHandler"
+        @input="handleInput"
       />
       <x-input
         v-else
@@ -26,7 +26,7 @@
         :class="$cssPrefix + 'prompt-input'"
         v-bind="inputProps"
         :native-type="inputProps.type"
-        @input="inputHandler"/>
+        @input="handleInput"/>
     </template>
   </confirm>
 </template>
@@ -82,13 +82,13 @@ export default {
     }
   },
   methods: {
-    closeHandler () {
+    handleClose () {
       this.$emit('update:open', false).$emit('on-close')
     },
-    confirmHandler () {
+    handleConfirm () {
       this.open && this.$emit('update:open', false).$emit('on-confirm', this.myValue).$emit('input', this.myValue)
     },
-    inputHandler (value) {
+    handleInput (value) {
       this.$emit('on-change', value)
     }
   }

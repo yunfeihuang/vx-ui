@@ -9,7 +9,7 @@
           <div slot="title">红点</div>
           <div slot="value">新消息<badge class="badge"/></div>
         </cell>
-        <cell @click.native="clickHandler">
+        <cell @click.native="handleClick">
           <div slot="title">个位数红点(点击累加)</div>
           <div slot="value">新消息<badge class="badge" :text="count"/></div>
         </cell>
@@ -29,7 +29,7 @@
 <script>
 export default {
   methods: {
-    clickHandler () {
+    handleClick () {
       this.count++
     }
   },

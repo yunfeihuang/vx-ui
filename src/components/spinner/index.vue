@@ -1,6 +1,7 @@
 <template>
   <div :class="classes">
     <div :class="$cssPrefix + 'spinner'"></div>
+    <slot></slot>
   </div>
 </template>
 

@@ -9,7 +9,7 @@
       <div class="example-iphone">
         <div class="example-iphone-iframe">
           <iframe :src="toDemo" frameborder="0"></iframe>
-          <div class="example-iphone-home" @click="homeHandler"></div>
+          <div class="example-iphone-home" @click="handleHome"></div>
         </div>
       </div>
     </flexbox>
@@ -44,7 +44,7 @@ export default {
     }
   },
   methods: {
-    homeHandler () {
+    handleHome () {
       console.log(this)
     }
   }

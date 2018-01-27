@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <flexbox class="nav" align="center">
-      <button :class="['btn-pull',$cssPrefix + 'header-back']" @click="backHandler" v-if="back!==false">
+      <button :class="['btn-pull',$cssPrefix + 'header-back']" @click="handleBack" v-if="back!==false">
         <icon>&#xe660;</icon>
       </button>
       <flexbox-item :class="[$cssPrefix + 'header-title', back===false ? $cssPrefix + 'header-title-center' : '']">
@@ -39,7 +39,7 @@ export default {
     }
   },
   methods: {
-    backHandler () {
+    handleBack () {
       if (this.back === true) {
         history.back()
       }

@@ -13,7 +13,7 @@
             :options="options.slice(0,4)"
             :value="value"
             placeholder="请选择"
-            @on-change="changeHandler"
+            @on-change="handleChange"
           />
         </cell>
         <cell>
@@ -44,7 +44,7 @@
             :options="options"
             :value="value2"
             placeholder="请选择"
-            @on-change="changeHandler2"
+            @on-change="handleChange2"
           />
         </cell>
       </group>
@@ -55,10 +55,10 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.value = value
     },
-    changeHandler2 (value) {
+    handleChange2 (value) {
       this.value2 = value
     }
   },

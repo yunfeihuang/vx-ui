@@ -10,12 +10,12 @@
       :maxlength="maxlength"
       :name="name" 
       :required="required"
-      @focus="focusHandler"
-      @blur="blurHandler"
-      @keyup="keyupHandler"
-      @keydown="keydownHandler" 
-      @change="changeHandler"
-      @input="inputHandler"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @keyup="handleKeyup"
+      @keydown="handleKeydown" 
+      @change="handleChange"
+      @input="handleInput"
       >{{value}}</textarea>
   </label>
 </template>
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    inputHandler (e) {
+    handleInput (e) {
       this.renderAutoHeight(e.target.value)
       this.$emit('input', e.target.value)
     },

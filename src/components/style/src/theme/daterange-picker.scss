@@ -10,6 +10,7 @@
     button{
       @include button;
       height:0.9rem;
+      min-width:1rem;
       &:disabled{
         opacity: 0.5;
       }

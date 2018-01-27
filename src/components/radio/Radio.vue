@@ -1,6 +1,6 @@
 <template>
   <label :class="classes" :disabled="disabled" >
-    <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
+    <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="handleChange"/>
     <span :class="[$cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
     <span :class="[$cssPrefix + 'radio-text']">
       <slot></slot>
@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (e) {
+    handleChange (e) {
       this.$emit('on-change', e.target.value)
       this.$emit('input', e.target.value)
     }

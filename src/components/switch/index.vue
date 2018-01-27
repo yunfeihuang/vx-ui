@@ -5,7 +5,7 @@
       :name="name" 
       :checked="value"
       type="checkbox"
-      @change="changeHandler"
+      @change="handleChange"
       />
     <button type="button"></button>
   </div>
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (e) {
+    handleChange (e) {
       let value = e.target.checked
       this.$emit('input', value).$emit('on-change', value)
     }

@@ -1,6 +1,6 @@
 <template>
   <label :class="classes" :disabled="disabled" >
-    <input :type="type" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="changeHandler"/>
+    <input :type="type" :name="name" :value="value" :disabled="disabled" :checked="checked" @change="handleChange"/>
     <icon :class="[$cssPrefix + 'checkbox-icon']">&#xe632;</icon>
     <span :class="[$cssPrefix + 'checkbox-text']">
       <slot></slot>
@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    changeHandler (e) {
+    handleChange (e) {
       this.$emit('on-change', e)
       this.$emit('update:checked', e.target.checked)
     }

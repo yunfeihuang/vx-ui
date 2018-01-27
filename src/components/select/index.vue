@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes" @click="handleClick">
     <button type="button" :class="!label ? $cssPrefix + 'select-placeholder':''" >{{label || placeholder}}</button>
     <select 
       :required="required"
@@ -8,8 +8,8 @@
       :name="name"
       :disabled="disabled"
       :readonly="readonly"
-      @focus="clickHandler"
-      @invalid="invalidHandler"
+      @focus="handleClick"
+      @invalid="handleInvalid"
       >
       <option v-for="item in options" :value="item.value" >{{item.label}}</option>
     </select>
@@ -57,10 +57,10 @@ export default {
     }
   },
   methods: {
-    inputHandler (e) {
+    handleInput (e) {
       this.$emit('input', e.target.checked)
     },
-    clickHandler (e) {
+    handleClick (e) {
       let self = this
       let node = document.createElement('div')
       if (this.getPopupMounted) {
@@ -82,8 +82,8 @@ export default {
             },
             class: [this.classes],
             on: {
-              'on-close': this.closeHandler,
-              'on-change': this.changeHandler
+              'on-close': this.handleClose,
+              'on-change': this.handleChange
             }
           })
         },
@@ -104,19 +104,19 @@ export default {
           })
         },
         methods: {
-          closeHandler () {
+          handleClose () {
             this.open = false
             setTimeout(() => {
               this.$destroy()
             }, 1000)
           },
-          changeHandler (value) {
+          handleChange (value) {
             this.open = false
             if (self.value !== value) {
               self.$emit('input', value).$emit('on-change', value)
               self.updateLabel(value)
             } else {
-              this.closeHandler()
+              this.handleClose()
             }
           }
         }

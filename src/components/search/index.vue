@@ -1,9 +1,9 @@
 <template>
   <div :class="classes">
     <div :class="[$cssPrefix + 'search-inner',this.fixed ? $cssPrefix+'search-fixed flexbox' : '']">
-      <form @submit="submitHandler">
+      <form @submit="handleSubmit">
         <flexbox :class="[$cssPrefix + 'search']">
-          <button :class="[$cssPrefix + 'search-cancel']" type="button" @click="cancelHandler" v-if="fixed">
+          <button :class="[$cssPrefix + 'search-cancel']" type="button" @click="handleCancel" v-if="fixed">
             <icon>&#xe660;</icon>
           </button>
           <x-input
@@ -19,12 +19,12 @@
             :name="name" 
             :clear="clear"
             :required="required"
-            @on-focus="focusHandler"
-            @on-blur="blurHandler"
-            @on-keyup="keyupHandler"
-            @on-keydown="keydownHandler" 
-            @input="inputHandler"
-            @on-change="changeHandler"
+            @on-focus="handleFocus"
+            @on-blur="handleBlur"
+            @on-keyup="handleKeyup"
+            @on-keydown="handleKeydown" 
+            @input="handleInput"
+            @on-change="handleChange"
           >
             <icon slot="icon" :class="[$cssPrefix + 'search-icon']">&#xe651;</icon>
           </x-input>
@@ -34,7 +34,7 @@
         </flexbox>
       </form>
       <flexbox-item :class="[$cssPrefix + 'search-container']" v-if="fixed">
-        <div v-if="!value" class="keywords" @click="keywordChangeHandler">
+        <div v-if="!value" class="keywords" @click="keywordhandleChange">
           <slot name="keywords"></slot>
         </div>
         <div v-if="value">
@@ -91,7 +91,7 @@ export default {
     }
   },
   methods: {
-    focusHandler (e) {
+    handleFocus (e) {
       this.isFocus = this.fixed = true
       if (this.$el.children[0]) {
         this.childFixed = this.$el.children[0]
@@ -100,30 +100,30 @@ export default {
       }
       this.$emit('on-focus', e)
     },
-    inputHandler (value) {
+    handleInput (value) {
       this.$emit('input', value)
     },
-    changeHandler (value) {
+    handleChange (value) {
       this.$emit('input', value)
     },
-    cancelHandler () {
+    handleCancel () {
       this.fixed = false
       this.childFixed && this.$el.appendChild(this.childFixed)
     },
-    keywordChangeHandler (e) {
+    keywordhandleChange (e) {
       let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
       if (target) {
         let value = target.dataset.value || target.innerText
         this.$emit('input', value).$emit('on-submit', value)
       }
     },
-    submitHandler (e) {
+    handleSubmit (e) {
       e.stopPropagation()
       e.preventDefault()
       this.value && this.$emit('on-submit', this.value)
     },
     popStateBack () {
-      this.cancelHandler()
+      this.handleCancel()
     }
   }
 }

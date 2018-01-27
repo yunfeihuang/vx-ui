@@ -2,7 +2,7 @@
   <div :class="classes">
     <div :class="[$cssPrefix+'range-mask']"></div>
     <div :class="[$cssPrefix+'range-value']" ></div>
-    <div :class="[$cssPrefix+'range-button']" @mousedown="touchStartHandler" @touchstart="touchStartHandler">
+    <div :class="[$cssPrefix+'range-button']" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
       <div :class="[$cssPrefix+'range-tips']">0</div>
     </div>
   </div>
@@ -74,10 +74,10 @@ export default {
     tipsDom.innerHTML = Math.round(this.myValue * this.stepRate) / this.stepRate
   },
   methods: {
-    changeHandler (val) {
+    handleChange (val) {
       this.$emit('on-change', val).$emit('input', val)
     },
-    touchStartHandler (e) {
+    handleTouchStart (e) {
       e.preventDefault()
       if (!this.disabled) {
         let position = this.getPosition(e)
@@ -93,7 +93,7 @@ export default {
         tipsDom.style.display = 'block'
         let self = this
         let value = this.myValue
-        let touchMoveHandler = (event) => {
+        let handleTouchMove = (event) => {
           if (start) {
             let movePosition = self.getPosition(event)
             let left = movePosition.pageX - position.pageX + touch.left
@@ -105,15 +105,15 @@ export default {
             event.preventDefault()
           }
         }
-        let touchEndHandler = () => {
-          document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', touchMoveHandler)
-          document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', touchEndHandler)
+        let handleTouchEnd = () => {
+          document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove)
+          document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd)
           start = false
           tipsDom.style.display = 'none'
-          self.changeHandler(value)
+          self.handleChange(value)
         }
-        document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', touchMoveHandler, false)
-        document.addEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', touchEndHandler, false)
+        document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove, false)
+        document.addEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd, false)
       }
     },
     getPosition (e) {

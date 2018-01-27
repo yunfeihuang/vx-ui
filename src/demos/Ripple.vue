@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group class="ripple-demo">
-        <ripple @click.native="clickHandler">
+        <ripple @click.native="handleClick">
           点击我会出现波纹
         </ripple>
         <divider></divider>
@@ -23,7 +23,7 @@
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
-      <tabbar :ripple="true" :active="active" @on-change="changeHandler">
+      <tabbar :ripple="true" :active="active" @on-change="handleChange">
         <tabbar-item>
           <icon>&#xe651;</icon>
           <span>主页</span>
@@ -44,10 +44,10 @@
 <script>
 export default {
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       console.log(e)
     },
-    changeHandler (active) {
+    handleChange (active) {
       this.active = active
     }
   },

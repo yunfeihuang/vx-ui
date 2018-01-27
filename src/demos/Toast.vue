@@ -7,58 +7,58 @@
       <group>
         <cell :arrow="false">
           <div slot="title">Toast Top</div>
-          <x-switch slot="value" :value="topOpen" @on-change="changeTHandler"/>
+          <x-switch slot="value" :value="topOpen" @on-change="handleChangeT"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Success</div>
-          <x-switch slot="value" :value="centerOpen" @on-change="changeCHandler"/>
+          <x-switch slot="value" :value="centerOpen" @on-change="handleChangeC"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Fail</div>
-          <x-switch slot="value" :value="failOpen" @on-change="changeFHandler"/>
+          <x-switch slot="value" :value="failOpen" @on-change="handleChangeF"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Warn</div>
-          <x-switch slot="value" :value="warnOpen" @on-change="changeWHandler"/>
+          <x-switch slot="value" :value="warnOpen" @on-change="handleChangeW"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Loading</div>
-          <x-switch slot="value" :value="loadingOpen" @on-change="changeLHandler"/>
+          <x-switch slot="value" :value="loadingOpen" @on-change="handleChangeL"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Bottom</div>
-          <x-switch slot="value" :value="bottomOpen" @on-change="changeBHandler"/>
+          <x-switch slot="value" :value="bottomOpen" @on-change="handleChangeB"/>
         </cell>
       </group>
     </x-body>
-    <toast :open="topOpen" @on-close="changeTHandler">{{content}}</toast>
-    <toast :open="centerOpen" type="success" align="center" @on-close="changeCHandler">{{content}}</toast>
-    <toast :open="failOpen" type="fail" align="center" @on-close="changeFHandler">操作失败</toast>
-    <toast :open="warnOpen" type="warn" align="center" @on-close="changeWHandler">已经操作过了</toast>
-    <toast :open="loadingOpen" type="loading" align="center" @on-close="changeLHandler">Loading</toast>
-    <toast :open="bottomOpen" align="bottom" @on-close="changeBHandler">{{content}}</toast>
+    <toast :open="topOpen" @on-close="handleChangeT">{{content}}</toast>
+    <toast :open="centerOpen" type="success" align="center" @on-close="handleChangeC">{{content}}</toast>
+    <toast :open="failOpen" type="fail" align="center" @on-close="handleChangeF">操作失败</toast>
+    <toast :open="warnOpen" type="warn" align="center" @on-close="handleChangeW">已经操作过了</toast>
+    <toast :open="loadingOpen" type="loading" align="center" @on-close="handleChangeL">Loading</toast>
+    <toast :open="bottomOpen" align="bottom" @on-close="handleChangeB">{{content}}</toast>
   </layout>
 </template>
 
 <script>
 export default {
   methods: {
-    changeTHandler () {
+    handleChangeT () {
       this.topOpen = !this.topOpen
     },
-    changeCHandler () {
+    handleChangeC () {
       this.centerOpen = !this.centerOpen
     },
-    changeLHandler () {
+    handleChangeL () {
       this.loadingOpen = !this.loadingOpen
     },
-    changeBHandler () {
+    handleChangeB () {
       this.bottomOpen = !this.bottomOpen
     },
-    changeFHandler () {
+    handleChangeF () {
       this.failOpen = !this.failOpen
     },
-    changeWHandler () {
+    handleChangeW () {
       this.warnOpen = !this.warnOpen
     }
   },

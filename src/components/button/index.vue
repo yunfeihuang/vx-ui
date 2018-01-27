@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :disabled="disabled" :type="nativeType" @click="clickHandler">
+  <button :class="classes" :disabled="disabled" :type="nativeType" @click="handleClick">
     <slot></slot>
   </button>
 </template>
@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    clickHandler (e) {
+    handleClick (e) {
       this.$emit('on-click', e)
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="clickHandler">
+  <div :class="classes" @click="handleClick">
     <slot name="trigger"></slot>
     <div style="display:none">
       <slot></slot>
@@ -36,17 +36,17 @@ export default {
   watch: {
     open (value) {
       if (value) {
-        this.clickHandler()
+        this.handleClick()
       } else {
-        this.clickPopoverHandler()
+        this.handleClickPopover()
       }
     }
   },
   mounted () {
-    this.open && this.clickHandler()
+    this.open && this.handleClick()
   },
   methods: {
-    clickHandler () {
+    handleClick () {
       let popover = this
       let node = document.createElement('div')
       document.body.appendChild(node)
@@ -64,7 +64,7 @@ export default {
               zIndex: 1000
             },
             on: {
-              'on-close': this.closeHandler
+              'on-close': this.handleClose
             }
           })
         },
@@ -79,7 +79,7 @@ export default {
           node.style.visibility = 'hidden'
           node.className = this.$cssPrefix + 'popover-content'
           popover.popoverClass && node.classList.add(popover.popoverClass)
-          node.addEventListener('click', popover.clickPopoverHandler, false)
+          node.addEventListener('click', popover.handleClickPopover, false)
           popover.$slots.default.forEach((item) => {
             item.elm && item.elm.nodeType === 1 && node.appendChild(item.elm)
           })
@@ -112,7 +112,7 @@ export default {
           })
         },
         methods: {
-          closeHandler () {
+          handleClose () {
             this.open = false
             setTimeout(() => {
               this.$destroy()
@@ -122,7 +122,7 @@ export default {
       })
       this.$emit('on-open')
     },
-    clickPopoverHandler () {
+    handleClickPopover () {
       if (this.$popover) {
         this.$popover.open = false
         setTimeout(() => {

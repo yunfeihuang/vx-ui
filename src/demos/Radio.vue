@@ -10,7 +10,7 @@
         <radio name="radio1">羽毛球</radio>
       </group>
       <group title="RadioGroup">
-        <radio-group :label.sync="label" :options="options" @on-change="changeHandler" :value="value"/>
+        <radio-group :label.sync="label" :options="options" @on-change="handleChange" :value="value"/>
         <div style="padding:15px 10px;">
           value：{{value}} label：{{label}}
         </div>
@@ -22,7 +22,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.value = value
     }
   },

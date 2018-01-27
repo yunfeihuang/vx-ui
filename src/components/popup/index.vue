@@ -1,9 +1,9 @@
 <template>
   <div :class="classes">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click.native="closeHandler"></overlay>
+      <overlay v-if="open" @click.native="handleClose"></overlay>
     </transition>
-    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="enterHandler">
+    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter">
       <div v-if="open" :class="innerClasses">
         <slot></slot>
       </div>
@@ -45,7 +45,7 @@ export default {
     innerClasses () {
       let array = [this.$cssPrefix + 'popup-inner', this.$cssPrefix + 'popup-' + this.direction, this.full ? this.$cssPrefix + 'full' : '']
       if (this.direction === 'center') {
-        array.push('flexbox flexbox-align-center flexbox-content-center')
+        array.push('v-flexbox v-flexbox-align-center v-flexbox-content-center')
       }
       return array
     }
@@ -77,10 +77,10 @@ export default {
     }
   },
   methods: {
-    enterHandler () {
+    handleEnter () {
       this.$emit('on-enter')
     },
-    closeHandler () {
+    handleClose () {
       this.fastClose && this.$emit('on-close')
     }
   }

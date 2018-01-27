@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" @focusin="focusHandler" @focusout="blurHandler">
+  <label :class="classes" @focusin="handleFocus" @focusout="handleBlur">
     <slot name="icon"></slot>
     <slot v-if="$slots.default"></slot>
     <input
@@ -15,18 +15,18 @@
       :name="name" 
       :required="required"
       :pattern="pattern"
-      @keyup="keyupHandler"
-      @keydown="keydownHandler" 
-      @change="changeHandler"
-      @input="inputHandler"
-      @invalid="invalidHandler"
+      @keyup="handleKeyup"
+      @keydown="handleKeydown" 
+      @change="handleChange"
+      @input="handleInput"
+      @invalid="handleInvalid"
       />
     <transition name="input-clear-fade">
       <button
         type="button"
         v-show="clear&&isFocus"
         :class="$cssPrefix + 'input-clear-button'"
-        @click="clearHandler"
+        @click="handleClear"
         >
         <icon>&#xe641;</icon>
       </button>
@@ -60,11 +60,11 @@ export default {
     }
   },
   methods: {
-    clearHandler (e) {
+    handleClear (e) {
       this.clear && this.$el.classList.remove(this.$cssPrefix + 'input-clear')
       this.$emit('on-change', '').$emit('input', '')
     },
-    inputHandler (e) {
+    handleInput (e) {
       if (e.target.value) {
         this.clear && this.$el.classList.add(this.$cssPrefix + 'input-clear')
       } else {

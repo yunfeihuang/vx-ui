@@ -4,7 +4,7 @@
       <div slot="title">Tabbar</div>
     </x-nav>
     <x-body slot="body">
-      <swiper :active="active" @on-change="changeHandler" class="tabbar-swiper">
+      <swiper :active="active" @on-change="handleChange" class="tabbar-swiper">
         <swiper-item>
           <div class="tab-content">
             我是主页
@@ -22,7 +22,7 @@
         </swiper-item>
       </swiper>
     </x-body>
-    <tabbar slot="footer" :ripple="true" @on-change="changeHandler" :active="active">
+    <tabbar slot="footer" :ripple="true" @on-change="handleChange" :active="active">
       <tabbar-item>
         <icon>&#xe651;</icon>
         <span>主页</span>
@@ -42,7 +42,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.active = value
     }
   },

@@ -20,7 +20,7 @@
 <script>
 export default {
   methods: {
-    changeHandler (value) {
+    handleChange (value) {
       this.content = value
     }
   },
