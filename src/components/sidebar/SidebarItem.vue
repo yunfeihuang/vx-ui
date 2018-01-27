@@ -7,24 +7,25 @@
 <script>
 export default {
   name: 'SidebarItem',
+  props: {
+    name: {
+      type: [Number, String, Object],
+      required: true
+    }
+  },
   methods: {
-    handleClick (e) {
-      this.$emit('on-change', this.index)
+    handleClick () {
+      this.$emit('on-change', this.name)
     }
   },
   computed: {
     classes () {
       let array = [this.$cssPrefix + 'sidebar-item']
-      if (this.active) {
+      if (this.$parent.active === this.name) {
         array.push(this.$cssPrefix + 'sidebar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array
-    }
-  },
-  data () {
-    return {
-      active: false
     }
   }
 }

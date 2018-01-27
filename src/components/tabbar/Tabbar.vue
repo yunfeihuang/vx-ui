@@ -32,7 +32,7 @@ export default {
   methods: {
     handleChange (val) {
       if (val !== this.active) {
-        this.$emit('on-change', val).$emit('input', val)
+        this.$emit('update:active', val).$emit('on-change', val)
       }
     }
   }

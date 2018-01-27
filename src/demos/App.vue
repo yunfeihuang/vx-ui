@@ -25,7 +25,7 @@
           <router-link to="/demos/confirm">Confirm</router-link>
           <router-link to="/demos/prompt">Prompt</router-link>
           <router-link to="/demos/tab">Tab</router-link>
-          <router-link to="/demos/tabbutton">TabButton</router-link>
+          <router-link to="/demos/buttontab">ButtonTab</router-link>
           <router-link to="/demos/tabbar">Tabbar</router-link>
           <router-link to="/demos/sidebar">Sidebar</router-link>
           <router-link to="/demos/popup">Popup</router-link>

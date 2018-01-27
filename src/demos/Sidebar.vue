@@ -4,27 +4,27 @@
       <div slot="title">Sidebar</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <sidebar @on-change="handleChange" :active="active" class="sidebar">
-        <sidebar-item>家电</sidebar-item>
-        <sidebar-item>手机</sidebar-item>
-        <sidebar-item>电脑</sidebar-item>
-        <sidebar-item>服装</sidebar-item>
-        <sidebar-item>数码</sidebar-item>
-        <sidebar-item>家纺</sidebar-item>
-        <sidebar-item>运动</sidebar-item>
-        <sidebar-item>汽车</sidebar-item>
-        <sidebar-item>医药</sidebar-item>
-        <sidebar-item>珠宝</sidebar-item>
-        <sidebar-item>家电</sidebar-item>
-        <sidebar-item>手机</sidebar-item>
-        <sidebar-item>电脑</sidebar-item>
-        <sidebar-item>服装</sidebar-item>
-        <sidebar-item>数码</sidebar-item>
-        <sidebar-item>家纺</sidebar-item>
-        <sidebar-item>运动</sidebar-item>
-        <sidebar-item>汽车</sidebar-item>
-        <sidebar-item>医药</sidebar-item>
-        <sidebar-item>珠宝</sidebar-item>
+      <sidebar :active.sync="active" class="sidebar">
+        <sidebar-item name="1">家电</sidebar-item>
+        <sidebar-item name="2">手机</sidebar-item>
+        <sidebar-item name="3">电脑</sidebar-item>
+        <sidebar-item name="4">服装</sidebar-item>
+        <sidebar-item name="5">数码</sidebar-item>
+        <sidebar-item name="6">家纺</sidebar-item>
+        <sidebar-item name="7">运动</sidebar-item>
+        <sidebar-item name="8">汽车</sidebar-item>
+        <sidebar-item name="9">医药</sidebar-item>
+        <sidebar-item name="10">珠宝</sidebar-item>
+        <sidebar-item name="11">家电</sidebar-item>
+        <sidebar-item name="12">手机</sidebar-item>
+        <sidebar-item name="13">电脑</sidebar-item>
+        <sidebar-item name="14">服装</sidebar-item>
+        <sidebar-item name="15">数码</sidebar-item>
+        <sidebar-item name="16">家纺</sidebar-item>
+        <sidebar-item name="17">运动</sidebar-item>
+        <sidebar-item name="18">汽车</sidebar-item>
+        <sidebar-item name="19">医药</sidebar-item>
+        <sidebar-item name="20">珠宝</sidebar-item>
       </sidebar>
     </x-body>
   </layout>
@@ -32,14 +32,9 @@
 
 <script>
 export default {
-  methods: {
-    handleChange (value) {
-      this.active = value
-    }
-  },
   data () {
     return {
-      active: 0
+      active: '1'
     }
   }
 }

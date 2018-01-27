@@ -122,8 +122,8 @@ export default [
         title: 'Tab选项卡'
       },
       {
-        path: '/tabbutton',
-        title: 'TabButton选项卡'
+        path: '/buttontab',
+        title: 'ButtonTab选项卡'
       },
       {
         path: '/tabbar',

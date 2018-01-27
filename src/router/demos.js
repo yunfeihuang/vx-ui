@@ -13,7 +13,7 @@ const Alert = r => require.ensure([], () => r(require('demos/Alert')))
 const Confirm = r => require.ensure([], () => r(require('demos/Confirm')))
 const Tab = r => require.ensure([], () => r(require('demos/Tab')))
 const Tabbar = r => require.ensure([], () => r(require('demos/Tabbar')))
-const TabButton = r => require.ensure([], () => r(require('demos/TabButton')))
+const ButtonTab = r => require.ensure([], () => r(require('demos/ButtonTab')))
 const Popup = r => require.ensure([], () => r(require('demos/Popup')))
 const Toast = r => require.ensure([], () => r(require('demos/Toast')))
 const Img = r => require.ensure([], () => r(require('demos/Img')))
@@ -112,8 +112,8 @@ export default [
         component: Tabbar
       },
       {
-        path: '/demos/tabbutton',
-        component: TabButton
+        path: '/demos/buttontab',
+        component: ButtonTab
       },
       {
         path: '/demos/popup',

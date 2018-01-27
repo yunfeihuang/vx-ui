@@ -1,4 +1,4 @@
-# TabButton选项卡
+# ButtonTab选项卡
 
 
 #### Props

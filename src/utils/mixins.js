@@ -95,25 +95,17 @@ const tab = {
     this.childLength = this.$children.length
     this.$children.forEach((item, i) => {
       this.$children[i].$on('on-change', this.handleChange)
-      item.index = i
-      item.active = item.index === this.active
     })
     this.afterMounted && this.afterMounted()
   },
   props: {
     active: {
-      type: Number,
-      default: 0
+      type: [Number, String, Object],
+      required: true
     },
     activeClass: {
       type: [String, Array],
       default: ''
-    }
-  },
-  watch: {
-    active (val, oldVal) {
-      this.$children[oldVal].active = false
-      this.$children[val].active = true
     }
   }
 }

@@ -4,7 +4,8 @@
       <div slot="title">Tabbar</div>
     </x-nav>
     <x-body slot="body">
-      <swiper :active="active" @on-change="handleChange" class="tabbar-swiper">
+      <!--
+      <swiper :active.sync="active" class="tabbar-swiper">
         <swiper-item>
           <div class="tab-content">
             我是主页
@@ -21,17 +22,18 @@
           </div>
         </swiper-item>
       </swiper>
+      -->
     </x-body>
-    <tabbar slot="footer" :ripple="true" @on-change="handleChange" :active="active">
-      <tabbar-item>
+    <tabbar slot="footer" :ripple="true" :active.sync="active">
+      <tabbar-item name="home">
         <icon>&#xe651;</icon>
         <span>主页</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item name="message">
         <icon>&#xe653;</icon>
         <span>消息</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item name="my">
         <icon>&#xe63b;</icon>
         <span>我的</span>
       </tabbar-item>
@@ -41,14 +43,10 @@
 
 <script>
 export default {
-  methods: {
-    handleChange (value) {
-      this.active = value
-    }
-  },
   data () {
     return {
-      active: 0
+      active: 'home',
+      tabs: ['home', 'message', 'my']
     }
   }
 }

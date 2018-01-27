@@ -27,24 +27,26 @@ export default {
       this.$nextTick(() => {
         let node = this.$el.querySelector('.' + this.$cssPrefix + 'tab-underline')
         let activeNode = this.$el.querySelector('.' + this.$cssPrefix + 'tab-item-active')
-        let activeWidth = activeNode.offsetWidth
-        let width = activeWidth
-        let left = activeNode.offsetLeft
-        if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
-          width = activeNode.children[0].offsetWidth
-          left = activeNode.offsetLeft + (activeWidth - width) / 2
-        } else if (this.underlineWidth) {
-          width = this.underlineWidth
-          left = activeNode.offsetLeft + (activeWidth - this.underlineWidth) / 2
+        if (activeNode) {
+          let activeWidth = activeNode.offsetWidth
+          let width = activeWidth
+          let left = activeNode.offsetLeft
+          if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
+            width = activeNode.children[0].offsetWidth
+            left = activeNode.offsetLeft + (activeWidth - width) / 2
+          } else if (this.underlineWidth) {
+            width = this.underlineWidth
+            left = activeNode.offsetLeft + (activeWidth - this.underlineWidth) / 2
+          }
+          requestAnimationFrame(() => {
+            node.style.cssText = `width: ${width}px;left:${left}px;display:block`
+          })
         }
-        requestAnimationFrame(() => {
-          node.style.cssText = `width: ${width}px;left:${left}px;display:block`
-        })
       })
     },
     handleChange (value) {
       if (value !== this.active) {
-        this.$emit('on-change', value).$emit('update:active', value)
+        this.$emit('update:active', value).$emit('on-change', value)
         this.computedStyle()
       }
     }
