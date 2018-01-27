@@ -74,14 +74,15 @@ export default {
     &-body{
       padding-top:70px;
       aside{
-        width:250px;
+        width:220px;
         padding-left:20px;
       }
     }
     &-iphone{
-      width:450px;
+      width:400px;
       text-align:center;
-      padding-left:50px;
+      padding-left:30px;
+      padding-top:10px;
       &-home{
         position:absolute;
         left:50%;
