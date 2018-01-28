@@ -18,7 +18,7 @@
 
 <script>
 import Vue from 'vue'
-import OptionPicker from './option-picker'
+import OptionGroupPicker from './OptionGroupPicker'
 import { input } from 'utils/mixins.js'
 
 export default {
@@ -72,7 +72,7 @@ export default {
       this.$popup = new Vue({
         el: node,
         render (createElement) {
-          return createElement(OptionPicker, {
+          return createElement(OptionGroupPicker, {
             props: {
               open: this.open,
               value: this.value,

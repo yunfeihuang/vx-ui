@@ -26,7 +26,6 @@ export default {
       ]
     },
     myChecked () {
-      console.log(this.$parent.value, this.value)
       if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
         return this.$parent.value.indexOf(this.value) > -1
       } else {

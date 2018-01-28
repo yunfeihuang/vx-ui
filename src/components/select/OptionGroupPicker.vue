@@ -29,7 +29,7 @@ import {CheckboxGroup, Checkbox} from '../checkbox'
 import Divider from '../divider'
 
 export default {
-  name: 'OptionPicker',
+  name: 'OptionGroupPicker',
   components: {
     Popup,
     Checkbox,
