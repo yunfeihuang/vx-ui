@@ -3,10 +3,10 @@
     <div :class="classes" v-if="open">
       <div :class="[$cssPrefix + 'daterange-picker-header']">
         <tab :active.sync="tab" v-if="layout.length" ref="tab">
-          <tab-item v-show="layout.indexOf('date') > -1">日历</tab-item>
-          <tab-item v-show="layout.indexOf('week') > -1">周历</tab-item>
-          <tab-item v-show="layout.indexOf('month') > -1">月历</tab-item>
-          <tab-item v-show="layout.indexOf('quarter') > -1">季度</tab-item>
+          <tab-item :name="0" v-show="layout.indexOf('date') > -1">日历</tab-item>
+          <tab-item :name="1" v-show="layout.indexOf('week') > -1">周历</tab-item>
+          <tab-item :name="2" v-show="layout.indexOf('month') > -1">月历</tab-item>
+          <tab-item :name="3" v-show="layout.indexOf('quarter') > -1">季度</tab-item>
         </tab>
         <flexbox :class="[$cssPrefix + 'daterange-picker-controls']">
           <flexbox-item>

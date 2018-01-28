@@ -32,14 +32,14 @@ export default {
       return [this.$cssPrefix + 'checker']
     },
     myChecked () {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckerGroup' && this.$parent.value && this.$parent.value.indexOf) {
         return this.$parent.value.indexOf(this.value) > -1
       } else {
         return this.checked
       }
     },
     myType () {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckerGroup') {
         return this.$parent.checkedMaxItem === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     handleChange (e) {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckerGroup') {
         this.$parent.handleChange(e)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('on-change', e)

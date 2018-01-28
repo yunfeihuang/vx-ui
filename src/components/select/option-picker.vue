@@ -8,7 +8,16 @@
       </div>
       <divider v-if="checkedMaxItem != 1"></divider>
       <div :class="[$cssPrefix + 'option-picker']">
-        <checkbox-group direction="reverse" :checked-max-item="checkedMaxItem" :options="myOptions" @on-change="handleChange" :value="myValue"/>
+        <checkbox-group direction="reverse" :checked-max-item="checkedMaxItem" @on-change="handleChange" :value="myValue">
+          <checkbox
+            v-for="(item,index) in myOptions"
+            :value="item.value"
+            :key="index"
+            :disabled="item.disabled"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
       </div>
     </div>
   </popup>
@@ -84,7 +93,7 @@ export default {
     },
     handleChange (value) {
       if (this.checkedMaxItem === 1) {
-        this.open && this.$emit('input', value).$emit('on-change', value)
+        this.open && this.$emit('input', value[0]).$emit('on-change', value[0])
       } else {
         this.myValue = value
       }

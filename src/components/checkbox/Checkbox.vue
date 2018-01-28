@@ -22,18 +22,19 @@ export default {
       return [
         this.$cssPrefix + 'checkbox',
         this.direction === 'reverse' || this.$parent.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
-        this.checked ? this.$cssPrefix + 'checkbox-active' : ''
+        this.myChecked ? this.$cssPrefix + 'checkbox-active' : ''
       ]
     },
     myChecked () {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      console.log(this.$parent.value, this.value)
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
         return this.$parent.value.indexOf(this.value) > -1
       } else {
         return this.checked
       }
     },
     myType () {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup') {
         return this.$parent.checkedMaxItem === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
@@ -52,7 +53,7 @@ export default {
   },
   methods: {
     handleChange (e) {
-      if (this.$parent.value && this.$parent.value.constructor === Array) {
+      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup') {
         this.$parent.handleChange(e)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('on-change', e)

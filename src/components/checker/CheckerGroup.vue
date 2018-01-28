@@ -18,6 +18,10 @@ export default {
     checkedMaxItem: {
       type: Number,
       default: 0
+    },
+    componentName: {
+      type: String,
+      default: 'CheckerGroup'
     }
   },
   computed: {
