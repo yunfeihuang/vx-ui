@@ -72,9 +72,15 @@ export default {
       }, 200)
     })
     if (this._events['on-pulldown']) {
-      this.$el.addEventListener('touchstart', this.handleTouchStart)
-      this.$el.addEventListener('touchmove', this.handleTouchMove)
-      this.$el.addEventListener('touchend', this.handleTouchEnd)
+      if (document.body.ontouchstart !== undefined) {
+        this.$el.addEventListener('touchstart', this.handleTouchStart)
+        this.$el.addEventListener('touchmove', this.handleTouchMove)
+        this.$el.addEventListener('touchend', this.handleTouchEnd)
+      } else {
+        this.$el.addEventListener('mousedown', this.handleTouchStart)
+        this.$el.addEventListener('mousemove', this.handleTouchMove)
+        this.$el.addEventListener('mouseup', this.handleTouchEnd)
+      }
     }
     this.$height = this.$el.offsetHeight
     this.$touch = {
@@ -96,17 +102,30 @@ export default {
         this.$emit('on-pullup', e)
       }
     },
+    getPosition (e) {
+      if (document.body.ontouchstart !== undefined) {
+        return {
+          pageY: e.changedTouches[0].pageY,
+          pageX: e.changedTouches[0].pageX
+        }
+      } else {
+        return {
+          pageY: e.pageY,
+          pageX: e.pageX
+        }
+      }
+    },
     handleTouchStart (e) {
       if (!this.loading) {
         if (!this.$touch.pageY && this.$el.scrollTop === 0) {
-          this.$touch.pageY = e.changedTouches[0].pageY
-          this.$touch.pageX = e.changedTouches[0].pageX
+          let {pageX, pageY} = this.getPosition(e)
+          this.$touch.pageY = pageY
+          this.$touch.pageX = pageX
         }
       }
     },
     handleTouchMove (e) {
-      let pageY = e.changedTouches[0].pageY
-      let pageX = e.changedTouches[0].pageX
+      let {pageY, pageX} = this.getPosition(e)
       if (this.$touch.pageY && this.$touch.pageY < pageY && Math.abs(pageY - this.$touch.pageY) > Math.abs(pageX - this.$touch.pageX)) {
         e.preventDefault()
         e.stopPropagation()
@@ -127,7 +146,7 @@ export default {
       }
     },
     handleTouchEnd (e) {
-      let pageY = e.changedTouches[0].pageY
+      let {pageY} = this.getPosition(e)
       if (this.$touch.pageY && this.$touch.inner && this.$touch.pageY < pageY) {
         if (pageY - this.$touch.pageY > 60) {
           setTimeout(() => {
