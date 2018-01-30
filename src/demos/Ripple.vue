@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header">
+    <x-nav slot="header" back="/">
       <div slot="title">Ripple</div>
     </x-nav>
     <x-body slot="body">
@@ -24,15 +24,15 @@
         ripple prop position:center
       </div>
       <tabbar :ripple="true" :active="active" @on-change="handleChange">
-        <tabbar-item>
+        <tabbar-item :name="0">
           <icon>&#xe651;</icon>
           <span>主页</span>
         </tabbar-item>
-        <tabbar-item>
+        <tabbar-item :name="1">
           <icon>&#xe653;</icon>
           <span>消息</span>
         </tabbar-item>
-        <tabbar-item>
+        <tabbar-item :name="3">
           <icon>&#xe63b;</icon>
           <span>我的</span>
         </tabbar-item>

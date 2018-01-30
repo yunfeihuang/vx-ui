@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header">
+    <x-nav slot="header" back="/">
       <div slot="title">Tab</div>
        <tab :active.sync="active">
         <tab-item name="recommed">推荐</tab-item>

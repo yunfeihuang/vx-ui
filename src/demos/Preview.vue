@@ -1,6 +1,6 @@
 <template>
   <layout class="demos img-demos">
-    <x-nav slot="header">
+    <x-nav slot="header" back="/">
       <div slot="title">Preview</div>
     </x-nav>
     <x-body id="body" slot="body" class="img-container">

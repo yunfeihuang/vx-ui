@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header">
+    <x-nav slot="header" back="/">
       <div slot="title">Marquee</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">

@@ -50,6 +50,7 @@
           <router-link to="/demos/rater">Rater</router-link>
           <router-link to="/demos/marquee">Marquee</router-link>
           <router-link to="/demos/popover">Popover</router-link>
+          <router-link to="/demos/qrcode">QrCode</router-link>
         </flexbox>
       </x-body>
     </layout>

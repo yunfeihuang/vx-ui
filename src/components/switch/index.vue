@@ -3,7 +3,7 @@
     <input 
       :disabled="disabled" 
       :name="name" 
-      :checked="value"
+      :checked="openValue == value"
       type="checkbox"
       @change="handleChange"
       />
@@ -20,6 +20,12 @@ export default {
     value: {
       type: Boolean,
       default: false
+    },
+    openValue: {
+      default: true
+    },
+    closeValue: {
+      default: false
     }
   },
   computed: {
@@ -29,7 +35,7 @@ export default {
   },
   methods: {
     handleChange (e) {
-      let value = e.target.checked
+      let value = e.target.checked ? this.openValue : this.closeValue
       this.$emit('input', value).$emit('on-change', value)
     }
   }

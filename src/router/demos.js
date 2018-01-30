@@ -41,6 +41,7 @@ const Daterange = r => require.ensure([], () => r(require('demos/Daterange')))
 const Marquee = r => require.ensure([], () => r(require('demos/Marquee')))
 const Popover = r => require.ensure([], () => r(require('demos/Popover')))
 const Carousel = r => require.ensure([], () => r(require('demos/Carousel')))
+const QrCode = r => require.ensure([], () => r(require('demos/QrCode')))
 
 export default [
   {
@@ -214,6 +215,10 @@ export default [
       {
         path: '/demos/carousel',
         component: Carousel
+      },
+      {
+        path: '/demos/qrcode',
+        component: QrCode
       }
     ]
   }

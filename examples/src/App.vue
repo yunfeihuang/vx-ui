@@ -8,8 +8,18 @@
       </flexbox-item>
       <div class="example-iphone">
         <div class="example-iphone-iframe">
-          <iframe :src="toDemo" frameborder="0"></iframe>
+          <iframe :key="toDemo" :src="toDemo" frameborder="0"></iframe>
           <div class="example-iphone-home" @click="handleHome"></div>
+        </div>
+        <div class="example-iphone-code">
+          <div class="example-iphone-code-item" style="margin-right:40px;">
+            <qr-code :text="toDemo" :height="100" :width="100" />
+            示例预览
+          </div>
+          <div class="example-iphone-code-item">
+            <img src="/static/images/pay-code.png" style="vertical-align: inherit;" :height="100" :width="100" />
+            赞助支持
+          </div>
         </div>
       </div>
     </flexbox>
@@ -31,7 +41,12 @@ export default {
   computed: {
     toDemo () {
       if (location.host.indexOf(':8082') > -1) {
+        if (!location.origin) {
+          location.origin = location.protocol + '//' + location.host
+        }
         return location.origin.replace(':8082', ':8080') + '/#/demos' + this.$route.path
+      } else {
+        return 'http://vue.bittyos.com/#/demos' + this.$route.path
       }
     }
   },
@@ -72,7 +87,7 @@ export default {
   }
   .example{
     &-body{
-      padding-top:70px;
+      padding-top:60px;
       aside{
         width:220px;
         padding-left:20px;
@@ -117,6 +132,16 @@ export default {
           border:1px solid $color-iphone-border;
           width:320px;
           height:480px;
+        }
+      }
+      &-code{
+        position:fixed;
+        top:698px;
+        text-align:center;
+        width:340px;
+        &-item{
+          width:100px;
+          display:inline-block;
         }
       }
     }

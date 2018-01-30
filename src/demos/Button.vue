@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header">
+    <x-nav slot="header" back="/">
       <div slot="title" >XButton</div>
     </x-nav>
     <x-body class="demos" slot="body"  style="background:#fff">

@@ -85,6 +85,10 @@ export default [
     title: '对话弹框',
     children: [
       {
+        path: '/actionsheet',
+        title: 'Actionsheet菜单'
+      },
+      {
         path: '/alert',
         title: 'Alert对话框'
       },

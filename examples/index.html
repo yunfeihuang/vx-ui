@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>组件文档</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <script>
+    if (navigator.userAgent.indexOf('Trident') > -1) {
+      document.writeln("<script type=\"text/javascript\" src=\"http://libs.cdnjs.net/babel-polyfill/6.0.14/polyfill.min.js\"><\/script>");
+    }
+  </script>
 </head>
 <body>
   <div id="app"></div>
