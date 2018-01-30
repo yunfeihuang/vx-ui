@@ -3,11 +3,13 @@
     <input 
       :disabled="disabled" 
       :name="name" 
-      :checked="openValue == value"
+      :checked="onValue == value"
       type="checkbox"
       @change="handleChange"
       />
     <button type="button"></button>
+    <span v-if="onText" :class="$cssPrefix + 'switch-text'">{{onText}}</span>
+    <span v-if="offText" :class="$cssPrefix + 'switch-text'">{{offText}}</span>
   </div>
 </template>
 
@@ -21,11 +23,17 @@ export default {
       type: Boolean,
       default: false
     },
-    openValue: {
+    onValue: {
       default: true
     },
-    closeValue: {
+    offValue: {
       default: false
+    },
+    onText: {
+      default: ''
+    },
+    offText: {
+      default: ''
     }
   },
   computed: {
@@ -35,7 +43,7 @@ export default {
   },
   methods: {
     handleChange (e) {
-      let value = e.target.checked ? this.openValue : this.closeValue
+      let value = e.target.checked ? this.onValue : this.offValue
       this.$emit('input', value).$emit('on-change', value)
     }
   }

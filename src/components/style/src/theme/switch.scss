@@ -1,7 +1,8 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &switch-wrapper{
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &switch{
+    &-wrapper{
       position:relative;
       @include disabled;
       display:inline-block;
@@ -51,4 +52,17 @@
         }
       }
     }
+    &-text{
+      position:absolute;
+      left:0.1rem;
+      top:50%;
+      color:#fff;
+      line-height:12px;
+      margin-top:-7px;
+      &:last-child{
+        left:auto;
+        right:0.1rem;
+      }
+    }
   }
+}

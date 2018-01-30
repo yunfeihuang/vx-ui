@@ -5,9 +5,12 @@
       :checked="myChecked"
       :name="name"
       :value="value"
+      :disabled="disabled"
       @change="handleChange"
       />
-    <span :disabled="disabled"><slot></slot></span>
+    <button type="button" :disabled="disabled">
+      <slot></slot>
+    </button>
   </label>
 </template>
 

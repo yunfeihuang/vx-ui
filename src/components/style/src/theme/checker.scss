@@ -14,8 +14,9 @@
       position:absolute;
       top:0;
       left:0;
-      margin: 0;
-      &:checked+span{
+      margin:0;
+      z-index:1;
+      &:checked+button{
         border-color:$primary-color;
         color:$primary-color;
         &:before{
@@ -23,11 +24,12 @@
         }
       }
     }
-    span{
-      display:inline-block;
+    button{
       vertical-align: middle;
+      @include button();
       @include round-border($border-color-base,0);
       min-width:50px;
+      height:0.8rem;
       padding:0 0.15rem;
       text-align:center;
       @include disabled;
@@ -35,7 +37,6 @@
     &-group{
       user-select: none;
       @include disabled;
-      line-height:0.8rem;
     }
   }
 }
