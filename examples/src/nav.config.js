@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    title: '组件文档说明'
+    title: '安装和快速上手'
   },
   {
     title: 'Basic',

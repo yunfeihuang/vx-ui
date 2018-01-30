@@ -40,13 +40,14 @@ export default {
   },
   computed: {
     toDemo () {
+      let path = this.$route.path === '/' ? '/' : '/#/demos' + this.$route.path
       if (location.host.indexOf(':8082') > -1) {
         if (!location.origin) {
           location.origin = location.protocol + '//' + location.host
         }
-        return location.origin.replace(':8082', ':8080') + '/#/demos' + this.$route.path
+        return location.origin.replace(':8082', ':8080') + path
       } else {
-        return 'http://vue.bittyos.com/#/demos' + this.$route.path
+        return 'http://vue.bittyos.com' + path
       }
     }
   },
@@ -102,12 +103,12 @@ export default {
         position:absolute;
         left:50%;
         border:1px solid $color-iphone-border;
-        width:50px;
-        height:50px;
+        width:45px;
+        height:45px;
         bottom:30px;
         border-radius:100%;
         margin-left:-25px;
-        margin-bottom:-12px;
+        margin-bottom:-20px;
         z-index:100;
       }
       &-iframe{
@@ -115,7 +116,7 @@ export default {
         position:fixed;
         box-shadow:0 0 0 1px $color-iphone-border;
         border-radius:40px;
-        padding:50px 10px 80px 10px;
+        padding:40px 10px 60px 10px;
         &:before{
           content:'';
           position:absolute;
@@ -123,7 +124,7 @@ export default {
           border:1px solid $color-iphone-border;
           width:50px;
           height:6px;
-          top:25px;
+          top:21px;
           border-radius:3px;
           margin-left:-25px;
           margin-top:-4px;
@@ -136,7 +137,7 @@ export default {
       }
       &-code{
         position:fixed;
-        top:698px;
+        top:662px;
         text-align:center;
         width:340px;
         &-item{
@@ -167,6 +168,10 @@ export default {
           display: block;
         }
         */
+        pre{
+          border: 1px solid #eaeefb;
+          background-color: #fafafa;
+        }
         table{
           width:100%;
           text-align: left;

@@ -6,16 +6,16 @@
     <x-body slot="body" style="background:#fff">
       <swiper :active="active" :pagination="true" @on-change="handleChange" :options="options" class="swiper-demo">
         <swiper-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
         </swiper-item>
         <swiper-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/02.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/02.jpg" class="swiper-img" />
         </swiper-item><swiper-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/03.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/03.jpg" class="swiper-img" />
         </swiper-item><swiper-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/04.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/04.jpg" class="swiper-img" />
         </swiper-item><swiper-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/05.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/05.jpg" class="swiper-img" />
         </swiper-item>
       </swiper>
     </x-body>

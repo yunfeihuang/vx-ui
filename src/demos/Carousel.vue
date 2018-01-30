@@ -6,16 +6,16 @@
     <x-body slot="body" style="background:#fff">
       <carousel :active="active" :pagination="true" @on-change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/01.jpg"/>
         </carousel-item>
         <carousel-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/02.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/02.jpg"/>
         </carousel-item><carousel-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/03.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/03.jpg"/>
         </carousel-item><carousel-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/04.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/04.jpg"/>
         </carousel-item><carousel-item>
-          <x-img src="http://assets.bittyos.com/images/swiper/05.jpg" class="swiper-img" />
+          <img src="http://assets.bittyos.com/images/swiper/05.jpg"/>
         </carousel-item>
       </carousel>
     </x-body>
@@ -39,9 +39,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .swiper-demo{
-    
-  }
-</style>
