@@ -14,7 +14,7 @@ var env = process.env.NODE_ENV === 'testing'
 
 if (process.env.EXAMPLE) {
   baseWebpackConfig.entry = {
-    app: ['./examples/src/main.js']
+    app: ["babel-polyfill",'./examples/src/main.js']
   }
 }
 var webpackConfig = merge(baseWebpackConfig, {
