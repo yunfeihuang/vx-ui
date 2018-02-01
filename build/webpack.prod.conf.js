@@ -12,6 +12,11 @@ var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
+if (process.env.EXAMPLE) {
+  baseWebpackConfig.entry = {
+    app: ['./examples/src/main.js']
+  }
+}
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({

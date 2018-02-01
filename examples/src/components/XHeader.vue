@@ -2,7 +2,7 @@
   <header>
     <div class="header-inner">
       <img style="width:35px;height:35px" :src="logo"/>
-      <h2>Components</h2>
+      <h2>VX UI</h2>
     </div>
   </header>
 </template>
