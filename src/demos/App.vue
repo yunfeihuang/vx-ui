@@ -2,7 +2,7 @@
   <div>
     <layout>
       <x-nav slot="header" :back="false">
-        <div slot="title">Vue Components Demos</div>
+        <div slot="title">Demos</div>
       </x-nav>
       <x-body class="demos" slot="body" style="background:#fff">
         <flexbox wrap="wrap" class="demos-actions">

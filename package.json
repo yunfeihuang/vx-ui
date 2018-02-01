@@ -1,9 +1,9 @@
 {
-  "name": "vue-components",
-  "version": "1.0.0",
-  "description": "vue components",
-  "author": "",
-  "private": true,
+  "name": "vx-ui",
+  "version": "0.0.1-alpha",
+  "description": "A Component Library for Vue.js",
+  "author": "yunfei.huang@qq.com",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -15,6 +15,16 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+  },
+  "keywords": [
+    "ui",
+    "vue",
+    "components"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yunfeihuang/vx-ui"
   },
   "dependencies": {
     "css-loader": "^0.26.1",
