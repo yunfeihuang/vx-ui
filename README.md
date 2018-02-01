@@ -1,4 +1,4 @@
-# vue-components
+# vx-ui
 
 > vue components 移动端UI组件库
 >
