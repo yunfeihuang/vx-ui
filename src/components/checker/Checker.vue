@@ -49,7 +49,7 @@ export default {
       if (this.$parent.componentName && this.$parent.componentName === 'CheckerGroup') {
         this.$parent.handleChange(e)
       } else {
-        this.$emit('update:checked', e.target.checked).$emit('on-change', e)
+        this.$emit('update:checked', e.target.checked).$emit('change', e)
       }
     }
   }

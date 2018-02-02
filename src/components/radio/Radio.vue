@@ -34,7 +34,7 @@ export default {
       if (this.$parent.value) {
         this.$parent.handleChange(this.value)
       } else {
-        this.$emit('input', this.value).$emit('on-change', this.value)
+        this.$emit('input', this.value).$emit('change', this.value)
       }
     }
   }

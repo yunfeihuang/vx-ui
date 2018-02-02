@@ -64,24 +64,24 @@ const input = {
   methods: {
     handleFocus (e) {
       this.isFocus = true
-      this.$emit('on-focus', e)
+      this.$emit('focus', e)
     },
     handleBlur (e) {
       this.isFocus = false
-      this.$emit('on-blur', e)
+      this.$emit('blur', e)
     },
     handleChange (e) {
-      this.$emit('on-change', e.target.value)
+      this.$emit('change', e.target.value)
     },
     handleInput (e) {
       this.$emit('input', e.target ? e.target.value : e)
     },
     handleKeyup (e) {
-      e.keyCode === 13 && this.$emit('on-keyenter', e)
-      this.$emit('on-keyup', e)
+      e.keyCode === 13 && this.$emit('keyenter', e)
+      this.$emit('keyup', e)
     },
     handleKeydown (e) {
-      this.$emit('on-keydown', e)
+      this.$emit('keydown', e)
     },
     handleInvalid (e) {
       this.$emit('invalid', e)
@@ -94,7 +94,7 @@ const tab = {
     if (!this.$children) return
     this.childLength = this.$children.length
     this.$children.forEach((item, i) => {
-      this.$children[i].$on('on-change', this.handleChange)
+      this.$children[i].$on('change', this.handleChange)
     })
     this.afterMounted && this.afterMounted()
   },
@@ -128,7 +128,7 @@ const historyPush = {
       if (this.history && window.location.href.indexOf('popup=') === -1) {
         window.history.pushState({}, '', this.getPushURL())
         let handlePopstate = this.handlePopstate = () => {
-          this.$emit('on-close')
+          this.$emit('close')
           this.popStateBack && this.popStateBack()
           window.removeEventListener('popstate', handlePopstate)
         }

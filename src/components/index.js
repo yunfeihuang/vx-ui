@@ -171,7 +171,7 @@ if (process.browser) {
           return createElement(Toast, {
             props: props,
             on: {
-              'on-close': this.handleClose
+              'close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -212,8 +212,8 @@ if (process.browser) {
           return createElement(Alert, {
             props: props,
             on: {
-              'on-confirm': this.handleConfirm,
-              'on-close': this.handleClose
+              'confirm': this.handleConfirm,
+              'close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -263,8 +263,8 @@ if (process.browser) {
           return createElement(Confirm, {
             props: props,
             on: {
-              'on-confirm': this.handleConfirm,
-              'on-close': this.handleClose
+              'confirm': this.handleConfirm,
+              'close': this.handleClose
             },
             scopedSlots: {
               default: props => createElement('div', content)
@@ -321,9 +321,9 @@ if (process.browser) {
           return createElement(Prompt, {
             props: props,
             on: {
-              'on-confirm': this.handleConfirm,
-              'on-close': this.handleClose,
-              'on-change': this.handleChange
+              'confirm': this.handleConfirm,
+              'close': this.handleClose,
+              'change': this.handleChange
             },
             scopedSlots: {
               default: props => createElement('div', content)

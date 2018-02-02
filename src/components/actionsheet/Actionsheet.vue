@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" :fast-close="fastClose" @on-close="handleClosePopup" @on-enter="handleEnter">
+  <popup :open="open" :history="history" :fast-close="fastClose" @close="handleClosePopup" @enter="handleEnter">
     <div :class="[$cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[$cssPrefix + 'actionsheet-items']">
         <slot></slot>
@@ -60,7 +60,7 @@ export default {
       if (value) {
         requestAnimationFrame(() => {
           this.$el.style.display = 'block'
-          this.$emit('on-open')
+          this.$emit('open')
         })
       } else {
         setTimeout(() => {
@@ -73,13 +73,13 @@ export default {
   },
   methods: {
     handleClick (value) {
-      this.$emit('update:open', false).$emit('on-close').$emit('on-click', value)
+      this.$emit('update:open', false).$emit('close').$emit('click', value)
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleClosePopup () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleEnter () {
       if (!this.$children) return

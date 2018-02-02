@@ -64,7 +64,7 @@ export default {
               zIndex: 1000
             },
             on: {
-              'on-close': this.handleClose
+              'close': this.handleClose
             }
           })
         },
@@ -120,7 +120,7 @@ export default {
           }
         }
       })
-      this.$emit('on-open')
+      this.$emit('open')
     },
     handleClickPopover () {
       if (this.$popover) {

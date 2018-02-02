@@ -44,7 +44,7 @@ export default {
   methods: {
     handleChange (e) {
       let value = e.target.checked ? this.onValue : this.offValue
-      this.$emit('input', value).$emit('on-change', value)
+      this.$emit('input', value).$emit('change', value)
     }
   }
 }

@@ -4,7 +4,7 @@
       <div slot="title">ListView (pulldown and pullup)</div>
     </x-nav>
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
-      <list-view @on-pullup="handlePullup" @on-pulldown="handlePulldown" :loading="loading" :end="end">
+      <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
         <template v-for="item in list">
           <flexbox align="center" class="list-view-item">
             <x-img class="avator" :src="item.author.avatar_url" />

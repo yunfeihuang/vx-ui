@@ -4,7 +4,7 @@
       <div slot="title">Carousel</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <carousel :active="active" :pagination="true" @on-change="handleChange" :options="options" class="swiper-demo">
+      <carousel :active="active" :pagination="true" @change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>
           <img src="http://assets.bittyos.com/images/swiper/01.jpg"/>
         </carousel-item>

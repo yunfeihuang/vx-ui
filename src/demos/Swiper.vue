@@ -4,7 +4,7 @@
       <div slot="title">Swiper</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">
-      <swiper :active="active" :pagination="true" @on-change="handleChange" :options="options" class="swiper-demo">
+      <swiper :active="active" :pagination="true" @change="handleChange" :options="options" class="swiper-demo">
         <swiper-item>
           <img src="http://assets.bittyos.com/images/swiper/01.jpg" class="swiper-img" />
         </swiper-item>

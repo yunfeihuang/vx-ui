@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     handleChange (value) {
-      this.$emit('input', value).$emit('on-change', value)
+      this.$emit('input', value).$emit('change', value)
     }
   }
 }

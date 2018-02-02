@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$emit('on-change', this.name)
+      this.$emit('change', this.name)
     }
   },
   computed: {

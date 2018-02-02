@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     handleChange (val) {
-      this.$emit('on-change', val).$emit('input', val)
+      this.$emit('change', val).$emit('input', val)
     },
     handleTouchStart (e) {
       e.preventDefault()

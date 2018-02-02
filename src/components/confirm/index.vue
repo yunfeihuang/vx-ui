@@ -68,7 +68,7 @@ export default {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'table'
-          this.$emit('on-open')
+          this.$emit('open')
         })
       } else {
         setTimeout(() => {
@@ -82,10 +82,10 @@ export default {
   },
   methods: {
     handleCancel () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
-      this.open && this.$emit('update:open', false).$emit('on-confirm')
+      this.open && this.$emit('update:open', false).$emit('confirm')
     }
   }
 }

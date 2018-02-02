@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @on-close="handleClose">
+  <popup :open="open" :history="history" @close="handleClose">
     <div :class="classes">
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -17,7 +17,7 @@
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @on-change="handleChange"
+          @change="handleChange"
         />
       </div>
     </div>
@@ -77,10 +77,10 @@ export default {
   },
   methods: {
     handleCancel () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
       let value = []
@@ -90,14 +90,14 @@ export default {
         })
       }
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('update:open', false).$emit('input', value).$emit('on-change', value)
+        this.open && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
       } else {
         this.handleClose()
       }
     },
     handleChange (value, index) {
       this.myPickers[index].value = value
-      this.$emit('on-pickerchange', value, index)
+      this.$emit('pickerchange', value, index)
     }
   }
 }

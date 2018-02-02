@@ -62,7 +62,7 @@ export default {
   methods: {
     handleClear (e) {
       this.clear && this.$el.classList.remove(this.$cssPrefix + 'input-clear')
-      this.$emit('on-change', '').$emit('input', '')
+      this.$emit('change', '').$emit('input', '')
     },
     handleInput (e) {
       if (e.target.value) {

@@ -65,13 +65,13 @@ export default {
   },
   mounted () {
     let timer = null
-    this._events['on-pullup'] && this.$el.addEventListener('scroll', (e) => {
+    this._events['pullup'] && this.$el.addEventListener('scroll', (e) => {
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
         !this.loading && !this.end && this.handleScroll(e)
       }, 200)
     })
-    if (this._events['on-pulldown']) {
+    if (this._events['pulldown']) {
       if (document.body.ontouchstart !== undefined) {
         this.$el.addEventListener('touchstart', this.handleTouchStart)
         this.$el.addEventListener('touchmove', this.handleTouchMove)
@@ -92,14 +92,14 @@ export default {
   },
   methods: {
     handlePulldown () {
-      this.$emit('on-pulldown')
+      this.$emit('pulldown')
     },
     handlePullup () {
-      this.$emit('on-pullup')
+      this.$emit('pullup')
     },
     handleScroll (e) {
       if (this.$el.scrollHeight - this.$height - this.$el.scrollTop <= 1) {
-        this.$emit('on-pullup', e)
+        this.$emit('pullup', e)
       }
     },
     getPosition (e) {
@@ -155,7 +155,7 @@ export default {
             setTimeout(() => {
               this.$touch.inner.classList.remove('active')
               this.$touch.inner.classList.add('loading')
-              this.$emit('on-pulldown', e)
+              this.$emit('pulldown', e)
             }, 500)
           }, 600)
         } else {

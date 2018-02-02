@@ -39,10 +39,10 @@ export default {
         if (message) {
           this.showValidityMessage(message)
         } else {
-          this.$emit('on-submit')
+          this.$emit('submit')
         }
       } else {
-        this.$emit('on-submit')
+        this.$emit('submit')
       }
       e.preventDefault()
     },

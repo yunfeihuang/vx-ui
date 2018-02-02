@@ -56,8 +56,8 @@ export default {
               format: this.format
             },
             on: {
-              'on-change': this.handleChange,
-              'on-close': this.handleClose
+              'change': this.handleChange,
+              'close': this.handleClose
             }
           })
         },
@@ -80,7 +80,7 @@ export default {
         methods: {
           handleChange (value) {
             this.open = false
-            datetime.$emit('input', value).$emit('on-change', value)
+            datetime.$emit('input', value).$emit('change', value)
           },
           handleClose () {
             this.open = false

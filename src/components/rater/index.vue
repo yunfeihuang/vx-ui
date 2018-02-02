@@ -52,7 +52,7 @@ export default {
           return false
         }
         value === 1 && this.value === value && (value = 0)
-        this.$emit('input', value).$emit('on-change', value)
+        this.$emit('input', value).$emit('change', value)
       }
     }
   }

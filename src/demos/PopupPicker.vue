@@ -18,14 +18,14 @@
     <popup-picker
       :open.sync="pickerChecked"
       :pickers="pickers"
-      @on-pickerchange="handleChangePicker"
-      @on-change="handleConfirm"
+      @pickerchange="handleChangePicker"
+      @change="handleConfirm"
       />
     <popup-picker 
       :open.sync="pickerAddressChecked"
       :pickers="addressPickers"
-      @on-pickerchange="handleChangeAddressPicker"
-      @on-change="handleConfirmAddress"
+      @pickerchange="handleChangeAddressPicker"
+      @change="handleConfirmAddress"
       />
   </layout>
 </template>

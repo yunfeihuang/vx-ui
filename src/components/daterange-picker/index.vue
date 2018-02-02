@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @on-open="handleOpen" @on-close="handleClose" :fast-close="false" direction="top" :class="[$cssPrefix + 'daterange-picker-wrapper']">
+  <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" :fast-close="false" direction="top" :class="[$cssPrefix + 'daterange-picker-wrapper']">
     <div :class="classes" v-if="open">
       <div :class="[$cssPrefix + 'daterange-picker-header']">
         <tab :active.sync="tab" v-if="layout.length" ref="tab">
@@ -341,10 +341,10 @@ export default {
       this.date = date
     },
     handleClose () {
-      this.$emit('on-close')
+      this.$emit('close')
     },
     handleConfirm () {
-      this.$emit('on-change', this.myValue).$emit('input', this.myValue)
+      this.$emit('change', this.myValue).$emit('input', this.myValue)
       this.handleClose()
     },
     handleChange (value) {

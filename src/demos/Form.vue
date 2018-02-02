@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <br />
-      <x-form @on-submit="handleSubmit" :validator="formValidator">
+      <x-form @submit="handleSubmit" :validator="formValidator">
         <x-form-item>
           <span slot="label">姓名</span>
           <x-input v-model="form.name" :clear="false" required/>

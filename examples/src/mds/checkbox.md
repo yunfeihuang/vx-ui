@@ -96,7 +96,7 @@ export default {
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| on-change | 值改变触发 | value |
+| change | 值改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 
@@ -114,7 +114,7 @@ export default {
 #### Events
 |---------|--------|---------|
 | 事件名称 | 说明 | 回调参数 |
-| on-change | 选中改变触发 | value |
+| change | 选中改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 

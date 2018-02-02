@@ -64,7 +64,7 @@ export default {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'block'
-          this.$emit('on-open')
+          this.$emit('open')
         })
       } else {
         setTimeout(() => {
@@ -78,10 +78,10 @@ export default {
   },
   methods: {
     handleEnter () {
-      this.$emit('on-enter')
+      this.$emit('enter')
     },
     handleClose () {
-      this.fastClose && this.$emit('on-close')
+      this.fastClose && this.$emit('close')
     }
   }
 }

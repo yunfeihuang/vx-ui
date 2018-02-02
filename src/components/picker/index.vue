@@ -106,14 +106,14 @@ export default {
         if (this.$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
           this.$pullTimer && clearTimeout(this.$pullTimer)
           this.$pullTimer = setTimeout(() => {
-            this.$emit('on-pulldown')
+            this.$emit('pulldown')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
         } else if (Math.round(this.$touch.scrollElement.scrollTop) === this.$touch.maxScrollTop && pageY - this.pageY < 0) {
           this.$pullTimer && clearTimeout(this.$pullTimer)
           this.$pullTimer = setTimeout(() => {
-            this.$emit('on-pullup')
+            this.$emit('pullup')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
@@ -150,7 +150,7 @@ export default {
           let active = this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('input', value, this.index).$emit('on-change', value, this.index)
+            value !== this.value && this.$emit('input', value, this.index).$emit('change', value, this.index)
           }
         })
       }, 51)

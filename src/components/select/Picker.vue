@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @on-close="handleClose">
+  <popup :open="open" :history="history" @close="handleClose">
     <div :class="classes">
       <div v-if="max != 1" :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
         <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -8,7 +8,7 @@
       </div>
       <divider v-if="max != 1"></divider>
       <div :class="[$cssPrefix + 'option-picker']">
-        <checkbox-group direction="reverse" :max="max" @on-change="handleChange" :value="myValue">
+        <checkbox-group direction="reverse" :max="max" @change="handleChange" :value="myValue">
           <checkbox
             v-for="(item,index) in myOptions"
             :value="item.value"
@@ -83,17 +83,17 @@ export default {
   },
   methods: {
     handleCancel () {
-      this.$emit('on-close')
+      this.$emit('close')
     },
     handleClose () {
-      this.$emit('on-close')
+      this.$emit('close')
     },
     handleConfirm () {
-      this.open && this.$emit('on-change', this.myValue).$emit('input', this.myValue)
+      this.open && this.$emit('change', this.myValue).$emit('input', this.myValue)
     },
     handleChange (value) {
       if (this.max === 1) {
-        this.open && this.$emit('input', value[0]).$emit('on-change', value[0])
+        this.open && this.$emit('input', value[0]).$emit('change', value[0])
       } else {
         this.myValue = value
       }

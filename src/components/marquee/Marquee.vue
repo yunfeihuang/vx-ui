@@ -49,7 +49,7 @@ export default {
         autoplay: this.autoplay,
         loop: this.loop,
         onSlideChangeStart: (swiper) => {
-          this.$emit('on-change', swiper.activeIndex).$emit('input', swiper.activeIndex)
+          this.$emit('change', swiper.activeIndex).$emit('input', swiper.activeIndex)
         }
       }, this.options)
       this.swiper = new Swiper(this.$el, options)

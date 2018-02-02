@@ -12,11 +12,11 @@
       :name="name" 
       :clear="false"
       :required="required"
-      @on-focus="handleFocus"
-      @on-blur="handleBlur"
-      @on-keyup="handleKeyup"
-      @on-keydown="handleKeydown" 
-      @on-change="handleChange"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @keyup="handleKeyup"
+      @keydown="handleKeydown" 
+      @change="handleChange"
       @input="handleInput"
       @invalid="handleInvalid"
     />
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     handleChange (value) {
-      this.$emit('on-change', value)
+      this.$emit('change', value)
     },
     handleSwitch () {
       this.hType = this.hType === 'password' ? 'text' : 'password'

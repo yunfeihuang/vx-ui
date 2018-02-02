@@ -21,7 +21,7 @@
       :open.sync="open1"
       :disabled="disabled1"
       :input-props="{placeholder:'请输入用户名称'}"
-      @on-change="handleChangePrompt1">
+      @change="handleChangePrompt1">
     </Prompt>
     <Prompt
       v-model="value2"
@@ -29,7 +29,7 @@
       :open.sync="open2"
       :disabled="disabled2"
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
-      @on-change="handleChangePrompt2">
+      @change="handleChangePrompt2">
     </Prompt>
   </layout>
 </template>

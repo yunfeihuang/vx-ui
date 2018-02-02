@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body"  class="demos img-demos">
       <search v-model="value" placeholder="搜索商品/商店/用户"
-        @on-submit="handleSubmit">
+        @submit="handleSubmit">
         <div slot="keywords">
           <span class="keyword">
             上海

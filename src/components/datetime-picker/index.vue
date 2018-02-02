@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @on-close="handleClose" :fast-close="false">
+  <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
     <div :class="classes">
       <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'datetime-picker-header']">
         <button type="button" :class="[$cssPrefix + 'datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -22,7 +22,7 @@
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @on-change="handleChange"
+          @change="handleChange"
         />
       </div>
     </div>
@@ -251,17 +251,17 @@ export default {
       return seconds
     },
     handleCancel () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
       let value = this.format
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.open && value !== this.value && this.$emit('update:open', false).$emit('input', value).$emit('on-change', value)
+      this.open && value !== this.value && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
       value === this.value && this.handleClose()
     },
     handleChange (value, index) {

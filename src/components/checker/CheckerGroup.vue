@@ -32,7 +32,7 @@ export default {
   methods: {
     handleChange (e) {
       if (this.max === 1) {
-        this.$emit('input', [e.target.value]).$emit('on-change', [e.target.value])
+        this.$emit('input', [e.target.value]).$emit('change', [e.target.value])
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
@@ -44,7 +44,7 @@ export default {
           } else {
             value.splice(value.indexOf(e.target.value), 1)
           }
-          this.$emit('input', value).$emit('on-change', value)
+          this.$emit('input', value).$emit('change', value)
         }
       }
     }

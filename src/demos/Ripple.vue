@@ -23,7 +23,7 @@
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
-      <tabbar :ripple="true" :active="active" @on-change="handleChange">
+      <tabbar :ripple="true" :active="active" @change="handleChange">
         <tabbar-item :name="0">
           <icon>&#xe651;</icon>
           <span>主页</span>

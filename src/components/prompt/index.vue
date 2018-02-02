@@ -5,8 +5,8 @@
     :cancel="true"
     :cancel-text="cancelText"
     :confirm-text="confirmText"
-    @on-close="handleClose"
-    @on-confirm="handleConfirm"
+    @close="handleClose"
+    @confirm="handleConfirm"
     >
     <div v-if="title" :class="$cssPrefix + 'prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
@@ -83,13 +83,13 @@ export default {
   },
   methods: {
     handleClose () {
-      this.$emit('update:open', false).$emit('on-close')
+      this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
-      this.open && this.$emit('update:open', false).$emit('on-confirm', this.myValue).$emit('input', this.myValue)
+      this.open && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
     },
     handleInput (value) {
-      this.$emit('on-change', value)
+      this.$emit('change', value)
     }
   }
 }

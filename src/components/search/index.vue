@@ -19,12 +19,12 @@
             :name="name" 
             :clear="clear"
             :required="required"
-            @on-focus="handleFocus"
-            @on-blur="handleBlur"
-            @on-keyup="handleKeyup"
-            @on-keydown="handleKeydown" 
+            @focus="handleFocus"
+            @blur="handleBlur"
+            @keyup="handleKeyup"
+            @keydown="handleKeydown" 
             @input="handleInput"
-            @on-change="handleChange"
+            @change="handleChange"
           >
             <icon slot="icon" :class="[$cssPrefix + 'search-icon']">&#xe651;</icon>
           </x-input>
@@ -98,7 +98,7 @@ export default {
         this.childFixed && document.body.appendChild(this.childFixed)
         this.childFixed.querySelector('input').focus()
       }
-      this.$emit('on-focus', e)
+      this.$emit('focus', e)
     },
     handleInput (value) {
       this.$emit('input', value)
@@ -114,13 +114,13 @@ export default {
       let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
       if (target) {
         let value = target.dataset.value || target.innerText
-        this.$emit('input', value).$emit('on-submit', value)
+        this.$emit('input', value).$emit('submit', value)
       }
     },
     handleSubmit (e) {
       e.stopPropagation()
       e.preventDefault()
-      this.value && this.$emit('on-submit', this.value)
+      this.value && this.$emit('submit', this.value)
     },
     popStateBack () {
       this.handleCancel()

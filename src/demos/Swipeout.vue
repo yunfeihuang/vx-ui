@@ -6,7 +6,7 @@
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
       <list-view :loading="loading" :end="end">
         <template v-for="(item,index) in list">
-          <swipeout :open="index===1" @on-close="handleCloseSwipeout" @on-open="handleOpenSwipeout">
+          <swipeout :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
             <flexbox align="center" class="flow-item">
               <x-img class="avator" :src="item.author.avatar_url" />
               <flexbox-item>

@@ -89,8 +89,8 @@ export default {
                 },
                 class: [this.classes],
                 on: {
-                  'on-close': this.handleClose,
-                  'on-change': this.handleChange
+                  'close': this.handleClose,
+                  'change': this.handleChange
                 }
               })
             },
@@ -119,7 +119,7 @@ export default {
               },
               handleChange (value) {
                 if (self.value !== value) {
-                  self.$emit('input', value).$emit('on-change', value)
+                  self.$emit('input', value).$emit('change', value)
                   self.updateLabel(value)
                 } else {
                   this.handleClose()

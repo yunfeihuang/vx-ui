@@ -122,7 +122,7 @@ export default {
           this.setTranslateX(this.$touch.translateX)
         })
         if (this.$touch.currentTranslateX !== this.$touch.translateX) {
-          this.$emit(this.$touch.translateX === 0 ? 'on-close' : 'on-open')
+          this.$emit(this.$touch.translateX === 0 ? 'close' : 'open')
         }
         document.removeEventListener('touchmove', this.handleTouchMove)
         document.removeEventListener('touchend', this.handleTouchEnd)
@@ -134,7 +134,7 @@ export default {
       requestAnimationFrame(() => {
         this.setTranslateX(0, 0)
       })
-      this.$emit('on-close')
+      this.$emit('close')
     },
     getPosition (e) {
       return {

@@ -3,7 +3,7 @@
     <layout v-show="$route.path == '/cnode'">
       <x-nav slot="header" :back="false">
         <div slot="title">CNode-专业中文社区</div>
-        <tab :active="home.active" @on-change="handleActive">
+        <tab :active="home.active" @change="handleActive">
           <tab-item>
             全部
           </tab-item>
@@ -22,7 +22,7 @@
         </tab>
       </x-nav>
       <x-body slot="body" :scroll="false" style="background:#fff">
-        <list-view @on-pullup="handlePullup" @on-pulldown="handlePulldown" :loading="loading">
+        <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading">
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
         </list-view>
       </x-body>

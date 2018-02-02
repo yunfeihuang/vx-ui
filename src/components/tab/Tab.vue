@@ -46,7 +46,7 @@ export default {
     },
     handleChange (value) {
       if (value !== this.active) {
-        this.$emit('update:active', value).$emit('on-change', value)
+        this.$emit('update:active', value).$emit('change', value)
         this.computedStyle()
       }
     }
