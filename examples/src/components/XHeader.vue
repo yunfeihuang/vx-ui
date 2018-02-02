@@ -15,8 +15,8 @@
 </template>
 
 <script>
-  import logo from '../../../src/assets/logo.png'
-  import github from '../../../src/assets/github.png'
+  import logo from '../assets/logo.png'
+  import github from '../assets/github.png'
   export default {
     data () {
       return {
