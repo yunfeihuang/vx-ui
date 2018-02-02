@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick">
+  <div :class="classes" @click="handleClick" :disabled="disabled">
     <button type="button" :class="myLabel ? '' : $cssPrefix + 'select-placeholder'" >{{myLabel || placeholder}}</button>
     <div style="display:none">
       <slot></slot>
@@ -65,68 +65,70 @@ export default {
       })
     },
     handleClick (e) {
-      let self = this
-      let node = document.createElement('div')
-      if (this.getPopupMounted) {
-        this.getPopupMounted(e).appendChild(node)
-      } else {
-        document.body.appendChild(node)
-      }
-      this.$myOptions = this.getOptions()
-      if (this.$myOptions.length) {
-        /* eslint-disable no-new */
-        this.$popup = new Vue({
-          el: node,
-          render (createElement) {
-            return createElement(Picker, {
-              props: {
-                open: this.open,
-                value: this.value,
-                options: this.options,
-                max: this.max,
-                required: this.required
-              },
-              class: [this.classes],
-              on: {
-                'on-close': this.handleClose,
-                'on-change': this.handleChange
-              }
-            })
-          },
-          data: {
-            options: this.$myOptions,
-            open: false,
-            value: this.value,
-            classes: this.$cssPrefix + 'select-picker',
-            max: this.max,
-            required: this.required
-          },
-          mounted () {
-            this.open = true
-          },
-          destroyed () {
-            requestAnimationFrame(() => {
-              this.$el.remove()
-            })
-          },
-          methods: {
-            handleClose () {
-              this.open = false
-              setTimeout(() => {
-                this.$destroy()
-              }, 1000)
+      if (!this.disabled) {
+        let self = this
+        let node = document.createElement('div')
+        if (this.getPopupMounted) {
+          this.getPopupMounted(e).appendChild(node)
+        } else {
+          document.body.appendChild(node)
+        }
+        this.$myOptions = this.getOptions()
+        if (this.$myOptions.length) {
+          /* eslint-disable no-new */
+          this.$popup = new Vue({
+            el: node,
+            render (createElement) {
+              return createElement(Picker, {
+                props: {
+                  open: this.open,
+                  value: this.value,
+                  options: this.options,
+                  max: this.max,
+                  required: this.required
+                },
+                class: [this.classes],
+                on: {
+                  'on-close': this.handleClose,
+                  'on-change': this.handleChange
+                }
+              })
             },
-            handleChange (value) {
-              if (self.value !== value) {
-                self.$emit('input', value).$emit('on-change', value)
-                self.updateLabel(value)
-              } else {
-                this.handleClose()
+            data: {
+              options: this.$myOptions,
+              open: false,
+              value: this.value,
+              classes: this.$cssPrefix + 'select-picker',
+              max: this.max,
+              required: this.required
+            },
+            mounted () {
+              this.open = true
+            },
+            destroyed () {
+              requestAnimationFrame(() => {
+                this.$el.remove()
+              })
+            },
+            methods: {
+              handleClose () {
+                this.open = false
+                setTimeout(() => {
+                  this.$destroy()
+                }, 1000)
+              },
+              handleChange (value) {
+                if (self.value !== value) {
+                  self.$emit('input', value).$emit('on-change', value)
+                  self.updateLabel(value)
+                } else {
+                  this.handleClose()
+                }
+                this.open = false
               }
-              this.open = false
             }
-          }
-        })
+          })
+        }
       }
     },
     updateLabel (value) {

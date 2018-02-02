@@ -89,7 +89,7 @@ export default {
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array<String>  |   -       |    -    |
+| value     | 值   | Array[String]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 

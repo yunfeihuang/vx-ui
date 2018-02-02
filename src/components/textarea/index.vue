@@ -3,10 +3,8 @@
     <div :class="[$cssPrefix+'textarea-shadow']"></div>
     <textarea 
       :placeholder="placeholder"
-      :readonly="readonly"
       :disabled="disabled" 
       :autocomplete="autocomplete"
-      :autofocus="autofocus"
       :maxlength="maxlength"
       :name="name" 
       :required="required"

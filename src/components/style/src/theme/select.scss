@@ -4,9 +4,7 @@
   &select{
     position:relative;
     height:0.9rem;
-    select{
-      display:none;
-    }
+    @include disabled();
     button{
       border: 0;
       background-color: transparent;

@@ -7,7 +7,7 @@
       <group>
         <cell>
           <div slot="title">下拉框({{label}})</div>
-          <x-select 
+          <x-select
             slot="value"
             :label.sync="label"
             v-model="value"
