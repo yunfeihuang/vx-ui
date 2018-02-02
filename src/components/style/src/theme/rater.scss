@@ -16,7 +16,7 @@
         display: inline-block;
         vertical-align: middle;
         &-active{
-          color:$primary-color;
+          color:$color-primary;
         }
         &:first-child{
           margin-left:0!important

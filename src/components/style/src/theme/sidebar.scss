@@ -30,7 +30,7 @@
           left:auto;
         }
         &-active{
-          color:$primary-color;
+          color:$color-primary;
           background:#fff;
           transition: color $transition-time $ease-in-out;
           position:relative;

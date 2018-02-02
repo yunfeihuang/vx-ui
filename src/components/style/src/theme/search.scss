@@ -54,7 +54,7 @@
       flex-direction: column;
       z-index: 100;
       .#{$css-prefix}search{
-        background:$primary-color;
+        background:$color-primary;
       }
     }
     &search-container{

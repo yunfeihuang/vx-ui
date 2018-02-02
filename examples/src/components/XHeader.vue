@@ -1,18 +1,27 @@
 <template>
   <header>
     <div class="header-inner">
-      <img style="width:35px;height:35px" :src="logo"/>
-      <h2>VX UI</h2>
+      <flexbox>
+        <flexbox-item>
+          <img style="width:35px;height:35px" :src="logo"/>
+          <h2>VX UI</h2>
+        <flexbox-item>
+        <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
+          <img style="width:25px;height:25px" :src="github"/>
+        </a>
+      <flexbox>
     </div>
   </header>
 </template>
 
 <script>
   import logo from '../../../src/assets/logo.png'
+  import github from '../../../src/assets/github.png'
   export default {
     data () {
       return {
-        logo
+        logo,
+        github
       }
     }
   }

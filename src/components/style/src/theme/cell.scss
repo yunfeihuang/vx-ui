@@ -19,7 +19,7 @@
     @include active;
     .#{$css-prefix}cell-ft{
       padding-right:12px;
-      color:$sub-color;
+      color:$color-sub;
       &:after{
         @include arrow;
       }

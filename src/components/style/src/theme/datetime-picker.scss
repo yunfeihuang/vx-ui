@@ -22,10 +22,10 @@
         @include button;
         height: 0.9rem;
         width: 1.5rem;
-        color:$sub-color
+        color:$color-sub
       }
       &-confirm{
-        color:$primary-color;
+        color:$color-primary;
       }
     }
   }

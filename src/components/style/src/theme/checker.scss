@@ -17,10 +17,10 @@
       margin:0;
       z-index:1;
       &:checked+button{
-        border-color:$primary-color;
-        color:$primary-color;
+        border-color:$color-primary;
+        color:$color-primary;
         &:before{
-          border-color:$primary-color;
+          border-color:$color-primary;
         }
       }
     }

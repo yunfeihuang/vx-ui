@@ -42,14 +42,14 @@
       }
     }
     &-today{
-      color:$primary-color
+      color:$color-primary
     }
     &-active,&-start,&-end{
       color:#fff!important;
-      background:rgba($primary-color, 0.95);
+      background:rgba($color-primary, 0.95);
     }
     &-item-active{
-      background:rgba($primary-color,0.15);
+      background:rgba($color-primary,0.15);
     }
     &-outmonth{
       color:#999;
@@ -67,10 +67,10 @@
       @include button;
       height: 1rem!important;
       width: 1.8rem;
-      color:$sub-color
+      color:$color-sub
     }
     &-confirm{
-      color:$primary-color;
+      color:$color-primary;
     }
   }
 }

@@ -27,12 +27,12 @@
         @include button;
         height: 0.9rem;
         width: 2rem;
-        color:$sub-color;
+        color:$color-sub;
       }
       &-confirm{
-        color:$primary-color;
+        color:$color-primary;
         &[disabled]{
-          color:$sub-color;
+          color:$color-sub;
         }
       }
     }

@@ -66,11 +66,11 @@
       white-space: nowrap;
     }
     input:checked + &-icon{
-      background-color:$primary-color;
+      background-color:$color-primary;
       box-shadow:none;
       color:#fff;
       &:before{
-        border-color:$primary-color;
+        border-color:$color-primary;
       }
     }
   }

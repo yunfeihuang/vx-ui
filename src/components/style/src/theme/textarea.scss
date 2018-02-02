@@ -38,7 +38,7 @@
         z-index:1;
       }
       &:after{
-        @include divider($primary-color);
+        @include divider($color-primary);
         width:0;
         transition:width 0.4s $ease-in-out;
         z-index:2;

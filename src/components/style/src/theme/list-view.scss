@@ -13,7 +13,7 @@
       }
       &.active{
         .#{$css-prefix}list-view-refresh{
-          color:$primary-color;
+          color:$color-primary;
           span:before{
             content:attr(data-refresh);
           }
@@ -39,7 +39,7 @@
       }
     }
     &-refresh{
-      color:$sub-color;
+      color:$color-sub;
       line-height:46px;
       margin-top:-46px;
       text-align:center;
@@ -62,7 +62,7 @@
     &-loading{
       text-align:center;
       line-height:1rem;
-      color:$sub-color;
+      color:$color-sub;
     }
     &-spinner{
       margin-right:4px;

@@ -15,7 +15,7 @@
       button{
         height:100%;
         border-radius:30px;
-        background-color:$sub-color;
+        background-color:$color-sub;
         margin: 0;
         padding: 0;
         transition:all 0.3s $ease-in-out;
@@ -44,8 +44,8 @@
         padding: 0;
         margin: 0;
         &:checked+button{
-          background-color:$primary-color;
-          border-color:$primary-color;
+          background-color:$color-primary;
+          border-color:$color-primary;
         }
         &:checked+button:before{
           left:40%;;

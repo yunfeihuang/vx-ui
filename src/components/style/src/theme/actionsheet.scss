@@ -12,7 +12,7 @@
     &-cancel{
       padding: $item-padding;
       border-top:10px solid #eee;
-      color:$sub-color;
+      color:$color-sub;
     }
     &-item{
       padding:$item-padding;
@@ -33,7 +33,7 @@
         display:none;
       }
       &-active{
-        color:$primary-color;
+        color:$color-primary;
       }
       &-disabled{
         opacity: 0.6;

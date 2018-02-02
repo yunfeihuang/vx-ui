@@ -38,7 +38,7 @@
       white-space: nowrap;
     }
     input:checked + &-icon{
-      color:$primary-color;
+      color:$color-primary;
       display:block;
     }
   }

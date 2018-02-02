@@ -17,7 +17,7 @@
         top:50%;
       }
       &-value{
-        @include divider($primary-color);
+        @include divider($color-primary);
         width:0;
         z-index:2;
         top:50%;

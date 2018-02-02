@@ -14,7 +14,7 @@
       white-space: nowrap;
       overflow: hidden;
       &-active{
-        background-color:$primary-color;
+        background-color:$color-primary;
         color:#fff;
         // transition: all $transition-time $ease-in-out;
         &:before{

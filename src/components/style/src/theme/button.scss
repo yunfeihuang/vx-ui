@@ -17,30 +17,30 @@
       box-shadow:1px 0 100px rgba(0,0,0,0.15) inset;
     }
     &-primary{
-      background-color:$primary-color;
+      background-color:$color-primary;
       color:#fff;
       &:before{
-        border-color:$primary-color;
+        border-color:$color-primary;
         display:none;
       }
     }
     &-warning{
-      background-color:$warning-color;
+      background-color:$color-warning;
       color:#fff;
       &:before{
-        border-color:$warning-color;
+        border-color:$color-warning;
         display:none;
       }
     }
     &-dashed{
       background-color:#fff;
-      color:$primary-color;
+      color:$color-primary;
       border:0;
       &:active{
         box-shadow:none;
       }
       &:before{
-        border-color:darken($primary-color,5%);
+        border-color:darken($color-primary,5%);
       }
     }
     @include disabled;

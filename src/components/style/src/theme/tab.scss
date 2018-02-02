@@ -14,13 +14,13 @@
       bottom:0;
       left:0;
       width:100px;
-      border-bottom:2px solid $primary-color;
+      border-bottom:2px solid $color-primary;
       transition: left $transition-time $ease-in-out,width $transition-time $ease-in-out;
       display:none;
     }
     &-item{
       &-active{
-        color:$primary-color;
+        color:$color-primary;
         // transition: color $transition-time $ease-in-out;
       }
     }

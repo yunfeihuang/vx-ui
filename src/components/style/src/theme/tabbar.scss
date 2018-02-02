@@ -16,7 +16,7 @@
     &tabbar-item{
       padding:0.15rem 0;
       &-active{
-        color:$primary-color;
+        color:$color-primary;
         transition: color $transition-time $ease-in-out;
       }
       .#{$css-prefix}iconfont{
