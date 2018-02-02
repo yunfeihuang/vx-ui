@@ -22,12 +22,7 @@ export default {
   mixins: [input],
   props: {
     value: {
-      type: [Array, String],
-      default: []
-    },
-    max: {
-      type: Number,
-      default: 0
+      type: Object
     }
   },
   computed: {
