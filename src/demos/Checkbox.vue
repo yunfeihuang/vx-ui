@@ -38,7 +38,7 @@
         </div>
       </group>
       <group title="CheckboxGroup最多选2个">
-        <checkbox-group direction="reverse" :checked-max-item="2" v-model="reverseValue">
+        <checkbox-group direction="reverse" :max="2" v-model="reverseValue">
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"

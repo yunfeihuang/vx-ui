@@ -25,7 +25,7 @@ export default {
       type: [Array, String],
       default: []
     },
-    checkedMaxItem: {
+    max: {
       type: Number,
       default: 0
     }
@@ -43,7 +43,7 @@ export default {
     },
     myType () {
       if (this.$parent.componentName && this.$parent.componentName === 'CheckerGroup') {
-        return this.$parent.checkedMaxItem === 1 ? 'radio' : 'checkbox'
+        return this.$parent.max === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
       }

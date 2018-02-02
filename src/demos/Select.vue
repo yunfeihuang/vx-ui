@@ -21,7 +21,7 @@
             slot="value"
             :options="options.slice(0,4)"
             v-model="value3"
-            :checked-max-item="0"
+            :max="0"
             placeholder="请选择"
           />
         </cell>
@@ -32,7 +32,7 @@
             :options="options"
             v-model="value3"
             :required="true"
-            :checked-max-item="2"
+            :max="2"
             placeholder="请选择"
           />
         </cell>

@@ -22,7 +22,7 @@
       </group>
       <group title="Checker 最多选2个">
         <div style="padding:20px 10px">
-          <checker-group :checked-max-item="2" v-model="checkboxValue">
+          <checker-group :max="2" v-model="checkboxValue">
             <checker
               v-for="item in options"
               :value="item.value"
@@ -38,7 +38,7 @@
       </group>
       <group title="Checker 单选">
         <div style="padding:20px 10px">
-          <checker-group :checked-max-item="1" :options="options" v-model="radioValue">
+          <checker-group :max="1" :options="options" v-model="radioValue">
             <checker
               v-for="item in options"
               :value="item.value"

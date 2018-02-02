@@ -34,7 +34,7 @@ export default {
     },
     myType () {
       if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup') {
-        return this.$parent.checkedMaxItem === 1 ? 'radio' : 'checkbox'
+        return this.$parent.max === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
       }

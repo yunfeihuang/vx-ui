@@ -34,7 +34,7 @@ export default {
     getPopupMounted: {
       type: Function
     },
-    checkedMaxItem: {
+    max: {
       type: Number,
       default: 1
     }
@@ -77,7 +77,7 @@ export default {
               open: this.open,
               value: this.value,
               options: this.options,
-              checkedMaxItem: this.checkedMaxItem,
+              max: this.max,
               required: this.required
             },
             class: [this.classes],
@@ -92,7 +92,7 @@ export default {
           open: false,
           value: this.value,
           classes: this.$cssPrefix + 'select-picker',
-          checkedMaxItem: this.checkedMaxItem,
+          max: this.max,
           required: this.required
         },
         mounted () {
@@ -123,7 +123,7 @@ export default {
       })
     },
     updateLabel (value) {
-      if (this.checkedMaxItem === 1) {
+      if (this.max === 1) {
         this.options && this.options.forEach(item => {
           if (item.value === value) {
             this.label = item.label
@@ -147,7 +147,7 @@ export default {
   },
   data () {
     return {
-      label: this.checkedMaxItem === 1 ? null : []
+      label: this.max === 1 ? null : []
     }
   }
 }
