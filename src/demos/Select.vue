@@ -8,42 +8,66 @@
         <cell>
           <div slot="title">下拉框({{label}})</div>
           <x-select 
-            :label.sync="label"
             slot="value"
-            :options="options.slice(0,4)"
+            :label.sync="label"
             v-model="value"
-            placeholder="请选择"
-          />
+            placeholder="请选择">
+            <x-option
+              v-for="item in options"
+              :value="item.value"
+              :disabled="item.disabled"
+              :key="item.value">
+              {{item.label}}
+            </x-option>
+          </x-select>
         </cell>
         <cell>
           <div slot="title">下拉框(多选)</div>
           <x-select 
             slot="value"
-            :options="options.slice(0,4)"
-            v-model="value3"
+            v-model="value2"
             :max="0"
-            placeholder="请选择"
-          />
+            placeholder="请选择">
+            <x-option
+              v-for="item in options"
+              :value="item.value"
+              :disabled="item.disabled"
+              :key="item.value">
+              {{item.label}}
+            </x-option>
+          </x-select>
         </cell>
         <cell>
           <div slot="title">下拉框(最多选2个)</div>
           <x-select 
             slot="value"
-            :options="options"
             v-model="value3"
             :required="true"
             :max="2"
-            placeholder="请选择"
-          />
+            placeholder="请选择">
+            <x-option
+              v-for="item in options"
+              :value="item.value"
+              :disabled="item.disabled"
+              :key="item.value">
+              {{item.label}}
+            </x-option>
+          </x-select>
         </cell>
         <cell>
           <div slot="title">下拉框(选项很多)</div>
           <x-select 
             slot="value"
-            :options="options"
-            v-model="value2"
-            placeholder="请选择"
-          />
+            v-model="value4"
+            placeholder="请选择">
+            <x-option
+              v-for="item in options"
+              :value="item.value"
+              :disabled="item.disabled"
+              :key="item.value">
+              {{item.label}}
+            </x-option>
+          </x-select>
         </cell>
       </group>
     </x-body>
@@ -56,8 +80,9 @@ export default {
     return {
       label: '',
       value: '',
-      value2: '',
+      value2: [],
       value3: [],
+      value4: '1',
       options: [
         {
           value: '1',

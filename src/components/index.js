@@ -8,7 +8,7 @@ import XTextarea from './textarea'
 import XSwitch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
-import XSelect from './select'
+import {Select, Option} from './select'
 import {Checker, CheckerGroup} from './checker'
 import {XForm, XFormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
@@ -111,7 +111,8 @@ let components = [
   CheckboxGroup,
   Radio,
   RadioGroup,
-  XSelect,
+  Select,
+  Option,
   Checker,
   CheckerGroup,
   Divider,
@@ -388,7 +389,8 @@ export {
   CheckboxGroup,
   Radio,
   RadioGroup,
-  XSelect,
+  Select,
+  Option,
   Checker,
   CheckerGroup,
   Divider,
