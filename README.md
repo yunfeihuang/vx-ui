@@ -2,35 +2,19 @@
 
 > vue components 移动端UI组件库
 >
-浏览地址：
-http://vue.bittyos.com/#/
-
-cnodejs示例：
-http://vue.bittyos.com/#/cnode
+示例浏览地址：
+http://vue.bittyos.com/demo/
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+npm install vx-ui
 
-# serve with hot reload at localhost:8080
-npm run dev
+import Vue from 'vue'
+import VxUI from 'vx-ui'
+Vue.use(VxUI)
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
