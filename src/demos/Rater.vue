@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title" >Rater</div>
     </x-nav>
     <x-body class="demos" slot="body">
@@ -32,12 +32,6 @@
 
 <script>
 export default {
-  methods: {
-    handleChange (value) {
-      console.log(value)
-      this.value = value
-    }
-  },
   data () {
     return {
       value: 0

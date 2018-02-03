@@ -12,12 +12,11 @@
           v-if="open && myPickers"
           v-for="(item,index) in myPickers"
           :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-item']"
-          :index="index"
           :key="index"
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @change="handleChange"
+          @change="handleChange($event,index)"
         />
       </div>
     </div>
@@ -83,12 +82,12 @@ export default {
       this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
-      let value = []
-      for (let item of this.myPickers) {
-        value.push({
+      this.$emit('confirm')
+      let value = this.myPickers.map(item => {
+        return {
           value: item.value
-        })
-      }
+        }
+      })
       if (!this.value || value.toString() !== this.value.toString()) {
         this.open && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
       } else {

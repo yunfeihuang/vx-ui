@@ -15,8 +15,24 @@ export default [
         title: 'Flexbox布局'
       },
       {
+        path: '/nav',
+        title: 'Nav导航'
+      },
+      {
+        path: '/group',
+        title: 'Group分组'
+      },
+      {
+        path: '/cell',
+        title: 'Cell单元块'
+      },
+      {
         path: '/divider',
         title: 'Divider分割线'
+      },
+      {
+        path: '/message',
+        title: 'Message提示信息'
       }
     ]
   },
@@ -74,11 +90,14 @@ export default [
       {
         path: '/rater',
         title: 'Rater评分'
-      },
+      }
+      /*
+      ,
       {
         path: '/form',
         title: 'Form表单'
       }
+      */
     ]
   },
   {
@@ -90,23 +109,23 @@ export default [
       },
       {
         path: '/alert',
-        title: 'Alert对话框'
+        title: 'Alert警告对话框'
       },
       {
         path: '/confirm',
-        title: 'Confirm对话框'
+        title: 'Confirm确认对话框'
       },
       {
         path: '/prompt',
-        title: 'Prompt对话框'
+        title: 'Prompt输入对话框'
       },
       {
         path: '/popup',
-        title: 'Popup弹框'
+        title: 'Popup自定义弹框'
       },
       {
         path: '/popover',
-        title: 'Popover对话框'
+        title: 'Popover菜单对话框'
       },
       {
         path: '/toast',
@@ -114,7 +133,7 @@ export default [
       },
       {
         path: '/popuppicker',
-        title: 'PopupPicker选择'
+        title: 'PopupPicker选择器'
       }
     ]
   },
@@ -146,10 +165,12 @@ export default [
         path: '/swiper',
         title: 'Swiper轮播'
       },
+      /*
       {
         path: '/carousel',
         title: 'Carousel走马灯'
       },
+      */
       {
         path: '/marquee',
         title: 'Marquee公告提示'
@@ -165,11 +186,15 @@ export default [
       },
       {
         path: '/picker',
-        title: 'Picker选择'
+        title: 'Picker选择器'
       },
       {
         path: '/ripple',
         title: 'Ripple波纹'
+      },
+      {
+        path: '/qrcode',
+        title: 'Qrcode二维码'
       },
       {
         path: '/swipeout',
@@ -177,7 +202,7 @@ export default [
       },
       {
         path: '/img',
-        title: 'XImg图片'
+        title: 'Img图片'
       },
       {
         path: '/preview',

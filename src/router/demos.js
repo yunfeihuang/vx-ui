@@ -25,6 +25,8 @@ const Divider = r => require.ensure([], () => r(require('demos/Divider')))
 const Swiper = r => require.ensure([], () => r(require('demos/Swiper')))
 const Preview = r => require.ensure([], () => r(require('demos/Preview')))
 const Flexbox = r => require.ensure([], () => r(require('demos/Flexbox')))
+const Group = r => require.ensure([], () => r(require('demos/Group')))
+const Cell = r => require.ensure([], () => r(require('demos/Cell')))
 const Prompt = r => require.ensure([], () => r(require('demos/Prompt')))
 const Form = r => require.ensure([], () => r(require('demos/Form')))
 const Swipeout = r => require.ensure([], () => r(require('demos/Swipeout')))
@@ -41,7 +43,8 @@ const Daterange = r => require.ensure([], () => r(require('demos/Daterange')))
 const Marquee = r => require.ensure([], () => r(require('demos/Marquee')))
 const Popover = r => require.ensure([], () => r(require('demos/Popover')))
 const Carousel = r => require.ensure([], () => r(require('demos/Carousel')))
-const QrCode = r => require.ensure([], () => r(require('demos/QrCode')))
+const Qrcode = r => require.ensure([], () => r(require('demos/Qrcode')))
+const Message = r => require.ensure([], () => r(require('demos/Message')))
 
 export default [
   {
@@ -165,6 +168,14 @@ export default [
         component: Flexbox
       },
       {
+        path: '/demos/group',
+        component: Group
+      },
+      {
+        path: '/demos/cell',
+        component: Cell
+      },
+      {
         path: '/demos/picker',
         component: Picker
       },
@@ -218,7 +229,11 @@ export default [
       },
       {
         path: '/demos/qrcode',
-        component: QrCode
+        component: Qrcode
+      },
+      {
+        path: '/demos/message',
+        component: Message
       }
     ]
   }

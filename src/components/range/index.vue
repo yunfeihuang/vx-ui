@@ -13,6 +13,28 @@ import { input } from 'utils/mixins.js'
 export default {
   name: 'Range',
   mixins: [input],
+  props: {
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 100
+    },
+    step: {
+      type: Number,
+      default: 1
+    },
+    value: {
+      type: Number,
+      default: 0
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     classes () {
       let array = [this.$cssPrefix + 'range-wrapper']
@@ -38,7 +60,7 @@ export default {
       if (this.value > this.max) {
         return this.max
       }
-      return this.value
+      return Math.round(this.value * this.stepRate) / this.stepRate
     },
     range () {
       return this.max - this.min
@@ -47,33 +69,33 @@ export default {
       return 1 / this.step
     }
   },
-  props: {
-    min: {
-      type: Number,
-      default: 0
-    },
-    max: {
-      type: Number,
-      default: 100
-    },
-    step: {
-      type: Number,
-      default: 1
-    },
-    value: {
-      type: Number,
-      default: 0
+  watch: {
+    value () {
+      this.renderRange()
     }
   },
   mounted () {
-    let left = (this.myValue - this.min) / this.range * this.$el.offsetWidth
-    let valueDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
-    let buttonDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-button')
-    let tipsDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
-    valueDom.style.width = buttonDom.style.left = left + 'px'
-    tipsDom.innerHTML = Math.round(this.myValue * this.stepRate) / this.stepRate
+    this.getRangeInitData()
+    this.$nextTick(this.renderRange)
   },
   methods: {
+    getRangeInitData () {
+      let controlNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-button')
+      let valueNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
+      let tipsNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
+      let maskNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-mask')
+      this.$range = {
+        maxLeft: maskNode.offsetWidth - controlNode.offsetWidth,
+        controlNode,
+        valueNode,
+        tipsNode
+      }
+    },
+    renderRange (value = this.myValue) {
+      let left = Math.round((value - this.min) / this.range * this.$range.maxLeft) + 'px'
+      this.$range.controlNode.style.left = this.$range.valueNode.style.width = left
+      this.$range.tipsNode.innerHTML = this.myValue
+    },
     handleChange (val) {
       this.$emit('change', val).$emit('input', val)
     },
@@ -81,16 +103,12 @@ export default {
       e.preventDefault()
       if (!this.disabled) {
         let position = this.getPosition(e)
-        let button = e.target
         let start = true
-        let buttonLeft = button.style.left
+        let buttonLeft = this.$range.controlNode.style.left
         let touch = Object.assign({
-          left: buttonLeft ? parseFloat(buttonLeft) : 0,
-          maxLeft: this.$el.querySelector('.' + this.$cssPrefix + 'range-mask').offsetWidth - button.offsetWidth
+          left: buttonLeft ? parseFloat(buttonLeft) : 0
         }, position)
-        let valueDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
-        let tipsDom = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
-        tipsDom.style.display = 'block'
+        this.$range.tipsNode.style.display = 'block'
         let self = this
         let value = this.myValue
         let handleTouchMove = (event) => {
@@ -98,10 +116,10 @@ export default {
             let movePosition = self.getPosition(event)
             let left = movePosition.pageX - position.pageX + touch.left
             left = left < 0 ? 0 : left
-            left = left > touch.maxLeft ? touch.maxLeft : left
+            left = left > this.$range.maxLeft ? this.$range.maxLeft : left
             buttonLeft = left
-            button.style.left = valueDom.style.width = left + 'px'
-            tipsDom.innerHTML = value = Math.round((buttonLeft / touch.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
+            this.$range.controlNode.style.left = this.$range.valueNode.style.width = left + 'px'
+            this.$range.tipsNode.innerHTML = value = Math.round((buttonLeft / this.$range.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
             event.preventDefault()
           }
         }
@@ -109,7 +127,7 @@ export default {
           document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove)
           document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd)
           start = false
-          tipsDom.style.display = 'none'
+          this.$range.tipsNode.style.display = 'none'
           self.handleChange(value)
         }
         document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove, false)

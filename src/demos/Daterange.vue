@@ -1,17 +1,12 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Daterange</div>
     </x-nav>
     <x-body slot="body">
-      <br />
-      <x-form>
-        <x-form-item label="yyyy-MM-dd">
-          <x-input>
-            <daterange v-model="date" placeholder="请选择截止时间" required/>
-          </x-input>
-        </x-form-item>
-      </x-form>
+      <group title="default">
+        <daterange v-model="date" placeholder="请输入日期区间"/>
+      </group>
     </x-body>
   </layout>
 </template>
@@ -25,7 +20,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

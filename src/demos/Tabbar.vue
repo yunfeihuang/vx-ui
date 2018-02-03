@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Tabbar</div>
     </x-nav>
     <x-body slot="body">
@@ -45,8 +45,7 @@
 export default {
   data () {
     return {
-      active: 'home',
-      tabs: ['home', 'message', 'my']
+      active: 'home'
     }
   }
 }

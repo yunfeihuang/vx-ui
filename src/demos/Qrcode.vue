@@ -1,25 +1,15 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">QrCode</div>
     </x-nav>
     <x-body slot="body">
       <div class="qrcode-demo">
-        <qr-code :text="text"/>
+        <qrcode text="http://vue.bittyos.com/"/>
       </div>
     </x-body>
   </layout>
 </template>
-
-<script>
-export default {
-  data () {
-    return {
-      text: 'http://vue.bittyos.com/'
-    }
-  }
-}
-</script>
 
 <style lang="scss">
   .qrcode-demo{

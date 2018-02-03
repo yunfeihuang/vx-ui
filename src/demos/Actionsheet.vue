@@ -1,31 +1,25 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Actionsheet</div>
     </x-nav>
     <x-body slot="body">
       <group>
         <cell :arrow="false">
-          <div slot="title">Actionsheet</div>
-          <x-switch slot="value" v-model="checked"/>
+          <div slot="title">default</div>
+          <x-switch slot="value" v-model="open1"/>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Actionsheet(cancel)</div>
-          <x-switch slot="value" v-model="checked1"/>
+          <div slot="title">cancel item</div>
+          <x-switch slot="value" v-model="open2"/>
         </cell>
       </group>
     </x-body>
-    <actionsheet :open.sync="checked" @click="handleClick">
-      <actionsheet-item value="1">编辑</actionsheet-item>
-      <actionsheet-item value="2">收藏</actionsheet-item>
-      <actionsheet-item value="3">分享</actionsheet-item>
-      <actionsheet-item value="4">删除</actionsheet-item>
+    <actionsheet :open.sync="open1" @click="handleClick">
+      <actionsheet-item v-for="item in options" :value="item.value" :key="item.value">{{item.label}}</actionsheet-item>
     </actionsheet>
-    <actionsheet :open.sync="checked1" :cancel="true" @click="handleClick" >
-      <actionsheet-item value="1">编辑</actionsheet-item>
-      <actionsheet-item value="2">收藏</actionsheet-item>
-      <actionsheet-item value="3">分享</actionsheet-item>
-      <actionsheet-item value="4">删除</actionsheet-item>
+    <actionsheet :open.sync="open2" :cancel="true" @click="handleClick" >
+      <actionsheet-item v-for="item in options" :value="item.value" :key="item.value">{{item.label}}</actionsheet-item>
     </actionsheet>
   </layout>
 </template>
@@ -35,19 +29,35 @@
 export default {
   methods: {
     handleClick (value) {
-      console.log('handleClick')
-      // this.checked = false
+      let label = this.options.filter((item) => {
+        return item.value === value
+      })[0].label
+      window.$toast({content: `您点击了“${label}”`})
     }
   },
   data () {
     return {
-      checked: false,
-      checked1: false
+      options: [
+        {
+          value: '1',
+          label: '编辑'
+        },
+        {
+          value: '2',
+          label: '收藏'
+        },
+        {
+          value: '3',
+          label: '分享'
+        },
+        {
+          value: '4',
+          label: '删除'
+        }
+      ],
+      open1: false,
+      open2: false
     }
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

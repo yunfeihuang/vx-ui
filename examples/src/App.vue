@@ -2,7 +2,7 @@
   <div class="example-root">
     <x-header/>
     <flexbox class="example-body">
-      <sidebar/>
+      <sidebar @click.native="toTop"/>
       <flexbox-item class="markdown-body">
         <router-view></router-view>
       </flexbox-item>
@@ -13,12 +13,12 @@
         </div>
         <div class="example-iphone-code">
           <div class="example-iphone-code-item" style="margin-right:40px;">
-            <qr-code :text="toDemo" :height="100" :width="100" />
+            <qrcode :text="toDemo" :height="100" :width="100" />
             示例预览
           </div>
           <div class="example-iphone-code-item">
             <img src="/static/images/pay-code.png" style="vertical-align: inherit;" :height="100" :width="100" />
-            赞助支持
+            打赏赞助
           </div>
         </div>
       </div>
@@ -47,21 +47,23 @@ export default {
         }
         return location.origin.replace(':8082', ':8080') + path
       } else {
-        return 'http://vue.bittyos.com' + path
+        return 'http://vx.bittyos.com/demo' + path
       }
     }
   },
   mounted () {
-    window.onhashchange = () => {
-      let scrollTop = document.body.scrollTop = document.documentElement.scrollTop
-      if (scrollTop > 86) {
-        document.body.scrollTop = document.documentElement.scrollTop = 86
-      }
-    }
+    this.$nextTick(() => {
+      this.$el.querySelector('aside').style.height = window.innerHeight - 4 - this.$el.querySelector('header').offsetHeight + 'px'
+    })
   },
   methods: {
     handleHome () {
       console.log(this)
+    },
+    toTop (e) {
+      if (/^a$/i.test(e.target.nodeName)) {
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+      }
     }
   }
 }
@@ -74,7 +76,7 @@ export default {
     font-weight:normal;
   }
   a{
-    color:$primary-color;
+    color:$color-primary;
     text-decoration: none!important;
     box-sizing: border-box;
     cursor: default;
@@ -92,6 +94,22 @@ export default {
       aside{
         width:220px;
         padding-left:20px;
+        overflow: auto;
+        position:fixed;
+        &::-webkit-scrollbar{  
+          width: 5px;
+          height:10px;
+        }  
+        &::-webkit-scrollbar-track{
+          background-color:#fff;
+        }
+        &::-webkit-scrollbar-thumb{
+          border-radius: 10px;
+          background-color:rgba(0,0,0,0.2);
+        } 
+      }
+      .markdown-body{
+        padding-left:230px;
       }
     }
     &-iphone{

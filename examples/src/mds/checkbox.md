@@ -112,8 +112,8 @@ export default {
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 
 #### Events
-|---------|--------|---------|
 | 事件名称 | 说明 | 回调参数 |
+|---------|--------|---------|
 | change | 选中改变触发 | value |
 
 #### Slots

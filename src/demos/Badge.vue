@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Badge</div>
     </x-nav>
     <x-body slot="body" class="badge-demos">

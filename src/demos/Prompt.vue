@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Prompt</div>
     </x-nav>
     <x-body slot="body">
@@ -15,7 +15,7 @@
         </cell>
       </group>
     </x-body>
-    <Prompt
+    <prompt
       v-model="value1"
       title="用户名称"
       :open.sync="open1"
@@ -23,14 +23,14 @@
       :input-props="{placeholder:'请输入用户名称'}"
       @change="handleChangePrompt1">
     </Prompt>
-    <Prompt
+    <prompt
       v-model="value2"
       title="Wifi密码"
       :open.sync="open2"
       :disabled="disabled2"
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
       @change="handleChangePrompt2">
-    </Prompt>
+    </prompt>
   </layout>
 </template>
 

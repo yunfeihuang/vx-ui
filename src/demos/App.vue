@@ -2,16 +2,16 @@
   <div>
     <layout>
       <x-nav slot="header" :back="false">
-        <div slot="title">Demos</div>
+        <div slot="title">Vx Demos</div>
       </x-nav>
       <x-body class="demos" slot="body" style="background:#fff">
         <flexbox wrap="wrap" class="demos-actions">
-          <router-link to="/demos/button">XButton</router-link>
+          <router-link to="/demos/button">Button</router-link>
           <router-link to="/demos/input">Input</router-link>
           <router-link to="/demos/password">Password</router-link>
-          <router-link to="/demos/textarea">XTextarea</router-link>
-          <router-link to="/demos/select">XSelect</router-link>
-          <router-link to="/demos/switch">XSwitch</router-link>
+          <router-link to="/demos/textarea">Textarea</router-link>
+          <router-link to="/demos/select">Select</router-link>
+          <router-link to="/demos/switch">Switch</router-link>
           <router-link to="/demos/radio">Radio</router-link>
           <router-link to="/demos/checkbox">Checkbox</router-link>
           <router-link to="/demos/checker">Checker</router-link>
@@ -32,8 +32,8 @@
           <router-link to="/demos/toast">Toast</router-link>
           <router-link to="/demos/listview">ListView</router-link>
           <router-link to="/demos/ripple">Ripple</router-link>
-          <router-link to="/demos/img">XImg</router-link>
-          <router-link to="/demos/nav">XNav</router-link>
+          <router-link to="/demos/img">Img</router-link>
+          <router-link to="/demos/nav">Nav</router-link>
           <router-link to="/demos/divider">Divider</router-link>
           <router-link to="/demos/carousel">Carousel</router-link>
           <router-link to="/demos/swiper">Swiper</router-link>
@@ -46,11 +46,14 @@
           -->
           <router-link to="/demos/spinner">Spinner</router-link>
           <router-link to="/demos/flexbox">Flexbox</router-link>
+          <router-link to="/demos/group">Group</router-link>
+          <router-link to="/demos/cell">Cell</router-link>
           <router-link to="/demos/badge">Badge</router-link>
           <router-link to="/demos/rater">Rater</router-link>
           <router-link to="/demos/marquee">Marquee</router-link>
           <router-link to="/demos/popover">Popover</router-link>
           <router-link to="/demos/qrcode">QrCode</router-link>
+          <router-link to="/demos/message">Message</router-link>
         </flexbox>
       </x-body>
     </layout>

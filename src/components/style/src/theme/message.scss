@@ -1,0 +1,23 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &message{
+    padding:0.2rem 0.1rem;
+    border-bottom: 1px solid;
+    &-warning{
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+    &-danger{
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+    &-success{
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+  }
+}

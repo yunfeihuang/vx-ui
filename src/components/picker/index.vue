@@ -62,10 +62,6 @@ export default {
     placeholder: {
       type: String,
       default: ''
-    },
-    index: {
-      type: [Number, String],
-      default: 0
     }
   },
   watch: {

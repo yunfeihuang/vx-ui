@@ -20,7 +20,7 @@ export default {
   mixins: [input],
   props: {
     value: {
-      type: Boolean,
+      type: [Boolean, String, Number],
       default: false
     },
     onValue: {

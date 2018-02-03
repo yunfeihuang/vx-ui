@@ -22,7 +22,7 @@ export default {
   mixins: [input],
   props: {
     value: {
-      type: Object
+      type: [String]
     }
   },
   computed: {

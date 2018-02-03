@@ -1,24 +1,15 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Tab</div>
-       <tab :active.sync="active">
-        <tab-item name="recommed">推荐</tab-item>
-        <tab-item name="it">科技</tab-item>
-        <tab-item name="active">活动</tab-item>
-        <tab-item name="find">发现</tab-item>
+      <tab :active.sync="active">
+        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
       </tab>
       <tab :active.sync="active" :underline-width="10">
-        <tab-item name="recommed">推荐</tab-item>
-        <tab-item name="it">科技</tab-item>
-        <tab-item name="active">活动</tab-item>
-        <tab-item name="find">发现</tab-item>
+        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
       </tab>
       <tab :active.sync="active" underline-width="auto">
-        <tab-item name="recommed">推荐</tab-item>
-        <tab-item name="it">科技</tab-item>
-        <tab-item name="active">活动</tab-item>
-        <tab-item name="find">发现</tab-item>
+        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
       </tab>
     </x-nav>
     <x-body slot="body" style="background:#fff" :scroll="false">
@@ -54,6 +45,12 @@
 export default {
   data () {
     return {
+      tabs: [
+        {name: 'recommed', label: '推荐'},
+        {name: 'it', label: '科技'},
+        {name: 'active', label: '活动'},
+        {name: 'find', label: '发现'}
+      ],
       active: 'recommed'
     }
   }

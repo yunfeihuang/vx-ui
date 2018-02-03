@@ -1,9 +1,10 @@
 <template>
-  <input 
+  <x-input 
     :type="nativeType"
     :placeholder="placeholder"
     readonly="readonly"
     :value="myValue"
+    :clear="clear"
     :disabled="disabled" 
     :autofocus="autofocus"
     :maxlength="maxlength"
@@ -16,7 +17,7 @@
     @keydown="handleKeydown" 
     @change="handleChange"
     @input="handleInput"
-    @click="handleClick"
+    @click.native="handleClick"
     />
 </template>
 
@@ -24,13 +25,21 @@
 import { input } from 'utils/mixins.js'
 import Vue from 'vue'
 import DaterangePicker from '../daterange-picker'
+import XInput from '../input'
 export default {
   name: 'Daterange',
+  components: {
+    XInput
+  },
   mixins: [input],
   props: {
     format: {
       type: String,
       default: 'yyyy-MM-dd'
+    },
+    clear: {
+      type: Boolean,
+      default: false
     },
     value: {
       type: Array,

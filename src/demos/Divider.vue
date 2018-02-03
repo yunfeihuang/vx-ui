@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Divider</div>
     </x-nav>
     <x-body slot="body">
@@ -12,40 +12,4 @@
     </x-body>
   </layout>
 </template>
-
-<script>
-export default {
-  methods: {
-    handleChange (value) {
-      this.value = value
-    }
-  },
-  data () {
-    return {
-      value: '',
-      options: [
-        {
-          value: '1',
-          label: '篮球'
-        },
-        {
-          value: '2',
-          label: '羽毛球'
-        },
-        {
-          value: '3',
-          label: '乒乓球'
-        },
-        {
-          value: '4',
-          label: '高尔夫'
-        }
-      ]
-    }
-  }
-}
 </script>
-
-<style lang="scss">
-
-</style>

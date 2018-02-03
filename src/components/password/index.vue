@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <x-input
-      :native-type="hType"
+      :native-type="myNativeType"
       :placeholder="placeholder"
       :readonly="readonly"
       :value="value"
@@ -25,8 +25,8 @@
       type="button"
       @click="handleSwitch"
     >
-      <icon v-if="this.hType==='password'">&#xe602;</icon>
-      <icon v-if="this.hType==='text'">&#xe63b;</icon>
+      <icon v-if="this.myNativeType==='password'">&#xe602;</icon>
+      <icon v-if="this.myNativeType==='text'">&#xe63b;</icon>
     </button>
   </div>
 </template>
@@ -38,6 +38,12 @@ import Icon from '../icon'
 export default {
   name: 'Password',
   mixins: [input],
+  props: {
+    nativeType: {
+      type: String,
+      default: 'password'
+    }
+  },
   components: {
     XInput,
     Icon
@@ -47,9 +53,14 @@ export default {
       return [this.$cssPrefix + 'password']
     }
   },
+  watch: {
+    nativeType (value) {
+      this.myNativeType = value
+    }
+  },
   data () {
     return {
-      hType: 'password'
+      myNativeType: this.nativeType
     }
   },
   methods: {
@@ -57,7 +68,7 @@ export default {
       this.$emit('change', value)
     },
     handleSwitch () {
-      this.hType = this.hType === 'password' ? 'text' : 'password'
+      this.myNativeType = this.myNativeType === 'password' ? 'text' : 'password'
     }
   }
 }

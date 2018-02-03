@@ -15,7 +15,7 @@ export default {
   name: 'FlexboxItem',
   props: {
     flex: {
-      type: Number,
+      type: [String, Number],
       default: 1
     },
     width: {

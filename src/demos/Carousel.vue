@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Carousel</div>
     </x-nav>
     <x-body slot="body" style="background:#fff">

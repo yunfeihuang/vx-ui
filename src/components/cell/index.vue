@@ -4,10 +4,16 @@
       <slot name="icon"></slot>
     </div>
     <flexbox-item :class="$cssPrefix + 'cell-bd'">
-      <slot name="title"></slot>
+      <slot v-if="$slots.title" name="title"></slot>
+      <template v-else>
+        {{title}}
+      </template>
     </flexbox-item>
     <div :class="$cssPrefix + 'cell-ft'">
-      <slot name="value"></slot>
+      <slot v-if="$slots.title" name="value"></slot>
+      <template v-else>
+        {{value}}
+      </template>
     </div>
   </flexbox>
 </template>
@@ -25,9 +31,13 @@ export default {
       type: Boolean,
       default: true
     },
-    href: {
+    title: {
       type: String
-    }
+    },
+    value: {
+      type: String
+    },
+    to: {}
   },
   computed: {
     classes () {
@@ -35,9 +45,9 @@ export default {
     }
   },
   methods: {
-    handleClick (e) {
-      if (this.href) {
-        location.href = this.href
+    handleClick () {
+      if (this.to) {
+        this.$router.push(this.to)
       }
     }
   }

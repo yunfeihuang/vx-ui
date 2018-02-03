@@ -1,5 +1,5 @@
 <template>
-  <input 
+  <x-input 
     :type="nativeType"
     :placeholder="placeholder"
     readonly="readonly"
@@ -10,27 +10,36 @@
     :name="name" 
     :required="required"
     :format="format"
+    :clear="clear"
     @focus="handleFocus"
     @blur="handleBlur"
     @keyup="handleKeyup"
     @keydown="handleKeydown" 
     @change="handleChange"
     @input="handleInput"
-    @click="handleClick"
+    @click.native="handleClick"
     />
 </template>
 
 <script>
 import { input } from 'utils/mixins.js'
 import Vue from 'vue'
+import XInput from '../input'
 import DatetimePicker from '../datetime-picker'
 export default {
   name: 'Datetime',
   mixins: [input],
+  components: {
+    XInput
+  },
   props: {
     format: {
       type: String,
       default: 'yyyy-MM-dd'
+    },
+    clear: {
+      type: Boolean,
+      default: false
     },
     getPopupMounted: {
       type: Function

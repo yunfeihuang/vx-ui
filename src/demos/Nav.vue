@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">XNav</div>
       <button class="btn-pull" slot="pull">
         <icon>&#xe78d;</icon>
@@ -11,15 +11,3 @@
     </x-body>
   </layout>
 </template>
-
-<script>
-export default {
-  data () {
-    return {}
-  }
-}
-</script>
-
-<style lang="scss">
-
-</style>

@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Spinner</div>
     </x-nav>
     <x-body slot="body" class="spinner-demo">

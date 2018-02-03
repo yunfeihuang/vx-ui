@@ -65,13 +65,13 @@ export default {
   },
   mounted () {
     let timer = null
-    this._events['pullup'] && this.$el.addEventListener('scroll', (e) => {
+    this.$listeners['pullup'] && this.$el.addEventListener('scroll', (e) => {
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
         !this.loading && !this.end && this.handleScroll(e)
       }, 200)
     })
-    if (this._events['pulldown']) {
+    if (this.$listeners['pulldown']) {
       if (document.body.ontouchstart !== undefined) {
         this.$el.addEventListener('touchstart', this.handleTouchStart)
         this.$el.addEventListener('touchmove', this.handleTouchMove)

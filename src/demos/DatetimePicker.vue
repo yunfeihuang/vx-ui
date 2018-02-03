@@ -1,9 +1,10 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">DatetimePicker</div>
     </x-nav>
     <x-body slot="body">
+      <message>注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
           <div slot="title">{{pickerValue1}}</div>

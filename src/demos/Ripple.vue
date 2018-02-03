@@ -1,11 +1,11 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Ripple</div>
     </x-nav>
     <x-body slot="body">
       <group class="ripple-demo">
-        <ripple @click.native="handleClick">
+        <ripple>
           点击我会出现波纹
         </ripple>
         <divider></divider>
@@ -23,7 +23,7 @@
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
-      <tabbar :ripple="true" :active="active" @change="handleChange">
+      <tabbar :ripple="true" :active.sync="active">
         <tabbar-item :name="0">
           <icon>&#xe651;</icon>
           <span>主页</span>
@@ -43,14 +43,6 @@
 
 <script>
 export default {
-  methods: {
-    handleClick (e) {
-      console.log(e)
-    },
-    handleChange (active) {
-      this.active = active
-    }
-  },
   data () {
     return {
       active: 0

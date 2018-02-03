@@ -21,7 +21,7 @@ export default {
 }
 
 a{
-  color:$primary-color;
+  color:$color-primary;
   text-decoration: none;
   box-sizing: border-box;
   cursor: default;

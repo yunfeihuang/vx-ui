@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">ListView (pulldown and pullup)</div>
     </x-nav>
     <x-body slot="body" :scroll="false" class="demos list-view-demos">

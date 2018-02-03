@@ -39,14 +39,14 @@ export default {
       color:#666;
       padding:10px 0;
       &:hover{
-        color:$primary-color;
+        color:$color-primary;
       }
       &:active{
         background:transparent;
-        color:$primary-color;
+        color:$color-primary;
       }
       &.router-link-exact-active{
-        color:$primary-color;
+        color:$color-primary;
         font-weight: bold;
       }
     }

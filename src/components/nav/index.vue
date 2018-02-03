@@ -25,7 +25,7 @@ export default {
   },
   props: {
     back: {
-      type: [String, Boolean, Function],
+      type: [String, Boolean, Function, Object],
       default: true
     },
     backText: {
@@ -42,12 +42,12 @@ export default {
     handleBack () {
       if (this.back === true) {
         history.back()
-      }
-      if (typeof this.back === 'string') {
+      } else if (typeof this.back === 'string') {
         location.href = this.back
-      }
-      if (typeof this.back === 'function') {
+      } else if (typeof this.back === 'function') {
         this.back()
+      } else if (typeof this.back === 'object') {
+        this.$router.push(this.back)
       }
     }
   }

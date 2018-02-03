@@ -1,12 +1,15 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" :back="{path:'/'}">
       <div slot="title">Password</div>
     </x-nav>
     <x-body slot="body">
-      <div class="input-demo demos">
-        <password placeholder="请输入密码" v-model="password" required/>
-      </div>
+      <group title="default">
+        <password placeholder="请输入密码" v-model="value"/>
+      </group>
+      <group title="初始明文">
+        <password placeholder="请输入密码" v-model="value" native-type="text"/>
+      </group>
     </x-body>
   </layout>
 </template>
@@ -15,17 +18,8 @@
 export default {
   data () {
     return {
-      password: ''
+      value: ''
     }
   }
 }
 </script>
-
-<style lang="scss">
-  .input-demo{
-    padding-top:20px;
-    .btn-login{
-      margin-top:20px;
-    }
-  }
-</style>

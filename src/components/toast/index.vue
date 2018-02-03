@@ -2,7 +2,7 @@
   <div :class="classes">
     <div :class="[$cssPrefix + 'toast-inner',$cssPrefix + 'toast-' + this.align]">
       <div :class="[$cssPrefix + 'toast-content']">
-        <template v-if="type">
+        <template v-if="type != 'default'">
           <icon v-if="iconCode[type]" v-html="iconCode[type]"></icon>
           <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="[$cssPrefix + 'toast-spinner']"/>
           <br/>
@@ -45,7 +45,8 @@ export default {
       default: 2000
     },
     type: {
-      type: String
+      type: String,
+      default: 'default'
     },
     destroy: {
       type: Boolean,

@@ -47,6 +47,7 @@ import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
 import QrCode from './qrcode'
+import Message from './message'
 import {Carousel, CarouselItem} from './carousel'
 
 /*
@@ -143,6 +144,7 @@ let components = [
   Sticky,
   Icon,
   QrCode,
+  Message,
   Carousel,
   CarouselItem
 ]
@@ -421,6 +423,74 @@ export {
   Sticky,
   Icon,
   QrCode,
+  Message,
+  Carousel,
+  CarouselItem
+}
+
+export default{
+  install,
+  Actionsheet,
+  ActionsheetItem,
+  Swiper,
+  SwiperItem,
+  Marquee,
+  MarqueeItem,
+  Tab,
+  TabItem,
+  Tabbar,
+  TabbarItem,
+  Sidebar,
+  SidebarItem,
+  Flexbox,
+  FlexboxItem,
+  ButtonTab,
+  ButtonTabItem,
+  XButton,
+  XInput,
+  Password,
+  Range,
+  XForm,
+  XFormItem,
+  XTextarea,
+  XSwitch,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Select,
+  Option,
+  Checker,
+  CheckerGroup,
+  Divider,
+  Group,
+  Cell,
+  Confirm,
+  Prompt,
+  Alert,
+  Popup,
+  PopupPicker,
+  Toast,
+  XImg,
+  ListView,
+  Ripple,
+  Search,
+  XNav,
+  Preview,
+  Spinner,
+  Picker,
+  Badge,
+  Swipeout,
+  Rater,
+  DatetimePicker,
+  DaterangePicker,
+  Datetime,
+  Daterange,
+  Popover,
+  Sticky,
+  Icon,
+  QrCode,
+  Message,
   Carousel,
   CarouselItem
 }

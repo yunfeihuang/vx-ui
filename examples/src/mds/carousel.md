@@ -1,5 +1,21 @@
 # Carousel走马灯
 
+```html
+<template>
+  <div>
+    {{value}}
+  </div>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        value: '正加紧编写中...'
+      }
+    }
+  }
+</script>
+```
 
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
