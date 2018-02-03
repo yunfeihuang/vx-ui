@@ -3,7 +3,7 @@
 > vue components 移动端UI组件库
 >
 示例浏览地址：
-http://vue.bittyos.com/demo/
+http://vx.bittyos.com/demo/
 
 ## Build Setup
 
