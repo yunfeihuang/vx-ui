@@ -23,6 +23,6 @@ Vue.component(Button.name, Button)
 ```
 
 #### 打赏赞助，请扫以下二维码，谢谢！
-![Minion](http://vx.bittyos.com/static/images/pay-code.png)
+![Minion](http://vx.bittyos.com/static/images/pay-code.png?v=0.1)
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
