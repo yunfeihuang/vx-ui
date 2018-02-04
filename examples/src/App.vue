@@ -117,7 +117,7 @@ export default {
       background:#fff;
       position:fixed;
       top:70px;
-      right:20px;
+      right:30px;
       z-index:1;
       width:340px;
       text-align:center;
