@@ -109,7 +109,7 @@ export default {
         } 
       }
       .markdown-body{
-        padding-left:230px;
+        padding-left:250px;
         padding-right:400px;
       }
     }

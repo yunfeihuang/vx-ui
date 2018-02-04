@@ -199,6 +199,10 @@ export default [
         title: 'ListView列表'
       },
       {
+        path: '/sticky',
+        title: 'Sticky滚动固位'
+      },
+      {
         path: '/swipeout',
         title: 'Swipeout操作'
       },

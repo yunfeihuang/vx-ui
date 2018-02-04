@@ -56,6 +56,7 @@
           <cell title="Picker" to="/demos/picker"></cell>
           <cell title="Ripple" to="/demos/ripple"></cell>
           <cell title="ListView" to="/demos/listview"></cell>
+          <cell title="Sticky" to="/demos/sticky"></cell>
           <cell title="Swipeout" to="/demos/swipeout"></cell>
           <cell title="Spinner" to="/demos/spinner"></cell>
           <cell title="Marquee" to="/demos/marquee"></cell>

@@ -3,9 +3,8 @@
     <x-nav slot="header" back="/">
       <div slot="title">Preview</div>
     </x-nav>
-    <x-body id="body" slot="body" class="img-container">
+    <x-body slot="body" class="img-container">
       <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg" @load="handleLoad" @click.native="handleClick"/>
-      <!--<sticky scroll-box="body" :offset="46"><div>fdafdafdsafdasf</div></sticky>-->
       <x-img :loading="true" data-index="1" src="http://assets.bittyos.com/images/swiper/02.jpg" @load="handleLoad" @click.native="handleClick"/>
       <x-img :loading="true" data-index="2" src="http://assets.bittyos.com/images/swiper/03.jpg" @load="handleLoad" @click.native="handleClick"/>
       <x-img :loading="true" data-index="3" src="http://assets.bittyos.com/images/swiper/04.jpg" @load="handleLoad" @click.native="handleClick"/>

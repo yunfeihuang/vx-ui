@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted () {
-    let node = this.scrollElement = this.$el.closest('.scrollbox') || window
+    let node = this.$el.offsetParent
     if (!node.lazyloadImages) {
       node.lazyloadImages = []
       node.scrollTimer = null

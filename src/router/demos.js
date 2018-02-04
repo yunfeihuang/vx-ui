@@ -45,6 +45,7 @@ const Popover = r => require.ensure([], () => r(require('demos/Popover')))
 const Carousel = r => require.ensure([], () => r(require('demos/Carousel')))
 const Qrcode = r => require.ensure([], () => r(require('demos/Qrcode')))
 const Message = r => require.ensure([], () => r(require('demos/Message')))
+const Sticky = r => require.ensure([], () => r(require('demos/Sticky')))
 
 export default [
   {
@@ -234,6 +235,10 @@ export default [
       {
         path: '/demos/message',
         component: Message
+      },
+      {
+        path: '/demos/sticky',
+        component: Sticky
       }
     ]
   }

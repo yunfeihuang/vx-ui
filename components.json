@@ -46,5 +46,6 @@
   "popover": "./src/components/popover",
   "sticky": "./src/components/sticky",
   "carousel": "./src/components/carousel",
+  "qrcode": "./src/components/qrcode",
   "icon": "./src/components/icon"
 }
