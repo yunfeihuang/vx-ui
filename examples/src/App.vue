@@ -1,11 +1,11 @@
 <template>
   <div class="example-root">
     <x-header/>
-    <flexbox class="example-body">
+    <div class="example-body">
       <sidebar @click.native="toTop"/>
-      <flexbox-item class="markdown-body">
+      <div class="markdown-body">
         <router-view></router-view>
-      </flexbox-item>
+      </div>
       <div class="example-iphone">
         <div class="example-iphone-iframe">
           <iframe :key="toDemo" :src="toDemo" frameborder="0"></iframe>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-    </flexbox>
+    </div>
     <x-footer/>
   </div>
 </template>
@@ -110,13 +110,17 @@ export default {
       }
       .markdown-body{
         padding-left:230px;
+        padding-right:400px;
       }
     }
     &-iphone{
-      width:400px;
+      background:#fff;
+      position:fixed;
+      top:70px;
+      right:20px;
+      z-index:1;
+      width:340px;
       text-align:center;
-      padding-left:30px;
-      padding-top:10px;
       &-home{
         position:absolute;
         left:50%;
@@ -130,11 +134,10 @@ export default {
         z-index:100;
       }
       &-iframe{
-        background:#fff;
-        position:fixed;
         box-shadow:0 0 0 1px $color-iphone-border;
         border-radius:40px;
         padding:40px 10px 60px 10px;
+        position:relative;
         &:before{
           content:'';
           position:absolute;
