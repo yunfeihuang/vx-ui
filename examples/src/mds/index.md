@@ -18,3 +18,10 @@
   import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
   Vue.component(Button.name, Button)
 ```
+
+### 修改UI主题风格
+
+``` html
+  #修改src/components/style/src/variable.scss变量后运行以下命令即可
+  npm run build:theme
+```

@@ -111,6 +111,9 @@ export default {
       .markdown-body{
         padding-left:250px;
         padding-right:400px;
+        h4{
+          margin-top:30px;
+        }
       }
     }
     &-iphone{
