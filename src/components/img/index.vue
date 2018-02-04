@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted () {
-    let node = this.$el.offsetParent
+    let node = this.getScrollNode(this.$el.offsetParent)
     if (!node.lazyloadImages) {
       node.lazyloadImages = []
       node.scrollTimer = null
@@ -82,6 +82,17 @@ export default {
     })
   },
   methods: {
+    getScrollNode (node) {
+      let n = node
+      let closest = () => {
+        if (['scroll', 'auto'].indexOf(window.getComputedStyle(n)['overflow']) === -1) {
+          n = n.offsetParent
+          closest()
+        }
+      }
+      closest()
+      return n
+    },
     inViewPort () {
       if (this.$el.offsetWidth === 0 && this.$el.offsetHeight === 0) {
         return false

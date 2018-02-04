@@ -25,7 +25,7 @@ export default {
   methods: {
     init () {
       this.$nextTick(() => {
-        let node = this.$el.offsetParent
+        let node = this.getScrollNode(this.$el.offsetParent)
         if (node) {
           let childNode = this.$el.querySelector('.' + this.$cssPrefix + 'sticky-inner')
           let offsetTop = 0
@@ -52,6 +52,17 @@ export default {
           })
         }
       })
+    },
+    getScrollNode (node) {
+      let n = node
+      let closest = () => {
+        if (['scroll', 'auto'].indexOf(window.getComputedStyle(n)['overflow']) === -1) {
+          n = n.offsetParent
+          closest()
+        }
+      }
+      closest()
+      return n
     }
   }
 }
