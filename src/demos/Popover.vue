@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
+    <x-nav slot="header" back="/">
       <div slot="title">Popover</div>
     </x-nav>
     <x-body slot="body" style="padding:15px;">

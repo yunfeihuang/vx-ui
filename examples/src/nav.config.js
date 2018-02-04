@@ -48,8 +48,16 @@ export default [
         title: 'Textarea文本域'
       },
       {
+        path: '/password',
+        title: 'Password密码输入框'
+      },
+      {
         path: '/select',
         title: 'Select下拉框'
+      },
+      {
+        path: '/switch',
+        title: 'Switch开关'
       },
       {
         path: '/radio',
@@ -64,14 +72,6 @@ export default [
         title: 'Checker选择按钮'
       },
       {
-        path: '/password',
-        title: 'Password密码输入框'
-      },
-      {
-        path: '/switch',
-        title: 'Switch开关'
-      },
-      {
         path: '/range',
         title: 'Range输入框'
       },
@@ -84,12 +84,12 @@ export default [
         title: 'Daterange日期区间输入框'
       },
       {
-        path: '/search',
-        title: 'Search搜索'
-      },
-      {
         path: '/rater',
         title: 'Rater评分'
+      },
+      {
+        path: '/search',
+        title: 'Search搜索'
       }
       /*
       ,
@@ -120,16 +120,16 @@ export default [
         title: 'Prompt输入对话框'
       },
       {
-        path: '/popup',
-        title: 'Popup自定义弹框'
-      },
-      {
         path: '/popover',
         title: 'Popover菜单对话框'
       },
       {
         path: '/toast',
         title: 'Toast提示语'
+      },
+      {
+        path: '/popup',
+        title: 'Popup自定义弹框'
       },
       {
         path: '/popuppicker',
@@ -145,40 +145,42 @@ export default [
         title: 'Tab选项卡'
       },
       {
-        path: '/buttontab',
-        title: 'ButtonTab选项卡'
-      },
-      {
         path: '/tabbar',
         title: 'Tabbar选项卡'
       },
       {
         path: '/sidebar',
         title: 'Sidebar选项卡'
+      },
+      {
+        path: '/buttontab',
+        title: 'ButtonTab选项卡'
       }
     ]
   },
   {
-    title: '轮播',
+    title: '图片',
     children: [
+      {
+        path: '/img',
+        title: 'Img图片'
+      },
       {
         path: '/swiper',
         title: 'Swiper轮播'
       },
-      /*
       {
-        path: '/carousel',
-        title: 'Carousel走马灯'
+        path: '/preview',
+        title: 'Preview图片浏览'
       },
-      */
       {
-        path: '/marquee',
-        title: 'Marquee公告提示'
+        path: '/qrcode',
+        title: 'Qrcode二维码'
       }
     ]
   },
   {
-    title: '交互&效果',
+    title: '其他',
     children: [
       {
         path: '/badge',
@@ -193,28 +195,20 @@ export default [
         title: 'Ripple波纹'
       },
       {
-        path: '/qrcode',
-        title: 'Qrcode二维码'
+        path: '/listview',
+        title: 'ListView列表'
       },
       {
         path: '/swipeout',
         title: 'Swipeout操作'
       },
       {
-        path: '/img',
-        title: 'Img图片'
-      },
-      {
-        path: '/preview',
-        title: 'Preview图片浏览'
-      },
-      {
         path: '/spinner',
         title: 'Spinner旋转'
       },
       {
-        path: '/listview',
-        title: 'ListView列表'
+        path: '/marquee',
+        title: 'Marquee公告提示'
       }
     ]
   }

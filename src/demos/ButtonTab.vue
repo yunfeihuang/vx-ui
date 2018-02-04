@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
+    <x-nav slot="header" back="/">
       <div slot="title" style="text-align:center">
         <div class="header-tab-button">
           <button-tab class="tab-button" :active.sync="active1" active-class="header-tab-active" >

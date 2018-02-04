@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
+    <x-nav slot="header" back="/">
       <div slot="title" >Rater</div>
     </x-nav>
     <x-body class="demos" slot="body">

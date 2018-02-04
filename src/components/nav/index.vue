@@ -42,11 +42,9 @@ export default {
     handleBack () {
       if (this.back === true) {
         history.back()
-      } else if (typeof this.back === 'string') {
-        location.href = this.back
       } else if (typeof this.back === 'function') {
         this.back()
-      } else if (typeof this.back === 'object') {
+      } else {
         this.$router.push(this.back)
       }
     }

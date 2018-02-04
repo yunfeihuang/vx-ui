@@ -1,7 +1,7 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
-      <div slot="title" >XButton</div>
+    <x-nav slot="header" back="/">
+      <div slot="title" >Button</div>
     </x-nav>
     <x-body class="demos" slot="body"  style="background:#fff">
       <div class="button-demo">

@@ -1,7 +1,7 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
-      <div slot="title">XNav</div>
+    <x-nav slot="header" back="/">
+      <div slot="title">Nav</div>
       <button class="btn-pull" slot="pull">
         <icon>&#xe78d;</icon>
       </button>

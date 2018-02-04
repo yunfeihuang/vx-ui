@@ -1,7 +1,7 @@
 <template>
   <layout class="demos img-demos">
-    <x-nav slot="header" :back="{path:'/'}">
-      <div slot="title">XImg</div>
+    <x-nav slot="header" back="/">
+      <div slot="title">Img</div>
     </x-nav>
     <x-body slot="body" class="scrollbox">
       <x-img class="my-img" src="http://assets.bittyos.com/images/swiper/01.jpg" />

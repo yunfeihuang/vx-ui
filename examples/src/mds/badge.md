@@ -1,4 +1,4 @@
-# Badgee消息提示
+# Badge消息提示
 
 ```html
 <template>

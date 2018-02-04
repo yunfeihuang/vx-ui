@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
+    <x-nav slot="header" back="/">
       <div slot="title">Swipeout</div>
     </x-nav>
     <x-body slot="body" :scroll="false" class="demos list-view-demos">

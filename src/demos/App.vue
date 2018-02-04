@@ -4,57 +4,67 @@
       <x-nav slot="header" :back="false">
         <div slot="title">Vx Demos</div>
       </x-nav>
-      <x-body class="demos" slot="body" style="background:#fff">
-        <flexbox wrap="wrap" class="demos-actions">
-          <router-link to="/demos/button">Button</router-link>
-          <router-link to="/demos/input">Input</router-link>
-          <router-link to="/demos/password">Password</router-link>
-          <router-link to="/demos/textarea">Textarea</router-link>
-          <router-link to="/demos/select">Select</router-link>
-          <router-link to="/demos/switch">Switch</router-link>
-          <router-link to="/demos/radio">Radio</router-link>
-          <router-link to="/demos/checkbox">Checkbox</router-link>
-          <router-link to="/demos/checker">Checker</router-link>
-          <router-link to="/demos/range">Range</router-link>
-          <router-link to="/demos/datetime">Datetime</router-link>
-          <router-link to="/demos/daterange">Daterange</router-link>
-          <router-link to="/demos/search">Search</router-link>
-          <router-link to="/demos/form">Form</router-link>
-          <router-link to="/demos/actionsheet">Actionsheet</router-link>
-          <router-link to="/demos/alert">Alert</router-link>
-          <router-link to="/demos/confirm">Confirm</router-link>
-          <router-link to="/demos/prompt">Prompt</router-link>
-          <router-link to="/demos/tab">Tab</router-link>
-          <router-link to="/demos/buttontab">ButtonTab</router-link>
-          <router-link to="/demos/tabbar">Tabbar</router-link>
-          <router-link to="/demos/sidebar">Sidebar</router-link>
-          <router-link to="/demos/popup">Popup</router-link>
-          <router-link to="/demos/toast">Toast</router-link>
-          <router-link to="/demos/listview">ListView</router-link>
-          <router-link to="/demos/ripple">Ripple</router-link>
-          <router-link to="/demos/img">Img</router-link>
-          <router-link to="/demos/nav">Nav</router-link>
-          <router-link to="/demos/divider">Divider</router-link>
-          <router-link to="/demos/carousel">Carousel</router-link>
-          <router-link to="/demos/swiper">Swiper</router-link>
-          <router-link to="/demos/swipeout">Swipeout</router-link>
-          <router-link to="/demos/preview">Preview</router-link>
-          <router-link to="/demos/picker">Picker</router-link>
-          <router-link to="/demos/popuppicker">PopupPicker</router-link>
-          <!--
-          <router-link to="/demos/datetimepicker">DatetimePicker</router-link>
-          -->
-          <router-link to="/demos/spinner">Spinner</router-link>
-          <router-link to="/demos/flexbox">Flexbox</router-link>
-          <router-link to="/demos/group">Group</router-link>
-          <router-link to="/demos/cell">Cell</router-link>
-          <router-link to="/demos/badge">Badge</router-link>
-          <router-link to="/demos/rater">Rater</router-link>
-          <router-link to="/demos/marquee">Marquee</router-link>
-          <router-link to="/demos/popover">Popover</router-link>
-          <router-link to="/demos/qrcode">QrCode</router-link>
-          <router-link to="/demos/message">Message</router-link>
-        </flexbox>
+      <x-body class="demos" slot="body">
+        <group title="basic">
+          <cell title="Button" to="/demos/button"></cell>
+          <cell title="Flexbox" to="/demos/flexbox"></cell>
+          <cell title="Nav" to="/demos/nav"></cell>
+          <cell title="Group" to="/demos/group"></cell>
+          <cell title="Cell" to="/demos/cell"></cell>
+          <cell title="Divider" to="/demos/divider"></cell>
+          <cell title="Message" to="/demos/message"></cell>
+        </group>
+        <group title="form表单">
+          <cell title="Input" to="/demos/input"></cell>
+          <cell title="Textarea" to="/demos/textarea"></cell>
+          <cell title="Password" to="/demos/password"></cell>
+          <cell title="Select" to="/demos/select"></cell>
+          <cell title="Switch" to="/demos/switch"></cell>
+          <cell title="Radio" to="/demos/radio"></cell>
+          <cell title="Checkbox" to="/demos/checkbox"></cell>
+          <cell title="Checker" to="/demos/checker"></cell>
+          <cell title="Range" to="/demos/range"></cell>
+          <cell title="Datetime" to="/demos/datetime"></cell>
+          <cell title="Daterange" to="/demos/daterange"></cell>
+          <cell title="Rater" to="/demos/rater"></cell>
+          <cell title="Search" to="/demos/search"></cell>
+        </group>
+        <group title="对话弹框">
+          <cell title="Actionsheet" to="/demos/actionsheet"></cell>
+          <cell title="Alert" to="/demos/alert"></cell>
+          <cell title="Comfirm" to="/demos/comfirm"></cell>
+          <cell title="Prompt" to="/demos/prompt"></cell>
+          <cell title="Popover" to="/demos/popover"></cell>
+          <cell title="Toast" to="/demos/toast"></cell>
+          <cell title="Popup" to="/demos/Popup"></cell>
+          <cell title="PopupPicker" to="/demos/popuppicker"></cell>
+        </group>
+        <group title="选项卡">
+          <cell title="Tab" to="/demos/tab"></cell>
+          <cell title="Tabbar" to="/demos/tabbar"></cell>
+          <cell title="Sidebar" to="/demos/sidebar"></cell>
+          <cell title="ButtonTab" to="/demos/ButtonTab"></cell>
+        </group>
+        <group title="图片">
+          <cell title="Img" to="/demos/img"></cell>
+          <cell title="Swiper" to="/demos/swiper"></cell>
+          <cell title="Preview" to="/demos/preview"></cell>
+          <cell title="Qrcode" to="/demos/qrcode"></cell>
+        </group>
+        <group title="其他">
+          <cell title="Badge" to="/demos/badge"></cell>
+          <cell title="Picker" to="/demos/picker"></cell>
+          <cell title="Ripple" to="/demos/ripple"></cell>
+          <cell title="ListView" to="/demos/listview"></cell>
+          <cell title="Swipeout" to="/demos/swipeout"></cell>
+          <cell title="Spinner" to="/demos/spinner"></cell>
+          <cell title="Marquee" to="/demos/marquee"></cell>
+        </group>
+        <!--
+        <group title="basic">
+          <cell title="Button" to="/demos/button"></cell>
+        </group>
+        -->
       </x-body>
     </layout>
     <router-view></router-view>
@@ -62,6 +72,7 @@
 </template>
 
 <script>
+// import MSwitch from 'vx-ui/lib/switch'
 export default {
   mounted () {
     // console.log(this.$router.push)

@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
+    <x-nav slot="header" back="/">
       <div slot="title">Tab</div>
       <tab :active.sync="active">
         <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>

@@ -1,7 +1,7 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
-      <div slot="title">XTextarea</div>
+    <x-nav slot="header" back="/">
+      <div slot="title">Textarea</div>
     </x-nav>
     <x-body slot="body">
       <div style="margin-top:20px;">

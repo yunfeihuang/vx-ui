@@ -1,7 +1,7 @@
 <template>
   <layout>
-    <x-nav slot="header" :back="{path:'/'}">
-      <div slot="title">XSwitch</div>
+    <x-nav slot="header" back="/">
+      <div slot="title">Switch</div>
     </x-nav>
     <x-body slot="body">
       <group title="default">
