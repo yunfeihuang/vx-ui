@@ -73,7 +73,7 @@ export default [
       },
       {
         path: '/range',
-        title: 'Range输入框'
+        title: 'Range滑块输入框'
       },
       {
         path: '/datetime',

@@ -1,4 +1,4 @@
-# Range输入框
+# Range滑块输入框
 
 ``` html
 <template>
