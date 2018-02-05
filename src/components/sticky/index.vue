@@ -57,14 +57,14 @@ export default {
         let styleObject = window.getComputedStyle(n)
         if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1)) {
           n = n.offsetParent
-          if (n.offsetParent === document.body) {
+          if (n === document.body) {
             n = document.body
           } else {
             closest()
           }
         }
       }
-      closest()
+      document.body !== n && closest()
       return n
     }
   },
