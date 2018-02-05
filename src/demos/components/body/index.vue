@@ -1,5 +1,5 @@
 <template>
-  <flexbox-item :class="classes">
+  <flexbox-item :class="classes" :style="styles">
     <slot></slot>
   </flexbox-item>
 </template>
@@ -9,7 +9,18 @@ export default {
   name: 'XBody',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'body', this.scroll ? 'scrollbox' : '']
+      return [this.$cssPrefix + 'body', this.scroll]
+    },
+    styles () {
+      if (this.scroll) {
+        return `
+          overflow: auto;
+          -webkit-overflow-scrolling: touch; 
+          overflow-scrolling: touch;
+        `
+      } else {
+        return ''
+      }
     }
   },
   props: {

@@ -2,9 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &list-view{
-    overlist-view-y: auto;
-    -webkit-overlist-view-scrolling: touch;
-    overlist-view-scrolling: touch;
+    @include scroll;
     &-inner{
       position: relative;
       padding-top: 5px;

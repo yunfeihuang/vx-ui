@@ -32,6 +32,11 @@
   height:2.6rem;
   width:100%;
 }
+@mixin scroll{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; 
+  overflow-scrolling: touch;
+}
 @mixin _1px($color:$border-color-base) {
   border-bottom:none;
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(50%,transparent),color-stop(50%,transparent),color-stop(100%,$color));

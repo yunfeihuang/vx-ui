@@ -46,11 +46,11 @@ export default {
     }
   },
   mounted () {
-    let node = this.getScrollNode(this.$el.offsetParent)
-    if (!node.lazyloadImages) {
-      node.lazyloadImages = []
-      node.scrollTimer = null
-      node.onscroll = (e) => {
+    this.$scrollNode = this.getScrollNode(this.$el.offsetParent)
+    if (!this.$scrollNode.lazyloadImages) {
+      this.$scrollNode.lazyloadImages = []
+      this.$scrollNode.scrollTimer = null
+      this.$scrollNode.onscroll = (e) => {
         e.target.scrollTimer && clearTimeout(e.target.scrollTimer)
         e.target.scrollTimer = setTimeout(() => {
           e.target.lazyloadImages = e.target.lazyloadImages.filter((item, index) => {
@@ -68,7 +68,7 @@ export default {
       if (this.inViewPort()) {
         this.setSource()
       } else {
-        node.lazyloadImages.push({
+        this.$scrollNode.lazyloadImages.push({
           img: this,
           loaded: false
         })
@@ -77,7 +77,7 @@ export default {
   },
   destroyed () {
     let self = this
-    this.scrollElement.lazyloadImages = this.scrollElement.lazyloadImages.filter((item) => {
+    this.$scrollNode.lazyloadImages = this.$scrollNode.lazyloadImages.filter((item) => {
       return item !== self
     })
   },
@@ -85,9 +85,14 @@ export default {
     getScrollNode (node) {
       let n = node
       let closest = () => {
-        if (['scroll', 'auto'].indexOf(window.getComputedStyle(n)['overflow']) === -1) {
+        let styleObject = window.getComputedStyle(n)
+        if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1)) {
           n = n.offsetParent
-          closest()
+          if (n.offsetParent === document.body) {
+            n = document.body
+          } else {
+            closest()
+          }
         }
       }
       closest()

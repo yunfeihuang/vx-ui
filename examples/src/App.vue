@@ -90,7 +90,7 @@ export default {
   }
   .example{
     &-body{
-      padding-top:60px;
+      padding-top:56px;
       aside{
         width:220px;
         padding-left:20px;

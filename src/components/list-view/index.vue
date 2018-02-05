@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'list-view', 'scrollbox']
+      return [this.$cssPrefix + 'list-view']
     }
   },
   mounted () {
