@@ -34,8 +34,8 @@
         </flexbox>
       </form>
       <flexbox-item :class="[$cssPrefix + 'search-container']" v-if="fixed">
-        <div v-if="!value" class="keywords" @click="keywordhandleChange">
-          <slot name="keywords"></slot>
+        <div v-if="!value" class="keywords">
+          <slot name="keywords" v-bind="{search: this.handleKeywordChange}"></slot>
         </div>
         <div v-if="value">
           <slot name="result"></slot>
@@ -110,12 +110,8 @@ export default {
       this.fixed = false
       this.childFixed && this.$el.appendChild(this.childFixed)
     },
-    keywordhandleChange (e) {
-      let target = e.target.classList.contains('keyword') ? e.target : e.target.closest && e.target.closest('keyword') ? e.target.closest('keyword') : null
-      if (target) {
-        let value = target.dataset.value || target.innerText
-        this.$emit('input', value).$emit('submit', value)
-      }
+    handleKeywordChange (value) {
+      this.$emit('input', value).$emit('submit', value)
     },
     handleSubmit (e) {
       e.stopPropagation()

@@ -99,7 +99,7 @@ export default {
         },
         destroyed () {
           requestAnimationFrame(() => {
-            this.$el.remove()
+            this.$el.parentNode.removeChild(this.$el)
           })
         },
         methods: {

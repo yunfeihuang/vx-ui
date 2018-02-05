@@ -1,16 +1,14 @@
-import '../utils/polyfill'
-import Vue from 'vue'
-import XButton from './button'
-import XInput from './input'
+import Button from './button'
+import Input from './input'
 import Password from './password'
 import Range from './range'
-import XTextarea from './textarea'
-import XSwitch from './switch'
+import Textarea from './textarea'
+import Switch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import {Select, Option} from './select'
 import {Checker, CheckerGroup} from './checker'
-import {XForm, XFormItem} from './form'
+import {Form, FormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import {Swiper, SwiperItem} from './swiper'
 import {Marquee, MarqueeItem} from './marquee'
@@ -28,11 +26,11 @@ import Alert from './alert'
 import Popup from './popup'
 import PopupPicker from './popup-picker'
 import Toast from './toast'
-import XImg from './img'
+import Img from './img'
 import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
-import XNav from './nav'
+import Nav from './nav'
 import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
@@ -73,16 +71,6 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   }
   return fmt
 }
-
-Vue.mixin({
-  props: {
-    $cssPrefix: {
-      type: String,
-      default: 'v-'
-    }
-  }
-})
-
 let components = [
   Actionsheet,
   ActionsheetItem,
@@ -100,14 +88,14 @@ let components = [
   FlexboxItem,
   ButtonTab,
   ButtonTabItem,
-  XButton,
-  XInput,
+  Button,
+  Input,
   Password,
   Range,
-  XForm,
-  XFormItem,
-  XTextarea,
-  XSwitch,
+  Form,
+  FormItem,
+  Textarea,
+  Switch,
   Checkbox,
   CheckboxGroup,
   Radio,
@@ -125,11 +113,11 @@ let components = [
   Popup,
   PopupPicker,
   Toast,
-  XImg,
+  Img,
   ListView,
   Ripple,
   Search,
-  XNav,
+  Nav,
   Preview,
   Spinner,
   Picker,
@@ -153,212 +141,275 @@ const install = (Vue) => {
   components.map(component => {
     component.name && Vue.component(component.name, component)
   })
+  Vue.prototype.$cssPrefix = 'v-'
+  Vue.prototype.$toast = (_props, mounted = document.body) => {
+    let props = Object.assign({
+      open: true,
+      onClose: () => {
+        return true
+      }
+    }, _props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      render (createElement) {
+        let content = props.content
+        return createElement(Toast, {
+          props: props,
+          on: {
+            'close': this.handleClose
+          },
+          scopedSlots: {
+            default: props => createElement('div', content)
+          }
+        })
+      },
+      data: {props: props},
+      methods: {
+        handleClose: () => {
+          props.open = props.onClose() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.parentNode.removeChild(vue.$el)
+        })
+      }
+    })
+    return vue
+  }
+
+  Vue.prototype.$alert = (_props, mounted = document.body) => {
+    let props = Object.assign({
+      open: true,
+      onConfirm: () => {
+        return true
+      }
+    }, _props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      render (createElement) {
+        let content = props.content
+        return createElement(Alert, {
+          props: props,
+          on: {
+            'confirm': this.handleConfirm,
+            'close': this.handleClose
+          },
+          scopedSlots: {
+            default: props => createElement('div', content)
+          }
+        })
+      },
+      data: {props: props},
+      methods: {
+        handleConfirm: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        handleClose: () => {
+          props.open = props.onCancel() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.parentNode.removeChild(vue.$el)
+        })
+      }
+    })
+    return vue
+  }
+
+  Vue.prototype.$confirm = (_props, mounted = document.body) => {
+    let props = Object.assign({
+      open: true,
+      onConfirm: () => {
+        return true
+      },
+      onCancel: () => {
+        return true
+      }
+    }, _props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      render (createElement) {
+        let content = props.content
+        return createElement(Confirm, {
+          props: props,
+          on: {
+            'confirm': this.handleConfirm,
+            'close': this.handleClose
+          },
+          scopedSlots: {
+            default: props => createElement('div', content)
+          }
+        })
+      },
+      data: {props: props},
+      methods: {
+        handleConfirm: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        handleClose: () => {
+          props.open = props.onCancel() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.parentNode.removeChild(vue.$el)
+        })
+      }
+    })
+    return vue
+  }
+  Vue.prototype.$prompt = (_props, mounted = document.body) => {
+    let props = Object.assign({
+      open: true,
+      disabled: true,
+      onConfirm: () => {
+        return true
+      },
+      onCancel: () => {
+        return true
+      },
+      onChange: (value) => {
+        if (value && value.trim()) {
+          return false
+        } else {
+          return true
+        }
+      }
+    }, _props)
+    let node = document.createElement('div')
+    mounted.appendChild(node)
+    let vue = new Vue({ //eslint-disable-line
+      el: node,
+      render (createElement) {
+        let content = props.content
+        return createElement(Prompt, {
+          props: props,
+          on: {
+            'confirm': this.handleConfirm,
+            'close': this.handleClose,
+            'change': this.handleChange
+          },
+          scopedSlots: {
+            default: props => createElement('div', content)
+          }
+        })
+      },
+      data: {props: props},
+      methods: {
+        handleConfirm: () => {
+          props.open = props.onConfirm() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        handleClose: () => {
+          props.open = props.onCancel() === false
+          !props.open && setTimeout(() => {
+            vue.$destroy()
+          }, 1000)
+        },
+        handleChange: (value) => {
+          props.disabled = props.onChange(value)
+        }
+      },
+      destroyed: () => {
+        requestAnimationFrame(() => {
+          vue.$el.parentNode.removeChild(vue.$el)
+        })
+      }
+    })
+    return vue
+  }
 }
 
-if (process.browser) {
-  ((w) => {
-    w.$toast = (_props, mounted = document.body) => {
-      let props = Object.assign({
-        open: true,
-        onClose: () => {
-          return true
-        }
-      }, _props)
-      let node = document.createElement('div')
-      mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          let content = props.content
-          return createElement(Toast, {
-            props: props,
-            on: {
-              'close': this.handleClose
-            },
-            scopedSlots: {
-              default: props => createElement('div', content)
-            }
-          })
-        },
-        data: {props: props},
-        methods: {
-          handleClose: () => {
-            props.open = props.onClose() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          }
-        },
-        destroyed: () => {
-          requestAnimationFrame(() => {
-            vue.$el.remove()
-          })
-        }
-      })
-      return vue
-    }
-
-    w.$alert = (_props, mounted = document.body) => {
-      let props = Object.assign({
-        open: true,
-        onConfirm: () => {
-          return true
-        }
-      }, _props)
-      let node = document.createElement('div')
-      mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          let content = props.content
-          return createElement(Alert, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose
-            },
-            scopedSlots: {
-              default: props => createElement('div', content)
-            }
-          })
-        },
-        data: {props: props},
-        methods: {
-          handleConfirm: () => {
-            props.open = props.onConfirm() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleClose: () => {
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          }
-        },
-        destroyed: () => {
-          requestAnimationFrame(() => {
-            vue.$el.remove()
-          })
-        }
-      })
-      return vue
-    }
-
-    w.$confirm = (_props, mounted = document.body) => {
-      let props = Object.assign({
-        open: true,
-        onConfirm: () => {
-          return true
-        },
-        onCancel: () => {
-          return true
-        }
-      }, _props)
-      let node = document.createElement('div')
-      mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          let content = props.content
-          return createElement(Confirm, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose
-            },
-            scopedSlots: {
-              default: props => createElement('div', content)
-            }
-          })
-        },
-        data: {props: props},
-        methods: {
-          handleConfirm: () => {
-            props.open = props.onConfirm() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleClose: () => {
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          }
-        },
-        destroyed: () => {
-          requestAnimationFrame(() => {
-            vue.$el.remove()
-          })
-        }
-      })
-      return vue
-    }
-    w.$prompt = (_props, mounted = document.body) => {
-      let props = Object.assign({
-        open: true,
-        disabled: true,
-        onConfirm: () => {
-          return true
-        },
-        onCancel: () => {
-          return true
-        },
-        onChange: (value) => {
-          if (value && value.trim()) {
-            return false
-          } else {
-            return true
-          }
-        }
-      }, _props)
-      let node = document.createElement('div')
-      mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          let content = props.content
-          return createElement(Prompt, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose,
-              'change': this.handleChange
-            },
-            scopedSlots: {
-              default: props => createElement('div', content)
-            }
-          })
-        },
-        data: {props: props},
-        methods: {
-          handleConfirm: () => {
-            props.open = props.onConfirm() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleClose: () => {
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleChange: (value) => {
-            props.disabled = props.onChange(value)
-          }
-        },
-        destroyed: () => {
-          requestAnimationFrame(() => {
-            vue.$el.remove()
-          })
-        }
-      })
-      return vue
-    }
-  })(window)
+export default {
+  install,
+  Actionsheet,
+  ActionsheetItem,
+  Swiper,
+  SwiperItem,
+  Marquee,
+  MarqueeItem,
+  Tab,
+  TabItem,
+  Tabbar,
+  TabbarItem,
+  Sidebar,
+  SidebarItem,
+  Flexbox,
+  FlexboxItem,
+  ButtonTab,
+  ButtonTabItem,
+  Button,
+  Input,
+  Password,
+  Range,
+  Form,
+  FormItem,
+  Textarea,
+  Switch,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Select,
+  Option,
+  Checker,
+  CheckerGroup,
+  Divider,
+  Group,
+  Cell,
+  Confirm,
+  Prompt,
+  Alert,
+  Popup,
+  PopupPicker,
+  Toast,
+  Img,
+  ListView,
+  Ripple,
+  Search,
+  Nav,
+  Preview,
+  Spinner,
+  Picker,
+  Badge,
+  Swipeout,
+  Rater,
+  DatetimePicker,
+  DaterangePicker,
+  Datetime,
+  Daterange,
+  Popover,
+  Sticky,
+  Icon,
+  QrCode,
+  Message,
+  Carousel,
+  CarouselItem
 }
 
 export {
@@ -379,14 +430,14 @@ export {
   FlexboxItem,
   ButtonTab,
   ButtonTabItem,
-  XButton,
-  XInput,
+  Button,
+  Input,
   Password,
   Range,
-  XForm,
-  XFormItem,
-  XTextarea,
-  XSwitch,
+  Form,
+  FormItem,
+  Textarea,
+  Switch,
   Checkbox,
   CheckboxGroup,
   Radio,
@@ -404,78 +455,11 @@ export {
   Popup,
   PopupPicker,
   Toast,
-  XImg,
+  Img,
   ListView,
   Ripple,
   Search,
-  XNav,
-  Preview,
-  Spinner,
-  Picker,
-  Badge,
-  Swipeout,
-  Rater,
-  DatetimePicker,
-  DaterangePicker,
-  Datetime,
-  Daterange,
-  Popover,
-  Sticky,
-  Icon,
-  QrCode,
-  Message,
-  Carousel,
-  CarouselItem
-}
-
-export default{
-  install,
-  Actionsheet,
-  ActionsheetItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem,
-  Tab,
-  TabItem,
-  Tabbar,
-  TabbarItem,
-  Sidebar,
-  SidebarItem,
-  Flexbox,
-  FlexboxItem,
-  ButtonTab,
-  ButtonTabItem,
-  XButton,
-  XInput,
-  Password,
-  Range,
-  XForm,
-  XFormItem,
-  XTextarea,
-  XSwitch,
-  Checkbox,
-  CheckboxGroup,
-  Radio,
-  RadioGroup,
-  Select,
-  Option,
-  Checker,
-  CheckerGroup,
-  Divider,
-  Group,
-  Cell,
-  Confirm,
-  Prompt,
-  Alert,
-  Popup,
-  PopupPicker,
-  Toast,
-  XImg,
-  ListView,
-  Ripple,
-  Search,
-  XNav,
+  Nav,
   Preview,
   Spinner,
   Picker,

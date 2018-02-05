@@ -47,7 +47,7 @@ export default {
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
-          window.$toast({content: `选择项不得超过${this.max}个`})
+          this.$toast({content: `选择项不得超过${this.max}个`})
         } else {
           let value = Object.assign([], this.value)
           if (e.target.checked) {

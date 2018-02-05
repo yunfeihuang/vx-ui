@@ -58,7 +58,7 @@ export default {
     showValidityMessage (message) {
       if (!this.invalid) {
         this.invalid = true
-        window.$toast({
+        this.$toast({
           content: message,
           onClose: () => {
             this.invalid = false

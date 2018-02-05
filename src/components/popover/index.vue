@@ -107,8 +107,8 @@ export default {
         },
         destroyed () {
           requestAnimationFrame(() => {
-            this.$el.remove()
-            this.$popoverContent.remove()
+            this.$el.parentNode.removeChild(this.$el)
+            this.$popoverContent.parentNode.removeChild(this.$popoverContent)
           })
         },
         methods: {

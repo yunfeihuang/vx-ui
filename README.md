@@ -13,12 +13,16 @@ npm install vx-ui
 
 # 全局注册组件
 import Vue from 'vue'
+import 'vx-ui/lib/style/theme/index.css'
 import VxUI from 'vx-ui'
 Vue.use(VxUI)
 
-# 单个注册组件
+# 单个注册组件(Button示例)
 import Vue from 'vue'
+import 'vx-ui/lib/style/theme/button.css'
 import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
+import install from 'vx-ui/src/components/install' // 全局安装一次即可
+install(Vue)
 Vue.component(Button.name, Button)
 
 
