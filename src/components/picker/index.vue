@@ -17,6 +17,7 @@
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
+          :key="index"
           >
         </div>
       </div>

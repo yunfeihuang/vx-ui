@@ -1,33 +1,30 @@
 # vx-ui
 
-> vue components 移动端UI组件库
->
-示例浏览地址：
-http://vx.bittyos.com/demo/
+> A Vue.js project
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install vx-ui
+npm install
 
-# 全局注册组件
-import Vue from 'vue'
-import VxUI from 'vx-ui'
-Vue.use(VxUI)
+# serve with hot reload at localhost:8080
+npm run dev
 
-# 单个注册组件
-import Vue from 'vue'
-import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
-Vue.component(Button.name, Button)
+# build for production with minification
+npm run build
 
+# build for production and view the bundle analyzer report
+npm run build --report
 
-# 修改UI主题风格
-##### 修改src/components/style/src/variable.scss变量后运行以下命令即可
-npm run build:theme
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
 ```
 
-#### 打赏赞助，请扫以下二维码，谢谢！
-![Minion](http://vx.bittyos.com/static/images/pay-code.png?v=0.1)
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

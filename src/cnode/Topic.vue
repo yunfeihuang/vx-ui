@@ -10,7 +10,7 @@
           <p class="weak small">
           发布于 {{topic.create_at}}<span class="space"></span>
           作者 {{topic.author && topic.author.loginname}}<span class="space"></span>
-          {{topic.visit_count}} 次浏览<span class="space"></span> 
+          {{topic.visit_count}} 次浏览<span class="space"></span>
           最后一次编辑是 {{topic.last_reply_at}}
           </p>
         </div>

@@ -11,7 +11,7 @@
       </group>
       <group title="RadioGroup">
         <radio-group v-model="value">
-          <radio 
+          <radio
             v-for="item in options"
             :disabled="item.disabled"
             :key="item.value"

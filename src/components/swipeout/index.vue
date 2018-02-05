@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     :class="classes"
     @touchstart="handleTouchStart"
     @mousedown="handleTouchStart"

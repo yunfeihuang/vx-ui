@@ -13,7 +13,9 @@ export default {
   props: {
     value: {
       type: [Array, String],
-      default: []
+      default () {
+        return []
+      }
     },
     max: {
       type: Number,

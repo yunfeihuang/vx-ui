@@ -6,7 +6,7 @@ const fetch = (url) => {
         if (xhr.status === 200) {
           resolve(JSON.parse(xhr.responseText))
         } else {
-          reject({success: false})
+          reject(new Error({success: false}))
         }
       }
     }

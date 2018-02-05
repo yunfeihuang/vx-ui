@@ -1,20 +1,21 @@
 <template>
   <label :class="classes">
     <div :class="[$cssPrefix+'textarea-shadow']"></div>
-    <textarea 
+    <textarea
       :placeholder="placeholder"
-      :disabled="disabled" 
+      :disabled="disabled"
       :autocomplete="autocomplete"
       :maxlength="maxlength"
-      :name="name" 
+      :name="name"
       :required="required"
+      :value="value"
       @focus="handleFocus"
       @blur="handleBlur"
       @keyup="handleKeyup"
-      @keydown="handleKeydown" 
+      @keydown="handleKeydown"
       @change="handleChange"
       @input="handleInput"
-      >{{value}}</textarea>
+      ></textarea>
   </label>
 </template>
 

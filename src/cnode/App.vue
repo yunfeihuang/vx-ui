@@ -33,12 +33,11 @@
 
 <script>
 import { mapState } from 'vuex'
-
-const tabs = ['all', 'good', 'share', 'ask', 'job']
-
 import {
   TopicItem
 } from './components/index'
+
+const tabs = ['all', 'good', 'share', 'ask', 'job']
 
 export default {
   components: {

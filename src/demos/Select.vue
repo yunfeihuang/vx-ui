@@ -23,7 +23,7 @@
         </cell>
         <cell>
           <div slot="title">下拉框(多选)</div>
-          <x-select 
+          <x-select
             slot="value"
             v-model="value2"
             :max="0"
@@ -39,7 +39,7 @@
         </cell>
         <cell>
           <div slot="title">下拉框(最多选2个)</div>
-          <x-select 
+          <x-select
             slot="value"
             v-model="value3"
             :required="true"
@@ -56,7 +56,7 @@
         </cell>
         <cell>
           <div slot="title">下拉框(选项很多)</div>
-          <x-select 
+          <x-select
             slot="value"
             v-model="value4"
             placeholder="请选择">

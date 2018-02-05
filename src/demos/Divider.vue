@@ -12,4 +12,3 @@
     </x-body>
   </layout>
 </template>
-</script>

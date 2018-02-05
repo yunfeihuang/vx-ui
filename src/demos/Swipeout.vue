@@ -5,22 +5,20 @@
     </x-nav>
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
       <list-view :loading="loading" :end="end">
-        <template v-for="(item,index) in list">
-          <swipeout :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
-            <flexbox align="center" class="flow-item">
-              <x-img class="avator" :src="item.author.avatar_url" />
-              <flexbox-item>
-                <h4>按住我向左滑动</h4>
-                <div>
-                  {{new Date().toLocaleString()}}
-                </div>
-              </flexbox-item>
-            </flexbox>
-            <button @click="handleAction" class="swipeout-button" slot="action" type="button">顶置</button>
-            <button @click="handleAction" class="swipeout-button" slot="action" type="button">收藏</button>
-            <button @click="handleAction" class="swipeout-button" slot="action" type="button">删除</button>
-          </swipeout>
-        </template>
+        <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
+          <flexbox align="center" class="flow-item">
+            <x-img class="avator" :src="item.author.avatar_url" />
+            <flexbox-item>
+              <h4>按住我向左滑动</h4>
+              <div>
+                {{new Date().toLocaleString()}}
+              </div>
+            </flexbox-item>
+          </flexbox>
+          <button @click="handleAction" class="swipeout-button" slot="action" type="button">顶置</button>
+          <button @click="handleAction" class="swipeout-button" slot="action" type="button">收藏</button>
+          <button @click="handleAction" class="swipeout-button" slot="action" type="button">删除</button>
+        </swipeout>
       </list-view>
     </x-body>
   </layout>

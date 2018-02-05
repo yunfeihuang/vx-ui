@@ -21,7 +21,7 @@
       :pickers="pickers"
       @change="handleConfirm"
       />
-    <popup-picker 
+    <popup-picker
       :open.sync="pickerAddressOpen"
       :pickers="addressPickers"
       @pickerchange="handleChangeAddressPicker"

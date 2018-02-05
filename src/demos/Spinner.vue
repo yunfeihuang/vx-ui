@@ -5,9 +5,9 @@
     </x-nav>
     <x-body slot="body" class="spinner-demo">
       <spinner></spinner>
-      </br>
-      </br>
-      </br>
+      <br/>
+      <br/>
+      <br/>
       <spinner style="height:50px;width:50px;">
         <span style="line-height:50px;">LOGO</span>
       </spinner>

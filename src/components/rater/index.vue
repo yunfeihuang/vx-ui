@@ -1,10 +1,11 @@
 <template>
   <div :class="classes" :disabled="disabled">
-    <span 
-      v-for="item in max"
+    <span
+      v-for="(item,index) in max"
       :class="[$cssPrefix + 'rater-item',item<=value?$cssPrefix + 'rater-item-active':'']"
       :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
       :data-value="item"
+      :key="index"
       v-html="star"
       @click="handleChange(item)"
       >

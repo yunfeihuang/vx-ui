@@ -17,7 +17,6 @@
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
       </group>
-      
     </x-body>
     <div slot="footer">
       <div style="text-align:center;padding:10px">

@@ -1,8 +1,8 @@
 <template>
   <div :class="classes">
-    <input 
-      :disabled="disabled" 
-      :name="name" 
+    <input
+      :disabled="disabled"
+      :name="name"
       :checked="onValue == value"
       type="checkbox"
       @change="handleChange"

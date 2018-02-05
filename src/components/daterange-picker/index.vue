@@ -40,7 +40,7 @@
         </flexbox>
         <divider v-if="tab==0||tab==1" style="margin-top:-1px;"></divider>
         <flexbox :class="[$cssPrefix + 'daterange-picker-calendar' ,'divider']" v-if="tab==0||tab==1">
-          <div 
+          <div
             v-if="tab===0"
             v-for="item in dateList"
             :key="item.value.getTime()"
@@ -49,7 +49,7 @@
             >
             {{item.value.getDate()}}
           </div>
-          <div 
+          <div
             v-if="tab===1"
             v-for="(item,i) in dateList"
             :key="item.value.getTime()"
@@ -60,7 +60,7 @@
           </div>
         </flexbox>
         <flexbox :class="[$cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===2" :style="{height: '6.8rem'}" align="center">
-          <div 
+          <div
             v-if="tab===2"
             v-for="(item, i) in monthList"
             :key="i"
@@ -71,7 +71,7 @@
           </div>
         </flexbox>
         <flexbox :class="[$cssPrefix + 'daterange-picker-calendar']" v-else-if="tab===3">
-          <div 
+          <div
             v-if="tab===3"
             v-for="(item,i) in quarterList"
             :key="i"

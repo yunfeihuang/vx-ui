@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body" :scroll="false" class="demos list-view-demos">
       <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
-        <template v-for="item in list">
+        <div v-for="(item,index) in list" :key="index">
           <flexbox align="center" class="list-view-item">
             <x-img class="avator" :src="item.author.avatar_url" />
             <flexbox-item>
@@ -16,7 +16,7 @@
             </flexbox-item>
           </flexbox>
           <divider></divider>
-        </template>
+        </div>
       </list-view>
     </x-body>
   </layout>

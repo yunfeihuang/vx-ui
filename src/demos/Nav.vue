@@ -6,8 +6,6 @@
         <icon>&#xe78d;</icon>
       </button>
     </x-nav>
-    <x-body slot="body">
-      
-    </x-body>
+    <x-body slot="body"></x-body>
   </layout>
 </template>
