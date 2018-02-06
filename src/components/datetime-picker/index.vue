@@ -22,7 +22,7 @@
           :value="item.value"
           :placeholder="item.placeholder"
           :options="item.options"
-          @change="handleChange"
+          @change="handleChange($event, index, item.type)"
         />
       </div>
     </div>
@@ -264,9 +264,7 @@ export default {
       this.open && value !== this.value && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
       value === this.value && this.handleClose()
     },
-    handleChange (value, index) {
-      let type = index.split('-')[1]
-      index = index.split('-')[0]
+    handleChange (value, index, type) {
       this.pickers[index].value = value
       if (type === 'MM' || type === 'yyyy') {
         let dates = null
