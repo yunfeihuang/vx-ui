@@ -5,6 +5,8 @@
 示例浏览地址：
 http://vx.bittyos.com/demo/
 
+![Minion](http://vx.bittyos.com/static/images/demo-code.png)
+
 ## Build Setup
 
 ``` bash

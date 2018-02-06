@@ -79,7 +79,6 @@ export default {
     color:$color-primary;
     text-decoration: none!important;
     box-sizing: border-box;
-    cursor: default;
     &.router-link-active{
       @include active;
     }
