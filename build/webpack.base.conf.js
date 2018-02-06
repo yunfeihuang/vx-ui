@@ -41,7 +41,8 @@ module.exports = {
       'styles': resolve('src/styles'),
       'utils':resolve('src/utils'),
       'demos':resolve('src/demos'),
-      'cnode':resolve('src/cnode')    }
+      'cnode':resolve('src/cnode')
+    }
   },
   module: {
     rules: [

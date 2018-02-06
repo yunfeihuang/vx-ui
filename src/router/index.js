@@ -13,6 +13,7 @@ const router = new Router({
 })
 let toast = null
 router.beforeEach((to, from, next) => {
+  toast && toast.$destroy()
   if (router.app.$toast) {
     toast = router.app.$toast({
       type: 'loading',

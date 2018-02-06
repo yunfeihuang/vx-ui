@@ -2,6 +2,9 @@
 
 > vue components 移动端UI组件库
 >
+
+中文文档
+http://vx.bittyos.com/
 示例浏览地址：
 http://vx.bittyos.com/demo/
 
