@@ -29,8 +29,10 @@ export default {
   },
   watch: {
     text (value) {
-      this.$qrcode.clear()
-      this.$qrcode.makeCode(value)
+      if (this.$qrcode) {
+        this.$qrcode.clear()
+        this.$qrcode.makeCode(value)
+      }
     }
   }
 }

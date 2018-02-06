@@ -8,7 +8,7 @@
       </div>
       <div class="example-iphone">
         <div class="example-iphone-iframe">
-          <iframe :key="toDemo" :src="toDemo" frameborder="0"></iframe>
+          <iframe :src="toDemo" frameborder="0"></iframe>
           <div class="example-iphone-home" @click="handleHome"></div>
         </div>
         <div class="example-iphone-code">
