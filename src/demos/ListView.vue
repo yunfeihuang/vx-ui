@@ -7,12 +7,10 @@
       <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
         <div v-for="(item,index) in list" :key="index">
           <flexbox align="center" class="list-view-item">
-            <x-img class="avator" :src="item.author.avatar_url" />
+            <x-img class="avatar" :src="item.src" />
             <flexbox-item>
-              <h4>{{item.title}}</h4>
-              <div>
-                {{new Date().toLocaleString()}}
-              </div>
+              <h4>{{item.name}}</h4>
+              <div>{{item.date}}</div>
             </flexbox-item>
           </flexbox>
           <divider></divider>
@@ -23,45 +21,43 @@
 </template>
 
 <script>
-import api from '../api'
-
-let lastPage = 1
 export default {
-  mounted () {
-    this.fetch()
-  },
-  methods: {
-    handlePullup (e) {
-      this.fetch(lastPage + 1)
-    },
-    handlePulldown (e) {
-      this.fetch(1)
-    },
-    fetch (page = 1, cb) {
-      let bool = page > lastPage
-      if (bool) {
-        lastPage = page
-      }
-      this.loading = true
-      api.cnode.list({page: page, tab: ''}).then((data) => {
-        this.loading = false
-        if (bool) {
-          this.list = this.list.concat(data.data)
-        } else {
-          this.list = data.data.concat(this.list)
-        }
-        if (page > 2 && !this.end) {
-          this.end = true
-        }
-        cb && cb()
-      })
+  data () {
+    let list = this.getList()
+    return {
+      list,
+      loading: false,
+      end: false // 是否还没有更多
     }
   },
-  data () {
-    return {
-      list: [],
-      loading: true,
-      end: false
+  methods: {
+    getList () {
+      let result = []
+      for (let i = 0; i < 30; i++) {
+        result.push({
+          src: '/static/images/github.png',
+          name: `item-${Date.now()}`,
+          date: new Date().toLocaleString()
+        })
+      }
+      return result
+    },
+    handlePullup (e) {
+      this.loading = true
+      setTimeout(() => { // 模拟ajax请求
+        this.list = this.list.concat(this.getList())
+        this.loading = false
+        if (this.list.length >= 60) {
+          this.end = true // 没有更多了
+        }
+      }, 1000)
+    },
+    handlePulldown (e) {
+      this.loading = true
+      setTimeout(() => { // 模拟ajax请求
+        this.list = this.getList().concat(this.list)
+        this.loading = false
+      }, 1000)
     }
   }
 }
@@ -75,7 +71,7 @@ export default {
     width: 100%;
   }
   .list-view-demos{
-    .avator{
+    .avatar{
       width:50px;
       height:50px;
       margin-right:6px;

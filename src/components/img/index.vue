@@ -115,6 +115,7 @@ export default {
             icon && (icon.style.display = 'none')
             img.src = this.src
             img.style.opacity = 1
+            this.$el.classList.remove(this.$cssPrefix + 'img-placeholder')
           })
         }
         image.src = this.src

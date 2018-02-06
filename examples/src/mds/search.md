@@ -4,23 +4,23 @@
 <template>
   <search v-model="value" placeholder="搜索商品/商店/用户"
     @submit="handleSubmit">
-    <div slot="keywords">
-      <span class="keyword">
+    <template slot="keywords" slot-scope="scope">
+      <span class="keyword" @click="scope.search('上海')">
         上海
       </span>
-      <span class="keyword">
+      <span class="keyword" @click="scope.search('武汉')">
         武汉
       </span>
-      <span class="keyword">
+      <span class="keyword" @click="scope.search('深圳')">
         深圳
       </span>
-      <span class="keyword">
+      <span class="keyword" @click="scope.search('南京')">
         南京
       </span>
-      <span class="keyword">
+      <span class="keyword" @click="scope.search('北京')">
         北京
       </span>
-    </div>
+    </template>
     <div slot="result" style="text-align:center;padding:15px">
       搜索结果显示
     </div>
