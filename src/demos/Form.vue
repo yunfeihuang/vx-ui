@@ -49,11 +49,11 @@ export default {
       console.log('formValidator')
     },
     handleSubmit () {
-      window.$toast({
+      this.$toast({
         type: 'loading',
         content: '数据中...',
         onClose: () => {
-          window.$toast({
+          this.$toast({
             type: 'success',
             content: '数据提交成功！'
           })

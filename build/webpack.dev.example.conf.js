@@ -17,7 +17,7 @@ config.dev = config.devExample
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: ['./examples/src/main.js']
+    app: './examples/src/main.js'
   },
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })

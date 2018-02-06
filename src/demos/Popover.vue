@@ -64,7 +64,7 @@
 export default {
   methods: {
     handleClick (value) {
-      window.$toast({content: '您点击了：' + value})
+      this.$toast({content: '您点击了：' + value})
     }
   }
 }

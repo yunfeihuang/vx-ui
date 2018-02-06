@@ -3,8 +3,13 @@
 ```html
 <template>
   <group title="default">
-    <cell :arrow="false">
-      <div slot="title">开关（{{checked}}）</div>
+    <cell title="标题">
+      <icon slot="icon">&#xe63b;</icon>
+      <x-switch slot="value" v-model="checked" />
+    </cell>
+  </group>
+  <group title="no arrow">
+    <cell :arrow="false" title="标题">
       <x-switch slot="value" v-model="checked" />
     </cell>
   </group>
@@ -38,3 +43,4 @@
 |---------|--------|
 | title | - |
 | value | - |
+| icon | - |

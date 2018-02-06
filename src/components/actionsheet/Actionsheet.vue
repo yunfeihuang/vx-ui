@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" :fast-close="fastClose" @close="handleClosePopup" @enter="handleEnter">
+  <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @enter="handleEnter">
     <div :class="[$cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
       <div :class="[$cssPrefix + 'actionsheet-items']">
         <slot></slot>
@@ -19,6 +19,10 @@ export default {
     Popup
   },
   props: {
+    type: {
+      type: String,
+      default: 'default'
+    },
     open: {
       type: Boolean,
       default: false
@@ -45,7 +49,14 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'actionsheet']
+      return [this.$cssPrefix + 'actionsheet', this.type === 'menu' ? this.$cssPrefix + 'actionsheet-menu' : '']
+    },
+    myDirection () {
+      if (this.type === 'default') {
+        return 'bottom'
+      } else if (this.type === 'menu') {
+        return 'center'
+      }
     }
   },
   mounted () {

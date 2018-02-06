@@ -4,7 +4,7 @@
       <overlay v-if="open" @click.native="handleClose"></overlay>
     </transition>
     <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter">
-      <div v-if="open" :class="innerClasses">
+      <div v-if="open" :class="innerClasses" @click="handleClose2">
         <slot></slot>
       </div>
     </transition>
@@ -82,6 +82,11 @@ export default {
     },
     handleClose () {
       this.fastClose && this.$emit('close')
+    },
+    handleClose2 (e) {
+      if (this.fastClose && e.target === this.$el.querySelector('.' + this.$cssPrefix + 'popup-inner')) {
+        this.$emit('close')
+      }
     }
   }
 }

@@ -41,7 +41,7 @@ export default {
       console.log('handleOpenSwipeout')
     },
     handleAction (e) {
-      window.$toast({content: '点击了' + e.target.innerHTML})
+      this.$toast({content: '点击了' + e.target.innerHTML})
     },
     fetch (page = 1, cb) {
       let bool = page > lastPage

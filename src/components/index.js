@@ -176,7 +176,7 @@ const install = (Vue) => {
       },
       destroyed: () => {
         requestAnimationFrame(() => {
-          vue.$el.parentNode.removeChild(vue.$el)
+          vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
         })
       }
     })
@@ -184,164 +184,173 @@ const install = (Vue) => {
   }
 
   Vue.prototype.$alert = (_props, mounted = document.body) => {
-    let props = Object.assign({
-      open: true,
-      onConfirm: () => {
-        return true
-      }
-    }, _props)
-    let node = document.createElement('div')
-    mounted.appendChild(node)
-    let vue = new Vue({ //eslint-disable-line
-      el: node,
-      render (createElement) {
-        let content = props.content
-        return createElement(Alert, {
-          props: props,
-          on: {
-            'confirm': this.handleConfirm,
-            'close': this.handleClose
-          },
-          scopedSlots: {
-            default: props => createElement('div', content)
-          }
-        })
-      },
-      data: {props: props},
-      methods: {
-        handleConfirm: () => {
-          props.open = props.onConfirm() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
-        },
-        handleClose: () => {
-          props.open = props.onCancel() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
+    return new Promise((resolve, reject) => {
+      let props = Object.assign({
+        open: true,
+        onConfirm: () => {
+          return true
         }
-      },
-      destroyed: () => {
-        requestAnimationFrame(() => {
-          vue.$el.parentNode.removeChild(vue.$el)
-        })
-      }
+      }, _props)
+      let node = document.createElement('div')
+      mounted.appendChild(node)
+      let vue = new Vue({ //eslint-disable-line
+        el: node,
+        render (createElement) {
+          let content = props.content
+          return createElement(Alert, {
+            props: props,
+            on: {
+              'confirm': this.handleConfirm,
+              'close': this.handleClose
+            },
+            scopedSlots: {
+              default: props => createElement('div', content)
+            }
+          })
+        },
+        data: {props: props},
+        methods: {
+          handleConfirm: () => {
+            resolve()
+            props.open = props.onConfirm() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          },
+          handleClose: () => {
+            reject(new Error('alert close'))
+            props.open = props.onCancel() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          }
+        },
+        destroyed: () => {
+          requestAnimationFrame(() => {
+            vue.$el.parentNode.removeChild(vue.$el)
+          })
+        }
+      })
     })
-    return vue
   }
 
   Vue.prototype.$confirm = (_props, mounted = document.body) => {
-    let props = Object.assign({
-      open: true,
-      onConfirm: () => {
-        return true
-      },
-      onCancel: () => {
-        return true
-      }
-    }, _props)
-    let node = document.createElement('div')
-    mounted.appendChild(node)
-    let vue = new Vue({ //eslint-disable-line
-      el: node,
-      render (createElement) {
-        let content = props.content
-        return createElement(Confirm, {
-          props: props,
-          on: {
-            'confirm': this.handleConfirm,
-            'close': this.handleClose
-          },
-          scopedSlots: {
-            default: props => createElement('div', content)
-          }
-        })
-      },
-      data: {props: props},
-      methods: {
-        handleConfirm: () => {
-          props.open = props.onConfirm() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
+    return new Promise((resolve, reject) => {
+      let props = Object.assign({
+        open: true,
+        onConfirm: () => {
+          return true
         },
-        handleClose: () => {
-          props.open = props.onCancel() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
-        }
-      },
-      destroyed: () => {
-        requestAnimationFrame(() => {
-          vue.$el.parentNode.removeChild(vue.$el)
-        })
-      }
-    })
-    return vue
-  }
-  Vue.prototype.$prompt = (_props, mounted = document.body) => {
-    let props = Object.assign({
-      open: true,
-      disabled: true,
-      onConfirm: () => {
-        return true
-      },
-      onCancel: () => {
-        return true
-      },
-      onChange: (value) => {
-        if (value && value.trim()) {
-          return false
-        } else {
+        onCancel: () => {
           return true
         }
-      }
-    }, _props)
-    let node = document.createElement('div')
-    mounted.appendChild(node)
-    let vue = new Vue({ //eslint-disable-line
-      el: node,
-      render (createElement) {
-        let content = props.content
-        return createElement(Prompt, {
-          props: props,
-          on: {
-            'confirm': this.handleConfirm,
-            'close': this.handleClose,
-            'change': this.handleChange
+      }, _props)
+      let node = document.createElement('div')
+      mounted.appendChild(node)
+      let vue = new Vue({ //eslint-disable-line
+        el: node,
+        render (createElement) {
+          let content = props.content
+          return createElement(Confirm, {
+            props: props,
+            on: {
+              'confirm': this.handleConfirm,
+              'close': this.handleClose
+            },
+            scopedSlots: {
+              default: props => createElement('div', content)
+            }
+          })
+        },
+        data: {props: props},
+        methods: {
+          handleConfirm: () => {
+            resolve()
+            props.open = props.onConfirm() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
           },
-          scopedSlots: {
-            default: props => createElement('div', content)
+          handleClose: () => {
+            reject(new Error('confirm close'))
+            props.open = props.onCancel() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
           }
-        })
-      },
-      data: {props: props},
-      methods: {
-        handleConfirm: () => {
-          props.open = props.onConfirm() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
         },
-        handleClose: () => {
-          props.open = props.onCancel() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
-        },
-        handleChange: (value) => {
-          props.disabled = props.onChange(value)
+        destroyed: () => {
+          requestAnimationFrame(() => {
+            vue.$el.parentNode.removeChild(vue.$el)
+          })
         }
-      },
-      destroyed: () => {
-        requestAnimationFrame(() => {
-          vue.$el.parentNode.removeChild(vue.$el)
-        })
-      }
+      })
     })
-    return vue
+  }
+  Vue.prototype.$prompt = (_props, mounted = document.body) => {
+    return new Promise((resolve, reject) => {
+      let props = Object.assign({
+        open: true,
+        disabled: true,
+        onConfirm: () => {
+          return true
+        },
+        onCancel: () => {
+          return true
+        },
+        onChange: (value) => {
+          if (value && value.trim()) {
+            return false
+          } else {
+            return true
+          }
+        }
+      }, _props)
+      let node = document.createElement('div')
+      mounted.appendChild(node)
+      let vue = new Vue({ //eslint-disable-line
+        el: node,
+        render (createElement) {
+          let content = props.content
+          return createElement(Prompt, {
+            props: props,
+            on: {
+              'confirm': this.handleConfirm,
+              'close': this.handleClose,
+              'change': this.handleChange
+            },
+            scopedSlots: {
+              default: props => createElement('div', content)
+            }
+          })
+        },
+        data: {props: props},
+        methods: {
+          handleConfirm: (value) => {
+            resolve(value)
+            props.open = props.onConfirm(value) === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          },
+          handleClose: () => {
+            reject(new Error('prompt close'))
+            props.open = props.onCancel() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          },
+          handleChange: (value) => {
+            props.disabled = props.onChange(value)
+          }
+        },
+        destroyed: () => {
+          requestAnimationFrame(() => {
+            vue.$el.parentNode.removeChild(vue.$el)
+          })
+        }
+      })
+    })
   }
 }
 

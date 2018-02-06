@@ -29,3 +29,6 @@
   #修改src/components/style/src/variable.scss变量后运行以下命令即可
   npm run build:theme
 ```
+
+### 本组件库采用的是网易的rem适配方案
+[相关资料请点击查看](https://www.cnblogs.com/noobfly/p/6207832.html)

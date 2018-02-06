@@ -181,7 +181,7 @@ export default {
   methods: {
     handleConfirm (value) {
       let val = value.map(item => item.value)
-      window.$toast({content: '你选中了值：' + val})
+      this.$toast({content: '你选中了值：' + val})
     },
     handleChangeAddressPicker (value, index) {
       if (index === 0) {
@@ -197,7 +197,7 @@ export default {
     },
     handleConfirmAddress (value) {
       let val = value.map(item => item.value)
-      window.$toast({content: '你选中了值：' + val})
+      this.$toast({content: '你选中了值：' + val})
     }
   },
   data () {

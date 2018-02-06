@@ -39,5 +39,18 @@
         opacity: 0.6;
       }
     }
+    &-menu {
+      .#{$css-prefix}actionsheet{
+        &-inner{
+          max-width:500px;
+          width:60%;
+          border-radius:3px;
+        }
+        &-item{
+          border-left:0;
+          border-right:0;
+        }
+      }
+    }
   }
 }

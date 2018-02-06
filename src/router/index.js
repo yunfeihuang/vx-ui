@@ -13,8 +13,8 @@ const router = new Router({
 })
 let toast = null
 router.beforeEach((to, from, next) => {
-  if (window.$toast) {
-    toast = window.$toast({
+  if (router.app.$toast) {
+    toast = router.app.$toast({
       type: 'loading',
       content: '加载中',
       duration: 0,

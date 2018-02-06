@@ -17,7 +17,7 @@ const env = process.env.NODE_ENV === 'testing'
 
 if (process.env.EXAMPLE) {
   baseWebpackConfig.entry = {
-    app: ["babel-polyfill",'./examples/src/main.js']
+    app: './examples/src/main.js'
   }
 }
   
