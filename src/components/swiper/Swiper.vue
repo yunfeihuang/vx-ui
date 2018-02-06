@@ -23,7 +23,7 @@ export default {
     },
     pagination: {
       type: Boolean,
-      default: false
+      default: true
     },
     prev: {
       type: Boolean,
