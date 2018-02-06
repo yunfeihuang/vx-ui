@@ -19,7 +19,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #555;
 }
-
 a{
   color:$color-primary;
   text-decoration: none;

@@ -5,6 +5,13 @@
         <div slot="title">Vx Demos</div>
       </x-nav>
       <x-body class="demos" slot="body">
+        <div class="github">
+          <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
+            <img src="/static/images/github.png"/>
+            <br/>
+            star me
+          </a>
+        </div>
         <group title="basic">
           <cell title="Button" to="/demos/button"></cell>
           <cell title="Flexbox" to="/demos/flexbox"></cell>
@@ -92,19 +99,16 @@ export default {
 </script>
 
 <style lang="scss">
-  .demos{
-    h1{
-      text-align:center;
-      margin: 0;
-      padding: 1rem 0;
-    }
-  }
-  .demos-actions{
+  @import '~styles/variable.scss';
+  @import '~styles/mixins.scss';
+  .github{
     text-align:center;
-    a{
-      display:block;
-      width:33.33%;
-      line-height: 0.9rem;
+    padding-top:0.2rem;
+    margin-bottom:-0.25rem;
+    img{
+      border-radius:50%;
+      height:40px;
+      width:40px;
     }
   }
 </style>

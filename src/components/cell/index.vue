@@ -10,7 +10,7 @@
       </template>
     </flexbox-item>
     <div :class="$cssPrefix + 'cell-ft'">
-      <slot v-if="$slots.title" name="value"></slot>
+      <slot v-if="$slots.value" name="value"></slot>
       <template v-else>
         {{value}}
       </template>

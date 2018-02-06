@@ -11,7 +11,7 @@ http://vx.bittyos.com/demo/
 
 ``` bash
 # install dependencies
-npm install vx-ui
+npm install vx-ui --save-dev
 
 # 全局注册组件
 import Vue from 'vue'
