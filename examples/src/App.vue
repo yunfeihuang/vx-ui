@@ -53,7 +53,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.$el.querySelector('aside').style.height = window.innerHeight - 4 - this.$el.querySelector('header').offsetHeight + 'px'
+      // this.$el.querySelector('aside').style.height = window.innerHeight - this.$el.querySelector('header').offsetHeight + 'px'
     })
   },
   methods: {
@@ -95,6 +95,7 @@ export default {
         padding-left:20px;
         overflow: auto;
         position:fixed;
+        height: calc(100% - 55px);
         &::-webkit-scrollbar{  
           width: 5px;
           height:10px;
