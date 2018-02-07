@@ -9,7 +9,13 @@
         <x-switch slot="value" v-model="open"/>
       </cell>
     </group>
-    <alert :open.sync="open">确认删除？</alert>
+    <group>
+      <cell :arrow="false">
+        <div slot="title">js调用</div>
+        <span slot="value" @click="handleOpen">点击我打开</span>
+      </cell>
+    </group>
+    <alert :open.sync="open">alert</alert>
   </div>
 </template>
 <script>
@@ -17,6 +23,13 @@
     data () {
       return {
         open: false
+      }
+    },
+    methods: {
+      handleOpen () {
+        this.$alert({content: 'alert'}).then(() => {
+          console.log('alert')
+        })
       }
     }
   }

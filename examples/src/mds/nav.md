@@ -15,8 +15,8 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | back     | 是否有后退按钮   | String, Boolean, Function  |   -       |    true    |
-| backText     | 后退按钮文字   | string  |   -       |    返回    |
-| title     | 标题   | string  |   -       |    返回    |
+| backText     | 后退按钮文字   | String  |   -       |    返回    |
+| title     | 标题   | String  |   -       |    返回    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

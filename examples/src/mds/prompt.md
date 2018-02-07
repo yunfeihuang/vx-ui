@@ -47,6 +47,13 @@
         } else {
           this.disabled2 = true
         }
+      },
+      handleOpen () {
+        this.$prompt({title: '用户名称', inputProps: {placeholder: '请输入用户名称'}}).then((value) => {
+          console.log('prompt', value)
+        }).catch(() => {
+          console.log('cancel')
+        })
       }
     },
     data () {

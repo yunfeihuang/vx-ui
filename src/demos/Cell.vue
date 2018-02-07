@@ -5,10 +5,12 @@
     </x-nav>
     <x-body slot="body">
       <group title="default">
-        <cell title="标题">
-          <icon slot="icon">&#xe63b;</icon>
-          <x-switch slot="value" v-model="checked" />
-        </cell>
+        <a href="https://github.com/yunfeihuang/vx-ui" style="color:inherit">
+          <cell title="github" >
+            <img style="height:20px;width:20px;border-radius:50%" slot="icon" src="/static/images/github.png">
+            <span slot="value">Start me</span>
+          </cell>
+        </a>
       </group>
       <group title="no arrow">
         <cell :arrow="false" title="标题">

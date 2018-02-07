@@ -39,7 +39,7 @@
         <group title="对话弹框">
           <cell title="Actionsheet" to="/demos/actionsheet"></cell>
           <cell title="Alert" to="/demos/alert"></cell>
-          <cell title="Comfirm" to="/demos/comfirm"></cell>
+          <cell title="Confirm" to="/demos/confirm"></cell>
           <cell title="Prompt" to="/demos/prompt"></cell>
           <cell title="Popover" to="/demos/popover"></cell>
           <cell title="Toast" to="/demos/toast"></cell>

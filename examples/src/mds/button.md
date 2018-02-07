@@ -13,8 +13,8 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| type     | 按钮类型   | string  |   default|primary|dashed|warning       |    default    |
-| disabled     | 是否禁用   | boolean  |   -       |    false    |
+| type     | 按钮类型   | String  |   default,primary,dashed,warning       |    default    |
+| disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | nativeType     | 原生type类型   | -  |   -       |    button    |
 | -     | -   | -  |   -       |    -    |
 

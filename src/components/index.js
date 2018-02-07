@@ -218,7 +218,7 @@ const install = (Vue) => {
             }, 1000)
           },
           handleClose: () => {
-            reject(new Error('alert close'))
+            reject()
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
@@ -272,7 +272,7 @@ const install = (Vue) => {
             }, 1000)
           },
           handleClose: () => {
-            reject(new Error('confirm close'))
+            reject()
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
@@ -334,7 +334,7 @@ const install = (Vue) => {
             }, 1000)
           },
           handleClose: () => {
-            reject(new Error('prompt close'))
+            reject()
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()

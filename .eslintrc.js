@@ -29,6 +29,7 @@ module.exports = {
     'no-extend-native':0,
     'no-async-in-computed-properties':0,
     'no-side-effects-in-computed-properties': 0,
+    'prefer-promise-reject-errors':0,
     "indent": [ 'error', 2, {SwitchCase: 1}],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
