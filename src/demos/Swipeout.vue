@@ -35,7 +35,7 @@ export default {
       let result = []
       for (let i = 0; i < 30; i++) {
         result.push({
-          src: '/static/images/github.png',
+          src: './static/images/github.png',
           name: `item-${Date.now()}`,
           date: new Date().toLocaleString()
         })

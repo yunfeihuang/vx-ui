@@ -17,7 +17,7 @@
             示例预览
           </div>
           <div class="example-iphone-code-item">
-            <img src="/static/images/pay-code.png" style="vertical-align: inherit;" :height="100" :width="100" />
+            <img :src="'./static/images/pay-code.png'" style="vertical-align: inherit;" :height="100" :width="100" />
             打赏赞助
           </div>
         </div>
@@ -50,11 +50,6 @@ export default {
         return 'http://vx.bittyos.com/demo' + path
       }
     }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      // this.$el.querySelector('aside').style.height = window.innerHeight - this.$el.querySelector('header').offsetHeight + 'px'
-    })
   },
   methods: {
     handleHome () {

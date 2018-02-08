@@ -3,11 +3,11 @@
     <div class="header-inner">
       <flexbox align="center">
         <flexbox-item>
-          <img style="width:35px;height:35px" src="/static/images/logo.png"/>
+          <img style="width:35px;height:35px" :src="'./static/images/logo.png'"/>
           <h2>Vx UI</h2>
         </flexbox-item>
         <a target="_blank" href="https://github.com/yunfeihuang/vx-ui" style="margin-right: 165px;">
-          <img style="width:24px;height:24px" src="/static/images/github.png"/> github
+          <img style="width:24px;height:24px" :src="'./static/images/github.png'"/> github
         </a>
       </flexbox>
     </div>

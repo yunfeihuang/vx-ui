@@ -7,7 +7,7 @@
       <x-body class="demos" slot="body">
         <div class="github">
           <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
-            <img src="/static/images/github.png"/>
+            <img :src="'./static/images/github.png'"/>
             <br/>
             star me
           </a>

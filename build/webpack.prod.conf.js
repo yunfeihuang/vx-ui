@@ -74,6 +74,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: process.env.EXAMPLE ? 'examples/index.html' : 'index.html',
       inject: true,
+      chunks: ['manifest', 'vendor', 'app'],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
