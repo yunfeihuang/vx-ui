@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Spinner',
+  componentName: 'Spinner',
   props: {
     color: {
       type: String

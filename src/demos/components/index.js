@@ -9,7 +9,7 @@ let components = [
 
 const install = (Vue) => {
   components.map(component => {
-    component.name && Vue.component(component.name, component)
+    component.componentName && Vue.component(component.componentName, component)
   })
 }
 

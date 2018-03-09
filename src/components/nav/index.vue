@@ -17,7 +17,7 @@
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Icon from '../icon'
 export default {
-  name: 'XNav',
+  componentName: 'XNav',
   components: {
     Flexbox,
     FlexboxItem,

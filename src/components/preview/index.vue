@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: 'Preview',
+  componentName: 'Preview',
   props: {
     list: {
       type: Array,

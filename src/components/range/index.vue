@@ -11,7 +11,7 @@
 <script>
 import { input } from 'utils/mixins.js'
 export default {
-  name: 'Range',
+  componentName: 'Range',
   mixins: [input],
   props: {
     min: {

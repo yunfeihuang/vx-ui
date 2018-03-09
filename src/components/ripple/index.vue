@@ -9,7 +9,7 @@ let node = null
 let offset = {}
 let timer = null
 export default {
-  name: 'Ripple',
+  componentName: 'Ripple',
   props: {
     color: {
       type: String

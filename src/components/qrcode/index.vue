@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Qrcode',
+  componentName: 'Qrcode',
   props: {
     text: {
       type: String,

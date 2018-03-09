@@ -5,7 +5,7 @@
     </x-nav>
     <x-body class="demos" slot="body"  style="background:#fff">
       <div class="button-demo">
-        <x-button>default</x-button>
+        <x-button ref="button">default</x-button>
         <x-button type="primary">primary</x-button>
         <x-button type="dashed">dashed</x-button>
         <x-button type="warning">warning</x-button>
@@ -17,6 +17,9 @@
 
 <script>
 export default {
+  mounted () {
+    console.log(this.$refs.button.$options.componentName)
+  },
   data () {
     return {
       account: '',

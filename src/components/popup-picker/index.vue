@@ -29,7 +29,7 @@ import Picker from '../picker'
 import Divider from '../divider'
 
 export default {
-  name: 'PopupPicker',
+  componentName: 'PopupPicker',
   components: {
     Popup,
     Picker,

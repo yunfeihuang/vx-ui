@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'SwiperItem',
+  componentName: 'SwiperItem',
   computed: {
     classes () {
       return [this.$cssPrefix + 'swiper-item', 'swiper-slide']

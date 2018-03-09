@@ -12,7 +12,7 @@
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
-  name: 'Radio',
+  componentName: 'Radio',
   components: {
     Icon
   },

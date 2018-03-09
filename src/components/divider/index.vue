@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Divider',
+  componentName: 'Divider',
   computed: {
     classes () {
       return [this.$cssPrefix + 'divider']

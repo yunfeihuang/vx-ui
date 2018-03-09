@@ -38,7 +38,7 @@
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
-  name: 'XInput',
+  componentName: 'XInput',
   components: {
     Icon
   },

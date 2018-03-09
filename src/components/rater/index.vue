@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Rater',
+  componentName: 'Rater',
   computed: {
     classes () {
       return [this.$cssPrefix + 'rater']

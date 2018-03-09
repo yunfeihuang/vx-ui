@@ -8,7 +8,7 @@
 import { input } from 'utils/mixins.js'
 
 export default {
-  name: 'CheckerGroup',
+  componentName: 'CheckerGroup',
   mixins: [input],
   props: {
     value: {
@@ -20,10 +20,6 @@ export default {
     max: {
       type: Number,
       default: 0
-    },
-    componentName: {
-      type: String,
-      default: 'CheckerGroup'
     }
   },
   computed: {

@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: 'XOption',
+  componentName: 'XOption',
   props: {
     value: {
       type: String

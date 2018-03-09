@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Group',
+  componentName: 'Group',
   props: {
     title: {
       type: String

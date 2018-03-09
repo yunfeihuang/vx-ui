@@ -15,7 +15,7 @@
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
-  name: 'XFormItem',
+  componentName: 'XFormItem',
   components: {
     Flexbox,
     FlexboxItem

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'CarouselItem',
+  componentName: 'CarouselItem',
   props: {
     index: {
       type: Number,

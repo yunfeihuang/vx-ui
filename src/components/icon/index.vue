@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Icon',
+  componentName: 'Icon',
   computed: {
     classes () {
       return [this.$cssPrefix + 'iconfont']

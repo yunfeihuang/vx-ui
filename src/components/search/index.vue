@@ -51,7 +51,7 @@ import XInput from '../input'
 import Icon from '../icon'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
-  name: 'Search',
+  componentName: 'Search',
   mixins: [input, historyPush],
   components: {
     XInput,

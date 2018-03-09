@@ -37,7 +37,7 @@ import Divider from '../divider'
 let now = new Date()
 
 export default {
-  name: 'DatetimePicker',
+  componentName: 'DatetimePicker',
   components: {
     Popup,
     Picker,

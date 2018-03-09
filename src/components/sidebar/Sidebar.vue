@@ -8,7 +8,7 @@
 import { tab } from 'utils/mixins.js'
 import Divider from '../divider'
 export default {
-  name: 'Sidebar',
+  componentName: 'Sidebar',
   components: {
     Divider
   },

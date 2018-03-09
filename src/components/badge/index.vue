@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Badge',
+  componentName: 'Badge',
   computed: {
     classes () {
       return [this.$cssPrefix + 'badge', this.text === '' ? this.$cssPrefix + 'badge-dot' : '']

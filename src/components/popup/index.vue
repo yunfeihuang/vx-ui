@@ -15,7 +15,7 @@
 import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
 export default {
-  name: 'Popup',
+  componentName: 'Popup',
   components: {
     Overlay
   },

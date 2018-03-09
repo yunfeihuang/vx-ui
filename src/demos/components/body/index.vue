@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'XBody',
+  componentName: 'XBody',
   computed: {
     classes () {
       return [this.$cssPrefix + 'body', this.scroll]

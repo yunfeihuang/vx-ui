@@ -16,7 +16,7 @@
 <script>
 import { input } from 'utils/mixins.js'
 export default {
-  name: 'XSwitch',
+  componentName: 'XSwitch',
   mixins: [input],
   props: {
     value: {

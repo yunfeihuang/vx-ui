@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Layout',
+  componentName: 'Layout',
   computed: {
     classes () {
       return [this.$cssPrefix + 'layout']

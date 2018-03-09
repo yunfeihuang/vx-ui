@@ -12,7 +12,7 @@
 import { input } from 'utils/mixins.js'
 import Icon from '../icon'
 export default {
-  name: 'Checkbox',
+  componentName: 'Checkbox',
   components: {
     Icon
   },
@@ -26,14 +26,14 @@ export default {
       ]
     },
     myChecked () {
-      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
         return this.$parent.value.indexOf(this.value) > -1
       } else {
         return this.checked
       }
     },
     myType () {
-      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup') {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
         return this.$parent.max === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     handleChange (e) {
-      if (this.$parent.componentName && this.$parent.componentName === 'CheckboxGroup') {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
         this.$parent.handleChange(e)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)

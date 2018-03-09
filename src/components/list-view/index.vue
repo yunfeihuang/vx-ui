@@ -20,7 +20,7 @@
 import Spinner from '../spinner'
 import Icon from '../icon'
 export default {
-  name: 'ListView',
+  componentName: 'ListView',
   components: {
     Spinner,
     Icon

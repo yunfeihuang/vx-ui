@@ -27,7 +27,7 @@ import Vue from 'vue'
 import XInput from '../input'
 import DatetimePicker from '../datetime-picker'
 export default {
-  name: 'Datetime',
+  componentName: 'Datetime',
   mixins: [input],
   components: {
     XInput

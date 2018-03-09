@@ -9,7 +9,7 @@ import { input } from 'utils/mixins.js'
 import Checkbox from './Checkbox'
 
 export default {
-  name: 'CheckboxGroup',
+  componentName: 'CheckboxGroup',
   mixins: [input],
   components: {
     Checkbox
@@ -29,10 +29,6 @@ export default {
     max: {
       type: Number,
       default: 0
-    },
-    componentName: {
-      type: String,
-      default: 'CheckboxGroup'
     }
   },
   computed: {

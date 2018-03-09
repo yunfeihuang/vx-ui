@@ -10,7 +10,7 @@ import Radio from './Radio'
 import Divider from '../divider'
 
 export default {
-  name: 'RadioGroup',
+  componentName: 'RadioGroup',
   mixins: [input],
   components: {
     Radio,

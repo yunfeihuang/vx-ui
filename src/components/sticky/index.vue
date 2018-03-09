@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Sticky',
+  componentName: 'Sticky',
   props: {
     fixedTop: {
       type: String

@@ -36,7 +36,7 @@ import Confirm from '../confirm'
 import XInput from '../input'
 import Password from '../password'
 export default {
-  name: 'Prompt',
+  componentName: 'Prompt',
   components: {
     Confirm,
     XInput,

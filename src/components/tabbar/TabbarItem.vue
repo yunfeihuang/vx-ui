@@ -8,7 +8,7 @@
 import Ripple from '../ripple'
 import Icon from '../icon'
 export default {
-  name: 'TabbarItem',
+  componentName: 'TabbarItem',
   components: {
     Ripple,
     Icon

@@ -14,7 +14,7 @@
 <script>
 import Popup from '../popup'
 export default {
-  name: 'Actionsheet',
+  componentName: 'Actionsheet',
   components: {
     Popup
   },

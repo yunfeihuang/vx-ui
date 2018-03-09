@@ -7,7 +7,7 @@
 <script>
 import { tab } from 'utils/mixins.js'
 export default {
-  name: 'ButtonTab',
+  componentName: 'ButtonTab',
   mixins: [tab],
   computed: {
     classes () {

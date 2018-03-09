@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'SidebarItem',
+  componentName: 'SidebarItem',
   props: {
     name: {
       type: [Number, String, Object],

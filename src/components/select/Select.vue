@@ -13,7 +13,7 @@ import Picker from './Picker'
 import { input } from 'utils/mixins.js'
 
 export default {
-  name: 'XSelect',
+  componentName: 'XSelect',
   mixins: [input],
   props: {
     value: {

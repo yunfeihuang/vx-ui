@@ -21,7 +21,7 @@
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
-  name: 'Cell',
+  componentName: 'Cell',
   components: {
     Flexbox,
     FlexboxItem

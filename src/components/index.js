@@ -139,7 +139,7 @@ let components = [
 
 const install = (Vue) => {
   components.map(component => {
-    component.name && Vue.component(component.name, component)
+    component.componentName && Vue.component(component.componentName, component)
   })
   Vue.prototype.$cssPrefix = 'v-'
   Vue.prototype.$toast = (_props, mounted = document.body) => {

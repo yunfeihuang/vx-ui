@@ -36,7 +36,7 @@ import { input } from 'utils/mixins.js'
 import XInput from '../input'
 import Icon from '../icon'
 export default {
-  name: 'Password',
+  componentName: 'Password',
   mixins: [input],
   props: {
     nativeType: {

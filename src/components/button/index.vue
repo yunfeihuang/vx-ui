@@ -7,7 +7,7 @@
 <script>
 import { button } from 'utils/mixins.js'
 export default {
-  name: 'XButton',
+  componentName: 'XButton',
   mixins: [button],
   computed: {
     classes () {
