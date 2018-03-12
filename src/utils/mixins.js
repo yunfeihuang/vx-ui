@@ -15,6 +15,7 @@ const button = {
 }
 
 const input = {
+  inject: ['xFormItem'],
   props: {
     disabled: {
       type: [String, Boolean]
@@ -59,6 +60,10 @@ const input = {
     },
     pattern: {
       type: String
+    },
+    validateEvent: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

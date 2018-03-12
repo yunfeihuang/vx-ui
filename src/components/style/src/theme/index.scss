@@ -1,3 +1,5 @@
+@import '../variable.scss';
+@import '../mixins.scss';
 @import './actionsheet.scss';
 @import './alert.scss';
 @import './badge.scss';
@@ -51,7 +53,7 @@
 @import './toast.scss';
 
 body{
-  font-size:0.28rem;
+  font-size:$font-size-default;
   -webkit-tap-highlight-color:transparent;
   tap-highlight-color:transparent;
 }

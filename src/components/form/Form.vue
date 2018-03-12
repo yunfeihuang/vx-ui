@@ -1,24 +1,17 @@
 <template>
-  <form :class="classes" :action="action" @submit="handleSubmit">
+  <form :class="classes" @submit="handleSubmit">
     <slot></slot>
   </form>
 </template>
 
 <script>
-import messages from './messages.js'
-
-const validityStateArrayMap = [
-  'valueMissing__required',
-  'patternMismatch__pattern'
-]
-
 export default {
   componentName: 'XForm',
   props: {
-    action: {
-      type: String
+    model: {
+      type: Object
     },
-    validator: {
+    submit: {
       type: Function
     }
   },
@@ -27,44 +20,59 @@ export default {
       return [this.$cssPrefix + 'form']
     }
   },
+  provide () {
+    return {
+      xForm: this
+    }
+  },
   data () {
     return {
-      messages: messages
+      fields: []
     }
   },
   methods: {
-    handleSubmit (e) {
-      if (this.validator) {
-        let message = this.validator()
-        if (message) {
-          this.showValidityMessage(message)
-        } else {
-          this.$emit('submit')
-        }
-      } else {
-        this.$emit('submit')
-      }
-      e.preventDefault()
+    addField (field) {
+      this.fields.push(field)
     },
-    getValidityMessage (validityState, name) {
-      let message = ''
-      validityStateArrayMap.forEach((item) => {
-        if (!message && validityState[item.split('__')[0]]) {
-          message = messages[item.split('__')[1]](name)
-        }
+    removeField (field) {
+      this.fields.splice(this.fields.indexOf(field), 1)
+    },
+    resetFields () {
+      this.fields.forEach(field => {
+        field.resetField()
       })
-      return message
     },
-    showValidityMessage (message) {
-      if (!this.invalid) {
-        this.invalid = true
-        this.$toast({
-          content: message,
-          onClose: () => {
-            this.invalid = false
+    clearValidate () {
+      this.fields.forEach(field => {
+        field.clearValidate()
+      })
+    },
+    validate (cb) {
+      let count = 0
+      let valid = true
+      let toast = null
+      this.fields.forEach((field, index) => {
+        field.validate((message) => {
+          count++
+          if (message) {
+            valid = false
+            if (!toast && this.$toast) {
+              toast = this.$toast({
+                content: message
+              })
+            }
+          }
+          if (this.fields.length === count) {
+            cb && cb(valid)
           }
         })
-      }
+      })
+    },
+    handleSubmit (e) {
+      e.preventDefault()
+      this.validate(valid => {
+        valid && this.submit && this.submit()
+      })
     }
   }
 }

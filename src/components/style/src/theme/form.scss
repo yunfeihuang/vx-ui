@@ -2,10 +2,13 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &form-item{
-    @include disabled;
     position:relative;
-    background:#fff;
-    height: 0.9rem;
+    &-inner{
+      @include disabled;
+      position:relative;
+      background:#fff;
+      height: 0.9rem;
+    }
     .#{$css-prefix}input-wrapper,.#{$css-prefix}password{
       position:static;
       background: transparent;
@@ -25,6 +28,15 @@
     }
     &-align-right{
       text-align:right;
+    }
+    &-error{
+      background-color:$color-error;
+      color:#fff;
+      padding:0 0.15rem;
+      font-size: $font-size-small;
+      position:absolute;
+      z-index:2;
+      border-radius:3px;
     }
   }
 }

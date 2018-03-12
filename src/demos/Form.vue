@@ -5,36 +5,26 @@
     </x-nav>
     <x-body slot="body">
       <br />
-      <x-form @submit="handleSubmit" :validator="formValidator">
-        <x-form-item>
-          <span slot="label">姓名</span>
-          <x-input v-model="form.name" :clear="false" required/>
+      <x-form :model="form" :submit="submit">
+        <x-form-item label="姓名" prop="name" :rules="[
+          {required: true, message: '姓名不能为空'},
+          {min: 2, message: '姓名不能小于两字符'}
+          ]">
+          <x-input v-model="form.name"/>
         </x-form-item>
-        <x-form-item>
-          <span slot="label">邮箱</span>
-          <x-input :clear="false" pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" v-model="form.email" required />
+        <x-form-item label="手机号码" prop="mobile" :rules="[
+          {required: true, message: '手机号码不能为空'},
+          {pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: '手机号码格式不正确'}
+          ]">
+          <x-input v-model="form.mobile"/>
         </x-form-item>
-        <x-form-item label="生日">
-          <x-input>
-            <datetime v-model="form.date" placeholder="请输入日期" required/>
-          </x-input>
+        <x-form-item label="邮箱地址" prop="email" :rules="[
+          {required: true, message: '邮箱地址不能为空'},
+          {pattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/, message: '邮箱地址格式不正确'}
+          ]">
+          <x-input v-model="form.email"/>
         </x-form-item>
-        <x-form-item>
-          <span slot="label">性别</span>
-          <x-select
-            v-model="form.sex"
-            :options="sexOptions"
-            placeholder="请选择"
-            required
-            />
-        </x-form-item>
-        <divider></divider>
-        <x-form-item>
-          <span slot="label">是否已婚</span>
-          <x-switch v-model="form.accpet"/>
-        </x-form-item>
-        <br />
-        <div style="padding:0px 10px;">
+        <div style="padding:20px 10px;">
           <x-button type="primary" native-type="submit">提交</x-button>
         </div>
       </x-form>
@@ -45,10 +35,7 @@
 <script>
 export default {
   methods: {
-    formValidator () {
-      console.log('formValidator')
-    },
-    handleSubmit () {
+    submit () {
       this.$toast({
         type: 'loading',
         content: '数据中...',
@@ -65,23 +52,9 @@ export default {
     return {
       form: {
         name: '',
-        sex: '',
-        type: '',
-        email: '',
-        accpet: true,
-        date: undefined
-      },
-      sexOptions: [
-        {
-          label: '男',
-          value: '1',
-          selected: true
-        },
-        {
-          label: '女',
-          value: '2'
-        }
-      ]
+        mobile: '',
+        email: ''
+      }
     }
   }
 }

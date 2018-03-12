@@ -17,9 +17,6 @@
 
 <script>
 export default {
-  mounted () {
-    console.log(this.$refs.button.$options.componentName)
-  },
   data () {
     return {
       account: '',
