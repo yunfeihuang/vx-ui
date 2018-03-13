@@ -34,6 +34,8 @@
 | -     | -   | -  |   -       |    -    |
 | value     | 值   | String,Boolean  |     -     |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| onValue     | 选中的value设定值   | String  |   -       |    -    |
+| offValue     | 没有选中的value设定值   | String  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
