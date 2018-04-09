@@ -4,19 +4,19 @@
       <x-nav slot="header" :back="false">
         <div slot="title">CNode-专业中文社区</div>
         <tab :active="home.active" @change="handleActive">
-          <tab-item>
+          <tab-item :name="0">
             全部
           </tab-item>
-          <tab-item>
+          <tab-item :name="1">
             精华
           </tab-item>
-          <tab-item>
+          <tab-item :name="2">
             分享
           </tab-item>
-          <tab-item>
+          <tab-item :name="3">
             问答
           </tab-item>
-          <tab-item>
+          <tab-item :name="4">
             招聘
           </tab-item>
         </tab>
