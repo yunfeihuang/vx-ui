@@ -99,8 +99,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
   .github{
     text-align:center;
     padding-top:0.2rem;

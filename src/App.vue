@@ -11,8 +11,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~styles/variable.scss';
-@import '~styles/mixins.scss';
 #app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
