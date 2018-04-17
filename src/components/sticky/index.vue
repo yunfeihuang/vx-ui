@@ -21,20 +21,20 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.$scrollNode = this.getScrollNode(this.$el.offsetParent)
-      if (this.$scrollNode) {
-        this.$childNode = this.$el.querySelector('.' + this.$cssPrefix + 'sticky-inner')
-        this.$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
-        this.$scrollNode.addEventListener('scroll', this.handleScroll, false)
+      this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
+      if (this.$$scrollNode) {
+        this.$$childNode = this.$el.querySelector('.' + this.$cssPrefix + 'sticky-inner')
+        this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
+        this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
       }
     })
   },
   methods: {
     handleTouchStart () {
-      this.$el.style.height = this.$childNode.offsetHeight + 'px'
+      this.$el.style.height = this.$$childNode.offsetHeight + 'px'
       this.$myData = {
         offsetTop: this.$el.offsetTop,
-        fixedTop: this.fixedTop || this.$scrollNode.offsetTop + 'px'
+        fixedTop: this.fixedTop || this.$$scrollNode.offsetTop + 'px'
       }
     },
     handleScroll (e) {
@@ -43,12 +43,12 @@ export default {
       }
       if (e.target.scrollTop > this.$myData.offsetTop) {
         this.$el.classList.add('v-sticky-fixed')
-        if (this.$childNode.style.top !== this.$myData.fixedTop) {
-          this.$childNode.style.top = this.$myData.fixedTop
+        if (this.$$childNode.style.top !== this.$myData.fixedTop) {
+          this.$$childNode.style.top = this.$myData.fixedTop
         }
       } else {
         this.$el.classList.remove('v-sticky-fixed')
-        this.$childNode.style.top = ''
+        this.$$childNode.style.top = ''
       }
     },
     getScrollNode (node) {
@@ -69,8 +69,8 @@ export default {
     }
   },
   destroyed () {
-    this.$scrollNode.removeEventListener('scroll', this.handleScroll)
-    this.$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
+    this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
+    this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
   }
 }
 </script>

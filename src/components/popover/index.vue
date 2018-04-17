@@ -51,7 +51,7 @@ export default {
       let node = document.createElement('div')
       document.body.appendChild(node)
       /* eslint-disable no-new */
-      this.$popover = new Vue({
+      this.$$popover = new Vue({
         el: node,
         render (createElement) {
           return createElement(Popup, {
@@ -75,7 +75,7 @@ export default {
           histroy: popover.histroy
         },
         mounted () {
-          let node = this.$popoverContent = document.createElement('div')
+          let node = this.$$popoverContent = document.createElement('div')
           node.style.visibility = 'hidden'
           node.className = this.$cssPrefix + 'popover-content'
           popover.popoverClass && node.classList.add(popover.popoverClass)
@@ -108,7 +108,7 @@ export default {
         destroyed () {
           requestAnimationFrame(() => {
             this.$el.parentNode.removeChild(this.$el)
-            this.$popoverContent.parentNode.removeChild(this.$popoverContent)
+            this.$$popoverContent.parentNode.removeChild(this.$$popoverContent)
           })
         },
         methods: {
@@ -123,10 +123,10 @@ export default {
       this.$emit('open')
     },
     handleClickPopover () {
-      if (this.$popover) {
-        this.$popover.open = false
+      if (this.$$popover) {
+        this.$$popover.open = false
         setTimeout(() => {
-          this.$popover.$destroy()
+          this.$$popover.$destroy()
         }, 200)
       }
     }

@@ -45,7 +45,7 @@ export default {
   },
   provide () {
     return {
-      xFormItem: this
+      vxFormItem: this
     }
   },
   inject: ['xForm'],

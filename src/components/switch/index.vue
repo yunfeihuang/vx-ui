@@ -18,6 +18,7 @@ import { input } from 'utils/mixins.js'
 export default {
   componentName: 'XSwitch',
   mixins: [input],
+  inject: ['vxFormItem'],
   props: {
     value: {
       type: [Boolean, String, Number],

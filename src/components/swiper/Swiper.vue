@@ -65,17 +65,17 @@ export default {
       if (this.scrollbar) {
         options.scrollbar = '.swiper-scrollbar'
       }
-      this.$swiper = new Swiper(this.$el, options)
+      this.$$swiper = new Swiper(this.$el, options)
     })
   },
   watch: {
     active (value) {
-      this.$swiper.activeIndex !== value && this.$swiper.slideTo(value)
+      this.$$swiper.activeIndex !== value && this.$$swiper.slideTo(value)
     }
   },
   methods: {
     getSwiper () {
-      return this.$swiper
+      return this.$$swiper
     }
   }
 }

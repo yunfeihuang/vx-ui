@@ -52,17 +52,17 @@ export default {
           this.$emit('change', swiper.activeIndex).$emit('input', swiper.activeIndex)
         }
       }, this.options)
-      this.$swiper = new Swiper(this.$el, options)
+      this.$$swiper = new Swiper(this.$el, options)
     })
   },
   watch: {
     active (value) {
-      this.$swiper.activeIndex !== value && this.$swiper.slideTo(value)
+      this.$$swiper.activeIndex !== value && this.$$swiper.slideTo(value)
     }
   },
   methods: {
     getSwiper () {
-      return this.$swiper
+      return this.$$swiper
     }
   }
 }

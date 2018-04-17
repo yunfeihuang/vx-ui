@@ -46,11 +46,11 @@ export default {
     this.value && this.updateLabel(this.value)
   },
   destroyed () {
-    if (this.$popup) {
-      this.$popup.open = false
+    if (this.$$popup) {
+      this.$$popup.open = false
       setTimeout(() => {
-        this.$popup.$destroy()
-        this.$popup = null
+        this.$$popup.$destroy()
+        this.$$popup = null
       }, 2000)
     }
   },
@@ -73,10 +73,10 @@ export default {
         } else {
           document.body.appendChild(node)
         }
-        this.$myOptions = this.getOptions()
-        if (this.$myOptions.length) {
+        this.$$myOptions = this.getOptions()
+        if (this.$$myOptions.length) {
           /* eslint-disable no-new */
-          this.$popup = new Vue({
+          this.$$popup = new Vue({
             el: node,
             render (createElement) {
               return createElement(Picker, {
@@ -95,7 +95,7 @@ export default {
               })
             },
             data: {
-              options: this.$myOptions,
+              options: this.$$myOptions,
               open: false,
               value: this.value,
               classes: this.$cssPrefix + 'select-picker',
@@ -132,9 +132,9 @@ export default {
       }
     },
     updateLabel (value) {
-      this.$myOptions = this.getOptions()
+      this.$$myOptions = this.getOptions()
       if (this.max === 1) {
-        this.$myOptions && this.$myOptions.forEach(item => {
+        this.$$myOptions && this.$$myOptions.forEach(item => {
           if (item.value === value) {
             this.myLabel = item.label
             this.$emit('update:label', item.label)
@@ -142,7 +142,7 @@ export default {
         })
       } else {
         let label = []
-        this.$myOptions && this.$myOptions.forEach(item => {
+        this.$$myOptions && this.$$myOptions.forEach(item => {
           value && value.indexOf(item.value) > -1 && label.push(item.label)
         })
         this.myLabel = label.toString()

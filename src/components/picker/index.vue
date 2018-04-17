@@ -71,14 +71,14 @@ export default {
     }
   },
   created () {
-    this.$touch = {}
+    this.$$touch = {}
   },
   mounted () {
-    this.$touch.scrollElement = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
+    this.$$touch.scrollElement = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
     requestAnimationFrame(this.scrollToActive)
   },
   destroyed () {
-    this.$touch = null
+    this.$$touch = null
   },
   methods: {
     scrollToActive () {
@@ -90,26 +90,26 @@ export default {
         }
       })
       requestAnimationFrame(() => {
-        this.$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
+        this.$$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
       })
     },
     handleTouchEnd () {
-      this.$touch.scrollEnd = true
+      this.$$touch.scrollEnd = true
       this.computedScrollTop()
     },
     handleTouchMove (e) {
       let pageY = e.changedTouches[0].pageY
       if (this.pageY) {
-        if (this.$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
-          this.$pullTimer && clearTimeout(this.$pullTimer)
-          this.$pullTimer = setTimeout(() => {
+        if (this.$$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
+          this.$$pullTimer && clearTimeout(this.$$pullTimer)
+          this.$$pullTimer = setTimeout(() => {
             this.$emit('pulldown')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
-        } else if (Math.round(this.$touch.scrollElement.scrollTop) === this.$touch.maxScrollTop && pageY - this.pageY < 0) {
-          this.$pullTimer && clearTimeout(this.$pullTimer)
-          this.$pullTimer = setTimeout(() => {
+        } else if (Math.round(this.$$touch.scrollElement.scrollTop) === this.$$touch.maxScrollTop && pageY - this.pageY < 0) {
+          this.$$pullTimer && clearTimeout(this.$$pullTimer)
+          this.$$pullTimer = setTimeout(() => {
             this.$emit('pullup')
           }, 500)
           e.preventDefault()
@@ -119,21 +119,21 @@ export default {
       this.pageY = pageY
     },
     handleTouchStart (e) {
-      this.$touch.scrollEnd = false
-      this.$touch.maxScrollTop = this.$touch.scrollElement.scrollHeight - this.$touch.scrollElement.offsetHeight
+      this.$$touch.scrollEnd = false
+      this.$$touch.maxScrollTop = this.$$touch.scrollElement.scrollHeight - this.$$touch.scrollElement.offsetHeight
       this.pageY = e.changedTouches[0].pageY
-      this.$timer && clearTimeout(this.$timer)
-      this.$pullTimer && clearTimeout(this.$pullTimer)
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$$pullTimer && clearTimeout(this.$$pullTimer)
     },
     scrollHandlder () {
-      if (this.$touch && this.$touch.scrollEnd) {
+      if (this.$$touch && this.$$touch.scrollEnd) {
         this.computedScrollTop()
       }
     },
     computedScrollTop () {
-      this.$timer && clearTimeout(this.$timer)
-      this.$timer = setTimeout(() => {
-        this.$touch.scrollEnd = false
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$$timer = setTimeout(() => {
+        this.$$touch.scrollEnd = false
         let node = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
         let _scrollTop = node.scrollTop
         let index = Math.round(_scrollTop / 42)

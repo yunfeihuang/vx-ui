@@ -45,30 +45,30 @@ export default {
   },
   watch: {
     open (value) {
-      this.setTranslateX(value ? -this.$touch.maxTranslateX : 0)
+      this.setTranslateX(value ? -this.$$touch.maxTranslateX : 0)
     }
   },
   created () {
-    this.$touch = {}
+    this.$$touch = {}
   },
   mounted () {
     let node = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-action')
-    this.$touch.maxTranslateX = node.offsetWidth
-    this.$touch.el = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-inner')
+    this.$$touch.maxTranslateX = node.offsetWidth
+    this.$$touch.el = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-inner')
     requestAnimationFrame(() => {
       node.style.height = node.parentNode.offsetHeight + 'px'
-      this.open && this.setTranslateX(-this.$touch.maxTranslateX, null, false)
+      this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
     })
   },
   destroyed () {
     if (swipeoutVue === this) {
       swipeoutVue = null
     }
-    this.$touch = null
+    this.$$touch = null
   },
   methods: {
     setTranslateX (x, el, transition = true) {
-      el = el || this.$touch.el
+      el = el || this.$$touch.el
       swipeoutVue = x < 0 ? this : null
       el.style.webkitTransition = el.style.transition = transition ? '' : 'none'
       el.style.webkitTransform = el.style.transform = 'translateX(' + x + 'px)'
@@ -77,13 +77,13 @@ export default {
       if (!this.disabled) {
         swipeoutVue && swipeoutVue !== this && swipeoutVue.handleAction()
         let currentTranslateX = 0
-        if (this.$touch.el) {
-          let transform = this.$touch.el.style.transform || this.$touch.el.style.webkitTransform
+        if (this.$$touch.el) {
+          let transform = this.$$touch.el.style.transform || this.$$touch.el.style.webkitTransform
           if (transform) {
             currentTranslateX = parseInt(transform.match(/[-\d]+/g)[0])
           }
         }
-        Object.assign(this.$touch, this.getPosition(e), {
+        Object.assign(this.$$touch, this.getPosition(e), {
           start: true,
           currentTranslateX: currentTranslateX
         })
@@ -95,34 +95,34 @@ export default {
     },
     handleTouchMove (e) {
       let {pageY, pageX} = this.getPosition(e)
-      if (this.$touch.start && Math.abs(pageY - this.$touch.pageY) < Math.abs(pageX - this.$touch.pageX)) {
-        this.$touch.diffX = pageX - this.$touch.pageX
-        this.$touch.translateX = this.$touch.diffX + this.$touch.currentTranslateX
-        this.$touch.translateX = this.$touch.translateX > 0 ? 0 : this.$touch.translateX
-        if (Math.abs(this.$touch.translateX) > this.$touch.maxTranslateX) {
-          this.$touch.translateX = this.$touch.translateX > 0 ? this.$touch.maxTranslateX : -this.$touch.maxTranslateX
+      if (this.$$touch.start && Math.abs(pageY - this.$$touch.pageY) < Math.abs(pageX - this.$$touch.pageX)) {
+        this.$$touch.diffX = pageX - this.$$touch.pageX
+        this.$$touch.translateX = this.$$touch.diffX + this.$$touch.currentTranslateX
+        this.$$touch.translateX = this.$$touch.translateX > 0 ? 0 : this.$$touch.translateX
+        if (Math.abs(this.$$touch.translateX) > this.$$touch.maxTranslateX) {
+          this.$$touch.translateX = this.$$touch.translateX > 0 ? this.$$touch.maxTranslateX : -this.$$touch.maxTranslateX
         }
-        this.setTranslateX(this.$touch.translateX, this.$touch.el, false)
+        this.setTranslateX(this.$$touch.translateX, this.$$touch.el, false)
         e.stopPropagation()
         e.preventDefault()
       }
     },
     handleTouchEnd (e) {
-      if (this.$touch.start) {
-        this.$touch.start = false
-        if (this.$touch.diffX === 0) {
+      if (this.$$touch.start) {
+        this.$$touch.start = false
+        if (this.$$touch.diffX === 0) {
           this.$emit('click', this.$el)
         }
-        if (Math.abs(this.$touch.diffX) > 60) {
-          this.$touch.translateX = this.$touch.diffX < 0 ? -this.$touch.maxTranslateX : 0
+        if (Math.abs(this.$$touch.diffX) > 60) {
+          this.$$touch.translateX = this.$$touch.diffX < 0 ? -this.$$touch.maxTranslateX : 0
         } else {
-          this.$touch.translateX = this.$touch.currentTranslateX
+          this.$$touch.translateX = this.$$touch.currentTranslateX
         }
         requestAnimationFrame(() => {
-          this.setTranslateX(this.$touch.translateX)
+          this.setTranslateX(this.$$touch.translateX)
         })
-        if (this.$touch.currentTranslateX !== this.$touch.translateX) {
-          this.$emit(this.$touch.translateX === 0 ? 'close' : 'open')
+        if (this.$$touch.currentTranslateX !== this.$$touch.translateX) {
+          this.$emit(this.$$touch.translateX === 0 ? 'close' : 'open')
         }
         document.removeEventListener('touchmove', this.handleTouchMove)
         document.removeEventListener('touchend', this.handleTouchEnd)

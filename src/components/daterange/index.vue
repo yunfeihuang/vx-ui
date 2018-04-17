@@ -73,7 +73,7 @@ export default {
         value = [new Date(this.value[0].getFullYear(), this.value[0].getMonth(), this.value[0].getDate()), new Date(this.value[1].getFullYear(), this.value[1].getMonth(), this.value[1].getDate())]
       }
       /* eslint-disable no-new */
-      this.$daterangePicker = new Vue({
+      this.$$daterangePicker = new Vue({
         el: node,
         render (createElement) {
           return createElement(DaterangePicker, {
@@ -114,7 +114,7 @@ export default {
     }
   },
   destroyed () {
-    this.$daterangePicker && this.$daterangePicker.$destroy()
+    this.$$daterangePicker && this.$$daterangePicker.$destroy()
   }
 }
 </script>

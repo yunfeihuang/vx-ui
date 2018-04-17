@@ -46,11 +46,11 @@ export default {
     }
   },
   mounted () {
-    this.$scrollNode = this.getScrollNode(this.$el.offsetParent)
-    if (!this.$scrollNode.lazyloadImages) {
-      this.$scrollNode.lazyloadImages = []
-      this.$scrollNode.scrollTimer = null
-      this.$scrollNode.onscroll = (e) => {
+    this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
+    if (!this.$$scrollNode.lazyloadImages) {
+      this.$$scrollNode.lazyloadImages = []
+      this.$$scrollNode.scrollTimer = null
+      this.$$scrollNode.onscroll = (e) => {
         e.target.scrollTimer && clearTimeout(e.target.scrollTimer)
         e.target.scrollTimer = setTimeout(() => {
           e.target.lazyloadImages = e.target.lazyloadImages.filter((item, index) => {
@@ -68,7 +68,7 @@ export default {
       if (this.inViewPort()) {
         this.setSource()
       } else {
-        this.$scrollNode.lazyloadImages.push({
+        this.$$scrollNode.lazyloadImages.push({
           img: this,
           loaded: false
         })
@@ -77,7 +77,7 @@ export default {
   },
   destroyed () {
     let self = this
-    this.$scrollNode.lazyloadImages = this.$scrollNode.lazyloadImages.filter((item) => {
+    this.$$scrollNode.lazyloadImages = this.$$scrollNode.lazyloadImages.filter((item) => {
       return item !== self
     })
   },

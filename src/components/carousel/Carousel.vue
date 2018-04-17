@@ -70,18 +70,18 @@ export default {
       this.autoplay && this.toInterval()
     },
     handleMouseEnter (index) {
-      this.$interval && clearInterval(this.$interval)
+      this.$$interval && clearInterval(this.$$interval)
       if (index !== -1) {
         this.activeIndex = index
       }
     },
     handleMouseLeave () {
-      this.$interval && clearInterval(this.$interval)
+      this.$$interval && clearInterval(this.$$interval)
       this.toInterval()
     },
     toInterval () {
-      clearInterval(this.$interval)
-      this.$interval = setInterval(() => {
+      clearInterval(this.$$interval)
+      this.$$interval = setInterval(() => {
         if (this.activeIndex === this.length - 1) {
           this.activeIndex = 0
         } else {

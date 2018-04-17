@@ -84,7 +84,7 @@ export default {
       let valueNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
       let tipsNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
       let maskNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-mask')
-      this.$range = {
+      this.$$range = {
         maxLeft: maskNode.offsetWidth - controlNode.offsetWidth,
         controlNode,
         valueNode,
@@ -92,9 +92,9 @@ export default {
       }
     },
     renderRange (value = this.myValue) {
-      let left = Math.round((value - this.min) / this.range * this.$range.maxLeft) + 'px'
-      this.$range.controlNode.style.left = this.$range.valueNode.style.width = left
-      this.$range.tipsNode.innerHTML = this.myValue
+      let left = Math.round((value - this.min) / this.range * this.$$range.maxLeft) + 'px'
+      this.$$range.controlNode.style.left = this.$$range.valueNode.style.width = left
+      this.$$range.tipsNode.innerHTML = this.myValue
     },
     handleChange (val) {
       this.$emit('change', val).$emit('input', val)
@@ -104,11 +104,11 @@ export default {
       if (!this.disabled) {
         let position = this.getPosition(e)
         let start = true
-        let buttonLeft = this.$range.controlNode.style.left
+        let buttonLeft = this.$$range.controlNode.style.left
         let touch = Object.assign({
           left: buttonLeft ? parseFloat(buttonLeft) : 0
         }, position)
-        this.$range.tipsNode.style.display = 'block'
+        this.$$range.tipsNode.style.display = 'block'
         let self = this
         let value = this.myValue
         let handleTouchMove = (event) => {
@@ -116,10 +116,10 @@ export default {
             let movePosition = self.getPosition(event)
             let left = movePosition.pageX - position.pageX + touch.left
             left = left < 0 ? 0 : left
-            left = left > this.$range.maxLeft ? this.$range.maxLeft : left
+            left = left > this.$$range.maxLeft ? this.$$range.maxLeft : left
             buttonLeft = left
-            this.$range.controlNode.style.left = this.$range.valueNode.style.width = left + 'px'
-            this.$range.tipsNode.innerHTML = value = Math.round((buttonLeft / this.$range.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
+            this.$$range.controlNode.style.left = this.$$range.valueNode.style.width = left + 'px'
+            this.$$range.tipsNode.innerHTML = value = Math.round((buttonLeft / this.$$range.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
             event.preventDefault()
           }
         }
@@ -127,7 +127,7 @@ export default {
           document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove)
           document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd)
           start = false
-          this.$range.tipsNode.style.display = 'none'
+          this.$$range.tipsNode.style.display = 'none'
           self.handleChange(value)
         }
         document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove, false)

@@ -55,7 +55,7 @@ export default {
         document.body.appendChild(node)
       }
       /* eslint-disable no-new */
-      this.$datetimePicker = new Vue({
+      this.$$datetimePicker = new Vue({
         el: node,
         render (createElement) {
           return createElement(DatetimePicker, {
@@ -99,7 +99,7 @@ export default {
     }
   },
   destroyed () {
-    this.$datetimePicker && this.$datetimePicker.$destroy()
+    this.$$datetimePicker && this.$$datetimePicker.$destroy()
   }
 }
 </script>

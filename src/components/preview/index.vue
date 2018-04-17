@@ -82,15 +82,15 @@ export default {
           index: index
         }, this.options)
         this.$el.style.display = 'block'
-        this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
-        this.photoswipe.init()
-        this.photoswipe.listen('close', () => {
+        this.$$photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
+        this.$$photoswipe.init()
+        this.$$photoswipe.listen('close', () => {
           this.$emit('close')
         })
       })
     },
     close () {
-      this.photoswipe.close()
+      this.$$photoswipe.close()
     }
   }
 }

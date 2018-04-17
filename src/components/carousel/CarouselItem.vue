@@ -19,12 +19,12 @@ export default {
         if (this.$parent.isIE9()) {
           if (active) {
             let opacity = 0
-            clearInterval(this.$interval)
-            this.$interval = setInterval(() => { // eslint-disable-line
+            clearInterval(this.$$interval)
+            this.$$interval = setInterval(() => { // eslint-disable-line
               opacity += 10
               this.$el.style.opacity = opacity / 100 // eslint-disable-line
               if (opacity >= 100) {
-                clearInterval(this.$interval)
+                clearInterval(this.$$interval)
               }
             }, 32)
           } else {

@@ -36,7 +36,7 @@ export default {
   },
   mounted () {
     this.$textarea = this.$el.querySelector('textarea')
-    this.$shadow = this.$el.querySelector('.' + this.$cssPrefix + 'textarea-shadow')
+    this.$$shadow = this.$el.querySelector('.' + this.$cssPrefix + 'textarea-shadow')
     this.renderAutoHeight(this.$textarea.value)
   },
   data () {
@@ -51,8 +51,8 @@ export default {
     },
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
-        this.$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
-        this.$el.style.height = this.$shadow.clientHeight + 'px'
+        this.$$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
+        this.$el.style.height = this.$$shadow.clientHeight + 'px'
       })
     }
   }

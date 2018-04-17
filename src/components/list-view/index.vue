@@ -82,13 +82,13 @@ export default {
         this.$el.addEventListener('mouseup', this.handleTouchEnd)
       }
     }
-    this.$height = this.$el.offsetHeight
-    this.$touch = {
+    this.$$height = this.$el.offsetHeight
+    this.$$touch = {
       inner: this.$el.querySelector('.' + this.$cssPrefix + 'list-view-inner')
     }
   },
   destroyed () {
-    this.$touch = null
+    this.$$touch = null
   },
   methods: {
     handlePulldown () {
@@ -98,7 +98,7 @@ export default {
       this.$emit('pullup')
     },
     handleScroll (e) {
-      if (this.$el.scrollHeight - this.$height - this.$el.scrollTop <= 1) {
+      if (this.$el.scrollHeight - this.$$height - this.$el.scrollTop <= 1) {
         this.$emit('pullup', e)
       }
     },
@@ -117,67 +117,67 @@ export default {
     },
     handleTouchStart (e) {
       if (!this.loading) {
-        if (!this.$touch.pageY && this.$el.scrollTop === 0) {
+        if (!this.$$touch.pageY && this.$el.scrollTop === 0) {
           let {pageX, pageY} = this.getPosition(e)
-          this.$touch.pageY = pageY
-          this.$touch.pageX = pageX
+          this.$$touch.pageY = pageY
+          this.$$touch.pageX = pageX
         }
       }
     },
     handleTouchMove (e) {
       let {pageY, pageX} = this.getPosition(e)
-      if (this.$touch.pageY && this.$touch.pageY < pageY && Math.abs(pageY - this.$touch.pageY) > Math.abs(pageX - this.$touch.pageX)) {
+      if (this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
         e.preventDefault()
         e.stopPropagation()
-        let top = pageY - this.$touch.pageY
+        let top = pageY - this.$$touch.pageY
         top = top > 100 ? 100 : top
         let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translateY(' + top + 'px);transform:translateY(' + top + 'px);'
-        this.$touch.inner.style.cssText = cssText
-        if (this.$touch.pageY && pageY - this.$touch.pageY > 60) {
-          this.$touch.inner.classList.add('active')
+        this.$$touch.inner.style.cssText = cssText
+        if (this.$$touch.pageY && pageY - this.$$touch.pageY > 60) {
+          this.$$touch.inner.classList.add('active')
         } else {
-          this.$touch.inner.classList.remove('active')
+          this.$$touch.inner.classList.remove('active')
         }
       }
-      if (!this.$touch.pageY && this.scrollTop <= 0) {
-        this.$touch.pageY = pageY
+      if (!this.$$touch.pageY && this.scrollTop <= 0) {
+        this.$$touch.pageY = pageY
       } else if (this.scrollTop > 0) {
-        this.$touch.pageY = 0
+        this.$$touch.pageY = 0
       }
     },
     handleTouchEnd (e) {
       let {pageY} = this.getPosition(e)
-      if (this.$touch.pageY && this.$touch.inner && this.$touch.pageY < pageY) {
-        if (pageY - this.$touch.pageY > 60) {
+      if (this.$$touch.pageY && this.$$touch.inner && this.$$touch.pageY < pageY) {
+        if (pageY - this.$$touch.pageY > 60) {
           setTimeout(() => {
             let cssText = '-webkit-transform:translateY(40px);transform:translateY(40px);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;'
-            this.$touch.inner.style.cssText = cssText
+            this.$$touch.inner.style.cssText = cssText
             setTimeout(() => {
-              this.$touch.inner.classList.remove('active')
-              this.$touch.inner.classList.add('loading')
+              this.$$touch.inner.classList.remove('active')
+              this.$$touch.inner.classList.add('loading')
               this.$emit('pulldown', e)
             }, 500)
           }, 600)
         } else {
           let cssText = '-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-          this.$touch.inner.style.cssText = cssText
+          this.$$touch.inner.style.cssText = cssText
           setTimeout(() => {
-            this.$touch.inner.classList.remove('active')
-            this.$touch.inner.style.cssText = ''
+            this.$$touch.inner.classList.remove('active')
+            this.$$touch.inner.style.cssText = ''
           }, 500)
         }
-        if (this.$touch.pageY !== pageY) {
+        if (this.$$touch.pageY !== pageY) {
           e.stopPropagation()
           e.preventDefault()
         }
       }
-      this.$touch.pageY = 0
+      this.$$touch.pageY = 0
     },
     stopLoading () {
-      if (this.$touch && this.$touch.inner && this.$touch.inner.className.indexOf('loading') > -1) {
+      if (this.$$touch && this.$$touch.inner && this.$$touch.inner.className.indexOf('loading') > -1) {
         let cssText = '-webkit-transform:translateY(0);transform:translateY(0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-        this.$touch.inner.style.cssText = cssText
-        this.$touch.inner.classList.remove('loading')
+        this.$$touch.inner.style.cssText = cssText
+        this.$$touch.inner.classList.remove('loading')
       }
     }
   }
