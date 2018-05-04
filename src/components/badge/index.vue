@@ -12,7 +12,7 @@ export default {
     myText () {
       if (typeof this.text === 'number' && this.max) {
         if (this.text > this.max) {
-          return `<span class="badge-ellipsis">${this.ellipsis}</span>`
+          return `<span class="badge-ellipsis"></span>`
         }
       }
       return this.text
@@ -26,10 +26,6 @@ export default {
     max: {
       type: Number,
       default: 9
-    },
-    ellipsis: {
-      type: String,
-      default: '•••'
     }
   }
 }

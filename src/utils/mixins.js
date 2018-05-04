@@ -10,6 +10,10 @@ const button = {
     nativeType: {
       type: String,
       default: 'button'
+    },
+    plain: {
+      type: Boolean,
+      default: false
     }
   }
 }

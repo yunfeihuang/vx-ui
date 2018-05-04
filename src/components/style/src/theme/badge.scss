@@ -20,7 +20,14 @@
       top:-1px;
     }
     .badge-ellipsis{
-      margin:0 -3px;
+      margin:0 5px;
+      border-radius:50%;
+      background:#fff;
+      display:inline-block;
+      height:4px;
+      width:4px;
+      vertical-align: middle;
+      box-shadow: -5px 0px 0px 0px #fff,5px 0px 0px 0px #fff
     }
   }
 }

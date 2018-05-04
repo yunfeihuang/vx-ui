@@ -11,11 +11,11 @@
     &-inner{
       position:relative;
       background:#fff;
-      &:before,&:after{
-        @include divider
+      &:after{
+        @include divider;
       }
-      &:before{
-        top:0;
+      &:last-child:after{
+        display:none;
       }
     }
   }

@@ -1,6 +1,6 @@
 @mixin disabled{
   &[disabled]{
-    opacity:0.5;
+    opacity:0.6;
     pointer-events: none;
     @content;
   }
@@ -37,18 +37,19 @@
   -webkit-overflow-scrolling: touch; 
   overflow-scrolling: touch;
 }
-@mixin _1px($color:$border-color-base) {
-  border-bottom:none;
-  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(50%,transparent),color-stop(50%,transparent),color-stop(100%,$color));
-  background-image: -webkit-linear-gradient(top,transparent 50%,$color 50%,$color 100%);
-  background-image: linear-gradient(to bottom,transparent 50%,$color 50%,$color 100%);
-  -webkit-background-size: 100% 1px;
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  background-position: bottom;
+
+@mixin _divider($border-color : $border-color-base,$resolution:1) {
+  $var : 3%;
+  @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
+    background-color:darken($border-color,$resolution*$var);
+    transform:scaleY(1/$resolution);
+  }
+  @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
+    background-color:darken($border-color,$resolution*$var);
+    transform:scaleY(1/$resolution);
+  }
 }
-@mixin divider ($color:$border-color-base){
-  border-bottom:1px solid $color;
+@mixin divider ($color:$color-divider){
   content:'';
   display:block;
   height:1px;
@@ -56,22 +57,27 @@
   bottom:0;
   left:0;
   width:100%;
-  @media screen and (-webkit-min-device-pixel-ratio: 2) {
-    @include _1px($color);
+  background-color:$color;
+  @include _divider($color,2);
+  @include _divider($color,3);
+  @include _divider($color,4);
+  @include _divider($color,5);
+  @include _divider($color,6);
+}
+
+@mixin _divider-vertical($border-color : $border-color-base,$resolution:1) {
+  $var : 3%;
+  @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
+    background-color:darken($border-color,$resolution*$var);
+    transform:scaleX(1/$resolution);
   }
-  @media screen and (min-resolution: 2dppx) {
-    @include _1px($color);
+  @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
+    background-color:darken($border-color,$resolution*$var);
+    transform:scaleX(1/$resolution);
   }
 }
-@mixin _1px-vertical($color:$border-color-base) {
-  background-color:transparent;
-  background-image: -webkit-linear-gradient(left,$color 50%,transparent 50%,transparent 100%);
-  background-image: linear-gradient(to right,$color 50%,transparent 50%,transparent 100%);
-  -webkit-background-size: 1px 100%;
-  background-size: 1px 100%;
-  background-repeat: no-repeat;
-}
-@mixin divider-vertical($color:$border-color-base){
+
+@mixin divider-vertical($color:$color-divider){
   content:'';
   display:block;
   width:1px;
@@ -79,13 +85,12 @@
   top:0;
   left:0;
   height:100%;
-  background-color:$border-color-base;
-  @media screen and (-webkit-min-device-pixel-ratio: 2) {
-    @include _1px-vertical($color);
-  }
-  @media screen and (min-resolution: 2dppx) {
-    @include _1px-vertical($color);
-  }
+  background-color:$color;
+  @include _divider-vertical($color,2);
+  @include _divider-vertical($color,3);
+  @include _divider-vertical($color,4);
+  @include _divider-vertical($color,5);
+  @include _divider-vertical($color,6);
 }
 @mixin arrow($rotate:45deg){
   content:'';
@@ -101,8 +106,9 @@
   transform:rotate($rotate);
 }
 @mixin _round-border($border-color : $border-color-base,$border-radius : $border-radius-base,$resolution:1) {
+  $var : 3%;
   @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
-    border:1px solid darken($border-color,$resolution*3%);
+    border-color:darken($border-color,$resolution*$var);
     width:$resolution*100%;
     height:$resolution*100%;
     transform:scale(1/$resolution);
@@ -111,7 +117,7 @@
     top:if($resolution%2==1,-100%,-50%);
   }
   @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
-    border:1px solid darken($border-color,$resolution*3%);
+    border-color:darken($border-color,$resolution*$var);
     width:$resolution*100%;
     height:$resolution*100%;
     transform:scale(1/$resolution);

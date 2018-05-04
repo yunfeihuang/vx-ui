@@ -2,7 +2,17 @@
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
+// 获取当前电脑IP
 const path = require('path')
+var os = require('os'),iptable = {},ifaces = os.networkInterfaces();
+for (var dev in ifaces) {
+  ifaces[dev].forEach(function(details,alias){
+    if (details.family=='IPv4') {
+      iptable[dev+(alias?':'+alias:'')]=details.address;
+    }
+  });
+}
+const HOST = Object.values(iptable)[0]
 
 module.exports = {
   dev: {
@@ -13,9 +23,9 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: HOST || 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

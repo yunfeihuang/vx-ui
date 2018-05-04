@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
   aside{
     line-height:1;
     h4{

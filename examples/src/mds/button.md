@@ -2,11 +2,16 @@
 
 ```html
 <template>
-  <x-button>default</x-button>
+  <x-button ref="button">default</x-button>
   <x-button type="primary">primary</x-button>
-  <x-button type="dashed">dashed</x-button>
+  <x-button type="danger">danger</x-button>
   <x-button type="warning">warning</x-button>
-  <x-button type="primary" disabled>disabled</x-button>
+  <x-button type="primary" plain>plain primary</x-button>
+  <x-button type="danger" plain>plain danger</x-button>
+  <x-button type="warning" plain>plain warning</x-button>
+  <x-button disabled>disabled</x-button>
+  <x-button type="primary" disabled>primary disabled</x-button>
+  <x-button type="danger" plain disabled>plain danger disabled</x-button>
 </template>
 ```
 
@@ -15,6 +20,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | type     | 按钮类型   | String  |   default,primary,dashed,warning       |    default    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| plain     | 是否plain风格   | Boolean  |   -       |    false    |
 | nativeType     | 原生type类型   | -  |   -       |    button    |
 | -     | -   | -  |   -       |    -    |
 

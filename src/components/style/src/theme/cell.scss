@@ -17,6 +17,9 @@
     &:after{
       @include divider;
     }
+    &:last-child:after{
+      display:none;
+    }
   }
   &cell-access{
     @include active;

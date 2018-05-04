@@ -12,35 +12,38 @@
     border-radius:$border-radius-base;
     font-size: inherit;
     cursor: default;
-    @include round-border;
+    &-default{
+      @include round-border;
+    }
     &:active{
       box-shadow:1px 0 100px rgba(0,0,0,0.15) inset;
     }
     &-primary{
       background-color:$color-primary;
       color:#fff;
-      &:before{
-        border-color:$color-primary;
-        display:none;
+      &.is-plain{
+        background-color:#fff;
+        color:$color-primary;
+        @include round-border($color-primary);
       }
     }
     &-warning{
       background-color:$color-warning;
       color:#fff;
-      &:before{
-        border-color:$color-warning;
-        display:none;
+      &.is-plain{
+        background-color:#fff;
+        color:$color-warning;
+        @include round-border($color-warning);
       }
     }
-    &-dashed{
-      background-color:#fff;
-      color:$color-primary;
+    &-danger{
+      background-color:$color-danger;
+      color:#fff;
       border:0;
-      &:active{
-        box-shadow:none;
-      }
-      &:before{
-        border-color:darken($color-primary,5%);
+      &.is-plain{
+        background-color:#fff;
+        color:$color-danger;
+        @include round-border($color-danger);
       }
     }
     @include disabled;

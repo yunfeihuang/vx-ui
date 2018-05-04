@@ -64,8 +64,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import '~styles/variable.scss';
-  @import '~styles/mixins.scss';
   $color-iphone-border: rgba(0,0,0,0.3);
   label{
     font-weight:normal;

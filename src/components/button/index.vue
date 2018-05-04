@@ -11,7 +11,7 @@ export default {
   mixins: [button],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'btn', this.type ? (this.$cssPrefix + 'btn-' + this.type) : this.clas]
+      return [this.$cssPrefix + 'btn', this.$cssPrefix + 'btn-' + this.type, {'is-plain': this.plain}]
     }
   },
   methods: {
