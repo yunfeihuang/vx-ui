@@ -134,14 +134,19 @@ const historyPush = {
       return array.join('')
     },
     pushState () {
-      if (this.history && window.location.href.indexOf('popup=') === -1) {
-        window.history.pushState({}, '', this.getPushURL())
-        let handlePopstate = this.handlePopstate = () => {
-          this.$emit('close')
-          this.popStateBack && this.popStateBack()
-          window.removeEventListener('popstate', handlePopstate)
+      if (this.history) {
+        if (window.location.href.indexOf('popup=') > -1) {
+          window.history.back()
         }
-        window.addEventListener('popstate', handlePopstate)
+        setTimeout(() => {
+          window.history.pushState({}, '', this.getPushURL())
+          let handlePopstate = this.handlePopstate = () => {
+            this.$emit('update:open', false).$emit('close')
+            this.popStateBack && this.popStateBack()
+            window.removeEventListener('popstate', handlePopstate)
+          }
+          window.addEventListener('popstate', handlePopstate)
+        }, 16)
       }
     },
     goBack () {
