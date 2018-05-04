@@ -189,6 +189,9 @@ const install = (Vue) => {
         open: true,
         onConfirm: () => {
           return true
+        },
+        onCancel: () => {
+          return true
         }
       }, _props)
       let node = document.createElement('div')
@@ -211,18 +214,18 @@ const install = (Vue) => {
         data: {props: props},
         methods: {
           handleConfirm: () => {
-            resolve()
             props.open = props.onConfirm() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
+            resolve()
           },
           handleClose: () => {
-            reject()
             props.open = props.onCancel() === false
             !props.open && setTimeout(() => {
               vue.$destroy()
             }, 1000)
+            reject()
           }
         },
         destroyed: () => {
