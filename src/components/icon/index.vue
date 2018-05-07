@@ -1,16 +1,5 @@
-<template>
-  <i :class="classes">
+<template functional>
+  <i class="v-iconfont">
     <slot></slot>
   </i>
 </template>
-
-<script>
-export default {
-  componentName: 'Icon',
-  computed: {
-    classes () {
-      return [this.$cssPrefix + 'iconfont']
-    }
-  }
-}
-</script>

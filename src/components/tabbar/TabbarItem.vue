@@ -6,12 +6,10 @@
 
 <script>
 import Ripple from '../ripple'
-import Icon from '../icon'
 export default {
   componentName: 'TabbarItem',
   components: {
-    Ripple,
-    Icon
+    Ripple
   },
   props: {
     name: {

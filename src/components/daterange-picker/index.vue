@@ -12,22 +12,22 @@
           <flexbox-item>
             <flexbox align="center">
               <button :disabled="date.getFullYear() <= 1990" type="button" @click="yearhandleChange(-1)">
-                <icon>&#xe660;</icon>
+                <arrow direction="right" size="12px"/>
               </button>
               <flexbox-item>{{date.getFullYear()}}年</flexbox-item>
               <button type="button" @click="yearhandleChange(1)">
-                <icon>&#xe65f;</icon>
+                <arrow size="12px"/>
               </button>
             </flexbox>
           </flexbox-item>
           <flexbox-item v-if="tab==0||tab==1">
             <flexbox align="center">
               <button :disabled="date.getMonth() === 0" type="button" @click="monthhandleChange(-1)">
-                <icon>&#xe660;</icon>
+                <arrow direction="right" size="12px"/>
               </button>
               <flexbox-item>{{date.getMonth() + 1}}月</flexbox-item>
               <button :disabled="date.getMonth() === 11" type="button" @click="monthhandleChange(1)">
-                <icon>&#xe65f;</icon>
+                <arrow size="12px"/>
               </button>
             </flexbox>
           </flexbox-item>
@@ -99,7 +99,7 @@ import Popup from '../popup'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import {Tab, TabItem} from '../tab'
 import Divider from '../divider'
-import Icon from '../icon'
+import Arrow from '../arrow'
 
 let now = new Date()
 
@@ -112,7 +112,7 @@ export default {
     FlexboxItem,
     Tab,
     TabItem,
-    Icon
+    Arrow
   },
   props: {
     open: {

@@ -2,7 +2,7 @@
   <div :class="classes">
     <flexbox class="nav" align="center">
       <button :class="['btn-pull',$cssPrefix + 'header-back']" @click="handleBack" v-if="back!==false">
-        <icon>&#xe660;</icon>
+        <arrow direction="right" :color="arrow.color" :size="arrow.size"/>
       </button>
       <flexbox-item :class="[$cssPrefix + 'header-title', back===false ? $cssPrefix + 'header-title-center' : '']">
         <slot name="title"></slot>
@@ -15,13 +15,13 @@
 
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
-import Icon from '../icon'
+import Arrow from '../arrow'
 export default {
   componentName: 'XNav',
   components: {
     Flexbox,
     FlexboxItem,
-    Icon
+    Arrow
   },
   props: {
     back: {
@@ -31,6 +31,15 @@ export default {
     backText: {
       type: String,
       default: '返回'
+    },
+    arrow: {
+      type: Object,
+      default () {
+        return {
+          size: '10px',
+          color: '#fff'
+        }
+      }
     }
   },
   computed: {

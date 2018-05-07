@@ -17,6 +17,7 @@
 | back     | 是否有后退按钮   | String, Boolean, Function  |   -       |    true    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
 | title     | 标题   | String  |   -       |    返回    |
+| arrow     | 返回箭头   | Object  |   -       |    {size: '10px', color: '#fff'}    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

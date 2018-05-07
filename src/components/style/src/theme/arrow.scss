@@ -1,0 +1,14 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &arrow{
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    vertical-align: middle;
+    boxSizing: border-box;
+    transform: rotate(45deg);
+  }
+}
