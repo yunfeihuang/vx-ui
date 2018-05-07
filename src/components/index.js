@@ -50,7 +50,6 @@ import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
 
 Arrow.componentName = 'Arrow'
-Icon.componentName = 'Icon'
 
 /*
 对Date的扩展，将 Date 转化为指定格式的String
