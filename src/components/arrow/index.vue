@@ -1,5 +1,5 @@
 <template functional>
-  <span
+  <component :is="props.tag"
     class="v-arrow"
     :style="Object.assign({
       height: props.size,
@@ -12,7 +12,7 @@
       }[props.direction],
     }, props.styles)"
     >
-  </span>
+  </component>
 </template>
 <script>
 export default {
@@ -31,6 +31,10 @@ export default {
     color: {
       type: String,
       default: '#999'
+    },
+    tag: {
+      type: String,
+      default: 'i'
     }
   }
 }
