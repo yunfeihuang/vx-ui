@@ -15,25 +15,14 @@ export default {
     Spinner
   },
   mixins: [button],
-  props: {
-    loadingColor: {
-      type: Object,
-      default () {
-        return {
-          default: '#d6d6d6',
-          danger: '#e04b00',
-          warning: '#ff9900'
-        }
-      }
-    },
-    loading: {
-      type: Boolean,
-      defauft: false
-    }
-  },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'btn', this.$cssPrefix + 'btn-' + this.type, {'is-plain': this.plain}]
+      return [
+        this.$cssPrefix + 'btn',
+        this.$cssPrefix + 'btn-' + this.type,
+        this.$cssPrefix + 'btn-size-' + this.size,
+        {'is-plain': this.plain}
+      ]
     }
   },
   methods: {

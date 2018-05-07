@@ -3,16 +3,20 @@
 .#{$css-prefix}{
   &btn{
     @include button;
-    display:block;
     height:0.9rem;
     position:relative;
-    width:100%;
     box-sizing:border-box;
     background-color:#fff;
     border-radius:$border-radius-base;
     font-size: inherit;
     cursor: default;
     @include disabled;
+    &-size{
+      &-large{
+        width:100%;
+        display:block;
+      }
+    }
     &-default{
       @include round-border;
     }
@@ -46,6 +50,10 @@
         color:$color-danger;
         @include round-border($color-danger);
       }
+    }
+    &-link{
+      color:$color-primary;
+      border-radius:0;
     }
     span{
       margin:0px 5px;

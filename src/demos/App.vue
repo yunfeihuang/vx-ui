@@ -2,7 +2,7 @@
   <div>
     <layout>
       <x-nav slot="header" :back="false">
-        <div slot="title">Vx Demos</div>
+        <div slot="title">Vx UI Demos</div>
       </x-nav>
       <x-body class="demos" slot="body">
         <div class="github">

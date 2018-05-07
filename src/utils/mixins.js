@@ -7,6 +7,10 @@ const button = {
       type: String,
       default: 'default'
     },
+    size: {
+      type: String,
+      default: 'default'
+    },
     nativeType: {
       type: String,
       default: 'button'
@@ -14,6 +18,20 @@ const button = {
     plain: {
       type: Boolean,
       default: false
+    },
+    loadingColor: {
+      type: Object,
+      default () {
+        return {
+          default: '#d6d6d6',
+          danger: '#e04b00',
+          warning: '#ff9900'
+        }
+      }
+    },
+    loading: {
+      type: Boolean,
+      defauft: false
     }
   }
 }
