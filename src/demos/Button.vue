@@ -13,6 +13,7 @@
         <x-button type="danger" plain>plain danger</x-button>
         <x-button type="warning" plain>plain warning</x-button>
         <x-button disabled>disabled</x-button>
+        <x-button type="primary" :loading="true">primary</x-button>
         <x-button type="primary" disabled>primary disabled</x-button>
         <x-button type="danger" plain disabled>plain danger disabled</x-button>
         <br />

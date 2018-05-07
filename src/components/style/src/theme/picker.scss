@@ -46,12 +46,10 @@
       &:before{
         @include divider;
         top:125px;
-        // box-shadow: 0px -63px 0px 63px rgba(255, 255, 255, 0.4), 0px -64px 0px 21px rgba(255, 255, 255, 0.3), 0px -106px 0px 21px rgba(255, 255, 255, 0.45);
       }
       &:after{
         @include divider;
         top:166px;
-        // box-shadow: 0px 63px 0px 63px rgba(255,255,255,0.4), 0px 64px 0px 21px rgba(255, 255, 255, 0.3), 0px 106px 0px 21px rgba(255, 255, 255, 0.45);
       }
       @include shadow(1);
       @include shadow(2);

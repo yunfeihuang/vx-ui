@@ -12,6 +12,7 @@
     border-radius:$border-radius-base;
     font-size: inherit;
     cursor: default;
+    @include disabled;
     &-default{
       @include round-border;
     }
@@ -46,6 +47,14 @@
         @include round-border($color-danger);
       }
     }
-    @include disabled;
+    span{
+      margin:0px 5px;
+    }
+    .#{$css-prefix}spinner{
+      &-wrapper{
+        width:16px;
+        height:16px;
+      }
+    }
   }
 }
