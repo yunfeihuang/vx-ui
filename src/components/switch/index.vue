@@ -8,8 +8,8 @@
       @change="handleChange"
       />
     <button type="button"></button>
-    <span v-if="onText" :class="$cssPrefix + 'switch-text'">{{onText}}</span>
-    <span v-if="offText" :class="$cssPrefix + 'switch-text'">{{offText}}</span>
+    <span v-if="onText" :class="'vx-switch-text'">{{onText}}</span>
+    <span v-if="offText" :class="'vx-switch-text'">{{offText}}</span>
   </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'switch-wrapper']
+      return ['vx-switch-wrapper']
     }
   },
   methods: {

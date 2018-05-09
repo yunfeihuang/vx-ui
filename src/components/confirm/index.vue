@@ -3,16 +3,16 @@
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>
-    <div :class="[$cssPrefix + 'confirm-wrapper']">
+    <div :class="['vx-confirm-wrapper']">
       <transition name="confirm-scale">
-        <div :class="[$cssPrefix + 'confirm-inner']" v-if="open">
-          <div :class="[$cssPrefix + 'confirm-body']">
+        <div :class="['vx-confirm-inner']" v-if="open">
+          <div :class="['vx-confirm-body']">
             <slot></slot>
           </div>
           <divider></divider>
-          <div :class="[$cssPrefix + 'confirm-footer',$cssPrefix + 'flexbox']" onselectstart="return false;">
-            <button :class="$cssPrefix + 'flexbox-item'" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
-            <button :class="$cssPrefix + 'flexbox-item'" type="button" @click="handleConfirm">{{confirmText}}</button>
+          <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
+            <button :class="'vx-flexbox-item'" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+            <button :class="'vx-flexbox-item'" type="button" @click="handleConfirm">{{confirmText}}</button>
           </div>
         </div>
       </transition>
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'confirm']
+      return ['vx-confirm']
     }
   },
   mounted () {

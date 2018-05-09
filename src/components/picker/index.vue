@@ -1,19 +1,19 @@
 <template>
   <div :class="classes" onselectstart="return false;">
     <div
-      :class="$cssPrefix + 'picker'"
+      :class="'vx-picker'"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @scroll="scrollHandlder"
       >
-      <div :class="$cssPrefix + 'picker-scroller'">
-        <div v-if="placeholder" :class="[$cssPrefix + 'picker-item',$cssPrefix + 'picker-placeholder']">
+      <div :class="'vx-picker-scroller'">
+        <div v-if="placeholder" :class="['vx-picker-item','vx-picker-placeholder']">
           {{placeholder}}
         </div>
         <div
           v-for="(item, index) in options"
-          :class="[$cssPrefix + 'picker-item', item.value === value ? $cssPrefix + 'picker-active' : '']"
+          :class="['vx-picker-item', item.value === value ? 'vx-picker-active' : '']"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div :class="$cssPrefix + 'picker-indicator'"></div>
+    <div :class="'vx-picker-indicator'"></div>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
   componentName: 'Picker',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'picker-wrapper']
+      return ['vx-picker-wrapper']
     }
   },
   props: {
@@ -74,7 +74,7 @@ export default {
     this.$$touch = {}
   },
   mounted () {
-    this.$$touch.scrollElement = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
+    this.$$touch.scrollElement = this.$el.querySelector('.' + 'vx-picker')
     requestAnimationFrame(this.scrollToActive)
   },
   destroyed () {
@@ -82,9 +82,9 @@ export default {
   },
   methods: {
     scrollToActive () {
-      let node = this.$el.querySelector('.' + this.$cssPrefix + 'picker-active')
+      let node = this.$el.querySelector('.' + 'vx-picker-active')
       let index = 0
-      Array.from(this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')).forEach((item, i) => {
+      Array.from(this.$el.querySelectorAll('.' + 'vx-picker-item')).forEach((item, i) => {
         if (item === node) {
           index = i
         }
@@ -134,7 +134,7 @@ export default {
       this.$$timer && clearTimeout(this.$$timer)
       this.$$timer = setTimeout(() => {
         this.$$touch.scrollEnd = false
-        let node = this.$el.querySelector('.' + this.$cssPrefix + 'picker')
+        let node = this.$el.querySelector('.' + 'vx-picker')
         let _scrollTop = node.scrollTop
         let index = Math.round(_scrollTop / 42)
         let scrollTop = index * 42
@@ -144,7 +144,7 @@ export default {
               node.scrollTop = value
             })
           }
-          let active = this.$el.querySelectorAll('.' + this.$cssPrefix + 'picker-item')[index]
+          let active = this.$el.querySelectorAll('.' + 'vx-picker-item')[index]
           if (active) {
             let value = active.dataset.value
             value !== this.value && this.$emit('input', value, this.index).$emit('change', value, this.index)

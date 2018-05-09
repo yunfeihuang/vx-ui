@@ -1,15 +1,15 @@
 <template>
   <flexbox :class="classes" align="center" justify="center" @click.native="handleClick">
-    <div :class="$cssPrefix + 'cell-hd'">
+    <div :class="'vx-cell-hd'">
       <slot name="icon"></slot>
     </div>
-    <flexbox-item :class="$cssPrefix + 'cell-bd'">
+    <flexbox-item :class="'vx-cell-bd'">
       <slot v-if="$slots.title" name="title"></slot>
       <template v-else>
         {{title}}
       </template>
     </flexbox-item>
-    <div :class="$cssPrefix + 'cell-ft'">
+    <div :class="'vx-cell-ft'">
       <slot v-if="$slots.value" name="value"></slot>
       <template v-else>
         {{value}}
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'cell', this.arrow ? this.$cssPrefix + 'cell-access' : '']
+      return ['vx-cell', this.arrow ? 'vx-cell-access' : '']
     }
   },
   methods: {

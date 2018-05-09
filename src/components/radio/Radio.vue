@@ -1,8 +1,8 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <span :class="[$cssPrefix + 'radio-icon']"><icon>&#xe632;</icon></span>
-    <span :class="[$cssPrefix + 'radio-text']">
+    <span :class="['vx-radio-icon']"><icon>&#xe632;</icon></span>
+    <span :class="['vx-radio-text']">
       <slot></slot>
     </span>
   </label>
@@ -19,7 +19,7 @@ export default {
   mixins: [input],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'radio']
+      return ['vx-radio']
     },
     myChecked () {
       if (this.$parent.value) {

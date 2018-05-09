@@ -15,7 +15,7 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'sidebar']
+      return ['vx-sidebar']
     }
   },
   data () {

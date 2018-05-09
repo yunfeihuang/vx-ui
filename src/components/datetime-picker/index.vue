@@ -1,21 +1,21 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
     <div :class="classes">
-      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'datetime-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
-        <div :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'datetime-picker-today']">
+      <div :class="['vx-flexbox','vx-datetime-picker-header']">
+        <button type="button" :class="['vx-datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <div :class="['vx-flexbox-item','vx-datetime-picker-today']">
           <!--
-          <button type="button" :class="[$cssPrefix + 'datetime-picker-today']" @click="handleToday">{{todayText}}</button>
+          <button type="button" :class="['vx-datetime-picker-today']" @click="handleToday">{{todayText}}</button>
           -->
         </div>
-        <button type="button" :class="[$cssPrefix + 'datetime-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+        <button type="button" :class="['vx-datetime-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'datetime-picker']">
+      <div :class="['vx-flexbox','vx-datetime-picker']">
         <picker
           v-if="pickers"
           v-for="(item,index) in pickers"
-          :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'datetime-picker-item']"
+          :class="['vx-flexbox-item','vx-datetime-picker-item']"
           :index="index+'-'+item.type"
           :key="index+'-'+item.type"
           :data-type="item.type"
@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'popup-picker-wrapper']
+      return ['vx-popup-picker-wrapper']
     }
   },
   mounted () {

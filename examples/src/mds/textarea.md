@@ -3,7 +3,7 @@
 ``` html
 <template>
   <div style="margin-top:20px;">
-    <x-textarea v-model="value" placeholder="请输入消息内容" />
+    <x-textarea v-model="value" placeholder="请输入消息内容" enter-number :maxlength="100"/>
     <div style="padding:10px;color:#999">
     注：输入换行符或者更多内容我会自动”撑高“
     </div>
@@ -26,6 +26,7 @@ export default {
 |---------- |-------- |---------- |------------- |--------- |
 | value     | 值   | Array[String]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| enterNumber     | 是否显示输入字数，要有maxlength属性   | Boolean  |   -       |    false    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 
 #### Events

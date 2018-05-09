@@ -1,17 +1,17 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose">
     <div :class="classes">
-      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
-        <button type="button" :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :class="[$cssPrefix + 'popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+      <div :class="['vx-flexbox','vx-popup-picker-header']">
+        <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
+        <button type="button" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider></divider>
-      <div :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker']">
+      <div :class="['vx-flexbox','vx-popup-picker']">
         <picker
           v-if="open && myPickers"
           v-for="(item,index) in myPickers"
-          :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-item']"
+          :class="['vx-flexbox-item','vx-popup-picker-item']"
           :key="index"
           :value="item.value"
           :placeholder="item.placeholder"
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'popup-picker-wrapper']
+      return ['vx-popup-picker-wrapper']
     }
   },
   watch: {

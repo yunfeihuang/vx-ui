@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 
 @font-face {
-  font-family: "v-iconfont";
+  font-family: "vx-iconfont";
   src: url('../iconfont/iconfont.eot?t=1491729060635'); /* IE9*/
   src: url('../iconfont/iconfont.eot?t=1491729060635#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('../iconfont/iconfont.woff?t=1491729060635') format('woff'), /* chrome, firefox */
@@ -11,7 +11,7 @@
 }
 .#{$css-prefix}{
   &iconfont {
-    font-family:"v-iconfont" !important;
+    font-family:"vx-iconfont" !important;
     font-size:16px;
     font-style:normal;
     -webkit-font-smoothing: antialiased;

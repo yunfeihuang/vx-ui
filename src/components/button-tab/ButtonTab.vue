@@ -11,7 +11,7 @@ export default {
   mixins: [tab],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'flexbox', this.$cssPrefix + 'button-tab']
+      return ['vx-flexbox', 'vx-button-tab']
     }
   },
   data () {

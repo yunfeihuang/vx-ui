@@ -48,11 +48,11 @@ export default {
   computed: {
     classes () {
       let array = [
-        this.$cssPrefix + 'flexbox'
+        'vx-flexbox'
       ]
       for (let name in flexMap) {
         if (this[name] && flexMap[name][this[name]]) {
-          array.push(this.$cssPrefix + flexMap[name][this[name]])
+          array.push('vx-' + flexMap[name][this[name]])
         }
       }
       return array

@@ -1,6 +1,6 @@
 <template functional>
   <component :is="props.tag"
-    class="v-arrow"
+    class="vx-arrow"
     :style="Object.assign({
       height: props.size,
       width: props.size,

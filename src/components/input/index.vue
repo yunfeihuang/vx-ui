@@ -25,7 +25,7 @@
       <button
         type="button"
         v-show="clear&&isFocus"
-        :class="$cssPrefix + 'input-clear-button'"
+        :class="'vx-input-clear-button'"
         @click="handleClear"
         >
         <icon>&#xe641;</icon>
@@ -46,10 +46,10 @@ export default {
   computed: {
     classes () {
       let classes = {}
-      classes[this.$cssPrefix + 'input-focus'] = this.isFocus
-      classes[this.$cssPrefix + 'input-clear'] = !!this.value && this.clear
+      classes['vx-input-focus'] = this.isFocus
+      classes['vx-input-clear'] = !!this.value && this.clear
       return [
-        this.$cssPrefix + 'input-wrapper',
+        'vx-input-wrapper',
         classes
       ]
     }
@@ -61,14 +61,14 @@ export default {
   },
   methods: {
     handleClear (e) {
-      this.clear && this.$el.classList.remove(this.$cssPrefix + 'input-clear')
+      this.clear && this.$el.classList.remove('vx-input-clear')
       this.$emit('change', '').$emit('input', '')
     },
     handleInput (e) {
       if (e.target.value) {
-        this.clear && this.$el.classList.add(this.$cssPrefix + 'input-clear')
+        this.clear && this.$el.classList.add('vx-input-clear')
       } else {
-        this.clear && this.$el.classList.remove(this.$cssPrefix + 'input-clear')
+        this.clear && this.$el.classList.remove('vx-input-clear')
       }
       this.$emit('input', e.target.value)
     }

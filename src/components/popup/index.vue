@@ -40,12 +40,12 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'popup']
+      return ['vx-popup']
     },
     innerClasses () {
-      let array = [this.$cssPrefix + 'popup-inner', this.$cssPrefix + 'popup-' + this.direction, this.full ? this.$cssPrefix + 'full' : '']
+      let array = ['vx-popup-inner', 'vx-popup-' + this.direction, this.full ? 'vx-full' : '']
       if (this.direction === 'center') {
-        array.push('v-flexbox v-flexbox-align-center v-flexbox-content-center')
+        array.push('vx-flexbox vx-flexbox-align-center vx-flexbox-content-center')
       }
       return array
     }
@@ -84,7 +84,7 @@ export default {
       this.fastClose && this.$emit('close')
     },
     handleClose2 (e) {
-      if (this.fastClose && e.target === this.$el.querySelector('.' + this.$cssPrefix + 'popup-inner')) {
+      if (this.fastClose && e.target === this.$el.querySelector('.' + 'vx-popup-inner')) {
         this.$emit('close')
       }
     }

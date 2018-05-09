@@ -1,6 +1,6 @@
 <template>
   <div :class="classes">
-    <flexbox :class="[$cssPrefix + 'layout-flexbox']" direction="column">
+    <flexbox :class="['vx-layout-flexbox']" direction="column">
       <slot name="header"></slot>
       <slot name="body"></slot>
       <slot name="footer"></slot>
@@ -14,7 +14,7 @@ export default {
   componentName: 'Layout',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'layout']
+      return ['vx-layout']
     }
   }
 }

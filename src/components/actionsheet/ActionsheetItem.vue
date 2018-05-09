@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick">
-    <div :class="$cssPrefix + 'actionsheet-item-text'" :disabled="disabled">
+    <div :class="'vx-actionsheet-item-text'" :disabled="disabled">
       <slot></slot>
     </div>
   </div>
@@ -22,9 +22,9 @@ export default {
   computed: {
     classes () {
       return [
-        this.$cssPrefix + 'actionsheet-item',
-        this.checked ? this.$cssPrefix + 'actionsheet-item-active' : '',
-        this.disabled ? this.$cssPrefix + 'actionsheet-item-disabled' : ''
+        'vx-actionsheet-item',
+        this.checked ? 'vx-actionsheet-item-active' : '',
+        this.disabled ? 'vx-actionsheet-item-disabled' : ''
       ]
     }
   },

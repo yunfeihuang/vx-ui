@@ -1,10 +1,10 @@
 ﻿<template>
-  <div :class="$cssPrefix+'carousel'" :style="styles">
-    <div :class="$cssPrefix+'carousel-inner ' + innerClass" :style="innerStyle" @mouseenter="handleMouseEnter(-1)" @mouseleave="handleMouseLeave">
-       <div :class="$cssPrefix+'carousel-items'">
+  <div :class="'vx-carousel'" :style="styles">
+    <div :class="'vx-carousel-inner ' + innerClass" :style="innerStyle" @mouseenter="handleMouseEnter(-1)" @mouseleave="handleMouseLeave">
+       <div :class="'vx-carousel-items'">
         <slot></slot>
        </div>
-       <div :class="$cssPrefix+'carousel-nav'">
+       <div :class="'vx-carousel-nav'">
           <span
             v-for="(item, index) in length"
             type="button"

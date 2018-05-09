@@ -9,7 +9,7 @@ export default {
   componentName: 'XBody',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'body', this.scroll]
+      return ['vx-body', this.scroll]
     },
     styles () {
       if (this.scroll) {

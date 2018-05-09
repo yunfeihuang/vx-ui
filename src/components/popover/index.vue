@@ -14,7 +14,7 @@ export default {
   componentName: 'Popover',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'popover']
+      return ['vx-popover']
     }
   },
   props: {
@@ -77,7 +77,7 @@ export default {
         mounted () {
           let node = this.$$popoverContent = document.createElement('div')
           node.style.visibility = 'hidden'
-          node.className = this.$cssPrefix + 'popover-content'
+          node.className = 'vx-popover-content'
           popover.popoverClass && node.classList.add(popover.popoverClass)
           node.addEventListener('click', popover.handleClickPopover, false)
           popover.$slots.default.forEach((item) => {
@@ -101,8 +101,8 @@ export default {
             node.style.top = top
             node.style.left = left
             node.style.visibility = ''
-            isRight && node.classList.add(this.$cssPrefix + 'popover-content-right')
-            isBottom && node.classList.add(this.$cssPrefix + 'popover-content-bottom')
+            isRight && node.classList.add('vx-popover-content-right')
+            isBottom && node.classList.add('vx-popover-content-bottom')
           })
         },
         destroyed () {

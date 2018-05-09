@@ -80,7 +80,7 @@ export default {
       line-height:42px;
       padding:0 15px;
     }
-    .v-iconfont{
+    .vx-iconfont{
       margin-right:8px;
     }
   }

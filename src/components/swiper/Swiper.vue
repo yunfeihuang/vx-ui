@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'swiper', 'swiper-container']
+      return ['vx-swiper', 'swiper-container']
     }
   },
   mounted () {

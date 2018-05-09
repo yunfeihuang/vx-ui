@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick" :disabled="disabled">
-    <button type="button" :class="myLabel ? '' : $cssPrefix + 'select-placeholder'" >{{myLabel || placeholder}}</button>
+    <button type="button" :class="myLabel ? '' : 'vx-select-placeholder'" >{{myLabel || placeholder}}</button>
     <div style="display:none">
       <slot></slot>
     </div>
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'select']
+      return ['vx-select']
     }
   },
   watch: {
@@ -98,7 +98,7 @@ export default {
               options: this.$$myOptions,
               open: false,
               value: this.value,
-              classes: this.$cssPrefix + 'select-picker',
+              classes: 'vx-select-picker',
               max: this.max,
               required: this.required
             },

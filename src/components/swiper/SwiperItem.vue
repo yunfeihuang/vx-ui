@@ -9,7 +9,7 @@ export default {
   componentName: 'SwiperItem',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'swiper-item', 'swiper-slide']
+      return ['vx-swiper-item', 'swiper-slide']
     }
   }
 }

@@ -9,7 +9,7 @@ export default {
   componentName: 'Icon',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'iconfont']
+      return ['vx-iconfont']
     }
   }
 }

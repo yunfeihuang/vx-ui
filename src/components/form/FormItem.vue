@@ -1,18 +1,18 @@
 <template>
   <div :class="classes">
-    <flexbox :class="[$cssPrefix + 'form-item-inner']" align="center">
-      <div v-if="$slots.label" :class="[$cssPrefix + 'form-item-label']">
+    <flexbox :class="['vx-form-item-inner']" align="center">
+      <div v-if="$slots.label" :class="['vx-form-item-label']">
         <slot name="label"></slot>
       </div>
-      <div v-else-if="label" :class="[$cssPrefix + 'form-item-label']">
+      <div v-else-if="label" :class="['vx-form-item-label']">
         {{label}}
       </div>
-      <flexbox-item :class="[$cssPrefix + 'form-item-control',$cssPrefix + 'form-item-align-' + align]">
+      <flexbox-item :class="['vx-form-item-control','vx-form-item-align-' + align]">
         <slot></slot>
       </flexbox-item>
     </flexbox>
     <!--
-    <div v-if="validateState" :class="[$cssPrefix + 'form-item-error']">{{validateMessage}}</div>
+    <div v-if="validateState" :class="['vx-form-item-error']">{{validateMessage}}</div>
     -->
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
   inject: ['xForm'],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'form-item', {
+      return ['vx-form-item', {
         'is-error': this.validateState === 'error',
         'is-validating': this.validateState === 'validating',
         'is-success': this.validateState === 'success',

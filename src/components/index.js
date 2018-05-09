@@ -145,7 +145,6 @@ const install = (Vue) => {
   components.map(component => {
     component.componentName && Vue.component(component.componentName, component)
   })
-  Vue.prototype.$cssPrefix = 'v-'
   Vue.prototype.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({
       open: true,

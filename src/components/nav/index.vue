@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
     <flexbox class="nav" align="center">
-      <button :class="['btn-pull',$cssPrefix + 'header-back']" @click="handleBack" v-if="back!==false">
+      <button :class="['btn-pull','vx-header-back']" @click="handleBack" v-if="back!==false">
         <arrow direction="right" :color="arrow.color" :size="arrow.size"/>
       </button>
-      <flexbox-item :class="[$cssPrefix + 'header-title', back===false ? $cssPrefix + 'header-title-center' : '']">
+      <flexbox-item :class="['vx-header-title', back===false ? 'vx-header-title-center' : '']">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'header']
+      return ['vx-header']
     }
   },
   methods: {

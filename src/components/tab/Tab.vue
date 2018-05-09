@@ -1,7 +1,7 @@
 <template>
   <div :class="classes" onselectstart="return false;">
     <slot></slot>
-    <div :class="[$cssPrefix+'tab-underline']"></div>
+    <div :class="['vx-tab-underline']"></div>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   props: ['underlineWidth'],
   computed: {
     classes () {
-      return [this.$cssPrefix + 'flexbox', this.$cssPrefix + 'tab']
+      return ['vx-flexbox', 'vx-tab']
     }
   },
   updated () {
@@ -25,8 +25,8 @@ export default {
     },
     computedStyle () {
       this.$nextTick(() => {
-        let node = this.$el.querySelector('.' + this.$cssPrefix + 'tab-underline')
-        let activeNode = this.$el.querySelector('.' + this.$cssPrefix + 'tab-item-active')
+        let node = this.$el.querySelector('.' + 'vx-tab-underline')
+        let activeNode = this.$el.querySelector('.' + 'vx-tab-item-active')
         if (activeNode) {
           let activeWidth = activeNode.offsetWidth
           let width = activeWidth

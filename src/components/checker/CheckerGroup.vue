@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'checker-group']
+      return ['vx-checker-group']
     }
   },
   methods: {

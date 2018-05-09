@@ -1,13 +1,13 @@
 <template>
   <div :class="classes">
-    <div :class="[$cssPrefix + 'search-inner',this.fixed ? $cssPrefix+'search-fixed flexbox' : '']">
+    <div :class="['vx-search-inner',this.fixed ? 'vx-search-fixed flexbox' : '']">
       <form @submit="handleSubmit">
-        <flexbox :class="[$cssPrefix + 'search']">
-          <button :class="[$cssPrefix + 'search-cancel']" type="button" @click="handleCancel" v-if="fixed">
+        <flexbox :class="['vx-search']">
+          <button :class="['vx-search-cancel']" type="button" @click="handleCancel" v-if="fixed">
             <icon>&#xe660;</icon>
           </button>
           <x-input
-            :class="$cssPrefix +'flexbox-item'"
+            :class="'vx-flexbox-item'"
             native-type="search"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -26,14 +26,14 @@
             @input="handleInput"
             @change="handleChange"
           >
-            <icon slot="icon" :class="[$cssPrefix + 'search-icon']">&#xe651;</icon>
+            <icon slot="icon" :class="['vx-search-icon']">&#xe651;</icon>
           </x-input>
-          <button :class="[$cssPrefix + 'search-button']" type="submit" v-if="fixed">
+          <button :class="['vx-search-button']" type="submit" v-if="fixed">
             搜索
           </button>
         </flexbox>
       </form>
-      <flexbox-item :class="[$cssPrefix + 'search-container']" v-if="fixed">
+      <flexbox-item :class="['vx-search-container']" v-if="fixed">
         <div v-if="!value" class="keywords">
           <slot name="keywords" v-bind="{search: this.handleKeywordChange}"></slot>
         </div>
@@ -67,7 +67,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'search-wrapper']
+      return ['vx-search-wrapper']
     }
   },
   watch: {

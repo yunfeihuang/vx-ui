@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'radio-group', this.divider ? this.$cssPrefix + 'radio-group-divider' : '']
+      return ['vx-radio-group', this.divider ? 'vx-radio-group-divider' : '']
     }
   },
   methods: {

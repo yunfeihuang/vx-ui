@@ -18,8 +18,6 @@
   import Vue from 'vue'
   import 'vx-ui/lib/style/theme/button.css'
   import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
-  import install from 'vx-ui/src/components/install' // 全局安装一次即可
-  install(Vue)
   Vue.component(Button.name, Button)
 ```
 

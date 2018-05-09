@@ -45,13 +45,25 @@
       }
       
     }
-    &textarea-focus:after{
-      width:100%;
-    }
-    &textarea-shadow{
-      position:absolute;
-      left:0;
-      top:0;
-      opacity:0;
+    &textarea{
+      &-shadow{
+        position:absolute;
+        left:0;
+        top:0;
+        opacity:0;
+      }
+      &-focus:after{
+        width:100%;
+      }
+      &-enter-number{
+        position:absolute;
+        right:0;
+        bottom:0;
+        font-style:normal;
+        font-size:$font-size-small;
+        line-height:1;
+        padding:2px;
+        color:$color-sub;
+      }
     }
   }

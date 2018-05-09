@@ -7,7 +7,7 @@ export default {
   componentName: 'Badge',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'badge', this.text === '' ? this.$cssPrefix + 'badge-dot' : '']
+      return ['vx-badge', this.text === '' ? 'vx-badge-dot' : '']
     },
     myText () {
       if (typeof this.text === 'number' && this.max) {

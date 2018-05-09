@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'overlay']
+      return ['vx-overlay']
     },
     styles () {
       return 'opacity:' + this.opacity

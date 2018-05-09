@@ -1,10 +1,10 @@
 <template>
   <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @enter="handleEnter">
-    <div :class="[$cssPrefix + 'actionsheet-inner']" onselectstart="return false;">
-      <div :class="[$cssPrefix + 'actionsheet-items']">
+    <div :class="['vx-actionsheet-inner']" onselectstart="return false;">
+      <div :class="['vx-actionsheet-items']">
         <slot></slot>
       </div>
-      <div v-if="cancel" :class="$cssPrefix + 'actionsheet-cancel'" @click="handleClose">
+      <div v-if="cancel" :class="'vx-actionsheet-cancel'" @click="handleClose">
         {{cancelText}}
       </div>
     </div>
@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'actionsheet', this.type === 'menu' ? this.$cssPrefix + 'actionsheet-menu' : '']
+      return ['vx-actionsheet', this.type === 'menu' ? 'vx-actionsheet-menu' : '']
     },
     myDirection () {
       if (this.type === 'default') {

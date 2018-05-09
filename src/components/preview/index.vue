@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'photoswiper']
+      return ['vx-photoswiper']
     }
   },
   methods: {

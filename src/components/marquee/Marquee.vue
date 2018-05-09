@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'marquee', 'swiper-container']
+      return ['vx-marquee', 'swiper-container']
     }
   },
   mounted () {

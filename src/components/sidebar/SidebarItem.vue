@@ -20,9 +20,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = [this.$cssPrefix + 'sidebar-item']
+      let array = ['vx-sidebar-item']
       if (this.$parent.active === this.name) {
-        array.push(this.$cssPrefix + 'sidebar-item-active')
+        array.push('vx-sidebar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array

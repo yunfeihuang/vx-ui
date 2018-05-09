@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'message', this.$cssPrefix + 'message-' + this.type]
+      return ['vx-message', 'vx-message-' + this.type]
     }
   }
 }

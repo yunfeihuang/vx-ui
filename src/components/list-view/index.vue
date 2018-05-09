@@ -1,17 +1,17 @@
 <template>
   <div :class="classes">
-    <div :class="[$cssPrefix + 'list-view-inner']">
-      <div :class="[$cssPrefix + 'list-view-refresh']">
+    <div :class="['vx-list-view-inner']">
+      <div :class="['vx-list-view-refresh']">
         <icon></icon>
-        <spinner :class="[$cssPrefix + 'list-view-spinner']"/>
+        <spinner :class="['vx-list-view-spinner']"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div :class="[$cssPrefix + 'list-view-loading']" v-if="!end">
-        <spinner v-show="loading" :class="[$cssPrefix + 'list-view-spinner']"/>
+      <div :class="['vx-list-view-loading']" v-if="!end">
+        <spinner v-show="loading" :class="['vx-list-view-spinner']"/>
         {{loadingText}}
       </div>
-      <div :class="[$cssPrefix + 'list-view-loading']" v-if="end">{{endText}}</div>
+      <div :class="['vx-list-view-loading']" v-if="end">{{endText}}</div>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'list-view']
+      return ['vx-list-view']
     }
   },
   mounted () {
@@ -84,7 +84,7 @@ export default {
     }
     this.$$height = this.$el.offsetHeight
     this.$$touch = {
-      inner: this.$el.querySelector('.' + this.$cssPrefix + 'list-view-inner')
+      inner: this.$el.querySelector('.' + 'vx-list-view-inner')
     }
   },
   destroyed () {

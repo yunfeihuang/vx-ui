@@ -1,8 +1,8 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input :type="myType" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <icon :class="[$cssPrefix + 'checkbox-icon']">&#xe632;</icon>
-    <span :class="[$cssPrefix + 'checkbox-text']">
+    <icon :class="['vx-checkbox-icon']">&#xe632;</icon>
+    <span :class="['vx-checkbox-text']">
       <slot></slot>
     </span>
   </label>
@@ -20,9 +20,9 @@ export default {
   computed: {
     classes () {
       return [
-        this.$cssPrefix + 'checkbox',
-        this.direction === 'reverse' || this.$parent.direction === 'reverse' ? this.$cssPrefix + 'checkbox-reverse' : '',
-        this.myChecked ? this.$cssPrefix + 'checkbox-active' : ''
+        'vx-checkbox',
+        this.direction === 'reverse' || this.$parent.direction === 'reverse' ? 'vx-checkbox-reverse' : '',
+        this.myChecked ? 'vx-checkbox-active' : ''
       ]
     },
     myChecked () {

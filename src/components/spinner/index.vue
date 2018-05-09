@@ -1,6 +1,6 @@
 <template>
   <div :class="classes">
-    <div :class="$cssPrefix + 'spinner'"></div>
+    <div :class="'vx-spinner'"></div>
     <slot></slot>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'spinner-wrapper']
+      return ['vx-spinner-wrapper']
     }
   },
   mounted () {

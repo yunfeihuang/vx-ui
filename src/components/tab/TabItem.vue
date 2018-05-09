@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick">
-    <span v-if="$parent.underlineWidth" :class="[$cssPrefix + 'tab-item-text']">
+    <span v-if="$parent.underlineWidth" :class="['vx-tab-item-text']">
       <slot></slot>
     </span>
     <slot v-else></slot>
@@ -23,9 +23,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = [this.$cssPrefix + 'flexbox-item', this.$cssPrefix + 'tab-item']
+      let array = ['vx-flexbox-item', 'vx-tab-item']
       if (this.$parent.active === this.name) {
-        array.push(this.$cssPrefix + 'tab-item-active')
+        array.push('vx-tab-item-active')
         array.push(this.$parent.activeClass)
       }
       return array

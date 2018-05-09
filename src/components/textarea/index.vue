@@ -1,6 +1,6 @@
 <template>
   <label :class="classes">
-    <div :class="[$cssPrefix+'textarea-shadow']"></div>
+    <div :class="['vx-textarea-shadow']"></div>
     <textarea
       :placeholder="placeholder"
       :disabled="disabled"
@@ -16,6 +16,9 @@
       @change="handleChange"
       @input="handleInput"
       ></textarea>
+      <em :class="['vx-textarea-enter-number']" v-if="enterNumber && maxlength">
+        {{value.length}}/{{maxlength}}
+      </em>
   </label>
 </template>
 
@@ -24,19 +27,25 @@ import { input } from 'utils/mixins.js'
 export default {
   componentName: 'XTextarea',
   mixins: [input],
+  props: {
+    enterNumber: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     classes () {
       let styles = {}
-      styles[this.$cssPrefix + 'textarea-focus'] = this.isFocus
+      styles['vx-textarea-focus'] = this.isFocus
       return [
-        this.$cssPrefix + 'textarea-wrapper',
+        'vx-textarea-wrapper',
         styles
       ]
     }
   },
   mounted () {
     this.$textarea = this.$el.querySelector('textarea')
-    this.$$shadow = this.$el.querySelector('.' + this.$cssPrefix + 'textarea-shadow')
+    this.$$shadow = this.$el.querySelector('.' + 'vx-textarea-shadow')
     this.renderAutoHeight(this.$textarea.value)
   },
   data () {

@@ -8,14 +8,14 @@
     @close="handleClose"
     @confirm="handleConfirm"
     >
-    <div v-if="title" :class="$cssPrefix + 'prompt-title'">{{title}}</div>
+    <div v-if="title" :class="'vx-prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <password
         v-if="inputProps.type === 'password'"
         v-model="myValue"
         :clear="false"
-        :class="$cssPrefix + 'prompt-input'"
+        :class="'vx-prompt-input'"
         v-bind="inputProps"
         @input="handleInput"
       />
@@ -23,7 +23,7 @@
         v-else
         v-model="myValue"
         :clear="false"
-        :class="$cssPrefix + 'prompt-input'"
+        :class="'vx-prompt-input'"
         v-bind="inputProps"
         :native-type="inputProps.type"
         @input="handleInput"/>
@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'prompt', this.disabled ? this.$cssPrefix + 'prompt-disabled' : '']
+      return ['vx-prompt', this.disabled ? 'vx-prompt-disabled' : '']
     }
   },
   data () {

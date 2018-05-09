@@ -19,11 +19,11 @@
 <style lang="scss">
   .base-item{
     overflow:hidden;
-    .v-flexbox{
+    .vx-flexbox{
       padding:5px;
       color: inherit;
     }
-    .v-flexbox-item{
+    .vx-flexbox-item{
       overflow: hidden;
     }
     h4{
@@ -32,7 +32,7 @@
     }
     &-photo{
       margin-right:10px;
-      .v-img-wrapper{
+      .vx-img-wrapper{
         width:1rem;
         height:1rem;
         border-radius:3px;

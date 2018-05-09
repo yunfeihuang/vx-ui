@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
-    <div v-if="title" :class="[$cssPrefix+'group-title']">{{title}}</div>
-    <div :class="[$cssPrefix+'group-inner']">
+    <div v-if="title" :class="['vx-group-title']">{{title}}</div>
+    <div :class="['vx-group-inner']">
       <slot></slot>
     </div>
   </div>
@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'group']
+      return ['vx-group']
     }
   }
 }

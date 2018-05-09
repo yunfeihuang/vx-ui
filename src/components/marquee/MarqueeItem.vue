@@ -9,7 +9,7 @@ export default {
   componentName: 'XMarqueeItem',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'marquee-item', 'swiper-slide']
+      return ['vx-marquee-item', 'swiper-slide']
     }
   }
 }

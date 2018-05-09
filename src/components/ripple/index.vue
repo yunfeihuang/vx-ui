@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'ripple']
+      return ['vx-ripple']
     }
   },
   mounted () {
@@ -51,11 +51,11 @@ export default {
       }
     },
     handleTouchStart (e) {
-      let shadow = this.$el.querySelector('.' + this.$cssPrefix + 'ripple-shadow')
+      let shadow = this.$el.querySelector('.' + 'vx-ripple-shadow')
       shadow && shadow.parentNode.removeChild(shadow)
       offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
       node = document.createElement('div')
-      node.classList.add(this.$cssPrefix + 'ripple-shadow')
+      node.classList.add('vx-ripple-shadow')
       node.style.cssText = 'top:' + offset.top + 'px;left:' + offset.left + 'px;'
       if (this.color) {
         node.style.backgroundColor = this.color

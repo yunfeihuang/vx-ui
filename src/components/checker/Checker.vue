@@ -1,5 +1,5 @@
 <template>
-  <label :class="$cssPrefix + 'checker'">
+  <label :class="'vx-checker'">
     <input
       :type="myType"
       :checked="myChecked"
@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'checker']
+      return ['vx-checker']
     },
     myChecked () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.value && this.$parent.value.indexOf) {

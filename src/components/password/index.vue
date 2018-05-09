@@ -21,7 +21,7 @@
       @invalid="handleInvalid"
     />
     <button
-      :class="[$cssPrefix+'password-switch']"
+      :class="['vx-password-switch']"
       type="button"
       @click="handleSwitch"
     >
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'password']
+      return ['vx-password']
     }
   },
   watch: {

@@ -18,9 +18,9 @@ export default {
   computed: {
     classes () {
       return [
-        this.$cssPrefix + 'btn',
-        this.$cssPrefix + 'btn-' + this.type,
-        this.$cssPrefix + 'btn-size-' + this.size,
+        'vx-btn',
+        'vx-btn-' + this.type,
+        'vx-btn-size-' + this.size,
         {'is-plain': this.plain}
       ]
     }

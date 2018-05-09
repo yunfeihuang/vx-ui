@@ -1,9 +1,9 @@
 <template>
   <div :class="classes">
-    <div :class="[$cssPrefix+'range-mask']"></div>
-    <div :class="[$cssPrefix+'range-value']" ></div>
-    <div :class="[$cssPrefix+'range-button']" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
-      <div :class="[$cssPrefix+'range-tips']">0</div>
+    <div :class="['vx-range-mask']"></div>
+    <div :class="['vx-range-value']" ></div>
+    <div :class="['vx-range-button']" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
+      <div :class="['vx-range-tips']">0</div>
     </div>
   </div>
 </template>
@@ -37,9 +37,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = [this.$cssPrefix + 'range-wrapper']
+      let array = ['vx-range-wrapper']
       if (this.disabled) {
-        array.push(this.$cssPrefix + 'range-disabled')
+        array.push('vx-range-disabled')
       }
       return array
     },
@@ -80,10 +80,10 @@ export default {
   },
   methods: {
     getRangeInitData () {
-      let controlNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-button')
-      let valueNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-value')
-      let tipsNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-tips')
-      let maskNode = this.$el.querySelector('.' + this.$cssPrefix + 'range-mask')
+      let controlNode = this.$el.querySelector('.' + 'vx-range-button')
+      let valueNode = this.$el.querySelector('.' + 'vx-range-value')
+      let tipsNode = this.$el.querySelector('.' + 'vx-range-tips')
+      let maskNode = this.$el.querySelector('.' + 'vx-range-mask')
       this.$$range = {
         maxLeft: maskNode.offsetWidth - controlNode.offsetWidth,
         controlNode,

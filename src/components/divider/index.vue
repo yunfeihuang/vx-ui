@@ -9,7 +9,7 @@ export default {
   componentName: 'Divider',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'divider']
+      return ['vx-divider']
     }
   }
 }

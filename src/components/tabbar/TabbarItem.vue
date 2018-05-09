@@ -24,9 +24,9 @@ export default {
   },
   computed: {
     classes () {
-      let array = [this.$cssPrefix + 'flexbox-item', this.$cssPrefix + 'tabbar-item']
+      let array = ['vx-flexbox-item', 'vx-tabbar-item']
       if (this.$parent.active === this.name) {
-        array.push(this.$cssPrefix + 'tabbar-item-active')
+        array.push('vx-tabbar-item-active')
         array.push(this.$parent.activeClass)
       }
       return array

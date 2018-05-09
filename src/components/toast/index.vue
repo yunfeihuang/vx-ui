@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
-    <div :class="[$cssPrefix + 'toast-inner',$cssPrefix + 'toast-' + this.align]">
-      <div :class="[$cssPrefix + 'toast-content']">
+    <div :class="['vx-toast-inner','vx-toast-' + this.align]">
+      <div :class="['vx-toast-content']">
         <template v-if="type != 'default'">
           <icon v-if="iconCode[type]" v-html="iconCode[type]"></icon>
-          <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="[$cssPrefix + 'toast-spinner']"/>
+          <spinner v-if="type==='loading'" color="#999" primary-color="#fff" :class="['vx-toast-spinner']"/>
           <br/>
         </template>
         <slot></slot>
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'toast']
+      return ['vx-toast']
     }
   },
   mounted () {

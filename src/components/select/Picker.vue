@@ -1,13 +1,13 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose">
     <div :class="classes">
-      <div v-if="max != 1" :class="[$cssPrefix + 'flexbox',$cssPrefix + 'popup-picker-header']">
-        <button type="button" :class="[$cssPrefix + 'popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
-        <button type="button" :class="[$cssPrefix + 'flexbox-item',$cssPrefix + 'popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :disabled="this.required && !this.myValue.length" :class="[$cssPrefix + 'popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+      <div v-if="max != 1" :class="['vx-flexbox','vx-popup-picker-header']">
+        <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
+        <button type="button" :disabled="this.required && !this.myValue.length" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <divider v-if="max != 1"></divider>
-      <div :class="[$cssPrefix + 'option-picker']">
+      <div :class="['vx-option-picker']">
         <checkbox-group direction="reverse" :max="max" @change="handleChange" :value="myValue">
           <checkbox
             v-for="(item,index) in myOptions"
@@ -67,7 +67,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'option-picker-wrapper']
+      return ['vx-option-picker-wrapper']
     }
   },
   watch: {

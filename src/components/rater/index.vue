@@ -2,7 +2,7 @@
   <div :class="classes" :disabled="disabled">
     <span
       v-for="(item,index) in max"
-      :class="[$cssPrefix + 'rater-item',item<=value?$cssPrefix + 'rater-item-active':'']"
+      :class="['vx-rater-item',item<=value?'vx-rater-item-active':'']"
       :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
       :data-value="item"
       :key="index"
@@ -18,7 +18,7 @@ export default {
   componentName: 'Rater',
   computed: {
     classes () {
-      return [this.$cssPrefix + 'rater']
+      return ['vx-rater']
     }
   },
   props: {

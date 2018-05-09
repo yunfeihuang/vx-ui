@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'form']
+      return ['vx-form']
     }
   },
   provide () {

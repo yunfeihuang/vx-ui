@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .list-view-demos .v-list-view{
+  .list-view-demos .vx-list-view{
     height:100%;
     background:#fff;
     position: absolute;

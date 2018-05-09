@@ -5,11 +5,11 @@
     @mousedown="handleTouchStart"
     onselectstart="return false;"
     >
-    <div :class="$cssPrefix + 'swipeout-inner'">
-      <div :class="$cssPrefix + 'swipeout-content'">
+    <div :class="'vx-swipeout-inner'">
+      <div :class="'vx-swipeout-content'">
         <slot></slot>
       </div>
-      <div :class="$cssPrefix + 'swipeout-action'" @click="handleAction">
+      <div :class="'vx-swipeout-action'" @click="handleAction">
         <slot name="action"></slot>
       </div>
     </div>
@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     classes () {
-      return [this.$cssPrefix + 'swipeout', this.divider ? this.$cssPrefix + 'swipeout-divider' : '']
+      return ['vx-swipeout', this.divider ? 'vx-swipeout-divider' : '']
     }
   },
   watch: {
@@ -52,9 +52,9 @@ export default {
     this.$$touch = {}
   },
   mounted () {
-    let node = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-action')
+    let node = this.$el.querySelector('.' + 'vx-swipeout-action')
     this.$$touch.maxTranslateX = node.offsetWidth
-    this.$$touch.el = this.$el.querySelector('.' + this.$cssPrefix + 'swipeout-inner')
+    this.$$touch.el = this.$el.querySelector('.' + 'vx-swipeout-inner')
     requestAnimationFrame(() => {
       node.style.height = node.parentNode.offsetHeight + 'px'
       this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
