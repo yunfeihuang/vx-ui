@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input :type="myType" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <icon :class="['vx-checkbox-icon']">&#xe632;</icon>
+    <i :class="['vx-checkbox-icon']"></i>
     <span :class="['vx-checkbox-text']">
       <slot></slot>
     </span>
@@ -10,12 +10,8 @@
 
 <script>
 import { input } from 'utils/mixins.js'
-import Icon from '../icon'
 export default {
   componentName: 'Checkbox',
-  components: {
-    Icon
-  },
   mixins: [input],
   computed: {
     classes () {

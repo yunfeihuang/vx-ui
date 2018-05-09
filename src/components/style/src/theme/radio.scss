@@ -40,6 +40,20 @@
     input:checked + &-icon{
       color:$color-primary;
       display:block;
+      &:after{
+        border: 2px solid $color-primary;
+        border-left: 0;
+        border-top: 0;
+        content: " ";
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        width: 6px;
+        height: 10px;
+        margin-left: -4px;
+        margin-top: -8px;
+        transform: rotate(45deg);
+      }
     }
   }
 }

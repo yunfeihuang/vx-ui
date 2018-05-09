@@ -7,6 +7,7 @@
     padding:0.25rem 0.15rem;
     line-height:20px;
     @include disabled;
+    overflow:hidden;
     &-group{
       user-select: none;
       @include disabled;
@@ -30,7 +31,6 @@
     &-icon{
       width:20px;
       height:20px;
-      //box-shadow:0 0 1px #666 inset;
       border-radius:20px;
       display:inline-block;
       //transition:all 0.2s $ease-in-out;
@@ -71,6 +71,20 @@
       color:#fff;
       &:before{
         border-color:$color-primary;
+      }
+      &:after{
+        border: 2px solid #fff;
+        border-left: 0;
+        border-top: 0;
+        content: " ";
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        width: 4px;
+        height: 8px;
+        margin-left: -3px;
+        margin-top: -6px;
+        transform: rotate(45deg);
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <span :class="['vx-radio-icon']"><icon>&#xe632;</icon></span>
+    <i :class="['vx-radio-icon']"></i>
     <span :class="['vx-radio-text']">
       <slot></slot>
     </span>
@@ -10,12 +10,8 @@
 
 <script>
 import { input } from 'utils/mixins.js'
-import Icon from '../icon'
 export default {
   componentName: 'Radio',
-  components: {
-    Icon
-  },
   mixins: [input],
   computed: {
     classes () {
