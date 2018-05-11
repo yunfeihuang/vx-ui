@@ -60,6 +60,8 @@
         </group>
         <group title="其他">
           <cell title="Badge" to="/demos/badge"></cell>
+          <cell title="Calendar" to="/demos/calendar"></cell>
+          <cell title="CalendarRange" to="/demos/calendarrange"></cell>
           <cell title="Picker" to="/demos/picker"></cell>
           <cell title="Ripple" to="/demos/ripple"></cell>
           <cell title="ListView" to="/demos/listview"></cell>

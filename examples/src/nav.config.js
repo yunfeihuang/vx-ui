@@ -186,6 +186,16 @@ export default [
         path: '/badge',
         title: 'Badge消息提示'
       },
+      /*
+      {
+        path: '/calendar',
+        title: 'Calendar日历选择器'
+      },
+      {
+        path: '/calendarrange',
+        title: 'CalendarRange日历区间选择器'
+      },
+      */
       {
         path: '/picker',
         title: 'Picker选择器'

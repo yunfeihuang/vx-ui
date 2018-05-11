@@ -18,6 +18,8 @@
           <x-switch slot="value" v-model="open3"/>
         </cell>
       </group>
+      {{value}}
+      <calendar v-model="value" :is-range="true"/>
     </x-body>
     <actionsheet :open.sync="open1" @click="handleClick">
       <actionsheet-item v-for="item in options" :value="item.value" :key="item.value">{{item.label}}</actionsheet-item>
@@ -32,7 +34,6 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     handleClick (value) {
@@ -44,6 +45,7 @@ export default {
   },
   data () {
     return {
+      value: [],
       options: [
         {
           value: '1',

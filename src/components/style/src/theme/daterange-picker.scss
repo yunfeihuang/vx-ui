@@ -7,62 +7,6 @@
         max-height:100%;
       }
     }
-    button{
-      @include button;
-      height:0.9rem;
-      min-width:1rem;
-      &:disabled{
-        opacity: 0.5;
-      }
-    }
-    &-controls{
-      button{
-        opacity: 0.8;
-      }
-    }
-    &-body{
-      min-height: 6.8rem;
-    }
-    &-calendar{
-      flex-wrap: wrap;
-      &-item{
-        width:14.285714285714286%;
-        line-height:1rem;
-        height: 1rem;
-      }
-      &-month{
-        width:33.333333333333336%;
-        line-height:1rem;
-        height: 1rem;
-      }
-      &-quarter{
-        width:25%;
-        line-height:1rem;
-        height: 1rem;
-      }
-    }
-    &-today{
-      color:$color-primary
-    }
-    &-active,&-start,&-end{
-      color:#fff!important;
-      background:rgba($color-primary, 0.95);
-    }
-    &-item-active{
-      background:rgba($color-primary,0.15);
-    }
-    &-outmonth{
-      color:#999;
-    }
-    &-weekend{
-      color:#F96903;
-    }
-    .#{$css-prefix}daterange-picker-weekend.#{$css-prefix}daterange-picker-outmonth{
-      color:rgba(#F96903, 0.4);
-    }
-    &-week-title{
-      line-height:0.8rem;
-    }
     &-cancel,&-clear, &-confirm{
       @include button;
       height: 1rem!important;

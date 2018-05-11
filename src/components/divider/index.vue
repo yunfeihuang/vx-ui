@@ -1,16 +1,5 @@
-<template>
-  <div :class="classes">
+<template functional>
+  <div class="vx-divider">
     <slot></slot>
   </div>
 </template>
-
-<script>
-export default {
-  componentName: 'Divider',
-  computed: {
-    classes () {
-      return ['vx-divider']
-    }
-  }
-}
-</script>

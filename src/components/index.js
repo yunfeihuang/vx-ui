@@ -48,8 +48,11 @@ import QrCode from './qrcode'
 import Message from './message'
 import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
+import Calendar from './calendar'
+import CalendarRange from './calendar-range'
 
 Arrow.componentName = 'Arrow'
+Divider.componentName = 'Divider'
 
 /*
 对Date的扩展，将 Date 转化为指定格式的String
@@ -138,7 +141,9 @@ let components = [
   Message,
   Carousel,
   CarouselItem,
-  Arrow
+  Arrow,
+  Calendar,
+  CalendarRange
 ]
 
 const install = (Vue) => {
@@ -424,7 +429,10 @@ export default {
   QrCode,
   Message,
   Carousel,
-  CarouselItem
+  CarouselItem,
+  Arrow,
+  Calendar,
+  CalendarRange
 }
 
 export {
@@ -492,5 +500,7 @@ export {
   Message,
   Carousel,
   CarouselItem,
-  Arrow
+  Arrow,
+  Calendar,
+  CalendarRange
 }

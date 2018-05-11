@@ -2,7 +2,9 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &divider{
-    @include divider;
-    position:static;
+    position:relative;
+    &:before{
+      @include divider;
+    }
   }
 }

@@ -42,6 +42,8 @@
   "datetime-picker": "./src/components/datetime-picker",
   "daterange-picker": "./src/components/daterange-picker",
   "datetime": "./src/components/datetime",
+  "calendar": "./src/components/calendar",
+  "calendar-range": "./src/components/calendar-range",
   "daterange": "./src/components/daterange",
   "popover": "./src/components/popover",
   "sticky": "./src/components/sticky",

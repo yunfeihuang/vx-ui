@@ -46,6 +46,8 @@ const Carousel = r => require.ensure([], () => r(require('demos/Carousel')))
 const Qrcode = r => require.ensure([], () => r(require('demos/Qrcode')))
 const Message = r => require.ensure([], () => r(require('demos/Message')))
 const Sticky = r => require.ensure([], () => r(require('demos/Sticky')))
+const Calendar = r => require.ensure([], () => r(require('demos/Calendar')))
+const CalendarRange = r => require.ensure([], () => r(require('demos/CalendarRange')))
 
 export default [
   {
@@ -239,6 +241,14 @@ export default [
       {
         path: '/demos/sticky',
         component: Sticky
+      },
+      {
+        path: '/demos/calendar',
+        component: Calendar
+      },
+      {
+        path: '/demos/calendarrange',
+        component: CalendarRange
       }
     ]
   }

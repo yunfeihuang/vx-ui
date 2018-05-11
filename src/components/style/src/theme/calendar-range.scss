@@ -1,0 +1,20 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &calendar-range{
+    background:#fff;
+    &-month,&-quarter{
+      width: 33.333333333333336%;
+      line-height: 0.9rem;
+      height: 0.9rem;
+      text-align:center;
+      &.is-active{
+        color:#fff!important;
+        background:rgba($color-primary, 0.95);
+      }
+    }
+    &-quarter{
+      width:25%;
+    }
+  }
+}
