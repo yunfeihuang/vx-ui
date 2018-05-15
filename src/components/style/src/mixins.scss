@@ -145,3 +145,11 @@
     @include _round-border($border-color,$border-radius,6);
   }
 }
+@mixin placeholder{
+  &:empty{
+    &:before{
+      content: attr(data-placeholder);
+      color:$color-sub;
+    }
+  }
+}

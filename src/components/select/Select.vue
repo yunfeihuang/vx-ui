@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick" :disabled="disabled">
-    <button type="button" :class="myLabel ? '' : 'vx-select-placeholder'" >{{myLabel || placeholder}}</button>
+    <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
     <div style="display:none">
       <slot></slot>
     </div>
