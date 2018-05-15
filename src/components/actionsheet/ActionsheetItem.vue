@@ -23,8 +23,8 @@ export default {
     classes () {
       return [
         'vx-actionsheet-item',
-        this.checked ? 'vx-actionsheet-item-active' : '',
-        this.disabled ? 'vx-actionsheet-item-disabled' : ''
+        this.checked ? 'is-active' : '',
+        this.disabled ? 'is-disabled' : ''
       ]
     }
   },

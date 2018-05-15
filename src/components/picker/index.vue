@@ -13,7 +13,7 @@
         </div>
         <div
           v-for="(item, index) in options"
-          :class="['vx-picker-item', item.value === value ? 'vx-picker-active' : '']"
+          :class="['vx-picker-item', item.value === value ? 'is-active' : '']"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     scrollToActive () {
-      let node = this.$el.querySelector('.' + 'vx-picker-active')
+      let node = this.$el.querySelector('.' + 'is-active')
       let index = 0
       Array.from(this.$el.querySelectorAll('.' + 'vx-picker-item')).forEach((item, i) => {
         if (item === node) {

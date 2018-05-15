@@ -22,7 +22,7 @@ export default {
     classes () {
       let array = ['vx-sidebar-item']
       if (this.$parent.active === this.name) {
-        array.push('vx-sidebar-item-active')
+        array.push('is-active')
         array.push(this.$parent.activeClass)
       }
       return array

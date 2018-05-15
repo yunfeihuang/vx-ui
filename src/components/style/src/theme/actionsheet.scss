@@ -32,10 +32,10 @@
       &:last-child:after{
         display:none;
       }
-      &-active{
+      &.is-active{
         color:$color-primary;
       }
-      &-disabled{
+      &.is-disabled{
         opacity: 0.6;
       }
     }

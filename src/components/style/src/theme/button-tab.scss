@@ -13,7 +13,7 @@
       z-index:1;
       white-space: nowrap;
       overflow: hidden;
-      &-active{
+      &.is-active{
         background-color:$color-primary;
         color:#fff;
         // transition: all $transition-time $ease-in-out;

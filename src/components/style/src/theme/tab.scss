@@ -19,7 +19,7 @@
       display:none;
     }
     &-item{
-      &-active{
+      &.is-active{
         color:$color-primary;
         // transition: color $transition-time $ease-in-out;
       }

@@ -15,7 +15,7 @@
   .#{$css-prefix}{
     &tabbar-item{
       padding:0.15rem 0;
-      &-active{
+      &.is-active{
         color:$color-primary;
         transition: color $transition-time $ease-in-out;
       }

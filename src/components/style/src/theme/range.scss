@@ -7,7 +7,7 @@
         position:relative;
         min-width:100px;
       }
-      &-disabled{
+      &.is-disabled{
         opacity: 0.6;
         pointer-events: none;
       }

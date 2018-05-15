@@ -30,7 +30,7 @@
           right:0;
           left:auto;
         }
-        &-active{
+        &.is-active{
           color:$color-primary;
           background:#fff;
           transition: color $transition-time $ease-in-out;

@@ -39,7 +39,7 @@ export default {
     classes () {
       let array = ['vx-range-wrapper']
       if (this.disabled) {
-        array.push('vx-range-disabled')
+        array.push('is-disabled')
       }
       return array
     },

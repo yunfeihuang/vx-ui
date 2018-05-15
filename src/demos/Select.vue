@@ -6,7 +6,7 @@
     <x-body slot="body">
       <group>
         <cell>
-          <div slot="title">下拉框({{label}})</div>
+          <div slot="title">下拉框({{value}})</div>
           <x-select
             slot="value"
             :label.sync="label"

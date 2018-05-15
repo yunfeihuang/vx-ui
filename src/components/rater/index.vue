@@ -2,7 +2,7 @@
   <div :class="classes" :disabled="disabled">
     <span
       v-for="(item,index) in max"
-      :class="['vx-rater-item',item<=value?'vx-rater-item-active':'']"
+      :class="['vx-rater-item',item<=value?'is-active':'']"
       :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
       :data-value="item"
       :key="index"

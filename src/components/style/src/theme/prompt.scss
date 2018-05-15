@@ -13,7 +13,7 @@
       .#{$css-prefix}confirm-body{
         padding:0.7rem 0.5rem;
       }
-      &-disabled{
+      &.is-disabled{
         .#{$css-prefix}confirm-footer button:last-child{
           opacity:0.5;
           pointer-events: none;

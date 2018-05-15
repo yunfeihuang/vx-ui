@@ -15,7 +15,7 @@
         width:40px;
         display: inline-block;
         vertical-align: middle;
-        &-active{
+        &.is-active{
           color:$color-primary;
         }
         &:first-child{

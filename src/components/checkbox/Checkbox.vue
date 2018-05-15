@@ -18,12 +18,16 @@ export default {
       return [
         'vx-checkbox',
         this.direction === 'reverse' || this.$parent.direction === 'reverse' ? 'vx-checkbox-reverse' : '',
-        this.myChecked ? 'vx-checkbox-active' : ''
+        this.myChecked ? 'is-active' : ''
       ]
     },
     myChecked () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
-        return this.$parent.value.indexOf(this.value) > -1
+        if (this.$parent.value instanceof Array) {
+          return this.$parent.value.indexOf(this.value) > -1
+        } else {
+          return this.$parent.value === this.value
+        }
       } else {
         return this.checked
       }

@@ -28,19 +28,14 @@
     }
   }
   &option-picker{
+    text-align: left;
     max-height:400px;
     max-height: 65vh;
     overflow:auto;
     .#{$css-prefix}{
       &checkbox{
-        &-active{
+        &.is-active{
           color:$color-primary;
-        }
-        &-icon{
-          display:none;
-        }
-        &-text{
-          padding-right:0;
         }
       }
     }

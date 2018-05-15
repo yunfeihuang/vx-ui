@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-prompt', this.disabled ? 'vx-prompt-disabled' : '']
+      return ['vx-prompt', this.disabled ? 'is-disabled' : '']
     }
   },
   data () {
