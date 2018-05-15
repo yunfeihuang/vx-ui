@@ -6,20 +6,23 @@
       @error="handleError"
       @load='handleLoad'
     />
-    <spinner v-if="loading" :class="'vx-img-spinner'"/>
-    <icon v-if="!loading">&#xe728;</icon>
+    <spinner v-if="loading" class="vx-img-spinner"/>
+    <template v-if="!loading">
+      <slot name="placeholder" v-if="$slots.placeholder"></slot>
+      <i v-else class="vx-img-icon">
+        <em></em>
+      </i>
+    </template>
   </div>
 </template>
 
 <script>
 import Spinner from '../spinner'
-import Icon from '../icon'
 
 export default {
   componentName: 'XImg',
   components: {
-    Spinner,
-    Icon
+    Spinner
   },
   props: {
     src: {
@@ -109,7 +112,7 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.' + 'vx-iconfont') || this.$el.querySelector('.' + 'vx-img-spinner')
+          let icon = this.$el.querySelector('.' + 'vx-img-icon') || this.$el.querySelector('.' + 'vx-img-spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')

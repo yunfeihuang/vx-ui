@@ -30,17 +30,42 @@
     }
     &-placeholder{
       background:#f5f5f5;
-      .#{$css-prefix}iconfont{
-        font-size:26px;
-        color:#fff;
-        margin:-13px;
-      }
     }
     &-spinner{
       position:absolute;
       margin:-10px;
       top:50%;
       left:50%;
+    }
+    &-icon{
+      position:absolute;
+      display:inline-block;
+      top:50%;
+      left:50%;
+      transform:translate(-50%);
+      margin-top:-15px;
+      &:before,&:after{
+        content:'';
+        border:20px solid transparent;
+        border-top-width:10px;
+        border-bottom-color:#fff;
+        display:inline-block;
+        vertical-align: bottom;
+        border-radius: 4px;
+      }
+      &:after{
+        border-width:15px;
+        margin-left:-20px;
+      }
+      em{
+        position:absolute;
+        right:0;
+        top:0;
+        background:#fff;
+        border-radius:50%;
+        width:10px;
+        height:10px;
+      }
     }
   }
 }
