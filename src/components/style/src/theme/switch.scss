@@ -7,21 +7,20 @@
       @include disabled;
       display:inline-block;
       vertical-align: middle;
-      overflow:hidden;
       //height: 32px;
       //width: 50px;
-      width: 1.05rem;
+      width: 1.052rem;
       height: 0.672rem;
       button{
         height:100%;
         border-radius:30px;
-        background-color:$color-sub;
+        background-color:#fff;
         margin: 0;
         padding: 0;
-        transition:all 0.3s $ease-in-out;
+        transition: all 0.4s $ease-in-out 0s;
         width:100%;
         position: relative;
-        border:2px solid #999;
+        border:1px solid $border-color-base;
         box-sizing: border-box;
         &:before{
           content:'';
@@ -33,6 +32,7 @@
           top:0;
           position:absolute;
           transition:left 0.3s $ease-in-out;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.35);
         }
       }
       input{
@@ -44,11 +44,12 @@
         padding: 0;
         margin: 0;
         &:checked+button{
-          background-color:$color-primary;
+          box-shadow:0 0 0 60px $color-primary inset;
           border-color:$color-primary;
-        }
-        &:checked+button:before{
-          left:40%;;
+          &:before{
+            left:40%;
+            border-color:$color-primary;
+          }
         }
       }
     }
