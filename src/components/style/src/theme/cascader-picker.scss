@@ -1,0 +1,66 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &cascader-picker{
+    &-value{
+      text-align:left;
+      overflow-x: auto;
+      overflow-y: hidden;
+      &-item{
+        line-height:0.9rem;
+        margin-left:10px;
+        display:inline-block;
+        position:relative;
+        &.is-active{
+          border-bottom-color:$color-primary;
+          color:$color-primary;
+          &:after{
+            width:12px;
+            position:absolute;
+            margin-left:-6px;
+            bottom:0;
+            left:50%;
+            border-bottom:2px solid $color-primary;
+            content:'';
+          }
+        }
+      }
+      &:before{
+        @inclide divider;
+      }
+    }
+    &-container{
+      position:relative;
+      height:6rem;
+      overflow:hidden;
+    }
+    &-panel{
+        overflow:auto;
+        text-align:left;
+        position:absolute;
+        height:100%;
+        width:100%;
+        transform: translateX(100%);
+        transition: transform 0.2s ease 0s;
+        background:#fff;
+      }
+    &-item{
+      line-height:0.9rem;
+      height:0.9rem;
+      padding:0 0.16rem;
+      overflow:hidden;
+      position:relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &.is-active{
+        color:$color-primary;
+      }
+      &.is-disabled{
+        opacity: 0.6;
+      }
+      &:after{
+        @include divider
+      }
+    }
+  }
+}

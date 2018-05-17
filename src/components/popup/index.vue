@@ -80,12 +80,15 @@ export default {
     handleEnter () {
       this.$emit('enter')
     },
+    close () {
+      this.$emit('close').$emit('update:open', false)
+    },
     handleClose () {
-      this.fastClose && this.$emit('close')
+      this.fastClose && this.close()
     },
     handleClose2 (e) {
       if (this.fastClose && e.target === this.$el.querySelector('.' + 'vx-popup-inner')) {
-        this.$emit('close')
+        this.close()
       }
     }
   }

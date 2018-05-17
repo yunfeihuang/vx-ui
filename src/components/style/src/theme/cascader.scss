@@ -1,0 +1,8 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &cascader{
+    display:inline-block;
+    @include placeholder;
+  }
+}

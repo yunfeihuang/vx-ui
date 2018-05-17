@@ -33,6 +33,7 @@
           <cell title="Range" to="/demos/range"></cell>
           <cell title="Datetime" to="/demos/datetime"></cell>
           <cell title="Daterange" to="/demos/daterange"></cell>
+          <cell title="Cascader" to="/demos/cascader"></cell>
           <cell title="Rater" to="/demos/rater"></cell>
           <cell title="Search" to="/demos/search"></cell>
         </group>
@@ -63,6 +64,7 @@
           <cell title="Calendar" to="/demos/calendar"></cell>
           <cell title="CalendarRange" to="/demos/calendarrange"></cell>
           <cell title="Picker" to="/demos/picker"></cell>
+          <cell title="CascaderPicker" to="/demos/cascaderpicker"></cell>
           <cell title="Ripple" to="/demos/ripple"></cell>
           <cell title="ListView" to="/demos/listview"></cell>
           <cell title="Sticky" to="/demos/sticky"></cell>

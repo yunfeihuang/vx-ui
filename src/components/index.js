@@ -50,6 +50,9 @@ import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
 import Calendar from './calendar'
 import CalendarRange from './calendar-range'
+import Cascader from './cascader'
+import CascaderPicker from './cascader-picker'
+import CascaderPopupPicker from './cascader-popup-picker'
 
 Arrow.componentName = 'Arrow'
 Divider.componentName = 'Divider'
@@ -143,7 +146,10 @@ let components = [
   CarouselItem,
   Arrow,
   Calendar,
-  CalendarRange
+  CalendarRange,
+  Cascader,
+  CascaderPicker,
+  CascaderPopupPicker
 ]
 
 const install = (Vue) => {
@@ -432,7 +438,10 @@ export default {
   CarouselItem,
   Arrow,
   Calendar,
-  CalendarRange
+  CalendarRange,
+  Cascader,
+  CascaderPicker,
+  CascaderPopupPicker
 }
 
 export {
@@ -502,5 +511,8 @@ export {
   CarouselItem,
   Arrow,
   Calendar,
-  CalendarRange
+  CalendarRange,
+  Cascader,
+  CascaderPicker,
+  CascaderPopupPicker
 }
