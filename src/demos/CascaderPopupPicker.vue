@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/">
-      <div slot="title">CalendarPopupPicker</div>
+      <div slot="title">CascaderPopupPicker</div>
     </x-nav>
     <x-body slot="body">
       <group :title="`级联选择器弹框：${value}`">

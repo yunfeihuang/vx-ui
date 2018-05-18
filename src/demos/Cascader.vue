@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/">
-      <div slot="title">Calendar</div>
+      <div slot="title">Cascader</div>
     </x-nav>
     <x-body slot="body">
       <group :title="`value:${value}`">
