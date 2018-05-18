@@ -84,6 +84,10 @@ export default [
         title: 'Daterange日期区间输入框'
       },
       {
+        path: '/cascader',
+        title: 'Cascader级联输入框'
+      },
+      {
         path: '/rater',
         title: 'Rater评分'
       },
@@ -186,7 +190,6 @@ export default [
         path: '/badge',
         title: 'Badge消息提示'
       },
-      /*
       {
         path: '/calendar',
         title: 'Calendar日历选择器'
@@ -195,10 +198,13 @@ export default [
         path: '/calendarrange',
         title: 'CalendarRange日历区间选择器'
       },
-      */
       {
         path: '/picker',
         title: 'Picker选择器'
+      },
+      {
+        path: '/cascaderpicker',
+        title: 'CascaderPicker选择器'
       },
       {
         path: '/ripple',

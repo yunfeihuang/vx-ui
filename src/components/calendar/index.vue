@@ -35,7 +35,7 @@
         v-for="(item, index) in dateList"
         :key="item.value.getTime()"
         :class="calendarClasses(item)"
-        @click="handleChange(isWeek? index : item.value)"
+        @click="handleChange(isWeekRange? index : item.value)"
         >
         <slot v-if="$slots.default" v-bind="item"></slot>
         <span v-else class="vx-calendar-date-text">{{item.value.getDate()}}</span>
@@ -85,7 +85,7 @@ export default {
         return ['year', 'month', 'week', 'date']
       }
     },
-    isWeek: {
+    isWeekRange: {
       type: Boolean,
       default: false
     }
@@ -221,7 +221,7 @@ export default {
     },
     handleChange (value) {
       if (this.isRange) {
-        if (this.isWeek) {
+        if (this.isWeekRange) {
           this.setValue([this.dateList[Math.floor(value / 7) * 7].value, this.dateList[(Math.floor(value / 7) + 1) * 7 - 1].value])
         } else {
           if (value instanceof Array) {

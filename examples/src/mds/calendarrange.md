@@ -3,9 +3,8 @@
 ```html
 <template>
   <div>
-    <message>注意：此示例要在移动设备体验哦~</message>
-    <group>
-      <picker placeholder="请选择" v-model="value" :options="options"></picker>
+    <group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
+      <calendar-range v-model="value"/>
     </group>
   </div>
 </template>
@@ -13,43 +12,7 @@
 export default {
   data () {
     return {
-      options: [{
-        value: '010101',
-        label: '南山区'
-      },
-      {
-        value: '010102',
-        label: '福田区'
-      },
-      {
-        value: '010103',
-        label: '罗湖区'
-      },
-      {
-        value: '010104',
-        label: '宝安区'
-      },
-      {
-        value: '010105',
-        label: '龙华区'
-      },
-      {
-        value: '010106',
-        label: '龙岗区'
-      },
-      {
-        value: '010107',
-        label: '盐田区'
-      },
-      {
-        value: '010108',
-        label: '坪山区'
-      },
-      {
-        value: '010109',
-        label: '光明区'
-      }],
-      value: '010101'
+      value: []
     }
   }
 }
@@ -59,9 +22,12 @@ export default {
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String  |   -       |    -    |
-| placeholder     | 占位文本   | String  |   -       |    请选择    |
-| options     | 选项列表   | Array[{value,label}]  |   -       |    -    |
+| value     | 值   | Date, Array  |   -       |    -    |
+| yearText     | 年文字   | String  |   -       |    年    |
+| monthText     | 月文字   | String  |   -       |    月    |
+| weekText     | 周一到五文字   | Array  |   -       |    ['周一', '周二', '周三', '周四', '周五', '周六', '周日']    |
+| tabText     | 选项卡文字   | Object  |   -       |    {date: '日历',week: '周历',month: '月历',quarter: '季度'}    |
+| layout     | 选项卡功能   | Array  |   -       |    ['date', 'week', 'month', 'quarter']    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
