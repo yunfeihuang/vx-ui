@@ -57,18 +57,23 @@ export default {
       if (this.color) {
         this.$$node.style.backgroundColor = this.color
       }
-      let max = Math.max(this.$$offset.height, this.$$offset.width)
-      this.$$duration = max / 40 * 0.3
       this.$el.appendChild(this.$$node)
       this.$$timer = setTimeout(() => {
-        this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s`
+        this.$$node.style.transition = this.$$node.style.webkitTransition = `transform 0.25s ease-in-out 0s`
         this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(1.4)'
       })
       e.preventDefault()
     },
     handleTouchEnd (e) {
       this.$$timer && clearTimeout(this.$$timer)
-      this.$$node.style.transition = this.$$node.style.webkitTransition = ''
+      let max = Math.max(this.$$offset.height, this.$$offset.width)
+      this.$$duration = max / 400
+      if (this.$$duration < 0.6) {
+        this.$$duration = 0.6
+      } else if (this.$$duration > 2) {
+        this.$$duration = 2
+      }
+      this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s, opacity ${this.$$duration - 0.3}s linear 0s`
       this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(' + (Math.max(this.$$offset.height, this.$$offset.width) / 5) + ')'
       this.$$node.style.opacity = '0'
       setTimeout(((node) => {
