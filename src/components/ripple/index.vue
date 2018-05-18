@@ -60,7 +60,6 @@ export default {
       let max = Math.max(this.$$offset.height, this.$$offset.width)
       this.$$duration = max / 40 * 0.3
       this.$el.appendChild(this.$$node)
-      console.log(`transform ${this.$$duration}s ease-in-out 0s`)
       this.$$timer = setTimeout(() => {
         this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s`
         this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(1.4)'
