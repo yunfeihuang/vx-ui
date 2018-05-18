@@ -49,5 +49,7 @@
   "sticky": "./src/components/sticky",
   "carousel": "./src/components/carousel",
   "qrcode": "./src/components/qrcode",
+  "cascader": "./src/components/cascader",
+  "cascader-picker": "./src/components/cascader-picker",
   "icon": "./src/components/icon"
 }
