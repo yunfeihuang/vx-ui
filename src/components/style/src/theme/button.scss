@@ -23,6 +23,11 @@
     &:active{
       box-shadow:0 0 0 100px rgba(0,0,0,0.15) inset;
     }
+    &.is-ripple{
+      &:active{
+        box-shadow:none;
+      }
+    }
     &-primary{
       background-color:$color-primary;
       color:#fff;
@@ -64,6 +69,14 @@
         width:16px;
         height:16px;
       }
+    }
+    .vx-ripple{
+      position:absolute;
+      height:100%;
+      width:100%;
+      z-index:1;
+      top:0;
+      left:0;
     }
   }
 }

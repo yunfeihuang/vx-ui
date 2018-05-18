@@ -16,8 +16,7 @@ const button = {
       default: 'button'
     },
     plain: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     loadingColor: {
       type: Object,
@@ -30,8 +29,10 @@ const button = {
       }
     },
     loading: {
-      type: Boolean,
-      defauft: false
+      type: Boolean
+    },
+    ripple: {
+      type: Boolean
     }
   }
 }

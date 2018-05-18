@@ -5,9 +5,6 @@
 </template>
 
 <script>
-let node = null
-let offset = {}
-let timer = null
 export default {
   componentName: 'Ripple',
   props: {
@@ -53,28 +50,31 @@ export default {
     handleTouchStart (e) {
       let shadow = this.$el.querySelector('.' + 'vx-ripple-shadow')
       shadow && shadow.parentNode.removeChild(shadow)
-      offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
-      node = document.createElement('div')
-      node.classList.add('vx-ripple-shadow')
-      node.style.cssText = 'top:' + offset.top + 'px;left:' + offset.left + 'px;'
+      this.$$offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
+      this.$$node = document.createElement('div')
+      this.$$node.classList.add('vx-ripple-shadow')
+      this.$$node.style.cssText = 'top:' + this.$$offset.top + 'px;left:' + this.$$offset.left + 'px;'
       if (this.color) {
-        node.style.backgroundColor = this.color
+        this.$$node.style.backgroundColor = this.color
       }
-      this.$el.appendChild(node)
-      timer = setTimeout(() => {
-        node.style.transition = node.style.webkitTransition = 'transform 0.3s ease-in-out 0s'
-        node.style.transform = node.style.webkitTransform = 'scale(1.4)'
+      let max = Math.max(this.$$offset.height, this.$$offset.width)
+      this.$$duration = max / 40 * 0.3
+      this.$el.appendChild(this.$$node)
+      console.log(`transform ${this.$$duration}s ease-in-out 0s`)
+      this.$$timer = setTimeout(() => {
+        this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s`
+        this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(1.4)'
       })
       e.preventDefault()
     },
     handleTouchEnd (e) {
-      timer && clearTimeout(timer)
-      node.style.transition = node.style.webkitTransition = ''
-      node.style.transform = node.style.webkitTransform = 'scale(' + (Math.max(offset.height, offset.width) / 5) + ')'
-      node.style.opacity = '0'
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$$node.style.transition = this.$$node.style.webkitTransition = ''
+      this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(' + (Math.max(this.$$offset.height, this.$$offset.width) / 5) + ')'
+      this.$$node.style.opacity = '0'
       setTimeout(((node) => {
         node.parentNode && node.parentNode.removeChild(node)
-      }).bind(this, node), 1000)
+      }).bind(this, this.$$node), this.$$duration * 1000)
     }
   }
 }

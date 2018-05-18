@@ -18,9 +18,10 @@
         <x-button type="danger" size="large" plain>plain danger</x-button>
         <x-button type="warning" size="large" plain>plain warning</x-button>
         <x-button disabled size="large">disabled</x-button>
-        <x-button type="primary" size="large" :loading="true">primary</x-button>
         <x-button type="primary" size="large" disabled>primary disabled</x-button>
-        <x-button type="danger" size="large" plain disabled>plain danger disabled</x-button>
+        <x-button type="primary" size="large" :loading="true">primary</x-button>
+        <x-button size="large" ripple>default ripple</x-button>
+        <x-button size="large" type="primary" ripple>primary ripple</x-button>
         <br />
       </div>
     </x-body>
