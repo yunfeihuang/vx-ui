@@ -25,6 +25,13 @@
       .#{$css-prefix}popup-inner{
         overflow:visible;
       }
+      .vx-popup-center{
+        .vx-option-picker-wrapper{
+          background:#fff;
+          width:80%;
+          border-radius:$border-radius-base;
+        }
+      }
     }
   }
   &option-picker{

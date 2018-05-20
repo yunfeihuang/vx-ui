@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose">
+  <popup :open="open" :history="history" @close="handleClose" :direction="direction">
     <div :class="classes">
       <div v-if="max != 1" :class="['vx-flexbox','vx-popup-picker-header']">
         <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -8,14 +8,14 @@
       </div>
       <divider v-if="max != 1"></divider>
       <div :class="['vx-option-picker']">
-        <checkbox-group direction="reverse" :max="max" @change="handleChange" :value="myValue">
+        <checkbox-group :max="max" @change="handleChange" :value="myValue">
           <checkbox
             v-for="(item,index) in myOptions"
             :value="item.value"
             :key="index"
             :disabled="item.disabled"
             >
-            {{item.label}}
+            <div v-html="item.html || item.label"></div>
           </checkbox>
         </checkbox-group>
       </div>
@@ -63,6 +63,10 @@ export default {
     confirmText: {
       type: String,
       default: '确定'
+    },
+    direction: {
+      type: String,
+      default: 'bottom'
     }
   },
   computed: {

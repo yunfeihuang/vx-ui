@@ -25,6 +25,9 @@ export default {
     max: {
       type: Number,
       default: 1
+    },
+    popupDirection: {
+      type: String
     }
   },
   computed: {
@@ -60,7 +63,8 @@ export default {
         return {
           value: item.value,
           disabled: item.disabled,
-          label: item.$el.innerText.trim()
+          label: item.label || item.$el.innerHTML.trim(),
+          html: item.$el.innerHTML.trim()
         }
       })
     },
@@ -85,7 +89,7 @@ export default {
                   value: this.value,
                   options: this.options,
                   max: this.max,
-                  required: this.required
+                  direction: this.direction
                 },
                 class: [this.classes],
                 on: {
@@ -100,7 +104,7 @@ export default {
               value: this.value,
               classes: 'vx-select-picker',
               max: this.max,
-              required: this.required
+              direction: this.max === 1 ? this.popupDirection : undefined
             },
             mounted () {
               this.open = true
@@ -113,9 +117,9 @@ export default {
             methods: {
               handleClose () {
                 this.open = false
-                setTimeout(() => {
+                this.$nextTick(() => {
                   this.$destroy()
-                }, 1000)
+                })
               },
               handleChange (value) {
                 if (self.value !== value) {
