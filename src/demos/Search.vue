@@ -27,6 +27,7 @@
           搜索结果显示
         </div>
       </search>
+      <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
     </x-body>
   </layout>
 </template>
@@ -36,6 +37,9 @@ export default {
   methods: {
     handleSubmit (value) {
       console.log('handleSubmit')
+    },
+    handleInput (value) {
+      console.log('input:', value)
     }
   },
   data () {

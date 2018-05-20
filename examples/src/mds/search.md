@@ -2,35 +2,41 @@
 
 ```html
 <template>
-  <search v-model="value" placeholder="搜索商品/商店/用户"
-    @submit="handleSubmit">
-    <template slot="keywords" slot-scope="scope">
-      <span class="keyword" @click="scope.search('上海')">
-        上海
-      </span>
-      <span class="keyword" @click="scope.search('武汉')">
-        武汉
-      </span>
-      <span class="keyword" @click="scope.search('深圳')">
-        深圳
-      </span>
-      <span class="keyword" @click="scope.search('南京')">
-        南京
-      </span>
-      <span class="keyword" @click="scope.search('北京')">
-        北京
-      </span>
-    </template>
-    <div slot="result" style="text-align:center;padding:15px">
-      搜索结果显示
-    </div>
-  </search>
+  <div>
+    <search v-model="value" placeholder="搜索商品/商店/用户"
+      @submit="handleSubmit">
+      <template slot="keywords" slot-scope="scope">
+        <span class="keyword" @click="scope.search('上海')">
+          上海
+        </span>
+        <span class="keyword" @click="scope.search('武汉')">
+          武汉
+        </span>
+        <span class="keyword" @click="scope.search('深圳')">
+          深圳
+        </span>
+        <span class="keyword" @click="scope.search('南京')">
+          南京
+        </span>
+        <span class="keyword" @click="scope.search('北京')">
+          北京
+        </span>
+      </template>
+      <div slot="result" style="text-align:center;padding:15px">
+        搜索结果显示
+      </div>
+    </search>
+    <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
+  </div>
 </template>
 <script>
   export default {
     methods: {
       handleSubmit (value) {
         console.log('handleSubmit')
+      },
+      handleInput (value) {
+        console.log('input:', value)
       }
     },
     data () {
@@ -48,6 +54,7 @@
 | value     | 值   | Array[String]  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| fixedTop     | 是否固定顶部   | Boolean  |   -       |    true    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
 | clear     | 是否有清除按钮   | Boolean  |   -       |    true    |

@@ -63,6 +63,10 @@ export default {
     history: {
       type: Boolean,
       default: true
+    },
+    fixedTop: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -92,8 +96,9 @@ export default {
   },
   methods: {
     handleFocus (e) {
-      this.isFocus = this.fixed = true
-      if (this.$el.children[0]) {
+      this.isFocus = true
+      if (this.fixedTop && this.$el.children[0]) {
+        this.fixed = true
         this.childFixed = this.$el.children[0]
         this.childFixed && document.body.appendChild(this.childFixed)
         this.childFixed.querySelector('input').focus()
