@@ -10,6 +10,7 @@
   "button-tab": "./src/components/button-tab",
   "button": "./src/components/button",
   "input": "./src/components/input",
+  "input-number": "./src/components/input-number",
   "password": "./src/components/password",
   "range": "./src/components/range",
   "form": "./src/components/form",

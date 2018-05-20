@@ -25,6 +25,7 @@
           <cell title="Input" to="/demos/input"></cell>
           <cell title="Textarea" to="/demos/textarea"></cell>
           <cell title="Password" to="/demos/password"></cell>
+          <cell title="InputNumber" to="/demos/inputnumber"></cell>
           <cell title="Select" to="/demos/select"></cell>
           <cell title="Switch" to="/demos/switch"></cell>
           <cell title="Radio" to="/demos/radio"></cell>

@@ -21,6 +21,9 @@
   cursor: default;
   box-shadow: none;
   font-size: inherit;
+  box-sizing: border-box;
+  color:inherit;
+  vertical-align: middle;
 }
 @mixin input{
   border:0;
@@ -30,6 +33,8 @@
   box-sizing:border-box;
   height:2.6rem;
   width:100%;
+  color:inherit;
+  vertical-align: middle;
 }
 @mixin scroll{
   overflow: auto;

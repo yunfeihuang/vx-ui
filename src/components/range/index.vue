@@ -55,10 +55,10 @@ export default {
     },
     myValue () {
       if (this.value < this.min) {
-        return this.min
+        return Math.round(this.min * this.stepRate) / this.stepRate
       }
       if (this.value > this.max) {
-        return this.max
+        return Math.round(this.max * this.stepRate) / this.stepRate
       }
       return Math.round(this.value * this.stepRate) / this.stepRate
     },

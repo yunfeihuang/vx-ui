@@ -1,0 +1,31 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &input-number{
+    height:30px;
+    position:relative;
+    background:#fff;
+    border:1px solid $border-color-base;
+    border-radius:$border-radius-base;
+    @include disabled;
+    button{
+      @include button;
+      height:100%;
+      color:inherit;
+      height:100%;
+      &:first-child{
+        border-right:1px solid $border-color-base;
+      }
+      &:last-child{
+        border-left:1px solid $border-color-base;
+      }
+    }
+    input{
+      @include input;
+      width:80px;
+      height:100%;
+      color:inherit;
+      text-align:center;
+    }
+  }
+}

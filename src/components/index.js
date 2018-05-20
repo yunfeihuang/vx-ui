@@ -1,5 +1,6 @@
 import Button from './button'
 import Input from './input'
+import InputNumber from './input-number'
 import Password from './password'
 import Range from './range'
 import Textarea from './textarea'
@@ -99,6 +100,7 @@ let components = [
   ButtonTabItem,
   Button,
   Input,
+  InputNumber,
   Password,
   Range,
   Form,
@@ -391,6 +393,7 @@ export default {
   ButtonTabItem,
   Button,
   Input,
+  InputNumber,
   Password,
   Range,
   Form,
@@ -464,6 +467,7 @@ export {
   ButtonTabItem,
   Button,
   Input,
+  InputNumber,
   Password,
   Range,
   Form,
