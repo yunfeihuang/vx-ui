@@ -25,7 +25,7 @@
           <x-input v-model="form.email"/>
         </x-form-item>
         <div style="padding:20px 10px;">
-          <x-button type="primary" native-type="submit">提交</x-button>
+          <x-button type="primary" native-type="submit" size="large">提交</x-button>
         </div>
       </x-form>
     </x-body>

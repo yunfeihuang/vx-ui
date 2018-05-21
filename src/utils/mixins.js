@@ -38,7 +38,9 @@ const button = {
 }
 
 const input = {
-  inject: ['vxFormItem'],
+  inject: {
+    vxFormItem: { default: 'vxFormItem' }
+  },
   props: {
     disabled: {
       type: [String, Boolean]
