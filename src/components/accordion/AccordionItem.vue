@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
-    <div class="vx-accordion-hd" @click="handleOpen">
-      <div class="vx-accordion-title">
+    <div class="vx-accordion-item-hd" @click="handleOpen(!myOpen)">
+      <div class="vx-accordion-item-title">
         <slot v-if="$slots.title"></slot>
         <template v-else>
           {{title}}
@@ -9,8 +9,8 @@
       </div>
       <arrow direction="down" />
     </div>
-    <div class="vx-accordion-bd">
-      <div class="vx-accordion-content">
+    <div class="vx-accordion-item-bd">
+      <div class="vx-accordion-item-content">
         <slot></slot>
       </div>
     </div>
@@ -20,7 +20,7 @@
 <script>
 import Arrow from '../arrow'
 export default {
-  componentName: 'Accordion',
+  componentName: 'AccordionItem',
   components: {
     Arrow
   },
@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-accordion', {
+      return ['vx-accordion-item', {
         'is-open': this.myOpen
       }]
     }
@@ -45,21 +45,29 @@ export default {
       myOpen: this.open
     }
   },
+  watch: {
+    open (value) {
+      this.myOpen = value
+      this.handleOpen(value)
+    }
+  },
   mounted () {
     if (this.open) {
-      let node = this.$el.querySelector('.vx-accordion-bd')
-      node.style.height = node.children[0].clientHeight + 'px'
+      this.handleOpen(this.open)
     }
   },
   methods: {
-    handleOpen () {
-      let node = this.$el.querySelector('.vx-accordion-bd')
+    handleOpen (open, isParentCall) {
+      let node = this.$el.querySelector('.vx-accordion-item-bd')
       let height = ''
-      if (!this.myOpen) {
+      if (open) {
         height = node.children[0].clientHeight + 'px'
       }
-      this.myOpen = !this.myOpen
+      this.myOpen = open
       node.style.height = height
+      if (!isParentCall && this.$parent && this.$parent.$options.componentName === 'Accordion') {
+        this.$parent.updateChildren(this)
+      }
     }
   }
 }

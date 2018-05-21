@@ -4,37 +4,46 @@
   &accordion{
     margin:0.16rem 0;
     background:#fff;
-    &-hd{
-      font-size:$font-size-large;
-      line-height:0.9rem;
-      padding:0 0.16rem;
+    &-item{
       position:relative;
-      &:after{
-        @include divider;
-      }
-      .vx-arrow{
-        position:absolute;
-        top:50%;
-        right:0.18rem;
-        margin-top:-10px;
-      }
-    }
-    &-title{
-      margin-right:0.6rem;
-    }
-    &-bd{
-      height:0;
-      overflow:hidden;
-      transition: height 0.3s ease 0s;
-    }
-    &-content{
-      padding:0.16rem;
-    }
-    &.is-open{
-      .vx-accordion-hd{
+      &-hd{
+        font-size:$font-size-large;
+        line-height:0.9rem;
+        padding:0 0.16rem;
+        position:relative;
+        &:after{
+          @include divider;
+        }
         .vx-arrow{
-          transform: rotate(-135deg);
-          margin-top:-2px;
+          position:absolute;
+          top:50%;
+          right:0.18rem;
+          margin-top:-10px;
+        }
+      }
+      &-title{
+        margin-right:0.6rem;
+      }
+      &-bd{
+        height:0;
+        overflow:hidden;
+        transition: height 0.3s ease 0s;
+      }
+      &-content{
+        padding:0.16rem;
+      }
+      &.is-open{
+        &+.vx-accordion-item{
+          &:before{
+            @include divider;
+            top:0;
+          }
+        }
+        .vx-accordion-item-hd{
+          .vx-arrow{
+            transform: rotate(-135deg);
+            margin-top:-2px;
+          }
         }
       }
     }
