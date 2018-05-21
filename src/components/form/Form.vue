@@ -50,17 +50,19 @@ export default {
     validate (cb) {
       let count = 0
       let valid = true
-      let toast = null
+      // let toast = null
       this.fields.forEach((field, index) => {
         field.validate((message) => {
           count++
           if (message) {
             valid = false
+            /*
             if (!toast && this.$toast) {
               toast = this.$toast({
                 content: message
               })
             }
+            */
           }
           if (this.fields.length === count) {
             cb && cb(valid)
@@ -70,9 +72,11 @@ export default {
     },
     handleSubmit (e) {
       e.preventDefault()
-      this.validate(valid => {
-        valid && this.submit && this.submit()
-      })
+      if (this.submit) {
+        this.validate(valid => {
+          valid && this.submit()
+        })
+      }
     }
   }
 }

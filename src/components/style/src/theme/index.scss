@@ -1,6 +1,7 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 @import './actionsheet.scss';
+@import './accordion.scss';
 @import './arrow.scss';
 @import './alert.scss';
 @import './badge.scss';
@@ -62,4 +63,7 @@ body{
   font-size:$font-size-default;
   -webkit-tap-highlight-color:transparent;
   tap-highlight-color:transparent;
+}
+input::-webkit-input-placeholder {
+	color: $color-placeholder;
 }

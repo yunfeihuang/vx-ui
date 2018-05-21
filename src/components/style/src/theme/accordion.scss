@@ -1,0 +1,42 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &accordion{
+    margin:0.16rem 0;
+    background:#fff;
+    &-hd{
+      font-size:$font-size-large;
+      line-height:0.9rem;
+      padding:0 0.16rem;
+      position:relative;
+      &:after{
+        @include divider;
+      }
+      .vx-arrow{
+        position:absolute;
+        top:50%;
+        right:0.18rem;
+        margin-top:-10px;
+      }
+    }
+    &-title{
+      margin-right:0.6rem;
+    }
+    &-bd{
+      height:0;
+      overflow:hidden;
+      transition: height 0.3s ease 0s;
+    }
+    &-content{
+      padding:0.16rem;
+    }
+    &.is-open{
+      .vx-accordion-hd{
+        .vx-arrow{
+          transform: rotate(-135deg);
+          margin-top:-2px;
+        }
+      }
+    }
+  }
+}

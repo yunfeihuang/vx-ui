@@ -49,6 +49,7 @@ import QrCode from './qrcode'
 import Message from './message'
 import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
+import Accordion from './accordion'
 import Calendar from './calendar'
 import CalendarRange from './calendar-range'
 import Cascader from './cascader'
@@ -147,6 +148,7 @@ let components = [
   Carousel,
   CarouselItem,
   Arrow,
+  Accordion,
   Calendar,
   CalendarRange,
   Cascader,
@@ -440,6 +442,7 @@ export default {
   Carousel,
   CarouselItem,
   Arrow,
+  Accordion,
   Calendar,
   CalendarRange,
   Cascader,
@@ -514,6 +517,7 @@ export {
   Carousel,
   CarouselItem,
   Arrow,
+  Accordion,
   Calendar,
   CalendarRange,
   Cascader,

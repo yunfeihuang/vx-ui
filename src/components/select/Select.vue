@@ -26,6 +26,10 @@ export default {
       type: Number,
       default: 1
     },
+    placeholder: {
+      type: String,
+      default: '请选择'
+    },
     popupDirection: {
       type: String
     }
@@ -86,7 +90,7 @@ export default {
               return createElement(Picker, {
                 props: {
                   open: this.open,
-                  value: this.value,
+                  value: this.max === 1 ? [this.value] : this.value,
                   options: this.options,
                   max: this.max,
                   direction: this.direction
@@ -118,7 +122,7 @@ export default {
               handleClose () {
                 this.open = false
                 setTimeout(() => {
-                  self.$$popup && self.$$popup.$destroy()
+                  this.$destroy && this.$destroy()
                 }, 1000)
               },
               handleChange (value) {

@@ -42,7 +42,7 @@ export default {
     }
     .header-tab-active{
       background:#fff;
-      color:#555;
+      color:$color-black;
     }
   }
 </style>

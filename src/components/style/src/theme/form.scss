@@ -8,6 +8,9 @@
       position:relative;
       background:#fff;
       height: 0.9rem;
+      &:after{
+        @include divider;
+      }
     }
     .#{$css-prefix}input-wrapper,.#{$css-prefix}password{
       position:static;
@@ -19,6 +22,8 @@
     &-label{
       color:#999;
       padding:0 0.15rem;
+      width:1.5rem;
+      text-align: left;
     }
     &-control{
       padding:0 0.15rem;
@@ -26,17 +31,19 @@
         @include input;
       }
     }
-    &-align-right{
-      text-align:right;
-    }
     &-error{
-      background-color:$color-error;
-      color:#fff;
+      color:$color-error;
       padding:0 0.15rem;
       font-size: $font-size-small;
-      position:absolute;
-      z-index:2;
-      border-radius:3px;
+      margin-bottom:0.15rem;
+    }
+    &.is-required{
+      .vx-form-item-label{
+        &:before{
+          color:$color-error;
+          content:'*'
+        }
+      }
     }
   }
 }

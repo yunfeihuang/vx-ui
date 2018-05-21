@@ -37,6 +37,7 @@
           <cell title="Cascader" to="/demos/cascader"></cell>
           <cell title="Rater" to="/demos/rater"></cell>
           <cell title="Search" to="/demos/search"></cell>
+          <cell title="Form" to="/demos/form"></cell>
         </group>
         <group title="对话弹框">
           <cell title="Actionsheet" to="/demos/actionsheet"></cell>
@@ -62,6 +63,7 @@
         </group>
         <group title="其他">
           <cell title="Badge" to="/demos/badge"></cell>
+          <cell title="Accordion" to="/demos/accordion"></cell>
           <cell title="Calendar" to="/demos/calendar"></cell>
           <cell title="CalendarRange" to="/demos/calendarrange"></cell>
           <cell title="Picker" to="/demos/picker"></cell>

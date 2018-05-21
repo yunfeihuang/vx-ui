@@ -1,19 +1,17 @@
 <template>
   <div :class="classes">
     <flexbox :class="['vx-form-item-inner']" align="center">
-      <div v-if="$slots.label" :class="['vx-form-item-label']">
+      <div v-if="$slots.label" :class="['vx-form-item-label']" :style="{width: labelWidth}">
         <slot name="label"></slot>
       </div>
-      <div v-else-if="label" :class="['vx-form-item-label']">
+      <div v-else-if="label" :class="['vx-form-item-label']" :style="{width: labelWidth}">
         {{label}}
       </div>
       <flexbox-item :class="['vx-form-item-control','vx-form-item-align-' + align]">
         <slot></slot>
       </flexbox-item>
     </flexbox>
-    <!--
     <div v-if="validateState" :class="['vx-form-item-error']">{{validateMessage}}</div>
-    -->
   </div>
 </template>
 
@@ -40,6 +38,9 @@ export default {
       default: 'right'
     },
     label: {
+      type: String
+    },
+    labelWidth: {
       type: String
     }
   },
