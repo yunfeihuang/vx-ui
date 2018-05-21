@@ -77,6 +77,9 @@ export default {
   watch: {
     options (value) {
       this.myOptions = value
+    },
+    value (value) {
+      this.myValue = value
     }
   },
   data () {

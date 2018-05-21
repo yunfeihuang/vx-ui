@@ -117,18 +117,17 @@ export default {
             methods: {
               handleClose () {
                 this.open = false
-                this.$nextTick(() => {
-                  this.$destroy()
-                })
+                setTimeout(() => {
+                  self.$$popup && self.$$popup.$destroy()
+                }, 1000)
               },
               handleChange (value) {
                 if (self.value !== value) {
+                  this.value = value
                   self.$emit('input', value).$emit('change', value)
                   self.updateLabel(value)
-                } else {
-                  this.handleClose()
                 }
-                this.open = false
+                this.$nextTick(this.handleClose)
               }
             }
           })
