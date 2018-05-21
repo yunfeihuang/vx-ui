@@ -78,6 +78,13 @@
   opacity: 0
 }
 
+.popup-slide-center-enter-active, .popup-slide-center-leave-active {
+  transition: opacity $transition-time
+}
+.popup-slide-center-enter, .popup-slide-center-leave-active {
+  opacity: 0
+}
+
 .popup-slide-top-enter-active, .popup-slide-top-leave-active {
   transition: transform $transition-time
 }

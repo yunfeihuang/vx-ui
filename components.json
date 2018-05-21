@@ -1,6 +1,7 @@
 {
   "index": "./src/components",
   "actionsheet": "./src/components/actionsheet",
+  "accordion": "./src/components/accordion",
   "swiper": "./src/components/swiper",
   "marquee": "./src/components/marquee",
   "tab": "./src/components/tab",

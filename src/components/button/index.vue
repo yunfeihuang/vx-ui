@@ -2,7 +2,7 @@
   <button :class="classes" :disabled="disabled||loading" :type="nativeType" @click="handleClick">
     <spinner v-if="loading" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
-    <ripple v-if="ripple" />
+    <ripple v-if="ripple" :color="rippleColor" />
   </button>
 </template>
 
@@ -18,6 +18,11 @@ export default {
     Ripple
   },
   mixins: [button],
+  props: {
+    rippleColor: {
+      type: String
+    }
+  },
   computed: {
     classes () {
       return [
