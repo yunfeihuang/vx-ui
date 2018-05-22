@@ -374,6 +374,74 @@ const install = (Vue) => {
       })
     })
   }
+  Vue.prototype.$actionsheet = (_props, mounted = document.body) => {
+    return new Promise((resolve, reject) => {
+      let props = Object.assign({
+        open: false,
+        onClose: () => {
+          return true
+        },
+        onAction: (value) => {
+          return true
+        }
+      }, _props)
+      let node = document.createElement('div')
+      mounted.appendChild(node)
+      let vue = new Vue({ //eslint-disable-line
+        el: node,
+        render (createElement) {
+          return createElement(Actionsheet, {
+            props: {
+              ...props,
+              open: this.open
+            },
+            on: {
+              'close': this.handleClose,
+              'action': this.handleAction
+            },
+            nativeOn: {
+              'action': this.handleAction
+            }
+          }, props.options.map(item => {
+            return createElement(ActionsheetItem, {
+              props: {
+                value: item.value
+              }
+            }, item.label)
+          }))
+        },
+        data () {
+          return {
+            open: props.open
+          }
+        },
+        mounted () {
+          this.open = true
+        },
+        methods: {
+          handleClose: () => {
+            reject()
+            vue.open = props.open = props.onClose() === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          },
+          handleAction: (value) => {
+            resolve(value)
+            vue.open = props.open = props.onAction(value) === false
+            !props.open && setTimeout(() => {
+              vue.$destroy()
+            }, 1000)
+          }
+        },
+        destroyed: () => {
+          requestAnimationFrame(() => {
+            vue.$el.parentNode.removeChild(vue.$el)
+          })
+        }
+      })
+    })
+  }
 }
 
 export default {

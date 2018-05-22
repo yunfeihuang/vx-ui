@@ -1,6 +1,9 @@
 <template>
   <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @enter="handleEnter">
     <div :class="['vx-actionsheet-inner']" onselectstart="return false;">
+      <div v-if="title" :class="['vx-actionsheet-title']">
+        {{title}}
+      </div>
       <div :class="['vx-actionsheet-items']">
         <slot></slot>
       </div>
@@ -37,6 +40,9 @@ export default {
     cancel: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String
     },
     cancelText: {
       type: String,
@@ -83,8 +89,8 @@ export default {
     }
   },
   methods: {
-    handleClick (value) {
-      this.$emit('update:open', false).$emit('close').$emit('click', value)
+    handleAction (value) {
+      this.$emit('update:open', false).$emit('action', value)
     },
     handleClose () {
       this.$emit('update:open', false).$emit('close')
@@ -98,7 +104,7 @@ export default {
         this.$children[0].$children.forEach((item) => {
           if (item.$el.className.indexOf('overlay') === -1) {
             item.value === this.value && (item.checked = true)
-            item.$off('click').$on('click', this.handleClick)
+            item.$off('action-item').$on('action-item', this.handleAction)
           }
         })
       })

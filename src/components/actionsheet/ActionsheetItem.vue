@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleClick () {
-      !this.disabled && this.$emit('click', this.value)
+      !this.disabled && this.$emit('action-item', this.value)
     }
   }
 }
