@@ -1,42 +1,39 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &popup-picker{
-      display:flex;
-      &-wrapper{
-        background:#fff;
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &popup-picker{
+    &-wrapper{
+      background:#fff;
+    }
+    &-item{
+      flex:1;
+      min-width:0;
+    }
+    &-header{
+      position:relative;
+      &:after{
+        @include divider;
       }
-      &-item{
-        flex:1;
-        min-width:0;
-      }
-      &-header{
-        position:relative;
-        &:after{
-          @include divider;
-        }
-      }
-      &-placeholder{
-        flex:1;
-        line-height: 0.9rem;
-        color:#999;
-        min-width:0;
-        overflow:hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        @include button;
-      }
-      &-cancel,&-confirm{
-        @include button;
-        height: 0.9rem;
-        width: 2rem;
+    }
+    &-placeholder{
+      line-height: 0.9rem;
+      color:$color-sub;
+      overflow:hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @include button;
+    }
+    &-cancel,&-confirm{
+      @include button;
+      height: 0.9rem;
+      width: 2rem;
+      color:$color-sub;
+    }
+    &-confirm{
+      color:$color-primary;
+      &[disabled]{
         color:$color-sub;
-      }
-      &-confirm{
-        color:$color-primary;
-        &[disabled]{
-          color:$color-sub;
-        }
       }
     }
   }
+}

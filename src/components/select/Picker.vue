@@ -1,10 +1,10 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" :direction="direction">
     <div :class="classes">
-      <div v-if="max != 1" :class="['vx-flexbox','vx-popup-picker-header']">
-        <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
-        <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :disabled="this.required && !this.myValue.length" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+      <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker-header']">
+        <button type="button" :class="['vx-option-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <button type="button" :class="['vx-flexbox-item','vx-option-picker-placeholder']">{{placeholder}}</button>
+        <button type="button" :disabled="!this.myValue.length" :class="['vx-option-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <div :class="['vx-option-picker']">
         <checkbox-group :max="max" @change="handleChange" :value="myValue">
@@ -45,10 +45,6 @@ export default {
     },
     options: {
       type: Array
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     placeholder: {
       type: String
