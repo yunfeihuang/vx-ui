@@ -24,7 +24,7 @@
         background:rgba($color-primary,0.15);
       }
       &.is-disabled{
-        color:#999;
+        color:$color-sub;
       }
       &.is-weekend{
         color:#F96903;
