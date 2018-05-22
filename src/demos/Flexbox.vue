@@ -43,7 +43,7 @@
       </flexbox>
 
       ### 项目换行
-      <flexbox :gutter="10" wrap="wrap" class="flex-wrap">
+      <flexbox wrap="wrap" class="flex-wrap">
         <flexbox-item width="25%">
           <div class="flexbox-item">1</div>
         </flexbox-item>

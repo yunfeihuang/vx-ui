@@ -57,24 +57,6 @@ export default {
       }
       return array
     }
-  },
-  watch: {
-    gutter (value) {
-      let width = this.$el.clientWidth
-      requestAnimationFrame(() => {
-        this.$el.style.width = `${width + this.gutter}px`
-        this.$el.style.marginLeft = `-${this.gutter / 2}px`
-      })
-    }
-  },
-  mounted () {
-    if (this.gutter) {
-      let width = this.$el.clientWidth
-      requestAnimationFrame(() => {
-        this.$el.style.width = `${width + this.gutter}px`
-        this.$el.style.marginLeft = `-${this.gutter / 2}px`
-      })
-    }
   }
 }
 </script>

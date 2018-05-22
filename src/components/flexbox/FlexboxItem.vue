@@ -1,12 +1,6 @@
 <template>
   <div :style="styles">
-    <div
-      :style="`
-        padding-left: ${$parent.gutter / 2}px;
-        padding-right: ${$parent.gutter / 2}px;
-      `">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -18,27 +12,42 @@ export default {
       type: [String, Number],
       default: 1
     },
+    order: {
+      type: Number
+    },
     width: {
       type: String
     }
   },
   computed: {
     styles () {
-      if (this.width) {
-        return `
-          width: ${this.width};
-        `
-      } else {
-        return `
-          -ms-flex: ${this.flex};
-          -webkit-box-flex: ${this.flex};
-          -moz-box-flex: ${this.flex};
-          -webkit-flex: ${this.flex};
-          -moz-flex: ${this.flex};
-          flex: ${this.flex};
-          min-width: 0;
-        `
+      if (this.$parent && this.$parent.$children) {
+        let isFirstChild = this === this.$parent.$children[0]
+        let gutter = typeof this.$parent.gutter === 'number' ? (this.$parent.gutter + 'px') : this.$parent.gutter
+        if (isFirstChild && this.$parent.wrap !== 'wrap') {
+          gutter = ''
+        }
+        
+        if (this.width) {
+          return `
+            margin-left: ${gutter};
+            width: ${this.width};
+          `
+        } else {
+          return `
+            margin-left: ${gutter};
+            -ms-flex: ${this.flex};
+            -webkit-box-flex: ${this.flex};
+            -moz-box-flex: ${this.flex};
+            -webkit-flex: ${this.flex};
+            -moz-flex: ${this.flex};
+            flex: ${this.flex};
+            min-width: 0;
+            order:${this.order}
+          `
+        }
       }
+      return ''
     }
   }
 }

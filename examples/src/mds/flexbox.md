@@ -52,7 +52,7 @@
 </flexbox>
 
 ### 项目换行
-<flexbox :gutter="10" wrap="wrap" class="flex-wrap">
+<flexbox wrap="wrap" class="flex-wrap">
   <flexbox-item width="25%">
     <div class="flexbox-item">1</div>
   </flexbox-item>
@@ -81,7 +81,7 @@
 | direction     | css flexbox wrap   | -  |   String       |    -    |
 | justify     | css flexbox justify-content   | -  |   String       |    -    |
 | align     | css flexbox align-items   | -  |   String       |    -    |
-| gutter     | 间距   | -  |   number       |    -    |
+| gutter     | 间距   | Number,String  |          |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
@@ -99,6 +99,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | flex     | css flex   | -  |   String,Number       |    1    |
 | width     | css width   | -  |   String       |    -    |
+| order     | css order   | -  |   String       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
