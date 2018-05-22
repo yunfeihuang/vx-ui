@@ -7,14 +7,12 @@
 <script>
 import { input } from 'utils/mixins.js'
 import Radio from './Radio'
-import Divider from '../divider'
 
 export default {
   componentName: 'RadioGroup',
   mixins: [input],
   components: {
-    Radio,
-    Divider
+    Radio
   },
   props: {
     divider: {

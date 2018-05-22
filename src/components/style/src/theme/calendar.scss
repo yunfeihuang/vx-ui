@@ -3,6 +3,11 @@
 .#{$css-prefix}{
   &calendar{
     flex-wrap: wrap;
+    position:relative;
+    &:before{
+      @include divider;
+      top:0;
+    }
     &-wrapper{
       text-align:center;
       background:#fff;

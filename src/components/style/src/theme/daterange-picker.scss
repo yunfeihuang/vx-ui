@@ -16,5 +16,12 @@
     &-confirm{
       color:$color-primary;
     }
+    &-footer{
+      position:relative;
+      &:before{
+        @include divider;
+        top:0;
+      }
+    }
   }
 }

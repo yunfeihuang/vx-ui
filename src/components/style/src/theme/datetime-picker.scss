@@ -10,7 +10,10 @@
         min-width:0;
       }
       &-header{
-        display:flex;
+        position:relative;
+        &:after{
+          @include divider;
+        }
       }
       &-today{
         line-height: 0.9rem;

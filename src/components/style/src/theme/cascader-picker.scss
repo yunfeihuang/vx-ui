@@ -6,6 +6,10 @@
       text-align:left;
       overflow-x: auto;
       overflow-y: hidden;
+      position: relative;
+      &:after{
+        @include divider;
+      }
       &-item{
         line-height:0.9rem;
         margin-left:10px;

@@ -10,7 +10,6 @@
           {{item.label}}
       </div>
     </div>
-    <divider />
     <div class="vx-cascader-picker-container">
       <div v-for="(item, index) in myOptions" class="vx-cascader-picker-panel" :key="index" :style="panelStyle(index)">
         <div
@@ -27,12 +26,8 @@
 </template>
 
 <script>
-import Divider from '../divider'
 export default {
   componentName: 'CascaderPicker',
-  components: {
-    Divider
-  },
   props: {
     value: {
       type: Array,

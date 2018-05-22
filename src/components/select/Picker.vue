@@ -6,7 +6,6 @@
         <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
         <button type="button" :disabled="this.required && !this.myValue.length" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
-      <divider v-if="max != 1"></divider>
       <div :class="['vx-option-picker']">
         <checkbox-group :max="max" @change="handleChange" :value="myValue">
           <checkbox
@@ -26,15 +25,13 @@
 <script>
 import Popup from '../popup'
 import {CheckboxGroup, Checkbox} from '../checkbox'
-import Divider from '../divider'
 
 export default {
   componentName: 'OptionGroupPicker',
   components: {
     Popup,
     Checkbox,
-    CheckboxGroup,
-    Divider
+    CheckboxGroup
   },
   props: {
     ...CheckboxGroup.props,

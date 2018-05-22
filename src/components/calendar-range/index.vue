@@ -60,13 +60,11 @@
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
 import {Tab, TabItem} from '../tab'
-import Divider from '../divider'
 import Calendar from '../calendar'
 
 export default {
   componentName: 'CalendarRange',
   components: {
-    Divider,
     Flexbox,
     FlexboxItem,
     Tab,

@@ -6,7 +6,6 @@
         <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
         <button type="button" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
-      <divider></divider>
       <div :class="['vx-flexbox','vx-popup-picker']">
         <picker
           v-if="open && myPickers"
@@ -26,14 +25,12 @@
 <script>
 import Popup from '../popup'
 import Picker from '../picker'
-import Divider from '../divider'
 
 export default {
   componentName: 'PopupPicker',
   components: {
     Popup,
-    Picker,
-    Divider
+    Picker
   },
   props: {
     open: {

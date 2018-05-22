@@ -30,8 +30,14 @@
     &-body{
       max-height: 90%;
       padding:0.8rem 0.5rem;
+      position:relative;
     }
     &-footer{
+      position:relative;
+      &:before{
+        @include divider;
+        top:0;
+      }
       button{
         @include button;
         padding:$item-padding;

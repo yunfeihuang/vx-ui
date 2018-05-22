@@ -2,7 +2,6 @@
   <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" :fast-close="false" direction="top" :class="['vx-daterange-picker-wrapper']">
     <div :class="classes" v-if="open">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
-      <divider></divider>
       <flexbox :class="['vx-daterange-picker-footer']">
         <button type="button" :class="['vx-daterange-picker-cancel']" @click="handleClose">{{cancelText}}</button>
         <flexbox-item>
@@ -17,14 +16,12 @@
 <script>
 import Popup from '../popup'
 import {Flexbox, FlexboxItem} from '../flexbox'
-import Divider from '../divider'
 import CalendarRange from '../calendar-range'
 
 export default {
   componentName: 'DateRangePicker',
   components: {
     Popup,
-    Divider,
     Flexbox,
     FlexboxItem,
     CalendarRange

@@ -6,12 +6,8 @@
 
 <script>
 import { tab } from 'utils/mixins.js'
-import Divider from '../divider'
 export default {
   componentName: 'Tabbar',
-  components: {
-    Divider
-  },
   props: {
     ripple: {
       type: Boolean,

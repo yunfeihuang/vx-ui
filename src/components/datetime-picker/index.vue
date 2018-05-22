@@ -32,7 +32,6 @@
 <script>
 import Popup from '../popup'
 import Picker from '../picker'
-import Divider from '../divider'
 
 let now = new Date()
 
@@ -40,8 +39,7 @@ export default {
   componentName: 'DatetimePicker',
   components: {
     Popup,
-    Picker,
-    Divider
+    Picker
   },
   props: {
     open: {

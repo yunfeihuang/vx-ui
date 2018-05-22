@@ -11,7 +11,10 @@
         min-width:0;
       }
       &-header{
-        display:flex;
+        position:relative;
+        &:after{
+          @include divider;
+        }
       }
       &-placeholder{
         flex:1;

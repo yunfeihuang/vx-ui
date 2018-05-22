@@ -9,7 +9,6 @@
           <div :class="['vx-confirm-body']">
             <slot></slot>
           </div>
-          <divider></divider>
           <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
             <button :class="'vx-flexbox-item'" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
             <button :class="'vx-flexbox-item'" type="button" @click="handleConfirm">{{confirmText}}</button>
@@ -23,13 +22,11 @@
 <script>
 import { historyPush } from 'utils/mixins.js'
 import Overlay from '../overlay'
-import Divider from '../divider'
 export default {
   componentName: 'Confirm',
   mixins: [historyPush],
   components: {
-    Overlay,
-    Divider
+    Overlay
   },
   props: {
     open: {

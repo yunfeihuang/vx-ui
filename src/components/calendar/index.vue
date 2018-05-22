@@ -29,7 +29,6 @@
         <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? 'is-weekend' : '']">{{item}}</flexbox-item>
       </flexbox>
     </div>
-    <divider style="margin-top:-1px;" v-if="layout.indexOf('date')>-1"></divider>
     <flexbox :class="['vx-calendar']"  v-if="layout.indexOf('date')>-1">
       <div
         v-for="(item, index) in dateList"
@@ -46,7 +45,6 @@
 
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
-import Divider from '../divider'
 import Arrow from '../arrow'
 
 export default {
@@ -54,7 +52,6 @@ export default {
   components: {
     Flexbox,
     FlexboxItem,
-    Divider,
     Arrow
   },
   props: {
