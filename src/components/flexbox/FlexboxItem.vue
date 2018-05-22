@@ -27,7 +27,6 @@ export default {
         if (isFirstChild && this.$parent.wrap !== 'wrap') {
           gutter = ''
         }
-        
         if (this.width) {
           return `
             margin-left: ${gutter};

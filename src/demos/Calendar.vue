@@ -11,7 +11,7 @@
         <calendar v-model="value2" is-range/>
       </group>
       <group :title="`周区间选择器：${value3.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
-        <calendar v-model="value3" is-range is-week/>
+        <calendar v-model="value3" is-range is-week-range/>
       </group>
     </x-body>
   </layout>
