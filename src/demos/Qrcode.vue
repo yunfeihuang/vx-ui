@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/">
-      <div slot="title">QrCode</div>
+      <div slot="title">Qrcode</div>
     </x-nav>
     <x-body slot="body">
       <div class="qrcode-demo">
