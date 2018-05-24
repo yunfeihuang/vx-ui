@@ -3,7 +3,7 @@
     <transition name="popup-fade" v-if="!full">
       <overlay v-if="open" @click.native="handleClose"></overlay>
     </transition>
-    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter">
+    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @afterLeave="handleLeave">
       <div v-if="open" :class="innerClasses" @click="handleClose2">
         <slot></slot>
       </div>
@@ -90,6 +90,11 @@ export default {
       if (this.fastClose && e.target === this.$el.querySelector('.' + 'vx-popup-inner')) {
         this.close()
       }
+    },
+    handleLeave () {
+      this.$nextTick(() => {
+        this.$emit('close-after')
+      })
     }
   }
 }

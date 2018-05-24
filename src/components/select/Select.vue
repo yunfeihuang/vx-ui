@@ -98,6 +98,7 @@ export default {
                 class: [this.classes],
                 on: {
                   'close': this.handleClose,
+                  'close-after': this.handleCloseAfter,
                   'change': this.handleChange
                 }
               })
@@ -121,9 +122,9 @@ export default {
             methods: {
               handleClose () {
                 this.open = false
-                setTimeout(() => {
-                  this.$destroy && this.$destroy()
-                }, 1000)
+              },
+              handleCloseAfter () {
+                this.$destroy && this.$destroy()
               },
               handleChange (value) {
                 if (self.value !== value) {

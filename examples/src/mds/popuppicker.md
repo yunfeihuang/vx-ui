@@ -250,6 +250,7 @@ export default {
 | change | 值改变事件 | - |
 | confirm | 完成事件 | - |
 | close | 关闭事件 | - |
+| close-after | 关闭结束后事件 | - |
 
 #### Slots
 | 名称 | 说明 | 

@@ -46,6 +46,7 @@ export default {
             on: {
               change: self.handleChange,
               close: self.handleClose,
+              'close-after': self.handleCloseAfter,
               'update:label': self.handleLabel
             }
           })
@@ -64,9 +65,9 @@ export default {
     },
     handleClose () {
       this.open = false
-      this.$nextTick(() => {
-        this.$$cascaderPopupPicker && this.$$cascaderPopupPicker.$destroy()
-      })
+    },
+    handleCloseAfter () {
+      this.$$cascaderPopupPicker && this.$$cascaderPopupPicker.$destroy()
     },
     handleLabel (label) {
       this.label = label

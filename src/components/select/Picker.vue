@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" :direction="direction">
+  <popup :open="open" :history="history"  :direction="direction" @close="handleClose" @close-after="handleCloseAfter">
     <div :class="classes">
       <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker-header']">
         <button type="button" :class="['vx-option-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -87,6 +87,9 @@ export default {
     },
     handleClose () {
       this.$emit('close')
+    },
+    handleCloseAfter () {
+      this.$emit('close-after')
     },
     handleConfirm () {
       this.open && this.$emit('change', this.myValue).$emit('input', this.myValue)

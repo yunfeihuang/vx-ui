@@ -66,7 +66,8 @@ export default {
             },
             on: {
               'change': this.handleChange,
-              'close': this.handleClose
+              'close': this.handleClose,
+              'close-after': this.handleCloseAfter
             }
           })
         },
@@ -83,7 +84,7 @@ export default {
         },
         destroyed () {
           requestAnimationFrame(() => {
-            this.$el.parentNode.removeChild(this.$el)
+            this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
           })
         },
         methods: {
@@ -93,6 +94,9 @@ export default {
           },
           handleClose () {
             this.open = false
+          },
+          handleCloseAfter () {
+            this.$destroy()
           }
         }
       })

@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
+  <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false">
     <div :class="classes">
       <div :class="['vx-flexbox','vx-datetime-picker-header']">
         <button type="button" :class="['vx-datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
@@ -308,6 +308,9 @@ export default {
           item.value = String(map[item.type]())
         }
       }
+    },
+    handleCloseAfter () {
+      this.$emit('close-after')
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" :fast-close="false" direction="top" :class="['vx-daterange-picker-wrapper']">
+  <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false" direction="top" :class="['vx-daterange-picker-wrapper']">
     <div :class="classes" v-if="open">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
       <flexbox :class="['vx-daterange-picker-footer']">
@@ -78,6 +78,9 @@ export default {
     },
     handleOpen () {
       this.$refs.calendarRange.$refs.tab.computedStyle()
+    },
+    handleCloseAfter () {
+      this.$emit('close-after')
     }
   }
 }
