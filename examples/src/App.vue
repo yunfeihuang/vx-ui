@@ -85,7 +85,7 @@ export default {
       padding-top:56px;
       aside{
         width:220px;
-        padding-left:20px;
+        padding-left:16px;
         overflow: auto;
         position:fixed;
         height: calc(100% - 55px);

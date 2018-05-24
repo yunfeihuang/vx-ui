@@ -4,7 +4,7 @@
 <template>
   <div>
     <group title="default">
-      <cell title="value">
+      <cell title="value" :arrow="false">
         <input-number slot="value" v-model="value" :step="0.01"/>
       </cell>
     </group>

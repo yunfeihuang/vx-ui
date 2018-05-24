@@ -33,6 +33,7 @@ export default {
       opacity: 0.8;
     }
     a{
+      white-space: nowrap;
       display:block;
       color:#666;
       padding:10px 0;
