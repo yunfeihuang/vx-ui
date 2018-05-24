@@ -1,0 +1,51 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &index-list{
+    position:relative;
+    height:100%;
+    overflow:hidden;
+    &-each{
+      position:absolute;
+      height:100%;
+      width:100%;
+      @include scroll;
+    }
+    &-nav{
+      position:absolute;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      width:0.5rem;
+      text-align:center;
+      line-height:0.38rem;
+      div.is-active{
+        color:$color-primary;
+        font-weight:bold;
+      }
+    }
+    &-item{
+      background:#fff;
+      padding:0.25rem;
+      line-height:0.4rem;
+      position:relative;
+      @include active;
+      &:after{
+        @include divider;
+      }
+      &:last-child:after{
+        display:none;
+      }
+    }
+    &-title,&-fixed{
+      padding:0.3rem 0.2rem 0.2rem 0.2rem;
+      background:$color-background;
+    }
+    &-fixed{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+    }
+  }
+}

@@ -61,7 +61,7 @@ export default {
       let node = this.$el.querySelector('.vx-accordion-item-bd')
       let height = ''
       if (open) {
-        height = node.children[0].clientHeight + 'px'
+        height = node.children[0].offsetHeight + 'px'
       }
       this.myOpen = open
       node.style.height = height

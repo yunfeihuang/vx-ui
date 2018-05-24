@@ -73,6 +73,7 @@
           <cell title="Sticky" to="/demos/sticky"></cell>
           <cell title="Swipeout" to="/demos/swipeout"></cell>
           <cell title="Spinner" to="/demos/spinner"></cell>
+          <cell title="IndexList" to="/demos/indexlist"></cell>
           <cell title="Marquee" to="/demos/marquee"></cell>
         </group>
         <!--

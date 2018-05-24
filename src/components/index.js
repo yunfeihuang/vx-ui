@@ -45,6 +45,7 @@ import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
 import Icon from './icon'
+import IndexList from './index-list'
 import QrCode from './qrcode'
 import Message from './message'
 import {Carousel, CarouselItem} from './carousel'
@@ -143,6 +144,7 @@ let components = [
   Popover,
   Sticky,
   Icon,
+  IndexList,
   QrCode,
   Message,
   Carousel,
@@ -506,6 +508,7 @@ export default {
   Popover,
   Sticky,
   Icon,
+  IndexList,
   QrCode,
   Message,
   Carousel,
@@ -582,6 +585,7 @@ export {
   Popover,
   Sticky,
   Icon,
+  IndexList,
   QrCode,
   Message,
   Carousel,

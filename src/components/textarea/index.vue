@@ -61,7 +61,7 @@ export default {
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
         this.$$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
-        this.$el.style.height = this.$$shadow.clientHeight + 'px'
+        this.$el.style.height = this.$$shadow.offsetHeight + 'px'
       })
     }
   }
