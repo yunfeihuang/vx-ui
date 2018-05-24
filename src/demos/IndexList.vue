@@ -9,7 +9,7 @@
 <script>
 export default {
   data () {
-    let list =  []
+    let list = []
     let array = ['★', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L']
     array.forEach(item1 => {
       let items = array.map(item2 => {
