@@ -30,24 +30,31 @@ export default {
   },
   methods: {
     handleClick () {
-      this.open = true
       let self = this
       let node = document.createElement('div')
       document.body.appendChild(node)
       this.$$cascaderPopupPicker = new Vue({
         el: node,
-        render (h) {
-          return (
-            <CascaderPopupPicker
-              value={self.myValue}
-              options={self.options}
-              open={self.open}
-              onChange={self.handleChange}
-              onClose={self.handleClose}
-              label={self.label}
-              {...{on: {'update:label': self.handleLabel}}}
-            />
-          )
+        render (createElement) {
+          return createElement(CascaderPopupPicker, {
+            props: {
+              value: self.myValue,
+              options: self.options,
+              open: self.open,
+              label: self.label
+            },
+            on: {
+              change: self.handleChange,
+              close: self.handleClose,
+              'update:label': self.handleLabel
+            }
+          })
+        },
+        mounted () {
+          self.open = true
+        },
+        destroyed () {
+          this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         }
       })
     },
