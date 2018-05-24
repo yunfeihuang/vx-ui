@@ -49,6 +49,7 @@
         background:#fff;
       }
     &-item{
+      @include active;
       line-height:0.9rem;
       height:0.9rem;
       padding:0 0.16rem;

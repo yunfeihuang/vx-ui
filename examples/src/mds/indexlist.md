@@ -1,10 +1,8 @@
+# IndexList 索引列表
+
+```
 <template>
-  <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">IndexList</div>
-    </x-nav>
-    <index-list slot="body" :data="list" />
-  </layout>
+  <index-list :data="list" />
 </template>
 <script>
 export default {
@@ -29,3 +27,24 @@ export default {
   }
 }
 </script>
+
+  
+```
+
+#### Props
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |------------- |--------- |
+| data     | -   | Array  |   -       |    -    |
+
+
+
+#### Events
+| 事件名称 | 说明 | 回调参数 |
+|---------|--------|---------|
+| click | - | - |
+
+
+#### Slots
+| 名称 | 说明 | 
+|---------|--------|
+| default | - |

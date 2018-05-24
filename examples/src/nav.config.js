@@ -52,6 +52,10 @@ export default [
         title: 'Password密码输入框'
       },
       {
+        path: '/inputnumber',
+        title: 'InputNumber数字输入框'
+      },
+      {
         path: '/select',
         title: 'Select下拉框'
       },
@@ -94,14 +98,11 @@ export default [
       {
         path: '/search',
         title: 'Search搜索'
-      }
-      /*
-      ,
+      },
       {
         path: '/form',
         title: 'Form表单'
       }
-      */
     ]
   },
   {
@@ -211,6 +212,10 @@ export default [
         title: 'Ripple波纹'
       },
       {
+        path: '/accordion',
+        title: 'Accordion手风琴'
+      },
+      {
         path: '/listview',
         title: 'ListView列表'
       },
@@ -225,6 +230,10 @@ export default [
       {
         path: '/spinner',
         title: 'Spinner旋转'
+      },
+      {
+        path: '/indexlist',
+        title: 'IndexList索引列表'
       },
       {
         path: '/marquee',

@@ -11,7 +11,7 @@
         <slot></slot>
       </flexbox-item>
     </flexbox>
-    <div v-if="validateState" :class="['vx-form-item-error']">{{validateMessage}}</div>
+    <div v-if="validateState === 'error'" :class="['vx-form-item-error']">{{validateMessage}}</div>
   </div>
 </template>
 

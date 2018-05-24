@@ -31,6 +31,7 @@
   "popup-picker": "./src/components/popup-picker",
   "toast": "./src/components/toast",
   "img": "./src/components/img",
+  "index-list": "./src/components/index-list",
   "list-view": "./src/components/list-view",
   "ripple": "./src/components/ripple",
   "search": "./src/components/search",
