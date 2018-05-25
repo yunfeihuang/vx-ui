@@ -99,15 +99,15 @@
 @mixin arrow($rotate:45deg){
   content:'';
   display:inline-block;
-  width:8px;
+  width:0.2rem;
   position:absolute;
   top:50%;
-  right:4px;
-  height:8px;
-  margin-top:-5px;
+  right:0.1rem;
+  height:0.2rem;
+  margin-top:-2px;
   border-top:1px solid $border-color-base;
   border-right:1px solid $border-color-base;
-  transform:rotate($rotate);
+  transform:rotate($rotate) translateY(-50%);
 }
 @mixin _round-border($border-color : $border-color-base,$border-radius : $border-radius-base,$resolution:1) {
   $var : 3%;
