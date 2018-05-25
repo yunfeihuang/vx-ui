@@ -1,6 +1,6 @@
 # Tabbar选项卡
 
-```html
+```
 <template>
   <div>
     <tabbar slot="footer" :ripple="true" :active.sync="active">

@@ -1,9 +1,10 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 .#{$css-prefix}{
-  &header{
+  &nav{
     background:#fff;
-    .nav{
+    position:relative;
+    &-inner{
       color:#fff;
       background-color:$color-primary;
       height:0.92rem;

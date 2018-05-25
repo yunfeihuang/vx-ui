@@ -1,6 +1,6 @@
 # Ripple波纹
 
-```html
+```
 <template>
   <div>
     <group class="ripple-demo">

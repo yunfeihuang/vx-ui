@@ -1,6 +1,6 @@
 # Flexbox布局
 
-```html
+```
 <style>
   .flexbox-item{
     background:#3399ff;

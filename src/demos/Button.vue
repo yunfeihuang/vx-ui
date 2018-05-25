@@ -12,7 +12,7 @@
         <x-button type="link">link</x-button>
         <x-button size="large">default large</x-button>
         <x-button type="primary" size="large">primary large</x-button>
-        <x-button type="danger" size="large">primary large</x-button>
+        <x-button type="danger" size="large">danger large</x-button>
         <x-button type="warning" size="large">warning large</x-button>
         <x-button type="primary" size="large" plain>plain primary</x-button>
         <x-button type="danger" size="large" plain>plain danger</x-button>

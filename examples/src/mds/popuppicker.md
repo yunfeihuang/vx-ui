@@ -1,6 +1,6 @@
 # PopupPicker选择器
 
-```html
+```
 <template>
   <div>
     <message>注意：此示例要在移动设备体验哦~</message>

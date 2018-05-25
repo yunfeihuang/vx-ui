@@ -1,6 +1,6 @@
 # Tab选项卡
 
-```html
+```
 <template>
   <div>
     <tab :active.sync="active">
@@ -31,7 +31,7 @@
 </script>
 ```
 
-```html
+```
 <template>
   <div>
     <tabbar slot="footer" :ripple="true" :active.sync="active">

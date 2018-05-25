@@ -1,6 +1,6 @@
 # Img图片
 
-```html
+```
 <template>
   <div class="qrcode-demo">
     <qrcode :text="http://vue.bittyos.com/"/>

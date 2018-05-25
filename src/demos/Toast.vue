@@ -29,6 +29,10 @@
           <div slot="title">Toast Bottom</div>
           <x-switch slot="value" v-model="bottomOpen"/>
         </cell>
+        <cell :arrow="false">
+          <div slot="title">js调用</div>
+          <span slot="value" @click="handleOpen">点击我打开</span>
+        </cell>
       </group>
     </x-body>
     <toast :open.sync="topOpen">{{content}}</toast>
@@ -51,6 +55,13 @@ export default {
       failOpen: false,
       warnOpen: false,
       content: '操作成功'
+    }
+  },
+  methods: {
+    handleOpen () {
+      this.$toast({
+        content: this.content
+      })
     }
   }
 }

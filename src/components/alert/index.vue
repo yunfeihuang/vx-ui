@@ -5,7 +5,8 @@
     :cancel="false"
     :history="history"
     @confirm="handleConfirm"
-    @close="handleClose">
+    @close="handleClose"
+    @close-after="handleCloseAfter">
     <slot></slot>
   </confirm>
 </template>
@@ -37,6 +38,9 @@ export default {
     },
     handleClose () {
       this.$emit('update:open', false).$emit('close')
+    },
+    handleCloseAfter () {
+      this.$emit('close-after')
     }
   }
 }

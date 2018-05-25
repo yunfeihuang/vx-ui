@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">IndexList</div>
     </x-nav>
-    <index-list slot="body" :data="list" />
+    <index-list slot="body" :data="list" @click="handleClick"/>
   </layout>
 </template>
 <script>
@@ -25,6 +25,13 @@ export default {
     })
     return {
       list
+    }
+  },
+  methods: {
+    handleClick (value) {
+      this.$toast({
+        content: `点击了"${value}"`
+      })
     }
   }
 }

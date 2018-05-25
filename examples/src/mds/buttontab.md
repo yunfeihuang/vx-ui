@@ -1,6 +1,6 @@
 # ButtonTab选项卡
 
-```html
+```
 <template>
   <div>
     <x-nav>

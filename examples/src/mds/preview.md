@@ -1,6 +1,6 @@
 # Preview图片浏览
 
-```html
+```
 <template>
   <div>
     <x-img

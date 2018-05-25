@@ -1,6 +1,6 @@
 # Marquee公告提示
 
-```html
+```
 <template>
   <div>
     <x-marquee>

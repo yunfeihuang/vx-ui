@@ -1,6 +1,6 @@
 # Popover对话框
 
-```html
+```
 <template>
   <div>
     <flexbox style="margin-bottom:300px">

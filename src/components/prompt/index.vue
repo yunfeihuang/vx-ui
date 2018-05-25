@@ -7,6 +7,7 @@
     :confirm-text="confirmText"
     @close="handleClose"
     @confirm="handleConfirm"
+    @close-after="handleCloseAfter"
     >
     <div v-if="title" :class="'vx-prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
@@ -90,6 +91,9 @@ export default {
     },
     handleInput (value) {
       this.$emit('change', value)
+    },
+    handleCloseAfter () {
+      this.$emit('close-after')
     }
   }
 }

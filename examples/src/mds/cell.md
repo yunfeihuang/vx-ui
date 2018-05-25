@@ -1,6 +1,6 @@
 # Cell单元块
 
-```html
+```
 <template>
   <group title="default">
     <cell title="标题">

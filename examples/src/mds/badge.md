@@ -1,6 +1,6 @@
 # Badge消息提示
 
-```html
+```
 <template>
    <group>
     <cell>

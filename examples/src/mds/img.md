@@ -1,6 +1,6 @@
 # Img图片
 
-```html
+```
 <template>
   <div>
     <x-img class="my-img" src="http://assets.bittyos.com/images/swiper/01.jpg" />

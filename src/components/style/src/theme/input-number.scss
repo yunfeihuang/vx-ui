@@ -11,7 +11,7 @@
     button{
       @include button;
       height:100%;
-      color:inherit;
+      color:$color-sub;
       height:100%;
       &:first-child{
         border-right:1px solid $border-color-base;

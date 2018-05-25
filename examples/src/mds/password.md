@@ -1,6 +1,6 @@
 # Password密码输入框
 
-```html
+```
 <template>
   <div>
     <group title="default">

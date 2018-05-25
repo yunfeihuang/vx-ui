@@ -1,6 +1,6 @@
 # Sidebar选项卡
 
-```html
+```
 <template>
   <div>
     <sidebar :active.sync="active" class="sidebar">

@@ -64,7 +64,8 @@ export default {
               zIndex: 1000
             },
             on: {
-              'close': this.handleClose
+              'close': this.handleClose,
+              'close-after': this.handleCloseAfter
             }
           })
         },
@@ -114,9 +115,9 @@ export default {
         methods: {
           handleClose () {
             this.open = false
-            setTimeout(() => {
-              this.$destroy()
-            }, 200)
+          },
+          handleCloseAfter () {
+            this.$destroy()
           }
         }
       })

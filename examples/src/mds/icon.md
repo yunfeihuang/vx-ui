@@ -1,6 +1,6 @@
 # Icon图标
 
-```html
+```
 <template>
   <div>
     {{value}}

@@ -1,6 +1,6 @@
 # Prompt输入对话框
 
-```html
+```
 <template>
   <div>
     <group>

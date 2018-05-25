@@ -1,6 +1,6 @@
 # Calendar选择器
 
-```html
+```
 <template>
   <div>
     <group :title="`value:${value}`">

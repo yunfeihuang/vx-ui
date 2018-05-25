@@ -1,6 +1,6 @@
 # Actionsheet
 
-```html
+```
 <template>
   <div>
     <group>

@@ -1,6 +1,6 @@
 # Input输入框
 
-```html
+```
 <template>
   <div>
     <group title="default">

@@ -1,6 +1,6 @@
 # Calendar选择器
 
-```html
+```
 <template>
   <div>
     <group :title="`日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">

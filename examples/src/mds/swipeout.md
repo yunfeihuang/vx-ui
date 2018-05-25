@@ -1,6 +1,6 @@
 # Swipeout操作
 
-```html
+```
 <template>
   <layout>
     <x-nav slot="header" back="/">

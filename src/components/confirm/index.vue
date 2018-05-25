@@ -4,7 +4,7 @@
       <overlay v-if="open"></overlay>
     </transition>
     <div :class="['vx-confirm-wrapper']">
-      <transition name="confirm-scale">
+      <transition name="confirm-scale" @after-leave="handleLeave">
         <div :class="['vx-confirm-inner']" v-if="open">
           <div :class="['vx-confirm-body']">
             <slot></slot>
@@ -83,6 +83,11 @@ export default {
     },
     handleConfirm () {
       this.open && this.$emit('update:open', false).$emit('confirm')
+    },
+    handleLeave () {
+      this.$nextTick(() => {
+        this.$emit('close-after')
+      })
     }
   }
 }

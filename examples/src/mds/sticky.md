@@ -1,6 +1,6 @@
 # Sticky滚动固位
 
-```html
+```
 <template>
   <div>
     <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg"/>

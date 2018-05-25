@@ -1,6 +1,6 @@
 # Swiper轮播
 
-```html
+```
 <template>
   <div>
     <swiper :active="active" :options="options" class="swiper-demo">

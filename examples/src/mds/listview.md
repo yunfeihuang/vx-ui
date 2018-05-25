@@ -1,6 +1,6 @@
 # ListView列表
 
-```html
+```
 <template>
   <div>
     <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">

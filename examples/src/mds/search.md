@@ -1,6 +1,6 @@
 # Search搜索
 
-```html
+```
 <template>
   <div>
     <search v-model="value" placeholder="搜索商品/商店/用户"

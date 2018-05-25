@@ -1,6 +1,6 @@
 # Picker选择器
 
-```html
+```
 <template>
   <div>
     <group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">

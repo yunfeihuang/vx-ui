@@ -165,7 +165,7 @@ const install = (Vue) => {
   })
   Vue.prototype.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({
-      open: true,
+      open: false,
       onClose: () => {
         return true
       }
@@ -186,16 +186,23 @@ const install = (Vue) => {
           }
         })
       },
-      data: {props: props},
+      data () {
+        return {
+          props
+        }
+      },
+      mounted () {
+        props.open = true
+      },
       methods: {
-        handleClose: () => {
+        handleClose () {
           props.open = props.onClose() === false
           !props.open && setTimeout(() => {
             vue.$destroy()
           }, 1000)
         }
       },
-      destroyed: () => {
+      destroyed () {
         requestAnimationFrame(() => {
           vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
         })
@@ -207,7 +214,7 @@ const install = (Vue) => {
   Vue.prototype.$alert = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
-        open: true,
+        open: false,
         onConfirm: () => {
           return true
         },
@@ -225,31 +232,36 @@ const install = (Vue) => {
             props: props,
             on: {
               'confirm': this.handleConfirm,
-              'close': this.handleClose
+              'close': this.handleClose,
+              'close-after': this.handleCloseAfter
             },
             scopedSlots: {
               default: props => createElement('div', content)
             }
           })
         },
-        data: {props: props},
-        methods: {
-          handleConfirm: () => {
-            props.open = props.onConfirm() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-            resolve()
-          },
-          handleClose: () => {
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-            reject()
+        data () {
+          return {
+            props
           }
         },
-        destroyed: () => {
+        mounted () {
+          props.open = true
+        },
+        methods: {
+          handleConfirm () {
+            resolve()
+            props.open = props.onConfirm() === false
+          },
+          handleClose () {
+            reject()
+            props.open = props.onCancel() === false
+          },
+          handleCloseAfter () {
+            vue.$destroy()
+          }
+        },
+        destroyed () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
@@ -261,7 +273,7 @@ const install = (Vue) => {
   Vue.prototype.$confirm = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
-        open: true,
+        open: false,
         onConfirm: () => {
           return true
         },
@@ -279,31 +291,36 @@ const install = (Vue) => {
             props: props,
             on: {
               'confirm': this.handleConfirm,
-              'close': this.handleClose
+              'close': this.handleClose,
+              'close-after': this.handleCloseAfter
             },
             scopedSlots: {
               default: props => createElement('div', content)
             }
           })
         },
-        data: {props: props},
-        methods: {
-          handleConfirm: () => {
-            resolve()
-            props.open = props.onConfirm() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleClose: () => {
-            reject()
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
+        data () {
+          return {
+            props
           }
         },
-        destroyed: () => {
+        mounted () {
+          props.open = true
+        },
+        methods: {
+          handleConfirm () {
+            resolve()
+            props.open = props.onConfirm() === false
+          },
+          handleClose () {
+            reject()
+            props.open = props.onCancel() === false
+          },
+          handleCloseAfter () {
+            this.$destroy()
+          }
+        },
+        destroyed () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
@@ -314,7 +331,7 @@ const install = (Vue) => {
   Vue.prototype.$prompt = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
-        open: true,
+        open: false,
         disabled: true,
         onConfirm: () => {
           return true
@@ -341,6 +358,7 @@ const install = (Vue) => {
             on: {
               'confirm': this.handleConfirm,
               'close': this.handleClose,
+              'close-after': this.handleCloseAfter,
               'change': this.handleChange
             },
             scopedSlots: {
@@ -348,27 +366,31 @@ const install = (Vue) => {
             }
           })
         },
-        data: {props: props},
-        methods: {
-          handleConfirm: (value) => {
-            resolve(value)
-            props.open = props.onConfirm(value) === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleClose: () => {
-            reject()
-            props.open = props.onCancel() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
-          },
-          handleChange: (value) => {
-            props.disabled = props.onChange(value)
+        data () {
+          return {
+            props
           }
         },
-        destroyed: () => {
+        mounted () {
+          props.open = true
+        },
+        methods: {
+          handleConfirm (value) {
+            resolve(value)
+            props.open = props.onConfirm(value) === false
+          },
+          handleClose () {
+            reject()
+            props.open = props.onCancel() === false
+          },
+          handleChange (value) {
+            props.disabled = props.onChange(value)
+          },
+          handleCloseAfter () {
+            this.$destroy()
+          }
+        },
+        destroyed () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
@@ -393,13 +415,11 @@ const install = (Vue) => {
         el: node,
         render (createElement) {
           return createElement(Actionsheet, {
-            props: {
-              ...props,
-              open: this.open
-            },
+            props: props,
             on: {
               'close': this.handleClose,
-              'action': this.handleAction
+              'action': this.handleAction,
+              'close-after': this.handleCloseAfter
             },
             nativeOn: {
               'action': this.handleAction
@@ -414,29 +434,26 @@ const install = (Vue) => {
         },
         data () {
           return {
-            open: props.open
+            props
           }
         },
         mounted () {
-          this.open = true
+          props.open = true
         },
         methods: {
-          handleClose: () => {
+          handleClose () {
             reject()
-            vue.open = props.open = props.onClose() === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
+            props.open = props.onClose() === false
           },
-          handleAction: (value) => {
+          handleAction (value) {
             resolve(value)
-            vue.open = props.open = props.onAction(value) === false
-            !props.open && setTimeout(() => {
-              vue.$destroy()
-            }, 1000)
+            props.open = props.onAction(value) === false
+          },
+          handleCloseAfter () {
+            this.$destroy()
           }
         },
-        destroyed: () => {
+        destroyed () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })

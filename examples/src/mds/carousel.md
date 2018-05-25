@@ -1,6 +1,6 @@
 # Carousel走马灯
 
-```html
+```
 <template>
   <div>
     {{value}}

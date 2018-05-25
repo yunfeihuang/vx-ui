@@ -1,6 +1,6 @@
 # Confirm确认对话框
 
-```html
+```
 <template>
   <div>
     <group>

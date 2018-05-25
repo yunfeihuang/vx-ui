@@ -1,6 +1,6 @@
 # Group分组
 
-```html
+```
 <template>
   <group title="default">
     <cell :arrow="false">

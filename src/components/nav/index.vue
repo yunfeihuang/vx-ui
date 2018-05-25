@@ -1,10 +1,10 @@
 <template>
   <div :class="classes">
-    <flexbox class="nav" align="center">
-      <button :class="['btn-pull','vx-header-back']" @click="handleBack" v-if="back!==false">
+    <flexbox class="vx-nav-inner" align="center">
+      <button :class="['btn-pull','vx-nav-back']" @click="handleBack" v-if="back!==false">
         <arrow direction="right" :color="arrow.color" :size="arrow.size"/>
       </button>
-      <flexbox-item :class="['vx-header-title', back===false ? 'vx-header-title-center' : '']">
+      <flexbox-item :class="['vx-nav-title', back===false ? 'vx-nav-title-center' : '']">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>
@@ -36,7 +36,7 @@ export default {
       type: Object,
       default () {
         return {
-          size: '0.2rem',
+          size: '0.24rem',
           color: '#fff'
         }
       }
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-header']
+      return ['vx-nav']
     }
   },
   methods: {

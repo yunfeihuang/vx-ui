@@ -1,6 +1,6 @@
 # Daterange日期区间输入框
 
-```html
+```
 <template>
   <group title="default">
     <daterange v-model="date" placeholder="请输入日期区间"/>

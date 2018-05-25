@@ -2,7 +2,7 @@
 
 ```
 <template>
-  <index-list :data="list" />
+  <index-list :data="list" @click="handleClick"/>
 </template>
 <script>
 export default {
@@ -23,6 +23,13 @@ export default {
     })
     return {
       list
+    }
+  },
+  methods: {
+    handleClick (value) {
+      this.$toast({
+        content: `点击了"${value}"`
+      })
     }
   }
 }

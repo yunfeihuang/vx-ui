@@ -1,6 +1,6 @@
 # Spinner旋转
 
-```html
+```
 <template>
   <div>
     <spinner></spinner>

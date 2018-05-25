@@ -1,6 +1,6 @@
 # Form表单
 
-```html
+```
 <template>
   <div>
     <x-form :model="form" :submit="submit">
