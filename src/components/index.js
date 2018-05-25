@@ -48,7 +48,7 @@ import Icon from './icon'
 import IndexList from './index-list'
 import QrCode from './qrcode'
 import Message from './message'
-import {Carousel, CarouselItem} from './carousel'
+// import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
 import {Accordion, AccordionItem} from './accordion'
 import Calendar from './calendar'
@@ -147,8 +147,8 @@ let components = [
   IndexList,
   QrCode,
   Message,
-  Carousel,
-  CarouselItem,
+  // Carousel,
+  // CarouselItem,
   Arrow,
   Accordion,
   AccordionItem,
@@ -511,8 +511,8 @@ export default {
   IndexList,
   QrCode,
   Message,
-  Carousel,
-  CarouselItem,
+  // Carousel,
+  // CarouselItem,
   Arrow,
   Accordion,
   AccordionItem,
@@ -588,8 +588,8 @@ export {
   IndexList,
   QrCode,
   Message,
-  Carousel,
-  CarouselItem,
+  // Carousel,
+  // CarouselItem,
   Arrow,
   Accordion,
   AccordionItem,
