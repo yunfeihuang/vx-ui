@@ -53,7 +53,9 @@ export default {
   },
   mounted () {
     if (this.open) {
-      this.handleOpen(this.open)
+      let node = this.$el.querySelector('.vx-accordion-item-bd')
+      node.style.height = 'auto'
+      this.handleOpen(true)
     }
   },
   methods: {
