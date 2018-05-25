@@ -1,11 +1,11 @@
 <template>
   <layout class="demos img-demos">
     <x-nav slot="header" back="/">
-      <div slot="title">Sticky</div>
+      <div slot="title">Sticky-往上滚动Tab栏会固定位置</div>
     </x-nav>
-    <x-body slot="body" class="img-container">
-      <x-img :loading="true" data-index="0" src="http://assets.bittyos.com/images/swiper/01.jpg"/>
-      <sticky :offset="46">
+    <x-body slot="body">
+      <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px"/>
+      <sticky>
         <tab :active.sync="active" style="background:#fff" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
