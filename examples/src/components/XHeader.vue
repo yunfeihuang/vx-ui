@@ -3,7 +3,7 @@
     <div class="header-inner">
       <flexbox align="center">
         <flexbox-item>
-          <img style="width:35px;height:35px" :src="'./static/images/logo.png'"/>
+          <img :src="'./static/images/logo.png'"/>
           <h2>Vx UI</h2>
         </flexbox-item>
         <a target="_blank" href="https://github.com/yunfeihuang/vx-ui" style="margin-right: 165px;">
@@ -33,6 +33,11 @@
       display:inline-block;
       vertical-align: middle;
       margin:0
+    }
+    img {
+      width:35px;
+      height:35px;
+      margin-right:10px;
     }
     .header-inner{
       padding:10px;
