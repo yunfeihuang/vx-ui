@@ -36,7 +36,7 @@ export default {
       type: Object,
       default () {
         return {
-          size: '10px',
+          size: '0.2rem',
           color: '#fff'
         }
       }

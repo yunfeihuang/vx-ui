@@ -16,14 +16,14 @@
         }
       }
       &-today{
-        line-height: 0.9rem;
+        line-height: 0.92rem;
         overflow:hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
       &-cancel,&-confirm,&-today{
         @include button;
-        height: 0.9rem;
+        height: 0.92rem;
         width: 1.5rem;
         color:$color-sub
       }

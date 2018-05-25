@@ -26,7 +26,7 @@ export default {
     },
     size: {
       type: String,
-      default: '10px'
+      default: '0.2rem'
     },
     color: {
       type: String,

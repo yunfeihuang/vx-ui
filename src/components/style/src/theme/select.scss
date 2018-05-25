@@ -3,7 +3,7 @@
 .#{$css-prefix}{
   &select{
     position:relative;
-    height:0.9rem;
+    height:0.92rem;
     @include disabled();
     button{
       border: 0;
@@ -53,7 +53,7 @@
       }
     }
     &-placeholder{
-      line-height: 0.9rem;
+      line-height: 0.92rem;
       color:$color-sub;
       overflow:hidden;
       white-space: nowrap;
@@ -62,7 +62,7 @@
     }
     &-cancel,&-confirm{
       @include button;
-      height: 0.9rem;
+      height: 0.92rem;
       width: 2rem;
       color:$color-sub;
     }

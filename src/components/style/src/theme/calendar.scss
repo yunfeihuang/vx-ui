@@ -14,8 +14,8 @@
     }
     &-date{
       width:14.285714285714286%;
-      line-height:0.9rem;
-      height: 0.9rem;
+      line-height:0.92rem;
+      height: 0.92rem;
       &.is-start,&.is-end{
         color:#fff!important;
         background:rgba($color-primary, 0.95);
@@ -43,7 +43,7 @@
       }
       button{
         @include button;
-        height:0.9rem;
+        height:0.92rem;
         min-width:1rem;
         &:disabled{
           opacity: 0.5;

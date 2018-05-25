@@ -11,7 +11,7 @@
         @include divider;
       }
       &-item{
-        line-height:0.9rem;
+        line-height:0.92rem;
         margin-left:10px;
         display:inline-block;
         position:relative;
@@ -50,8 +50,8 @@
       }
     &-item{
       @include active;
-      line-height:0.9rem;
-      height:0.9rem;
+      line-height:0.92rem;
+      height:0.92rem;
       padding:0 0.16rem;
       overflow:hidden;
       position:relative;

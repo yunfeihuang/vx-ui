@@ -5,22 +5,22 @@
         <flexbox-item v-if="layout.indexOf('year')>-1">
           <flexbox align="center">
             <button :disabled="date.getFullYear() <= 1990" type="button" @click="handleYearChange(-1)">
-              <arrow direction="right" size="12px"/>
+              <arrow direction="right" size="0.22rem"/>
             </button>
             <flexbox-item>{{date.getFullYear()}}{{yearText}}</flexbox-item>
             <button type="button" @click="handleYearChange(1)">
-              <arrow size="12px"/>
+              <arrow size="0.22rem"/>
             </button>
           </flexbox>
         </flexbox-item>
         <flexbox-item v-if="layout.indexOf('month')>-1">
           <flexbox align="center">
             <button :disabled="date.getMonth() === 0" type="button" @click="handleMonthChange(-1)">
-              <arrow direction="right" size="12px"/>
+              <arrow direction="right" size="0.22rem"/>
             </button>
             <flexbox-item>{{date.getMonth() + 1}}{{monthText}}</flexbox-item>
             <button :disabled="date.getMonth() === 11" type="button" @click="handleMonthChange(1)">
-              <arrow size="12px"/>
+              <arrow size="0.22rem"/>
             </button>
           </flexbox>
         </flexbox-item>
