@@ -6,9 +6,9 @@
       width: props.size,
       borderColor: {
         up: `${props.color} transparent transparent ${props.color}`,
-        left: `${props.color} ${props.color} transparent transparent`,
+        right: `${props.color} ${props.color} transparent transparent`,
         down: `transparent ${props.color} ${props.color} transparent`,
-        right: `transparent transparent ${props.color} ${props.color}`
+        left: `transparent transparent ${props.color} ${props.color}`
       }[props.direction],
     }, props.styles)"
     >
@@ -19,7 +19,7 @@ export default {
   props: {
     direction: {
       type: String,
-      default: 'left'
+      default: 'right'
     },
     styles: {
       type: Object

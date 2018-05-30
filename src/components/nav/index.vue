@@ -2,7 +2,7 @@
   <div :class="classes">
     <flexbox class="vx-nav-inner" align="center">
       <button :class="['btn-pull','vx-nav-back']" @click="handleBack" v-if="back!==false">
-        <arrow direction="right" :color="arrow.color" :size="arrow.size"/>
+        <arrow direction="left" :color="arrow.color" :size="arrow.size"/>
       </button>
       <flexbox-item :class="['vx-nav-title', back===false ? 'vx-nav-title-center' : '']">
         <slot name="title"></slot>
