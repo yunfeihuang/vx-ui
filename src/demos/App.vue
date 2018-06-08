@@ -14,6 +14,7 @@
         </div>
         <group title="basic">
           <cell title="Button" to="/demos/button"></cell>
+          <cell title="Layout" to="/demos/layout"></cell>
           <cell title="Flexbox" to="/demos/flexbox"></cell>
           <cell title="Nav" to="/demos/nav"></cell>
           <cell title="Group" to="/demos/group"></cell>

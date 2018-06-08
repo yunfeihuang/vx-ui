@@ -1,4 +1,5 @@
 import Button from './button'
+import Layout from './layout'
 import Input from './input'
 import InputNumber from './input-number'
 import Password from './password'
@@ -51,6 +52,7 @@ import Message from './message'
 // import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
 import {Accordion, AccordionItem} from './accordion'
+// import {Step, StepItem} from './step'
 import Calendar from './calendar'
 import CalendarRange from './calendar-range'
 import Cascader from './cascader'
@@ -84,6 +86,7 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   return fmt
 }
 let components = [
+  Layout,
   Actionsheet,
   ActionsheetItem,
   Swiper,
@@ -152,6 +155,8 @@ let components = [
   Arrow,
   Accordion,
   AccordionItem,
+  // Step,
+  // StepItem,
   Calendar,
   CalendarRange,
   Cascader,
@@ -465,6 +470,7 @@ const install = (Vue) => {
 
 export default {
   install,
+  Layout,
   Actionsheet,
   ActionsheetItem,
   Swiper,
@@ -533,6 +539,8 @@ export default {
   Arrow,
   Accordion,
   AccordionItem,
+  // Step,
+  // StepItem,
   Calendar,
   CalendarRange,
   Cascader,
@@ -542,6 +550,7 @@ export default {
 
 export {
   install,
+  Layout,
   Actionsheet,
   ActionsheetItem,
   Swiper,
@@ -610,6 +619,8 @@ export {
   Arrow,
   Accordion,
   AccordionItem,
+  // Step,
+  // StepItem,
   Calendar,
   CalendarRange,
   Cascader,

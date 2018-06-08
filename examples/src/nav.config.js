@@ -11,6 +11,10 @@ export default [
         title: 'Button按钮'
       },
       {
+        path: '/layout',
+        title: 'Layout布局'
+      },
+      {
         path: '/flexbox',
         title: 'Flexbox布局'
       },

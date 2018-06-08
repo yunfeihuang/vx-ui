@@ -1,5 +1,6 @@
 {
   "index": "./src/components",
+  "layout": "./src/components/layout",
   "actionsheet": "./src/components/actionsheet",
   "accordion": "./src/components/accordion",
   "swiper": "./src/components/swiper",
