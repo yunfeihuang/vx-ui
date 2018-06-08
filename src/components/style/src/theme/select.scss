@@ -48,9 +48,8 @@
     }
     &-header{
       position:relative;
-      &:after{
-        @include divider;
-      }
+      @include divider;
+      background-position:bottom;
     }
     &-placeholder{
       line-height: 0.92rem;

@@ -10,7 +10,6 @@
         </div>
         <button type="button" :class="['vx-datetime-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
-      <divider></divider>
       <div :class="['vx-flexbox','vx-datetime-picker']">
         <picker
           v-if="pickers"

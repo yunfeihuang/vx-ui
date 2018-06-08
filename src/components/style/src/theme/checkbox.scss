@@ -12,8 +12,11 @@
       user-select: none;
       @include disabled;
       &-divider{
-        .#{$css-prefix}checkbox:after{
-          @include divider()
+        .#{$css-prefix}checkbox{
+          @include divider;
+          &:first-child{
+            background-image:none;
+          }
         }
       }
     }

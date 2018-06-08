@@ -30,16 +30,17 @@
       line-height:0.4rem;
       position:relative;
       @include active;
-      &:after{
-        @include divider;
-      }
-      &:last-child:after{
-        display:none;
+      @include divider;
+      &:first-child{
+        background-image:none;
       }
     }
     &-title,&-fixed{
       padding:0.3rem 0.2rem 0.2rem 0.2rem;
       background:$color-background;
+    }
+    &-title+&-item{
+      background-image:none;
     }
     &-fixed{
       position:absolute;

@@ -7,9 +7,6 @@
       overflow-x: auto;
       overflow-y: hidden;
       position: relative;
-      &:after{
-        @include divider;
-      }
       &-item{
         line-height:0.92rem;
         margin-left:10px;
@@ -29,14 +26,12 @@
           }
         }
       }
-      &:before{
-        @inclide divider;
-      }
     }
     &-container{
       position:relative;
       height:6rem;
       overflow:hidden;
+      @include divider;
     }
     &-panel{
         overflow:auto;
@@ -46,7 +41,6 @@
         width:100%;
         transform: translateX(100%);
         transition: transform 0.2s ease 0s;
-        background:#fff;
       }
     &-item{
       @include active;
@@ -57,14 +51,16 @@
       position:relative;
       text-overflow: ellipsis;
       white-space: nowrap;
+      @include divider;
+      background-color:transparent;
       &.is-active{
         color:$color-primary;
       }
       &.is-disabled{
         opacity: 0.6;
       }
-      &:after{
-        @include divider
+      &:first-child{
+        background-image:none;
       }
     }
   }

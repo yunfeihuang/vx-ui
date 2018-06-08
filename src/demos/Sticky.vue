@@ -6,7 +6,7 @@
     <x-body slot="body">
       <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px"/>
       <sticky>
-        <tab :active.sync="active" style="background:#fff" :underline-width="10">
+        <tab :active.sync="active" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
       </sticky>

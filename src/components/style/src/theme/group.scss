@@ -11,12 +11,6 @@
     &-inner{
       position:relative;
       background:#fff;
-      &:after{
-        @include divider;
-      }
-      &:last-child:after{
-        display:none;
-      }
     }
   }
 }

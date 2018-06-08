@@ -5,6 +5,7 @@
     padding: 0.12rem 0.2rem;
     height: 0.68rem;
     position: relative;
+    @include divider;
     &-hd{
       margin-right:0.1rem;
     }
@@ -14,11 +15,8 @@
     &-ft{
       position:relative;
     }
-    &:after{
-      @include divider;
-    }
-    &:last-child:after{
-      display:none;
+    &:first-child{
+      background-image:none;
     }
   }
   &cell-access{

@@ -12,6 +12,10 @@
         display:none;
       }
       &:before{
+        position:absolute;
+        content:'';
+        width:1px;
+        height:100%;
         @include divider-vertical;
         right:0;
         left:auto;
@@ -22,17 +26,20 @@
         overflow:hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        &:after{
-          @include divider;
-        }
+        @include divider;
+        background-color:transparent;
         &:before{
+          position:absolute;
+          content:'';
+          width:1px;
+          height:100%;
           @include divider-vertical;
           right:0;
           left:auto;
         }
         &.is-active{
           color:$color-primary;
-          background:#fff;
+          background-color:#fff;
           transition: color $transition-time $ease-in-out;
           position:relative;
           z-index:1;

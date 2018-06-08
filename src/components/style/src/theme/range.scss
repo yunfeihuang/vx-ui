@@ -13,11 +13,20 @@
       }
       &-mask{
         @include divider(#ccc);
+        position:absolute;
+        content:'';
+        height:1px;
+        width:100%;
+        left:0;
         z-index:1;
         top:50%;
       }
       &-value{
         @include divider($color-primary);
+        position:absolute;
+        content:'';
+        height:1px;
+        left:0;
         width:0;
         z-index:2;
         top:50%;

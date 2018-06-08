@@ -62,8 +62,11 @@
     user-select: none;
     @include disabled;
     &-divider{
-      .#{$css-prefix}radio:after{
-        @include divider()
+      .#{$css-prefix}radio{
+        @include divider;
+        &:first-child{
+          background-image:none;
+        }
       }
     }
   }

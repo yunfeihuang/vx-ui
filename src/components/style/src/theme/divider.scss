@@ -3,8 +3,7 @@
 .#{$css-prefix}{
   &divider{
     position:relative;
-    &:before{
-      @include divider;
-    }
+    @include divider;
+    min-height:1px;
   }
 }

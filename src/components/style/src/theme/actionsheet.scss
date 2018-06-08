@@ -13,9 +13,8 @@
       line-height:1rem;
       position:relative;
       color:$color-sub;
-      &:after{
-        @include divider;
-      }
+      @include divider;
+      background-position: bottom;
     }
     &-cancel{
       padding: $item-padding;
@@ -31,14 +30,12 @@
       white-space: nowrap;
       overflow: hidden;
       @include active;
+      @include divider;
       &-text{
         @include disabled;
       }
-      &:after{
-        @include divider;
-      }
-      &:last-child:after{
-        display:none;
+      &:first-child{
+        background-image:none;
       }
       &.is-active{
         color:$color-primary;

@@ -8,9 +8,8 @@
       position:relative;
       background:#fff;
       height: 0.92rem;
-      &:after{
-        @include divider;
-      }
+      @include divider;
+      background-position:bottom;
     }
     .#{$css-prefix}input-wrapper,.#{$css-prefix}password{
       position:static;

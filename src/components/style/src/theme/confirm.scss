@@ -34,10 +34,7 @@
     }
     &-footer{
       position:relative;
-      &:before{
-        @include divider;
-        top:0;
-      }
+      @include divider;
       button{
         @include button;
         padding:$item-padding;
@@ -47,7 +44,7 @@
         font-size:inherit;
         line-height:100%;
         color:$color-sub;
-        &+button:before{
+        &+button{
           @include divider-vertical();
         }
         &:last-child{

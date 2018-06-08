@@ -11,9 +11,8 @@
         line-height:0.92rem;
         padding:0 0.16rem;
         position:relative;
-        &:after{
-          @include divider;
-        }
+        @include divider;
+        background-position:bottom;
         .vx-arrow{
           position:absolute;
           top:50%;
@@ -33,12 +32,8 @@
         padding:0.16rem;
       }
       &.is-open{
-        &+.vx-accordion-item{
-          &:before{
-            @include divider;
-            top:0;
-          }
-        }
+        @include divider;
+        background-position:bottom;
         .vx-accordion-item-hd{
           .vx-arrow{
             transform: rotate(-135deg);

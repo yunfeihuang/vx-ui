@@ -36,12 +36,23 @@
     &:before{
       @include divider;
       z-index:1;
+      position:absolute;
+      content:'';
+      height:1px;
+      width:100%;
+      left:0;
+      bottom:0;
     }
     &:after{
       @include divider($color-primary);
       width:0;
+      position:absolute;
+      content:'';
+      height:1px;
       transition:width 0.4s $ease-in-out;
       z-index:2;
+      left:0;
+      bottom:0;
     }
   }
   &input-focus:after{

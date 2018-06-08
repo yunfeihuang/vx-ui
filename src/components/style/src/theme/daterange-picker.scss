@@ -18,10 +18,7 @@
     }
     &-footer{
       position:relative;
-      &:before{
-        @include divider;
-        top:0;
-      }
+      @include divider;
     }
   }
 }

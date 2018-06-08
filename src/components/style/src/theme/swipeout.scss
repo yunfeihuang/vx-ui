@@ -28,8 +28,9 @@
         }
       }
       &-divider{
-        &:after{
-          @include divider;
+        @include divider;
+        &:first-child{
+          background-image:none;
         }
       }
     }

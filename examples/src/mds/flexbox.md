@@ -47,7 +47,7 @@
     <div class="flexbox-item">2</div>
   </flexbox-item>
   <flexbox-item>
-    <div class="flexbox-item">2</div>
+    <div class="flexbox-item">3</div>
   </flexbox-item>
 </flexbox>
 
