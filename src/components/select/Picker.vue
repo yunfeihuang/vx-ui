@@ -3,7 +3,7 @@
     <div :class="classes">
       <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker-header']">
         <button type="button" :class="['vx-option-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
-        <button type="button" :class="['vx-flexbox-item','vx-option-picker-placeholder']">{{title}}</button>
+        <button type="button" :class="['vx-flexbox-item','vx-option-picker-placeholder']">{{myTitle}}</button>
         <button type="button" :disabled="!this.myValue.length" :class="['vx-option-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <div :class="['vx-option-picker']">
@@ -47,7 +47,8 @@ export default {
       type: Array
     },
     title: {
-      type: String
+      type: String,
+      default: '请选择'
     },
     cancelText: {
       type: String,
@@ -65,6 +66,13 @@ export default {
   computed: {
     classes () {
       return ['vx-option-picker-wrapper']
+    },
+    myTitle () {
+      let title = this.title
+      if (this.myValue.length >= this.max && this.max > 1) {
+        title = `选项不能超过${this.max}个`
+      }
+      return title
     }
   },
   watch: {

@@ -32,9 +32,6 @@ export default {
     },
     popupDirection: {
       type: String
-    },
-    title: {
-      type: String
     }
   },
   computed: {
@@ -111,7 +108,7 @@ export default {
               options: this.$$myOptions,
               open: false,
               value: this.value,
-              title: this.title,
+              title: this.placeholder,
               classes: 'vx-select-picker',
               max: this.max,
               direction: this.max === 1 ? this.popupDirection : undefined
