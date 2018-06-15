@@ -5,10 +5,10 @@
       :checked="myChecked"
       :name="name"
       :value="value"
-      :disabled="disabled"
+      :disabled="myDisabled"
       @change="handleChange"
       />
-    <button type="button" :disabled="disabled">
+    <button type="button" :disabled="myDisabled">
       <slot></slot>
     </button>
   </label>
@@ -42,6 +42,13 @@ export default {
       } else {
         return this.type
       }
+    },
+    myDisabled () {
+      let disabled = this.disabled
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
+        return this.$parent.value.indexOf(this.value) === -1
+      }
+      return disabled
     }
   },
   methods: {

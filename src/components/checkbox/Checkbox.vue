@@ -1,6 +1,6 @@
 <template>
-  <label :class="classes" :disabled="disabled" >
-    <input :type="myType" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
+  <label :class="classes" :disabled="myDisabled" >
+    <input :type="myType" :name="name" :value="value" :disabled="myDisabled" :checked="myChecked" @change="handleChange"/>
     <i :class="['vx-checkbox-icon']"></i>
     <span :class="['vx-checkbox-text']">
       <slot></slot>
@@ -38,6 +38,13 @@ export default {
       } else {
         return this.type
       }
+    },
+    myDisabled () {
+      let disabled = this.disabled
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
+        return this.$parent.value.indexOf(this.value) === -1
+      }
+      return disabled
     }
   },
   props: {
