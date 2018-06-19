@@ -5,11 +5,11 @@
     :cancel="true"
     :cancel-text="cancelText"
     :confirm-text="confirmText"
+    :title="title"
     @close="handleClose"
     @confirm="handleConfirm"
     @close-after="handleCloseAfter"
     >
-    <div v-if="title" :class="'vx-prompt-title'">{{title}}</div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <password

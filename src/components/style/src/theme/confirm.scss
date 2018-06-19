@@ -27,6 +27,13 @@
       max-width:400px;
       box-shadow: 0 1px 5px rgba(0,0,0,0.1);
     }
+    &-title{
+      margin-top:0.5rem; 
+      font-size:0.32rem;
+      &+.vx-confirm-body{
+        padding:0.6rem 0.5rem;
+      }
+    }
     &-body{
       max-height: 90%;
       padding:0.8rem 0.5rem;

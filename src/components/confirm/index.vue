@@ -6,6 +6,7 @@
     <div :class="['vx-confirm-wrapper']">
       <transition name="confirm-scale" @after-leave="handleLeave">
         <div :class="['vx-confirm-inner']" v-if="open">
+          <div v-if="title" class="vx-confirm-title">{{title}}</div>
           <div :class="['vx-confirm-body']">
             <slot></slot>
           </div>
@@ -36,6 +37,9 @@ export default {
     cancel: {
       type: Boolean,
       default: true
+    },
+    title: {
+      type: String
     },
     cancelText: {
       type: String,

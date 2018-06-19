@@ -45,6 +45,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | open     | 是否打开   | Boolean  |   -       |    false    |
 | history     | 打开是否产生浏览器历史记录   | Boolean  |   -       |    true    |
+| title     | 标题文字   | String  |   -       |    -    |
 | confirmText     | 确定文字   | String  |   -       |    确定    |
 | cancelText     | 取消文字   | String  |   -       |    取消    |
 
