@@ -10,6 +10,9 @@ http://vx.bittyos.com/demo/
 
 ![Minion](http://vx.bittyos.com/static/images/demo-code.png)
 
+#### react版本：
+https://github.com/yunfeihuang/react-components
+
 ## Build Setup
 
 ``` bash
