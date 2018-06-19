@@ -87,7 +87,7 @@ export default {
       this.fastClose && this.close()
     },
     handleClose2 (e) {
-      if (this.fastClose && e.target === this.$el.querySelector('.' + 'vx-popup-inner')) {
+      if (this.fastClose && e.target === this.$el.querySelector('.vx-popup-inner')) {
         this.close()
       }
     },

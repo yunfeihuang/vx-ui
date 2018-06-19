@@ -80,10 +80,10 @@ export default {
   },
   methods: {
     getRangeInitData () {
-      let controlNode = this.$el.querySelector('.' + 'vx-range-button')
-      let valueNode = this.$el.querySelector('.' + 'vx-range-value')
-      let tipsNode = this.$el.querySelector('.' + 'vx-range-tips')
-      let maskNode = this.$el.querySelector('.' + 'vx-range-mask')
+      let controlNode = this.$el.querySelector('.vx-range-button')
+      let valueNode = this.$el.querySelector('.vx-range-value')
+      let tipsNode = this.$el.querySelector('.vx-range-tips')
+      let maskNode = this.$el.querySelector('.vx-range-mask')
       this.$$range = {
         maxLeft: maskNode.offsetWidth - controlNode.offsetWidth,
         controlNode,

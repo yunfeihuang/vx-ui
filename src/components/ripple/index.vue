@@ -48,7 +48,7 @@ export default {
       }
     },
     handleTouchStart (e) {
-      let shadow = this.$el.querySelector('.' + 'vx-ripple-shadow')
+      let shadow = this.$el.querySelector('.vx-ripple-shadow')
       shadow && shadow.parentNode.removeChild(shadow)
       this.$$offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
       this.$$node = document.createElement('div')

@@ -25,8 +25,8 @@ export default {
     },
     computedStyle () {
       this.$nextTick(() => {
-        let node = this.$el.querySelector('.' + 'vx-tab-underline')
-        let activeNode = this.$el.querySelector('.' + 'is-active')
+        let node = this.$el.querySelector('.vx-tab-underline')
+        let activeNode = this.$el.querySelector('.is-active')
         if (activeNode) {
           let activeWidth = activeNode.offsetWidth
           let width = activeWidth

@@ -112,7 +112,7 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.' + 'vx-img-icon') || this.$el.querySelector('.' + 'vx-img-spinner')
+          let icon = this.$el.querySelector('.vx-img-icon') || this.$el.querySelector('.vx-img-spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')

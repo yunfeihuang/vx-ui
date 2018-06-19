@@ -44,9 +44,9 @@ export default {
     }
   },
   mounted () {
-    this.$textarea = this.$el.querySelector('textarea')
-    this.$$shadow = this.$el.querySelector('.' + 'vx-textarea-shadow')
-    this.renderAutoHeight(this.$textarea.value)
+    this.$$textarea = this.$el.querySelector('textarea')
+    this.$$shadow = this.$el.querySelector('.vx-textarea-shadow')
+    this.renderAutoHeight(this.$$textarea.value)
   },
   data () {
     return {

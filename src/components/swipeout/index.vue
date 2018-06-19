@@ -52,9 +52,9 @@ export default {
     this.$$touch = {}
   },
   mounted () {
-    let node = this.$el.querySelector('.' + 'vx-swipeout-action')
+    let node = this.$el.querySelector('.vx-swipeout-action')
     this.$$touch.maxTranslateX = node.offsetWidth
-    this.$$touch.el = this.$el.querySelector('.' + 'vx-swipeout-inner')
+    this.$$touch.el = this.$el.querySelector('.vx-swipeout-inner')
     requestAnimationFrame(() => {
       node.style.height = node.parentNode.offsetHeight + 'px'
       this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)

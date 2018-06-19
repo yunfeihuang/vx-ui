@@ -84,7 +84,7 @@ export default {
     }
     this.$$height = this.$el.offsetHeight
     this.$$touch = {
-      inner: this.$el.querySelector('.' + 'vx-list-view-inner')
+      inner: this.$el.querySelector('.vx-list-view-inner')
     }
   },
   destroyed () {

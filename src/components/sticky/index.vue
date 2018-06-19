@@ -23,7 +23,7 @@ export default {
     this.$nextTick(() => {
       this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
       if (this.$$scrollNode) {
-        this.$$childNode = this.$el.querySelector('.' + 'vx-sticky-inner')
+        this.$$childNode = this.$el.querySelector('.vx-sticky-inner')
         this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
         this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
       }

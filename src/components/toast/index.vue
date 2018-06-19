@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-toast">
     <div :class="['vx-toast-inner','vx-toast-' + this.align]">
       <div :class="['vx-toast-content']">
         <template v-if="type != 'default'">
@@ -17,12 +17,6 @@
 import Popup from '../popup'
 import Spinner from '../spinner'
 import Icon from '../icon'
-
-const iconCode = {
-  success: '&#xe654;',
-  warn: '&#xe653;',
-  fail: '&#xe605;'
-}
 
 export default {
   componentName: 'Toast',
@@ -51,11 +45,16 @@ export default {
     destroy: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-toast']
+    },
+    iconCode: {
+      type: Object,
+      default () {
+        return {
+          success: '&#xe654;',
+          warn: '&#xe653;',
+          fail: '&#xe605;'
+        }
+      }
     }
   },
   mounted () {
@@ -87,11 +86,6 @@ export default {
   watch: {
     open (value) {
       this.openChange(value)
-    }
-  },
-  data () {
-    return {
-      iconCode: iconCode
     }
   }
 }

@@ -74,7 +74,7 @@ export default {
     this.$$touch = {}
   },
   mounted () {
-    this.$$touch.scrollElement = this.$el.querySelector('.' + 'vx-picker')
+    this.$$touch.scrollElement = this.$el.querySelector('.vx-picker')
     requestAnimationFrame(this.scrollToActive)
   },
   destroyed () {
@@ -82,9 +82,9 @@ export default {
   },
   methods: {
     scrollToActive () {
-      let node = this.$el.querySelector('.' + 'is-active')
+      let node = this.$el.querySelector('.is-active')
       let index = 0
-      Array.from(this.$el.querySelectorAll('.' + 'vx-picker-item')).forEach((item, i) => {
+      Array.from(this.$el.querySelectorAll('.vx-picker-item')).forEach((item, i) => {
         if (item === node) {
           index = i
         }
@@ -134,7 +134,7 @@ export default {
       this.$$timer && clearTimeout(this.$$timer)
       this.$$timer = setTimeout(() => {
         this.$$touch.scrollEnd = false
-        let node = this.$el.querySelector('.' + 'vx-picker')
+        let node = this.$el.querySelector('.vx-picker')
         let _scrollTop = node.scrollTop
         let index = Math.round(_scrollTop / 42)
         let scrollTop = index * 42
@@ -144,7 +144,7 @@ export default {
               node.scrollTop = value
             })
           }
-          let active = this.$el.querySelectorAll('.' + 'vx-picker-item')[index]
+          let active = this.$el.querySelectorAll('.vx-picker-item')[index]
           if (active) {
             let value = active.dataset.value
             value !== this.value && this.$emit('input', value, this.index).$emit('change', value, this.index)
