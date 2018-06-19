@@ -18,11 +18,19 @@
       @include active;
     }
     &-back{
-      margin-right:-10px;
       position:relative;
       z-index:1;
+      padding:0 0.25rem;
       &:active{
         background:transparent!important;
+      }
+      .vx-arrow{
+        margin-right: -0.16rem;
+        vertical-align: baseline;
+      }
+      span{
+        margin-left:5px;
+        font-size:0.32rem;
       }
     }
     &-title{

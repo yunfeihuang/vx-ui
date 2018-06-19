@@ -3,6 +3,7 @@
     <flexbox class="vx-nav-inner" align="center">
       <button :class="['btn-pull','vx-nav-back']" @click="handleBack" v-if="back!==false">
         <arrow direction="left" :color="arrow.color" :size="arrow.size"/>
+        <span v-if="backText">{{backText}}</span>
       </button>
       <flexbox-item :class="['vx-nav-title', back===false ? 'vx-nav-title-center' : '']">
         <slot name="title"></slot>
@@ -30,7 +31,7 @@ export default {
     },
     backText: {
       type: String,
-      default: '返回'
+      default: ''
     },
     arrow: {
       type: Object,

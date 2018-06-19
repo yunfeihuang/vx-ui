@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
+    <x-nav slot="header" back="/" back-text="返回">
       <div slot="title">Nav</div>
       <button class="btn-pull" slot="pull">
         <icon>&#xe78d;</icon>
