@@ -2,7 +2,7 @@
 
 ```
 <template>
-  <x-nav slot="header" back="/">
+  <x-nav slot="header" back="/" back-text="返回">
     <div slot="title">XNav</div>
     <button class="btn-pull" slot="pull">
       <icon>&#xe78d;</icon>

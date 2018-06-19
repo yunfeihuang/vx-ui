@@ -13,7 +13,6 @@
       line-height:1rem;
       position:relative;
       color:$color-sub;
-      @include divider;
       background-position: bottom;
     }
     &-cancel{
@@ -34,15 +33,13 @@
       &-text{
         @include disabled;
       }
-      &:first-child{
-        background-image:none;
-      }
       &.is-active{
         color:$color-primary;
       }
       &.is-disabled{
         opacity: 0.6;
       }
+      
     }
     &-menu {
       .#{$css-prefix}actionsheet{
@@ -55,6 +52,11 @@
           border-left:0;
           border-right:0;
         }
+      }
+    }
+    &.is-not-title{
+      .#{$css-prefix}actionsheet-item:first-child{
+        background-image:none;
       }
     }
   }

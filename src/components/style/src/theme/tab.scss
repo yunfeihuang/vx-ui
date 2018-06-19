@@ -6,8 +6,18 @@
     position:relative;
     user-select: none;
     line-height: 0.92rem;
-    @include divider;
-    background-position:bottom;
+    background:#fff;
+    &:before{
+      @include divider;
+      z-index:1;
+      position:absolute;
+      content:'';
+      height:1px;
+      width:100%;
+      left:0;
+      bottom:-1px;
+      background-color: transparent;
+    }
     &-underline{
       position:absolute;
       bottom:0;

@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-actionsheet', this.type === 'menu' ? 'vx-actionsheet-menu' : '']
+      return ['vx-actionsheet', this.type === 'menu' ? 'vx-actionsheet-menu' : '', {'is-not-title': !this.title}]
     },
     myDirection () {
       if (this.type === 'default') {

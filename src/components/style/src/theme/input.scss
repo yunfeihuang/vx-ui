@@ -41,7 +41,8 @@
       height:1px;
       width:100%;
       left:0;
-      bottom:0;
+      bottom:-1px;
+      background-color: transparent;
     }
     &:after{
       @include divider($color-primary);
@@ -52,7 +53,8 @@
       transition:width 0.4s $ease-in-out;
       z-index:2;
       left:0;
-      bottom:0;
+      bottom:-1px;
+      background-color: transparent;
     }
   }
   &input-focus:after{

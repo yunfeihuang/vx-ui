@@ -17,6 +17,9 @@
       input{
         padding-left:0;
       }
+      &:before,&:after{
+        bottom:0;
+      }
     }
     &-label{
       color:$color-sub;
