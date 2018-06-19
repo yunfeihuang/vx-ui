@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-nav']
+      return ['vx-nav', {'is-back-text': !!this.backText}]
     }
   },
   methods: {

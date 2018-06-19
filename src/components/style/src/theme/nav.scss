@@ -21,6 +21,7 @@
       position:relative;
       z-index:1;
       padding:0 0.25rem;
+      margin-right:-8px;
       &:active{
         background:transparent!important;
       }
@@ -38,6 +39,11 @@
       overflow: hidden;
       &-center{
         text-align:center;
+      }
+    }
+    &.is-back-text{
+      .vx-nav-back{
+        margin-right:0;
       }
     }
   }
