@@ -3,8 +3,10 @@
     <div :class="['vx-toast-inner','vx-toast-' + this.align]">
       <div :class="['vx-toast-content']">
         <template v-if="type != 'default'">
-          <icon v-if="iconCode[type]" :html="iconCode[type]"></icon>
-          <spinner v-if="type==='loading'" color="#999" primary-color="#fff" class="vx-toast-spinner"/>
+          <icon v-if="type === 'success'">&#xe654;</icon>
+          <icon v-else-if="type === 'warn'">&#xe653;</icon>
+          <icon v-else-if="type === 'fail'">&#xe605;</icon>
+          <spinner v-else-if="type==='loading'" class="vx-toast-spinner" v-bind="spinnerProps"/>
           <br v-if="iconCode[type] || type==='loading'" />
         </template>
         <slot></slot>
@@ -45,6 +47,15 @@ export default {
     destroy: {
       type: Boolean,
       default: false
+    },
+    spinnerProps: {
+      type: Object,
+      default () {
+        return {
+          color: '#999',
+          primaryColor: '#fff'
+        }
+      }
     },
     iconCode: {
       type: Object,

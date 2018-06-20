@@ -8,7 +8,7 @@
       <br/>
       <br/>
       <br/>
-      <spinner style="height:50px;width:50px;">
+      <spinner :style="'height:50px;width:50px;'">
         <span style="line-height:50px;">LOGO</span>
       </spinner>
     </x-body>
