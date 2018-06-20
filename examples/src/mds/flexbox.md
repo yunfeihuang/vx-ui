@@ -51,27 +51,6 @@
   </flexbox-item>
 </flexbox>
 
-### 项目换行
-<flexbox wrap="wrap" class="flex-wrap">
-  <flexbox-item width="25%">
-    <div class="flexbox-item">1</div>
-  </flexbox-item>
-  <flexbox-item width="25%">
-    <div class="flexbox-item">2</div>
-  </flexbox-item>
-  <flexbox-item width="25%">
-    <div class="flexbox-item">3</div>
-  </flexbox-item>
-  <flexbox-item width="25%">
-    <div class="flexbox-item">4</div>
-  </flexbox-item>
-  <flexbox-item width="25%">
-    <div class="flexbox-item">5</div>
-  </flexbox-item>
-  <flexbox-item width="25%">
-    <div class="flexbox-item">6</div>
-  </flexbox-item>
-</flexbox>
 ```
 ### Flexbox
 #### Props
@@ -98,7 +77,6 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | flex     | css flex   | -  |   String,Number       |    1    |
-| width     | css width   | -  |   String       |    -    |
 | order     | css order   | -  |   String       |    -    |
 
 #### Events
