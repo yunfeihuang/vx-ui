@@ -11,7 +11,7 @@
         </cell>
         <cell>
           <div slot="title" @click="handleClick">个位数红点(点击累加)</div>
-          <div slot="value">新消息<badge class="badge" :text="count"/></div>
+          <div slot="value" @click="handleClick">新消息<badge class="badge" :text="count"/></div>
         </cell>
         <cell>
           <div slot="title">超出最大值显示(ellipsis)红点</div>

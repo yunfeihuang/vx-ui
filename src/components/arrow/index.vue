@@ -1,6 +1,6 @@
 <template functional>
   <component :is="props.tag"
-    :class="['vx-arrow', data.staticClass]"
+    :class="['vx-arrow', data.class, data.staticClass]"
     :style="Object.assign({
       height: props.size,
       width: props.size,
@@ -10,7 +10,7 @@
         down: `transparent ${props.color} ${props.color} transparent`,
         left: `transparent transparent ${props.color} ${props.color}`
       }[props.direction],
-    }, data.staticStyle)"
+    }, data.style)"
     v-bind="data.attrs"
     v-on="listeners"
     >

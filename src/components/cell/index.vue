@@ -1,9 +1,9 @@
 <template functional>
   <flexbox
-    :class="['vx-cell', {'vx-cell-access': props.arrow}, data.staticClass]"
+    :class="['vx-cell', {'vx-cell-access': props.arrow}, data.class, data.staticClass]"
     align="center"
     justify="center"
-    :style="data.staticStyle"
+    :style="data.style"
     v-bind="data.attrs"
     v-on="listeners"
     @click.native="props.onTo(parent, props.to)">

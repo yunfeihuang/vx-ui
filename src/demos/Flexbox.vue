@@ -40,7 +40,7 @@
         <flexbox-item>
           <div class="flexbox-item">3</div>
         </flexbox-item>
-      </flexbox>      
+      </flexbox>
     </x-body>
   </layout>
 </template>
