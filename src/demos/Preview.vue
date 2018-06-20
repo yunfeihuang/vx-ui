@@ -1,7 +1,7 @@
 <template>
   <layout class="demos img-demos">
     <x-nav slot="header" back="/">
-      <div slot="title">Preview</div>
+      <div slot="title">Preview(点击图片浏览图片)</div>
     </x-nav>
     <x-body slot="body" class="img-container">
       <x-img
