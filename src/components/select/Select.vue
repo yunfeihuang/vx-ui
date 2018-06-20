@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     getOptions () {
-      console.log(this)
       return this.$children.map((item) => {
         return {
           value: item.value,
