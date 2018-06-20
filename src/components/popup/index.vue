@@ -1,7 +1,7 @@
 <template>
   <div class="vx-popup">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click.native="handleClose"></overlay>
+      <overlay v-if="open" @click="handleClose"></overlay>
     </transition>
     <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @after-leave="handleLeave">
       <div v-if="open" :class="innerClasses" @click="handleClose2">

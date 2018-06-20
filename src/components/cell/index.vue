@@ -1,18 +1,25 @@
-<template>
-  <flexbox :class="['vx-cell', {'vx-cell-access': arrow}]" align="center" justify="center" @click.native="handleClick">
-    <div :class="'vx-cell-hd'">
+<template functional>
+  <flexbox
+    :class="['vx-cell', {'vx-cell-access': props.arrow}, data.staticClass]"
+    align="center"
+    justify="center"
+    :style="data.staticStyle"
+    v-bind="data.attrs"
+    v-on="listeners"
+    @click.native="props.onTo(parent, props.to)">
+    <div class="vx-cell-hd">
       <slot name="icon"></slot>
     </div>
     <flexbox-item :class="'vx-cell-bd'">
-      <slot v-if="$slots.title" name="title"></slot>
+      <slot v-if="!props.title" name="title"></slot>
       <template v-else>
-        {{title}}
+        {{props.title}}
       </template>
     </flexbox-item>
     <div :class="'vx-cell-ft'">
-      <slot v-if="$slots.value" name="value"></slot>
+      <slot v-if="!props.value" name="value"></slot>
       <template v-else>
-        {{value}}
+        {{props.value}}
       </template>
     </div>
   </flexbox>
@@ -37,14 +44,15 @@ export default {
     value: {
       type: String
     },
-    to: {}
-  },
-  methods: {
-    handleClick () {
-      if (this.to) {
-        this.$router.push(this.to)
+    onTo: {
+      type: Function,
+      default (parent, to) {
+        if (to && parent.$router) {
+          parent.$router.push(this.to)
+        }
       }
-    }
+    },
+    to: {}
   }
 }
 </script>

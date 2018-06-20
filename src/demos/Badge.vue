@@ -9,8 +9,8 @@
           <div slot="title">红点</div>
           <div slot="value">新消息<badge class="badge"/></div>
         </cell>
-        <cell @click.native="handleClick">
-          <div slot="title">个位数红点(点击累加)</div>
+        <cell>
+          <div slot="title" @click="handleClick">个位数红点(点击累加)</div>
           <div slot="value">新消息<badge class="badge" :text="count"/></div>
         </cell>
         <cell>

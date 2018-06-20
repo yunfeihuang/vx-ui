@@ -33,6 +33,7 @@ export default {
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | isBack     | 是否有后退按钮   | Boolean  |   -       |    true    |
+| to     | 后退地址   | -  |   -       |    -    |
 | onBack     | 默认是后退   | functon  |   -       |    history.back()    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
 | title     | 标题   | String  |   -       |    返回    |

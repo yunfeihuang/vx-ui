@@ -1,7 +1,11 @@
 <template functional>
-  <div :class="['vx-nav', {'is-back-text': !!props.backText}]">
+  <div
+    :class="['vx-nav', {'is-back-text': !!props.backText}, data.staticClass]"
+    :style="data.staticStyle"
+    v-bind="data.attrs"
+    v-on="listeners">
     <flexbox class="vx-nav-inner" align="center">
-      <button :class="['btn-pull','vx-nav-back']" @click="props.onBack" v-if="props.isBack!==false">
+      <button :class="['btn-pull','vx-nav-back']" @click="props.onBack(parent, props.to)" v-if="props.isBack!==false">
         <arrow direction="left" :color="props.arrow.color" :size="props.arrow.size"/>
         <span v-if="backText">{{props.backText}}</span>
       </button>
@@ -25,14 +29,19 @@ export default {
     Arrow
   },
   props: {
+    to: {},
     isBack: {
       type: Boolean,
       default: true
     },
     onBack: {
       type: Function,
-      default () {
-        history.back()
+      default (parent, to) {
+        if (to && parent.$router) {
+          parent.$router.push(to)
+        } else {
+          history.back()
+        }
       }
     },
     backText: {
