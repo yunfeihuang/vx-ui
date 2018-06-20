@@ -43,7 +43,9 @@
 </template>
 
 <script>
+import { children } from 'utils/mixins/page'
 export default {
+  mixins: [children],
   methods: {
     submit () {
       this.$toast({

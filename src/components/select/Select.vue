@@ -10,7 +10,7 @@
 <script>
 import Vue from 'vue'
 import Picker from './Picker'
-import { input } from 'utils/mixins.js'
+import { input } from 'utils/mixins'
 
 export default {
   componentName: 'XSelect',

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins.js'
+import { input } from 'utils/mixins'
 
 export default {
   componentName: 'CheckerGroup',

@@ -27,7 +27,9 @@
 </template>
 
 <script>
+import { children } from 'utils/mixins/page'
 export default {
+  mixins: [children],
   methods: {
     handleClick () {
       this.count++

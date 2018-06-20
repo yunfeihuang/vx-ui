@@ -46,8 +46,10 @@
 </template>
 
 <script>
-
-export default {}
+import { children } from 'utils/mixins/page'
+export default {
+  mixins: [children]
+}
 </script>
 
 <style lang="scss">

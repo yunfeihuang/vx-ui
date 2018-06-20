@@ -69,7 +69,7 @@ const input = {
       type: String
     },
     maxlength: {
-      type: String
+      type: Number
     },
     name: {
       type: String,

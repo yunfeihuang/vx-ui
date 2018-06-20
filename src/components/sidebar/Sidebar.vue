@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { tab } from 'utils/mixins.js'
+import { tab } from 'utils/mixins'
 export default {
   componentName: 'Sidebar',
   mixins: [tab],

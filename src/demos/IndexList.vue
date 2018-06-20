@@ -7,7 +7,9 @@
   </layout>
 </template>
 <script>
+import { children } from 'utils/mixins/page'
 export default {
+  mixins: [children],
   data () {
     let list = []
     let array = ['★', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L']

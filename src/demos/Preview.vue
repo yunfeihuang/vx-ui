@@ -16,8 +16,10 @@
 </template>
 
 <script>
+import { children } from 'utils/mixins/page'
 let windowWidth = window.innerWidth
 export default {
+  mixins: [children],
   data () {
     return {
       images: [

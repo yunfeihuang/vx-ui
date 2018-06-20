@@ -23,7 +23,9 @@
 </template>
 
 <script>
+import { children } from 'utils/mixins/page'
 export default {
+  mixins: [children],
   methods: {
     handleChange (value) {
       this.active = value

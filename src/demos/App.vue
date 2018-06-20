@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <layout>
+  <div class="demo-app">
+    <layout :style="`opacity:1;transform:translateX(0)`">
       <x-nav slot="header" :is-back="false">
         <div slot="title">Vx UI Demos</div>
       </x-nav>
@@ -77,11 +77,6 @@
           <cell title="IndexList" to="/demos/indexlist"></cell>
           <cell title="Marquee" to="/demos/marquee"></cell>
         </group>
-        <!--
-        <group title="basic">
-          <cell title="Button" to="/demos/button"></cell>
-        </group>
-        -->
       </x-body>
     </layout>
     <router-view></router-view>
@@ -89,8 +84,9 @@
 </template>
 
 <script>
-// import MSwitch from 'vx-ui/lib/switch'
+import { parent } from 'utils/mixins/page'
 export default {
+  mixins: [parent],
   mounted () {
     // console.log(this.$router.push)
   }
@@ -106,6 +102,20 @@ export default {
       border-radius:50%;
       height:40px;
       width:40px;
+    }
+  }
+  .demo-app{
+    .vx-layout{
+      opacity:0;
+      transition: transform 0.32s ease 0s;
+      transform: translate3d(100%,0,0);
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      backface-visibility: hidden;
+      perspective: 1000;
     }
   }
 </style>

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins.js'
+import { input } from 'utils/mixins'
 import Icon from '../icon'
 export default {
   componentName: 'XInput',

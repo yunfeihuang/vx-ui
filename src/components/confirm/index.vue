@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { historyPush } from 'utils/mixins.js'
+import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
 export default {
   componentName: 'Confirm',

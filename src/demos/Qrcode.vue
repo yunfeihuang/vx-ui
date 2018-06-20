@@ -10,7 +10,12 @@
     </x-body>
   </layout>
 </template>
-
+<script>
+import { children } from 'utils/mixins/page'
+export default {
+  mixins: [children]
+}
+</script>
 <style lang="scss">
   .qrcode-demo{
     text-align:center;

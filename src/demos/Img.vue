@@ -1,7 +1,7 @@
 <template>
   <layout class="demos img-demos">
     <x-nav slot="header" back="/">
-      <div slot="title">Img</div>
+      <div slot="title">Img(滚动加载资源)</div>
     </x-nav>
     <x-body slot="body">
       <x-img class="my-img" src="http://assets.bittyos.com/images/swiper/01.jpg" />
@@ -17,7 +17,12 @@
     </x-body>
   </layout>
 </template>
-
+<script>
+import { children } from 'utils/mixins/page'
+export default {
+  mixins: [children]
+}
+</script>
 <style lang="scss">
   .img-demos img{
     display:block;

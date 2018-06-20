@@ -61,7 +61,9 @@
 </template>
 
 <script>
+import { children } from 'utils/mixins/page'
 export default {
+  mixins: [children],
   methods: {
     handleClick (value) {
       this.$toast({content: '您点击了：' + value})

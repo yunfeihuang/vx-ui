@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { button } from 'utils/mixins.js'
+import { button } from 'utils/mixins'
 import Spinner from '../spinner'
 import Ripple from '../ripple'
 
