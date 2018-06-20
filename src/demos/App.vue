@@ -1,7 +1,7 @@
 <template>
   <div>
     <layout>
-      <x-nav slot="header" :back="false">
+      <x-nav slot="header" :is-back="false">
         <div slot="title">Vx UI Demos</div>
       </x-nav>
       <x-body class="demos" slot="body">
@@ -93,16 +93,6 @@
 export default {
   mounted () {
     // console.log(this.$router.push)
-  },
-  methods: {
-    tabbarhandleChange (active) {
-      this.tabbarActive = active
-    }
-  },
-  data () {
-    return {
-      tabbarActive: 0
-    }
   }
 }
 </script>

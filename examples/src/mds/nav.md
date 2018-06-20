@@ -32,7 +32,8 @@ export default {
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| back     | 是否有后退按钮   | String, Boolean, Function  |   -       |    true    |
+| isBack     | 是否有后退按钮   | Boolean  |   -       |    true    |
+| onBack     | 默认是后退   | functon  |   -       |    history.back()    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
 | title     | 标题   | String  |   -       |    返回    |
 | arrow     | 返回箭头   | Object  |   -       |    {size: '2.4rem', color: '#fff'}    |

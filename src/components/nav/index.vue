@@ -1,11 +1,11 @@
-<template>
-  <div :class="classes">
+<template functional>
+  <div :class="['vx-nav', {'is-back-text': !!props.backText}]">
     <flexbox class="vx-nav-inner" align="center">
-      <button :class="['btn-pull','vx-nav-back']" @click="handleBack" v-if="back!==false">
-        <arrow direction="left" :color="arrow.color" :size="arrow.size"/>
-        <span v-if="backText">{{backText}}</span>
+      <button :class="['btn-pull','vx-nav-back']" @click="props.onBack" v-if="props.isBack!==false">
+        <arrow direction="left" :color="props.arrow.color" :size="props.arrow.size"/>
+        <span v-if="backText">{{props.backText}}</span>
       </button>
-      <flexbox-item :class="['vx-nav-title', back===false ? 'vx-nav-title-center' : '']">
+      <flexbox-item :class="['vx-nav-title', props.isBack===false ? 'vx-nav-title-center' : '']">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>
@@ -25,9 +25,15 @@ export default {
     Arrow
   },
   props: {
-    back: {
-      type: [String, Boolean, Function, Object],
+    isBack: {
+      type: Boolean,
       default: true
+    },
+    onBack: {
+      type: Function,
+      default () {
+        history.back()
+      }
     },
     backText: {
       type: String,
@@ -40,22 +46,6 @@ export default {
           size: '0.24rem',
           color: '#fff'
         }
-      }
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-nav', {'is-back-text': !!this.backText}]
-    }
-  },
-  methods: {
-    handleBack () {
-      if (this.back === true) {
-        history.back()
-      } else if (typeof this.back === 'function') {
-        this.back()
-      } else {
-        this.$router.push(this.back)
       }
     }
   }
