@@ -1,5 +1,5 @@
-<template>
-  <div :class="classes">
+<template functional>
+  <div :class="['vx-message', 'vx-message-' + props.type, data.staticClass]"  :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
     <slot></slot>
   </div>
 </template>
@@ -11,11 +11,6 @@ export default {
     type: {
       type: String,
       default: 'warning'
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-message', 'vx-message-' + this.type]
     }
   }
 }

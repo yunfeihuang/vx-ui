@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :disabled="disabled">
+  <div class="vx-input-number" :disabled="disabled">
     <button type="button" @click="handleChange(value-buttonStep)"><icon>&#xe729;</icon></button>
     <input
       v-bind="$props"
@@ -35,9 +35,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-input-number']
-    },
     myValue () {
       if (this.value < this.min) {
         return Math.round(this.min * this.stepRate) / this.stepRate

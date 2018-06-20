@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-calendar-range">
     <div :class="['vx-calendar-range-header']">
       <tab :active.sync="tabActive" v-if="layout.length" ref="tab" :underline-width="10">
         <tab-item :name="0" v-show="layout.indexOf('date') > -1">{{tabText['date']}}</tab-item>
@@ -107,9 +107,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-calendar-range']
-    },
     monthList () {
       let result = []
       for (let i = 0; i < 12; i++) {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick">
+  <div class="vx-popover" @click="handleClick">
     <slot name="trigger"></slot>
     <div style="display:none">
       <slot></slot>
@@ -12,11 +12,6 @@ import Vue from 'vue'
 import Popup from '../popup'
 export default {
   componentName: 'Popover',
-  computed: {
-    classes () {
-      return ['vx-popover']
-    }
-  },
   props: {
     open: {
       type: Boolean,

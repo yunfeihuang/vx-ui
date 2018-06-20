@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div class="vx-ripple" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -13,11 +13,6 @@ export default {
     },
     position: {
       type: String
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-ripple']
     }
   },
   mounted () {

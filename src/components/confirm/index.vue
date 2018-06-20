@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-confirm">
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>
@@ -48,11 +48,6 @@ export default {
     confirmText: {
       type: String,
       default: '确定'
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-confirm']
     }
   },
   mounted () {

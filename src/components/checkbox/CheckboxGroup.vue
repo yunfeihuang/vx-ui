@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-checkbox-group', this.divider ? 'vx-checkbox-group-divider' : '']
+      return ['vx-checkbox-group', {'vx-checkbox-group-divider': this.divider}]
     }
   },
   methods: {

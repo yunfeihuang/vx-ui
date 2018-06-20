@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div :class="['vx-flexbox', 'vx-tab']" onselectstart="return false;">
     <slot></slot>
     <div :class="['vx-tab-underline']"></div>
   </div>
@@ -11,11 +11,6 @@ export default {
   componentName: 'Tab',
   mixins: [tab],
   props: ['underlineWidth'],
-  computed: {
-    classes () {
-      return ['vx-flexbox', 'vx-tab']
-    }
-  },
   updated () {
     this.computedStyle()
   },

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick" :disabled="disabled">
+  <div class="vx-select" @click="handleClick" :disabled="disabled">
     <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
     <div style="display:none">
       <slot></slot>
@@ -34,11 +34,6 @@ export default {
       type: String
     }
   },
-  computed: {
-    classes () {
-      return ['vx-select']
-    }
-  },
   watch: {
     value (val) {
       this.updateLabel(val)
@@ -63,6 +58,7 @@ export default {
   },
   methods: {
     getOptions () {
+      console.log(this)
       return this.$children.map((item) => {
         return {
           value: item.value,

@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-swipeout', this.divider ? 'vx-swipeout-divider' : '']
+      return ['vx-swipeout', {'vx-swipeout-divider': this.divider}]
     }
   },
   watch: {

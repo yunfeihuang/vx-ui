@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-search-wrapper">
     <div :class="['vx-search-inner',this.fixed ? 'vx-search-fixed flexbox' : '']">
       <form @submit="handleSubmit">
         <flexbox :class="['vx-search']">
@@ -67,11 +67,6 @@ export default {
     fixedTop: {
       type: Boolean,
       default: true
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-search-wrapper']
     }
   },
   watch: {

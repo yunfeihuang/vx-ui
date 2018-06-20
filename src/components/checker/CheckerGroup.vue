@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :disabled="disabled">
+  <div class="vx-checker-group" :disabled="disabled">
     <slot></slot>
   </div>
 </template>
@@ -20,11 +20,6 @@ export default {
     max: {
       type: Number,
       default: 0
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-checker-group']
     }
   },
   methods: {

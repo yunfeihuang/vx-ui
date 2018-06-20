@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :disabled="disabled">
+  <div class="vx-rater" :disabled="disabled">
     <span
       v-for="(item,index) in max"
       :class="['vx-rater-item',item<=value?'is-active':'']"
@@ -16,11 +16,6 @@
 <script>
 export default {
   componentName: 'Rater',
-  computed: {
-    classes () {
-      return ['vx-rater']
-    }
-  },
   props: {
     disabled: {
       type: Boolean,

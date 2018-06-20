@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" :disabled="disabled" >
+  <label class="vx-radio" :disabled="disabled" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
     <i :class="['vx-radio-icon']"></i>
     <span :class="['vx-radio-text']">
@@ -14,9 +14,6 @@ export default {
   componentName: 'Radio',
   mixins: [input],
   computed: {
-    classes () {
-      return ['vx-radio']
-    },
     myChecked () {
       if (this.$parent.value) {
         return this.$parent.value === this.value

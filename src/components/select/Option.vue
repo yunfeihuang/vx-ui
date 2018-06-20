@@ -1,5 +1,5 @@
-<template>
-  <span :disabled ="disabled" :value="value"><slot></slot></span>
+<template >
+  <span :disabled="disabled" :value="value"><slot></slot></span>
 </template>
 <script>
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-password">
     <x-input
       :native-type="myNativeType"
       :placeholder="placeholder"
@@ -47,11 +47,6 @@ export default {
   components: {
     XInput,
     Icon
-  },
-  computed: {
-    classes () {
-      return ['vx-password']
-    }
   },
   watch: {
     nativeType (value) {

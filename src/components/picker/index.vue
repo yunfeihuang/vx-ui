@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div class="vx-picker-wrapper" onselectstart="return false;">
     <div
       :class="'vx-picker'"
       @touchstart="handleTouchStart"
@@ -47,11 +47,6 @@ let easeout = (A, B, rate, callback) => {
 
 export default {
   componentName: 'Picker',
-  computed: {
-    classes () {
-      return ['vx-picker-wrapper']
-    }
-  },
   props: {
     options: {
       type: Array,

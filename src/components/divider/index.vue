@@ -1,5 +1,10 @@
 <template functional>
-  <div class="vx-divider">
+  <div :class="['vx-divider', data.staticClass]"  :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
     <slot></slot>
   </div>
 </template>
+<script>
+export default {
+  componentName: 'Divider'
+}
+</script>

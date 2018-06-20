@@ -1,5 +1,5 @@
 <template>
-  <label :class="'vx-checker'">
+  <label class="vx-checker">
     <input
       :type="myType"
       :checked="myChecked"
@@ -26,9 +26,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-checker']
-    },
     myChecked () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.value && this.$parent.value.indexOf) {
         return this.$parent.value.indexOf(this.value) > -1

@@ -1,5 +1,5 @@
-<template>
-  <div :class="classes" :style="styles">
+<template functional>
+  <div :class="['vx-overlay', data.staticClass]" :style="`opacity:${props.opacity}`" v-bind="data.attrs" v-on="listeners">
     <slot></slot>
   </div>
 </template>
@@ -11,14 +11,6 @@ export default {
     opacity: {
       type: Number,
       default: 0.35
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-overlay']
-    },
-    styles () {
-      return 'opacity:' + this.opacity
     }
   }
 }

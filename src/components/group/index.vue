@@ -1,6 +1,6 @@
-<template>
-  <div :class="classes">
-    <div v-if="title" :class="['vx-group-title']">{{title}}</div>
+<template functional>
+  <div :class="['vx-group', data.staticClass]" :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
+    <div v-if="props.title" :class="['vx-group-title']">{{props.title}}</div>
     <div :class="['vx-group-inner']">
       <slot></slot>
     </div>
@@ -13,11 +13,6 @@ export default {
   props: {
     title: {
       type: String
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-group']
     }
   }
 }

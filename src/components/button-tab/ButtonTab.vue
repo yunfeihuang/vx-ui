@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div :class="['vx-flexbox', 'vx-button-tab']" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -9,11 +9,6 @@ import { tab } from 'utils/mixins.js'
 export default {
   componentName: 'ButtonTab',
   mixins: [tab],
-  computed: {
-    classes () {
-      return ['vx-flexbox', 'vx-button-tab']
-    }
-  },
   data () {
     return {
       childLength: this.$children.length

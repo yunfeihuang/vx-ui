@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div :class="['vx-flexbox', 'vx-tabbar']" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -15,11 +15,6 @@ export default {
     }
   },
   mixins: [tab],
-  computed: {
-    classes () {
-      return ['vx-flexbox', 'vx-tabbar']
-    }
-  },
   data () {
     return {
       childLength: this.$children.length

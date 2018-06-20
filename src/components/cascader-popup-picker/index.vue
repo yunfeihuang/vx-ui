@@ -1,6 +1,6 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleClosed" :fast-close="true" :openRefreshRender="false" :class="['vx-cascader-popup-picker-wrapper']">
-    <div :class="classes">
+    <div class="vx-cascader-popup-picker">
       <cascader-picker v-bind="$props" @change="handleChange" @update:label="handleLabel" />
     </div>
   </popup>
@@ -31,11 +31,6 @@ export default {
       default () {
         return []
       }
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-cascader-popup-picker']
     }
   },
   methods: {

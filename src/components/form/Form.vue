@@ -1,5 +1,5 @@
 <template>
-  <form :class="classes" @submit="handleSubmit">
+  <form class="vx-form" @submit="handleSubmit">
     <slot></slot>
   </form>
 </template>
@@ -13,11 +13,6 @@ export default {
     },
     submit: {
       type: Function
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-form']
     }
   },
   provide () {

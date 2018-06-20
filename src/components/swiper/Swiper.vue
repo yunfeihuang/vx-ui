@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" >
+  <div :class="['vx-swiper', 'swiper-container']" >
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
@@ -36,11 +36,6 @@ export default {
     scrollbar: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-swiper', 'swiper-container']
     }
   },
   mounted () {

@@ -1,6 +1,6 @@
 <template>
   <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false" direction="top" :class="['vx-daterange-picker-wrapper']">
-    <div :class="classes" v-if="open">
+    <div class="vx-daterange-picker" v-if="open">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
       <flexbox :class="['vx-daterange-picker-footer']">
         <button type="button" :class="['vx-daterange-picker-cancel']" @click="handleClose">{{cancelText}}</button>
@@ -53,11 +53,6 @@ export default {
     clearText: {
       type: String,
       default: '清空'
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-daterange-picker']
     }
   },
   data () {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-sticky-box">
     <div :class="['vx-sticky-inner']">
       <slot></slot>
     </div>
@@ -12,11 +12,6 @@ export default {
   props: {
     fixedTop: {
       type: String
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-sticky-box']
     }
   },
   mounted () {

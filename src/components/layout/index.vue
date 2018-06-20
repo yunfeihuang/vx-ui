@@ -1,5 +1,5 @@
-<template>
-  <div :class="classes">
+<template functional>
+  <div :class="['vx-layout', data.staticClass]" :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
     <flexbox :class="['vx-layout-flexbox']" direction="column">
       <slot name="header"></slot>
       <slot name="body"></slot>
@@ -11,11 +11,6 @@
 
 <script>
 export default {
-  componentName: 'Layout',
-  computed: {
-    classes () {
-      return ['vx-layout']
-    }
-  }
+  componentName: 'Layout'
 }
 </script>

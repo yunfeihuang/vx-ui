@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" onselectstart="return false;">
+  <div class="vx-sidebar" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -9,11 +9,6 @@ import { tab } from 'utils/mixins.js'
 export default {
   componentName: 'Sidebar',
   mixins: [tab],
-  computed: {
-    classes () {
-      return ['vx-sidebar']
-    }
-  },
   data () {
     return {
       childLength: this.$children.length

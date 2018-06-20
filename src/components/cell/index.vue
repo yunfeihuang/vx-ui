@@ -1,5 +1,5 @@
 <template>
-  <flexbox :class="classes" align="center" justify="center" @click.native="handleClick">
+  <flexbox :class="['vx-cell', {'vx-cell-access': arrow}]" align="center" justify="center" @click.native="handleClick">
     <div :class="'vx-cell-hd'">
       <slot name="icon"></slot>
     </div>
@@ -38,11 +38,6 @@ export default {
       type: String
     },
     to: {}
-  },
-  computed: {
-    classes () {
-      return ['vx-cell', this.arrow ? 'vx-cell-access' : '']
-    }
   },
   methods: {
     handleClick () {

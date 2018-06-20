@@ -1,6 +1,6 @@
-<template>
-  <div :class="classes">
-    <div :class="'vx-spinner'"></div>
+<template functional>
+  <div :class="['vx-spinner-wrapper', data.staticClass]" :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
+    <div class="vx-spinner" :style="`border-color: ${props.primaryColor} ${props.color} ${props.color} ${props.color}`"></div>
     <slot></slot>
   </div>
 </template>
@@ -10,23 +10,12 @@ export default {
   componentName: 'Spinner',
   props: {
     color: {
-      type: String
+      type: String,
+      default: '#eee'
     },
     primaryColor: {
-      type: String
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-spinner-wrapper']
-    }
-  },
-  mounted () {
-    if (this.color) {
-      this.$el.children[0].style.borderColor = this.color
-    }
-    if (this.primaryColor) {
-      this.$el.children[0].style.borderTopColor = this.primaryColor
+      type: String,
+      default: '#3399ff'
     }
   }
 }

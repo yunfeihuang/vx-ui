@@ -1,6 +1,6 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false">
-    <div :class="classes">
+    <div class="vx-popup-picker-wrapper">
       <div :class="['vx-flexbox','vx-datetime-picker-header']">
         <button type="button" :class="['vx-datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <div :class="['vx-flexbox-item','vx-datetime-picker-today']">
@@ -89,11 +89,6 @@ export default {
     todayText: {
       type: String,
       default: '当前'
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-popup-picker-wrapper']
     }
   },
   mounted () {

@@ -1,16 +1,11 @@
-<template>
-  <div :class="classes">
+<template functional>
+  <div :class="['vx-swiper-item', 'swiper-slide', data.staticClass]"  :style="data.staticStyle" v-bind="data.attrs" v-on="listeners">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  componentName: 'SwiperItem',
-  computed: {
-    classes () {
-      return ['vx-swiper-item', 'swiper-slide']
-    }
-  }
+  componentName: 'SwiperItem'
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" >
+  <div :class="['vx-marquee', 'swiper-container']" >
     <div :class="['swiper-wrapper']" >
       <slot></slot>
     </div>
@@ -32,11 +32,6 @@ export default {
     loop: {
       type: Boolean,
       default: true
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-marquee', 'swiper-container']
     }
   },
   mounted () {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-list-view">
     <div :class="['vx-list-view-inner']">
       <div :class="['vx-list-view-refresh']">
         <icon></icon>
@@ -56,11 +56,6 @@ export default {
       if (val === false) {
         this.stopLoading()
       }
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-list-view']
     }
   },
   mounted () {

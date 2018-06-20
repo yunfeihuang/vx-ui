@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-img', this.lazyload ? 'vx-img-lazyload' : '']
+      return ['vx-img', {'vx-img-lazyload': this.lazyload}]
     }
   },
   mounted () {

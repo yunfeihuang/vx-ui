@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-radio-group', this.divider ? 'vx-radio-group-divider' : '']
+      return ['vx-radio-group', {'vx-radio-group-divider': this.divider}]
     }
   },
   methods: {

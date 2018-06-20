@@ -74,7 +74,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-prompt', this.disabled ? 'is-disabled' : '']
+      return ['vx-prompt', {'is-disabled': this.disabled}]
     }
   },
   data () {

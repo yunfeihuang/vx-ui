@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div class="vx-popup">
     <transition name="popup-fade" v-if="!full">
       <overlay v-if="open" @click.native="handleClose"></overlay>
     </transition>
@@ -39,9 +39,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-popup']
-    },
     innerClasses () {
       let array = ['vx-popup-inner', 'vx-popup-' + this.direction, this.full ? 'vx-full' : '']
       if (this.direction === 'center') {

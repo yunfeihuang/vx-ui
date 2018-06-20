@@ -1,6 +1,6 @@
 <template functional>
   <component :is="props.tag"
-    class="vx-arrow"
+    :class="['vx-arrow', data.staticClass]"
     :style="Object.assign({
       height: props.size,
       width: props.size,
@@ -10,19 +10,20 @@
         down: `transparent ${props.color} ${props.color} transparent`,
         left: `transparent transparent ${props.color} ${props.color}`
       }[props.direction],
-    }, props.styles)"
+    }, data.staticStyle)"
+    v-bind="data.attrs"
+    v-on="listeners"
     >
   </component>
 </template>
 <script>
 export default {
+  componentName: 'Arrow',
+  functional: true,
   props: {
     direction: {
       type: String,
       default: 'right'
-    },
-    styles: {
-      type: Object
     },
     size: {
       type: String,
@@ -36,6 +37,10 @@ export default {
       type: String,
       default: 'i'
     }
+  },
+  render1 (createElement, context) {
+    console.log(createElement, context)
+    return null
   }
 }
 </script>

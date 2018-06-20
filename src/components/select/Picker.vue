@@ -1,6 +1,6 @@
 <template>
   <popup :open="open" :history="history" :direction="direction" @close="handleClose" @close-after="handleCloseAfter">
-    <div :class="classes">
+    <div class="vx-option-picker-wrapper">
       <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker-header']">
         <button type="button" :class="['vx-option-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <button type="button" :class="['vx-flexbox-item','vx-option-picker-placeholder']">{{myTitle}}</button>
@@ -64,9 +64,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-option-picker-wrapper']
-    },
     myTitle () {
       let title = this.title
       if (this.myValue.length >= this.max && this.max > 1) {

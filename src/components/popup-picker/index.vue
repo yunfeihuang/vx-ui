@@ -1,6 +1,6 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter">
-    <div :class="classes">
+    <div class="vx-popup-picker-wrapper">
       <div :class="['vx-flexbox','vx-popup-picker-header']">
         <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
         <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
@@ -54,11 +54,6 @@ export default {
     confirmText: {
       type: String,
       default: '完成'
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-popup-picker-wrapper']
     }
   },
   watch: {
