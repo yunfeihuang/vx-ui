@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">Swipeout</div>
     </x-nav>
-    <x-body slot="body" class="swipeout-demos">
+    <x-body slot="body" class="swipeout-demos" v-if="pageState.into">
       <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
         <flexbox align="center" class="list-view-item">
           <x-img class="avatar" :src="item.src" />

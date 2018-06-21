@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">Popover</div>
     </x-nav>
-    <x-body slot="body" style="padding:15px;">
+    <x-body slot="body" style="padding:15px;" v-if="pageState.into">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
           <popover :open="true">

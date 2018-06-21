@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">ListView (pulldown and pullup)</div>
     </x-nav>
-    <x-body slot="body" :scroll="false" class="demos list-view-demos">
+    <x-body slot="body" :scroll="false" class="demos list-view-demos" v-if="pageState.into">
       <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
         <div v-for="(item,index) in list" :key="index">
           <flexbox align="center" class="list-view-item">

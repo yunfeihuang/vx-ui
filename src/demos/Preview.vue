@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">Preview(点击图片浏览图片)</div>
     </x-nav>
-    <x-body slot="body" class="img-container">
+    <x-body slot="body" class="img-container" v-if="pageState.into">
       <x-img
         v-for="(item,index) in images"
         :key="index" :loading="true"

@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/">
       <div slot="title">Swiper</div>
     </x-nav>
-    <x-body slot="body" style="background:#fff">
+    <x-body slot="body" style="background:#fff" v-if="pageState.into">
       <swiper :active.sync="active" :options="options" class="swiper-demo">
         <swiper-item v-for="(item,index) in images" :key="index">
           <img :src="item" class="swiper-img" />
