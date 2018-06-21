@@ -16,6 +16,9 @@
       background:#fff;
       position:absolute;
       overflow: auto;
+      backface-visibility: hidden;
+      perspective: 1000;
+      transform: translate3d(0,0,0);
     }
     &-top{
       top:0;
@@ -89,52 +92,52 @@
   transition: transform $transition-time
 }
 .popup-slide-top-enter, .popup-slide-top-leave-active {
-  transform: translateY(-100%);
+  transform: translate3d(0,-100%,0);
 }
 .popup-full-slide-top-enter-active, .popup-full-slide-top-leave-active {
   transition: transform 0.4s;
 }
 .popup-full-slide-top-enter, .popup-full-slide-top-leave-active {
-  transform: translateY(-100%);
+  transform: translate3d(0,-100%,0);
 }
 
 .popup-slide-bottom-enter-active, .popup-slide-bottom-leave-active {
   transition: transform $transition-time
 }
 .popup-slide-bottom-enter, .popup-slide-bottom-leave-active {
-  transform: translateY(100%);
+  transform: translate3d(0,100%,0);
 }
 .popup-full-slide-bottom-enter-active, .popup-full-slide-bottom-leave-active {
   transition: transform 0.4s;
 }
 .popup-full-slide-bottom-enter, .popup-full-slide-bottom-leave-active {
-  transform: translateY(100%);
+  transform: translate3d(0,100%,0);
 }
 
 .popup-slide-left-enter-active, .popup-slide-left-leave-active {
   transition: transform $transition-time
 }
 .popup-slide-left-enter, .popup-slide-left-leave-active {
-  transform: translateX(-100%);
+  transform: translate3d(-100%,0,0);
 }
 .popup-full-slide-left-enter-active, .popup-full-slide-left-leave-active {
   transition: transform 0.4s;
 }
 .popup-full-slide-left-enter, .popup-full-slide-left-leave-active {
-  transform: translateX(-100%);
+  transform: translate3d(-100%,0,0);
 }
 
 .popup-slide-right-enter-active, .popup-slide-right-leave-active {
   transition: transform $transition-time
 }
 .popup-slide-right-enter, .popup-slide-right-leave-active {
-  transform: translateX(100%);
+  transform: translate3d(100%,0,0);
 }
 .popup-full-slide-right-enter-active, .popup-full-slide-right-leave-active {
   transition: transform 0.4s;
 }
 .popup-full-slide-right-enter, .popup-full-slide-right-leave-active {
-  transform: translateX(100%);
+  transform:  translate3d(100%,0,0);
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {
