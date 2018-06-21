@@ -10,6 +10,9 @@ http://vx.bittyos.com/demo/
 
 ![Minion](http://vx.bittyos.com/static/images/demo-code.png)
 
+#### CNode社区示例浏览地址：
+http://vx.bittyos.com/demo/#/cnode/
+
 #### react版本：
 https://github.com/yunfeihuang/react-components
 
