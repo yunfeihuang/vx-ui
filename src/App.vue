@@ -22,8 +22,5 @@ a{
   text-decoration: none;
   box-sizing: border-box;
   cursor: default;
-  &.router-link-active{
-    @include active;
-  }
 }
 </style>

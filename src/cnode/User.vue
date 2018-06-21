@@ -78,12 +78,6 @@ export default {
       id: to.params.id
     })
     next()
-  },
-  destroyed () {
-    this.$store.dispatch('cnode/destroyed', {
-      key: 'user',
-      value: {}
-    })
   }
 }
 </script>

@@ -57,12 +57,14 @@ const actions = {
     })
   },
   topic ({commit, state}, query) {
-    api.cnode.topic(query).then((json) => {
-      commit('TOPIC', {
-        query: query,
-        data: json.data
+    if (state.topic.id !== query.id) {
+      api.cnode.topic(query).then((json) => {
+        commit('TOPIC', {
+          query: query,
+          data: json.data
+        })
       })
-    })
+    }
   },
   destroyed ({commit, state}, query) {
     commit('DESTROYED', {
@@ -70,12 +72,14 @@ const actions = {
     })
   },
   user ({commit, state}, query) {
-    api.cnode.user(query).then((json) => {
-      commit('USER', {
-        query: query,
-        data: json.data
+    if (state.user.loginname !== query.id) {
+      api.cnode.user(query).then((json) => {
+        commit('USER', {
+          query: query,
+          data: json.data
+        })
       })
-    })
+    }
   }
 }
 // mutations
