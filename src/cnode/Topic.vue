@@ -4,7 +4,7 @@
       <div slot="title">主题详情</div>
     </x-nav>
     <x-body slot="body" :class="clas">
-      <div>
+      <div v-if="pageState.into">
         <div class="topic-header">
           <h1><topic-type :type="type"/>{{topic.title}}</h1>
           <p class="weak small">
@@ -39,10 +39,11 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import { children } from 'utils/mixins/page'
 import {BaseItem, TopicType} from './components/index'
 
 export default {
+  mixins: [children],
   components: {
     BaseItem,
     TopicType
@@ -52,9 +53,9 @@ export default {
       topic: state => state.cnode.topic
     }),
     clas () {
-      let array = ['topic']
-      Object.keys(this.topic).length === 0 && array.push('topic-placeholder')
-      return array
+      return ['topic', {
+        'topic-placeholder': Object.keys(this.topic).length === 0 || !this.pageState.into
+      }]
     },
     type () {
       if (this.topic.top) {

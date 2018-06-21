@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <layout v-show="$route.path == '/cnode'">
+  <div class="cnode-app">
+    <layout v-show="$route.path == '/cnode'" :style="`opacity:1;transform:translateX(0)`">
       <x-nav slot="header" :back="false">
         <div slot="title">CNode-专业中文社区</div>
-        <tab :active="home.active" @change="handleActive">
+        <tab :active="home.active" @change="handleActive" underline-width="auto">
           <tab-item :name="0">
             全部
           </tab-item>
@@ -33,13 +33,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import {
-  TopicItem
-} from './components/index'
+import { parent } from 'utils/mixins/page'
+import { TopicItem } from './components/index'
 
 const tabs = ['all', 'good', 'share', 'ask', 'job']
 
 export default {
+  mixins: [parent],
   components: {
     TopicItem
   },
@@ -95,9 +95,23 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-flow,.swiper{
+  .vx-list-view,.swiper{
     height:100%;
     width:100%;
     position:absolute!important;
+  }
+  .cnode-app{
+    .vx-layout{
+      opacity:0;
+      transition: transform 0.32s ease 0s;
+      transform: translate3d(100%,0,0);
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      backface-visibility: hidden;
+      perspective: 1000;
+    }
   }
 </style>

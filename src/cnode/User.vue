@@ -4,42 +4,44 @@
       <div slot="title">用户详情</div>
     </x-nav>
     <x-body slot="body" :class="clas">
-      <div>
-        <div class="userinfo">
-          <img :src="user.avatar_url" class="user-avatar" />
-          <h4>{{user.loginname}}</h4>
-          积分：{{user.score}}
-        </div>
-        <divider></divider>
-        <div class="user-title">最近创建的话题</div>
-        <div class="user-comments">
+      <div v-if="pageState.into">
+        <div>
+          <div class="userinfo">
+            <img :src="user.avatar_url" class="user-avatar" />
+            <h4>{{user.loginname}}</h4>
+            积分：{{user.score}}
+          </div>
           <divider></divider>
-          <base-item v-for="item in user.recent_topics" :key="item.id+'topics'">
-            <router-link slot="img" :to="item.user_href">
-              <x-img :src="item.author.avatar_url"/>
-            </router-link>
-            <router-link slot="content" :to="item.href">
-              <h4>{{item.title}}</h4>
-              <div class="weak">
-              {{item.last_reply_at}}
+          <div class="user-title">最近创建的话题</div>
+          <div class="user-comments">
+            <divider></divider>
+            <base-item v-for="item in user.recent_topics" :key="item.id+'topics'">
+              <router-link slot="img" :to="item.user_href">
+                <x-img :src="item.author.avatar_url"/>
+              </router-link>
+              <router-link slot="content" :to="item.href">
+                <h4>{{item.title}}</h4>
+                <div class="weak">
+                {{item.last_reply_at}}
+                </div>
+              </router-link>
+            </base-item>
+          </div>
+          <div class="user-title">最近参与的话题</div>
+          <div class="user-comments">
+            <divider></divider>
+            <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
+              <router-link slot="img" :to="item.user_href">
+                <x-img :src="item.author.avatar_url"/>
+              </router-link>
+              <div slot="content">
+                <h4>{{item.title}}</h4>
+                <div class="weak">
+                {{item.last_reply_at}}
+                </div>
               </div>
-            </router-link>
-          </base-item>
-        </div>
-        <div class="user-title">最近参与的话题</div>
-        <div class="user-comments">
-          <divider></divider>
-          <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
-            <router-link slot="img" :to="item.user_href">
-              <x-img :src="item.author.avatar_url"/>
-            </router-link>
-            <div slot="content">
-              <h4>{{item.title}}</h4>
-              <div class="weak">
-              {{item.last_reply_at}}
-              </div>
-            </div>
-          </base-item>
+            </base-item>
+          </div>
         </div>
       </div>
     </x-body>
@@ -48,10 +50,11 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import { children } from 'utils/mixins/page'
 import BaseItem from './components/BaseItem'
 
 export default {
+  mixins: [children],
   components: {
     BaseItem
   },
@@ -60,9 +63,9 @@ export default {
       user: state => state.cnode.user
     }),
     clas () {
-      let array = ['user']
-      Object.keys(this.user).length === 0 && array.push('user-placeholder')
-      return array
+      return ['user', {
+        'topic-placeholder': Object.keys(this.user).length === 0 || !this.pageState.into
+      }]
     }
   },
   created () {
