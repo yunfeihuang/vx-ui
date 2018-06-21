@@ -9,9 +9,11 @@
     <spinner v-if="loading" class="vx-img-spinner"/>
     <template v-if="!loading">
       <slot name="placeholder" v-if="$slots.placeholder"></slot>
+      <!--
       <i v-else class="vx-img-icon">
         <em></em>
       </i>
+      -->
     </template>
   </div>
 </template>
