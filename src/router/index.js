@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import demosRoutes from './demos'
-import cnodeRoutes from './cnode'
+import demos from './demos'
+import cnode from './cnode'
 
 Vue.use(Router)
 
-let routes = demosRoutes.concat(cnodeRoutes)
-
 const router = new Router({
   // mode: 'history',
-  routes: routes
+  routes: [
+    ...demos,
+    ...cnode
+  ]
 })
 let toast = null
 router.beforeEach((to, from, next) => {
