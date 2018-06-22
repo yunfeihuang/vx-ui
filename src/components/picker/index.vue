@@ -85,7 +85,7 @@ export default {
         }
       })
       requestAnimationFrame(() => {
-        this.$$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 42) : 0
+        this.$$touch.scrollElement.scrollTop = node ? index * node.offsetHeight : 0
       })
     },
     handleTouchEnd () {
@@ -119,6 +119,10 @@ export default {
       this.pageY = e.changedTouches[0].pageY
       this.$$timer && clearTimeout(this.$$timer)
       this.$$pullTimer && clearTimeout(this.$$pullTimer)
+      let node = this.$$touch.scrollElement.querySelector('.vx-picker-item')
+      if (node) {
+        this.$$touch.offsetHeight = node.offsetHeight
+      }
     },
     scrollHandlder () {
       if (this.$$touch && this.$$touch.scrollEnd) {
@@ -131,8 +135,8 @@ export default {
         this.$$touch.scrollEnd = false
         let node = this.$el.querySelector('.vx-picker')
         let _scrollTop = node.scrollTop
-        let index = Math.round(_scrollTop / 42)
-        let scrollTop = index * 42
+        let index = Math.round(_scrollTop / this.$$touch.offsetHeight)
+        let scrollTop = index * this.$$touch.offsetHeight
         requestAnimationFrame(() => {
           if (_scrollTop !== scrollTop) {
             easeout(_scrollTop, scrollTop, 4, (value) => {

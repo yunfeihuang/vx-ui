@@ -1,25 +1,14 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 
-@mixin shadow($resolution:1) {
-  &:before{
-    @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
-      box-shadow: 0px -#{$resolution*63}px 0px #{$resolution*64}px rgba(255, 255, 255, 0.5)
-    }
-  }
-  &:after{
-    @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
-      box-shadow: 0px #{$resolution*63}px 0px #{$resolution*64}px rgba(255,255,255,0.5)
-    }
-  }
-}
-
+$height : 42;
+$unit: px;
 .#{$css-prefix}{
   &picker{
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
-    height:294px;
+    height:#{$height*7}#{$unit};
     &::-webkit-scrollbar{
       display:none;
     }
@@ -35,24 +24,27 @@
         width:100%;
         content:'';
         left:0;
-        box-shadow: 0px 61px 0px 63px rgba(255,255,255,0.45);
+        box-shadow: 0px 0px 0px #{$height*3}#{$unit} rgba(255,255,255,0.45);
         z-index: 1;
+        margin-top:-1px;
       }
       &:after{
         bottom:0;
         top:auto;
-        box-shadow: 0px -63px 0px 63px rgba(255,255,255,0.45);
+        box-shadow: 0px 0px 0px #{$height*3}#{$unit} rgba(255,255,255,0.45);
+        margin-bottom:-1px;
+        margin-top:0;
       }
     }
     &-scroller{
-      padding:126px 0;
+      padding:#{$height*3}#{$unit} 0;
     }
     &-item{
-      line-height:42px;
+      line-height:#{$height}#{$unit};
       overflow: hidden;
       white-space: nowrap;
       padding: 0px 0.15rem;
-      height:42px;
+      height:#{$height}#{$unit};
     }
     &.is-active{
       // color:$color-primary;
@@ -65,7 +57,7 @@
         height:1px;
         width:100%;
         left:0;
-        top:125px;
+        top:#{$height*3}#{$unit};
       }
       &:after{
         @include divider;
@@ -74,16 +66,8 @@
         height:1px;
         width:100%;
         left:0;
-        top:166px;
+        top:#{$height*4}#{$unit};
       }
-      /*
-      @include shadow(1);
-      @include shadow(2);
-      @include shadow(3);
-      @include shadow(4);
-      @include shadow(5);
-      @include shadow(6);
-      */
     }
     &-placeholder{
       opacity:0.8;
