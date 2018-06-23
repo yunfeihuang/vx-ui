@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-img-wrapper',!loading ? 'vx-img-placeholder' : '']">
     <img
-      :class="classes"
+      :class="['vx-img', {'vx-img-lazyload': this.lazyload}]"
       :alt="alt"
       @error="handleError"
       @load='handleLoad'
@@ -43,11 +43,6 @@ export default {
     loading: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-img', {'vx-img-lazyload': this.lazyload}]
     }
   },
   mounted () {
