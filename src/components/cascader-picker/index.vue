@@ -107,8 +107,8 @@ export default {
         x = '100%'
       }
       return {
-        transform: `translateX(${x})`,
-        '-webkit-transform': `translateX(${x})`
+        transform: `translate3d(${x},0,0)`,
+        '-webkit-transform': `translateX(${x}),0,0`
       }
     },
     isActive (value) {
