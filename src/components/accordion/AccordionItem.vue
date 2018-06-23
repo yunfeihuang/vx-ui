@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div :class="['vx-accordion-item', {'is-open': myOpen}]">
     <div class="vx-accordion-item-hd" @click="handleOpen(!myOpen)">
       <div class="vx-accordion-item-title">
         <slot v-if="$slots.title"></slot>
@@ -35,9 +35,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-accordion-item', {
-        'is-open': this.myOpen
-      }]
+      return 
     }
   },
   data () {
@@ -59,17 +57,25 @@ export default {
     }
   },
   methods: {
-    handleOpen (open, isParentCall) {
+    handleOpen (open) {
       let node = this.$el.querySelector('.vx-accordion-item-bd')
       let height = ''
       if (open) {
         height = node.children[0].offsetHeight + 'px'
       }
       this.myOpen = open
-      node.style.height = height
-      if (!isParentCall && this.$parent && this.$parent.$options.componentName === 'Accordion') {
-        this.$parent.updateChildren(this)
-      }
+      let self = this
+      this.$nextTick(() => {
+        let parentNode = self.$el.parentNode
+        if (parentNode && parentNode.children) {
+          Array.from(parentNode.children).forEach(item => {
+            if (item.classList.contains('vx-accordion-item') && item !==  self.$el) {
+              item.querySelector('.vx-accordion-item-bd').style.height  = ''
+            }
+          })
+        }
+        node.style.height = height
+      })
     }
   }
 }
