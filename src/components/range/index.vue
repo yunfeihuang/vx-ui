@@ -1,9 +1,9 @@
 <template>
-  <div :class="classes">
-    <div :class="['vx-range-mask']"></div>
-    <div :class="['vx-range-value']" ></div>
-    <div :class="['vx-range-button']" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
-      <div :class="['vx-range-tips']">0</div>
+  <div :class="['vx-range-wrapper', {'is-disabled': disabled}]">
+    <div class="vx-range-mask"></div>
+    <div class="vx-range-value" ></div>
+    <div class="vx-range-button" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
+      <div class="vx-range-tips">0</div>
     </div>
   </div>
 </template>
@@ -36,18 +36,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      let array = ['vx-range-wrapper']
-      if (this.disabled) {
-        array.push('is-disabled')
-      }
-      return array
-    },
-    offsetLeft () {
-      return {
-        left: this.value / this.max * this.$el.offsetWidth + 'px'
-      }
-    },
     offsetWidth () {
       return {
         width: this.value / this.max * this.$el.offsetWidth + 'px'
