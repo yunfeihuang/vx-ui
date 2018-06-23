@@ -132,10 +132,6 @@ const tab = {
     active: {
       type: [Number, String, Object],
       required: true
-    },
-    activeClass: {
-      type: [String, Array],
-      default: ''
     }
   }
 }

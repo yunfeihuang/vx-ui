@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  componentName: 'Accordion',
+  componentName: 'Accordion'
 }
 </script>

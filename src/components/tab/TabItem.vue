@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick">
+  <div :class="['vx-flexbox-item', 'vx-tab-item', {'is-active': $parent.active === name}]" @click="handleClick">
     <span v-if="$parent.underlineWidth" :class="['vx-tab-item-text']">
       <slot></slot>
     </span>
@@ -19,16 +19,6 @@ export default {
   methods: {
     handleClick () {
       this.$emit('change', this.name)
-    }
-  },
-  computed: {
-    classes () {
-      let array = ['vx-flexbox-item', 'vx-tab-item']
-      if (this.$parent.active === this.name) {
-        array.push('is-active')
-        array.push(this.$parent.activeClass)
-      }
-      return array
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick">
+  <div :class="['vx-flexbox-item', 'vx-button-tab-item', {'is-active': $parent.active === name}]" @click="handleClick">
     <slot></slot>
   </div>
 </template>
@@ -16,21 +16,6 @@ export default {
   methods: {
     handleClick () {
       this.$emit('change', this.name)
-    }
-  },
-  computed: {
-    classes () {
-      let array = ['vx-flexbox-item', 'vx-button-tab-item']
-      if (this.$parent.active === this.name) {
-        array.push('is-active')
-        this.$parent.activeClass && array.push(this.$parent.activeClass)
-      }
-      return array
-    }
-  },
-  data () {
-    return {
-      active: false
     }
   }
 }

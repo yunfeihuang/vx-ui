@@ -1,5 +1,5 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="classes" @click.native="handleClick">
+  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="['vx-flexbox-item', 'vx-tabbar-item', {'is-active':$parent.active === name}]" @click.native="handleClick">
     <slot></slot>
   </component>
 </template>
@@ -20,16 +20,6 @@ export default {
   methods: {
     handleClick () {
       this.$emit('change', this.name)
-    }
-  },
-  computed: {
-    classes () {
-      let array = ['vx-flexbox-item', 'vx-tabbar-item']
-      if (this.$parent.active === this.name) {
-        array.push('is-active')
-        array.push(this.$parent.activeClass)
-      }
-      return array
     }
   }
 }

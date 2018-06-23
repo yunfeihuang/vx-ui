@@ -33,11 +33,6 @@ export default {
       default: 'title'
     }
   },
-  computed: {
-    classes () {
-      return 
-    }
-  },
   data () {
     return {
       myOpen: this.open
@@ -69,8 +64,8 @@ export default {
         let parentNode = self.$el.parentNode
         if (parentNode && parentNode.children) {
           Array.from(parentNode.children).forEach(item => {
-            if (item.classList.contains('vx-accordion-item') && item !==  self.$el) {
-              item.querySelector('.vx-accordion-item-bd').style.height  = ''
+            if (item.classList.contains('vx-accordion-item') && item !== self.$el) {
+              item.querySelector('.vx-accordion-item-bd').style.height = ''
             }
           })
         }
