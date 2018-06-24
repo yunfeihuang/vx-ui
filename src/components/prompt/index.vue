@@ -1,6 +1,6 @@
 <template>
   <confirm
-    :class="classes"
+    :class="['vx-prompt', {'is-disabled': disabled}]"
     :open="open"
     :cancel="true"
     :cancel-text="cancelText"
@@ -70,11 +70,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-prompt', {'is-disabled': this.disabled}]
     }
   },
   data () {

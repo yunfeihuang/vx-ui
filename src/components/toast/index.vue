@@ -1,7 +1,7 @@
 <template>
   <div class="vx-toast">
     <div :class="['vx-toast-inner','vx-toast-' + this.align]">
-      <div :class="['vx-toast-content']">
+      <div class="vx-toast-content">
         <template v-if="type != 'default'">
           <icon v-if="type === 'success'">&#xe654;</icon>
           <icon v-else-if="type === 'warn'">&#xe653;</icon>

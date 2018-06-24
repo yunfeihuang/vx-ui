@@ -2,9 +2,9 @@
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter">
     <div class="vx-popup-picker-wrapper">
       <div :class="['vx-flexbox','vx-popup-picker-header']">
-        <button type="button" :class="['vx-popup-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <button type="button" class="vx-popup-picker-cancel" @click="handleCancel">{{cancelText}}</button>
         <button type="button" :class="['vx-flexbox-item','vx-popup-picker-placeholder']">{{placeholder}}</button>
-        <button type="button" :class="['vx-popup-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+        <button type="button" class="vx-popup-picker-confirm" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <div :class="['vx-flexbox','vx-popup-picker']">
         <picker

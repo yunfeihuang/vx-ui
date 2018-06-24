@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-flexbox', 'vx-tab']" onselectstart="return false;">
     <slot></slot>
-    <div :class="['vx-tab-underline']"></div>
+    <div class="vx-tab-underline"></div>
   </div>
 </template>
 

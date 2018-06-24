@@ -1,6 +1,6 @@
 <template>
-  <label :class="classes">
-    <div :class="['vx-textarea-shadow']"></div>
+  <label :class="['vx-textarea-wrapper',{'vx-textarea-focus': isFocus}]">
+    <div class="vx-textarea-shadow"></div>
     <textarea
       :placeholder="placeholder"
       :disabled="disabled"
@@ -16,7 +16,7 @@
       @change="handleChange"
       @input="handleInput"
       ></textarea>
-      <em :class="['vx-textarea-enter-number']" v-if="enterNumber && maxlength">
+      <em class="vx-textarea-enter-number" v-if="enterNumber && maxlength">
         {{value.length}}/{{maxlength}}
       </em>
   </label>
@@ -31,16 +31,6 @@ export default {
     enterNumber: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    classes () {
-      let styles = {}
-      styles['vx-textarea-focus'] = this.isFocus
-      return [
-        'vx-textarea-wrapper',
-        styles
-      ]
     }
   },
   mounted () {

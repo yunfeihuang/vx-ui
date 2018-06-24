@@ -45,12 +45,12 @@ export default {
   mixins: [input],
   computed: {
     classes () {
-      let classes = {}
-      classes['vx-input-focus'] = this.isFocus
-      classes['vx-input-clear'] = !!this.value && this.clear
       return [
         'vx-input-wrapper',
-        classes
+        {
+          'vx-input-focus': this.isFocus,
+          'vx-input-clear': !!this.value && this.clear
+        }
       ]
     }
   },

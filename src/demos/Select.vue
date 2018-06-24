@@ -27,7 +27,7 @@
             slot="value"
             :label.sync="label"
             v-model="value"
-            popup-direction="center"
+			popup-direction="center"
             placeholder="请选择">
             <x-option
               v-for="item in options"

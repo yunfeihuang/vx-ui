@@ -3,11 +3,11 @@
     <transition name="confirm-fade">
       <overlay v-if="open"></overlay>
     </transition>
-    <div :class="['vx-confirm-wrapper']">
+    <div class="vx-confirm-wrapper">
       <transition name="confirm-scale" @after-leave="handleLeave">
-        <div :class="['vx-confirm-inner']" v-if="open">
+        <div class="vx-confirm-inner" v-if="open">
           <div v-if="title" class="vx-confirm-title">{{title}}</div>
-          <div :class="['vx-confirm-body']">
+          <div class="vx-confirm-body">
             <slot></slot>
           </div>
           <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">

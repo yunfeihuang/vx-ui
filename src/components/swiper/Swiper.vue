@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-swiper', 'swiper-container']" >
-    <div :class="['swiper-wrapper']" >
+    <div class="swiper-wrapper" >
       <slot></slot>
     </div>
     <div v-if="pagination" class="swiper-pagination"></div>

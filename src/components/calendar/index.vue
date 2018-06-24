@@ -1,7 +1,7 @@
 <template>
-  <div :class="['vx-calendar-wrapper']">
-    <div :class="['vx-calendar-header']">
-      <flexbox :class="['vx-calendar-controls']" v-if="layout.indexOf('year')>-1||layout.indexOf('month')>-1">
+  <div class="vx-calendar-wrapper">
+    <div class="vx-calendar-header">
+      <flexbox class="vx-calendar-controls" v-if="layout.indexOf('year')>-1||layout.indexOf('month')>-1">
         <flexbox-item v-if="layout.indexOf('year')>-1">
           <flexbox align="center">
             <button :disabled="date.getFullYear() <= 1990" type="button" @click="handleYearChange(-1)">
@@ -29,7 +29,7 @@
         <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? 'is-weekend' : '']">{{item}}</flexbox-item>
       </flexbox>
     </div>
-    <flexbox :class="['vx-calendar']"  v-if="layout.indexOf('date')>-1">
+    <flexbox class="vx-calendar"  v-if="layout.indexOf('date')>-1">
       <div
         v-for="(item, index) in dateList"
         :key="item.value.getTime()"
@@ -88,9 +88,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return ['vx-daterange-picker']
-    },
     dateList () {
       return this.getCalendarItems()
     }

@@ -9,7 +9,7 @@
         <arrow direction="left" :color="props.arrow.color" :size="props.arrow.size"/>
         <span v-if="backText">{{props.backText}}</span>
       </button>
-      <flexbox-item :class="['vx-nav-title', props.isBack===false ? 'vx-nav-title-center' : '']">
+      <flexbox-item :class="['vx-nav-title', {'vx-nav-title-center': props.isBack===false}]">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>

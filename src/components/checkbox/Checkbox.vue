@@ -1,8 +1,8 @@
 <template>
   <label :class="classes" :disabled="myDisabled" >
     <input :type="myType" :name="name" :value="value" :disabled="myDisabled" :checked="myChecked" @change="handleChange"/>
-    <i :class="['vx-checkbox-icon']"></i>
-    <span :class="['vx-checkbox-text']">
+    <i class="vx-checkbox-icon"></i>
+    <span class="vx-checkbox-text">
       <slot></slot>
     </span>
   </label>

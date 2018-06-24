@@ -1,6 +1,6 @@
 <template>
   <div class="vx-sticky-box">
-    <div :class="['vx-sticky-inner']">
+    <div class="vx-sticky-inner">
       <slot></slot>
     </div>
   </div>

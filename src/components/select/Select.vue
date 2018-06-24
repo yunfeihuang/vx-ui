@@ -91,7 +91,7 @@ export default {
                   max: this.max,
                   direction: this.direction
                 },
-                class: [this.classes],
+                class: ['vx-select-picker'],
                 on: {
                   'close': this.handleClose,
                   'close-after': this.handleCloseAfter,
@@ -104,7 +104,6 @@ export default {
               open: false,
               value: this.value,
               title: this.placeholder,
-              classes: 'vx-select-picker',
               max: this.max,
               direction: this.max === 1 ? this.popupDirection : undefined
             },

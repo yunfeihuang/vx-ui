@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :disabled="disabled">
+  <div :class="['vx-radio-group', {'vx-radio-group-divider': divider}]" :disabled="disabled">
     <slot></slot>
   </div>
 </template>
@@ -18,11 +18,6 @@ export default {
     divider: {
       type: Boolean,
       default: true
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-radio-group', {'vx-radio-group-divider': this.divider}]
     }
   },
   methods: {

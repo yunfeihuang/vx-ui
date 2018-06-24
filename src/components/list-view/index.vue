@@ -1,17 +1,17 @@
 <template>
   <div class="vx-list-view">
-    <div :class="['vx-list-view-inner']">
-      <div :class="['vx-list-view-refresh']">
+    <div class="vx-list-view-inner">
+      <div class="vx-list-view-refresh">
         <icon></icon>
-        <spinner :class="['vx-list-view-spinner']"/>
+        <spinner class="vx-list-view-spinner"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div :class="['vx-list-view-loading']" v-if="!end">
-        <spinner v-show="loading" :class="['vx-list-view-spinner']"/>
+      <div class="vx-list-view-loading" v-if="!end">
+        <spinner v-show="loading" class="vx-list-view-spinner"/>
         {{loadingText}}
       </div>
-      <div :class="['vx-list-view-loading']" v-if="end">{{endText}}</div>
+      <div class="vx-list-view-loading" v-if="end">{{endText}}</div>
     </div>
   </div>
 </template>

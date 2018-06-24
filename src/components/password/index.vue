@@ -21,7 +21,7 @@
       @invalid="handleInvalid"
     />
     <button
-      :class="['vx-password-switch']"
+      class="vx-password-switch"
       type="button"
       @click="handleSwitch"
     >

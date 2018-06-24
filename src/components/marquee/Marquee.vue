@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-marquee', 'swiper-container']" >
-    <div :class="['swiper-wrapper']" >
+    <div class="swiper-wrapper" >
       <slot></slot>
     </div>
   </div>

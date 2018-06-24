@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :disabled="disabled">
+  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider}]" :disabled="disabled">
     <slot></slot>
   </div>
 </template>
@@ -29,11 +29,6 @@ export default {
     max: {
       type: Number,
       default: 0
-    }
-  },
-  computed: {
-    classes () {
-      return ['vx-checkbox-group', {'vx-checkbox-group-divider': this.divider}]
     }
   },
   methods: {

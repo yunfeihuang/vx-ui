@@ -1,10 +1,10 @@
 <template>
   <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @close-after="handleCloseAfter" @enter="handleEnter">
-    <div :class="['vx-actionsheet-inner']" onselectstart="return false;">
-      <div v-if="title" :class="['vx-actionsheet-title']">
+    <div class="vx-actionsheet-inner" onselectstart="return false;">
+      <div v-if="title" class="vx-actionsheet-title">
         {{title}}
       </div>
-      <div :class="['vx-actionsheet-items']">
+      <div class="vx-actionsheet-items">
         <slot></slot>
       </div>
       <div v-if="cancel" class="vx-actionsheet-cancel" @click="handleClose">

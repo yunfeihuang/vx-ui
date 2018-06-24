@@ -2,13 +2,13 @@
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false">
     <div class="vx-popup-picker-wrapper">
       <div :class="['vx-flexbox','vx-datetime-picker-header']">
-        <button type="button" :class="['vx-datetime-picker-cancel']" @click="handleCancel">{{cancelText}}</button>
+        <button type="button" class="vx-datetime-picker-cancel" @click="handleCancel">{{cancelText}}</button>
         <div :class="['vx-flexbox-item','vx-datetime-picker-today']">
           <!--
-          <button type="button" :class="['vx-datetime-picker-today']" @click="handleToday">{{todayText}}</button>
+          <button type="button" class="vx-datetime-picker-today" @click="handleToday">{{todayText}}</button>
           -->
         </div>
-        <button type="button" :class="['vx-datetime-picker-confirm']" @click="handleConfirm">{{confirmText}}</button>
+        <button type="button" class="vx-datetime-picker-confirm" @click="handleConfirm">{{confirmText}}</button>
       </div>
       <div :class="['vx-flexbox','vx-datetime-picker']">
         <picker

@@ -1,6 +1,6 @@
 <template>
   <div class="vx-calendar-range">
-    <div :class="['vx-calendar-range-header']">
+    <div class="vx-calendar-range-header">
       <tab :active.sync="tabActive" v-if="layout.length" ref="tab" :underline-width="10">
         <tab-item :name="0" v-show="layout.indexOf('date') > -1">{{tabText['date']}}</tab-item>
         <tab-item :name="1" v-show="layout.indexOf('week') > -1">{{tabText['week']}}</tab-item>
@@ -8,7 +8,7 @@
         <tab-item :name="3" v-show="layout.indexOf('quarter') > -1">{{tabText['quarter']}}</tab-item>
       </tab>
     </div>
-    <div :class="['vx-calendar-range-body']">
+    <div class="vx-calendar-range-body">
       <calendar
         v-if="tabActive==0"
         is-range
