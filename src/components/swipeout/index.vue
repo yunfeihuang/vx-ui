@@ -17,13 +17,9 @@
 </template>
 
 <script>
-import {Flexbox} from '../flexbox'
 let swipeoutVue = null
 export default {
   componentName: 'Swipeout',
-  components: {
-    Flexbox
-  },
   props: {
     disabled: {
       type: Boolean,
