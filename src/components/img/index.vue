@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-img-wrapper',!loading ? 'vx-img-placeholder' : '']">
+  <div :class="['vx-img-wrapper',{'vx-img-placeholder': !loading}]">
     <img
       :class="['vx-img', {'vx-img-lazyload': this.lazyload}]"
       :alt="alt"
