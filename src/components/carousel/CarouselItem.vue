@@ -1,5 +1,5 @@
 <template>
-  <div :class="'vx-carousel-item'" :style="styles">
+  <div class="vx-carousel-item" :style="styles">
     <slot></slot>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @click="handleClick">
-    <div :class="'vx-actionsheet-item-text'" :disabled="disabled">
+    <div class="vx-actionsheet-item-text" :disabled="disabled">
       <slot></slot>
     </div>
   </div>

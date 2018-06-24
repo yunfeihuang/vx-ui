@@ -25,7 +25,7 @@
       <button
         type="button"
         v-show="clear&&isFocus"
-        :class="'vx-input-clear-button'"
+        class="vx-input-clear-button"
         @click="handleClear"
         >
         <icon>&#xe641;</icon>

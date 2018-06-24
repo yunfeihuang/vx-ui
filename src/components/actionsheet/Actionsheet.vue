@@ -7,7 +7,7 @@
       <div :class="['vx-actionsheet-items']">
         <slot></slot>
       </div>
-      <div v-if="cancel" :class="'vx-actionsheet-cancel'" @click="handleClose">
+      <div v-if="cancel" class="vx-actionsheet-cancel" @click="handleClose">
         {{cancelText}}
       </div>
     </div>

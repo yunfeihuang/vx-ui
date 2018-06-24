@@ -7,7 +7,7 @@
             <icon>&#xe660;</icon>
           </button>
           <x-input
-            :class="'vx-flexbox-item'"
+            class="vx-flexbox-item"
             native-type="search"
             :placeholder="placeholder"
             :readonly="readonly"

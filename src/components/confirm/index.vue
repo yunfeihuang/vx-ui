@@ -11,8 +11,8 @@
             <slot></slot>
           </div>
           <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
-            <button :class="'vx-flexbox-item'" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
-            <button :class="'vx-flexbox-item'" type="button" @click="handleConfirm">{{confirmText}}</button>
+            <button class="vx-flexbox-item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+            <button class="vx-flexbox-item" type="button" @click="handleConfirm">{{confirmText}}</button>
           </div>
         </div>
       </transition>

@@ -5,11 +5,11 @@
     @mousedown="handleTouchStart"
     onselectstart="return false;"
     >
-    <div :class="'vx-swipeout-inner'">
-      <div :class="'vx-swipeout-content'">
+    <div class="vx-swipeout-inner">
+      <div class="vx-swipeout-content">
         <slot></slot>
       </div>
-      <div :class="'vx-swipeout-action'" @click="handleAction">
+      <div class="vx-swipeout-action" @click="handleAction">
         <slot name="action"></slot>
       </div>
     </div>

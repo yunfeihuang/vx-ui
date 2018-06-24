@@ -1,13 +1,13 @@
 <template>
   <div class="vx-picker-wrapper" onselectstart="return false;">
     <div
-      :class="'vx-picker'"
+      class="vx-picker"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @scroll="scrollHandlder"
       >
-      <div :class="'vx-picker-scroller'">
+      <div class="vx-picker-scroller">
         <div v-if="placeholder" :class="['vx-picker-item','vx-picker-placeholder']">
           {{placeholder}}
         </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div :class="'vx-picker-indicator'"></div>
+    <div class="vx-picker-indicator"></div>
   </div>
 </template>
 

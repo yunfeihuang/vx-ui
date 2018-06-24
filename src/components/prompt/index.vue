@@ -16,7 +16,7 @@
         v-if="inputProps.type === 'password'"
         v-model="myValue"
         :clear="false"
-        :class="'vx-prompt-input'"
+        class="vx-prompt-input"
         v-bind="inputProps"
         @input="handleInput"
       />
@@ -24,7 +24,7 @@
         v-else
         v-model="myValue"
         :clear="false"
-        :class="'vx-prompt-input'"
+        class="vx-prompt-input"
         v-bind="inputProps"
         :native-type="inputProps.type"
         @input="handleInput"/>
