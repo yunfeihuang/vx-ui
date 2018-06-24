@@ -17,8 +17,10 @@ export default {
     classes () {
       return [
         'vx-checkbox',
-        this.direction === 'reverse' || this.$parent.direction === 'reverse' ? 'vx-checkbox-reverse' : '',
-        this.myChecked ? 'is-active' : ''
+        {
+          'is-active': this.myChecked,
+          'vx-checkbox-reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
+        }
       ]
     },
     myChecked () {

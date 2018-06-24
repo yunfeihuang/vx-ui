@@ -13,7 +13,7 @@
         </div>
         <div
           v-for="(item, index) in options"
-          :class="['vx-picker-item', item.value === value ? 'is-active' : '']"
+          :class="['vx-picker-item',{'is-active' : item.value === value}]"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
