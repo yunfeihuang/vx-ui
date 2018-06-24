@@ -62,7 +62,19 @@ export default {
               'close': this.handleClose,
               'close-after': this.handleCloseAfter
             }
-          })
+          }, [
+            createElement('div', {
+              class: ['vx-popover-content', popover.popoverClass],
+              style: {
+                visibility: 'hidden',
+                position: 'absolute'
+              },
+              slot: 'inner',
+              on: {
+                click: popover.handleClickPopover
+              }
+            }, [...popover.$slots.default])
+          ])
         },
         components: {Popup},
         data: {
@@ -71,40 +83,33 @@ export default {
           histroy: popover.histroy
         },
         mounted () {
-          let node = this.$$popoverContent = document.createElement('div')
-          node.style.visibility = 'hidden'
-          node.className = 'vx-popover-content'
-          popover.popoverClass && node.classList.add(popover.popoverClass)
-          node.addEventListener('click', popover.handleClickPopover, false)
-          popover.$slots.default.forEach((item) => {
-            item.elm && item.elm.nodeType === 1 && node.appendChild(item.elm)
-          })
-          document.body.appendChild(node)
-          let rect = popover.$el.getBoundingClientRect()
-          let left = rect.left + 'px'
-          let isRight = false
-          let isBottom = false
-          if (rect.left > window.innerWidth / 2) {
-            isRight = true
-            left = rect.right - node.offsetWidth + 'px'
-          }
-          let top = rect.top + rect.height + 'px'
-          if (rect.top > window.innerHeight / 2) {
-            isBottom = true
-            top = rect.bottom - node.offsetHeight - rect.height - 24 + 'px'
-          }
-          requestAnimationFrame(() => {
-            node.style.top = top
-            node.style.left = left
-            node.style.visibility = ''
-            isRight && node.classList.add('vx-popover-content-right')
-            isBottom && node.classList.add('vx-popover-content-bottom')
+          this.$nextTick(() => {
+            let node = this.$el.querySelector('.vx-popover-content')
+            let rect = popover.$el.getBoundingClientRect()
+            let left = rect.left + 'px'
+            let isRight = false
+            let isBottom = false
+            if (rect.left > window.innerWidth / 2) {
+              isRight = true
+              left = rect.right - node.offsetWidth + 'px'
+            }
+            let top = rect.top + rect.height + 'px'
+            if (rect.top > window.innerHeight / 2) {
+              isBottom = true
+              top = rect.bottom - node.offsetHeight - rect.height - 24 + 'px'
+            }
+            requestAnimationFrame(() => {
+              node.style.top = top
+              node.style.left = left
+              node.style.visibility = ''
+              isRight && node.classList.add('vx-popover-content-right')
+              isBottom && node.classList.add('vx-popover-content-bottom')
+            })
           })
         },
         destroyed () {
           requestAnimationFrame(() => {
             this.$el.parentNode.removeChild(this.$el)
-            this.$$popoverContent.parentNode.removeChild(this.$$popoverContent)
           })
         },
         methods: {

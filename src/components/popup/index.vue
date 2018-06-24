@@ -3,7 +3,8 @@
     <transition name="popup-fade" v-if="!full">
       <overlay v-if="open" @click="handleClose"></overlay>
     </transition>
-    <transition :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @after-leave="handleLeave">
+    <slot name="inner" v-if="$slots.inner"></slot>
+    <transition v-else :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @after-leave="handleLeave">
       <div v-if="open" :class="innerClasses" @click="handleClose2">
         <slot></slot>
       </div>
