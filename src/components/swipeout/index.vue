@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="classes"
+    :class="['vx-swipeout', {'vx-swipeout-divider': divider}]"
     @touchstart="handleTouchStart"
     @mousedown="handleTouchStart"
     onselectstart="return false;"
@@ -38,11 +38,6 @@ export default {
       default: true
     }
   },
-  computed: {
-    classes () {
-      return ['vx-swipeout', {'vx-swipeout-divider': this.divider}]
-    }
-  },
   watch: {
     open (value) {
       this.setTranslateX(value ? -this.$$touch.maxTranslateX : 0)
@@ -71,7 +66,7 @@ export default {
       el = el || this.$$touch.el
       swipeoutVue = x < 0 ? this : null
       el.style.webkitTransition = el.style.transition = transition ? '' : 'none'
-      el.style.webkitTransform = el.style.transform = 'translateX(' + x + 'px)'
+      el.style.webkitTransform = el.style.transform = 'translate3d(' + x + 'px, 0, 0)'
     },
     handleTouchStart (e) {
       if (!this.disabled) {

@@ -10,6 +10,8 @@
       }
       &-inner{
         transition:transform 0.2s ease-out 0s;
+        backface-visibility: hidden;
+        perspective: 1000;
       }
       &-content{
         width:100%;
