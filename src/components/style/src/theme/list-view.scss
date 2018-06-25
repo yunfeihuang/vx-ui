@@ -6,6 +6,8 @@
     &-inner{
       position: relative;
       padding-top: 5px;
+      backface-visibility: hidden;
+      perspective: 1000;
       &.active .#{$css-prefix}list-view-refresh span:before{
         content:attr(data-refresh);
       }

@@ -5,7 +5,7 @@
     display: inline-block;
     vertical-align: middle;
     &-content{
-      position:fixed;
+      position:absolute;
       background:#fff;
       border-radius:5px;
       color:$color-black;

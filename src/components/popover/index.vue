@@ -66,8 +66,7 @@ export default {
             createElement('div', {
               class: ['vx-popover-content', popover.popoverClass],
               style: {
-                visibility: 'hidden',
-                position: 'absolute'
+                visibility: 'hidden'
               },
               slot: 'inner',
               on: {
