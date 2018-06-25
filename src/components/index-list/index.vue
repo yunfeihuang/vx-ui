@@ -32,6 +32,15 @@ export default {
       currentCharAt: navList[0]
     }
   },
+  watch: {
+    data (value) {
+      let navList = value.map(item => {
+        return item.label.charAt(0)
+      })
+      this.navList = navList
+      this.currentCharAt = navList[0]
+    }
+  },
   updated () {
     this.$nextTick(this.init)
   },
