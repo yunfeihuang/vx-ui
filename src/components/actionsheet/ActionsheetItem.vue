@@ -1,6 +1,6 @@
-<template>
-  <div :class="['vx-actionsheet-item',{'is-disabled':disabled}]" @click="handleClick">
-    <div class="vx-actionsheet-item-text" :disabled="disabled">
+<template functional>
+  <div :class="['vx-actionsheet-item',{'is-disabled':props.disabled}, data.class, data.staticClass]" :style="data.style" :data-value="props.value">
+    <div class="vx-actionsheet-item-text" :disabled="props.disabled">
       <slot></slot>
     </div>
   </div>
@@ -15,13 +15,8 @@ export default {
       default: false
     },
     value: {
-      type: [String, Number],
+      type: String,
       required: true
-    }
-  },
-  methods: {
-    handleClick () {
-      !this.disabled && this.$emit('action-item', this.value)
     }
   }
 }

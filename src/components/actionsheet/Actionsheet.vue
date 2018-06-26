@@ -35,7 +35,7 @@ export default {
       default: true
     },
     value: {
-      type: [String, Number]
+      type: String
     },
     cancel: {
       type: Boolean,
@@ -102,6 +102,10 @@ export default {
       this.$emit('update:open', false).$emit('close')
     },
     handleEnter () {
+      Array.from(this.$el.querySelectorAll('.vx-actionsheet-item')).forEach(item => {
+        item.onclick = this.handleAction.bind(this, item.dataset.value)
+      })
+      /*
       if (!this.$children) return
       requestAnimationFrame(() => {
         this.$children[0].$children.forEach((item) => {
@@ -111,6 +115,7 @@ export default {
           }
         })
       })
+      */
     }
   }
 }
