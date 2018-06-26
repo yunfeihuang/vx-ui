@@ -43,43 +43,8 @@ export default {
     }
   },
   data () {
-    let label = []
-    let myOptions = []
-    myOptions.push(this.options.map(item => {
-      return {
-        value: item.value,
-        label: item.label,
-        disabled: item.disabled,
-        children: item.children
-      }
-    }))
-    let myValue = [...this.value]
-    let currentIndex = myValue.length
-    if (myValue.length > 0) {
-      let array = this.options
-      myValue.forEach((item) => {
-        array.forEach(a => {
-          if (a.value === item) {
-            label.push(a.label)
-            if (a.children && a.children.length > 0) {
-              myOptions.push(a.children)
-              array = a.children
-            } else {
-              currentIndex = myValue.length - 1
-            }
-          }
-        })
-      })
-    }
-    let currentValue = myValue[currentIndex] || '__placeholder'
-    if (this.label !== undefined) {
-      this.$emit('update:label', label)
-    }
     return {
-      myValue,
-      myOptions,
-      currentIndex,
-      currentValue
+      ...this.initialData()
     }
   },
   computed: {
@@ -98,7 +63,59 @@ export default {
       return result
     }
   },
+  watch: {
+    value () {
+      this.$nextTick(() => {
+        Object.assign(this, this.initialData())
+      })
+    },
+    options () {
+      this.$nextTick(() => {
+        Object.assign(this, this.initialData())
+      })
+    }
+  },
   methods: {
+    initialData () {
+      let label = []
+      let myOptions = []
+      myOptions.push(this.options.map(item => {
+        return {
+          value: item.value,
+          label: item.label,
+          disabled: item.disabled,
+          children: item.children
+        }
+      }))
+      let myValue = [...this.value]
+      let currentIndex = myValue.length
+      if (myValue.length > 0) {
+        let array = this.options
+        myValue.forEach((item) => {
+          array.forEach(a => {
+            if (a.value === item) {
+              label.push(a.label)
+              if (a.children && a.children.length > 0) {
+                myOptions.push(a.children)
+                array = a.children
+              } else {
+                currentIndex = myValue.length - 1
+              }
+            }
+          })
+        })
+      }
+      let currentValue = myValue[currentIndex] || '__placeholder'
+      if (this.label !== undefined) {
+        this.$emit('update:label', label)
+      }
+      return {
+        myValue,
+        myOptions,
+        currentIndex,
+        currentValue
+      }
+    },
     panelStyle (index) {
       let x = '0'
       if (index < this.currentIndex) {

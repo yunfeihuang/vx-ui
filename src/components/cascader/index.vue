@@ -28,6 +28,11 @@ export default {
       open: false
     }
   },
+  watch: {
+    value (value) {
+      this.myValue = [...value]
+    }
+  },
   methods: {
     handleClick () {
       let self = this

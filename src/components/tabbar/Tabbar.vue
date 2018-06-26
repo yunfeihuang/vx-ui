@@ -15,11 +15,6 @@ export default {
     }
   },
   mixins: [tab],
-  data () {
-    return {
-      childLength: this.$children.length
-    }
-  },
   methods: {
     handleChange (val) {
       if (val !== this.active) {

@@ -122,7 +122,6 @@ const input = {
 const tab = {
   mounted () {
     if (!this.$children) return
-    this.childLength = this.$children.length
     this.$children.forEach((item, i) => {
       this.$children[i].$on('change', this.handleChange)
     })

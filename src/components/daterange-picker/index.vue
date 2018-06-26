@@ -60,6 +60,11 @@ export default {
       myValue: this.value
     }
   },
+  watch: {
+    value (value) {
+      this.myValue = value
+    }
+  },
   methods: {
     handleClose () {
       this.$emit('close')

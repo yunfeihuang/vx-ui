@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @click="handleClick">
+  <div :class="['vx-actionsheet-item',{'is-disabled':disabled}]" @click="handleClick">
     <div class="vx-actionsheet-item-text" :disabled="disabled">
       <slot></slot>
     </div>
@@ -17,22 +17,6 @@ export default {
     value: {
       type: [String, Number],
       required: true
-    }
-  },
-  computed: {
-    classes () {
-      return [
-        'vx-actionsheet-item',
-        {
-          'is-active': this.checked,
-          'is-disabled': this.disabled
-        }
-      ]
-    }
-  },
-  data () {
-    return {
-      checked: false
     }
   },
   methods: {
