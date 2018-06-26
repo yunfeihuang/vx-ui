@@ -58,6 +58,12 @@
       &:first-child{
         margin-left:0!important
       }
+      &:last-child{
+        margin-right:0!important
+      }
+    }
+    &-item + &-item{
+      margin-left: 0!important
     }
   }
 }

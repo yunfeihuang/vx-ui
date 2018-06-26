@@ -105,17 +105,6 @@ export default {
       Array.from(this.$el.querySelectorAll('.vx-actionsheet-item')).forEach(item => {
         item.onclick = this.handleAction.bind(this, item.dataset.value)
       })
-      /*
-      if (!this.$children) return
-      requestAnimationFrame(() => {
-        this.$children[0].$children.forEach((item) => {
-          if (item.$el.className.indexOf('overlay') === -1) {
-            item.value === this.value && (item.checked = true)
-            item.$off('action-item').$on('action-item', this.handleAction)
-          }
-        })
-      })
-      */
     }
   }
 }
