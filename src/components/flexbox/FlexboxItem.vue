@@ -21,6 +21,7 @@ export default {
       let gutter = typeof this.$parent.gutter === 'number' ? (this.$parent.gutter + 'px') : this.$parent.gutter
       return `
         margin-left: ${gutter};
+        margin-right: ${gutter};
         -ms-flex: ${this.flex};
         -webkit-box-flex: ${this.flex};
         -moz-box-flex: ${this.flex};
