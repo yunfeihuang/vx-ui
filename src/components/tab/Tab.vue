@@ -31,7 +31,6 @@ export default {
           let activeWidth = activeNode.offsetWidth
           let width = activeWidth
           let left = activeNode.offsetLeft
-          console.log(activeWidth, left)
           if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
             width = activeNode.children[0].offsetWidth
             left = activeNode.offsetLeft + (activeWidth - width) / 2
