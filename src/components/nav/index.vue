@@ -1,7 +1,7 @@
 <template functional>
   <div
     :class="['vx-nav', {'is-back-text': !!props.backText}, data.staticClass]"
-    :style="data.staticStyle"
+    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
     <flexbox class="vx-nav-inner" align="center">

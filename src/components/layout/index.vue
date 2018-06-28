@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['vx-layout', data.class, data.staticClass]" :style="data.style" v-bind="data.attrs" v-on="listeners">
+  <div :class="['vx-layout', data.staticClass, data.class]" :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style" v-bind="data.attrs" v-on="listeners">
     <flexbox class="vx-layout-flexbox" direction="column">
       <slot name="header"></slot>
       <slot name="body"></slot>
