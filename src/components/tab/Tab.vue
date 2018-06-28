@@ -14,9 +14,14 @@ export default {
   updated () {
     this.computedStyle()
   },
+  destroyed () {
+    window.removeEventListener('resize', this.$computedStyle)
+  },
   methods: {
     afterMounted () {
       this.computedStyle()
+      this.$computedStyle = this.computedStyle.bind(this)
+      window.addEventListener('resize', this.$computedStyle)
     },
     computedStyle () {
       this.$nextTick(() => {
@@ -26,6 +31,7 @@ export default {
           let activeWidth = activeNode.offsetWidth
           let width = activeWidth
           let left = activeNode.offsetLeft
+          console.log(activeWidth, left)
           if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
             width = activeNode.children[0].offsetWidth
             left = activeNode.offsetLeft + (activeWidth - width) / 2
