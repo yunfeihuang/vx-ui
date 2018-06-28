@@ -43,6 +43,7 @@ export default {
         direction: this.direction,
         autoplay: this.autoplay,
         loop: this.loop,
+        autoplayDisableOnInteraction: false,
         onSlideChangeStart: (swiper) => {
           this.$emit('change', swiper.activeIndex).$emit('input', swiper.activeIndex)
         }

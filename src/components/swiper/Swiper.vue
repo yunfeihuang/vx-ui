@@ -18,6 +18,10 @@ export default {
       type: Number,
       default: 0
     },
+    autoplay: {
+      type: Number,
+      default: 2000
+    },
     options: {
       type: Object
     },
@@ -44,6 +48,8 @@ export default {
       require('swiper/dist/css/swiper.min.css')
       let options = Object.assign({
         initialSlide: this.active,
+        autoplayDisableOnInteraction: false,
+        autoplay: this.autoplay,
         onSlideChangeStart: (swiper) => {
           this.$emit('change', swiper.activeIndex).$emit('update:active', swiper.activeIndex)
         }
