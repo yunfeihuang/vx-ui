@@ -40,15 +40,11 @@ export default {
   },
   computed: {
     toDemo () {
-      let path = this.$route.path === '/' ? '/' : '/#/demos' + this.$route.path
-      if (location.host.indexOf(':8082') > -1) {
-        if (!location.origin) {
-          location.origin = location.protocol + '//' + location.host
-        }
-        return location.origin.replace(':8082', ':8080') + path
-      } else {
-        return 'http://vx.bittyos.com/demo' + path
+      let path = this.$route.path === '/' ? '' : '#/demos' + this.$route.path
+      if (!location.origin) {
+        location.origin = location.protocol + '//' + location.host
       }
+      return location.origin + '/demo.html' + path
     }
   },
   methods: {

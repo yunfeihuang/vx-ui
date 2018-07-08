@@ -13,9 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
     "build:theme": "gulp build --gulpfile src/components/style/gulpfile.js",
-    "build:cooking": "cooking build -c build/cooking.common.js,build/cooking.component.js",
-    "dev:example": "webpack-dev-server --inline --progress --config build/webpack.dev.example.conf.js",
-    "build:example": "node build/build.example.js"
+    "build:cooking": "cooking build -c build/cooking.common.js,build/cooking.component.js"
   },
   "keywords": [
     "ui",

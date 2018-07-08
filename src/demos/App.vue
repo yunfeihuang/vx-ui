@@ -5,12 +5,23 @@
         <div slot="title">Vx UI Demos</div>
       </x-nav>
       <x-body class="demos" slot="body">
-        <div class="github">
-          <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
-            <img :src="'./static/images/github.png'"/>
-            <br/>
-            star me
-          </a>
+        <div style="text-align:center">
+          <flexbox class="friend-link">
+            <flexbox-item>
+              <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
+                <x-img class="friend-link-img" :src="'./static/images/github.png'"/>
+                <br/>
+                star me
+              </a>
+            </flexbox-item>
+            <flexbox-item>
+              <a target="_blank" href="http://vx2.bittyos.com">
+                <x-img class="friend-link-img" :src="'./static/images/react.png'"/>
+                <br/>
+                React版本
+              </a>
+            </flexbox-item>
+          </flexbox>
         </div>
         <group title="basic">
           <cell title="Button" to="/demos/button"></cell>
@@ -94,17 +105,24 @@ export default {
 </script>
 
 <style lang="scss">
-  .github{
+  .friend-link{
+    width:200px;
+    margin: 0 auto;
     text-align:center;
-    padding-top:0.2rem;
-    margin-bottom:-0.25rem;
-    img{
+    padding-top:0.3rem;
+    margin-bottom: -0.2rem;
+    &-img{
       border-radius:50%;
       height:40px;
       width:40px;
+      display: inline-block;
+      margin-bottom:10px;
     }
   }
   .demo-app{
+    .react-version{
+      text-align:center;
+    }
     .vx-layout{
       opacity:0;
       transition: transform 0.32s ease 0s;

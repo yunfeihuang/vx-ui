@@ -6,12 +6,12 @@
 #### 中文文档：
 http://vx.bittyos.com/
 #### 示例浏览地址：
-http://vx.bittyos.com/demo/
+http://vx.bittyos.com/demo.html
 
 ![Minion](http://vx.bittyos.com/static/images/demo-code.png)
 
 #### CNode社区示例浏览地址：
-http://vx.bittyos.com/demo/#/cnode/
+http://vx.bittyos.com/demo.html#/cnode/
 
 #### react版本：
 https://github.com/yunfeihuang/react-components
