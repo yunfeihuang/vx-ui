@@ -68,3 +68,6 @@ body{
 input::-webkit-input-placeholder {
 	color: $color-placeholder;
 }
+a,button,input,textearea,select{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
