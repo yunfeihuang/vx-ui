@@ -65,6 +65,10 @@ export default {
   mounted () {
     this.getRangeInitData()
     this.$nextTick(this.renderRange)
+    window.addEventListener('resize', this.handleResize, false)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     getRangeInitData () {
@@ -86,6 +90,10 @@ export default {
     },
     handleChange (val) {
       this.$emit('change', val).$emit('input', val)
+    },
+    handleResize () {
+      this.getRangeInitData()
+      this.renderRange()
     },
     handleTouchStart (e) {
       e.preventDefault()
