@@ -46,9 +46,14 @@ export default {
   },
   mounted () {
     this.init()
+    window.addEventListener('resize', this.handleResize, false)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     init () {
+      this.$$scrollNode = this.$el.querySelector('.vx-index-list-each')
       this.$$titleNodes = Array.from(this.$el.querySelectorAll('.vx-index-list-title'))
       this.$$titleNodes.forEach(node => {
         node._offsetTop = node.offsetTop
@@ -72,7 +77,7 @@ export default {
       })
     },
     handleScroll (e) {
-      let scrollTop = e.target.scrollTop
+      let scrollTop = this.$$scrollNode.scrollTop
       this.$$titleNodes.forEach((node, index) => {
         let position = node._offsetTop - scrollTop
         if (position < this.$$Y && position > 0) {
@@ -87,6 +92,10 @@ export default {
           })
         }
       })
+    },
+    handleResize () {
+      this.init()
+      this.handleScroll()
     },
     handleGroup (index) {
       let node = this.$$titleNodes[index]
