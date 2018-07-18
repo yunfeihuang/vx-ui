@@ -5,7 +5,6 @@
     display:block;
     position:relative;
     padding:0.25rem 0.15rem;
-    line-height:20px;
     @include disabled;
     input{
       position:absolute;
@@ -22,13 +21,10 @@
       position:absolute;
       right:0.15rem;
       top:50%;
-      width: 20px;
-      height: 20px;
-      margin-top:-10px;
+      width: 0.4rem;
+      height: 0.4rem;
+      margin-top:-0.2rem;
       display:none;
-      .#{$css-prefix}iconfont{
-        font-size:20px;
-      }
     }
     &-text{
       display:block;
@@ -41,17 +37,17 @@
       color:$color-primary;
       display:block;
       &:after{
-        border: 2px solid $color-primary;
+        border: 0.04rem solid $color-primary;
         border-left: 0;
         border-top: 0;
         content: " ";
         top: 50%;
         left: 50%;
         position: absolute;
-        width: 6px;
-        height: 10px;
-        margin-left: -4px;
-        margin-top: -8px;
+        width: 0.12rem;
+        height: 0.2rem;
+        margin-left: -0.08rem;
+        margin-top: -0.16rem;
         transform: rotate(45deg);
       }
     }
