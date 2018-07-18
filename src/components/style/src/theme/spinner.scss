@@ -6,7 +6,7 @@
       height:100%;
       width:100%;
       animation: loading 0.6s infinite linear;
-      border:2px solid #eee;
+      border:0.04rem solid #eee;
       border-top-color: $color-primary;
       border-radius:50%;
       box-sizing:border-box;
@@ -14,8 +14,8 @@
         position:relative;
         display: inline-block;
         vertical-align: middle;
-        width:20px;
-        height:20px;
+        width:0.4rem;
+        height:0.4rem;
       }
     }
   }

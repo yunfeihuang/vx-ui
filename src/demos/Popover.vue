@@ -78,8 +78,8 @@ export default {
     padding: 0;
     margin: 0;
     li{
-      min-width:80px;
-      line-height:42px;
+      min-width:1.8rem;
+      line-height:0.9rem;
       padding:0 15px;
     }
     .vx-iconfont{

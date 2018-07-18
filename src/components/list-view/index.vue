@@ -116,6 +116,7 @@ export default {
           let {pageX, pageY} = this.getPosition(e)
           this.$$touch.pageY = pageY
           this.$$touch.pageX = pageX
+          this.$$touch.markHeight = this.$el.querySelector('.vx-list-view-refresh').offsetHeight
         }
       }
     },
@@ -125,10 +126,11 @@ export default {
         e.preventDefault()
         e.stopPropagation()
         let top = pageY - this.$$touch.pageY
-        top = top > 100 ? 100 : top
+        let markHeight = this.$$touch.markHeight
+        top = top > markHeight * 2 ? markHeight * 2 : top
         let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translate3d(0,' + top + 'px,0);transform:translate3d(0,' + top + 'px,0);'
         this.$$touch.inner.style.cssText = cssText
-        if (this.$$touch.pageY && pageY - this.$$touch.pageY > 60) {
+        if (this.$$touch.pageY && pageY - this.$$touch.pageY > (markHeight + 20)) {
           this.$$touch.inner.classList.add('active')
         } else {
           this.$$touch.inner.classList.remove('active')
@@ -143,9 +145,10 @@ export default {
     handleTouchEnd (e) {
       let {pageY} = this.getPosition(e)
       if (this.$$touch.pageY && this.$$touch.inner && this.$$touch.pageY < pageY) {
-        if (pageY - this.$$touch.pageY > 60) {
+        let markHeight = this.$$touch.markHeight
+        if (pageY - this.$$touch.pageY > (markHeight + 20)) {
           setTimeout(() => {
-            let cssText = '-webkit-transform:translate3d(0,40px,0);transform:translate3d(0,40px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;'
+            let cssText = `-webkit-transform:translate3d(0,${markHeight}px,0);transform:translate3d(0,${markHeight}px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;`
             this.$$touch.inner.style.cssText = cssText
             setTimeout(() => {
               this.$$touch.inner.classList.remove('active')
@@ -154,7 +157,7 @@ export default {
             }, 500)
           }, 600)
         } else {
-          let cssText = '-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
+          let cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
           this.$$touch.inner.style.cssText = cssText
           setTimeout(() => {
             this.$$touch.inner.classList.remove('active')

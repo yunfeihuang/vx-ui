@@ -36,11 +36,11 @@ export default {
 
 <style lang="scss">
   .header-tab-button{
-    width:140px;
-    font-size:14px;
+    width:2.8rem;
+    font-size: $font-size-small;
     margin: auto;
     .tab-button{
-      line-height:30px;
+      line-height:0.6rem;
     }
     .is-active{
       background:#fff;

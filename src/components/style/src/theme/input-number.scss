@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &input-number{
-    height:30px;
+    height:0.6rem;
     position:relative;
     background:#fff;
     border:1px solid $border-color-base;
@@ -22,10 +22,11 @@
     }
     input{
       @include input;
-      width:80px;
+      width:1.6rem;
       height:100%;
       color:inherit;
       text-align:center;
+      font-size: inherit;
     }
   }
 }

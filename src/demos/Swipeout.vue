@@ -77,7 +77,6 @@ export default {
   .swipeout-button{
     background:#1AAD19!important;
     color:#fff;
-    min-width:60px!important;
   }
   .swipeout-button:nth-child(2){
     background:#ffe26d!important;

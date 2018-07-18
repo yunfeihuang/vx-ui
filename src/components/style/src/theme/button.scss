@@ -21,7 +21,7 @@
       @include round-border;
     }
     &:active{
-      box-shadow:0 0 0 100px rgba(0,0,0,0.15) inset;
+      box-shadow:0 0 0 2rem rgba(0,0,0,0.15) inset;
     }
     &.is-ripple{
       &:active{
@@ -62,12 +62,12 @@
       height:auto;
     }
     span{
-      margin:0px 5px;
+      margin:0 0.1rem;
     }
     .#{$css-prefix}spinner{
       &-wrapper{
-        width:16px;
-        height:16px;
+        width:0.32rem;
+        height:0.32rem;
       }
     }
     .vx-ripple{

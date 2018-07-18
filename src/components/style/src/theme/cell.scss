@@ -22,7 +22,7 @@
   &cell-access{
     @include active;
     .#{$css-prefix}cell-ft{
-      padding-right:12px;
+      padding-right:0.24rem;
       color:$color-sub;
       &:after{
         @include arrow;

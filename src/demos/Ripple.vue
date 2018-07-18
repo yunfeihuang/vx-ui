@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss">
   .ripple-demo{
-    line-height:44px;
+    line-height:1rem;
     text-indent:10px;
   }
 </style>

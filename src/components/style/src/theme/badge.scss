@@ -5,29 +5,29 @@
     display: inline-block;
     background: $color-error;
     color: #fff;
-    font-size: 12px;
-    height: 16px;
-    line-height: 16px;
-    border-radius: 8px;
-    padding: 0 5px;
+    font-size: 0.24rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    border-radius: 0.18rem;
+    padding: 0 0.1rem;
     background-clip: padding-box;
     vertical-align: middle;
     text-align:center;
     &-dot{
       height: auto;
-      padding: 4px;
+      padding: 0.08rem;
       position:relative;
-      top:-1px;
+      top:-0.02rem;
     }
     .badge-ellipsis{
-      margin:0 5px;
+      margin:0 0.1rem;
       border-radius:50%;
       background:#fff;
       display:inline-block;
-      height:4px;
-      width:4px;
+      height:0.08rem;
+      width:0.08rem;
       vertical-align: middle;
-      box-shadow: -5px 0px 0px 0px #fff,5px 0px 0px 0px #fff
+      box-shadow: -0.1rem 0px 0px 0px #fff,0.1rem 0px 0px 0px #fff
     }
   }
 }

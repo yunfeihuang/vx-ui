@@ -13,7 +13,7 @@
       height: 0.672rem;
       button{
         height:100%;
-        border-radius:30px;
+        border-radius:0.6rem;
         background-color:#fff;
         margin: 0;
         padding: 0;
@@ -32,7 +32,7 @@
           top:0;
           position:absolute;
           transition:left 0.3s $ease-in-out;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+          box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,0.35);
         }
       }
       input{
@@ -44,25 +44,13 @@
         padding: 0;
         margin: 0;
         &:checked+button{
-          box-shadow:0 0 0 60px $color-primary inset;
+          box-shadow:0 0 0 1.2rem $color-primary inset;
           border-color:$color-primary;
           &:before{
             left:40%;
             border-color:$color-primary;
           }
         }
-      }
-    }
-    &-text{
-      position:absolute;
-      left:0.1rem;
-      top:50%;
-      color:#fff;
-      line-height:12px;
-      margin-top:-7px;
-      &:last-child{
-        left:auto;
-        right:0.1rem;
       }
     }
   }

@@ -4,10 +4,9 @@
   &button-tab{
     text-align:center;
     position:relative;
-    border-radius:48px;
     user-select: none;
     line-height:0.8rem;
-    @include round-border($border-color-base,48px);
+    @include round-border($border-color-base,1rem);
     &-item{
       position:relative;
       z-index:1;
@@ -22,15 +21,15 @@
         }
       }
       &:first-child{
-        border-top-left-radius:46px;
-        border-bottom-left-radius:46px;
+        border-top-left-radius:1rem;
+        border-bottom-left-radius:1rem;
         &:before{
           display:none;
         }
       }
       &:last-child{
-        border-top-right-radius:46px;
-        border-bottom-right-radius:46px;
+        border-top-right-radius:1rem;
+        border-bottom-right-radius:1rem;
       }
       &:before{
         content:'';

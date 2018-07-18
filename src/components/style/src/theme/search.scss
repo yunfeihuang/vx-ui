@@ -13,14 +13,8 @@
           display:none;
         }
       }
-      .#{$css-prefix}input-clear-button{
-        width:40px;
-        .#{$css-prefix}iconfont{
-          font-size:14px;
-        }
-      }
       input{
-        padding-left:30px;
+        padding-left:0.6rem;
         -webkit-appearance: none;
         appearance: none;
       }
@@ -32,12 +26,10 @@
       }
       &-cancel{
         @include button;
-        .#{$css-prefix}iconfont{
-          font-size:20px;
-          position:relative;
-          top:2px;
+        width: 0.6rem;
+        .vx-arrow{
+          margin-right: -0.2rem;
         }
-        color:#fff;
       }
       &-button{
         @include button;
@@ -59,14 +51,14 @@
     }
     &search-container{
       .keywords{
-        padding:15px;
+        padding:0.3rem;
         .keyword{
           display:inline-block;
           border:1px solid #eee;
-          border-radius:30px;
+          border-radius:0.6rem;
           vertical-align: middle;
-          padding:6px 15px;
-          margin:5px;
+          padding:0.12rem 0.3rem;
+          margin:0.1rem;
           @include active;
         }
       }

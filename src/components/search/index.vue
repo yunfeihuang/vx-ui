@@ -4,7 +4,7 @@
       <form @submit="handleSubmit">
         <flexbox class="vx-search">
           <button class="vx-search-cancel" type="button" @click="handleCancel" v-if="fixed">
-            <icon>&#xe660;</icon>
+            <arrow direction="left" color="#fff" size="0.24rem"/>
           </button>
           <x-input
             class="vx-flexbox-item"
@@ -48,6 +48,7 @@ import { input, historyPush } from 'utils/mixins'
 import XInput from '../input'
 import Icon from '../icon'
 import {Flexbox, FlexboxItem} from '../flexbox'
+import Arrow from '../arrow'
 export default {
   componentName: 'Search',
   mixins: [input, historyPush],
@@ -55,7 +56,8 @@ export default {
     XInput,
     Flexbox,
     FlexboxItem,
-    Icon
+    Icon,
+    Arrow
   },
   props: {
     history: {

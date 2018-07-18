@@ -23,7 +23,7 @@
         </cell>
         <cell :arrow="false">
           <div slot="title">滑块控制</div>
-          <range style="width:200px" slot="value" v-model="value" :max="5"/>
+          <range style="width:4rem" slot="value" v-model="value" :max="5"/>
         </cell>
       </group>
     </x-body>

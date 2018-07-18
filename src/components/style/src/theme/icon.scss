@@ -12,13 +12,12 @@
 .#{$css-prefix}{
   &iconfont {
     font-family:"vx-iconfont" !important;
-    font-size:16px;
     font-style:normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     vertical-align: middle;
     display: inline-block;
-    font-size:18px;
+    font-size:0.36rem;
     line-height: 100%;
   }
 }

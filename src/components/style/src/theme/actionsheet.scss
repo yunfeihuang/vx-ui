@@ -17,7 +17,7 @@
     }
     &-cancel{
       padding: $item-padding;
-      border-top:10px solid #eee;
+      border-top:0.2rem solid #eee;
       color:$color-sub;
     }
     &-item{
@@ -45,9 +45,9 @@
     &-menu {
       .#{$css-prefix}actionsheet{
         &-inner{
-          max-width:500px;
+          max-width:10rem;
           width:60%;
-          border-radius:3px;
+          border-radius:0.06rem;
         }
         &-item{
           border-left:0;

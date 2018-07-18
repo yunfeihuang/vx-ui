@@ -21,11 +21,12 @@
     }
     &-inner{
       background:#fff;
-      border-radius:3px;
+      border-radius:0.06rem;
       width:90vw;
       display: inline-block;
-      max-width:400px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      max-width:8rem;
+      box-shadow: 0 0.02rem 0.1rem rgba(0,0,0,0.1);
+      overflow: hidden;
     }
     &-title{
       padding-top:0.5rem;

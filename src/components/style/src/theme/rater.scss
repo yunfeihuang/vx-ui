@@ -1,26 +1,24 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &rater{
-      display:inline-block;
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &rater{
+    display:inline-block;
+    vertical-align: middle;
+    font-size:0.56rem;
+    color:#ddd;
+    @include disabled;
+    &-item{
+      min-width: 0.8rem;
+      transition:color 0.1s ease 0s;
+      text-align:center;
+      display: inline-block;
       vertical-align: middle;
-      font-size:28px;
-      color:#ddd;
-      line-height:40px;
-      @include disabled;
-      &-item{
-        padding:5px 0;
-        transition:color 0.1s ease 0s;
-        text-align:center;
-        width:40px;
-        display: inline-block;
-        vertical-align: middle;
-        &.is-active{
-          color:$color-primary;
-        }
-        &:first-child{
-          margin-left:0!important
-        }
+      &.is-active{
+        color:$color-primary;
+      }
+      &:first-child{
+        margin-left:0!important
       }
     }
   }
+}

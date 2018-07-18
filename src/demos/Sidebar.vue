@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss">
   .sidebar{
-    width:80px;
+    width:1.6rem;
     background:$color-background;
     position:absolute;
     height:100%;

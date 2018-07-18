@@ -40,14 +40,13 @@
     }
     &-refresh{
       color:$color-sub;
-      line-height:46px;
-      margin-top:-46px;
+      line-height:0.9rem;
+      margin-top:-0.9rem;
       text-align:center;
       .#{$css-prefix}iconfont{
         vertical-align: middle;
         display: inline-block;
         line-height: 100%;
-        font-size:18px;
         &:before{
           content:'\e6d5';
         }
@@ -65,7 +64,7 @@
       color:$color-sub;
     }
     &-spinner{
-      margin-right:4px;
+      margin-right:0.08rem;
     }
   }
 }
