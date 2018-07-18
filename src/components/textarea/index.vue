@@ -33,17 +33,24 @@ export default {
       default: false
     }
   },
-  mounted () {
-    this.$$textarea = this.$el.querySelector('textarea')
-    this.$$shadow = this.$el.querySelector('.vx-textarea-shadow')
-    this.renderAutoHeight(this.$$textarea.value)
-  },
   data () {
     return {
       isFocus: false
     }
   },
+  mounted () {
+    this.$$textarea = this.$el.querySelector('textarea')
+    this.$$shadow = this.$el.querySelector('.vx-textarea-shadow')
+    this.renderAutoHeight(this.$$textarea.value)
+    window.addEventListener('resize', this.handleResize, false)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
+  },
   methods: {
+    handleResize () {
+      this.renderAutoHeight(this.$$textarea.value)
+    },
     handleInput (e) {
       this.renderAutoHeight(e.target.value)
       this.$emit('input', e.target.value)

@@ -21,10 +21,15 @@ export default {
         this.$$childNode = this.$el.querySelector('.vx-sticky-inner')
         this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
         this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
+        window.addEventListener('resize', this.handleResize, false)
       }
     })
   },
   methods: {
+    handleResize () {
+      this.handleTouchStart()
+      this.handleScroll()
+    },
     handleTouchStart () {
       this.$el.style.height = this.$$childNode.offsetHeight + 'px'
       this.$myData = {
@@ -33,10 +38,10 @@ export default {
       }
     },
     handleScroll (e) {
-      if (e.touchstart === undefined) {
+      if (e && e.touchstart === undefined) {
         this.handleTouchStart()
       }
-      if (e.target.scrollTop > this.$myData.offsetTop) {
+      if (this.$$scrollNode.scrollTop > this.$myData.offsetTop) {
         this.$el.classList.add('vx-sticky-fixed')
         if (this.$$childNode.style.top !== this.$myData.fixedTop) {
           this.$$childNode.style.top = this.$myData.fixedTop
@@ -66,6 +71,7 @@ export default {
   destroyed () {
     this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
     this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>

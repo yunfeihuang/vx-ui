@@ -43,21 +43,30 @@ export default {
     this.$$touch = {}
   },
   mounted () {
-    let node = this.$el.querySelector('.vx-swipeout-action')
-    this.$$touch.maxTranslateX = node.offsetWidth
-    this.$$touch.el = this.$el.querySelector('.vx-swipeout-inner')
-    requestAnimationFrame(() => {
-      node.style.height = node.parentNode.offsetHeight + 'px'
-      this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
-    })
+    this.init()
+    window.addEventListener('resize', this.init, false)
   },
   destroyed () {
     if (swipeoutVue === this) {
       swipeoutVue = null
     }
     this.$$touch = null
+    window.removeEventListener('resize', this.init)
   },
   methods: {
+    init () {
+      let node = this.$el.querySelector('.vx-swipeout-action')
+      this.$$touch.maxTranslateX = node.offsetWidth
+      this.$$touch.el = this.$el.querySelector('.vx-swipeout-inner')
+      if (node.style.height) {
+        node.style.height = ''
+      }
+      requestAnimationFrame(() => {
+        console.log('node.parentNode.offsetHeight', node.parentNode.offsetHeight)
+        node.style.height = node.parentNode.offsetHeight + 'px'
+        this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
+      })
+    },
     setTranslateX (x, el, transition = true) {
       el = el || this.$$touch.el
       swipeoutVue = x < 0 ? this : null

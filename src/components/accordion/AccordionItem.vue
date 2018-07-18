@@ -31,6 +31,10 @@ export default {
     title: {
       type: String,
       default: 'title'
+    },
+    duration: {
+      type: Number,
+      default: 300
     }
   },
   data () {
@@ -50,8 +54,22 @@ export default {
       node.style.height = 'auto'
       this.handleOpen(true)
     }
+    window.addEventListener('resize', this.handleResize, false)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    handleResize () {
+      let node = this.$el.querySelector('.vx-accordion-item-bd')
+      if (node.style.height) {
+        node.style.height = 'auto'
+        let height = node.offsetHeight
+        requestAnimationFrame(() => {
+          node.style.height = height + 'px'
+        })
+      }
+    },
     handleOpen (open) {
       let node = this.$el.querySelector('.vx-accordion-item-bd')
       let height = ''

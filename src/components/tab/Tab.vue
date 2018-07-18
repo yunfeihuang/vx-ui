@@ -20,8 +20,7 @@ export default {
   methods: {
     afterMounted () {
       this.computedStyle()
-      this.$computedStyle = this.computedStyle.bind(this)
-      window.addEventListener('resize', this.$computedStyle)
+      window.addEventListener('resize', this.computedStyle)
     },
     computedStyle () {
       this.$nextTick(() => {
