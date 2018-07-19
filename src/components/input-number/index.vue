@@ -1,24 +1,20 @@
 <template>
   <div class="vx-input-number" :disabled="disabled">
-    <button type="button" @click="handleChange(value-buttonStep)"><icon>&#xe729;</icon></button>
+    <button class="vx-input-number-add" type="button" @click="handleChange(value-buttonStep)"></button>
     <input
       v-bind="$props"
       type="number"
       :value="myValue"
       @blur="handleChange"
       @focus="handleFocus" />
-    <button type="button" @click="handleChange(value+buttonStep)"><icon>&#xe727;</icon></button>
+    <button class="vx-input-number-reduce" type="button" @click="handleChange(value+buttonStep)"></button>
   </div>
 </template>
 
 <script>
 import { input } from 'utils/mixins'
-import Icon from '../icon'
 export default {
   componentName: 'InputNumber',
-  components: {
-    Icon
-  },
   mixins: [input],
   props: {
     value: {

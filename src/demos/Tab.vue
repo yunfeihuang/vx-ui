@@ -2,17 +2,19 @@
   <layout>
     <x-nav slot="header" back="/">
       <div slot="title">Tab</div>
-      <tab :active.sync="active">
-        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-      </tab>
-      <tab :active.sync="active" :underline-width="10">
-        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-      </tab>
-      <tab :active.sync="active" underline-width="auto">
-        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-      </tab>
+      <div v-if="pageState.into">
+        <tab :active.sync="active">
+          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+        </tab>
+        <tab :active.sync="active" :underline-width="10">
+          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+        </tab>
+        <tab :active.sync="active" underline-width="auto">
+          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+        </tab>
+      </div>
     </x-nav>
-    <x-body slot="body" style="background:#fff" :scroll="false">
+    <x-body slot="body" style="background:#fff" :scroll="false" v-if="pageState.into">
       <!--
       <swiper :active.sync="active" class="tab-swiper">
         <swiper-item>

@@ -17,10 +17,13 @@
           span:before{
             content:attr(data-refresh);
           }
-          .#{$css-prefix}iconfont{
+          .vx-list-view-icon{
             transform: rotate(180deg);
-            position:relative;
-            top:-2px;
+            background:$color-primary;
+            top:0.06rem;
+            &:before{
+              border-top-color:$color-primary;
+            }
           }
         }
       }
@@ -29,7 +32,7 @@
           span:before{
             content:attr(data-loading);
           }
-          .#{$css-prefix}iconfont:before{
+          .vx-list-view-icon{
             display:none
           }
           .#{$css-prefix}list-view-spinner{
@@ -65,6 +68,24 @@
     }
     &-spinner{
       margin-right:0.08rem;
+    }
+    &-icon{
+      display:inline-block;
+      width:0.14rem;
+      height:0.16rem;
+      background:$color-sub;
+      position:relative;
+      top:-0.08rem;
+      margin-right:0.1rem;
+      &:before{
+        content:'';
+        left:50%;
+        bottom:-0.32rem;
+        border:0.16rem solid transparent;
+        border-top-color:$color-sub;
+        position:absolute;
+        margin-left:-0.16rem;
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="vx-list-view">
     <div class="vx-list-view-inner">
       <div class="vx-list-view-refresh">
-        <icon></icon>
+        <i class="vx-list-view-icon"></i>
         <spinner class="vx-list-view-spinner"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
@@ -18,12 +18,10 @@
 
 <script>
 import Spinner from '../spinner'
-import Icon from '../icon'
 export default {
   componentName: 'ListView',
   components: {
-    Spinner,
-    Icon
+    Spinner
   },
   props: {
     loading: {

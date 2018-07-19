@@ -10,6 +10,7 @@
     @include disabled;
     button{
       @include button;
+      width:0.6rem;
       height:100%;
       color:$color-sub;
       height:100%;
@@ -18,6 +19,35 @@
       }
       &:last-child{
         border-left:1px solid $border-color-base;
+      }
+    }
+    &-add,&-reduce{
+      position:relative;
+      &:before{
+        content: '';
+        height:2px;
+        position:absolute;
+        width:0.36rem;
+        background:$color-sub;
+        left:50%;
+        top:50%;
+        margin-left:-0.18rem;
+        margin-top:-1px;
+        border-radius:3rem;
+      }
+    }
+    &-add{
+      &:after{
+        content: '';
+        width:2px;
+        position:absolute;
+        height:0.36rem;
+        background:$color-sub;
+        left:50%;
+        top:50%;
+        margin-top:-0.18rem;
+        margin-left:-1px;
+        border-radius:3rem;
       }
     }
     input{
