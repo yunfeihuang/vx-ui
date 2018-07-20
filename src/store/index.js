@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import cnode from './modules/cnode'
 
 Vue.use(Vuex)
 
@@ -18,8 +17,5 @@ export default new Vuex.Store({
   actions,
   getters,
   mutations,
-  modules: {
-    cnode: cnode
-  },
   strict: debug
 })
