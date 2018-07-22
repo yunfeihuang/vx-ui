@@ -16,7 +16,7 @@
       color:$color-primary;
       transition: color $transition-time $ease-in-out;
     }
-    .#{$css-prefix}iconfont{
+    i{
       display:block;
     }
     span{

@@ -3,11 +3,9 @@
     <div :class="['vx-toast-inner','vx-toast-' + this.align]">
       <div class="vx-toast-content">
         <template v-if="type != 'default'">
-          <icon v-if="type === 'success'">&#xe654;</icon>
-          <icon v-else-if="type === 'warn'">&#xe653;</icon>
-          <icon v-else-if="type === 'fail'">&#xe605;</icon>
-          <spinner v-else-if="type==='loading'" class="vx-toast-spinner" v-bind="spinnerProps"/>
-          <br v-if="iconCode[type] || type==='loading'" />
+          <spinner v-if="type==='loading'" class="vx-toast-loading" v-bind="spinnerProps"/>
+          <i v-else :class="['vx-toast-icon',`vx-toast-${type}`]"></i>
+          <br />
         </template>
         <slot></slot>
       </div>
@@ -18,14 +16,12 @@
 <script>
 import Popup from '../popup'
 import Spinner from '../spinner'
-import Icon from '../icon'
 
 export default {
   componentName: 'Toast',
   components: {
     Popup,
-    Spinner,
-    Icon
+    Spinner
   },
   props: {
     open: {
@@ -54,16 +50,6 @@ export default {
         return {
           color: '#999',
           primaryColor: '#fff'
-        }
-      }
-    },
-    iconCode: {
-      type: Object,
-      default () {
-        return {
-          success: '&#xe654;',
-          warn: '&#xe653;',
-          fail: '&#xe605;'
         }
       }
     }

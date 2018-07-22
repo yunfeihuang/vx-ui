@@ -54,8 +54,7 @@ export default {
     }
   },
   components: {
-    XInput,
-    Icon
+    XInput
   },
   watch: {
     nativeType (value) {

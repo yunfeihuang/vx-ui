@@ -39,10 +39,87 @@
         font-size:0.8rem;
         margin-bottom:0.1rem;
       }
-      &-spinner{
+      &-loading{
         width:0.72rem!important;
         height:0.72rem!important;
         margin-bottom:0.16rem;
+      }
+      &-icon{
+        position:relative;
+        display: inline-block;
+        vertical-align: middle;
+        border:0.04rem solid #eee;
+        border-radius:50%;
+        width:0.72rem;
+        height:0.72rem;
+        margin-bottom:0.1rem;
+      }
+      &-success{
+        &:before{
+          border: 0.04rem solid #eee;
+          border-left: 0;
+          border-top: 0;
+          content: " ";
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          width: 0.16rem;
+          height: 0.32rem;
+          margin-left: -0.1rem;
+          margin-top: -0.24rem;
+          transform: rotate(45deg);
+        }
+      }
+      &-fail{
+        transform: rotate(45deg);
+        &:before{
+          content: '';
+          height:0.04rem;
+          position:absolute;
+          width:0.4rem;
+          background:#eee;
+          left:50%;
+          top:50%;
+          margin-left:-0.2rem;
+          margin-top:-0.02rem;
+          border-radius:3rem;
+        }
+        &:after{
+          content: '';
+          width:0.04rem;
+          position:absolute;
+          height:0.4rem;
+          background:#eee;
+          left:50%;
+          top:50%;
+          margin-top:-0.2rem;
+          margin-left:-0.02rem;
+          border-radius:3rem;
+        }
+      }
+      &-warn{
+        &:before{
+          content: '';
+          width: 0.04rem;
+          position: absolute;
+          height: 0.38rem;
+          background: #eee;
+          left: 50%;
+          top: 12%;
+          margin-left: -0.02rem;
+          border-radius: 3rem;
+        }
+        &:after{
+          content: '';
+          width: 0.06rem;
+          position: absolute;
+          height: 0.06rem;
+          background: #eee;
+          left: 50%;
+          top: 75%;
+          margin-left: -0.03rem;
+          border-radius: 3rem;
+        }
       }
     }
   }
