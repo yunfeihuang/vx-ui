@@ -46,14 +46,6 @@
       line-height:0.9rem;
       margin-top:-0.9rem;
       text-align:center;
-      .#{$css-prefix}iconfont{
-        vertical-align: middle;
-        display: inline-block;
-        line-height: 100%;
-        &:before{
-          content:'\e6d5';
-        }
-      }
       .#{$css-prefix}list-view-spinner{
         display: none
       }
@@ -80,7 +72,7 @@
       &:before{
         content:'';
         left:50%;
-        bottom:-0.32rem;
+        top:100%;
         border:0.16rem solid transparent;
         border-top-color:$color-sub;
         position:absolute;
