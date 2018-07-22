@@ -30,6 +30,7 @@
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
+| icons     |  明文与保密icons  | Array[String]  |   -       |    \['\<span class="vx-password-text-icon"\>abc\</span\>','\<span class="vx-password-pwd-icon"\>\</span\>'\]    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

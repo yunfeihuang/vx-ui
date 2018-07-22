@@ -25,8 +25,8 @@
       type="button"
       @click="handleSwitch"
     >
-      <icon v-if="this.myNativeType==='password'">&#xe602;</icon>
-      <icon v-if="this.myNativeType==='text'">&#xe63b;</icon>
+      <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
+      <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
     </button>
   </div>
 </template>
@@ -42,6 +42,15 @@ export default {
     nativeType: {
       type: String,
       default: 'password'
+    },
+    icons: {
+      type: String,
+      default () {
+        return [
+          '<span class="vx-password-text-icon">abc</span>',
+          '<span class="vx-password-pwd-icon"></span>'
+        ]
+      }
     }
   },
   components: {
