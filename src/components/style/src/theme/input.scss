@@ -60,16 +60,46 @@
   &input-focus:after{
     width:100%;
   }
-  &input-clear-button{
-    position:absolute;
-    top:0;
-    right:0;
-    @include button;
-    width:0.8rem;
-    height:100%;
-    display:none;
-  }
   &input-clear{
+    &-button{
+      position:absolute;
+      top:0;
+      right:0;
+      @include button;
+      width:0.8rem;
+      height:100%;
+      display:none;
+    }
+    &-icon{
+      position:relative;
+      transform: rotate(45deg);
+      display: inline-block;
+      vertical-align: middle;
+      &:before{
+        content: '';
+        height:2px;
+        position:absolute;
+        width:0.4rem;
+        background:$color-sub;
+        left:50%;
+        top:50%;
+        margin-left:-0.2rem;
+        margin-top:-1px;
+        border-radius:3rem;
+      }
+      &:after{
+        content: '';
+        width:2px;
+        position:absolute;
+        height:0.4rem;
+        background:$color-sub;
+        left:50%;
+        top:50%;
+        margin-top:-0.2rem;
+        margin-left:-1px;
+        border-radius:3rem;
+      }
+    }
     .#{$css-prefix}input-clear-button{
       display:block;
     }

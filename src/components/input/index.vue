@@ -28,7 +28,7 @@
         class="vx-input-clear-button"
         @click="handleClear"
         >
-        <icon>&#xe641;</icon>
+        <i class="vx-input-clear-icon"></i>
       </button>
     </transition>
   </label>
@@ -36,12 +36,8 @@
 
 <script>
 import { input } from 'utils/mixins'
-import Icon from '../icon'
 export default {
   componentName: 'XInput',
-  components: {
-    Icon
-  },
   mixins: [input],
   computed: {
     classes () {

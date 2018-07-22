@@ -26,7 +26,6 @@
             @input="handleInput"
             @change="handleChange"
           >
-            <icon slot="icon" class="vx-search-icon">&#xe651;</icon>
           </x-input>
           <button class="vx-search-button" type="submit" v-if="fixed">搜索</button>
         </flexbox>
@@ -46,7 +45,6 @@
 <script>
 import { input, historyPush } from 'utils/mixins'
 import XInput from '../input'
-import Icon from '../icon'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
@@ -56,7 +54,6 @@ export default {
     XInput,
     Flexbox,
     FlexboxItem,
-    Icon,
     Arrow
   },
   props: {
