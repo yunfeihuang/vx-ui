@@ -45,7 +45,6 @@ import Datetime from './datetime'
 import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
-import Icon from './icon'
 import IndexList from './index-list'
 import QrCode from './qrcode'
 import Message from './message'
@@ -143,7 +142,6 @@ let components = [
   Daterange,
   Popover,
   Sticky,
-  Icon,
   IndexList,
   QrCode,
   Message,
@@ -527,7 +525,6 @@ export default {
   Daterange,
   Popover,
   Sticky,
-  Icon,
   IndexList,
   QrCode,
   Message,
@@ -607,7 +604,6 @@ export {
   Daterange,
   Popover,
   Sticky,
-  Icon,
   IndexList,
   QrCode,
   Message,

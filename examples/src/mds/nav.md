@@ -5,7 +5,7 @@
   <x-nav slot="header" back="/" back-text="返回">
     <div slot="title">XNav</div>
     <button class="btn-pull" slot="pull">
-      <icon>&#xe78d;</icon>
+      更多
     </button>
     <tab :active.sync="active" :underline-width="10">
       <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>

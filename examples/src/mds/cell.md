@@ -4,7 +4,7 @@
 <template>
   <group title="default">
     <cell title="标题">
-      <icon slot="icon">&#xe63b;</icon>
+      <img style="height:20px;width:20px;border-radius:50%" slot="icon" :src="'/static/images/github.png'">
       <x-switch slot="value" v-model="checked" />
     </cell>
   </group>

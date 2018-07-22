@@ -34,27 +34,28 @@
 ```
 <template>
   <div>
-    <tabbar slot="footer" :ripple="true" :active.sync="active">
-      <tabbar-item name="home">
-        <icon>&#xe651;</icon>
-        <span>主页</span>
-      </tabbar-item>
-      <tabbar-item name="message">
-        <icon>&#xe653;</icon>
-        <span>消息</span>
-      </tabbar-item>
-      <tabbar-item name="my">
-        <icon>&#xe63b;</icon>
-        <span>我的</span>
-      </tabbar-item>
-    </tabbar>
+    <tab :active.sync="active">
+      <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+    </tab>
+    <tab :active.sync="active" :underline-width="10">
+      <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+    </tab>
+    <tab :active.sync="active" underline-width="auto">
+      <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+    </tab>
   </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        active: 'home'
+        tabs: [
+          {name: 'recommed', label: '推荐'},
+          {name: 'it', label: '科技'},
+          {name: 'active', label: '活动'},
+          {name: 'find', label: '发现'}
+        ],
+        active: 'recommed'
       }
     }
   }

@@ -26,16 +26,16 @@
     </x-body>
     <tabbar slot="footer" :ripple="true" :active.sync="active">
       <tabbar-item name="home">
-        <icon>&#xe651;</icon>
-        <span>主页</span>
+        <i style="font-size:0.5rem;margin: -0.1rem;">★</i>
+        <small>主页</small>
       </tabbar-item>
       <tabbar-item name="message">
-        <icon>&#xe653;</icon>
-        <span>消息</span>
+        <i style="font-size:0.5rem;margin: -0.1rem;">♡</i>
+        <small>消息</small>
       </tabbar-item>
       <tabbar-item name="my">
-        <icon>&#xe63b;</icon>
-        <span>我的</span>
+        <i style="font-size:0.5rem;margin: -0.1rem;">★</i>
+        <small>我的</small>
       </tabbar-item>
     </tabbar>
   </layout>

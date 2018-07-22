@@ -18,8 +18,10 @@
     }
     i{
       display:block;
+      font-style:normal;
+      font-size: $font-size-large;
     }
-    span{
+    small{
       font-size:0.2rem;
     }
   }
