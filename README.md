@@ -8,7 +8,7 @@ http://vx.bittyos.com/
 #### 示例浏览地址：
 http://vx.bittyos.com/demo.html
 
-![Minion](http://vx.bittyos.com/static/images/demo-code.png)
+![Minion](http://vx.bittyos.com/static/images/demo-code.png?v=1)
 
 #### CNode社区示例浏览地址：
 http://vx.bittyos.com/demo.html#/cnode/
