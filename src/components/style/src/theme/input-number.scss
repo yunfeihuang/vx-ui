@@ -25,7 +25,7 @@
       position:relative;
       &:before{
         content: '';
-        height:2px;
+        height:1px;
         position:absolute;
         width:0.36rem;
         background:$color-sub;
@@ -39,7 +39,7 @@
     &-add{
       &:after{
         content: '';
-        width:2px;
+        width:1px;
         position:absolute;
         height:0.36rem;
         background:$color-sub;

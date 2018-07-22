@@ -67,7 +67,7 @@
       box-shadow:none;
       color:#fff;
       &:before{
-        border-color:$color-primary;
+        display:none;
       }
       &:after{
         border: 0.04rem solid #fff;
