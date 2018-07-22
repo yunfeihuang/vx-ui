@@ -34,7 +34,6 @@
 <script>
 import { input } from 'utils/mixins'
 import XInput from '../input'
-import Icon from '../icon'
 export default {
   componentName: 'Password',
   mixins: [input],
