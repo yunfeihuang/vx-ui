@@ -13,6 +13,10 @@ export default {
     height: {
       type: Number
     },
+    even: {
+      type: Boolean,
+      default: false
+    },
     tag: {
       type: String,
       default: 'div'
@@ -34,9 +38,15 @@ export default {
         fontSize = parseInt(fontSize)
         if (this.width) {
           width = Math.round(fontSize * this.width)
+          if (this.even && width % 2) {
+            width++
+          }
         }
         if (this.height) {
           height = Math.round(fontSize * this.height)
+          if (this.even && height % 2) {
+            height++
+          }
         }
       }
       requestAnimationFrame(() => {

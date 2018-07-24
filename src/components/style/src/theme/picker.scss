@@ -17,27 +17,12 @@ $unit: px;
       background:#fff;
       text-align: center;
       overflow:hidden;
-      &:before,&:after{
-        position:absolute;
-        top:-1px;
-        height:1px;
-        width:100%;
-        content:'';
-        left:0;
-        box-shadow: 0px 0px 0px #{$height*3}#{$unit} rgba(255,255,255,0.45);
-        z-index: 1;
-      }
-      &:after{
-        bottom:-2px;
-        top:auto;
-        box-shadow: 0px 0px 0px #{$height*3}#{$unit} rgba(255,255,255,0.45);
-      }
     }
     &-scroller{
       padding:#{$height*3}#{$unit} 0;
+      line-height:#{$height}#{$unit};
     }
     &-item{
-      line-height:#{$height}#{$unit};
       overflow: hidden;
       white-space: nowrap;
       padding: 0px 0.15rem;
@@ -47,7 +32,7 @@ $unit: px;
       // color:$color-primary;
     }
     &-indicator{
-      &:before{
+      &-top{
         @include divider;
         position:absolute;
         content:'';
@@ -56,7 +41,7 @@ $unit: px;
         left:0;
         top:#{$height*3}#{$unit};
       }
-      &:after{
+      &-bottom{
         @include divider;
         position:absolute;
         content:'';

@@ -8,25 +8,31 @@
       @scroll="scrollHandlder"
       >
       <div class="vx-picker-scroller">
-        <div v-if="placeholder" :class="['vx-picker-item','vx-picker-placeholder']">
+        <rem-to-px :height="itemHeight" even v-if="placeholder" :class="['vx-picker-item','vx-picker-placeholder']">
           {{placeholder}}
-        </div>
-        <div
+        </rem-to-px>
+        <rem-to-px
           v-for="(item, index) in options"
+          :height="itemHeight"
+          even
           :class="['vx-picker-item',{'is-active' : item.value === value}]"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
           :key="index"
           >
-        </div>
+        </rem-to-px>
       </div>
     </div>
-    <div class="vx-picker-indicator"></div>
+    <div class="vx-picker-indicator">
+      <div class="vx-picker-indicator-top"></div>
+      <div class="vx-picker-indicator-bottom"></div>
+    </div>
   </div>
 </template>
 
 <script>
+import RemToPx from '../remtopx'
 let easeout = (A, B, rate, callback) => {
   if (A === B || typeof A !== 'number') {
     return
@@ -47,6 +53,9 @@ let easeout = (A, B, rate, callback) => {
 
 export default {
   componentName: 'Picker',
+  components: {
+    RemToPx
+  },
   props: {
     options: {
       type: Array,
@@ -58,6 +67,10 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    itemHeight: {
+      type: Number,
+      default: 0.9
     }
   },
   watch: {
@@ -71,11 +84,38 @@ export default {
   mounted () {
     this.$$touch.scrollElement = this.$el.querySelector('.vx-picker')
     requestAnimationFrame(this.scrollToActive)
+    this.$nextTick(this.computeStyles)
+    window.addEventListener('resize', this.computeStyles, false)
   },
   destroyed () {
     this.$$touch = null
+    window.removeEventListener('resize', this.computeStyles)
   },
   methods: {
+    computeStyles () {
+      let fontSize = document.documentElement.style.fontSize
+      if (fontSize && this.itemHeight) {
+        fontSize = parseInt(fontSize)
+        let itemHeight = fontSize * this.itemHeight
+        if (itemHeight % 2) {
+          itemHeight++
+        }
+        let pickerNode = this.$el.querySelector('.vx-picker')
+        let pickerScrollerNode = this.$el.querySelector('.vx-picker-scroller')
+        let indicatorTopNode = this.$el.querySelector('.vx-picker-indicator-top')
+        let indicatorBottomNode = this.$el.querySelector('.vx-picker-indicator-bottom')
+        requestAnimationFrame(() => {
+          pickerNode.style.height = itemHeight * 7 + 'px'
+          pickerScrollerNode.style.padding = itemHeight * 3 + 'px 0'
+          pickerScrollerNode.style.lineHeight = itemHeight + 'px'
+          indicatorTopNode.style.top = itemHeight * 3 + 'px'
+          indicatorBottomNode.style.top = itemHeight * 4 + 'px'
+          indicatorTopNode.style.boxShadow = `0px -${itemHeight * 3}px 0px ${itemHeight * 3}px rgba(255,255,255,0.45)`
+          indicatorBottomNode.style.boxShadow = `0px ${itemHeight * 3}px 0px ${itemHeight * 3}px rgba(255,255,255,0.45)`
+          requestAnimationFrame(this.scrollToActive)
+        })
+      }
+    },
     scrollToActive () {
       let node = this.$el.querySelector('.is-active')
       let index = 0
