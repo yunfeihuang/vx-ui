@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="myDisabled" >
     <input :type="myType" :name="name" :value="value" :disabled="myDisabled" :checked="myChecked" @change="handleChange"/>
-    <i class="vx-checkbox-icon"></i>
+    <rem-to-px tag="i" class="vx-checkbox-icon" :height="0.4" :width="0.4"></rem-to-px>
     <span class="vx-checkbox-text">
       <slot></slot>
     </span>
@@ -10,8 +10,12 @@
 
 <script>
 import { input } from 'utils/mixins'
+import RemToPx from '../remtopx'
 export default {
   componentName: 'Checkbox',
+  components: {
+    RemToPx
+  },
   mixins: [input],
   computed: {
     classes () {
