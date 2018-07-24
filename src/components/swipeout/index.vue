@@ -1,8 +1,6 @@
 <template>
   <div
     :class="['vx-swipeout', {'vx-swipeout-divider': divider}]"
-    @touchstart="handleTouchStart"
-    @mousedown="handleTouchStart"
     onselectstart="return false;"
     >
     <div class="vx-swipeout-inner">
@@ -44,6 +42,8 @@ export default {
   },
   mounted () {
     this.init()
+    let startEventName = window.document.body.ontouchstart === undefined ? 'mousedown' : 'touchstart'
+    this.$el.addEventListener(startEventName, this.handleTouchStart, false)
     window.addEventListener('resize', this.init, false)
   },
   destroyed () {
@@ -62,7 +62,6 @@ export default {
         node.style.height = ''
       }
       requestAnimationFrame(() => {
-        console.log('node.parentNode.offsetHeight', node.parentNode.offsetHeight)
         node.style.height = node.parentNode.offsetHeight + 'px'
         this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
       })
@@ -80,12 +79,13 @@ export default {
         if (this.$$touch.el) {
           let transform = this.$$touch.el.style.transform || this.$$touch.el.style.webkitTransform
           if (transform) {
-            currentTranslateX = parseInt(transform.match(/[-\d]+/g)[0])
+            transform = transform.replace('translate3d', '')
+            currentTranslateX = -parseInt(transform.match(/(\d+)/g)[0])
           }
         }
         Object.assign(this.$$touch, this.getPosition(e), {
           start: true,
-          currentTranslateX: currentTranslateX
+          currentTranslateX
         })
         document.addEventListener('touchmove', this.handleTouchMove, false)
         document.addEventListener('touchend', this.handleTouchEnd, false)
@@ -95,8 +95,8 @@ export default {
     },
     handleTouchMove (e) {
       let {pageY, pageX} = this.getPosition(e)
+      this.$$touch.diffX = pageX - this.$$touch.pageX
       if (this.$$touch.start && Math.abs(pageY - this.$$touch.pageY) < Math.abs(pageX - this.$$touch.pageX)) {
-        this.$$touch.diffX = pageX - this.$$touch.pageX
         this.$$touch.translateX = this.$$touch.diffX + this.$$touch.currentTranslateX
         this.$$touch.translateX = this.$$touch.translateX > 0 ? 0 : this.$$touch.translateX
         if (Math.abs(this.$$touch.translateX) > this.$$touch.maxTranslateX) {
@@ -112,18 +112,20 @@ export default {
         this.$$touch.start = false
         if (this.$$touch.diffX === 0) {
           this.$emit('click', this.$el)
-        }
-        if (Math.abs(this.$$touch.diffX) > 60) {
-          this.$$touch.translateX = this.$$touch.diffX < 0 ? -this.$$touch.maxTranslateX : 0
         } else {
-          this.$$touch.translateX = this.$$touch.currentTranslateX
+          if (Math.abs(this.$$touch.diffX) > 60) {
+            this.$$touch.translateX = this.$$touch.diffX < 0 ? -this.$$touch.maxTranslateX : 0
+          } else {
+            this.$$touch.translateX = this.$$touch.currentTranslateX
+          }
+          requestAnimationFrame(() => {
+            this.setTranslateX(this.$$touch.translateX)
+          })
+          if (this.$$touch.currentTranslateX !== this.$$touch.translateX) {
+            this.$emit(this.$$touch.translateX === 0 ? 'close' : 'open')
+          }
         }
-        requestAnimationFrame(() => {
-          this.setTranslateX(this.$$touch.translateX)
-        })
-        if (this.$$touch.currentTranslateX !== this.$$touch.translateX) {
-          this.$emit(this.$$touch.translateX === 0 ? 'close' : 'open')
-        }
+        this.$$touch.diffX = 0
         document.removeEventListener('touchmove', this.handleTouchMove)
         document.removeEventListener('touchend', this.handleTouchEnd)
         document.removeEventListener('mousemove', this.handleTouchMove)
