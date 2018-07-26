@@ -43,7 +43,7 @@ export default {
       default: 'password'
     },
     icons: {
-      type: String,
+      type: Array,
       default () {
         return [
           '<span class="vx-password-text-icon">abc</span>',

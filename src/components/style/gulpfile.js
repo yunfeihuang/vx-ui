@@ -16,10 +16,12 @@ gulp.task('compile', function() {
     .pipe(gulp.dest('../../../lib/style/theme'));
 });
 
+/*
 gulp.task('copyfont', function() {
   return gulp.src('./src/iconfont/**')
     .pipe(cssmin())
     .pipe(gulp.dest('../../../lib/style/iconfont'));
 });
+*/
 
-gulp.task('build', ['compile', 'copyfont']);
+gulp.task('build', ['compile']);

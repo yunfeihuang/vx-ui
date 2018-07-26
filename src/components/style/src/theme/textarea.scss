@@ -1,13 +1,34 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &textarea-wrapper{
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &textarea{
+    &-wrapper{
       position:relative;
-      display:block;
+      background:#fff;
+      display: block;
+      &:before,&:after{
+        @include divider;
+        position:absolute;
+        bottom:-1px;
+        width:100%;
+        height:1px;
+        content:'';
+        z-index:1;
+        left:0;
+        background-color:transparent;
+      }
+      &:after{
+        @include divider($color-primary);
+        transition:width 0.4s $ease-in-out;
+        width:0;
+        z-index:2;
+      }
+    }
+    &-inner{
+      position:relative;
       height:0.92rem;
       min-height: 0.92rem;
       line-height: 0.32rem;
-      background:#fff;
       textarea,.#{$css-prefix}textarea-shadow{
         padding:0.26rem 0.15rem;
         width:100%;
@@ -32,44 +53,30 @@
         position:relative;
         z-index:1;
       }
-      
-      &:before,&:after{
-        @include divider;
-        position:absolute;
-        bottom:-1px;
-        width:100%;
-        height:1px;
-        content:'';
-        z-index:1;
-        left:0;
-        background-color:transparent;
-      }
-      &:after{
-        @include divider($color-primary);
-        transition:width 0.4s $ease-in-out;
-        z-index:2;
-      }
-      
     }
-    &textarea{
-      &-shadow{
-        position:absolute;
-        left:0;
-        top:0;
-        opacity:0;
+    &-shadow{
+      position:absolute;
+      left:0;
+      top:0;
+      opacity:0;
+    }
+    &-focus:after{
+      width:100%;
+    }
+    &-enter-number{
+      .#{$css-prefix}textarea-inner{
+        padding-bottom:0.2rem;
       }
-      &-focus:after{
-        width:100%;
-      }
-      &-enter-number{
+      em{
         position:absolute;
-        right:0;
-        bottom:0;
+        right: 0.1rem;
+        bottom: 0.1rem;
         font-style:normal;
         font-size:$font-size-small;
         line-height:1;
-        padding:2px;
+        padding:0;
         color:$color-sub;
       }
     }
   }
+}

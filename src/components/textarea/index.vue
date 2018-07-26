@@ -1,22 +1,24 @@
 <template>
-  <label :class="['vx-textarea-wrapper',{'vx-textarea-focus': isFocus}]">
-    <div class="vx-textarea-shadow"></div>
-    <textarea
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :autocomplete="autocomplete"
-      :maxlength="maxlength"
-      :name="name"
-      :required="required"
-      :value="value"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @keyup="handleKeyup"
-      @keydown="handleKeydown"
-      @change="handleChange"
-      @input="handleInput"
-      ></textarea>
-      <em class="vx-textarea-enter-number" v-if="enterNumber && maxlength">
+  <label :class="['vx-textarea-wrapper',{'vx-textarea-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
+    <div class="vx-textarea-inner">
+      <div class="vx-textarea-shadow"></div>
+      <textarea
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :autocomplete="autocomplete"
+        :maxlength="maxlength"
+        :name="name"
+        :required="required"
+        :value="value"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        @keyup="handleKeyup"
+        @keydown="handleKeydown"
+        @change="handleChange"
+        @input="handleInput"
+        ></textarea>
+      </div>
+      <em v-if="enterNumber && maxlength">
         {{value.length}}/{{maxlength}}
       </em>
   </label>
@@ -36,6 +38,11 @@ export default {
   data () {
     return {
       isFocus: false
+    }
+  },
+  watch: {
+    value (value) {
+      this.$$textarea.value !== value && this.renderAutoHeight(value)
     }
   },
   mounted () {
@@ -58,7 +65,7 @@ export default {
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
         this.$$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
-        this.$el.style.height = this.$$shadow.offsetHeight + 'px'
+        this.$el.querySelector('.vx-textarea-inner').style.height = this.$$shadow.offsetHeight + 'px'
       })
     }
   }
