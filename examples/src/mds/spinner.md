@@ -7,8 +7,8 @@
     </br>
     </br>
     </br>
-    <spinner :style="{height:'50px',width:'50px'}">
-      <span style="line-height:50px;">LOGO</span>
+    <spinner :size="1">
+      <span style="line-height:1rem;">LOGO</span>
     </spinner>
   </div>
 </template>
@@ -18,7 +18,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| -     | -   | -  |   -       |    -    |
+| size     | 大小，单位rem   | Number  |   -       |    0.4    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

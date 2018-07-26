@@ -40,8 +40,6 @@
         margin-bottom:0.1rem;
       }
       &-loading{
-        width:0.72rem!important;
-        height:0.72rem!important;
         margin-bottom:0.16rem;
       }
       &-icon{
@@ -52,7 +50,8 @@
         border-radius:50%;
         width:0.72rem;
         height:0.72rem;
-        margin-bottom:0.1rem;
+        margin-bottom:0.16rem;
+        box-sizing: border-box;
       }
       &-success{
         &:before{
