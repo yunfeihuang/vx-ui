@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-img-wrapper',{'vx-img-placeholder': !loading}]">
     <img
-      :class="['vx-img', {'vx-img-lazyload': this.lazyload}]"
+      :class="['vx-img', {'vx-img-lazyload': lazyload}]"
       :alt="alt"
       @error="handleError"
       @load='handleLoad'
