@@ -47,6 +47,10 @@ export default {
         return []
       }
     },
+    separator: {
+      type: String,
+      default: ' ~ '
+    },
     getPopupMounted: {
       type: Function
     }
@@ -54,7 +58,7 @@ export default {
   computed: {
     myValue () {
       if (this.value && this.value[0] && this.value[1]) {
-        return this.value[0].format() + ' ~ ' + this.value[1].format()
+        return this.value[0].format() + this.separator + this.value[1].format()
       }
       return ''
     }

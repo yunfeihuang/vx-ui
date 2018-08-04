@@ -100,6 +100,7 @@ export default {
     handleTouchStart (e) {
       e.preventDefault()
       if (!this.disabled) {
+        this.getRangeInitData()
         let position = this.getPosition(e)
         let start = true
         let buttonLeft = this.$$range.controlNode.style.left

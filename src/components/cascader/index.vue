@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-cascader" :data-placeholder="placeholder" @click="handleClick">{{label.join('')}}</div>
+  <div class="vx-cascader" :data-placeholder="placeholder" @click="handleClick">{{label.join(separator)}}</div>
 </template>
 
 <script>
@@ -21,6 +21,10 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    separator: {
+      type: String,
+      default: '/'
     }
   },
   data () {

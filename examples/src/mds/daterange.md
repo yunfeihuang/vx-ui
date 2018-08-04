@@ -25,6 +25,7 @@
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | clear     | 是否有清除按钮   | Boolean  |   -       |    false    |
 | format     | 日期格式   | Boolean  |   -       |    yyyy-MM-dd    |
+| separator     | 区间日期的分割符号   | String  |   -       |    ~    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

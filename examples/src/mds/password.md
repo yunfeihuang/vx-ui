@@ -4,18 +4,25 @@
 <template>
   <div>
     <group title="default">
-      <password placeholder="请输入密码" v-model="value"/>
+      <password placeholder="请输入密码" v-model="value" :cipher.sync="cipher" :encrypt="encrypt"/>
     </group>
     <group title="初始明文">
-      <password placeholder="请输入密码" v-model="value" native-type="text"/>
+      <password placeholder="请输入密码" v-model="value" native-type="text" :cipher.sync="cipher" :encrypt="encrypt"/>
     </group>
+    密文(简单的转成大写)：{{cipher}}
   </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        value: ''
+        value: '',
+        cipher: ''
+      }
+    },
+    methods: {
+      encrypt (value, next) {
+        next(value.toUpperCase())
       }
     }
   }
@@ -30,6 +37,8 @@
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
+| cipher     | 密文绑定属性   | String  |   -       |    -    |
+| encrypt     | 加密函数   | Function  |   -       |    有value,next参数    |
 | icons     |  明文与保密icons  | Array[String]  |   -       |    \['\<span class="vx-password-text-icon"\>abc\</span\>','\<span class="vx-password-pwd-icon"\>\</span\>'\]    |
 
 #### Events

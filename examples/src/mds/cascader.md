@@ -88,6 +88,7 @@ export default {
 | placeholder     | 占位文字   | String  |     -     |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | options     | 选项   | Array  |   -       |        |
+| separator     | 显示值的分割符号   | String  |   -       |    /    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

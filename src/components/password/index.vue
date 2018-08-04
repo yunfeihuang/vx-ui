@@ -42,6 +42,15 @@ export default {
       type: String,
       default: 'password'
     },
+    encrypt: {
+      type: Function,
+      default1 (value, next) {
+        next(value.toUpperCase())
+      }
+    },
+    cipher: {
+      type: String
+    },
     icons: {
       type: Array,
       default () {
@@ -58,6 +67,15 @@ export default {
   watch: {
     nativeType (value) {
       this.myNativeType = value
+    },
+    value (value) {
+      if (this.encrypt) {
+        let self = this
+        let next = (v) => {
+          self.$emit('update:cipher', v)
+        }
+        this.encrypt(value, next)
+      }
     }
   },
   data () {
