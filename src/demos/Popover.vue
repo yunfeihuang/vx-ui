@@ -66,7 +66,7 @@ export default {
   mixins: [children],
   methods: {
     handleClick (value) {
-      this.$toast({content: '您点击了：' + value})
+      this.$toast({message: '您点击了：' + value})
     }
   }
 }
@@ -81,9 +81,6 @@ export default {
       min-width:1.8rem;
       line-height:0.9rem;
       padding:0 15px;
-    }
-    .vx-iconfont{
-      margin-right:8px;
     }
   }
 </style>

@@ -6,19 +6,6 @@
     display:block;
     height:0.92rem;
     background:#fff;
-    .#{$css-prefix}iconfont{
-      color:$color-sub;
-    }
-    >.#{$css-prefix}iconfont:first-child{
-      line-height: 100%;
-      position: absolute;
-      left: 0.1rem;
-      top: 50%;
-      margin: -0.16rem 0;
-    }
-    >.#{$css-prefix}iconfont:first-child+input{
-      padding-left:0.6rem;
-    }
     input{
       border:0;
       width:100%;

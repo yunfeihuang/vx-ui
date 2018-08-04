@@ -13,8 +13,8 @@
         <x-switch slot="value" v-model="centerOpen"/>
       </cell>
       <cell :arrow="false">
-        <div slot="title">Toast Center Fail</div>
-        <x-switch slot="value" v-model="failOpen"/>
+        <div slot="title">Toast Center Error</div>
+        <x-switch slot="value" v-model="errorOpen"/>
       </cell>
       <cell :arrow="false">
         <div slot="title">Toast Center Warn</div>
@@ -33,12 +33,12 @@
         <span slot="value" @click="handleOpen">点击我打开</span>
       </cell>
     </group>
-    <toast :open.sync="topOpen">{{content}}</toast>
-    <toast :open.sync="centerOpen" type="success" align="center">{{content}}</toast>
-    <toast :open.sync="failOpen" type="fail" align="center">操作失败</toast>
+    <toast :open.sync="topOpen">{{message}}</toast>
+    <toast :open.sync="centerOpen" type="success" align="center">{{message}}</toast>
+    <toast :open.sync="errorOpen" type="error" align="center">操作失败</toast>
     <toast :open.sync="warnOpen" type="warn" align="center">已经操作过了</toast>
     <toast :open.sync="loadingOpen" type="loading" align="center">Loading</toast>
-    <toast :open.sync="bottomOpen" align="bottom">{{content}}</toast>
+    <toast :open.sync="bottomOpen" align="bottom">{{message}}</toast>
   <div>
 </template>
 <script>
@@ -49,15 +49,15 @@
         centerOpen: false,
         loadingOpen: false,
         bottomOpen: false,
-        failOpen: false,
+        errorOpen: false,
         warnOpen: false,
-        content: '操作成功'
+        message: '操作成功'
       }
     },
     methods: {
       handleOpen () {
         this.$toast({
-          content: this.content
+          message: this.message
         })
       }
     }
@@ -70,7 +70,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | open     | 是否打开   | Boolean  |   -       |    false    |
 | align     | 提示位置   | String  |   bottom,top,center       |    false    |
-| type     | 提示类型   | String  |   default,fail,success,warn,loading       |    bottom    |
+| type     | 提示类型   | String  |   default,error,success,warn,loading       |    bottom    |
 | duration     | 停留时间   | Number  |   -       |    2000    |
 
 #### Events

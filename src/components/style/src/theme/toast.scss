@@ -35,10 +35,6 @@
       &-center{
         vertical-align: middle;
       }
-      .#{$css-prefix}iconfont{
-        font-size:0.8rem;
-        margin-bottom:0.1rem;
-      }
       &-loading{
         margin-bottom:0.16rem;
       }
@@ -69,7 +65,7 @@
           transform: rotate(45deg);
         }
       }
-      &-fail{
+      &-error{
         transform: rotate(45deg);
         &:before{
           content: '';

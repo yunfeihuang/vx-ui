@@ -1,9 +1,7 @@
 <template>
   <label :class="classes" @focusin="handleFocus" @focusout="handleBlur">
-    <slot name="icon"></slot>
-    <slot v-if="$slots.default"></slot>
+    <slot name="prepend"></slot>
     <input
-      v-else
       :type="nativeType"
       :placeholder="placeholder"
       :readonly="readonly"
@@ -21,7 +19,8 @@
       @input="handleInput"
       @invalid="handleInvalid"
       />
-    <transition name="input-clear-fade">
+    <slot name="append"></slot>
+    <transition name="input-clear-fade" v-if="!$slots.append">
       <button
         type="button"
         v-show="clear&&isFocus"
@@ -45,7 +44,9 @@ export default {
         'vx-input-wrapper',
         {
           'vx-input-focus': this.isFocus,
-          'vx-input-clear': !!this.value && this.clear
+          'vx-input-clear': !!this.value && this.clear,
+          'vx-input-prepend': this.$slots.prepend,
+          'vx-input-append': this.$slots.append
         }
       ]
     }

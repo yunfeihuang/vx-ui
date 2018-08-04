@@ -175,14 +175,14 @@ const install = (Vue) => {
     let vue = new Vue({ //eslint-disable-line
       el: node,
       render (createElement) {
-        let content = props.content
+        let message = props.message
         return createElement(Toast, {
           props: props,
           on: {
             'close': this.handleClose
           },
           scopedSlots: {
-            default: props => createElement('div', content)
+            default: props => createElement('div', message)
           }
         })
       },
@@ -227,7 +227,7 @@ const install = (Vue) => {
       let vue = new Vue({ //eslint-disable-line
         el: node,
         render (createElement) {
-          let content = props.content
+          let message = props.message
           return createElement(Alert, {
             props: props,
             on: {
@@ -236,7 +236,7 @@ const install = (Vue) => {
               'close-after': this.handleCloseAfter
             },
             scopedSlots: {
-              default: props => createElement('div', content)
+              default: props => createElement('div', message)
             }
           })
         },
@@ -286,7 +286,7 @@ const install = (Vue) => {
       let vue = new Vue({ //eslint-disable-line
         el: node,
         render (createElement) {
-          let content = props.content
+          let message = props.message
           return createElement(Confirm, {
             props: props,
             on: {
@@ -295,7 +295,7 @@ const install = (Vue) => {
               'close-after': this.handleCloseAfter
             },
             scopedSlots: {
-              default: props => createElement('div', content)
+              default: props => createElement('div', message)
             }
           })
         },
@@ -352,7 +352,7 @@ const install = (Vue) => {
       let vue = new Vue({ //eslint-disable-line
         el: node,
         render (createElement) {
-          let content = props.content
+          let message = props.message
           return createElement(Prompt, {
             props: props,
             on: {
@@ -362,7 +362,7 @@ const install = (Vue) => {
               'change': this.handleChange
             },
             scopedSlots: {
-              default: props => createElement('div', content)
+              default: props => createElement('div', message)
             }
           })
         },

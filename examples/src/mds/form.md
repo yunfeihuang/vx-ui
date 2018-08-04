@@ -133,11 +133,11 @@ export default {
     submit () {
       this.$toast({
         type: 'loading',
-        content: '数据中...',
+        message: '数据中...',
         onClose: () => {
           this.$toast({
             type: 'success',
-            content: '数据提交成功！'
+            message: '数据提交成功！'
           })
         }
       })

@@ -70,7 +70,7 @@ export default {
       let label = this.options.filter((item) => {
         return item.value === value
       })[0].label
-      this.$toast({content: `您点击了“${label}”`})
+      this.$toast({message: `您点击了“${label}”`})
     },
     handleJSCall () {
       let self = this

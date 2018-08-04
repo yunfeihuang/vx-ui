@@ -29,7 +29,7 @@
     },
     methods: {
       handleOpen () {
-        this.$confirm({content: '确认删除？'}).then(() => {
+        this.$confirm({message: '确认删除？'}).then(() => {
           console.log('confirm')
         }).catch(() => {
           console.log('cancel')

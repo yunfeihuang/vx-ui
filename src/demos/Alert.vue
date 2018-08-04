@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     handleOpen () {
-      this.$alert({content: 'alert'}).then(() => {
+      this.$alert({message: 'alert'}).then(() => {
         console.log('alert')
       })
     }

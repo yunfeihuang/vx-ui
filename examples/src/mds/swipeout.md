@@ -52,7 +52,7 @@ export default {
       console.log('handleOpenSwipeout')
     },
     handleAction (e) {
-      this.$toast({content: '点击了' + e.target.innerHTML})
+      this.$toast({message: '点击了' + e.target.innerHTML})
     }
   }
 }

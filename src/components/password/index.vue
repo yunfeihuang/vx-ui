@@ -19,15 +19,17 @@
       @change="handleChange"
       @input="handleInput"
       @invalid="handleInvalid"
-    />
-    <button
-      class="vx-password-switch"
-      type="button"
-      @click="handleSwitch"
     >
-      <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
-      <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
-    </button>
+      <slot name="prepend"></slot>
+      <button slot="append"
+        class="vx-password-switch"
+        type="button"
+        @click="handleSwitch"
+      >
+        <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
+        <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
+      </button>
+    </x-input>
   </div>
 </template>
 

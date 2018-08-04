@@ -14,8 +14,8 @@
           <x-switch slot="value" v-model="centerOpen"/>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Center Fail</div>
-          <x-switch slot="value" v-model="failOpen"/>
+          <div slot="title">Toast Center Error</div>
+          <x-switch slot="value" v-model="errorOpen"/>
         </cell>
         <cell :arrow="false">
           <div slot="title">Toast Center Warn</div>
@@ -35,12 +35,12 @@
         </cell>
       </group>
     </x-body>
-    <toast :open.sync="topOpen">{{content}}</toast>
-    <toast :open.sync="centerOpen" type="success" align="center">{{content}}</toast>
-    <toast :open.sync="failOpen" type="fail" align="center">操作失败</toast>
+    <toast :open.sync="topOpen">{{message}}</toast>
+    <toast :open.sync="centerOpen" type="success" align="center">{{message}}</toast>
+    <toast :open.sync="errorOpen" type="error" align="center">操作失败</toast>
     <toast :open.sync="warnOpen" type="warn" align="center">已经操作过了</toast>
     <toast :open.sync="loadingOpen" type="loading" align="center">Loading</toast>
-    <toast :open.sync="bottomOpen" align="bottom">{{content}}</toast>
+    <toast :open.sync="bottomOpen" align="bottom">{{message}}</toast>
   </layout>
 </template>
 
@@ -54,15 +54,16 @@ export default {
       centerOpen: false,
       loadingOpen: false,
       bottomOpen: false,
-      failOpen: false,
+      errorOpen: false,
       warnOpen: false,
-      content: '操作成功'
+      message: '操作成功'
     }
   },
   methods: {
     handleOpen () {
       this.$toast({
-        content: this.content
+        message: this.message,
+        type: 'loading'
       })
     }
   }

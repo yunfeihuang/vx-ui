@@ -18,7 +18,10 @@
     @change="handleChange"
     @input="handleInput"
     @click.native="handleClick"
-    />
+    >
+    <slot name="prepend"></slot>
+    <slot name="append"></slot>
+  </x-input>
 </template>
 
 <script>

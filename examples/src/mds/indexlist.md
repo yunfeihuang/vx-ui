@@ -28,7 +28,7 @@ export default {
   methods: {
     handleClick (value) {
       this.$toast({
-        content: `点击了"${value}"`
+        message: `点击了"${value}"`
       })
     }
   }
