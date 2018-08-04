@@ -6,14 +6,10 @@
 
 <script>
 import { input } from 'utils/mixins'
-import Radio from './Radio'
 
 export default {
   componentName: 'RadioGroup',
   mixins: [input],
-  components: {
-    Radio
-  },
   props: {
     divider: {
       type: Boolean,
@@ -23,6 +19,8 @@ export default {
   methods: {
     handleChange (value) {
       this.$emit('input', value).$emit('change', value)
+      this.eDispatch('ElFormItem', 'el.form.blur', [value])
+      this.eDispatch('ElFormItem', 'el.form.change', [value])
     }
   }
 }

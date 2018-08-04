@@ -126,6 +126,8 @@ export default {
                 if (self.value !== value) {
                   this.value = value
                   self.$emit('input', value).$emit('change', value)
+                  self.eDispatch('ElFormItem', 'el.form.blur', [value])
+                  self.eDispatch('ElFormItem', 'el.form.change', [value])
                   self.updateLabel(value)
                 }
                 this.$nextTick(this.handleClose)

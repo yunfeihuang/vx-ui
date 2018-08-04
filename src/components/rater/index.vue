@@ -14,8 +14,10 @@
 </template>
 
 <script>
+import { input } from 'utils/mixins'
 export default {
   componentName: 'Rater',
+  mixins: [input],
   props: {
     disabled: {
       type: Boolean,
@@ -49,6 +51,8 @@ export default {
         }
         value === 1 && this.value === value && (value = 0)
         this.$emit('input', value).$emit('change', value)
+        this.eDispatch('ElFormItem', 'el.form.blur', [value])
+        this.eDispatch('ElFormItem', 'el.form.change', [value])
       }
     }
   }

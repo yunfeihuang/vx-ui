@@ -200,7 +200,6 @@ export default {
     },
     handleDateChange (value) {
       let date = new Date(this.date.getTime())
-      console.log(date)
       date.setFullYear(value.getFullYear())
       this.date = date
     }

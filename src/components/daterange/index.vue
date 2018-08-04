@@ -106,6 +106,8 @@ export default {
         methods: {
           handleChange (value) {
             daterange.$emit('input', value).$emit('change', value)
+            daterange.eDispatch('ElFormItem', 'el.form.blur', [value])
+            daterange.eDispatch('ElFormItem', 'el.form.change', [value])
           },
           handleClose () {
             this.open = false

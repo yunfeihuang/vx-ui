@@ -59,8 +59,10 @@ export default {
       this.renderAutoHeight(this.$$textarea.value)
     },
     handleInput (e) {
-      this.renderAutoHeight(e.target.value)
-      this.$emit('input', e.target.value)
+      let value = e.target.value
+      this.renderAutoHeight(value)
+      this.$emit('input', value)
+      this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     renderAutoHeight (value) {
       requestAnimationFrame(() => {

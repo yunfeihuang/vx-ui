@@ -35,6 +35,8 @@ export default {
     handleChange (e) {
       if (this.max === 1) {
         this.$emit('input', [e.target.value]).$emit('change', [e.target.value])
+        this.eDispatch('ElFormItem', 'el.form.blur', [[e.target.value]])
+        this.eDispatch('ElFormItem', 'el.form.change', [[e.target.value]])
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
@@ -47,6 +49,8 @@ export default {
             value && value.indexOf && value.splice(value.indexOf(e.target.value), 1)
           }
           this.$emit('input', value).$emit('change', value)
+          this.eDispatch('ElFormItem', 'el.form.blur', [value])
+          this.eDispatch('ElFormItem', 'el.form.change', [value])
         }
       }
     }

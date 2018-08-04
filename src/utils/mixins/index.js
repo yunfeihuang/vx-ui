@@ -99,12 +99,15 @@ const input = {
     handleBlur (e) {
       this.isFocus = false
       this.$emit('blur', e)
+      this.eDispatch('ElFormItem', 'el.form.blur', [e.target.value])
     },
     handleChange (e) {
       this.$emit('change', e.target.value)
     },
     handleInput (e) {
-      this.$emit('input', e.target ? e.target.value : e)
+      let value = e.target ? e.target.value : e
+      this.$emit('input', value)
+      this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     handleKeyup (e) {
       e.keyCode === 13 && this.$emit('keyenter', e)
@@ -115,6 +118,9 @@ const input = {
     },
     handleInvalid (e) {
       this.$emit('invalid', e)
+    },
+    eDispatch (...arg) { // element-ui form表单校验
+      this.validateEvent && this.dispatch && this.dispatch(...arg)
     }
   }
 }

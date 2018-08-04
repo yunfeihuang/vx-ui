@@ -59,6 +59,7 @@ export default {
     handleClear (e) {
       this.clear && this.$el.classList.remove('vx-input-clear')
       this.$emit('change', '').$emit('input', '')
+      this.eDispatch('ElFormItem', 'el.form.change', [''])
     },
     handleInput (e) {
       if (e.target.value) {
@@ -67,6 +68,7 @@ export default {
         this.clear && this.$el.classList.remove('vx-input-clear')
       }
       this.$emit('input', e.target.value)
+      this.eDispatch('ElFormItem', 'el.form.change', [e.target.value])
     }
   }
 }

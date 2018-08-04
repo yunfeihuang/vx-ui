@@ -5,11 +5,13 @@
 <script>
 import Vue from 'vue'
 import CascaderPopupPicker from '../cascader-popup-picker'
+import { input } from 'utils/mixins'
 export default {
   componentName: 'Cascader',
   components: {
     CascaderPopupPicker
   },
+  mixins: [input],
   props: {
     value: CascaderPopupPicker.props.value,
     options: CascaderPopupPicker.props.options,
@@ -67,6 +69,8 @@ export default {
     handleChange (value) {
       this.myValue = value
       this.$emit('input', value).$emit('change', value)
+      this.eDispatch('ElFormItem', 'el.form.blur', [value])
+      this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     handleClose () {
       this.open = false

@@ -1,13 +1,13 @@
 <template>
   <div class="vx-input-number" :disabled="disabled">
-    <button class="vx-input-number-add" type="button" @click="handleChange(value-buttonStep)"></button>
+    <button class="vx-input-number-reduce" type="button" @click="handleChange(value-buttonStep)"></button>
     <input
       v-bind="$props"
       type="number"
       :value="myValue"
       @blur="handleChange"
       @focus="handleFocus" />
-    <button class="vx-input-number-reduce" type="button" @click="handleChange(value+buttonStep)"></button>
+    <button class="vx-input-number-add" type="button" @click="handleChange(value+buttonStep)"></button>
   </div>
 </template>
 
@@ -60,6 +60,8 @@ export default {
         value = Math.round(value * this.stepRate) / this.stepRate
         node && (node.value = value)
         this.$emit('input', value).$emit('change', value).$emit('blur')
+        this.eDispatch('ElFormItem', 'el.form.blur', [value])
+        this.eDispatch('ElFormItem', 'el.form.change', [value])
       }
     }
   }

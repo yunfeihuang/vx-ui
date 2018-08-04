@@ -1,49 +1,84 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 .#{$css-prefix}{
-  &form-item{
-    position:relative;
-    &-inner{
-      @include disabled;
+  &form{
+    background:#fff;
+    .el-form-item{
       position:relative;
       background:#fff;
-      height: 0.92rem;
-      @include divider;
-      background-position:bottom;
-    }
-    .#{$css-prefix}input-wrapper,.#{$css-prefix}password{
-      position:static;
-      background: transparent;
-      input{
-        padding-left:0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -ms-flex-align: center;
+      -moz-box-align: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      min-height: 0.9rem;
+      margin-bottom:0.2rem;
+      &.is-divider{
+        &:after{
+          content:'';
+          height:1px;
+          position: absolute;
+          bottom:0;
+          bottom:0;
+          width:100%;
+          @include divider;
+        }
+        &.is-error{
+          &:after{
+            @include divider($color-error);
+          }
+        }
       }
-      &:before,&:after{
-        bottom:0;
+      &__content{
+        -ms-flex: 1;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        flex: 1;
+        min-width:0;
       }
-    }
-    &-label{
-      color:$color-sub;
-      padding:0 0.15rem;
-      width:1.5rem;
-      text-align: left;
-    }
-    &-control{
-      padding:0 0.15rem;
-      >input{
-        @include input;
+      &__error{
+        color:$color-error;
+        font-size: $font-size-small;
+        padding-bottom:0.15rem;
+        position: absolute;
+        z-index:1;
+        top: 100%;
       }
-    }
-    &-error{
-      color:$color-error;
-      padding:0 0.15rem;
-      font-size: $font-size-small;
-      padding-bottom:0.15rem;
-    }
-    &.is-required{
-      .vx-form-item-label{
-        &:before{
-          color:$color-error;
-          content:'*'
+      &__label{
+        padding:0 0.15rem;
+        min-width:1.5rem;
+        text-align: left;
+      }
+      &.is-required{
+        .el-form-item__label{
+          &:before{
+            color:$color-error;
+            content:'*'
+          }
+        }
+      }
+      .#{$css-prefix}input-wrapper,.#{$css-prefix}password, .#{$css-prefix}textarea-wrapper{
+        position:static;
+        background: transparent;
+        input{
+          padding-left:0;
+        }
+        &:before,&:after{
+          bottom:0;
+        }
+      }
+      &.is-error{
+        .vx-input-wrapper:before,.vx-textarea-wrapper:before{
+          @include divider($color-error);
         }
       }
     }

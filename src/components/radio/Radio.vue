@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     handleChange () {
-      if (this.$parent.value) {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'RadioGroup') {
         this.$parent.handleChange(this.value)
       } else {
         this.$emit('input', this.value).$emit('change', this.value)

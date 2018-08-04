@@ -63,7 +63,7 @@ export default {
     }
   },
   mounted () {
-    this.getRangeInitData()
+    this.$nextTick(this.getRangeInitData)
     this.$nextTick(this.renderRange)
     window.addEventListener('resize', this.handleResize, false)
   },
@@ -89,7 +89,9 @@ export default {
       this.$$range.tipsNode.innerHTML = this.myValue
     },
     handleChange (val) {
-      this.$emit('change', val).$emit('input', val)
+      this.$emit('input', val).$emit('change', val)
+      this.eDispatch('ElFormItem', 'el.form.blur', [val])
+      this.eDispatch('ElFormItem', 'el.form.change', [val])
     },
     handleResize () {
       this.getRangeInitData()
