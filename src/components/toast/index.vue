@@ -1,6 +1,6 @@
 <template>
-  <div class="vx-toast">
-    <div :class="['vx-toast-inner','vx-toast-' + this.align]">
+  <div :class="['vx-toast','vx-toast-' + align]">
+    <div :class="['vx-toast-inner']">
       <div class="vx-toast-content">
         <template v-if="type != 'default'">
           <spinner v-if="type==='loading'" class="vx-toast-loading" v-bind="spinnerProps"/>
@@ -62,11 +62,18 @@ export default {
     openChange (value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.$el.style.display = 'table'
+          this.$el.style.cssText = 'display:block;opacity:0;'
+          requestAnimationFrame(() => {
+            let width = this.$el.children[0].offsetWidth
+            let height = this.$el.children[0].offsetHeight
+            requestAnimationFrame(() => {
+              this.$el.style.cssText = `display:block;width:${width}px;height:${height}px;`
+            })
+          })
         })
         this.duration && setTimeout(() => {
           requestAnimationFrame(() => {
-            this.$el.style.display = 'none'
+            this.$el.style.cssText = 'display:none;'
             this.$emit('update:open', false).$emit('close')
             if (this.destroy) {
               this.$destroy()

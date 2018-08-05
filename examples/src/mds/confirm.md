@@ -4,27 +4,43 @@
 <template>
   <div>
     <group>
-      <cell :arrow="false">
-        <div slot="title">开关</div>
-        <x-switch slot="value" v-model="open"/>
-      </cell>
-      <cell :arrow="false">
-        <div slot="title">js调用</div>
-        <span slot="value" @click="handleOpen">点击我打开</span>
-      </cell>
-      <cell :arrow="false">
-        <div slot="title">js调用</div>
-        <span slot="value" @click="handleOpen">点击我打开</span>
-      </cell>
+      <group>
+        <cell :arrow="false">
+          <div slot="title">开关</div>
+          <x-switch slot="value" v-model="open1"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">长内容</div>
+          <x-switch slot="value" v-model="open2"/>
+        </cell>
+        <cell :arrow="false">
+          <div slot="title">js调用</div>
+          <span slot="value" @click="handleOpen">点击我打开</span>
+        </cell>
+      </group>
     </group>
-    <confirm :open.sync="open">确认删除？</confirm>
+    <confirm :open.sync="open1">确认删除？</confirm>
+    <confirm :open.sync="open2">
+      <div style="line-height:3;">
+        长内容长内容长内容长内容长内容长内容长长内容长内容长内容长内容长内容长
+        内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
+        容长内容长内容长内容长内容长内容长内容
+        长内容长内容长内容长内容长内容长内容长长内容长内容长内容长内容长内容长
+        内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
+        容长内容长内容长内容长内容长内容长内容
+        长内容长内容长内容长内容长内容长内容长长内容长内容长内容长内容长内容长
+        内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
+        容长内容长内容长内容长内容长内容长内容
+      </div>
+    </confirm>
   <div>
 </template>
 <script>
   export default {
     data () {
       return {
-        open: false
+        open1: false,
+        open2: false
       }
     },
     methods: {
