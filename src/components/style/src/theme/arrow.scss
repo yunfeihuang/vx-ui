@@ -2,13 +2,6 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &arrow{
-    height: 0.2rem;
-    width: 0.2rem;
-    display: inline-block;
-    border-width: 1px;
-    border-style: solid;
-    vertical-align: middle;
-    box-sizing: border-box;
-    transform: rotate(45deg);
+
   }
 }

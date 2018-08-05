@@ -3,7 +3,7 @@
 ``` html
 <template>
   <group>
-    <cell>
+    <cell :arrow="false">
       <div slot="title">下拉框({{label}})</div>
       <x-select 
         slot="value"
@@ -19,7 +19,7 @@
         </x-option>
       </x-select>
     </cell>
-    <cell>
+    <cell :arrow="false">
       <div slot="title">下拉框(多选)</div>
       <x-select 
         slot="value"
@@ -35,7 +35,7 @@
         </x-option>
       </x-select>
     </cell>
-    <cell>
+    <cell :arrow="false">
       <div slot="title">下拉框(最多选2个)</div>
       <x-select 
         slot="value"
@@ -52,7 +52,7 @@
         </x-option>
       </x-select>
     </cell>
-    <cell>
+    <cell :arrow="false">
       <div slot="title">下拉框(选项很多)</div>
       <x-select 
         slot="value"
@@ -139,6 +139,8 @@ export default {
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
+| arrow     | 是否显示箭头图标   | Boolean  |   -       |    true    |
+| arrowProps     | 箭头图标props,参考Arrow组件   | Object  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
@@ -167,3 +169,5 @@ export default {
 | 名称 | 说明 | 
 |---------|--------|
 | default | - |
+| prepend | select前面插入内容 |
+| append | select后面插入内容 |

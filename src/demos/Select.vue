@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group>
-        <cell>
+        <cell :arrow="false">
           <div slot="title">下拉框({{label}})</div>
           <x-select
             slot="value"
@@ -21,7 +21,7 @@
             </x-option>
           </x-select>
         </cell>
-        <cell>
+        <cell :arrow="false">
           <div slot="title">下拉框option含html</div>
           <x-select
             slot="value"
@@ -39,7 +39,7 @@
             </x-option>
           </x-select>
         </cell>
-        <cell>
+        <cell :arrow="false">
           <div slot="title">下拉框(多选)</div>
           <x-select
             slot="value"
@@ -55,7 +55,7 @@
             </x-option>
           </x-select>
         </cell>
-        <cell>
+        <cell :arrow="false">
           <div slot="title">下拉框(最多选2个)</div>
           <x-select
             slot="value"
@@ -72,7 +72,7 @@
             </x-option>
           </x-select>
         </cell>
-        <cell>
+        <cell :arrow="false">
           <div slot="title">下拉框(选项很多)</div>
           <x-select
             slot="value"

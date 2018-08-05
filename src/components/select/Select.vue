@@ -1,6 +1,13 @@
 <template>
-  <div class="vx-select" @click="handleClick" :disabled="disabled">
-    <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
+  <div :class="['vx-select',{'vx-select-focus':isFocus}]" @click="handleClick" :disabled="disabled">
+    <flexbox class="vx-select-inner" align="center">
+      <slot name="prepend"></slot>
+      <flexbox-item>
+        <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
+      </flexbox-item>
+      <arrow v-if="arrow && !$slots.append" v-bind="arrowProps" direction="down"/>
+      <slot name="append"></slot>
+    </flexbox>
     <div style="display:none">
       <slot></slot>
     </div>
@@ -11,9 +18,16 @@
 import Vue from 'vue'
 import Picker from './Picker'
 import { input } from 'utils/mixins'
+import { Flexbox, FlexboxItem } from '../flexbox'
+import Arrow from '../arrow'
 
 export default {
   componentName: 'XSelect',
+  components: {
+    Arrow,
+    Flexbox,
+    FlexboxItem
+  },
   mixins: [input],
   props: {
     value: {
@@ -32,6 +46,13 @@ export default {
     },
     popupDirection: {
       type: String
+    },
+    arrow: {
+      type: Boolean,
+      default: true
+    },
+    arrowProps: {
+      type: Object
     }
   },
   watch: {
@@ -41,6 +62,7 @@ export default {
   },
   data () {
     return {
+      isFocus: false,
       myLabel: this.max === 1 ? '' : []
     }
   },
@@ -58,14 +80,18 @@ export default {
   },
   methods: {
     getOptions () {
-      return this.$children.map((item) => {
-        return {
-          value: item.value,
-          disabled: item.disabled,
-          label: item.label || item.$el.innerHTML.trim(),
-          html: item.$el.innerHTML.trim()
+      let result = []
+      this.$children.forEach((item) => {
+        if (item.$options && item.$options.componentName === 'XOption') {
+          result.push({
+            value: item.value,
+            disabled: item.disabled,
+            label: item.label || item.$el.innerHTML.trim(),
+            html: item.$el.innerHTML.trim()
+          })
         }
       })
+      return result
     },
     handleClick (e) {
       if (!this.disabled) {
@@ -109,6 +135,7 @@ export default {
             },
             mounted () {
               this.open = true
+              self.isFocus = true
             },
             destroyed () {
               requestAnimationFrame(() => {
@@ -118,6 +145,7 @@ export default {
             methods: {
               handleClose () {
                 this.open = false
+                self.isFocus = false
               },
               handleCloseAfter () {
                 this.$destroy && this.$destroy()

@@ -2,6 +2,12 @@
   <component :is="props.tag"
     :class="['vx-arrow', data.staticClass, data.class]"
     :style="[Object.assign({
+      display: 'inline-block',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      verticalAlign: 'middle',
+      boxSizing: 'border-box',
+      transform: 'rotate(45deg)',
       height: props.size,
       width: props.size,
       borderColor: {
@@ -37,10 +43,6 @@ export default {
       type: String,
       default: 'i'
     }
-  },
-  render1 (createElement, context) {
-    console.log(createElement, context)
-    return null
   }
 }
 </script>
