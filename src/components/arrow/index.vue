@@ -37,7 +37,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#ddd'
+      default: 'rgba(153, 153, 153, 0.6)'
     },
     tag: {
       type: String,

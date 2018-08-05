@@ -78,11 +78,11 @@
           content: '';
           height:1px;
           position:absolute;
-          width:0.4rem;
-          background:$color-sub;
+          width:100%;
+          background:$color-weak;
           left:50%;
           top:50%;
-          margin-left:-0.2rem;
+          transform:translateX(-50%);
           margin-top:-1px;
           border-radius:3rem;
         }
@@ -90,11 +90,11 @@
           content: '';
           width:1px;
           position:absolute;
-          height:0.4rem;
-          background:$color-sub;
+          height:100%;
+          background:$color-weak;
           left:50%;
           top:50%;
-          margin-top:-0.2rem;
+          transform:translateY(-50%);
           margin-left:-1px;
           border-radius:3rem;
         }
