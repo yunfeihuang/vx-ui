@@ -1,7 +1,7 @@
 <template>
-  <div class="vx-flexbox-item" :style="styles">
+  <component class="vx-flexbox-item" :style="styles" :is="tag">
     <slot></slot>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -14,6 +14,10 @@ export default {
     },
     order: {
       type: Number
+    },
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
   computed: {

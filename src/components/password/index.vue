@@ -1,36 +1,36 @@
 <template>
-  <div class="vx-password">
-    <x-input
-      :native-type="myNativeType"
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :value="value"
-      :disabled="disabled"
-      :autocomplete="autocomplete"
-      :autofocus="autofocus"
-      :maxlength="maxlength"
-      :name="name"
-      :clear="false"
-      :required="required"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @keyup="handleKeyup"
-      @keydown="handleKeydown"
-      @change="handleChange"
-      @input="handleInput"
-      @invalid="handleInvalid"
+  <x-input
+     class="vx-password"
+    :native-type="myNativeType"
+    :placeholder="placeholder"
+    :readonly="readonly"
+    :value="value"
+    :disabled="disabled"
+    :autocomplete="autocomplete"
+    :autofocus="autofocus"
+    :maxlength="maxlength"
+    :name="name"
+    :clear="false"
+    :required="required"
+    @focus="handleFocus"
+    @blur="handleBlur"
+    @keyup="handleKeyup"
+    @keydown="handleKeydown"
+    @change="handleChange"
+    @input="handleInput"
+    @invalid="handleInvalid"
+  >
+    <slot name="prepend" slot="prepend"></slot>
+    <slot v-if="$slots.append" name="append" slot="append"></slot>
+    <button v-else slot="append"
+      class="vx-password-switch"
+      type="button"
+      @click="handleSwitch"
     >
-      <slot name="prepend"></slot>
-      <button slot="append"
-        class="vx-password-switch"
-        type="button"
-        @click="handleSwitch"
-      >
-        <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
-        <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
-      </button>
-    </x-input>
-  </div>
+      <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
+      <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
+    </button>
+  </x-input>
 </template>
 
 <script>

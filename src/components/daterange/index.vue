@@ -11,6 +11,7 @@
     :name="name"
     :required="required"
     :format="format"
+    :arrow="true"
     @focus="handleFocus"
     @blur="handleBlur"
     @keyup="handleKeyup"
@@ -19,8 +20,8 @@
     @input="handleInput"
     @click.native="handleClick"
     >
-    <slot name="prepend"></slot>
-    <slot name="append"></slot>
+    <slot name="prepend" slot="prepend"></slot>
+    <slot name="append" slot="append"></slot>
   </x-input>
 </template>
 

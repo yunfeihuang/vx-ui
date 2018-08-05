@@ -89,6 +89,13 @@ const input = {
     validateEvent: {
       type: Boolean,
       default: true
+    },
+    arrow: {
+      type: Boolean,
+      default: false
+    },
+    arrowProps: {
+      type: Object
     }
   },
   methods: {

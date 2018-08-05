@@ -21,6 +21,21 @@
         value：{{value}}
       </div>
     </group>
+    <group title="CheckboxGroup Change Icon style">
+      <checkbox-group v-model="value" icon-style="checkbox">
+        <checkbox
+           v-for="item in options"
+          :disabled="item.disabled"
+          :value="item.value"
+          :key="item.value"
+          >
+          {{item.label}}
+        </checkbox>
+      </checkbox-group>
+      <div style="padding:15px 10px;">
+        value：{{value}}
+      </div>
+    </group>
     <group title="CheckboxGroup-Reverse">
       <checkbox-group direction="reverse" v-model="reverseValue">
         <checkbox
@@ -92,6 +107,7 @@ export default {
 | value     | 值   | Array[String]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
+| iconStyle     | 选中图标的风格   | String  |   checkbox       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

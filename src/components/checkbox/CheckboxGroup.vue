@@ -29,6 +29,9 @@ export default {
     max: {
       type: Number,
       default: 0
+    },
+    iconStyle: {
+      type: String
     }
   },
   methods: {

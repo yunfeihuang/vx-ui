@@ -6,6 +6,12 @@
     display:block;
     height:0.92rem;
     background:#fff;
+    .vx-arrow{
+      margin-left:10px;
+      margin-right:10px;
+      margin-top:-0.1rem;
+      transition: transform 0.18s ease 0s;
+    }
     input{
       border:0;
       width:100%;
@@ -14,7 +20,7 @@
       outline: none;
       text-align: inherit;
       font-size: inherit;
-      padding-left: 0.2rem;
+      padding:0 0.2rem;
       vertical-align: middle;
       background: transparent;
       @include disabled;
@@ -43,55 +49,59 @@
       bottom:-1px;
       background-color: transparent;
     }
-  }
-  &input-focus:after{
-    width:100%;
-  }
-  &input-clear{
-    &-button{
-      position:absolute;
-      top:0;
-      right:0;
-      @include button;
-      width:0.8rem;
-      height:100%;
-      display:none;
-    }
-    &-icon{
-      position:relative;
-      transform: rotate(45deg);
-      display: inline-block;
-      vertical-align: middle;
-      &:before{
-        content: '';
-        height:1px;
-        position:absolute;
-        width:0.4rem;
-        background:$color-sub;
-        left:50%;
-        top:50%;
-        margin-left:-0.2rem;
-        margin-top:-1px;
-        border-radius:3rem;
-      }
+    &.is-focus{
       &:after{
-        content: '';
-        width:1px;
-        position:absolute;
-        height:0.4rem;
-        background:$color-sub;
-        left:50%;
-        top:50%;
-        margin-top:-0.2rem;
-        margin-left:-1px;
-        border-radius:3rem;
+        width:100%;
+      }
+      .vx-arrow{
+        transform:rotate(225deg)!important;
+        margin-top:0.1rem;
       }
     }
-    .#{$css-prefix}input-clear-button{
-      display:block;
+  }
+  &input{
+    &-inner{
+      height:100%;
     }
-    input{
-      padding-right:0.8rem;
+    &-clear{
+      &-button{
+        @include button;
+        width:0.8rem;
+        height:100%;
+      }
+      &-icon{
+        position:relative;
+        transform: rotate(45deg);
+        display: inline-block;
+        vertical-align: middle;
+        &:before{
+          content: '';
+          height:1px;
+          position:absolute;
+          width:0.4rem;
+          background:$color-sub;
+          left:50%;
+          top:50%;
+          margin-left:-0.2rem;
+          margin-top:-1px;
+          border-radius:3rem;
+        }
+        &:after{
+          content: '';
+          width:1px;
+          position:absolute;
+          height:0.4rem;
+          background:$color-sub;
+          left:50%;
+          top:50%;
+          margin-top:-0.2rem;
+          margin-left:-1px;
+          border-radius:3rem;
+        }
+      }
+      .#{$css-prefix}input-clear-button{
+        display:block;
+      }
     }
   }
 }

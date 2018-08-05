@@ -2,7 +2,39 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &cascader{
-    display:inline-block;
-    @include placeholder;
+    position:relative;
+    height:0.92rem;
+    @include disabled();
+    &-inner{
+      height:100%;
+      .vx-arrow{
+        margin-left:10px;
+        margin-right:10px;
+        margin-top:-0.1rem;
+        transition: transform 0.18s ease 0s;
+      }
+    }
+    &.is-focus{
+      .vx-arrow{
+        transform:rotate(225deg)!important;
+        margin-top:0.1rem;
+      }
+    }
+    button{
+      border: 0;
+      background-color: transparent;
+      font-size: inherit;
+      text-align: inherit;
+      height: 100%;
+      outline: none;
+      box-sizing: border-box;
+      width: 100%;
+      padding:0;
+      z-index:1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include placeholder;
+    }
   }
 }

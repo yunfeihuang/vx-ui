@@ -23,6 +23,9 @@
         width:0;
         z-index:2;
       }
+      &.is-focus:after{
+        width:100%;
+      }
     }
     &-inner{
       position:relative;
@@ -60,9 +63,7 @@
       top:0;
       opacity:0;
     }
-    &-focus:after{
-      width:100%;
-    }
+    
     &-enter-number{
       .#{$css-prefix}textarea-inner{
         padding-bottom:0.2rem;

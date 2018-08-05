@@ -1,5 +1,6 @@
 <template>
   <x-input
+    :class="{'is-focus': isFocus}"
     :type="nativeType"
     :placeholder="placeholder"
     readonly="readonly"
@@ -11,6 +12,7 @@
     :required="required"
     :format="format"
     :clear="clear"
+    :arrow="true"
     @focus="handleFocus"
     @blur="handleBlur"
     @keyup="handleKeyup"
@@ -19,8 +21,8 @@
     @input="handleInput"
     @click.native="handleClick"
     >
-    <slot name="prepend"></slot>
-    <slot name="append"></slot>
+    <slot name="prepend" slot="prepend"></slot>
+    <slot name="append" slot="append"></slot>
   </x-input>
 </template>
 
@@ -46,6 +48,11 @@ export default {
     },
     getPopupMounted: {
       type: Function
+    }
+  },
+  data () {
+    return {
+      isFocus: false
     }
   },
   methods: {
@@ -83,6 +90,7 @@ export default {
         mounted () {
           requestAnimationFrame(() => {
             this.open = true
+            datetime.isFocus = true
           })
         },
         destroyed () {
@@ -99,6 +107,7 @@ export default {
           },
           handleClose () {
             this.open = false
+            datetime.isFocus = false
           },
           handleCloseAfter () {
             this.$destroy()

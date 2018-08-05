@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group :title="`value:${value}`">
-        <cell>
+        <cell :arrow="false">
           <div slot="title">级联</div>
            <cascader slot="value" v-model="value" :options="options"/>
         </cell>

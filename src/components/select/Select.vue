@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'vx-select-focus':isFocus}]" @click="handleClick" :disabled="disabled">
+  <div :class="['vx-select',{'is-focus':isFocus}]" @click="handleClick" :disabled="disabled">
     <flexbox class="vx-select-inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -50,9 +50,6 @@ export default {
     arrow: {
       type: Boolean,
       default: true
-    },
-    arrowProps: {
-      type: Object
     }
   },
   watch: {

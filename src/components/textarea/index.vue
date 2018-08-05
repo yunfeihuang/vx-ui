@@ -1,5 +1,5 @@
 <template>
-  <label :class="['vx-textarea-wrapper',{'vx-textarea-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
+  <label :class="['vx-textarea-wrapper',{'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
     <div class="vx-textarea-inner">
       <div class="vx-textarea-shadow"></div>
       <textarea

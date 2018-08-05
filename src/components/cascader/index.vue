@@ -1,15 +1,29 @@
 <template>
-  <div class="vx-cascader" :data-placeholder="placeholder" @click="handleClick">{{label.join(separator)}}</div>
+  <div :class="['vx-cascader',{'is-focus': open}]" @click="handleClick">
+    <flexbox class="vx-cascader-inner" align="center">
+      <slot name="prepend"></slot>
+      <flexbox-item>
+        <button type="button" :data-placeholder="placeholder">{{label.join(separator)}}</button>
+      </flexbox-item>
+      <arrow v-if="arrow && !$slots.append" v-bind="arrowProps" direction="down"/>
+      <slot name="append"></slot>
+    </flexbox>
+  </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import CascaderPopupPicker from '../cascader-popup-picker'
 import { input } from 'utils/mixins'
+import {Flexbox, FlexboxItem} from '../flexbox'
+import Arrow from '../arrow'
 export default {
   componentName: 'Cascader',
   components: {
-    CascaderPopupPicker
+    CascaderPopupPicker,
+    Flexbox,
+    FlexboxItem,
+    Arrow
   },
   mixins: [input],
   props: {
@@ -25,6 +39,10 @@ export default {
     separator: {
       type: String,
       default: '/'
+    },
+    arrow: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

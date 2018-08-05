@@ -1,7 +1,7 @@
 <template>
-  <div :class="classes">
+  <component :class="classes" :is="tag">
     <slot></slot>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -43,6 +43,10 @@ export default {
     gutter: {
       type: Number,
       default: 0
+    },
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
   computed: {

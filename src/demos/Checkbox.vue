@@ -22,6 +22,21 @@
           value：{{value}}
         </div>
       </group>
+      <group title="CheckboxGroup Change Icon style">
+        <checkbox-group v-model="value" icon-style="checkbox">
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
+        <div style="padding:15px 10px;">
+          value：{{value}}
+        </div>
+      </group>
       <group title="CheckboxGroup-Reverse">
         <checkbox-group direction="reverse" v-model="reverseValue">
           <checkbox

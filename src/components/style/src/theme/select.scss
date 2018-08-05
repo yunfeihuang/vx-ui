@@ -14,7 +14,7 @@
         transition: transform 0.18s ease 0s;
       }
     }
-    &-focus{
+    &.is-focus{
       .vx-arrow{
         transform:rotate(225deg)!important;
         margin-top:0.1rem;

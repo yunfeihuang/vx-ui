@@ -97,7 +97,7 @@ export default {
       this.$emit('close-after')
     },
     handleConfirm () {
-      this.open && this.$emit('change', this.myValue).$emit('input', this.myValue)
+      this.open && this.$emit('input', this.myValue).$emit('change', this.myValue)
     },
     handleChange (value) {
       if (this.max === 1) {

@@ -37,7 +37,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#999'
+      default: '#ddd'
     },
     tag: {
       type: String,

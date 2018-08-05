@@ -1,7 +1,7 @@
 <template>
   <label :class="classes" :disabled="myDisabled" >
     <input :type="myType" :name="name" :value="value" :disabled="myDisabled" :checked="myChecked" @change="handleChange"/>
-    <rem-to-px tag="i" class="vx-checkbox-icon" :height="0.4" :width="0.4"></rem-to-px>
+    <rem-to-px tag="i" :class="['vx-checkbox-icon', `is-${getIconStyle}`]" :height="getIconStyle==='checkbox' ? 0.36 : 0.4" :width="getIconStyle==='checkbox' ? 0.36 : 0.4"></rem-to-px>
     <span class="vx-checkbox-text">
       <slot></slot>
     </span>
@@ -17,6 +17,19 @@ export default {
     RemToPx
   },
   mixins: [input],
+  props: {
+    direction: {
+      type: String,
+      default: 'normal'
+    },
+    type: {
+      type: String,
+      default: 'checkbox'
+    },
+    iconStyle: {
+      type: String
+    }
+  },
   computed: {
     classes () {
       return [
@@ -26,6 +39,9 @@ export default {
           'vx-checkbox-reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
         }
       ]
+    },
+    getIconStyle () {
+      return this.iconStyle || this.$parent.iconStyle
     },
     myChecked () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
@@ -51,16 +67,6 @@ export default {
         return this.$parent.value.indexOf(this.value) === -1
       }
       return disabled
-    }
-  },
-  props: {
-    direction: {
-      type: String,
-      default: 'normal'
-    },
-    type: {
-      type: String,
-      default: 'checkbox'
     }
   },
   methods: {
