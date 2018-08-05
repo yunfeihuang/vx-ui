@@ -12,8 +12,8 @@
           <span slot="prepend" style="padding:10px;">♡</span>
           <span slot="append" style="padding:10px;">★</span>
         </x-input>
-        注意：password,datetime,datarange,select,cascader等都支持这两个slot
       </group>
+      注意：password,datetime,datarange,select,cascader等都支持这两个slot
       <group title="disabled">
         <x-input placeholder="请输入帐号" v-model="value" disabled/>
       </group>
