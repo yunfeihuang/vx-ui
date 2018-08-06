@@ -36,7 +36,6 @@ export default {
 | to     | 后退地址   | -  |   -       |    -    |
 | onBack     | 默认是后退   | functon  |   -       |    history.back()    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
-| title     | 标题   | String  |   -       |    返回    |
 | arrow     | 返回箭头   | Object  |   -       |    {size: '2.4rem', color: '#fff'}    |
 
 #### Events
