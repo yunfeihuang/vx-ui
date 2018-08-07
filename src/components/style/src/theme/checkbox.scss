@@ -4,12 +4,15 @@
   &checkbox{
     display:block;
     position:relative;
-    padding:0.25rem 0.15rem;
     @include disabled;
     overflow:hidden;
+	padding:0.25rem 0;
     &-group{
       user-select: none;
       @include disabled;
+	  .#{$css-prefix}checkbox{
+		padding:0.25rem 0.15rem;
+	  }
       &-divider{
         .#{$css-prefix}checkbox{
           @include divider;
@@ -40,7 +43,6 @@
       @include round-border(darken($border-color-base,10%),200px);
       position:absolute;
       top:50%;
-      left:0.15rem;
       margin-top:-0.2rem;
       &.is-checkbox{
         margin-top:-0.18rem;
