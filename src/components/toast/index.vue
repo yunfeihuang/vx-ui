@@ -62,12 +62,12 @@ export default {
     openChange (value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.$el.style.cssText = 'display:block;opacity:0;'
+          this.$el.style.cssText = 'display:block;opacity:1;'
           requestAnimationFrame(() => {
             let width = this.$el.children[0].offsetWidth
             let height = this.$el.children[0].offsetHeight
             requestAnimationFrame(() => {
-              this.$el.style.cssText = `display:block;width:${width}px;height:${height}px;`
+              this.$el.style.cssText = `display:block;width:${width + 10}px;height:${height + 10}px;`
             })
           })
         })
