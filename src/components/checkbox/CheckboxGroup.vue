@@ -15,6 +15,7 @@ export default {
     Checkbox
   },
   props: {
+    ...input.props,
     value: {
       default: []
     },

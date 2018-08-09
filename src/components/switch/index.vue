@@ -18,6 +18,7 @@ export default {
   componentName: 'XSwitch',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [Boolean, String, Number],
       default: false

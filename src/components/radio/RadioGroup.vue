@@ -11,6 +11,7 @@ export default {
   componentName: 'RadioGroup',
   mixins: [input],
   props: {
+    ...input.props,
     divider: {
       type: Boolean,
       default: true

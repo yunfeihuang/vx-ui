@@ -18,6 +18,7 @@ export default {
   },
   mixins: [input],
   props: {
+    ...input.props,
     direction: {
       type: String,
       default: 'normal'

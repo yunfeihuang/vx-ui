@@ -11,6 +11,7 @@ export default {
   componentName: 'CheckerGroup',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [Array, String],
       default () {

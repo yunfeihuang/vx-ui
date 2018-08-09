@@ -20,6 +20,7 @@ export default {
   componentName: 'Checker',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [String]
     }

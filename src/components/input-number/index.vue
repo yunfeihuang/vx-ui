@@ -17,6 +17,7 @@ export default {
   componentName: 'InputNumber',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: Number,
       default: 0

@@ -62,7 +62,7 @@ export default {
     openChange (value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.$el.style.cssText = 'display:block;opacity:1;'
+          this.$el.style.cssText = 'display:block;opacity:0;'
           requestAnimationFrame(() => {
             let width = this.$el.children[0].offsetWidth
             let height = this.$el.children[0].offsetHeight

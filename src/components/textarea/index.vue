@@ -29,6 +29,7 @@ export default {
   componentName: 'XTextarea',
   mixins: [input],
   props: {
+    ...input.props,
     enterNumber: {
       type: Boolean,
       default: false

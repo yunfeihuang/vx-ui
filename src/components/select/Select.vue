@@ -30,6 +30,7 @@ export default {
   },
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [String, Array]
     },

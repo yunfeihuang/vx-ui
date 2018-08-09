@@ -49,6 +49,9 @@ export default {
     Arrow
   },
   mixins: [input],
+  props: {
+    ...input.props
+  },
   computed: {
     classes () {
       return [

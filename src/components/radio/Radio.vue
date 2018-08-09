@@ -13,6 +13,9 @@ import { input } from 'utils/mixins'
 export default {
   componentName: 'Radio',
   mixins: [input],
+  props: {
+    ...input.props
+  },
   computed: {
     myChecked () {
       if (this.$parent.value) {

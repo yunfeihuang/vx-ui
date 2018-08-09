@@ -40,6 +40,7 @@ export default {
   componentName: 'Password',
   mixins: [input],
   props: {
+    ...input.props,
     nativeType: {
       type: String,
       default: 'password'

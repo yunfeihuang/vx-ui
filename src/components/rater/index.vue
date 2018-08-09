@@ -19,6 +19,7 @@ export default {
   componentName: 'Rater',
   mixins: [input],
   props: {
+    ...input.props,
     disabled: {
       type: Boolean,
       default: false
