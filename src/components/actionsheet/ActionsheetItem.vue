@@ -4,7 +4,7 @@
     :data-value="props.value"
     v-bind="data.attrs"
     v-on="listeners">
-    <div class="vx-actionsheet-item-text" :disabled="props.disabled">
+    <div class="vx-actionsheet-item-text">
       <slot></slot>
     </div>
   </div>

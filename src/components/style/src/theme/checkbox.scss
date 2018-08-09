@@ -6,13 +6,13 @@
     position:relative;
     @include disabled;
     overflow:hidden;
-	padding:0.25rem 0;
+	  padding:0.25rem 0;
     &-group{
       user-select: none;
       @include disabled;
-	  .#{$css-prefix}checkbox{
-		padding:0.25rem 0.15rem;
-	  }
+      .#{$css-prefix}checkbox{
+          padding:0.25rem 0.15rem;
+      }
       &-divider{
         .#{$css-prefix}checkbox{
           @include divider;

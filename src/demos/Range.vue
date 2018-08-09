@@ -6,7 +6,7 @@
     <x-body slot="body">
       <group :title="`default(value:${value1})`">
         <div style="padding:10px">
-          <range v-model="value1" />
+          <range v-model="value1"/>
         </div>
       </group>
       <group :title="`step:10(value:${value1})`">

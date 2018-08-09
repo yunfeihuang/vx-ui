@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-checker-group" :disabled="disabled">
+  <div :class="['vx-checker-group',{'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>
@@ -31,7 +31,6 @@ export default {
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
-          this.$toast({content: `选择项不得超过${this.max}个`})
         } else {
           let value = Object.assign([], this.value)
           if (e.target.checked) {

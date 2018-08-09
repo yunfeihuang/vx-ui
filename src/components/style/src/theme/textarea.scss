@@ -3,6 +3,7 @@
 .#{$css-prefix}{
   &textarea{
     &-wrapper{
+      @include disabled;
       position:relative;
       background:#fff;
       display: block;
@@ -48,7 +49,6 @@
         height:100%;
         resize: none;
         border:0;
-        @include disabled;
         outline: none;
         overflow: hidden;
         vertical-align: middle;

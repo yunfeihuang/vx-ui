@@ -7,10 +7,7 @@
         position:relative;
         min-width:2rem;
       }
-      &.is-disabled{
-        opacity: 0.6;
-        pointer-events: none;
-      }
+      @include disabled;
       &-mask{
         @include divider(#ccc);
         position:absolute;

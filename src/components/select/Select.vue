@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'is-focus':isFocus}]" @click="handleClick" :disabled="disabled">
+  <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @click="handleClick">
     <flexbox class="vx-select-inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>

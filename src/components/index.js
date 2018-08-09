@@ -182,7 +182,7 @@ const install = (Vue) => {
             'close': this.handleClose
           },
           scopedSlots: {
-            default: props => createElement('div', message)
+            default: props => createElement('div', {domProps: {innerHTML: message}})
           }
         })
       },
@@ -236,7 +236,7 @@ const install = (Vue) => {
               'close-after': this.handleCloseAfter
             },
             scopedSlots: {
-              default: props => createElement('div', message)
+              default: props => createElement('div', {domProps: {innerHTML: message}})
             }
           })
         },
@@ -295,7 +295,7 @@ const install = (Vue) => {
               'close-after': this.handleCloseAfter
             },
             scopedSlots: {
-              default: props => createElement('div', message)
+              default: props => createElement('div', {domProps: {innerHTML: message}})
             }
           })
         },
@@ -352,7 +352,6 @@ const install = (Vue) => {
       let vue = new Vue({ //eslint-disable-line
         el: node,
         render (createElement) {
-          let message = props.message
           return createElement(Prompt, {
             props: props,
             on: {
@@ -360,9 +359,6 @@ const install = (Vue) => {
               'close': this.handleClose,
               'close-after': this.handleCloseAfter,
               'change': this.handleChange
-            },
-            scopedSlots: {
-              default: props => createElement('div', message)
             }
           })
         },

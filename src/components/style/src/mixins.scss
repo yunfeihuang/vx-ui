@@ -1,5 +1,5 @@
 @mixin disabled{
-  &[disabled]{
+  &.is-disabled{
     opacity:0.6;
     pointer-events: none;
     @content;
@@ -18,7 +18,6 @@
   appearance: none;
   text-align:center;
   user-select:none;
-  cursor: default;
   box-shadow: none;
   font-size: inherit;
   box-sizing: border-box;

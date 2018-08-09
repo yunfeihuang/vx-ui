@@ -37,6 +37,10 @@ export default {
     fastClose: {
       type: Boolean,
       default: true
+    },
+    indoc: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

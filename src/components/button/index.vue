@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :disabled="disabled||loading" :type="nativeType" @click="handleClick">
+  <button :class="classes" :type="nativeType" @click="handleClick">
     <spinner v-if="loading" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <ripple v-if="ripple" :color="rippleColor" />
@@ -29,8 +29,11 @@ export default {
         'vx-btn',
         'vx-btn-' + this.type,
         'vx-btn-size-' + this.size,
-        {'is-plain': this.plain},
-        {'is-ripple': this.ripple}
+        {
+          'is-plain': this.plain,
+          'is-ripple': this.ripple,
+          'is-disabled': this.disabled || this.loading
+        }
       ]
     }
   },

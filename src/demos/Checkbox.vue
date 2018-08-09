@@ -5,7 +5,7 @@
     </x-nav>
     <x-body slot="body">
       <group title="Checkbox">
-        <checkbox :checked.sync="checked">{{checked}}</checkbox>
+        <checkbox :checked.sync="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
         <checkbox-group v-model="value">

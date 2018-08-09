@@ -1,7 +1,7 @@
 <template>
-  <label :class="classes" :disabled="myDisabled" >
-    <input :type="myType" :name="name" :value="value" :disabled="myDisabled" :checked="myChecked" @change="handleChange"/>
-    <rem-to-px tag="i" :class="['vx-checkbox-icon', `is-${getIconStyle}`]" :height="getIconStyle==='checkbox' ? 0.36 : 0.4" :width="getIconStyle==='checkbox' ? 0.36 : 0.4"></rem-to-px>
+  <label :class="classes" >
+    <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
+    <rem-to-px tag="i" :class="['vx-checkbox-icon', getIconStyle ? `is-${getIconStyle}` : '']" :height="getIconStyle==='checkbox' ? 0.36 : 0.4" :width="getIconStyle==='checkbox' ? 0.36 : 0.4"></rem-to-px>
     <span class="vx-checkbox-text">
       <slot></slot>
     </span>
@@ -28,6 +28,12 @@ export default {
     },
     iconStyle: {
       type: String
+    },
+    onValue: {
+      type: String
+    },
+    offValue: {
+      type: String
     }
   },
   computed: {
@@ -36,6 +42,7 @@ export default {
         'vx-checkbox',
         {
           'is-active': this.myChecked,
+          'is-disabled': this.myDisabled,
           'vx-checkbox-reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
         }
       ]
@@ -75,6 +82,7 @@ export default {
         this.$parent.handleChange(e)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)
+        this.offValue !== undefined && this.onValue !== undefined && this.$emit('input', e.target.checked ? this.onValue : this.offValue)
       }
     }
   }

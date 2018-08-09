@@ -8,7 +8,6 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :value="value"
-        :disabled="disabled"
         :autocomplete="autocomplete"
         :autofocus="autofocus"
         :maxlength="maxlength"
@@ -58,7 +57,8 @@ export default {
           'is-focus': this.isFocus,
           'is-clear': !!this.value && this.clear,
           'vx-input-prepend': this.$slots.prepend,
-          'vx-input-append': this.$slots.append
+          'vx-input-append': this.$slots.append,
+          'is-disabled': this.disabled
         }
       ]
     }

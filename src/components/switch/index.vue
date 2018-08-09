@@ -1,7 +1,6 @@
 <template>
-  <div class="vx-switch-wrapper">
+  <div :class="['vx-switch-wrapper', {'is-disabled': disabled}]">
     <input
-      :disabled="disabled"
       :name="name"
       :checked="onValue == value"
       type="checkbox"
