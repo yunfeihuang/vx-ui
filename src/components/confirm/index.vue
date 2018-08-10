@@ -12,7 +12,7 @@
           </div>
           <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
             <button class="vx-flexbox-item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
-            <button class="vx-flexbox-item" type="button" @click="handleConfirm">{{confirmText}}</button>
+            <component class="vx-flexbox-item" :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
           </div>
         </div>
       </transition>
@@ -48,6 +48,16 @@ export default {
     confirmText: {
       type: String,
       default: '确定'
+    },
+    confirmTag: {
+      type: String,
+      default: 'button'
+    },
+    confirmProps: {
+      type: Object,
+      default () {
+        return {type: 'button'}
+      }
     }
   },
   mounted () {
@@ -80,8 +90,14 @@ export default {
     handleCancel () {
       this.$emit('update:open', false).$emit('close')
     },
-    handleConfirm () {
-      this.open && this.$emit('update:open', false).$emit('confirm')
+    handleConfirm (e) {
+      if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
+        setTimeout(() => {
+          this.open && this.$emit('update:open', false).$emit('confirm')
+        }, 400)
+      } else {
+        this.open && this.$emit('update:open', false).$emit('confirm')
+      }
     },
     handleLeave () {
       this.$nextTick(() => {

@@ -15,7 +15,7 @@
         <span slot="value" @click="handleOpen">点击我打开</span>
       </cell>
     </group>
-    <alert :open.sync="open">alert</alert>
+    <alert :open.sync="open" title="标题">alert</alert>
   </div>
 </template>
 <script>
@@ -40,6 +40,7 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | open     | 是否打开   | Boolean  |   -       |    false    |
+| title     | 标题   | String  |   -       |    -    |
 | history     | 打开是否产生浏览器历史记录   | Boolean  |   -       |    true    |
 | confirmText     | 确定文字   | String  |   -       |    确定    |
 

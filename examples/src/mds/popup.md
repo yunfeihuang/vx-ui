@@ -79,7 +79,7 @@
         </group>
       </div>
     </popup>
-    <popup :open.sync="openFull" :full="true">
+    <popup :open.sync="openFull" :full="true" :show-close>
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">
@@ -113,6 +113,7 @@
 | open     | 是否打开   | Boolean  |   -       |    false    |
 | history     | 打开是否产生浏览器历史记录   | Boolean  |   -       |    true    |
 | full     | 是否占满屏   | Boolean  |   -       |    false    |
+| showClose     | 是否显示关闭按钮   | Boolean  |   -       |    false    |
 | direction     | 渐入方向   | String  |   bottom,top,left,right,center       |    bottom    |
 | fastClose     | 是否非内容区域关闭   | Boolean  |   -       |    true    |
 
