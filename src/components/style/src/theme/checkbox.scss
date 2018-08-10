@@ -89,5 +89,14 @@
         transform: rotate(45deg);
       }
     }
+    &.is-inline{
+      display:inline-block;
+      vertical-align: middle;
+      padding: 0.05rem 0;
+      margin-right:0.4rem;
+      .vx-checkbox-text{
+        padding-left:0.5rem;
+      }
+    }
   }
 }

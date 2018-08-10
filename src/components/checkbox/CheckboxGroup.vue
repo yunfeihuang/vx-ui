@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider, 'is-disabled': disabled}]">
+  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider && !inline, 'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>
@@ -33,6 +33,9 @@ export default {
     },
     iconStyle: {
       type: String
+    },
+    inline: {
+      type: Boolean
     }
   },
   methods: {

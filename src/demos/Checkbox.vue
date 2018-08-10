@@ -22,8 +22,8 @@
           value：{{value}}
         </div>
       </group>
-      <group title="CheckboxGroup Change Icon style">
-        <checkbox-group v-model="value" icon-style="checkbox">
+      <group title="CheckboxGroup Change Icon style And inline style">
+        <checkbox-group v-model="value" icon-style="checkbox" inline>
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"

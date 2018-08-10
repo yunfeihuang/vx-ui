@@ -35,6 +35,9 @@ export default {
     },
     offValue: {
       type: String
+    },
+    inline: {
+      type: Boolean
     }
   },
   computed: {
@@ -44,6 +47,7 @@ export default {
         {
           'is-active': this.myChecked,
           'is-disabled': this.myDisabled,
+          'is-inline': this.myInline,
           'vx-checkbox-reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
         }
       ]
@@ -75,6 +79,13 @@ export default {
         return this.$parent.value.indexOf(this.value) === -1
       }
       return disabled
+    },
+    myInline () {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
+        console.log('this.$parent.inline', this.$parent.inline)
+        return this.inline || this.$parent.inline
+      }
+      return this.inline
     }
   },
   methods: {
