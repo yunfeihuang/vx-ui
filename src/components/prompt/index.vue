@@ -91,7 +91,7 @@ export default {
   },
   watch: {
     value (value) {
-      if (this.myValue !== value){
+      if (this.myValue !== value) {
         this.myValue = value
       }
     },

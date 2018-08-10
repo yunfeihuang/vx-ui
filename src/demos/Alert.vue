@@ -15,7 +15,7 @@
         </cell>
       </group>
     </x-body>
-    <alert :open.sync="open">alert</alert>
+    <alert :open.sync="open" title="标题">alert</alert>
   </layout>
 </template>
 

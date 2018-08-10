@@ -6,7 +6,10 @@
     <slot name="inner" v-if="$slots.inner"></slot>
     <transition v-else :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @after-leave="handleLeave">
       <div v-if="open" :class="innerClasses" @click="handleClose2">
-        <slot></slot>
+        <div class="vx-popup-relative">
+          <rem-to-px :height="0.5" :width="0.5" v-if="showClose" class="vx-popup-close" @click.native="close"></rem-to-px>
+          <slot></slot>
+        </div>
       </div>
     </transition>
   </div>
@@ -15,10 +18,12 @@
 <script>
 import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
+import RemToPx from '../remtopx'
 export default {
   componentName: 'Popup',
   components: {
-    Overlay
+    Overlay,
+    RemToPx
   },
   mixins: [historyPush],
   props: {
@@ -38,7 +43,7 @@ export default {
       type: Boolean,
       default: true
     },
-    indoc: {
+    showClose: {
       type: Boolean,
       default: false
     }
