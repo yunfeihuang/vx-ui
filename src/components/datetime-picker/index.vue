@@ -253,8 +253,8 @@ export default {
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.open && value !== this.value && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
-      value === this.value && this.handleClose()
+      this.open && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
+      this.handleClose()
     },
     handleChange (value, index, type) {
       this.pickers[index].value = value
