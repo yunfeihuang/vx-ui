@@ -8,7 +8,6 @@
         :placeholder="placeholder"
         :readonly="readonly"
         :value="value"
-        :disabled="disabled"
         :autocomplete="autocomplete"
         :autofocus="autofocus"
         :maxlength="maxlength"
@@ -24,6 +23,7 @@
       </flexbox-item>
       <transition name="input-clear-fade" v-if="!$slots.append">
         <button
+          tabindex="-2"
           type="button"
           v-show="!!value && clear"
           class="vx-input-clear-button"
@@ -52,6 +52,9 @@ export default {
     RemToPx
   },
   mixins: [input],
+  props: {
+    ...input.props
+  },
   computed: {
     classes () {
       return [
@@ -60,7 +63,9 @@ export default {
           'is-focus': this.isFocus,
           'is-clear': !!this.value && this.clear,
           'vx-input-prepend': this.$slots.prepend,
-          'vx-input-append': this.$slots.append
+          'vx-input-append': this.$slots.append,
+          'is-disabled': this.disabled,
+          'is-border': this.border
         }
       ]
     }

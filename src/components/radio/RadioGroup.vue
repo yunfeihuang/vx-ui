@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-radio-group', {'vx-radio-group-divider': divider}]" :disabled="disabled">
+  <div :class="['vx-radio-group', {'vx-radio-group-divider': divider, 'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>
@@ -11,6 +11,7 @@ export default {
   componentName: 'RadioGroup',
   mixins: [input],
   props: {
+    ...input.props,
     divider: {
       type: Boolean,
       default: true

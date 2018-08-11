@@ -4,13 +4,15 @@
     &prompt{
       input{
         text-align:left;
-        padding-left:0;
       }
       &.is-disabled{
         .#{$css-prefix}confirm-footer button:last-child{
           opacity:0.5;
           pointer-events: none;
         }
+      }
+      .vx-confirm-body{
+        padding:1px;;
       }
     }
   }

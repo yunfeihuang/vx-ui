@@ -34,6 +34,7 @@
 | -     | -   | -  |   -       |    -    |
 | value     | 值   | String,Boolean  |     -     |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| small     | 是否小风格样式   | Boolean  |   -       |    -    |
 | onValue     | 选中的value设定值   | String  |   -       |    -    |
 | offValue     | 没有选中的value设定值   | String  |   -       |    -    |
 

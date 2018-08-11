@@ -1,14 +1,13 @@
 <template>
-  <label class="vx-checker">
+  <label :class="['vx-checker',{'is-disabled': myDisabled}]">
     <input
       :type="myType"
       :checked="myChecked"
       :name="name"
       :value="value"
-      :disabled="myDisabled"
       @change="handleChange"
       />
-    <button type="button" :disabled="myDisabled">
+    <button type="button">
       <slot></slot>
     </button>
   </label>
@@ -21,6 +20,7 @@ export default {
   componentName: 'Checker',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [String]
     }
@@ -28,7 +28,11 @@ export default {
   computed: {
     myChecked () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.value && this.$parent.value.indexOf) {
-        return this.$parent.value.indexOf(this.value) > -1
+        if (this.$parent.value instanceof Array) {
+          return this.$parent.value.indexOf(this.value) > -1
+        } else {
+          return this.$parent.value === this.value
+        }
       } else {
         return this.checked
       }

@@ -15,7 +15,12 @@
 
 <script>
 import { children } from 'utils/mixins/page'
+import {Swiper, SwiperItem} from '../components/swiper' // import {Swiper, SwiperItem} from 'vx-ui/lib/swiper'
 export default {
+  components: {
+    Swiper,
+    SwiperItem
+  },
   mixins: [children],
   data () {
     return {

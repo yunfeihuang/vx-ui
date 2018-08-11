@@ -5,7 +5,10 @@
     </x-nav>
     <x-body slot="body">
       <group title="Checkbox">
-        <checkbox :checked.sync="checked">{{checked}}</checkbox>
+        <checkbox :checked.sync="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
+      </group>
+      <group title="Checkbox icon-style='checkbox'">
+        <checkbox :checked.sync="checked" icon-style="checkbox" style="margin:0 0.15rem">{{checked}}</checkbox>
       </group>
       <group title="CheckboxGroup">
         <checkbox-group v-model="value">
@@ -22,8 +25,8 @@
           value：{{value}}
         </div>
       </group>
-      <group title="CheckboxGroup Change Icon style">
-        <checkbox-group v-model="value" icon-style="checkbox">
+      <group title="CheckboxGroup Change Icon style And inline style">
+        <checkbox-group v-model="value" inline>
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"
@@ -52,8 +55,8 @@
         value：{{reverseValue}}
         </div>
       </group>
-      <group title="CheckboxGroup最多选2个">
-        <checkbox-group direction="reverse" :max="2" v-model="reverseValue">
+      <group title="CheckboxGroup最多选1个(单选框)">
+        <checkbox-group :max="1" v-model="reverseValue">
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"

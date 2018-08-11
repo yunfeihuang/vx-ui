@@ -30,17 +30,10 @@
       overflow: hidden;
       @include active;
       @include divider;
-      &-text{
-        @include disabled;
-      }
       &.is-active{
         color:$color-primary;
       }
-      &.is-disabled{
-        opacity: 0.6;
-        pointer-events: none;
-      }
-      
+      @include disabled;
     }
     &-menu {
       .#{$css-prefix}actionsheet{

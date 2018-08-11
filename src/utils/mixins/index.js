@@ -1,7 +1,7 @@
 const button = {
   props: {
     disabled: {
-      type: [String, Boolean]
+      type: Boolean
     },
     type: {
       type: String,
@@ -43,10 +43,10 @@ const input = {
   },
   props: {
     disabled: {
-      type: [String, Boolean]
+      type: Boolean
     },
     clear: {
-      type: [String, Boolean],
+      type: Boolean,
       default: true
     },
     nativeType: {
@@ -54,10 +54,10 @@ const input = {
       default: 'text'
     },
     readonly: {
-      type: [String, Boolean]
+      type: Boolean
     },
     value: {
-      type: String
+      type: [String, Number]
     },
     placeholder: {
       type: String
@@ -78,10 +78,10 @@ const input = {
       }
     },
     required: {
-      type: [String, Boolean]
+      type: Boolean
     },
     checked: {
-      type: [String, Boolean]
+      type: Boolean
     },
     pattern: {
       type: String
@@ -96,6 +96,10 @@ const input = {
     },
     arrowProps: {
       type: Object
+    },
+    border: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

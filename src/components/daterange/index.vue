@@ -37,6 +37,7 @@ export default {
   },
   mixins: [input],
   props: {
+    ...input.props,
     format: {
       type: String,
       default: 'yyyy-MM-dd'

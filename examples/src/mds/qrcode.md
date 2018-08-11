@@ -6,6 +6,14 @@
     <qrcode :text="http://vue.bittyos.com/"/>
   </div>
 </template>
+<script>
+import Qrcode from 'vx-ui/lib/qrcode'
+export default {
+  components: {
+    Qrcode
+  }
+}
+</script>
 <style lang="css">
   .qrcode-demo{
     text-align:center;

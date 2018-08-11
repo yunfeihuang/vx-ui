@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag">
+  <component :is="tag" :style="styles">
     <slot></slot>
   </component>
 </template>
@@ -22,15 +22,22 @@ export default {
       default: 'div'
     }
   },
+  data () {
+    return {
+      styles: this.getStyles()
+    }
+  },
   mounted () {
-    this.init()
-    window.addEventListener('resize', this.init, false)
+    window.addEventListener('resize', this.handleResize, false)
   },
   destroyed () {
-    window.removeEventListener('resize', this.init)
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
-    init () {
+    handleResize () {
+      this.styles = this.getStyles()
+    },
+    getStyles () {
       let fontSize = document.documentElement.style.fontSize
       let width = ''
       let height = ''
@@ -49,9 +56,7 @@ export default {
           }
         }
       }
-      requestAnimationFrame(() => {
-        this.$el.style.cssText = `width:${width}px;height:${height}px`
-      })
+      return `width:${width}px;height:${height}px`
     }
   }
 }

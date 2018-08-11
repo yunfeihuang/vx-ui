@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-input-number" :disabled="disabled">
+  <div :class="['vx-input-number',{'is-disabled': disabled}]">
     <button class="vx-input-number-reduce" type="button" @click="handleChange(value-buttonStep)"></button>
     <input
       v-bind="$props"
@@ -17,6 +17,7 @@ export default {
   componentName: 'InputNumber',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: Number,
       default: 0

@@ -11,7 +11,12 @@
   </div>
 </template>
 <script>
+import {Swiper, SwiperItem} from 'vx-ui/lib/swiper'
 export default {
+  components: {
+    Swiper,
+    SwiperItem
+  },
   data () {
     return {
       images: [

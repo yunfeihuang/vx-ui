@@ -1,7 +1,6 @@
 <template>
-  <div class="vx-switch-wrapper">
+  <div :class="['vx-switch-wrapper', {'is-disabled': disabled, 'vx-switch-small': small}]">
     <input
-      :disabled="disabled"
       :name="name"
       :checked="onValue == value"
       type="checkbox"
@@ -19,6 +18,7 @@ export default {
   componentName: 'XSwitch',
   mixins: [input],
   props: {
+    ...input.props,
     value: {
       type: [Boolean, String, Number],
       default: false
@@ -34,6 +34,9 @@ export default {
     },
     offText: {
       default: ''
+    },
+    small: {
+      type: Boolean
     }
   },
   methods: {

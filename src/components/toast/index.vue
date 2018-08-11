@@ -67,7 +67,7 @@ export default {
             let width = this.$el.children[0].offsetWidth + 4
             let height = this.$el.children[0].offsetHeight + 4
             requestAnimationFrame(() => {
-              this.$el.style.cssText = `display:block;width:${width}px;height:${height}px;`
+              this.$el.style.cssText = `display:block;width:${width + 10}px;height:${height + 10}px;`
             })
           })
         })

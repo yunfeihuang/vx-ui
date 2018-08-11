@@ -27,6 +27,7 @@ export default {
   },
   mixins: [input],
   props: {
+    ...input.props,
     value: CascaderPopupPicker.props.value,
     options: CascaderPopupPicker.props.options,
     placeholder: {

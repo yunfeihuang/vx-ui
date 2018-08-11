@@ -29,23 +29,22 @@
       overflow: hidden;
     }
     &-title{
-      padding-top:0.5rem;
-      margin-bottom:-0.1rem;
+      margin:0.36rem;
       font-size:0.32rem;
-      &+.vx-confirm-body{
-        padding:0.5rem;
-      }
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     &-body{
       max-height: 65vh;
-      margin:0.8rem 0.5rem;
+      margin:0.36rem;
       position:relative;
       overflow:auto;
     }
     &-footer{
       position:relative;
       @include divider;
-      button{
+      button, a{
         @include button;
         padding:$item-padding;
         @include active;
@@ -54,13 +53,22 @@
         font-size:inherit;
         line-height:100%;
         color:$color-sub;
-        &+button{
+        &+button,&+a{
           @include divider-vertical();
         }
         &:last-child{
           color:$color-primary;
         }
       }
+    }
+    &-table{
+      width:100%;
+      display:table;
+      min-height:1rem;
+    }
+    &-cell{
+      display: table-cell;
+      vertical-align: middle;
     }
   }
 }

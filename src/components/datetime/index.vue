@@ -38,6 +38,7 @@ export default {
     XInput
   },
   props: {
+    ...input.props,
     format: {
       type: String,
       default: 'yyyy-MM-dd'
@@ -82,10 +83,13 @@ export default {
           })
         },
         components: { DatetimePicker },
-        data: {
-          open: false,
-          value: datetime.value === null ? undefined : datetime.value,
-          format: datetime.format
+        data () {
+          let now = new Date()
+          return {
+            open: false,
+            value: datetime.value || now.format(datetime.format),
+            format: datetime.format
+          }
         },
         mounted () {
           requestAnimationFrame(() => {

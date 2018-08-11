@@ -14,6 +14,7 @@ export default {
   componentName: 'Range',
   mixins: [input],
   props: {
+    ...input.props,
     min: {
       type: Number,
       default: 0

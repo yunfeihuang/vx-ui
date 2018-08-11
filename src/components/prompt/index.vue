@@ -16,6 +16,8 @@
         v-if="inputProps.type === 'password'"
         v-model="myValue"
         :clear="false"
+        :encrypt="encrypt"
+        :cipher.sync="myCipher"
         class="vx-prompt-input"
         v-bind="inputProps"
         @input="handleInput"
@@ -70,16 +72,34 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    encrypt: {
+      type: Function,
+      default (value, next) {
+        next(value.toUpperCase())
+      }
+    },
+    cipher: {
+      type: String
     }
   },
   data () {
     return {
-      myValue: this.value
+      myValue: this.value,
+      myCipher: this.cipher
     }
   },
   watch: {
     value (value) {
-      this.myValue = value
+      if (this.myValue !== value) {
+        this.myValue = value
+      }
+    },
+    myValue (value) {
+      this.$emit('input', value)
+    },
+    myCipher (value) {
+      this.$emit('update:cipher', value)
     }
   },
   methods: {

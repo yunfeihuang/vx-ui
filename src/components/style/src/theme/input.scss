@@ -6,6 +6,7 @@
     display:block;
     height:0.92rem;
     background:#fff;
+    @include disabled;
     .vx-arrow{
       margin-left:10px;
       margin-right:10px;
@@ -23,38 +24,38 @@
       padding:0 0.2rem;
       vertical-align: middle;
       background: transparent;
-      @include disabled;
     }
-    
-    &:before{
-      @include divider;
-      z-index:1;
-      position:absolute;
-      content:'';
-      height:1px;
-      width:100%;
-      left:0;
-      bottom:-1px;
-      background-color: transparent;
-    }
-    &:after{
-      @include divider($color-primary);
-      width:0;
-      position:absolute;
-      content:'';
-      height:1px;
-      transition:width 0.4s $ease-in-out;
-      z-index:2;
-      left:0;
-      bottom:-1px;
-      background-color: transparent;
+    &.is-border{
+      &:before{
+        @include divider;
+        z-index:1;
+        position:absolute;
+        content:'';
+        height:1px;
+        width:100%;
+        left:0;
+        bottom:-1px;
+        background-color: transparent;
+      }
+      &:after{
+        @include divider($color-primary);
+        width:0;
+        position:absolute;
+        content:'';
+        height:1px;
+        transition:width 0.4s $ease-in-out;
+        z-index:2;
+        left:0;
+        bottom:-1px;
+        background-color: transparent;
+      }
     }
     &.is-focus{
       &:after{
         width:100%;
       }
       .vx-arrow{
-        transform:rotate(225deg)!important;
+        transform:rotate(-135deg)!important;
         margin-top:0.1rem;
       }
     }
@@ -84,7 +85,6 @@
           top:50%;
           transform:translateX(-50%);
           margin-top:-1px;
-          border-radius:3rem;
         }
         &:after{
           content: '';
@@ -96,7 +96,6 @@
           top:50%;
           transform:translateY(-50%);
           margin-left:-1px;
-          border-radius:3rem;
         }
       }
       .#{$css-prefix}input-clear-button{

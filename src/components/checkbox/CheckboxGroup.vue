@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider}]" :disabled="disabled">
+  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider && !inline, 'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
     Checkbox
   },
   props: {
+    ...input.props,
     value: {
       default: []
     },
@@ -32,6 +33,9 @@ export default {
     },
     iconStyle: {
       type: String
+    },
+    inline: {
+      type: Boolean
     }
   },
   methods: {
@@ -43,7 +47,6 @@ export default {
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
-          this.$toast({content: `选择项不得超过${this.max}个`})
         } else {
           let value = Object.assign([], this.value)
           if (e.target.checked) {

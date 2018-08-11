@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'is-focus':isFocus}]" @click="handleClick" :disabled="disabled">
+  <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @click.stop.prevent="handleClick">
     <flexbox class="vx-select-inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -29,7 +29,13 @@ export default {
     FlexboxItem
   },
   mixins: [input],
+  provide () {
+    return {
+      'select': this
+    }
+  },
   props: {
+    ...input.props,
     value: {
       type: [String, Array]
     },
@@ -55,10 +61,14 @@ export default {
   watch: {
     value (val) {
       this.updateLabel(val)
+    },
+    options () {
+      this.updateLabel(this.value)
     }
   },
   data () {
     return {
+      options: [],
       isFocus: false,
       myLabel: this.max === 1 ? '' : []
     }
@@ -78,7 +88,7 @@ export default {
   methods: {
     getOptions () {
       let result = []
-      this.$children.forEach((item) => {
+      this.options.forEach((item) => {
         if (item.$options && item.$options.componentName === 'XOption') {
           result.push({
             value: item.value,
@@ -94,25 +104,18 @@ export default {
       if (!this.disabled) {
         let self = this
         let node = document.createElement('div')
-        if (this.getPopupMounted) {
-          this.getPopupMounted(e).appendChild(node)
-        } else {
-          document.body.appendChild(node)
-        }
-        this.$$myOptions = this.getOptions()
         if (this.$$myOptions.length) {
           /* eslint-disable no-new */
           this.$$popup = new Vue({
-            el: node,
             render (createElement) {
               return createElement(Picker, {
                 props: {
                   open: this.open,
-                  value: this.max === 1 ? [this.value] : this.value,
-                  options: this.options,
-                  title: this.title,
-                  max: this.max,
-                  direction: this.direction
+                  value: self.max === 1 ? [self.value] : self.value,
+                  options: self.$$myOptions,
+                  title: self.title,
+                  max: self.max,
+                  direction: self.max === 1 ? self.popupDirection : undefined
                 },
                 class: ['vx-select-picker'],
                 on: {
@@ -123,12 +126,7 @@ export default {
               })
             },
             data: {
-              options: this.$$myOptions,
-              open: false,
-              value: this.value,
-              title: this.placeholder,
-              max: this.max,
-              direction: this.max === 1 ? this.popupDirection : undefined
+              open: false
             },
             mounted () {
               this.open = true
@@ -159,25 +157,36 @@ export default {
               }
             }
           })
+          if (this.getPopupMounted) {
+            this.getPopupMounted(e).appendChild(node)
+          } else {
+            document.body.appendChild(node)
+          }
+          this.$$popup.$mount(node)
         }
       }
     },
     updateLabel (value) {
       this.$$myOptions = this.getOptions()
-      if (this.max === 1) {
-        this.$$myOptions && this.$$myOptions.forEach(item => {
-          if (item.value === value) {
-            this.myLabel = item.label
-            this.$emit('update:label', item.label)
-          }
-        })
+      if (this.$$myOptions && this.$$myOptions.length) {
+        if (this.max === 1) {
+          this.$$myOptions && this.$$myOptions.forEach(item => {
+            if (item.value === value) {
+              this.myLabel = item.label
+              this.$emit('update:label', item.label)
+            }
+          })
+        } else {
+          let label = []
+          this.$$myOptions && this.$$myOptions.forEach(item => {
+            value && value.indexOf(item.value) > -1 && label.push(item.label)
+          })
+          this.myLabel = label.toString()
+          this.$emit('update:label', this.myLabel)
+        }
       } else {
-        let label = []
-        this.$$myOptions && this.$$myOptions.forEach(item => {
-          value && value.indexOf(item.value) > -1 && label.push(item.label)
-        })
-        this.myLabel = label.toString()
-        this.$emit('update:label', this.myLabel)
+        this.myLabel = ''
+        this.$emit('update:label', '')
       }
     }
   }

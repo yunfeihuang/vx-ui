@@ -17,6 +17,7 @@
           <div slot="title">js调用</div>
           <span slot="value" @click="handleOpen">点击我打开</span>
         </cell>
+        密码加密文本：{{cipher}}
       </group>
     </x-body>
     <prompt
@@ -33,6 +34,7 @@
       :open.sync="open2"
       :disabled="disabled2"
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
+      :cipher.sync="cipher"
       @change="handleChangePrompt2">
     </prompt>
   </layout>
@@ -72,7 +74,8 @@ export default {
       disabled1: true,
       value2: '',
       open2: false,
-      disabled2: true
+      disabled2: true,
+      cipher: ''
     }
   }
 }

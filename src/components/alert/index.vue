@@ -4,6 +4,7 @@
     :confirmText="confirmText"
     :cancel="false"
     :history="history"
+    :title="title"
     @confirm="handleConfirm"
     @close="handleClose"
     @close-after="handleCloseAfter">
@@ -22,6 +23,9 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String
     },
     history: {
       type: Boolean,

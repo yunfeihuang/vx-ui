@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-rater" :disabled="disabled">
+  <div :class="['vx-rater',{'is-disabled': disabled}]">
     <span
       v-for="(item,index) in max"
       :class="['vx-rater-item',{'is-active':item<=value}]"
@@ -19,6 +19,7 @@ export default {
   componentName: 'Rater',
   mixins: [input],
   props: {
+    ...input.props,
     disabled: {
       type: Boolean,
       default: false

@@ -26,7 +26,7 @@
           <x-switch slot="value" v-model="openCenter"/>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup full</div>
+          <div slot="title">popup full && show close</div>
           <x-switch slot="value" v-model="openFull"/>
         </cell>
       </group>
@@ -81,7 +81,7 @@
         </group>
       </div>
     </popup>
-    <popup :open.sync="openFull" :full="true">
+    <popup :open.sync="openFull" :full="true" :show-close="true">
       <div style="padding:20px 0;">
         <group>
           <cell :arrow="false">

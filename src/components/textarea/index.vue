@@ -1,10 +1,9 @@
 <template>
-  <label :class="['vx-textarea-wrapper',{'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
+  <label :class="['vx-textarea-wrapper',{'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
     <div class="vx-textarea-inner">
       <div class="vx-textarea-shadow"></div>
       <textarea
         :placeholder="placeholder"
-        :disabled="disabled"
         :autocomplete="autocomplete"
         :maxlength="maxlength"
         :name="name"
@@ -30,6 +29,7 @@ export default {
   componentName: 'XTextarea',
   mixins: [input],
   props: {
+    ...input.props,
     enterNumber: {
       type: Boolean,
       default: false

@@ -108,6 +108,7 @@ export default {
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 | iconStyle     | 选中图标的风格   | String  |   checkbox       |    -    |
+| inline     | 行内样式   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
@@ -126,6 +127,7 @@ export default {
 |---------- |-------- |---------- |------------- |--------- |
 | value     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| inline     | 行内样式   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

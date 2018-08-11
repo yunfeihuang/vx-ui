@@ -42,9 +42,7 @@
         @include button;
         height:0.92rem;
         min-width:1rem;
-        &:disabled{
-          opacity: 0.5;
-        }
+        @include disabled;
       }
     }
     &-controls{

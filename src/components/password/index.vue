@@ -1,15 +1,7 @@
 <template>
   <x-input
-     class="vx-password"
-    :native-type="myNativeType"
-    :placeholder="placeholder"
-    :readonly="readonly"
-    :value="value"
-    :disabled="disabled"
-    :autocomplete="autocomplete"
-    :autofocus="autofocus"
-    :maxlength="maxlength"
-    :name="name"
+    class="vx-password"
+    v-bind="$props"
     :clear="false"
     :required="required"
     @focus="handleFocus"
@@ -23,6 +15,7 @@
     <slot name="prepend" slot="prepend"></slot>
     <slot v-if="$slots.append" name="append" slot="append"></slot>
     <button v-else slot="append"
+      tabindex="-2"
       class="vx-password-switch"
       type="button"
       @click="handleSwitch"
@@ -40,6 +33,7 @@ export default {
   componentName: 'Password',
   mixins: [input],
   props: {
+    ...input.props,
     nativeType: {
       type: String,
       default: 'password'
