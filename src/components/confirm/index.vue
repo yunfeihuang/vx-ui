@@ -8,7 +8,11 @@
         <div class="vx-confirm-inner" v-if="open">
           <div v-if="title" class="vx-confirm-title">{{title}}</div>
           <div class="vx-confirm-body">
-            <slot></slot>
+            <div class="vx-confirm-table">
+              <div class="vx-confirm-cell">
+                <slot></slot>
+              </div>
+            </div>
           </div>
           <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
             <button class="vx-flexbox-item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>

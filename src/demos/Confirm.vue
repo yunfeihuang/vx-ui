@@ -20,7 +20,7 @@
       </group>
     </x-body>
     <confirm :open.sync="open1">确认删除？</confirm>
-    <confirm :open.sync="open2">
+    <confirm :open.sync="open2" title="标题">
       <div style="line-height:3;">
         长内容长内容长内容长内容长内容长内容长长内容长内容长内容长内容长内容长
         内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
