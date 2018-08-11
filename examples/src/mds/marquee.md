@@ -21,6 +21,15 @@
     </x-marquee>
   </div>
 </template>
+<script>
+import {Marquee, MarqueeItem} from 'vx-ui/lib/marquee'
+export default {
+  components: {
+    Marquee,
+    MarqueeItem
+  }
+}
+</script>
 ```
 ### Marquee
 #### Props

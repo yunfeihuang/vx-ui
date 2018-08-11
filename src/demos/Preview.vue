@@ -17,8 +17,12 @@
 
 <script>
 import { children } from 'utils/mixins/page'
+import Preview from '../components/preview' // import Preview from 'vx-ui/lib/preview'
 let windowWidth = window.innerWidth
 export default {
+  components: {
+    Preview
+  },
   mixins: [children],
   data () {
     return {

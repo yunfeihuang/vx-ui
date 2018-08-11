@@ -62,7 +62,8 @@ export default {
           'is-clear': !!this.value && this.clear,
           'vx-input-prepend': this.$slots.prepend,
           'vx-input-append': this.$slots.append,
-          'is-disabled': this.disabled
+          'is-disabled': this.disabled,
+          'is-border': this.border
         }
       ]
     }

@@ -57,7 +57,7 @@ const input = {
       type: Boolean
     },
     value: {
-      type: String
+      type: [String, Number]
     },
     placeholder: {
       type: String
@@ -96,6 +96,10 @@ const input = {
     },
     arrowProps: {
       type: Object
+    },
+    border: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

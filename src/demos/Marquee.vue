@@ -25,7 +25,12 @@
 </template>
 <script>
 import { children } from 'utils/mixins/page'
+import {Marquee, MarqueeItem} from '../components/marquee' // import {Marquee, MarqueeItem} from 'vx-ui/lib/marquee'
 export default {
+  components: {
+    Marquee,
+    MarqueeItem
+  },
   mixins: [children]
 }
 </script>

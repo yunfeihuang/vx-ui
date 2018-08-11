@@ -35,6 +35,7 @@
 | value     | 值   | Array[String]  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| border     | 是否显示边框   | Boolean  |   -       |    true    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
 | clear     | 是否有清除按钮   | Boolean  |   -       |    true    |

@@ -1,15 +1,7 @@
 <template>
   <x-input
-     class="vx-password"
-    :native-type="myNativeType"
-    :placeholder="placeholder"
-    :readonly="readonly"
-    :value="value"
-    :disabled="disabled"
-    :autocomplete="autocomplete"
-    :autofocus="autofocus"
-    :maxlength="maxlength"
-    :name="name"
+    class="vx-password"
+    v-bind="$props"
     :clear="false"
     :required="required"
     @focus="handleFocus"

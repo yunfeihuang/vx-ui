@@ -13,8 +13,12 @@
   </div>
 </template>
 <script>
+import Preview from 'vx-ui/lib/preview'
 let windowWidth = window.innerWidth
 export default {
+  components: {
+    Preview
+  },
   data () {
     return {
       images: [
