@@ -29,6 +29,11 @@ export default {
     FlexboxItem
   },
   mixins: [input],
+  provide () {
+    return {
+      'select': this
+    }
+  },
   props: {
     ...input.props,
     value: {
@@ -56,10 +61,14 @@ export default {
   watch: {
     value (val) {
       this.updateLabel(val)
+    },
+    options () {
+      this.updateLabel(this.value)
     }
   },
   data () {
     return {
+      options: [],
       isFocus: false,
       myLabel: this.max === 1 ? '' : []
     }
@@ -79,7 +88,7 @@ export default {
   methods: {
     getOptions () {
       let result = []
-      this.$children.forEach((item) => {
+      this.options.forEach((item) => {
         if (item.$options && item.$options.componentName === 'XOption') {
           result.push({
             value: item.value,
@@ -165,20 +174,25 @@ export default {
     },
     updateLabel (value) {
       this.$$myOptions = this.getOptions()
-      if (this.max === 1) {
-        this.$$myOptions && this.$$myOptions.forEach(item => {
-          if (item.value === value) {
-            this.myLabel = item.label
-            this.$emit('update:label', item.label)
-          }
-        })
+      if (this.$$myOptions && this.$$myOptions.length) {
+        if (this.max === 1) {
+          this.$$myOptions && this.$$myOptions.forEach(item => {
+            if (item.value === value) {
+              this.myLabel = item.label
+              this.$emit('update:label', item.label)
+            }
+          })
+        } else {
+          let label = []
+          this.$$myOptions && this.$$myOptions.forEach(item => {
+            value && value.indexOf(item.value) > -1 && label.push(item.label)
+          })
+          this.myLabel = label.toString()
+          this.$emit('update:label', this.myLabel)
+        }
       } else {
-        let label = []
-        this.$$myOptions && this.$$myOptions.forEach(item => {
-          value && value.indexOf(item.value) > -1 && label.push(item.label)
-        })
-        this.myLabel = label.toString()
-        this.$emit('update:label', this.myLabel)
+        this.myLabel = ''
+        this.$emit('update:label', '')
       }
     }
   }

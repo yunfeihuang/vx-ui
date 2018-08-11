@@ -4,6 +4,7 @@
 <script>
 export default {
   componentName: 'XOption',
+  inject: ['select'],
   props: {
     value: {
       type: String
@@ -15,6 +16,12 @@ export default {
     label: {
       type: String
     }
+  },
+  created () {
+    this.select.options.push(this)
+  },
+  destroyed () {
+    this.select.options = this.select.options.filter(item => item !== this)
   }
 }
 </script>
