@@ -23,6 +23,7 @@
     <slot name="prepend" slot="prepend"></slot>
     <slot v-if="$slots.append" name="append" slot="append"></slot>
     <button v-else slot="append"
+      tabindex="-2"
       class="vx-password-switch"
       type="button"
       @click="handleSwitch"

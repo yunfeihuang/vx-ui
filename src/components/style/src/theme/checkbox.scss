@@ -97,6 +97,9 @@
       .vx-checkbox-text{
         padding-left:0.5rem;
       }
+      &:last-child{
+        margin-right:0;
+      }
     }
   }
 }

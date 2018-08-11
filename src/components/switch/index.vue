@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-switch-wrapper', {'is-disabled': disabled}]">
+  <div :class="['vx-switch-wrapper', {'is-disabled': disabled, 'vx-switch-small': small}]">
     <input
       :name="name"
       :checked="onValue == value"
@@ -34,6 +34,9 @@ export default {
     },
     offText: {
       default: ''
+    },
+    small: {
+      type: Boolean
     }
   },
   methods: {

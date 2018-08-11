@@ -23,6 +23,7 @@
       </flexbox-item>
       <transition name="input-clear-fade" v-if="!$slots.append">
         <button
+          tabindex="-2"
           type="button"
           v-show="!!value && clear"
           class="vx-input-clear-button"
