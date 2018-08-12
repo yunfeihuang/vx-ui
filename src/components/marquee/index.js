@@ -1,7 +1,7 @@
-﻿import Marquee from './Marquee'
-import MarqueeItem from './MarqueeItem'
+﻿import XMarquee from './Marquee'
+import XMarqueeItem from './MarqueeItem'
 
 export {
-  Marquee,
-  MarqueeItem
+  XMarquee,
+  XMarqueeItem
 }

@@ -22,11 +22,11 @@
   </div>
 </template>
 <script>
-import {Marquee, MarqueeItem} from 'vx-ui/lib/marquee'
+import {XMarquee, XMarqueeItem} from 'vx-ui/lib/marquee'
 export default {
   components: {
-    Marquee,
-    MarqueeItem
+    XMarquee,
+    XMarqueeItem
   }
 }
 </script>
