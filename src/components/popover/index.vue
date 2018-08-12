@@ -114,7 +114,9 @@ export default {
             this.open = false
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         }
       })
