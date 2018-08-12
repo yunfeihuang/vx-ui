@@ -8,9 +8,9 @@
       <arrow v-if="arrow && !$slots.append" v-bind="arrowProps" direction="down"/>
       <slot name="append"></slot>
     </flexbox>
-    <div style="display:none">
+    <datalist>
       <slot></slot>
-    </div>
+    </datalist>
   </div>
 </template>
 
@@ -56,6 +56,10 @@ export default {
     arrow: {
       type: Boolean,
       default: true
+    },
+    separator: {
+      type: String,
+      default: ','
     }
   },
   watch: {
@@ -74,29 +78,27 @@ export default {
     }
   },
   mounted () {
+    this.$$myOptions = this.getOptions()
     this.value && this.updateLabel(this.value)
   },
   destroyed () {
     if (this.$$popup) {
       this.$$popup.open = false
-      setTimeout(() => {
-        this.$$popup.$destroy()
-        this.$$popup = null
-      }, 2000)
+      this.$$popup.$destroy()
+      this.$$popup = null
     }
   },
   methods: {
     getOptions () {
       let result = []
-      this.options.forEach((item) => {
-        if (item.$options && item.$options.componentName === 'XOption') {
-          result.push({
-            value: item.value,
-            disabled: item.disabled,
-            label: item.label || item.$el.innerHTML.trim(),
-            html: item.$el.innerHTML.trim()
-          })
-        }
+      this.options.forEach(item => {
+        let html = item.$el.innerHTML.trim()
+        result.push({
+          value: item.value,
+          disabled: item.disabled,
+          label: item.label || html,
+          html
+        })
       })
       return result
     },
@@ -104,9 +106,15 @@ export default {
       if (!this.disabled) {
         let self = this
         let node = document.createElement('div')
+        if (this.getPopupMounted) {
+          this.getPopupMounted(e).appendChild(node)
+        } else {
+          document.body.appendChild(node)
+        }
         if (this.$$myOptions.length) {
           /* eslint-disable no-new */
           this.$$popup = new Vue({
+            el: node,
             render (createElement) {
               return createElement(Picker, {
                 props: {
@@ -133,17 +141,17 @@ export default {
               self.isFocus = true
             },
             destroyed () {
-              requestAnimationFrame(() => {
-                this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
-              })
+              this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
             },
             methods: {
               handleClose () {
-                this.open = false
                 self.isFocus = false
+                this.open = false
               },
               handleCloseAfter () {
-                this.$destroy && this.$destroy()
+                this.$nextTick(() => {
+                  this.$destroy()
+                })
               },
               handleChange (value) {
                 if (self.value !== value) {
@@ -153,21 +161,14 @@ export default {
                   self.eDispatch('ElFormItem', 'el.form.change', [value])
                   self.updateLabel(value)
                 }
-                this.$nextTick(this.handleClose)
+                this.handleClose()
               }
             }
           })
-          if (this.getPopupMounted) {
-            this.getPopupMounted(e).appendChild(node)
-          } else {
-            document.body.appendChild(node)
-          }
-          this.$$popup.$mount(node)
         }
       }
     },
     updateLabel (value) {
-      this.$$myOptions = this.getOptions()
       if (this.$$myOptions && this.$$myOptions.length) {
         if (this.max === 1) {
           this.$$myOptions && this.$$myOptions.forEach(item => {
@@ -181,7 +182,7 @@ export default {
           this.$$myOptions && this.$$myOptions.forEach(item => {
             value && value.indexOf(item.value) > -1 && label.push(item.label)
           })
-          this.myLabel = label.toString()
+          this.myLabel = label.join(this.separator)
           this.$emit('update:label', this.myLabel)
         }
       } else {
