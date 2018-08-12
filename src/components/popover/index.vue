@@ -107,9 +107,7 @@ export default {
           })
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            this.$el.parentNode.removeChild(this.$el)
-          })
+          this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {
           handleClose () {
@@ -125,9 +123,8 @@ export default {
     handleClickPopover () {
       if (this.$$popover) {
         this.$$popover.open = false
-        setTimeout(() => {
-          this.$$popover.$destroy()
-        }, 200)
+        this.$$popover.$destroy()
+        this.$$popover = null
       }
     }
   }

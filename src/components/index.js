@@ -203,9 +203,7 @@ const install = (Vue) => {
         }
       },
       destroyed () {
-        requestAnimationFrame(() => {
-          vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
-        })
+        vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
       }
     })
     return vue
@@ -262,9 +260,7 @@ const install = (Vue) => {
           }
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
@@ -321,9 +317,7 @@ const install = (Vue) => {
           }
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
