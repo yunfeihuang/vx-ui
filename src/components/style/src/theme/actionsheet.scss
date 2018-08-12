@@ -36,10 +36,12 @@
       @include disabled;
     }
     &-menu {
+      .vx-popup-relative{
+        max-width:10rem;
+        width:60%;
+      }
       .#{$css-prefix}actionsheet{
         &-inner{
-          max-width:10rem;
-          width:60%;
           border-radius:0.06rem;
         }
         &-item{
