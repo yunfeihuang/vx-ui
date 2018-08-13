@@ -8,6 +8,10 @@ import './demos/components'
 import './components/style/src/theme/index.scss'
 import Components from 'components'
 
+if (!window.requestAnimationFrame) {
+  window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
+}
+
 Vue.use(Components)
 
 /* eslint-disable no-new */

@@ -74,6 +74,7 @@ export default {
     }
   },
   mounted () {
+    this.$$myOptions = this.getOptions()
     this.value && this.updateLabel(this.value)
   },
   destroyed () {
@@ -89,14 +90,12 @@ export default {
     getOptions () {
       let result = []
       this.options.forEach((item) => {
-        if (item.$options && item.$options.componentName === 'XOption') {
-          result.push({
-            value: item.value,
-            disabled: item.disabled,
-            label: item.label || item.$el.innerHTML.trim(),
-            html: item.$el.innerHTML.trim()
-          })
-        }
+        result.push({
+          value: item.value,
+          disabled: item.disabled,
+          label: item.label || item.$el.innerHTML.trim(),
+          html: item.$el.innerHTML.trim()
+        })
       })
       return result
     },
