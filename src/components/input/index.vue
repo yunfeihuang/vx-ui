@@ -25,7 +25,7 @@
         <button
           tabindex="-2"
           type="button"
-          v-show="!!value && clear"
+          v-show="!!value && clear && !disabled"
           class="vx-input-clear-button"
           @click="handleClear"
           >
