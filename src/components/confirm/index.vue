@@ -1,16 +1,16 @@
 <template>
   <div class="vx-confirm">
     <transition name="confirm-fade">
-      <overlay v-if="open"></overlay>
+      <overlay v-show="open"></overlay>
     </transition>
     <div class="vx-confirm-wrapper">
       <transition name="confirm-scale" @after-leave="handleLeave">
-        <div class="vx-confirm-inner" v-if="open">
+        <div class="vx-confirm-inner" v-show="open">
           <div v-if="title" class="vx-confirm-title">{{title}}</div>
           <div class="vx-confirm-body">
             <div class="vx-confirm-table">
               <div class="vx-confirm-cell">
-                <slot></slot>
+                <slot :open="open"></slot>
               </div>
             </div>
           </div>

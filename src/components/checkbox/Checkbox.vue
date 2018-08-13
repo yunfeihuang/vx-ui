@@ -82,7 +82,6 @@ export default {
     },
     myInline () {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
-        console.log('this.$parent.inline', this.$parent.inline)
         return this.inline || this.$parent.inline
       }
       return this.inline

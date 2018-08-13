@@ -64,8 +64,8 @@ export default {
         requestAnimationFrame(() => {
           this.$el.style.cssText = 'display:block;opacity:0;'
           requestAnimationFrame(() => {
-            let width = this.$el.children[0].offsetWidth
-            let height = this.$el.children[0].offsetHeight
+            let width = this.$el.children[0].offsetWidth + 4
+            let height = this.$el.children[0].offsetHeight + 4
             requestAnimationFrame(() => {
               this.$el.style.cssText = `display:block;width:${width + 10}px;height:${height + 10}px;`
             })
@@ -84,9 +84,7 @@ export default {
     }
   },
   destroyed () {
-    requestAnimationFrame(() => {
-      this.$el.parentNode.removeChild(this.$el)
-    })
+    this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
   },
   watch: {
     open (value) {

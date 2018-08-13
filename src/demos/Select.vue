@@ -97,6 +97,15 @@ import { children } from 'utils/mixins/page'
 export default {
   mixins: [children],
   data () {
+    /*
+    let options = []
+    for (let i = 0; i < 100; i++) {
+      options.push({
+        value: i + '',
+        label: 'label-' + i
+      })
+    }
+    */
     return {
       label: '',
       value: '',

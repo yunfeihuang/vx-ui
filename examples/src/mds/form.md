@@ -109,7 +109,7 @@
             </radio-group>
           </el-form-item>
         </group>
-        <div style="padding:20px 10px;">
+        <div style="margin:20px 10px;">
           <x-button type="primary" native-type="submit" size="large">保存</x-button>
         </div>
       </el-form>

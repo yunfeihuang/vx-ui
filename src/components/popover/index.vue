@@ -66,7 +66,7 @@ export default {
             createElement('div', {
               class: ['vx-popover-content', popover.popoverClass],
               style: {
-                visibility: 'hidden'
+                opacity: '0'
               },
               slot: 'inner',
               on: {
@@ -83,40 +83,40 @@ export default {
         },
         mounted () {
           this.$nextTick(() => {
+            let width = window.innerWidth
+            let height = window.innerHeight
             let node = this.$el.querySelector('.vx-popover-content')
             let rect = popover.$el.getBoundingClientRect()
             let left = rect.left + 'px'
-            let isRight = false
-            let isBottom = false
-            if (rect.left > window.innerWidth / 2) {
-              isRight = true
-              left = rect.right - node.offsetWidth + 'px'
+            let right = 'auto'
+            if (rect.left > width / 2) {
+              left = 'auto'
+              right = width - rect.right + 'px'
             }
-            let top = rect.top + rect.height + 'px'
-            if (rect.top > window.innerHeight / 2) {
-              isBottom = true
-              top = rect.bottom - node.offsetHeight - rect.height - 24 + 'px'
+            let top = rect.bottom + 'px'
+            let bottom = 'auto'
+            if (rect.top > height / 2) {
+              top = 'auto'
+              bottom = height - rect.top + 'px'
             }
             requestAnimationFrame(() => {
-              node.style.top = top
-              node.style.left = left
-              node.style.visibility = ''
-              isRight && node.classList.add('vx-popover-content-right')
-              isBottom && node.classList.add('vx-popover-content-bottom')
+              node.style.cssText = `top:${top};left:${left};right:${right};bottom:${bottom};opacity:1`
+              left === 'auto' && node.classList.add('vx-popover-content-right')
+              top === 'auto' && node.classList.add('vx-popover-content-bottom')
             })
           })
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            this.$el.parentNode.removeChild(this.$el)
-          })
+          this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {
           handleClose () {
             this.open = false
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         }
       })
@@ -125,9 +125,8 @@ export default {
     handleClickPopover () {
       if (this.$$popover) {
         this.$$popover.open = false
-        setTimeout(() => {
-          this.$$popover.$destroy()
-        }, 200)
+        this.$$popover.$destroy()
+        this.$$popover = null
       }
     }
   }

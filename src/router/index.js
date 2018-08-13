@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
   if (router.app.$toast) {
     toast = router.app.$toast({
       type: 'loading',
-      content: '加载中',
+      message: '加载中',
       duration: 0,
       align: 'center'
     })

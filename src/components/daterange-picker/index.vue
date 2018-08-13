@@ -1,5 +1,13 @@
 <template>
-  <popup :open="open" :history="history" @open="handleOpen" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false" direction="top" :class="['vx-daterange-picker-wrapper']">
+  <popup
+   :class="['vx-daterange-picker-wrapper']"
+   :open="open"
+   :history="history"
+   :fast-close="false"
+   direction="top"
+   @open="handleOpen"
+   @close="handleClose"
+   @close-after="handleCloseAfter">
     <div class="vx-daterange-picker" v-if="open">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
       <flexbox class="vx-daterange-picker-footer">

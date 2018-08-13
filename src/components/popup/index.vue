@@ -1,14 +1,22 @@
 <template>
   <div class="vx-popup">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click="handleClose"></overlay>
+      <overlay v-show="open" @click="handleClose"></overlay>
     </transition>
     <slot name="inner" v-if="$slots.inner"></slot>
-    <transition v-else :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction" @enter="handleEnter" @after-leave="handleLeave">
-      <div v-if="open" :class="innerClasses" @click="handleClose2">
+    <transition
+      v-else
+      :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
+      @enter="handleEnter"
+      @before-enter="handleBeforeEnter"
+      @after-enter="handleAfterEnter"
+      @before-leave="handleBeforeLeave"
+      @leave="handleLeave"
+      @after-leave="handleAfterLeave">
+      <div v-show="open" :class="innerClasses" @click="handleClose2">
         <div class="vx-popup-relative">
           <rem-to-px :height="0.5" :width="0.5" v-if="showClose" class="vx-popup-close" @click.native="close"></rem-to-px>
-          <slot></slot>
+          <slot :open="open"></slot>
         </div>
       </div>
     </transition>
@@ -84,8 +92,14 @@ export default {
     }
   },
   methods: {
+    handleBeforeEnter () {
+      this.$emit('before-enter')
+    },
     handleEnter () {
       this.$emit('enter')
+    },
+    handleAfterEnter () {
+      this.$emit('after-enter')
     },
     close () {
       this.$emit('close').$emit('update:open', false)
@@ -98,10 +112,14 @@ export default {
         this.close()
       }
     },
+    handleBeforeLeave () {
+      this.$emit('before-after')
+    },
     handleLeave () {
-      this.$nextTick(() => {
-        this.$emit('close-after')
-      })
+      this.$emit('leave')
+    },
+    handleAfterLeave () {
+      this.$emit('close-after')
     }
   }
 }

@@ -108,9 +108,7 @@ export default {
           })
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
-          })
+          this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {
           handleChange (value) {
@@ -122,7 +120,9 @@ export default {
             this.open = false
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         }
       })

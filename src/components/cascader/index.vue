@@ -99,7 +99,9 @@ export default {
       this.open = false
     },
     handleCloseAfter () {
-      this.$$cascaderPopupPicker && this.$$cascaderPopupPicker.$destroy()
+      this.$nextTick(() => {
+        this.$$cascaderPopupPicker && this.$$cascaderPopupPicker.$destroy()
+      })
     },
     handleLabel (label) {
       this.label = label

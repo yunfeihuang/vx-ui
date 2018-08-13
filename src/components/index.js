@@ -203,9 +203,7 @@ const install = (Vue) => {
         }
       },
       destroyed () {
-        requestAnimationFrame(() => {
-          vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
-        })
+        vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
       }
     })
     return vue
@@ -262,9 +260,7 @@ const install = (Vue) => {
           }
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
@@ -317,13 +313,13 @@ const install = (Vue) => {
             props.open = props.onCancel() === false
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         },
         destroyed () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
@@ -383,7 +379,9 @@ const install = (Vue) => {
             props.disabled = props.onChange(value)
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         },
         destroyed () {
@@ -446,7 +444,9 @@ const install = (Vue) => {
             props.open = props.onAction(value) === false
           },
           handleCloseAfter () {
-            this.$destroy()
+            this.$nextTick(() => {
+              this.$destroy()
+            })
           }
         },
         destroyed () {

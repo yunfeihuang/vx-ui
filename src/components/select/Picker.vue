@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @close-after="handleCloseAfter">
+  <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @close-after="handleCloseAfter" @after-enter="handleAfterEnter">
     <div class="vx-option-picker-wrapper">
       <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker-header']">
         <button type="button" class="vx-option-picker-cancel" @click="handleCancel">{{cancelText}}</button>
@@ -81,8 +81,12 @@ export default {
     }
   },
   data () {
+    let options = this.options
+    if (this.options.length > 40) {
+      options = this.options.slice(0, 50)
+    }
     return {
-      myOptions: this.options,
+      myOptions: options,
       myValue: this.value
     }
   },
@@ -105,6 +109,11 @@ export default {
       } else {
         this.myValue = value
       }
+    },
+    handleAfterEnter () {
+      requestAnimationFrame(() => {
+        this.myOptions = this.options
+      })
     }
   }
 }
