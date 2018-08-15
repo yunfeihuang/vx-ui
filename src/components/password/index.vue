@@ -4,6 +4,7 @@
     v-bind="$props"
     :clear="false"
     :required="required"
+	:nativeType="myNativeType"
     @focus="handleFocus"
     @blur="handleBlur"
     @keyup="handleKeyup"
