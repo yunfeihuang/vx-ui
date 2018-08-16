@@ -7,7 +7,7 @@
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div class="vx-list-view-loading" v-if="!end">
+      <div class="vx-list-view-loading" v-if="loading">
         <spinner v-show="loading" class="vx-list-view-spinner"/>
         {{loadingText}}
       </div>
