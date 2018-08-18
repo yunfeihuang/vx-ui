@@ -165,7 +165,7 @@ const install = (Vue) => {
   })
   Vue.prototype.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({
-      open: false,
+      open: true,
       onClose: () => {
         return true
       }
@@ -190,9 +190,6 @@ const install = (Vue) => {
         return {
           props
         }
-      },
-      mounted () {
-        props.open = true
       },
       methods: {
         handleClose () {
