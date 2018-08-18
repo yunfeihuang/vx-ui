@@ -59,8 +59,20 @@ export default {
     this.openChange(this.open)
   },
   methods: {
+    hide () {
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$el.style.cssText = 'display:block;opacity:0;'
+      requestAnimationFrame(() => {
+        this.$el.style.cssText = 'display:none;'
+        this.$emit('update:open', false).$emit('close')
+        if (this.destroy) {
+          this.$destroy()
+        }
+      })
+    },
     openChange (value) {
       if (value) {
+        this.$$timer && clearTimeout(this.$$timer)
         requestAnimationFrame(() => {
           this.$el.style.cssText = 'display:block;opacity:0;'
           requestAnimationFrame(() => {
@@ -71,15 +83,13 @@ export default {
             })
           })
         })
-        this.duration && setTimeout(() => {
-          requestAnimationFrame(() => {
-            this.$el.style.cssText = 'display:none;'
-            this.$emit('update:open', false).$emit('close')
-            if (this.destroy) {
-              this.$destroy()
-            }
-          })
-        }, this.duration)
+        if (this.duration) {
+          this.$$timer = setTimeout(() => {
+            this.hide()
+          }, this.duration)
+        }
+      } else {
+        this.hide()
       }
     }
   },
