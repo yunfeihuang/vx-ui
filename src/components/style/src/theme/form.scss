@@ -66,13 +66,6 @@
           }
         }
       }
-      .#{$css-prefix}input-wrapper,.#{$css-prefix}password, .#{$css-prefix}textarea-wrapper{
-        position:static;
-        background: transparent;
-        input{
-          padding-left:0;
-        }
-      }
       &.is-error{
         .vx-input-wrapper:before,.vx-textarea-wrapper:before{
           @include divider($color-error);

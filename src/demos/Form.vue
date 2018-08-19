@@ -18,7 +18,7 @@
           ]">
           <password v-model="form.password" placeholder="请输入密码"/>
         </el-form-item>
-        <el-form-item divider label="金额：" prop="inputNumber" :rules="[
+        <el-form-item label="金额：" prop="inputNumber" :rules="[
           {min: 10, type: 'number', message: '金额不能小于10'}
           ]">
           <input-number v-model="form.inputNumber" placeholder="请输入金额"/>
@@ -35,7 +35,7 @@
           ]">
           <x-input v-model="form.email" placeholder="请输入邮箱地址"/>
         </el-form-item>
-        <el-form-item divider label="兴趣爱好：" prop="hobby" :rules="[
+        <el-form-item label="兴趣爱好：" prop="hobby" :rules="[
           {required: true, message: '兴趣爱好不能为空'}
           ]">
           <x-select v-model="form.hobby">
@@ -43,18 +43,19 @@
             <x-option value="2">足球</x-option>
             <x-option value="3">羽毛球</x-option>
           </x-select>
+          <divider/>
         </el-form-item>
         <el-form-item label="人个介绍：" prop="textarea" :rules="[
           {required: true, message: '人个介绍不能为空'}
           ]">
           <x-textarea v-model="form.textarea" placeholder="请输入消息内容" enter-number :maxlength="100"/>
         </el-form-item>
-        <el-form-item divider label="自我评分：" prop="rater" :rules="[
+        <el-form-item label="自我评分：" prop="rater" :rules="[
           {required: true, message: '自我评分不能为空'}
           ]">
           <rater v-model="form.rater"/>
         </el-form-item>
-        <el-form-item divider label="年龄：" prop="range" :rules="[
+        <el-form-item label="年龄：" prop="range" :rules="[
           {required: true, message: '年龄不能为空'}
           ]">
           <div style="padding-right:40px">
@@ -71,12 +72,13 @@
           ]">
           <daterange v-model="form.daterange"/>
         </el-form-item>
-        <el-form-item divider label="级联：" prop="cascader" :rules="[
+        <el-form-item label="级联：" prop="cascader" :rules="[
           {required: true, message: '级联不能为空'}
           ]">
           <cascader v-model="form.cascader" :options="options1"/>
+          <divider/>
         </el-form-item>
-        <el-form-item divider label="开启消息醒：">
+        <el-form-item label="开启消息醒：">
           <x-switch v-model="form.enable"/>
         </el-form-item>
         <group title="兴趣1：">
