@@ -7,7 +7,7 @@
       :value="value"
       @change="handleChange"
       />
-    <button type="button">
+    <button type="button" tabindex="-2">
       <slot></slot>
     </button>
   </label>
