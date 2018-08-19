@@ -96,16 +96,19 @@
 import { children } from 'utils/mixins/page'
 export default {
   mixins: [children],
+  mounted1 () {
+    setTimeout(() => {
+      let options = []
+      for (let i = 0; i < 100; i++) {
+        options.push({
+          value: i + '',
+          label: 'label-' + i
+        })
+      }
+      this.options = options
+    }, 1000)
+  },
   data () {
-    /*
-    let options = []
-    for (let i = 0; i < 100; i++) {
-      options.push({
-        value: i + '',
-        label: 'label-' + i
-      })
-    }
-    */
     return {
       label: '',
       value: '',

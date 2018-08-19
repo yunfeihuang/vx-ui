@@ -29,11 +29,6 @@ export default {
     FlexboxItem
   },
   mixins: [input],
-  provide () {
-    return {
-      'select': this
-    }
-  },
   props: {
     ...input.props,
     value: {
@@ -65,14 +60,10 @@ export default {
   watch: {
     value (val) {
       this.updateLabel(val)
-    },
-    options () {
-      this.updateLabel(this.value)
     }
   },
   data () {
     return {
-      options: [],
       isFocus: false,
       myLabel: this.max === 1 ? '' : []
     }
@@ -80,6 +71,12 @@ export default {
   mounted () {
     this.$$myOptions = this.getOptions()
     this.value && this.updateLabel(this.value)
+  },
+  updated () {
+    this.$nextTick(() => {
+      this.$$myOptions = this.getOptions()
+      this.updateLabel(this.value)
+    })
   },
   destroyed () {
     if (this.$$popup) {
@@ -91,15 +88,18 @@ export default {
   methods: {
     getOptions () {
       let result = []
-      this.options.forEach(item => {
-        let html = item.$el.innerHTML.trim()
+      let nodes = this.$el.querySelector('datalist').children
+      let len = nodes.length
+      for (let i = 0; i < len; i++) {
+        let item = nodes[i]
+        let html = item.innerHTML.trim()
         result.push({
           value: item.value,
           disabled: item.disabled,
           label: item.label || html,
           html
         })
-      })
+      }
       return result
     },
     handleClick (e) {
@@ -169,12 +169,20 @@ export default {
       }
     },
     updateLabel (value) {
+      let label = this.getLabel(value)
+      if (label !== this.$$label) {
+        this.$$label = label
+        this.myLabel = label
+        this.$emit('update:label', label)
+      }
+    },
+    getLabel (value) {
+      let result = ''
       if (this.$$myOptions && this.$$myOptions.length) {
         if (this.max === 1) {
           this.$$myOptions && this.$$myOptions.forEach(item => {
             if (item.value === value) {
-              this.myLabel = item.label
-              this.$emit('update:label', item.label)
+              result = item.label
             }
           })
         } else {
@@ -182,13 +190,10 @@ export default {
           this.$$myOptions && this.$$myOptions.forEach(item => {
             value && value.indexOf(item.value) > -1 && label.push(item.label)
           })
-          this.myLabel = label.join(this.separator)
-          this.$emit('update:label', this.myLabel)
+          result = label.join(this.separator)
         }
-      } else {
-        this.myLabel = ''
-        this.$emit('update:label', '')
       }
+      return result
     }
   }
 }

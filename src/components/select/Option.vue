@@ -1,10 +1,9 @@
-<template >
-  <option :disabled="disabled" :value="value"><slot></slot></option>
+<template functional>
+  <option :disabled="props.disabled" :value="props.value"><slot></slot></option>
 </template>
 <script>
 export default {
   componentName: 'XOption',
-  inject: ['select'],
   props: {
     value: {
       type: String
@@ -16,12 +15,6 @@ export default {
     label: {
       type: String
     }
-  },
-  created () {
-    this.select.options.push(this)
-  },
-  destroyed () {
-    this.select.options = this.select.options.filter(item => item !== this)
   }
 }
 </script>
