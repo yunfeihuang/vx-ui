@@ -91,7 +91,7 @@ export default {
           if (n === document.body) {
             n = document.body
           } else {
-            closest()
+            n && closest()
           }
         }
       }
