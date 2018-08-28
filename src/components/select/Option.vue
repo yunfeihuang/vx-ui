@@ -1,5 +1,5 @@
 <template functional>
-  <option :disabled="props.disabled" :value="props.value"><slot></slot></option>
+  <option :disabled="props.disabled" :value="props.value" :label="props.label"><slot></slot></option>
 </template>
 <script>
 export default {

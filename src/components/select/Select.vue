@@ -96,7 +96,7 @@ export default {
         result.push({
           value: item.value,
           disabled: item.disabled,
-          label: item.label || html,
+          label: item.getAttribute('label') || html,
           html
         })
       }
