@@ -5,9 +5,7 @@ $height : 42;
 $unit: px;
 .#{$css-prefix}{
   &picker{
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+    @include scroll;
     height:#{$height*7}#{$unit};
     &::-webkit-scrollbar{
       display:none;

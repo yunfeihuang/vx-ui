@@ -4,8 +4,7 @@
   &cascader-picker{
     &-value{
       text-align:left;
-      overflow-x: auto;
-      overflow-y: hidden;
+      @include scroll;
       position: relative;
       &-item{
         line-height:0.92rem;
@@ -34,7 +33,7 @@
       @include divider;
     }
     &-panel{
-        overflow:auto;
+        @include scroll;
         text-align:left;
         position:absolute;
         height:100%;

@@ -5,9 +5,7 @@
       text-align:center;
       position:relative;
       user-select: none;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overflow-scrolling: touch;
+      @include scroll;
       &::-webkit-scrollbar{
         display:none;
       }

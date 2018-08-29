@@ -15,7 +15,7 @@
     &-inner{
       background:#fff;
       position:absolute;
-      overflow: auto;
+      @include scroll;
       backface-visibility: hidden;
       perspective: 1000;
       transform: translate3d(0,0,0);

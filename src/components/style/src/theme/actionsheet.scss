@@ -5,9 +5,7 @@
     &-inner{
       background:#fff;
       max-height: 80%;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overflow-scrolling: touch;
+      @include scroll;
     }
     &-title{
       line-height:1rem;
