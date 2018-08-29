@@ -39,7 +39,7 @@
       max-height: 60vh;
       margin:0.36rem;
       position:relative;
-      overflow:auto;
+      @include scroll;
     }
     &-footer{
       position:relative;

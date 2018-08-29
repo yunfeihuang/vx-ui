@@ -52,8 +52,8 @@ export default {
       type: Array,
       default () {
         return [
-          '<span class="vx-password-text-icon">abc</span>',
-          '<span class="vx-password-pwd-icon"></span>'
+          '<span class="vx-password-pwd-icon"></span>',
+          '<span class="vx-password-text-icon">abc</span>'
         ]
       }
     }
