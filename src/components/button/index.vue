@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :type="nativeType" @click="handleClick">
+  <button :class="classes" :type="nativeType">
     <spinner v-if="loading" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <ripple v-if="ripple" :color="rippleColor" />
@@ -37,9 +37,35 @@ export default {
       ]
     }
   },
+  mounted () {
+    if (this.plain && this.size !== 'large') {
+      let {width, height} = this.$el.style
+      this.$$initStyle = {width, height}
+      this.$nextTick(this.updateSize)
+      window.addEventListener('resize', this.updateSize)
+    }
+  },
+  destroyed () {
+    if (this.plain && this.size !== 'large') {
+      window.removeEventListener('resize', this.updateSize)
+    }
+  },
+  updated () {
+    if (this.plain && this.size !== 'large') {
+      this.$nextTick(this.updateSize)
+    }
+  },
   methods: {
-    handleClick (e) {
-      this.$emit('click', e)
+    updateSize () {
+      requestAnimationFrame(() => {
+        this.$el.style.width = this.$$initStyle.width || ''
+        this.$el.style.height = this.$$initStyle.height || ''
+        let {offsetWidth, offsetHeight} = this.$el
+        requestAnimationFrame(() => {
+          this.$el.style.width = `${offsetWidth + 1}px`
+          this.$el.style.height = `${offsetHeight}px`
+        })
+      })
     }
   }
 }

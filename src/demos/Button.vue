@@ -9,6 +9,7 @@
         <x-button type="primary">primary</x-button>
         <x-button type="danger">danger</x-button>
         <x-button type="warning">warning</x-button>
+        <x-button type="primary" plain>plain primary</x-button>
         <x-button type="link">link</x-button>
         <x-button size="large">default large</x-button>
         <x-button type="primary" size="large">primary large</x-button>
@@ -31,13 +32,7 @@
 <script>
 import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
-  data () {
-    return {
-      account: '',
-      password: ''
-    }
-  }
+  mixins: [children]
 }
 </script>
 
