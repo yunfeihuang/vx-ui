@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted () {
-    if (this.plain && this.size !== 'large') {
+    if ((this.type ==='default' || this.plain) && this.size === 'default') {
       let {width, height} = this.$el.style
       this.$$initStyle = {width, height}
       this.$nextTick(this.updateSize)
@@ -46,12 +46,12 @@ export default {
     }
   },
   destroyed () {
-    if (this.plain && this.size !== 'large') {
+    if ((this.type ==='default' || this.plain) && this.size === 'default') {
       window.removeEventListener('resize', this.updateSize)
     }
   },
   updated () {
-    if (this.plain && this.size !== 'large') {
+    if ((this.type ==='default' || this.plain) && this.size === 'default') {
       this.$nextTick(this.updateSize)
     }
   },
