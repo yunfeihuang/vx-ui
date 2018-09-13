@@ -26,7 +26,7 @@
         </flexbox-item>
       </flexbox>
       <flexbox v-if="layout.indexOf('week')>-1">
-        <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i > 4 ? 'is-weekend' : '']">{{item}}</flexbox-item>
+        <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i == 0 || i == 6  ? 'is-weekend' : '']">{{item}}</flexbox-item>
       </flexbox>
     </div>
     <flexbox class="vx-calendar"  v-if="layout.indexOf('date')>-1">
@@ -61,7 +61,7 @@ export default {
     weekText: {
       type: Array,
       default () {
-        return ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        return ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
       }
     },
     yearText: {
@@ -171,10 +171,10 @@ export default {
       let month = this.date.getMonth()
       let lastMonthDate = this.getLastDate(year, month)
       let firstMonthDate = new Date(year, month, 1)
-      let day = firstMonthDate.getDay() || 7
+      let day = firstMonthDate.getDay()
       let today = this.getYMD()
-      if (day !== 1) {
-        for (let i = 1; i < day; i++) {
+      if (day !== 0) {
+        for (let i = 1; i < day + 1; i++) {
           let date = new Date(firstMonthDate.getTime() - this.datetimes * i)
           result.unshift({
             ...this.getDateCalendarStatus(date),
@@ -195,17 +195,15 @@ export default {
           weekend: [0, 6].indexOf(date.getDay()) > -1
         })
       }
-      if (lastMonthDate.getDay() !== 0) {
-        for (let i = 1; i <= 7 - lastMonthDate.getDay(); i++) {
-          let date = new Date(lastMonthDate.getTime() + this.datetimes * i)
-          result.push({
-            ...this.getDateCalendarStatus(date),
-            today: date.getTime() === today.getTime(),
-            currentMonth: false,
-            value: date,
-            weekend: [0, 6].indexOf(date.getDay()) > -1
-          })
-        }
+      for (let i = 1; i <= 6 - lastMonthDate.getDay(); i++) {
+        let date = new Date(lastMonthDate.getTime() + this.datetimes * i)
+        result.push({
+          ...this.getDateCalendarStatus(date),
+          today: date.getTime() === today.getTime(),
+          currentMonth: false,
+          value: date,
+          weekend: [0, 6].indexOf(date.getDay()) > -1
+        })
       }
       return result
     },
