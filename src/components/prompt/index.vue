@@ -10,6 +10,9 @@
     @confirm="handleConfirm"
     @close-after="handleCloseAfter"
     >
+    <div class="vx-prompt-message" v-if="$slots.message">
+      <slot name="message"></slot>
+    </div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
       <password
