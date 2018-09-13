@@ -7,8 +7,6 @@
       @change="handleChange"
       />
     <button type="button" tabindex="-2"></button>
-    <span v-if="onText" class="vx-switch-text">{{onText}}</span>
-    <span v-if="offText" class="vx-switch-text">{{offText}}</span>
   </div>
 </template>
 
@@ -28,12 +26,6 @@ export default {
     },
     offValue: {
       default: false
-    },
-    onText: {
-      default: ''
-    },
-    offText: {
-      default: ''
     },
     small: {
       type: Boolean
