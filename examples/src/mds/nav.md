@@ -1,16 +1,22 @@
-# Group分组
+# Nav导航
 
 ```
 <template>
-  <x-nav slot="header" back="/" back-text="返回">
-    <div slot="title">XNav</div>
-    <button class="btn-pull" slot="pull">
-      更多
-    </button>
-    <tab :active.sync="active" :underline-width="10">
-      <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-    </tab>
+  <div>
+    <x-nav back="/" back-text="返回">
+      <div slot="title">Nav</div>
+      <button class="btn-pull" slot="pull">
+        更多
+      </button>
     </x-nav>
+    <br />
+    <x-nav back="/" back-text="返回" type="primary">
+      <div slot="title">Nav</div>
+      <button class="btn-pull" slot="pull">
+        更多
+      </button>
+    </x-nav>
+  </div>
 </template>
 <script>
 export default {
@@ -36,6 +42,7 @@ export default {
 | to     | 后退地址   | -  |   -       |    -    |
 | onBack     | 默认是后退   | functon  |   -       |    history.back()    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
+| type     | 导航条类型   | String  |   default|primary       |    default    |
 | arrow     | 返回箭头   | Object  |   -       |    {size: '2.4rem', color: '#fff'}    |
 
 #### Events

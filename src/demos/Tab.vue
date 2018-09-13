@@ -1,7 +1,9 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Tab</div>
+    <div slot="header">
+      <x-nav back="/">
+        <div slot="title">Tab</div>
+      </x-nav>
       <div v-if="pageState.into">
         <tab :active.sync="active">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
@@ -13,7 +15,7 @@
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
       </div>
-    </x-nav>
+    </div>
     <x-body slot="body" style="background:#fff" :scroll="false" v-if="pageState.into">
       <!--
       <swiper :active.sync="active" class="tab-swiper">

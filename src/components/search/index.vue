@@ -65,7 +65,7 @@ export default {
   },
   watch: {
     isFocus (value) {
-      value && (this.fixed = true)
+      value && this.fixedTop && (this.fixed = true)
     },
     fixed (value) {
       if (value) {
@@ -92,7 +92,6 @@ export default {
         this.childFixed && document.body.appendChild(this.childFixed)
         this.childFixed.querySelector('input').focus()
       }
-      this.$emit('focus', e)
     },
     handleInput (value) {
       this.$emit('input', value)

@@ -1,14 +1,23 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/" back-text="返回">
-      <div slot="title">Nav</div>
-      <button class="btn-pull" slot="pull">
-        更多
-      </button>
+    <div slot="header">
+      <x-nav back="/" back-text="返回">
+        <div slot="title">Nav</div>
+        <button class="btn-pull" slot="pull">
+          更多
+        </button>
+      </x-nav>
+      <br />
+      <x-nav back="/" back-text="返回" type="primary">
+        <div slot="title">Nav</div>
+        <button class="btn-pull" slot="pull">
+          更多
+        </button>
+      </x-nav>
       <tab :active.sync="active" :underline-width="10">
         <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
       </tab>
-    </x-nav>
+    </div>
     <x-body slot="body"></x-body>
   </layout>
 </template>

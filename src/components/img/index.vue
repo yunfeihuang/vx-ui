@@ -86,7 +86,7 @@ export default {
       let n = node
       let closest = () => {
         let styleObject = window.getComputedStyle(n)
-        if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1)) {
+        if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1 || styleObject['-webkit-overflow-scrolling'] === 'touch' || styleObject['overflow-scrolling'] === 'touch')) {
           n = n.offsetParent
           if (n === document.body) {
             n = document.body
