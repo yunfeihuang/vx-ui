@@ -3,15 +3,11 @@
     class="vx-password"
     v-bind="$props"
     :clear="false"
-    :required="required"
+    :encrypt="null"
+    :icons="null"
     :nativeType="myNativeType"
-    @focus="handleFocus"
-    @blur="handleBlur"
-    @keyup="handleKeyup"
-    @keydown="handleKeydown"
     @change="handleChange"
     @input="handleInput"
-    @invalid="handleInvalid"
   >
     <slot name="prepend" slot="prepend"></slot>
     <slot v-if="$slots.append" name="append" slot="append"></slot>
@@ -21,8 +17,8 @@
       type="button"
       @click="handleSwitch"
     >
-      <i v-if="myNativeType==='password'" v-html="icons[0]"></i>
-      <i v-if="myNativeType==='text'" v-html="icons[1]"></i>
+      <i v-if="myNativeType!=='text'" v-html="icons[0]"></i>
+      <i v-else v-html="icons[1]"></i>
     </button>
   </x-input>
 </template>
@@ -38,6 +34,10 @@ export default {
     nativeType: {
       type: String,
       default: 'password'
+    },
+    autocomplete: {
+      type: String,
+      default: 'new-password'
     },
     encrypt: {
       type: Function,

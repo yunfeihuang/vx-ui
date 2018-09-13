@@ -2,11 +2,11 @@
   <div :class="['vx-input-number',{'is-disabled': disabled}]">
     <button class="vx-input-number-reduce" type="button" @click="handleChange(value-buttonStep)"></button>
     <input
-      v-bind="$props"
+      v-bind="$$props"
       type="number"
       :value="myValue"
-      @blur="handleChange"
-      @focus="handleFocus" />
+      v-on="$$listeners"
+      />
     <button class="vx-input-number-add" type="button" @click="handleChange(value+buttonStep)"></button>
   </div>
 </template>
@@ -43,6 +43,18 @@ export default {
     },
     stepRate () {
       return 1 / this.step
+    },
+    $$props () {
+      return {
+        ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
+        ...this.$listeners,
+        input: this.handleChange
+      }
     }
   },
   methods: {

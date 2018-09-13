@@ -1,24 +1,11 @@
 <template>
   <x-input
     :class="{'is-focus': isFocus}"
+    v-bind="$$props"
     :type="nativeType"
-    :placeholder="placeholder"
-    readonly="readonly"
-    :value="value"
-    :disabled="disabled"
-    :autofocus="autofocus"
-    :maxlength="maxlength"
-    :name="name"
-    :required="required"
-    :format="format"
-    :clear="clear"
     :arrow="true"
-    @focus="handleFocus"
-    @blur="handleBlur"
-    @keyup="handleKeyup"
-    @keydown="handleKeydown"
-    @change="handleChange"
-    @input="handleInput"
+    readonly="readonly"
+    v-on="$$listeners"
     @click.native="handleClick"
     >
     <slot name="prepend" slot="prepend"></slot>
@@ -51,9 +38,19 @@ export default {
       type: Function
     }
   },
-  data () {
-    return {
-      isFocus: false
+  computed: {
+    $$props () {
+      return {
+        ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
+        ...this.$listeners,
+        change: this.handleChange,
+        input: this.handleInput
+      }
     }
   },
   methods: {

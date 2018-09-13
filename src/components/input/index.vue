@@ -1,24 +1,12 @@
 <template>
-  <div :class="classes" @focusin="handleFocus" @focusout="handleBlur">
+  <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
     <flexbox tag="label" align="center" class="vx-input-inner">
       <slot name="prepend"></slot>
       <flexbox-item>
       <input
+        v-bind="$$props"
         :type="nativeType"
-        :placeholder="placeholder"
-        :readonly="readonly"
-        :value="value"
-        :autocomplete="autocomplete"
-        :autofocus="autofocus"
-        :maxlength="maxlength"
-        :name="name"
-        :required="required"
-        :pattern="pattern"
-        @keyup="handleKeyup"
-        @keydown="handleKeydown"
-        @change="handleChange"
-        @input="handleInput"
-        @invalid="handleInvalid"
+        v-on="$$listeners"
         />
       </flexbox-item>
       <transition name="input-clear-fade" v-if="!$slots.append">
@@ -68,11 +56,19 @@ export default {
           'is-border': this.border
         }
       ]
-    }
-  },
-  data () {
-    return {
-      isFocus: false
+    },
+    $$props () {
+      return {
+        ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
+        ...this.$listeners,
+        change: this.handleChange,
+        input: this.handleInput
+      }
     }
   },
   methods: {

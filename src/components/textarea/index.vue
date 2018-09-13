@@ -1,20 +1,10 @@
 <template>
-  <label :class="['vx-textarea-wrapper',{'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]">
+  <label :class="['vx-textarea-wrapper',{'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]" @focusin="handleFocusIn" @focusout="handleFocusOut">
     <div class="vx-textarea-inner">
       <div class="vx-textarea-shadow"></div>
       <textarea
-        :placeholder="placeholder"
-        :autocomplete="autocomplete"
-        :maxlength="maxlength"
-        :name="name"
-        :required="required"
-        :value="value"
-        @focus="handleFocus"
-        @blur="handleBlur"
-        @keyup="handleKeyup"
-        @keydown="handleKeydown"
-        @change="handleChange"
-        @input="handleInput"
+        v-bind="$$props"
+        v-on="$$listeners"
         ></textarea>
       </div>
       <em v-if="enterNumber && maxlength">
@@ -35,9 +25,19 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      isFocus: false
+  computed: {
+    $$props () {
+      return {
+        ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
+        ...this.$listeners,
+        change: this.handleChange,
+        input: this.handleInput
+      }
     }
   },
   watch: {

@@ -64,7 +64,6 @@ export default {
   },
   data () {
     return {
-      isFocus: false,
       myLabel: this.max === 1 ? '' : []
     }
   },

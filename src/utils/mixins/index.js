@@ -77,14 +77,8 @@ const input = {
         return Math.random().toString(36).substr(2)
       }
     },
-    required: {
-      type: Boolean
-    },
     checked: {
       type: Boolean
-    },
-    pattern: {
-      type: String
     },
     validateEvent: {
       type: Boolean,
@@ -102,14 +96,17 @@ const input = {
       default: true
     }
   },
+  data () {
+    return {
+      isFocus: false
+    }
+  },
   methods: {
-    handleFocus (e) {
+    handleFocusIn (e) {
       this.isFocus = true
-      this.$emit('focus', e)
     },
-    handleBlur (e) {
+    handleFocusOut (e) {
       this.isFocus = false
-      this.$emit('blur', e)
       this.eDispatch('ElFormItem', 'el.form.blur', [e.target.value])
     },
     handleChange (e) {
@@ -119,16 +116,6 @@ const input = {
       let value = e.target ? e.target.value : e
       this.$emit('input', value)
       this.eDispatch('ElFormItem', 'el.form.change', [value])
-    },
-    handleKeyup (e) {
-      e.keyCode === 13 && this.$emit('keyenter', e)
-      this.$emit('keyup', e)
-    },
-    handleKeydown (e) {
-      this.$emit('keydown', e)
-    },
-    handleInvalid (e) {
-      this.$emit('invalid', e)
     },
     eDispatch (...arg) { // element-ui form表单校验
       this.validateEvent && this.dispatch && this.dispatch(...arg)

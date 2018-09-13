@@ -18,11 +18,8 @@
             :maxlength="maxlength"
             :name="name"
             :clear="clear"
-            :required="required"
-            @focus="handleFocus"
-            @blur="handleBlur"
-            @keyup="handleKeyup"
-            @keydown="handleKeydown"
+            @focusin.native="handleFocusIn"
+            @focusout.native="handleFocusOut"
             @input="handleInput"
             @change="handleChange"
           >
@@ -87,7 +84,7 @@ export default {
     }
   },
   methods: {
-    handleFocus (e) {
+    handleFocusIn (e) {
       this.isFocus = true
       if (this.fixedTop && this.$el.children[0]) {
         this.fixed = true
