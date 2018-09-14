@@ -32,7 +32,7 @@
     }
     &-photo{
       margin-right:10px;
-      .vx-img-wrapper{
+      .vx-img--wrapper{
         width:1rem;
         height:1rem;
         border-radius:3px;

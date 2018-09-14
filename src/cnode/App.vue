@@ -1,9 +1,11 @@
 <template>
   <div class="cnode-app">
     <layout v-show="$route.path == '/cnode'" :style="`opacity:1;transform:translateX(0)`">
-      <x-nav slot="header" :back="false">
-        <div slot="title">CNode-专业中文社区</div>
-        <tab :active="home.active" @change="handleActive" underline-width="auto">
+      <div slot="header">
+        <x-nav :back="false">
+          <div slot="title">CNode-专业中文社区</div>
+        </x-nav>
+        <tab :active="home.active" @change="handleActive" underline-width="auto" style="margin-top:1px;">
           <tab-item :name="0">
             全部
           </tab-item>
@@ -20,7 +22,7 @@
             招聘
           </tab-item>
         </tab>
-      </x-nav>
+      </div>
       <x-body slot="body" :scroll="false" style="background:#fff">
         <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading">
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
