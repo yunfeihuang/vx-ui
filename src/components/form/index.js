@@ -30,11 +30,6 @@ if (!FormItem.beforeMount) {
       requestAnimationFrame(function () {
         self.$el.classList.add('vx-form-item')
       })
-      if (this.divider) {
-        requestAnimationFrame(function () {
-          self.$el.classList.add('is-divider')
-        })
-      }
     })
   }
 }
@@ -44,15 +39,6 @@ if (!FormItem.updated) {
     requestAnimationFrame(function () {
       self.$el.classList.add('vx-form-item')
     })
-    if (this.divider) {
-      requestAnimationFrame(function () {
-        self.$el.classList.add('is-divider')
-      })
-    } else {
-      requestAnimationFrame(function () {
-        self.$el.classList.remove('is-divider')
-      })
-    }
   }
 }
 
