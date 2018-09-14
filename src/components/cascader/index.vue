@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-cascader',{'is-focus': open}]" @click="handleClick">
+  <div :class="['vx-cascader',{'is-focus': open}]" @focusin="handleFocusIn">
     <flexbox class="vx-cascader--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -59,11 +59,14 @@ export default {
     }
   },
   methods: {
-    handleClick () {
+    handleFocusIn () {
       let self = this
       let node = document.createElement('div')
       document.body.appendChild(node)
-      this.$$cascaderPopupPicker = new Vue({
+      if (this.$root && this.$root.__popup) {
+        this.$root.__popup && this.$root.__popup.$destroy()
+      }
+      this.$root.__popup = new Vue({
         el: node,
         render (createElement) {
           return createElement(CascaderPopupPicker, {

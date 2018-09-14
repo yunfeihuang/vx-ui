@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @click.stop.prevent="handleClick">
+  <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @focusin.stop.prevent="handleFocusIn">
     <flexbox class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -77,13 +77,6 @@ export default {
       this.updateLabel(this.value)
     })
   },
-  destroyed () {
-    if (this.$$popup) {
-      this.$$popup.open = false
-      this.$$popup.$destroy()
-      this.$$popup = null
-    }
-  },
   methods: {
     getOptions () {
       let result = []
@@ -101,7 +94,7 @@ export default {
       }
       return result
     },
-    handleClick (e) {
+    handleFocusIn (e) {
       if (!this.disabled) {
         let self = this
         let node = document.createElement('div')
@@ -110,9 +103,12 @@ export default {
         } else {
           document.body.appendChild(node)
         }
+        if (this.$root && this.$root.__popup) {
+          this.$root.__popup && this.$root.__popup.$destroy()
+        }
         if (this.$$myOptions.length) {
           /* eslint-disable no-new */
-          this.$$popup = new Vue({
+          this.$root.__popup = new Vue({
             el: node,
             render (createElement) {
               return createElement(Picker, {

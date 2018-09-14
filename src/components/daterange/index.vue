@@ -6,7 +6,7 @@
     :type="nativeType"
     readonly="readonly"
     v-on="$$listeners"
-    @click.native="handleClick"
+    @focusin.native="handleFocusIn"
     >
     <slot name="prepend" slot="prepend"></slot>
     <slot name="append" slot="append"></slot>
@@ -44,6 +44,10 @@ export default {
       type: String,
       default: ' ~ '
     },
+    placeholder: {
+      type: String,
+      default: '请选择'
+    },
     getPopupMounted: {
       type: Function
     }
@@ -70,7 +74,7 @@ export default {
     }
   },
   methods: {
-    handleClick (e) {
+    handleFocusIn (e) {
       let daterange = this
       let node = document.createElement('div')
       if (this.getPopupMounted) {
@@ -82,8 +86,11 @@ export default {
       if (this.value && this.value[0] && this.value[1]) {
         value = [new Date(this.value[0].getFullYear(), this.value[0].getMonth(), this.value[0].getDate()), new Date(this.value[1].getFullYear(), this.value[1].getMonth(), this.value[1].getDate())]
       }
+      if (this.$root && this.$root.__popup) {
+        this.$root.__popup && this.$root.__popup.$destroy()
+      }
       /* eslint-disable no-new */
-      this.$$daterangePicker = new Vue({
+      this.$root.__popup = new Vue({
         el: node,
         render (createElement) {
           return createElement(DaterangePicker, {
@@ -128,9 +135,6 @@ export default {
         }
       })
     }
-  },
-  destroyed () {
-    this.$$daterangePicker && this.$$daterangePicker.$destroy()
   }
 }
 </script>

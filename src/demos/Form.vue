@@ -45,6 +45,22 @@
           </x-select>
           <divider/>
         </el-form-item>
+         <el-form-item label="出生日期：" prop="datetime" :rules="[
+          {required: true, message: '出生日期不能为空'}
+          ]">
+          <datetime v-model="form.datetime"/>
+        </el-form-item>
+        <el-form-item label="日期区间：" prop="daterange" :rules="[
+          {required: true, message: '日期区间不能为空'}
+          ]">
+          <daterange v-model="form.daterange"/>
+        </el-form-item>
+        <el-form-item label="级联：" prop="cascader" :rules="[
+          {required: true, message: '级联不能为空'}
+          ]">
+          <cascader v-model="form.cascader" :options="options1"/>
+          <divider/>
+        </el-form-item>
         <el-form-item label="人个介绍：" prop="textarea" :rules="[
           {required: true, message: '人个介绍不能为空'}
           ]">
@@ -61,22 +77,6 @@
           <div style="padding-right:40px">
             <range v-model="form.range"/>
           </div>
-        </el-form-item>
-        <el-form-item label="出生日期：" prop="datetime" :rules="[
-          {required: true, message: '出生日期不能为空'}
-          ]">
-          <datetime v-model="form.datetime"/>
-        </el-form-item>
-        <el-form-item label="日期区间：" prop="daterange" :rules="[
-          {required: true, message: '日期区间不能为空'}
-          ]">
-          <daterange v-model="form.daterange"/>
-        </el-form-item>
-        <el-form-item label="级联：" prop="cascader" :rules="[
-          {required: true, message: '级联不能为空'}
-          ]">
-          <cascader v-model="form.cascader" :options="options1"/>
-          <divider/>
         </el-form-item>
         <el-form-item label="开启消息醒：">
           <x-switch v-model="form.enable"/>

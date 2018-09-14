@@ -6,7 +6,7 @@
     :arrow="true"
     readonly="readonly"
     v-on="$$listeners"
-    @click.native="handleClick"
+    @focusin.native="handleFocusIn"
     >
     <slot name="prepend" slot="prepend"></slot>
     <slot name="append" slot="append"></slot>
@@ -34,6 +34,10 @@ export default {
       type: Boolean,
       default: false
     },
+    placeholder: {
+      type: String,
+      default: '请选择'
+    },
     getPopupMounted: {
       type: Function
     }
@@ -54,7 +58,7 @@ export default {
     }
   },
   methods: {
-    handleClick (e) {
+    handleFocusIn (e) {
       let datetime = this
       let node = document.createElement('div')
       if (this.getPopupMounted) {
@@ -62,8 +66,11 @@ export default {
       } else {
         document.body.appendChild(node)
       }
+      if (this.$root && this.$root.__popup) {
+        this.$root.__popup && this.$root.__popup.$destroy()
+      }
       /* eslint-disable no-new */
-      this.$$datetimePicker = new Vue({
+      this.$root.__popup = new Vue({
         el: node,
         render (createElement) {
           return createElement(DatetimePicker, {
@@ -114,9 +121,6 @@ export default {
         }
       })
     }
-  },
-  destroyed () {
-    this.$$datetimePicker && this.$$datetimePicker.$destroy()
   }
 }
 </script>
