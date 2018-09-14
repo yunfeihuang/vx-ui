@@ -5,13 +5,13 @@
     &--box{
       z-index:100;
       position: relative;
-    }
-    &--fixed{
-      .#{$css-prefix}{
-        &sticky--inner{
-          width: 100%;
-          position: fixed;
-          top: 0;
+      &.is-fixed{
+        .#{$css-prefix}{
+          &sticky--inner{
+            width: 100%;
+            position: fixed;
+            top: 0;
+          }
         }
       }
     }

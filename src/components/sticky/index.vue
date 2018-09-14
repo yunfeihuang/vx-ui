@@ -42,12 +42,12 @@ export default {
         this.handleTouchStart()
       }
       if (this.$$scrollNode.scrollTop > this.$myData.offsetTop) {
-        this.$el.classList.add('vx-sticky--fixed')
+        this.$el.classList.add('is-fixed')
         if (this.$$childNode.style.top !== this.$myData.fixedTop) {
           this.$$childNode.style.top = this.$myData.fixedTop
         }
       } else {
-        this.$el.classList.remove('vx-sticky--fixed')
+        this.$el.classList.remove('is-fixed')
         this.$$childNode.style.top = ''
       }
     },
