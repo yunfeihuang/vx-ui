@@ -8,7 +8,7 @@
    @open="handleOpen"
    @close="handleClose"
    @close-after="handleCloseAfter">
-    <div class="vx-daterange-picker" v-if="open">
+    <div class="vx-daterange-picker">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
       <flexbox class="vx-daterange-picker--footer">
         <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
