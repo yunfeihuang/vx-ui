@@ -2,7 +2,7 @@
   <component :is="props.remtopx"
     :height="props.size"
     :width="props.size"
-    :class="['vx-spinner-wrapper', data.staticClass, data.class]"
+    :class="['vx-spinner--wrapper', data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">

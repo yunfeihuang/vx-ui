@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-flexbox', 'vx-tab']" onselectstart="return false;">
     <slot></slot>
-    <div class="vx-tab-underline"></div>
+    <div class="vx-tab--underline"></div>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     },
     computedStyle () {
       this.$nextTick(() => {
-        let node = this.$el.querySelector('.vx-tab-underline')
+        let node = this.$el.querySelector('.vx-tab--underline')
         let activeNode = this.$el.querySelector('.is-active')
         if (activeNode) {
           let activeWidth = activeNode.offsetWidth

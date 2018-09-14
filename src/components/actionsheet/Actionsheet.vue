@@ -1,13 +1,13 @@
 <template>
   <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @close-after="handleCloseAfter" @after-enter="handleAfterEnter">
-    <div class="vx-actionsheet-inner" onselectstart="return false;">
-      <div v-if="title" class="vx-actionsheet-title">
+    <div class="vx-actionsheet--inner" onselectstart="return false;">
+      <div v-if="title" class="vx-actionsheet--title">
         {{title}}
       </div>
-      <div class="vx-actionsheet-items">
+      <div class="vx-actionsheet--items">
         <slot></slot>
       </div>
-      <div v-if="cancel" class="vx-actionsheet-cancel" @click="handleClose">
+      <div v-if="cancel" class="vx-actionsheet--cancel" @click="handleClose">
         {{cancelText}}
       </div>
     </div>
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     classes () {
-      return ['vx-actionsheet', {'vx-actionsheet-menu': this.type === 'menu', 'is-not-title': !this.title}]
+      return ['vx-actionsheet', {'vx-actionsheet--menu': this.type === 'menu', 'is-not-title': !this.title}]
     },
     myDirection () {
       if (this.type === 'default') {
@@ -102,7 +102,7 @@ export default {
       this.$emit('update:open', false).$emit('close')
     },
     handleAfterEnter () {
-      Array.from(this.$el.querySelectorAll('.vx-actionsheet-item')).forEach(item => {
+      Array.from(this.$el.querySelectorAll('.vx-actionsheet--item')).forEach(item => {
         item.onclick = this.handleAction.bind(this, item.dataset.value)
       })
     }

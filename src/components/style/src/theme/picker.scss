@@ -1,6 +1,5 @@
 @import '../variable.scss';
 @import '../mixins.scss';
-
 $height : 42;
 $unit: px;
 .#{$css-prefix}{
@@ -10,17 +9,17 @@ $unit: px;
     &::-webkit-scrollbar{
       display:none;
     }
-    &-wrapper{
+    &--wrapper{
       position:relative;
       background:#fff;
       text-align: center;
       overflow:hidden;
     }
-    &-scroller{
+    &--scroller{
       padding:#{$height*3}#{$unit} 0;
       line-height:#{$height}#{$unit};
     }
-    &-item{
+    &--item{
       overflow: hidden;
       white-space: nowrap;
       padding: 0px 0.15rem;
@@ -29,7 +28,7 @@ $unit: px;
     &.is-active{
       // color:$color-primary;
     }
-    &-indicator{
+    &--indicator{
       &-top{
         @include divider;
         position:absolute;
@@ -49,7 +48,7 @@ $unit: px;
         top:#{$height*4}#{$unit};
       }
     }
-    &-placeholder{
+    &--placeholder{
       opacity:0.8;
     }
   }

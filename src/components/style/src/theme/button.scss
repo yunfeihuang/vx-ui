@@ -11,13 +11,13 @@
     font-size: inherit;
     cursor: default;
     @include disabled;
-    &-size{
+    &--size{
       &-large{
         width:100%;
         display:block;
       }
     }
-    &-default{
+    &--default{
       @include round-border;
     }
     &:active{
@@ -28,7 +28,7 @@
         box-shadow:none;
       }
     }
-    &-primary{
+    &--primary{
       background-color:$color-primary;
       color:#fff;
       &.is-plain{
@@ -37,7 +37,7 @@
         @include round-border($color-primary);
       }
     }
-    &-warning{
+    &--warning{
       background-color:$color-warning;
       color:#fff;
       &.is-plain{
@@ -46,7 +46,7 @@
         @include round-border($color-warning);
       }
     }
-    &-danger{
+    &--danger{
       background-color:$color-danger;
       color:#fff;
       border:0;
@@ -56,7 +56,7 @@
         @include round-border($color-danger);
       }
     }
-    &-link{
+    &--link{
       color:$color-primary;
       border-radius:0;
       height:auto;

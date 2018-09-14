@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-picker-wrapper" onselectstart="return false;">
+  <div class="vx-picker--wrapper" onselectstart="return false;">
     <div
       class="vx-picker"
       @touchstart="handleTouchStart"
@@ -7,15 +7,15 @@
       @touchend="handleTouchEnd"
       @scroll="scrollHandlder"
       >
-      <div class="vx-picker-scroller">
-        <rem-to-px :height="itemHeight" even v-if="placeholder" :class="['vx-picker-item','vx-picker-placeholder']">
+      <div class="vx-picker--scroller">
+        <rem-to-px :height="itemHeight" even v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
           {{placeholder}}
         </rem-to-px>
         <rem-to-px
           v-for="(item, index) in options"
           :height="itemHeight"
           even
-          :class="['vx-picker-item',{'is-active' : item.value === value}]"
+          :class="['vx-picker--item',{'is-active' : item.value === value}]"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
@@ -24,9 +24,9 @@
         </rem-to-px>
       </div>
     </div>
-    <div class="vx-picker-indicator">
-      <div class="vx-picker-indicator-top"></div>
-      <div class="vx-picker-indicator-bottom"></div>
+    <div class="vx-picker--indicator">
+      <div class="vx-picker--indicator-top"></div>
+      <div class="vx-picker--indicator-bottom"></div>
     </div>
   </div>
 </template>
@@ -101,9 +101,9 @@ export default {
           itemHeight++
         }
         let pickerNode = this.$el.querySelector('.vx-picker')
-        let pickerScrollerNode = this.$el.querySelector('.vx-picker-scroller')
-        let indicatorTopNode = this.$el.querySelector('.vx-picker-indicator-top')
-        let indicatorBottomNode = this.$el.querySelector('.vx-picker-indicator-bottom')
+        let pickerScrollerNode = this.$el.querySelector('.vx-picker--scroller')
+        let indicatorTopNode = this.$el.querySelector('.vx-picker--indicator-top')
+        let indicatorBottomNode = this.$el.querySelector('.vx-picker--indicator-bottom')
         requestAnimationFrame(() => {
           pickerNode.style.height = itemHeight * 7 + 'px'
           pickerScrollerNode.style.padding = itemHeight * 3 + 'px 0'
@@ -119,7 +119,7 @@ export default {
     scrollToActive () {
       let node = this.$el.querySelector('.is-active')
       let index = 0
-      Array.from(this.$el.querySelectorAll('.vx-picker-item')).forEach((item, i) => {
+      Array.from(this.$el.querySelectorAll('.vx-picker--item')).forEach((item, i) => {
         if (item === node) {
           index = i
         }
@@ -159,7 +159,7 @@ export default {
       this.pageY = e.changedTouches[0].pageY
       this.$$timer && clearTimeout(this.$$timer)
       this.$$pullTimer && clearTimeout(this.$$pullTimer)
-      let node = this.$$touch.scrollElement.querySelector('.vx-picker-item')
+      let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
       if (node) {
         this.$$touch.offsetHeight = node.offsetHeight
       }
@@ -183,7 +183,7 @@ export default {
               node.scrollTop = value
             })
           }
-          let active = this.$el.querySelectorAll('.vx-picker-item')[index]
+          let active = this.$el.querySelectorAll('.vx-picker--item')[index]
           if (active) {
             let value = active.dataset.value
             value !== this.value && this.$emit('input', value, this.index).$emit('change', value, this.index)

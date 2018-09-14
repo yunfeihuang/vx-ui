@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &textarea{
-    &-wrapper{
+    &--wrapper{
       @include disabled;
       position:relative;
       background:#fff;
@@ -28,12 +28,12 @@
         width:100%;
       }
     }
-    &-inner{
+    &--inner{
       position:relative;
       height:0.92rem;
       min-height: 0.92rem;
       line-height: 0.32rem;
-      textarea,.#{$css-prefix}textarea-shadow{
+      textarea,.#{$css-prefix}textarea--shadow{
         padding:0.26rem 0.15rem;
         width:100%;
         text-align: inherit;
@@ -57,14 +57,14 @@
         z-index:1;
       }
     }
-    &-shadow{
+    &--shadow{
       position:absolute;
       left:0;
       top:0;
       opacity:0;
     }
     
-    &-enter-number{
+    &--enter-number{
       .#{$css-prefix}textarea-inner{
         padding-bottom:0.2rem;
       }

@@ -1,10 +1,10 @@
 <template>
-  <div :class="['vx-toast','vx-toast-' + align]">
-    <div :class="['vx-toast-inner']">
-      <div class="vx-toast-content">
+  <div :class="['vx-toast','vx-toast--' + align]">
+    <div :class="['vx-toast--inner']">
+      <div class="vx-toast--content">
         <template v-if="type != 'default'">
-          <spinner v-if="type==='loading'" class="vx-toast-loading" v-bind="spinnerProps"/>
-          <i v-else :class="['vx-toast-icon',`vx-toast-${type}`]"></i>
+          <spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
+          <i v-else :class="['vx-toast--icon',`vx-toast--${type}`]"></i>
           <br />
         </template>
         <slot></slot>

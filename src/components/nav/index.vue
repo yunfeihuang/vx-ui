@@ -1,15 +1,15 @@
 <template functional>
   <div
-    :class="['vx-nav', `vx-nav-${props.type}`, {'is-back-text': !!props.backText}, data.staticClass]"
+    :class="['vx-nav', `vx-nav--${props.type}`, {'is-back-text': !!props.backText}, data.staticClass]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
-    <flexbox class="vx-nav-inner" align="center">
-      <button :class="['btn-pull','vx-nav-back']" @click="props.onBack(parent, props.to)" v-if="props.isBack!==false">
+    <flexbox class="vx-nav--inner" align="center">
+      <button :class="['btn-pull','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack!==false">
         <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
         <span v-if="backText">{{props.backText}}</span>
       </button>
-      <flexbox-item :class="['vx-nav-title', {'vx-nav-title-center': props.isBack===false}]">
+      <flexbox-item :class="['vx-nav--title', {'vx-nav--title-center': props.isBack===false}]">
         <slot name="title"></slot>
       </flexbox-item>
       <slot name="pull"></slot>

@@ -1,17 +1,17 @@
 <template>
   <div class="vx-list-view">
-    <div class="vx-list-view-inner">
-      <div class="vx-list-view-refresh">
-        <i class="vx-list-view-icon"></i>
-        <spinner class="vx-list-view-spinner"/>
+    <div class="vx-list-view--inner">
+      <div class="vx-list-view--refresh">
+        <i class="vx-list-view--icon"></i>
+        <spinner class="vx-list-view--spinner"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div class="vx-list-view-loading" v-if="loading">
-        <spinner v-show="loading" class="vx-list-view-spinner"/>
+      <div class="vx-list-view--loading" v-if="loading">
+        <spinner v-show="loading" class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
-      <div class="vx-list-view-loading" v-if="end">{{endText}}</div>
+      <div class="vx-list-view--loading" v-if="end">{{endText}}</div>
     </div>
   </div>
 </template>
@@ -77,7 +77,7 @@ export default {
     }
     this.$$height = this.$el.offsetHeight
     this.$$touch = {
-      inner: this.$el.querySelector('.vx-list-view-inner')
+      inner: this.$el.querySelector('.vx-list-view--inner')
     }
   },
   destroyed () {
@@ -114,7 +114,7 @@ export default {
           let {pageX, pageY} = this.getPosition(e)
           this.$$touch.pageY = pageY
           this.$$touch.pageX = pageX
-          this.$$touch.markHeight = this.$el.querySelector('.vx-list-view-refresh').offsetHeight
+          this.$$touch.markHeight = this.$el.querySelector('.vx-list-view--refresh').offsetHeight
         }
       }
     },

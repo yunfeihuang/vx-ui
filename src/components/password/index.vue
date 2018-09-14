@@ -13,7 +13,7 @@
     <slot v-if="$slots.append" name="append" slot="append"></slot>
     <button v-else slot="append"
       tabindex="-2"
-      class="vx-password-switch"
+      class="vx-password--switch"
       type="button"
       @click="handleSwitch"
     >
@@ -52,8 +52,8 @@ export default {
       type: Array,
       default () {
         return [
-          '<span class="vx-password-pwd-icon"></span>',
-          '<span class="vx-password-text-icon">abc</span>'
+          '<span class="vx-password--pwd-icon"></span>',
+          '<span class="vx-password--text-icon">abc</span>'
         ]
       }
     }

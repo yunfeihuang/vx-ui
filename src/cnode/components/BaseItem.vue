@@ -23,7 +23,7 @@
       padding:5px;
       color: inherit;
     }
-    .vx-flexbox-item{
+    .vx-flexbox--item{
       overflow: hidden;
     }
     h4{

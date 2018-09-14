@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @click.stop.prevent="handleClick">
-    <flexbox class="vx-select-inner" align="center">
+    <flexbox class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
         <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
@@ -124,7 +124,7 @@ export default {
                   max: self.max,
                   direction: self.max === 1 ? self.popupDirection : undefined
                 },
-                class: ['vx-select-picker'],
+                class: ['vx-select--picker'],
                 on: {
                   'close': this.handleClose,
                   'close-after': this.handleCloseAfter,

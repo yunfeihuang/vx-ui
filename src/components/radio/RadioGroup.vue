@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-radio-group', {'vx-radio-group-divider': divider, 'is-disabled': disabled}]">
+  <div :class="['vx-radio-group', {'is-divider': divider, 'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>

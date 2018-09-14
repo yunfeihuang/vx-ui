@@ -2,21 +2,21 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &daterange-picker{
-    &-wrapper{
+    &--wrapper{
       .#{$css-prefix}popup-inner{
         max-height:100%;
       }
     }
-    &-cancel,&-clear, &-confirm{
+    &--cancel,&--clear, &--confirm{
       @include button;
       height: 0.92rem!important;
       width: 1.5rem;
       color:$color-sub
     }
-    &-confirm{
+    &--confirm{
       color:$color-primary;
     }
-    &-footer{
+    &--footer{
       position:relative;
       @include divider;
     }

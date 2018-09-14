@@ -11,7 +11,7 @@
     &-wrapper{
       overflow:hidden;
     }
-    &-content{
+    &--content{
       &-center{
         -ms-flex-align: center;
         -moz-box-pack: center;
@@ -21,7 +21,7 @@
         justify-content: center;
       }
     }
-    &-align-center{
+    &--align-center{
       -ms-flex-align: center;
       -moz-box-align: center;
       -webkit-box-align: center;
@@ -29,7 +29,7 @@
       -moz-align-items: center;
       align-items: center;
     }
-    &-wrap{
+    &--wrap{
       -ms-flex-wrap: wrap;
       -moz-box-lines: multiple;
       -webkit-box-lines: multiple;
@@ -37,7 +37,7 @@
       -moz-flex-wrap: wrap;
       flex-wrap: wrap;
     }
-    &-column{
+    &--column{
       -ms-flex-direction: column;
       -webkit-box-orient: vertical;
       -moz-box-orient: vertical;
@@ -45,7 +45,7 @@
       -moz-flex-direction: column;
       flex-direction: column;
     }
-    &-item{
+    &--item{
       white-space: nowrap;
       overflow: hidden;
       -ms-flex: 1;
@@ -62,7 +62,7 @@
         margin-right:0!important
       }
     }
-    &-item + &-item{
+    &--item + &--item{
       margin-left: 0!important
     }
   }

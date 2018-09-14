@@ -1,5 +1,5 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="['vx-flexbox-item', 'vx-tabbar-item', {'is-active':$parent.active === name}]" @click.native="handleClick">
+  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name}]" @click.native="handleClick">
     <slot></slot>
   </component>
 </template>

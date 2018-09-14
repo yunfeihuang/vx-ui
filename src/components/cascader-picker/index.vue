@@ -1,21 +1,21 @@
 <template>
   <div class="vx-cascader-picker">
-    <div class="vx-cascader-picker-value">
+    <div class="vx-cascader-picker--value">
       <div
         v-for="(item,index) in myValueObject"
         :key="index"
-        class="vx-cascader-picker-value-item"
+        class="vx-cascader-picker--value-item"
         :class="{'is-active': isActive(item.value)}"
         @click="handleSwitch(index, item.value)">
           {{item.label}}
       </div>
     </div>
-    <div class="vx-cascader-picker-container">
-      <div v-for="(item, index) in myOptions" class="vx-cascader-picker-panel" :key="index" :style="panelStyle(index)">
+    <div class="vx-cascader-picker--container">
+      <div v-for="(item, index) in myOptions" class="vx-cascader-picker--panel" :key="index" :style="panelStyle(index)">
         <div
           v-for="(_item, _index) in item"
           :key="_index"
-          class="vx-cascader-picker-item"
+          class="vx-cascader-picker--item"
           :class="{'is-active': _item.value == myValue[index],'is-disabled':_item.disabled}"
           @click="handleClick(index,_item)">
           {{_item.label}}

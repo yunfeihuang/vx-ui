@@ -2,13 +2,13 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &sticky{
-    &-box{
+    &--box{
       z-index:100;
       position: relative;
     }
-    &-fixed{
+    &--fixed{
       .#{$css-prefix}{
-        &sticky-inner{
+        &sticky--inner{
           width: 100%;
           position: fixed;
           top: 0;

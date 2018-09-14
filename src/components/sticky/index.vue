@@ -1,6 +1,6 @@
 <template>
-  <div class="vx-sticky-box">
-    <div class="vx-sticky-inner">
+  <div class="vx-sticky--box">
+    <div class="vx-sticky--inner">
       <slot></slot>
     </div>
   </div>
@@ -18,7 +18,7 @@ export default {
     this.$nextTick(() => {
       this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
       if (this.$$scrollNode) {
-        this.$$childNode = this.$el.querySelector('.vx-sticky-inner')
+        this.$$childNode = this.$el.querySelector('.vx-sticky--inner')
         this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
         this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
         window.addEventListener('resize', this.handleResize, false)
@@ -42,12 +42,12 @@ export default {
         this.handleTouchStart()
       }
       if (this.$$scrollNode.scrollTop > this.$myData.offsetTop) {
-        this.$el.classList.add('vx-sticky-fixed')
+        this.$el.classList.add('vx-sticky--fixed')
         if (this.$$childNode.style.top !== this.$myData.fixedTop) {
           this.$$childNode.style.top = this.$myData.fixedTop
         }
       } else {
-        this.$el.classList.remove('vx-sticky-fixed')
+        this.$el.classList.remove('vx-sticky--fixed')
         this.$$childNode.style.top = ''
       }
     },

@@ -2,19 +2,19 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &popup-picker{
-    &-wrapper{
+    &--wrapper{
       background:#fff;
     }
-    &-item{
+    &--item{
       flex:1;
       min-width:0;
     }
-    &-header{
+    &--header{
       position:relative;
       @include divider;
       background-position:bottom;
     }
-    &-placeholder{
+    &--placeholder{
       line-height: 0.92rem;
       color:$color-sub;
       overflow:hidden;
@@ -22,13 +22,13 @@
       text-overflow: ellipsis;
       @include button;
     }
-    &-cancel,&-confirm{
+    &--cancel,&--confirm{
       @include button;
       height: 0.92rem;
       width: 1.5rem;
       color:$color-sub;
     }
-    &-confirm{
+    &--confirm{
       color:$color-primary;
       &[disabled]{
         color:$color-sub;

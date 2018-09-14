@@ -10,7 +10,7 @@
     @confirm="handleConfirm"
     @close-after="handleCloseAfter"
     >
-    <div class="vx-prompt-message" v-if="$slots.message">
+    <div class="vx-prompt--message" v-if="$slots.message">
       <slot name="message"></slot>
     </div>
     <slot v-if="$slots.default"></slot>
@@ -21,7 +21,7 @@
         :clear="false"
         :encrypt="encrypt"
         :cipher.sync="myCipher"
-        class="vx-prompt-input"
+        class="vx-prompt--input"
         v-bind="inputProps"
         @input="handleInput"
       />
@@ -29,7 +29,7 @@
         v-else
         v-model="myValue"
         :clear="false"
-        class="vx-prompt-input"
+        class="vx-prompt--input"
         v-bind="inputProps"
         :native-type="inputProps.type"
         @input="handleInput"/>

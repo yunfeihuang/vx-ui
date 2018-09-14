@@ -2,12 +2,12 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &img{
-    &-lazyload{
+    &--lazyload{
       opacity:0;
       transition:opacity 0.168s ease 0s;
       background-color: #fff;
     }
-    &-wrapper{
+    &--wrapper{
       vertical-align: middle;
       font-size:0;
       position:relative;
@@ -21,10 +21,10 @@
         background-color: inherit
       }
     }
-    &-placeholder{
+    &--placeholder{
       background:#f5f5f5;
     }
-    &-spinner{
+    &--spinner{
       position:absolute;
       margin:-0.2rem;
       top:50%;

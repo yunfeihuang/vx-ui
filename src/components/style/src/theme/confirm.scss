@@ -12,14 +12,14 @@
     z-index: 1000;
     display:none;
     user-select: none;
-    &-wrapper{
+    &--wrapper{
       display:table-cell;
       vertical-align:middle;
       position:relative;
       z-index:1;
       text-align:center;
     }
-    &-inner{
+    &--inner{
       background:#fff;
       border-radius:0.06rem;
       width:90vw;
@@ -28,20 +28,20 @@
       box-shadow: 0 0.02rem 0.1rem rgba(0,0,0,0.1);
       overflow: hidden;
     }
-    &-title{
+    &--title{
       margin:0.36rem;
       font-size:0.32rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    &-body{
+    &--body{
       max-height: 60vh;
       margin:0.36rem;
       position:relative;
       @include scroll;
     }
-    &-footer{
+    &--footer{
       position:relative;
       @include divider;
       button, a{
@@ -61,12 +61,12 @@
         }
       }
     }
-    &-table{
+    &--table{
       width:100%;
       display:table;
       min-height:1rem;
     }
-    &-cell{
+    &--cell{
       display: table-cell;
       vertical-align: middle;
     }

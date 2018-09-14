@@ -1,9 +1,9 @@
 <template>
-  <div :class="['vx-range-wrapper', {'is-disabled': disabled}]">
-    <div class="vx-range-mask"></div>
-    <div class="vx-range-value" ></div>
-    <div class="vx-range-button" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
-      <div class="vx-range-tips">0</div>
+  <div :class="['vx-range--wrapper', {'is-disabled': disabled}]">
+    <div class="vx-range--mask"></div>
+    <div class="vx-range--value" ></div>
+    <div class="vx-range--button" @mousedown="handleTouchStart" @touchstart="handleTouchStart">
+      <div class="vx-range--tips">0</div>
     </div>
   </div>
 </template>
@@ -73,10 +73,10 @@ export default {
   },
   methods: {
     getRangeInitData () {
-      let controlNode = this.$el.querySelector('.vx-range-button')
-      let valueNode = this.$el.querySelector('.vx-range-value')
-      let tipsNode = this.$el.querySelector('.vx-range-tips')
-      let maskNode = this.$el.querySelector('.vx-range-mask')
+      let controlNode = this.$el.querySelector('.vx-range--button')
+      let valueNode = this.$el.querySelector('.vx-range--value')
+      let tipsNode = this.$el.querySelector('.vx-range--tips')
+      let maskNode = this.$el.querySelector('.vx-range--mask')
       this.$$range = {
         maxLeft: maskNode.offsetWidth - controlNode.offsetWidth,
         controlNode,

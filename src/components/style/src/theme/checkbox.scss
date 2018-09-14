@@ -13,7 +13,7 @@
       .#{$css-prefix}checkbox{
           padding:0.25rem 0.15rem;
       }
-      &-divider{
+      &.is-divider{
         .#{$css-prefix}checkbox{
           @include divider;
           &:first-child{
@@ -33,7 +33,7 @@
       padding:0;
       margin:0;
     }
-    &-icon{
+    &--icon{
       width:0.4rem;
       height:0.4rem;
       border-radius:50%;
@@ -50,26 +50,26 @@
         position: absolute;
       }
     }
-    &-reverse{
+    &--reverse{
       .#{$css-prefix}checkbox{
-        &-icon{
+        &--icon{
           right:0.15rem;
           left:auto;
         }
-        &-text{
+        &--text{
           padding-left:0;
           padding-right:0.6rem;
         }
       }
     }
-    &-text{
+    &--text{
       display:block;
       padding-left:0.6rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    input:checked + &-icon{
+    input:checked + &--icon{
       &:before{
         background:$color-primary;
         border-color:$color-primary;

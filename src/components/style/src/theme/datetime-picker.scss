@@ -1,33 +1,33 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &datetime-picker{
-      &-wrapper{
-        background:#fff;
-      }
-      &-item{
-        flex:1;
-        min-width:0;
-      }
-      &-header{
-        position:relative;
-        @include divider;
-        background-position:bottom;
-      }
-      &-today{
-        line-height: 0.92rem;
-        overflow:hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-      &-cancel,&-confirm,&-today{
-        @include button;
-        height: 0.92rem;
-        width: 1.5rem;
-        color:$color-sub
-      }
-      &-confirm{
-        color:$color-primary;
-      }
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &datetime-picker{
+    &--wrapper{
+      background:#fff;
+    }
+    &--item{
+      flex:1;
+      min-width:0;
+    }
+    &--header{
+      position:relative;
+      @include divider;
+      background-position:bottom;
+    }
+    &--today{
+      line-height: 0.92rem;
+      overflow:hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &--cancel,&--confirm,&--today{
+      @include button;
+      height: 0.92rem;
+      width: 1.5rem;
+      color:$color-sub
+    }
+    &--confirm{
+      color:$color-primary;
     }
   }
+}

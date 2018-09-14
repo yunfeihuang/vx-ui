@@ -1,7 +1,7 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 .#{$css-prefix}{
-  &layout-flexbox{
+  &layout--flexbox{
     position:absolute;
     height:100%;
     width:100%;

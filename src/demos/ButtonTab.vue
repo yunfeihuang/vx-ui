@@ -42,9 +42,5 @@ export default {
     .tab-button{
       line-height:0.6rem;
     }
-    .is-active{
-      background:#fff;
-      color:$color-black;
-    }
   }
 </style>

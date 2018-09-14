@@ -3,20 +3,22 @@
 .#{$css-prefix}{
   &list-view{
     @include scroll;
-    &-inner{
+    &--inner{
       position: relative;
       backface-visibility: hidden;
       perspective: 1000;
-      &.active .#{$css-prefix}list-view-refresh span:before{
+      &.active .#{$css-prefix}list-view--refresh span:before{
         content:attr(data-refresh);
       }
       &.active{
-        .#{$css-prefix}list-view-refresh{
-          color:$color-primary;
-          span:before{
-            content:attr(data-refresh);
+        .#{$css-prefix}list-view{
+          &--refresh{
+            color:$color-primary;
+            span:before{
+              content:attr(data-refresh);
+            }
           }
-          .vx-list-view-icon{
+          &--icon{
             transform: rotate(180deg);
             background:$color-primary;
             top:0.06rem;
@@ -27,40 +29,42 @@
         }
       }
       &.loading{
-        .#{$css-prefix}list-view-refresh{ 
-          span:before{
-            content:attr(data-loading);
+        .#{$css-prefix}list-view{
+          &--refresh{
+            span:before{
+              content:attr(data-loading);
+            }
           }
-          .vx-list-view-icon{
+          &--icon{
             display:none
           }
-          .#{$css-prefix}list-view-spinner{
+          &--spinner{
             display: inline-block
           }
         }
       }
     }
-    &-refresh{
+    &--refresh{
       color:$color-sub;
       line-height:0.9rem;
       margin-top:-0.9rem;
       text-align:center;
-      .#{$css-prefix}list-view-spinner{
+      .#{$css-prefix}list-view--spinner{
         display: none
       }
       span:before{
         content:attr(data-pulldown)
       }
     }
-    &-loading{
+    &--loading{
       text-align:center;
       line-height:0.92rem;
       color:$color-sub;
     }
-    &-spinner{
+    &--spinner{
       margin-right:0.08rem;
     }
-    &-icon{
+    &--icon{
       display:inline-block;
       width:0.14rem;
       height:0.16rem;

@@ -1,8 +1,8 @@
 <template>
   <label :class="classes" >
     <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
-    <rem-to-px tag="i" :class="['vx-checkbox-icon', getIconStyle ? `is-${getIconStyle}` : '']" :height="getIconStyle==='checkbox' ? 0.36 : 0.4" :width="getIconStyle==='checkbox' ? 0.36 : 0.4"></rem-to-px>
-    <span class="vx-checkbox-text">
+    <rem-to-px tag="i" :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" :height="getIconStyle==='checkbox' ? 0.36 : 0.4" :width="getIconStyle==='checkbox' ? 0.36 : 0.4"></rem-to-px>
+    <span class="vx-checkbox--text">
       <slot></slot>
     </span>
   </label>
@@ -48,7 +48,7 @@ export default {
           'is-active': this.myChecked,
           'is-disabled': this.myDisabled,
           'is-inline': this.myInline,
-          'vx-checkbox-reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
+          'vx-checkbox--reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
         }
       ]
     },

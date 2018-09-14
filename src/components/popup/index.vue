@@ -14,8 +14,8 @@
       @leave="handleLeave"
       @after-leave="handleAfterLeave">
       <div v-show="open" :class="innerClasses" @click="handleClose2">
-        <div class="vx-popup-relative">
-          <rem-to-px :height="0.5" :width="0.5" v-if="showClose" class="vx-popup-close" @click.native="close"></rem-to-px>
+        <div class="vx-popup--relative">
+          <rem-to-px :height="0.5" :width="0.5" v-if="showClose" class="vx-popup--close" @click.native="close"></rem-to-px>
           <slot :open="open"></slot>
         </div>
       </div>
@@ -58,9 +58,9 @@ export default {
   },
   computed: {
     innerClasses () {
-      let array = ['vx-popup-inner', 'vx-popup-' + this.direction, this.full ? 'vx-full' : '']
+      let array = ['vx-popup--inner', 'vx-popup--' + this.direction, this.full ? 'vx-full' : '']
       if (this.direction === 'center') {
-        array.push('vx-flexbox vx-flexbox-align-center vx-flexbox-content-center')
+        array.push('vx-flexbox vx-flexbox--align-center vx-flexbox--content-center')
       }
       return array
     }
@@ -108,7 +108,7 @@ export default {
       this.fastClose && this.close()
     },
     handleClose2 (e) {
-      if (this.fastClose && e.target === this.$el.querySelector('.vx-popup-inner')) {
+      if (this.fastClose && e.target === this.$el.querySelector('.vx-popup--inner')) {
         this.close()
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-checkbox-group', {'vx-checkbox-group-divider': divider && !inline, 'is-disabled': disabled}]">
+  <div :class="['vx-checkbox-group', {'is-divider': divider && !inline, 'is-disabled': disabled}]">
     <slot></slot>
   </div>
 </template>

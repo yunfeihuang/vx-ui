@@ -4,12 +4,12 @@
   &carousel{
     height:1.4rem;
     transition: background 0.5s ease 0s;
-    &-inner{
+    &--inner{
       position:relative;
       margin:0 auto;
       height:100%;
     }
-    &-item{
+    &--item{
       transition: opacity 0.5s ease 0s;
       display:block;
       opacity:0;
@@ -25,7 +25,7 @@
       }
       overflow:hidden;
     }
-    &-nav{
+    &--nav{
       position:absolute;
       bottom:0;
       left:0;

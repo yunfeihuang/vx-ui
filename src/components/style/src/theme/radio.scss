@@ -17,7 +17,7 @@
       padding:0;
       margin:0;
     }
-    &-icon{
+    &--icon{
       position:absolute;
       right:0.15rem;
       top:50%;
@@ -26,14 +26,14 @@
       margin-top:-0.2rem;
       display:none;
     }
-    &-text{
+    &--text{
       display:block;
       padding-right:0.6rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    input:checked + &-icon{
+    input:checked + &--icon{
       color:$color-primary;
       display:block;
       &:after{
@@ -51,17 +51,15 @@
         transform: rotate(45deg);
       }
     }
-  }
-}
-.#{$css-prefix}{
-  &radio-group{
-    user-select: none;
-    @include disabled;
-    &-divider{
-      .#{$css-prefix}radio{
-        @include divider;
-        &:first-child{
-          background-image:none;
+    &-group{
+      user-select: none;
+      @include disabled;
+      &.is-divider{
+        .#{$css-prefix}radio{
+          @include divider;
+          &:first-child{
+            background-image:none;
+          }
         }
       }
     }

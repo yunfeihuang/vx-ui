@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-cascader',{'is-focus': open}]" @click="handleClick">
-    <flexbox class="vx-cascader-inner" align="center">
+    <flexbox class="vx-cascader--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
         <button type="button" :data-placeholder="placeholder">{{label.join(separator)}}</button>

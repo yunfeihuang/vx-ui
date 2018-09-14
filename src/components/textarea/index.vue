@@ -1,7 +1,7 @@
 <template>
-  <label :class="['vx-textarea-wrapper',{'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea-enter-number': enterNumber}]" @focusin="handleFocusIn" @focusout="handleFocusOut">
-    <div class="vx-textarea-inner">
-      <div class="vx-textarea-shadow"></div>
+  <label :class="['vx-textarea--wrapper',{'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea--enter-number': enterNumber}]" @focusin="handleFocusIn" @focusout="handleFocusOut">
+    <div class="vx-textarea--inner">
+      <div class="vx-textarea--shadow"></div>
       <textarea
         v-bind="$$props"
         v-on="$$listeners"
@@ -47,7 +47,7 @@ export default {
   },
   mounted () {
     this.$$textarea = this.$el.querySelector('textarea')
-    this.$$shadow = this.$el.querySelector('.vx-textarea-shadow')
+    this.$$shadow = this.$el.querySelector('.vx-textarea--shadow')
     this.renderAutoHeight(this.$$textarea.value)
     window.addEventListener('resize', this.handleResize, false)
   },
@@ -67,7 +67,7 @@ export default {
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
         this.$$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
-        this.$el.querySelector('.vx-textarea-inner').style.height = this.$$shadow.offsetHeight + 'px'
+        this.$el.querySelector('.vx-textarea--inner').style.height = this.$$shadow.offsetHeight + 'px'
       })
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <popup
-   :class="['vx-daterange-picker-wrapper']"
+   :class="['vx-daterange-picker--wrapper']"
    :open="open"
    :history="history"
    :fast-close="false"
@@ -10,12 +10,12 @@
    @close-after="handleCloseAfter">
     <div class="vx-daterange-picker" v-if="open">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
-      <flexbox class="vx-daterange-picker-footer">
-        <button type="button" class="vx-daterange-picker-cancel" @click="handleClose">{{cancelText}}</button>
+      <flexbox class="vx-daterange-picker--footer">
+        <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
         <flexbox-item>
-          <button type="button" class="vx-daterange-picker-clear" @click="handleClear">{{clearText}}</button>
+          <button type="button" class="vx-daterange-picker--clear" @click="handleClear">{{clearText}}</button>
         </flexbox-item>
-        <button type="button" class="vx-daterange-picker-confirm" @click="handleConfirm">{{confirmText}}</button>
+        <button type="button" class="vx-daterange-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
       </flexbox>
     </div>
   </popup>

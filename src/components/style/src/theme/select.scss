@@ -5,7 +5,7 @@
     position:relative;
     height:0.92rem;
     @include disabled();
-    &-inner{
+    &--inner{
       height:100%;
       .vx-arrow{
         margin-left:10px;
@@ -36,12 +36,12 @@
       white-space: nowrap;
       @include placeholder;
     }
-    &-picker{
-      .#{$css-prefix}popup-inner{
+    &--picker{
+      .#{$css-prefix}popup--inner{
         overflow:visible;
       }
-      .vx-popup-center{
-        .vx-popup-relative{
+      .vx-popup--center{
+        .vx-popup--relative{
           background:#fff;
           width:80%;
           border-radius:$border-radius-base;
@@ -61,12 +61,12 @@
         }
       }
     }
-    &-header{
+    &--header{
       position:relative;
       @include divider;
       background-position:bottom;
     }
-    &-placeholder{
+    &--placeholder{
       line-height: 0.92rem;
       color:$color-sub;
       overflow:hidden;
@@ -74,13 +74,13 @@
       text-overflow: ellipsis;
       @include button;
     }
-    &-cancel,&-confirm{
+    &--cancel,&--confirm{
       @include button;
       height: 0.92rem;
       width: 1.5rem;
       color:$color-sub;
     }
-    &-confirm{
+    &--confirm{
       color:$color-primary;
       &[disabled]{
         color:$color-sub;

@@ -22,7 +22,7 @@
         border-left:1px solid $border-color-base;
       }
     }
-    &-add,&-reduce{
+    &--add,&--reduce{
       position:relative;
       &:before{
         content: '';
@@ -37,7 +37,7 @@
         border-radius:3rem;
       }
     }
-    &-add{
+    &--add{
       &:after{
         content: '';
         width:1px;

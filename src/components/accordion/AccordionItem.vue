@@ -1,7 +1,7 @@
 <template>
-  <div :class="['vx-accordion-item', {'is-open': myOpen}]">
-    <div class="vx-accordion-item-hd" @click="handleOpen(!myOpen)">
-      <div class="vx-accordion-item-title">
+  <div :class="['vx-accordion--item', {'is-open': myOpen}]">
+    <div class="vx-accordion--item-hd" @click="handleOpen(!myOpen)">
+      <div class="vx-accordion--item-title">
         <slot v-if="$slots.title"></slot>
         <template v-else>
           {{title}}
@@ -9,8 +9,8 @@
       </div>
       <arrow direction="down" />
     </div>
-    <div class="vx-accordion-item-bd">
-      <div class="vx-accordion-item-content">
+    <div class="vx-accordion--item-bd">
+      <div class="vx-accordion--item-content">
         <slot></slot>
       </div>
     </div>
@@ -50,7 +50,7 @@ export default {
   },
   mounted () {
     if (this.open) {
-      let node = this.$el.querySelector('.vx-accordion-item-bd')
+      let node = this.$el.querySelector('.vx-accordion--item-bd')
       node.style.height = 'auto'
       this.handleOpen(true)
     }
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     handleResize () {
-      let node = this.$el.querySelector('.vx-accordion-item-bd')
+      let node = this.$el.querySelector('.vx-accordion--item-bd')
       if (node.style.height) {
         node.style.height = 'auto'
         let height = node.offsetHeight
@@ -71,7 +71,7 @@ export default {
       }
     },
     handleOpen (open) {
-      let node = this.$el.querySelector('.vx-accordion-item-bd')
+      let node = this.$el.querySelector('.vx-accordion--item-bd')
       let height = ''
       if (open) {
         height = node.children[0].offsetHeight + 'px'
@@ -82,8 +82,8 @@ export default {
         let parentNode = self.$el.parentNode
         if (parentNode && parentNode.children) {
           Array.from(parentNode.children).forEach(item => {
-            if (item.classList.contains('vx-accordion-item') && item !== self.$el) {
-              item.querySelector('.vx-accordion-item-bd').style.height = ''
+            if (item.classList.contains('vx-accordion--item') && item !== self.$el) {
+              item.querySelector('.vx-accordion--item-bd').style.height = ''
             }
           })
         }

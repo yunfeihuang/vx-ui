@@ -3,8 +3,8 @@
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
-    <div v-if="props.title" class="vx-group-title">{{props.title}}</div>
-    <div class="vx-group-inner">
+    <div v-if="props.title" class="vx-group--title">{{props.title}}</div>
+    <div class="vx-group--inner">
       <slot></slot>
     </div>
   </div>

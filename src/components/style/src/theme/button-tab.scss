@@ -7,7 +7,7 @@
     user-select: none;
     line-height:0.8rem;
     @include round-border($border-color-base,1rem);
-    &-item{
+    &--item{
       position:relative;
       z-index:1;
       white-space: nowrap;

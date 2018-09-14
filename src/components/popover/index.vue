@@ -64,7 +64,7 @@ export default {
             }
           }, [
             createElement('div', {
-              class: ['vx-popover-content', popover.popoverClass],
+              class: ['vx-popover--content', popover.popoverClass],
               style: {
                 opacity: '0'
               },
@@ -85,7 +85,7 @@ export default {
           this.$nextTick(() => {
             let width = window.innerWidth
             let height = window.innerHeight
-            let node = this.$el.querySelector('.vx-popover-content')
+            let node = this.$el.querySelector('.vx-popover--content')
             let rect = popover.$el.getBoundingClientRect()
             let left = rect.left + 'px'
             let right = 'auto'
@@ -101,8 +101,8 @@ export default {
             }
             requestAnimationFrame(() => {
               node.style.cssText = `top:${top};left:${left};right:${right};bottom:${bottom};opacity:1`
-              left === 'auto' && node.classList.add('vx-popover-content-right')
-              top === 'auto' && node.classList.add('vx-popover-content-bottom')
+              left === 'auto' && node.classList.add('vx-popover--content-right')
+              top === 'auto' && node.classList.add('vx-popover--content-bottom')
             })
           })
         },

@@ -1,13 +1,13 @@
 <template>
   <div
-    :class="['vx-swipeout', {'vx-swipeout-divider': divider}]"
+    :class="['vx-swipeout', {'is-divider': divider}]"
     onselectstart="return false;"
     >
-    <div class="vx-swipeout-inner">
-      <div class="vx-swipeout-content">
+    <div class="vx-swipeout--inner">
+      <div class="vx-swipeout--content">
         <slot></slot>
       </div>
-      <div class="vx-swipeout-action" @click="handleAction">
+      <div class="vx-swipeout--action" @click="handleAction">
         <slot name="action"></slot>
       </div>
     </div>
@@ -55,9 +55,9 @@ export default {
   },
   methods: {
     init () {
-      let node = this.$el.querySelector('.vx-swipeout-action')
+      let node = this.$el.querySelector('.vx-swipeout--action')
       this.$$touch.maxTranslateX = node.offsetWidth
-      this.$$touch.el = this.$el.querySelector('.vx-swipeout-inner')
+      this.$$touch.el = this.$el.querySelector('.vx-swipeout--inner')
       if (node.style.height) {
         node.style.height = ''
       }

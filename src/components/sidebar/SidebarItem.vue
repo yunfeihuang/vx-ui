@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-sidebar-item', {'is-active': $parent.active === name}]" @click="handleClick">
+  <div :class="['vx-sidebar--item', {'is-active': $parent.active === name}]" @click="handleClick">
     <slot></slot>
   </div>
 </template>

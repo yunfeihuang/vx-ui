@@ -1,16 +1,16 @@
 <template>
-  <div :class="['vx-img-wrapper',{'vx-img-placeholder': !loading}]">
+  <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading}]">
     <img
-      :class="['vx-img', {'vx-img-lazyload': lazyload}]"
+      :class="['vx-img', {'vx-img--lazyload': lazyload}]"
       :alt="alt"
       @error="handleError"
       @load='handleLoad'
     />
-    <spinner v-if="loading" class="vx-img-spinner"/>
+    <spinner v-if="loading" class="vx-img--spinner"/>
     <template v-if="!loading">
       <slot name="placeholder" v-if="$slots.placeholder"></slot>
       <!--
-      <i v-else class="vx-img-icon">
+      <i v-else class="vx-img--icon">
         <em></em>
       </i>
       -->
@@ -109,13 +109,13 @@ export default {
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
-          let icon = this.$el.querySelector('.vx-img-icon') || this.$el.querySelector('.vx-img-spinner')
+          let icon = this.$el.querySelector('.vx-img--icon') || this.$el.querySelector('.vx-img--spinner')
           let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
             img.src = this.src
             img.style.opacity = 1
-            this.$el.classList.remove('vx-img-placeholder')
+            this.$el.classList.remove('vx-img--placeholder')
           })
         }
         image.src = this.src

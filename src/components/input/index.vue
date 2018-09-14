@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
-    <flexbox tag="label" align="center" class="vx-input-inner">
+    <flexbox tag="label" align="center" class="vx-input--inner">
       <slot name="prepend"></slot>
       <flexbox-item>
       <input
@@ -14,10 +14,10 @@
           tabindex="-2"
           type="button"
           v-show="!!value && clear && !disabled"
-          class="vx-input-clear-button"
+          class="vx-input--clear-button"
           @click="handleClear"
           >
-          <rem-to-px tag="i" class="vx-input-clear-icon" :height="0.4" :width="0.4"></rem-to-px>
+          <rem-to-px tag="i" class="vx-input--clear-icon" :height="0.4" :width="0.4"></rem-to-px>
         </button>
       </transition>
       <slot name="append"></slot>
@@ -46,12 +46,12 @@ export default {
   computed: {
     classes () {
       return [
-        'vx-input-wrapper',
+        'vx-input--wrapper',
         {
           'is-focus': this.isFocus,
           'is-clear': !!this.value && this.clear,
-          'vx-input-prepend': this.$slots.prepend,
-          'vx-input-append': this.$slots.append,
+          'vx-input--prepend': this.$slots.prepend,
+          'vx-input--append': this.$slots.append,
           'is-disabled': this.disabled,
           'is-border': this.border
         }

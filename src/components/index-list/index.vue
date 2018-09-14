@@ -1,18 +1,18 @@
 <template>
   <div class="vx-index-list">
-     <div class="vx-index-list-each" @scroll="handleScroll">
-        <div class="vx-index-list-group" v-for="(group, gIndex) in data" :key="gIndex">
-          <div class="vx-index-list-title">{{group.label}}</div>
-          <div class="vx-index-list-item" v-for="(item, index) in group.items" :key="index"  @click="handleClick(item.value)">
+     <div class="vx-index-list--each" @scroll="handleScroll">
+        <div class="vx-index-list--group" v-for="(group, gIndex) in data" :key="gIndex">
+          <div class="vx-index-list--title">{{group.label}}</div>
+          <div class="vx-index-list--item" v-for="(item, index) in group.items" :key="index"  @click="handleClick(item.value)">
             <slot v-if="$slots.default"></slot>
             <template>{{item.label}}</template>
           </div>
         </div>
      </div>
-     <div class="vx-index-list-nav">
+     <div class="vx-index-list--nav">
         <div v-for="(item, index) in navList" :key="index" :class="{'is-active': index === 0}" @click="handleGroup(index)">{{item}}</div>
      </div>
-     <div class="vx-index-list-fixed">{{currentCharAt || ' '}}</div>
+     <div class="vx-index-list--fixed">{{currentCharAt || ' '}}</div>
   </div>
 </template>
 <script>
@@ -53,13 +53,13 @@ export default {
   },
   methods: {
     init () {
-      this.$$scrollNode = this.$el.querySelector('.vx-index-list-each')
-      this.$$titleNodes = Array.from(this.$el.querySelectorAll('.vx-index-list-title'))
+      this.$$scrollNode = this.$el.querySelector('.vx-index-list--each')
+      this.$$titleNodes = Array.from(this.$el.querySelectorAll('.vx-index-list--title'))
       this.$$titleNodes.forEach(node => {
         node._offsetTop = node.offsetTop
       })
-      this.$$navNodes = Array.from(this.$el.querySelectorAll('.vx-index-list-nav div'))
-      this.$$fixedNode = this.$el.querySelector('.vx-index-list-fixed')
+      this.$$navNodes = Array.from(this.$el.querySelectorAll('.vx-index-list--nav div'))
+      this.$$fixedNode = this.$el.querySelector('.vx-index-list--fixed')
       this.$$Y = this.$$fixedNode.offsetHeight
     },
     activeNavItem (index) {

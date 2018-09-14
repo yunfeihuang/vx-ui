@@ -1,29 +1,29 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &spinner{
-      position:absolute;
-      height:100%;
-      width:100%;
-      animation: loading 0.6s infinite linear;
-      border:0.04rem solid #eee;
-      border-top-color: $color-primary;
-      border-radius:50%;
-      box-sizing:border-box;
-      &-wrapper{
-        position:relative;
-        display: inline-block;
-        vertical-align: middle;
-        width:0.4rem;
-        height:0.4rem;
-      }
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &spinner{
+    position:absolute;
+    height:100%;
+    width:100%;
+    animation: loading 0.6s infinite linear;
+    border:0.04rem solid #eee;
+    border-top-color: $color-primary;
+    border-radius:50%;
+    box-sizing:border-box;
+    &--wrapper{
+      position:relative;
+      display: inline-block;
+      vertical-align: middle;
+      width:0.4rem;
+      height:0.4rem;
     }
   }
-  @keyframes loading {
-    0% {
-      transform:rotate(0deg)
-    }
-    100% {
-      transform:rotate(360deg)
-    }
+}
+@keyframes loading {
+  0% {
+    transform:rotate(0deg)
   }
+  100% {
+    transform:rotate(360deg)
+  }
+}

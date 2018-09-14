@@ -5,13 +5,13 @@
     position:relative;
     height:100%;
     overflow:hidden;
-    &-each{
+    &--each{
       position:absolute;
       height:100%;
       width:100%;
       @include scroll;
     }
-    &-nav{
+    &--nav{
       position:absolute;
       right:0;
       top:50%;
@@ -24,7 +24,7 @@
         font-weight:bold;
       }
     }
-    &-item{
+    &--item{
       background:#fff;
       padding:0.25rem;
       line-height:0.4rem;
@@ -35,14 +35,14 @@
         background-image:none;
       }
     }
-    &-title,&-fixed{
+    &--title,&--fixed{
       padding:0.3rem 0.2rem 0.2rem 0.2rem;
       background:$color-background;
     }
-    &-title+&-item{
+    &--title+&--item{
       background-image:none;
     }
-    &-fixed{
+    &--fixed{
       position:absolute;
       top:0;
       left:0;

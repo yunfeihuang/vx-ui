@@ -1,13 +1,13 @@
 <template>
-  <div class="vx-search-wrapper">
-    <div :class="['vx-search-inner',{'vx-search-fixed' : fixed}]">
+  <div class="vx-search--wrapper">
+    <div :class="['vx-search--inner',{'vx-search--fixed' : fixed}]">
       <form @submit="handleSubmit">
         <flexbox class="vx-search">
-          <button class="vx-search-cancel" type="button" @click="handleCancel" v-if="fixed">
+          <button class="vx-search--cancel" type="button" @click="handleCancel" v-if="fixed">
             <arrow direction="left" color="#fff" size="0.24rem"/>
           </button>
           <x-input
-            class="vx-flexbox-item"
+            class="vx-flexbox--item"
             native-type="search"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -24,10 +24,10 @@
             @change="handleChange"
           >
           </x-input>
-          <button class="vx-search-button" type="submit" v-if="fixed">搜索</button>
+          <button class="vx-search--button" type="submit" v-if="fixed">搜索</button>
         </flexbox>
       </form>
-      <flexbox-item class="vx-search-container" v-if="fixed">
+      <flexbox-item class="vx-search--container" v-if="fixed">
         <div v-if="!value" class="keywords">
           <slot name="keywords" v-bind="{search: this.handleKeywordChange}"></slot>
         </div>

@@ -6,27 +6,27 @@
     height: 0.68rem;
     position: relative;
     @include divider;
-    &-hd{
+    &--hd{
       margin-right:0.1rem;
     }
-    &-bd{
+    &--bd{
       text-align:left;
     }
-    &-ft{
+    &--ft{
       position:relative;
+    }
+    &--access{
+      @include active;
+      .#{$css-prefix}cell--ft{
+        padding-right:0.24rem;
+        color:$color-sub;
+        &:after{
+          @include arrow;
+        }
+      }
     }
     &:first-child{
       background-image:none;
-    }
-  }
-  &cell-access{
-    @include active;
-    .#{$css-prefix}cell-ft{
-      padding-right:0.24rem;
-      color:$color-sub;
-      &:after{
-        @include arrow;
-      }
     }
   }
 }

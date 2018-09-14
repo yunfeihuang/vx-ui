@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &cascader-picker{
-    &-value{
+    &--value{
       text-align:left;
       @include scroll;
       position: relative;
@@ -26,13 +26,13 @@
         }
       }
     }
-    &-container{
+    &--container{
       position:relative;
       height:6rem;
       overflow:hidden;
       @include divider;
     }
-    &-panel{
+    &--panel{
         @include scroll;
         text-align:left;
         position:absolute;
@@ -43,7 +43,7 @@
         backface-visibility: hidden;
         perspective: 1000;
       }
-    &-item{
+    &--item{
       @include active;
       line-height:0.92rem;
       height:0.92rem;

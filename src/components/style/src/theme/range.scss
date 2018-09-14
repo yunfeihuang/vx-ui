@@ -1,70 +1,69 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &range{
-      &-wrapper{
-        height:0.92rem;
-        position:relative;
-        min-width:2rem;
-      }
-      @include disabled;
-      &-mask{
-        @include divider(#ccc);
-        position:absolute;
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &range{
+    @include disabled;
+    &--wrapper{
+      height:0.92rem;
+      position:relative;
+      min-width:2rem;
+    }
+    &--mask{
+      @include divider(#ccc);
+      position:absolute;
+      content:'';
+      height:1px;
+      width:100%;
+      left:0;
+      z-index:1;
+      top:50%;
+    }
+    &--value{
+      @include divider($color-primary);
+      position:absolute;
+      content:'';
+      height:1px;
+      left:0;
+      width:0;
+      z-index:2;
+      top:50%;
+    }
+    &--button{
+      border:0;
+      height:0.7rem;
+      width:0.7rem;
+      border-radius:50%;
+      background:#fff;
+      box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,.4);
+      position:absolute;
+      top:50%;
+      left:0;
+      margin:-0.35rem 0;
+      z-index:100;
+    }
+    &--tips{
+      position:absolute;
+      left:50%;
+      bottom:100%;
+      background:rgba(0,0,0,0.6);
+      color:#fff;
+      padding:0.1rem;
+      line-height:100%;
+      border-radius:0.06rem;
+      margin-bottom:0.16rem;
+      transform:translateX(-50%);
+      min-width:0.4rem;
+      text-align:center;
+      display:none;
+      &:before{
         content:'';
-        height:1px;
-        width:100%;
-        left:0;
-        z-index:1;
-        top:50%;
-      }
-      &-value{
-        @include divider($color-primary);
         position:absolute;
-        content:'';
-        height:1px;
-        left:0;
-        width:0;
-        z-index:2;
-        top:50%;
-      }
-      &-button{
-        border:0;
-        height:0.7rem;
-        width:0.7rem;
-        border-radius:50%;
-        background:#fff;
-        box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,.4);
-        position:absolute;
-        top:50%;
-        left:0;
-        margin:-0.35rem 0;
-        z-index:100;
-      }
-      &-tips{
-        position:absolute;
+        border:0.08rem solid transparent;
+        border-top-color:rgba(0,0,0,0.6);
         left:50%;
-        bottom:100%;
-        background:rgba(0,0,0,0.6);
-        color:#fff;
-        padding:0.1rem;
-        line-height:100%;
-        border-radius:0.06rem;
-        margin-bottom:0.16rem;
-        transform:translateX(-50%);
-        min-width:0.4rem;
-        text-align:center;
-        display:none;
-        &:before{
-          content:'';
-          position:absolute;
-          border:0.08rem solid transparent;
-          border-top-color:rgba(0,0,0,0.6);
-          left:50%;
-          top:100%;
-          margin-left:-0.08rem;
-        }
+        top:100%;
+        margin-left:-0.08rem;
       }
     }
-    
   }
+}

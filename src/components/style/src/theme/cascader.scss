@@ -5,7 +5,7 @@
     position:relative;
     height:0.92rem;
     @include disabled();
-    &-inner{
+    &--inner{
       height:100%;
       .vx-arrow{
         margin-left:10px;

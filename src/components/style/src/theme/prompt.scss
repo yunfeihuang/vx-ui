@@ -6,15 +6,14 @@
         text-align:left;
       }
       &.is-disabled{
-        .#{$css-prefix}confirm-footer button:last-child{
-          opacity:0.5;
-          pointer-events: none;
+        .#{$css-prefix}confirm--footer button:last-child{
+          @include disabled
         }
       }
-      .vx-confirm-body{
+      .vx-confirm--body{
         padding:1px;;
       }
-      &-message{
+      &--message{
         text-align:left;
         margin: 0.1rem 0;
       }

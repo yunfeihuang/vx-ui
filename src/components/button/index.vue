@@ -27,8 +27,8 @@ export default {
     classes () {
       return [
         'vx-btn',
-        'vx-btn-' + this.type,
-        'vx-btn-size-' + this.size,
+        'vx-btn--' + this.type,
+        'vx-btn--size-' + this.size,
         {
           'is-plain': this.plain,
           'is-ripple': this.ripple,

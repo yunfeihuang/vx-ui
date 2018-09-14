@@ -4,7 +4,7 @@
   &accordion{
     margin:0.16rem 0;
     background:#fff;
-    &-item{
+    &--item{
       position:relative;
       &-hd{
         font-size:$font-size-large;
@@ -22,6 +22,9 @@
       }
       &-title{
         margin-right:0.6rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       &-bd{
         height:0;
@@ -34,7 +37,7 @@
       &.is-open{
         @include divider;
         background-position:bottom;
-        .vx-accordion-item-hd{
+        .vx-accordion--item-hd{
           .vx-arrow{
             transform: rotate(-135deg)!important;
             margin-top:-0.04rem;

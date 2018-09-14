@@ -12,7 +12,7 @@
     z-index: 1000;
     display:none;
     user-select:none;
-    &-inner{
+    &--inner{
       background:#fff;
       position:absolute;
       @include scroll;
@@ -20,7 +20,7 @@
       perspective: 1000;
       transform: translate3d(0,0,0);
     }
-    &-top{
+    &--top{
       top:0;
       left:0;
       width:100%;
@@ -30,7 +30,7 @@
         max-height: 100%;
       }
     }
-    &-bottom{
+    &--bottom{
       bottom:0;
       left:0;
       width:100%;
@@ -40,7 +40,7 @@
         max-height: 100%;
       }
     }
-    &-left{
+    &--left{
       top:0;
       left:0;
       height:100%;
@@ -50,7 +50,7 @@
         max-width: 100%;
       }
     }
-    &-right{
+    &--right{
       top:0;
       right:0;
       height:100%;
@@ -60,7 +60,7 @@
         max-width: 100%;
       }
     }
-    &-center{
+    &--center{
       top:0;
       left:0;
       width:100%;
@@ -71,7 +71,7 @@
         background:#fff;
       }
     }
-    &-close{
+    &--close{
       position:absolute;
       transform: rotate(45deg);
       display: inline-block;
@@ -101,7 +101,7 @@
         margin-left:-1px;
       }
     }
-    &-relative{
+    &--relative{
       position:relative;
     }
   }

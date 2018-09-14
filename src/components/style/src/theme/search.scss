@@ -5,7 +5,7 @@
     position:relative;
     background:#ddd;
     padding:1px;
-    .#{$css-prefix}input-wrapper{
+    .#{$css-prefix}input--wrapper{
       height:0.7rem;
       margin: 4px;
       border-radius:1rem;
@@ -24,42 +24,42 @@
     input::search-cancel-button{
       display:none;
     }
-    &-cancel{
+    &--cancel{
       @include button;
       width: 0.6rem;
       .vx-arrow{
         margin-right: -0.2rem;
       }
     }
-    &-button{
+    &--button{
       @include button;
       color:#fff;
     }
-  }
-  &search-fixed{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: #fff;
-    width: 100%;
-    flex-direction: column;
-    z-index: 100;
-    .#{$css-prefix}search{
-      background:$color-primary;
+    &--fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #fff;
+      width: 100%;
+      flex-direction: column;
+      z-index: 100;
+      .#{$css-prefix}search{
+        background:$color-primary;
+      }
     }
-  }
-  &search-container{
-    .keywords{
-      padding:0.3rem;
-      .keyword{
-        display:inline-block;
-        border:1px solid #eee;
-        border-radius:0.6rem;
-        vertical-align: middle;
-        padding:0.12rem 0.3rem;
-        margin:0.1rem;
-        @include active;
+    &--container{
+      .keywords{
+        padding:0.3rem;
+        .keyword{
+          display:inline-block;
+          border:1px solid #eee;
+          border-radius:0.6rem;
+          vertical-align: middle;
+          padding:0.12rem 0.3rem;
+          margin:0.1rem;
+          @include active;
+        }
       }
     }
   }

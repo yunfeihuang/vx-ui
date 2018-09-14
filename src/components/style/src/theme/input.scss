@@ -1,70 +1,73 @@
 @import '../variable.scss';
 @import '../mixins.scss';
 .#{$css-prefix}{
-  &input-wrapper{
-    position:relative;
-    display:block;
-    height:0.92rem;
-    background:#fff;
-    @include disabled;
-    .vx-arrow{
-      margin-left:10px;
-      margin-right:10px;
-      margin-top:-0.1rem;
-      transition: transform 0.18s ease 0s;
-    }
-    input{
-      border:0;
-      width:100%;
-      height:100%;
-      box-sizing:border-box;
-      outline: none;
-      text-align: inherit;
-      font-size: inherit;
-      padding:0 0.2rem;
-      vertical-align: middle;
-      background: transparent;
-    }
-    &.is-border{
-      &:before{
-        @include divider;
-        z-index:1;
-        position:absolute;
-        content:'';
-        height:1px;
-        width:100%;
-        left:0;
-        bottom:-1px;
-        background-color: transparent;
-      }
-      &:after{
-        @include divider($color-primary);
-        width:0;
-        position:absolute;
-        content:'';
-        height:1px;
-        transition:width 0.4s $ease-in-out;
-        z-index:2;
-        left:0;
-        bottom:-1px;
-        background-color: transparent;
-      }
-    }
-    &.is-focus{
-      &:after{
-        width:100%;
-      }
-      .vx-arrow{
-        transform:rotate(-135deg)!important;
-        margin-top:0.1rem;
-      }
-    }
-  }
   &input{
-    &-inner{
+    &--wrapper{
+      position:relative;
+      display:block;
+      height:0.92rem;
+      background:#fff;
+      @include disabled;
+      .vx-arrow{
+        margin-left:10px;
+        margin-right:10px;
+        margin-top:-0.1rem;
+        transition: transform 0.18s ease 0s;
+      }
+      .vx-flexbox--item{
+        height:100%;
+      }
+      input{
+        border:0;
+        width:100%;
+        height:100%;
+        box-sizing:border-box;
+        outline: none;
+        text-align: inherit;
+        font-size: inherit;
+        padding:0 0.2rem;
+        vertical-align: middle;
+        background: transparent;
+      }
+      &.is-border{
+        &:before{
+          @include divider;
+          z-index:1;
+          position:absolute;
+          content:'';
+          height:1px;
+          width:100%;
+          left:0;
+          bottom:-1px;
+          background-color: transparent;
+        }
+        &:after{
+          @include divider($color-primary);
+          width:0;
+          position:absolute;
+          content:'';
+          height:1px;
+          transition:width 0.4s $ease-in-out;
+          z-index:2;
+          left:0;
+          bottom:-1px;
+          background-color: transparent;
+        }
+      }
+      &.is-focus{
+        &:after{
+          width:100%;
+        }
+        .vx-arrow{
+          transform:rotate(-135deg)!important;
+          margin-top:0.1rem;
+        }
+      }
+    }
+    &--inner{
       height:100%;
     }
-    &-clear{
+    &--clear{
       &-button{
         @include button;
         width:0.8rem;
@@ -98,7 +101,7 @@
           margin-left:-1px;
         }
       }
-      .#{$css-prefix}input-clear-button{
+      .#{$css-prefix}input--clear-button{
         display:block;
       }
     }

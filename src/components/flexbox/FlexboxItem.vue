@@ -1,5 +1,5 @@
 <template>
-  <component class="vx-flexbox-item" :style="styles" :is="tag">
+  <component class="vx-flexbox--item" :style="styles" :is="tag">
     <slot></slot>
   </component>
 </template>

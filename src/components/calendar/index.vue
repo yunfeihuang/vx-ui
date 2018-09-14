@@ -1,7 +1,7 @@
 <template>
-  <div class="vx-calendar-wrapper">
-    <div class="vx-calendar-header">
-      <flexbox class="vx-calendar-controls" v-if="layout.indexOf('year')>-1||layout.indexOf('month')>-1">
+  <div class="vx-calendar--wrapper">
+    <div class="vx-calendar--header">
+      <flexbox class="vx-calendar--controls" v-if="layout.indexOf('year')>-1||layout.indexOf('month')>-1">
         <flexbox-item v-if="layout.indexOf('year')>-1">
           <flexbox align="center">
             <button :class="{'is-disabled': date.getFullYear() <= 1990}" type="button" @click="handleYearChange(-1)">
@@ -37,7 +37,7 @@
         @click="handleChange(isWeekRange? index : item.value)"
         >
         <slot v-if="$slots.default" v-bind="item"></slot>
-        <span v-else class="vx-calendar-date-text">{{item.value.getDate()}}</span>
+        <span v-else class="vx-calendar--date-text">{{item.value.getDate()}}</span>
       </div>
     </flexbox>
   </div>
@@ -127,7 +127,7 @@ export default {
     },
     calendarClasses (item) {
       let array = []
-      array.push('vx-calendar-date')
+      array.push('vx-calendar--date')
       item.weekend && array.push('is-weekend')
       item.today && array.push('is-today')
       !item.currentMonth && array.push('is-disabled')

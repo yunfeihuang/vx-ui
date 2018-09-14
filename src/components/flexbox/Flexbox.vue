@@ -8,16 +8,16 @@
 
 let flexMap = {
   direction: {
-    column: `flexbox-column`
+    column: `flexbox--column`
   },
   wrap: {
-    wrap: `flexbox-wrap`
+    wrap: `flexbox--wrap`
   },
   justify: {
-    center: `flexbox-content-center`
+    center: `flexbox--content-center`
   },
   align: {
-    center: `flexbox-align-center`
+    center: `flexbox--align-center`
   }
 }
 

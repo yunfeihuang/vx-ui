@@ -3,20 +3,20 @@
     <transition name="confirm-fade">
       <overlay v-show="open"></overlay>
     </transition>
-    <div class="vx-confirm-wrapper">
+    <div class="vx-confirm--wrapper">
       <transition name="confirm-scale" @after-leave="handleLeave">
-        <div class="vx-confirm-inner" v-show="open">
-          <div v-if="title" class="vx-confirm-title">{{title}}</div>
-          <div class="vx-confirm-body">
-            <div class="vx-confirm-table">
-              <div class="vx-confirm-cell">
+        <div class="vx-confirm--inner" v-show="open">
+          <div v-if="title" class="vx-confirm--title">{{title}}</div>
+          <div class="vx-confirm--body">
+            <div class="vx-confirm--table">
+              <div class="vx-confirm--cell">
                 <slot :open="open"></slot>
               </div>
             </div>
           </div>
-          <div :class="['vx-confirm-footer','vx-flexbox']" onselectstart="return false;">
-            <button class="vx-flexbox-item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
-            <component class="vx-flexbox-item" :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
+          <div :class="['vx-confirm--footer','vx-flexbox']" onselectstart="return false;">
+            <button class="vx-flexbox--item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+            <component class="vx-flexbox--item" :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
           </div>
         </div>
       </transition>

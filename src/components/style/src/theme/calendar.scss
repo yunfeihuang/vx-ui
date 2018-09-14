@@ -5,11 +5,11 @@
     flex-wrap: wrap;
     position:relative;
     @include divider;
-    &-wrapper{
+    &--wrapper{
       text-align:center;
       background:#fff;
     }
-    &-date{
+    &--date{
       width:14.285714285714286%;
       line-height:0.92rem;
       height: 0.92rem;
@@ -33,7 +33,7 @@
         color:$color-primary
       }
     }
-    &-header{
+    &--header{
       line-height:0.8rem;
       .is-weekend{
         color:#F96903;
@@ -45,7 +45,7 @@
         @include disabled;
       }
     }
-    &-controls{
+    &--controls{
       button{
         opacity: 0.8;
       }
