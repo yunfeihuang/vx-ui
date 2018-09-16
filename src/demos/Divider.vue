@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Divider</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Divider"></x-nav>
     <x-body slot="body">
       <div style="background:#fff;margin:15px 0;padding:1px 10px;line-height:0.9rem;">
         标题

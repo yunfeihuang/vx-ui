@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Input</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Input"></x-nav>
     <x-body slot="body">
       <group title="default">
         <x-input placeholder="请输入帐号" v-model="value"/>

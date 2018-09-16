@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">InputNumber</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="InputNumber"></x-nav>
     <x-body slot="body">
       <group title="default">
         <cell title="value" :arrow="false">

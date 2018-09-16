@@ -1,8 +1,6 @@
 <template>
   <layout class="demos img-demos">
-    <x-nav slot="header" back="/">
-      <div slot="title">Sticky-往上滚动Tab栏会固定位置</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Sticky-往上滚动Tab栏会固定位置"></x-nav>
     <x-body slot="body" v-if="pageState.into">
       <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px"/>
       <sticky>

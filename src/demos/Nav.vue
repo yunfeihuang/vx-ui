@@ -1,15 +1,13 @@
 <template>
   <layout>
     <div slot="header">
-      <x-nav back="/" back-text="返回">
-        <div slot="title">Nav</div>
+      <x-nav back="/" back-text="返回" title="Nav">
         <button class="btn-pull" slot="pull">
           更多
         </button>
       </x-nav>
       <br />
-      <x-nav back="/" back-text="返回" type="primary">
-        <div slot="title">Nav</div>
+      <x-nav back="/" back-text="返回" type="primary" title="Nav">
         <button class="btn-pull" slot="pull">
           更多
         </button>

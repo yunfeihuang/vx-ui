@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Password</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Password"></x-nav>
     <x-body slot="body">
       <group title="default">
         <password placeholder="请输入密码" v-model="value" :cipher.sync="cipher" :encrypt="encrypt"/>

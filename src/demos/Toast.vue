@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Toast</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Toast"></x-nav>
     <x-body slot="body">
       <group>
         <cell :arrow="false">

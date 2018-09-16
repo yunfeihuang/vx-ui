@@ -1,8 +1,6 @@
 <template>
   <layout class="demos img-demos">
-    <x-nav slot="header" back="/">
-      <div slot="title">Preview(点击图片浏览图片)</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
     <x-body slot="body" class="img-container" v-if="pageState.into">
       <x-img
         v-for="(item,index) in images"

@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Popover</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Popover"></x-nav>
     <x-body slot="body" style="padding:15px;" v-if="pageState.into">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>

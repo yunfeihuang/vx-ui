@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Tabbar</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Tabbar"></x-nav>
     <x-body slot="body">
       <!--
       <swiper :active.sync="active" class="tabbar-swiper">

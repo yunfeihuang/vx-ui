@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Carousel</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Carousel"></x-nav>
     <x-body slot="body" style="background:#fff">
       <carousel :active="active" :pagination="true" @change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>

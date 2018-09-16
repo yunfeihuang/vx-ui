@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Ripple</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Ripple"></x-nav>
     <x-body slot="body">
       <group class="ripple-demo">
         <ripple>

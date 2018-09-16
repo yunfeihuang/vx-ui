@@ -1,9 +1,7 @@
 <template>
   <layout>
     <div slot="header">
-      <x-nav back="/">
-        <div slot="title">Tab</div>
-      </x-nav>
+      <x-nav back="/" title="Tab"></x-nav>
       <div v-if="pageState.into">
         <tab :active.sync="active">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>

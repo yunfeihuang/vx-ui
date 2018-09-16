@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Spinner</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Spinner"></x-nav>
     <x-body slot="body" class="spinner-demo">
       <spinner></spinner>
       <br/>

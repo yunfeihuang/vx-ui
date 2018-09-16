@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">DatetimePicker</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="DatetimePicker"></x-nav>
     <x-body slot="body">
       <message>注意：此示例要在移动设备体验哦~</message>
       <group>

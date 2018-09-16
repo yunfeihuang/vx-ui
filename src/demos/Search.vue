@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Search</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Search"></x-nav>
     <x-body slot="body"  class="demos img-demos">
       <search v-model="value" placeholder="搜索商品/商店/用户"
         @submit="handleSubmit">

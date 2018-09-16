@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Accordion</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Accordion"></x-nav>
     <x-body slot="body">
       <accordion>
         <accordion-item title="标题文字" :open="true">

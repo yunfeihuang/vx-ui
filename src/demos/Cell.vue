@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Cell</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Cell"></x-nav>
     <x-body slot="body">
       <group title="default">
         <a href="https://github.com/yunfeihuang/vx-ui" style="color:inherit">

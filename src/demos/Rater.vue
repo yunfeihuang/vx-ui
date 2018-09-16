@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title" >Rater</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Rater"></x-nav>
     <x-body class="demos" slot="body">
       <group>
         <cell :arrow="false">

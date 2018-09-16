@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Checker</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Checker"></x-nav>
     <x-body slot="body">
       <group title="Checker 多选">
         <div style="padding:20px 10px">

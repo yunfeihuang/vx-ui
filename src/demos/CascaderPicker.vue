@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">CascaderPicker</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="CascaderPicker"></x-nav>
     <x-body slot="body">
       <group :title="`级联：${value}`">
         <cascader-picker v-model="value" :options="options"/>

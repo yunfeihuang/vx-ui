@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Range</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Range"></x-nav>
     <x-body slot="body">
       <group :title="`default(value:${value1})`">
         <div style="padding:10px">

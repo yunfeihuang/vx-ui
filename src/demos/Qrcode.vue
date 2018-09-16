@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Qrcode</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Qrcode"></x-nav>
     <x-body slot="body" v-if="pageState.into">
       <div class="qrcode-demo">
         <qrcode text="http://vue.bittyos.com/"/>

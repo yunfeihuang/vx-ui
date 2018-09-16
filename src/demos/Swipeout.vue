@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Swipeout</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Swipeout"></x-nav>
     <x-body slot="body" class="swipeout-demos" v-if="pageState.into">
       <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
         <flexbox align="center" class="list-view-item">

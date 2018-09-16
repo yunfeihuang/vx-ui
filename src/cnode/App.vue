@@ -2,9 +2,7 @@
   <div class="cnode-app">
     <layout v-show="$route.path == '/cnode'" :style="`opacity:1;transform:translateX(0)`">
       <div slot="header">
-        <x-nav :back="false">
-          <div slot="title">CNode-专业中文社区</div>
-        </x-nav>
+        <x-nav :back="false" title="CNode-专业中文社区"></x-nav>
         <tab :active="home.active" @change="handleActive" underline-width="auto" style="margin-top:1px;">
           <tab-item :name="0">
             全部

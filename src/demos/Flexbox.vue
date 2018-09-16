@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Flexbox</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Flexbox"></x-nav>
     <x-body slot="body" class="flexbox-demos">
       <flexbox :gutter="10">
         <flexbox-item>

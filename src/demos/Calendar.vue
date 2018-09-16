@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Calendar</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Calendar"></x-nav>
     <x-body slot="body">
       <group :title="`日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">
         <calendar v-model="value1"/>

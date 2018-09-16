@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header">
-      <div slot="title">主题详情</div>
-    </x-nav>
+    <x-nav slot="header" title="主题详情"></x-nav>
     <x-body slot="body" :class="clas">
       <div v-if="pageState.into">
         <div class="topic-header">

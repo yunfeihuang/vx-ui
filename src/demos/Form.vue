@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Form</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Form"></x-nav>
     <x-body slot="body">
       <br />
       <el-form :model="form" ref="form" @submit.native.prevent="handleSubmit">

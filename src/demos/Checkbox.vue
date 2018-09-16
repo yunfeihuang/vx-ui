@@ -1,8 +1,6 @@
 <template>
   <layout>
-    <x-nav slot="header" back="/">
-      <div slot="title">Checkbox</div>
-    </x-nav>
+    <x-nav slot="header" back="/" title="Checkbox"></x-nav>
     <x-body slot="body">
       <group title="Checkbox">
         <checkbox :checked.sync="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
