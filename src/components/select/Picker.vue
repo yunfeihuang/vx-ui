@@ -1,23 +1,21 @@
 <template>
   <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @close-after="handleCloseAfter" @after-enter="handleAfterEnter">
-    <div class="vx-option-picker--wrapper">
-      <div v-if="max != 1" :class="['vx-flexbox','vx-option-picker--header']">
-        <button type="button" class="vx-option-picker--cancel" @click="handleCancel">{{cancelText}}</button>
-        <button type="button" :class="['vx-flexbox--item','vx-option-picker--placeholder']">{{myTitle}}</button>
-        <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
-      </div>
-      <div class="vx-option-picker">
-        <checkbox-group :max="max" @change="handleChange" :value="myValue">
-          <checkbox
-            v-for="(item,index) in myOptions"
-            :value="item.value"
-            :key="index"
-            :disabled="item.disabled"
-            >
-            <div v-html="item.html || item.label"></div>
-          </checkbox>
-        </checkbox-group>
-      </div>
+    <div slot="header" v-if="max != 1" :class="['vx-flexbox','vx-option-picker--header']">
+      <button type="button" class="vx-option-picker--cancel" @click="handleCancel">{{cancelText}}</button>
+      <button type="button" :class="['vx-flexbox--item','vx-option-picker--placeholder']">{{myTitle}}</button>
+      <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
+    </div>
+    <div class="vx-option-picker">
+      <checkbox-group :max="max" @change="handleChange" :value="myValue">
+        <checkbox
+          v-for="(item,index) in myOptions"
+          :value="item.value"
+          :key="index"
+          :disabled="item.disabled"
+          >
+          <div v-html="item.html || item.label"></div>
+        </checkbox>
+      </checkbox-group>
     </div>
   </popup>
 </template>

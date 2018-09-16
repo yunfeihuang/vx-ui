@@ -5,6 +5,7 @@
     &--inner{
       background:#fff;
       max-height: 80%;
+      text-align:center;
       @include scroll;
     }
     &--title{

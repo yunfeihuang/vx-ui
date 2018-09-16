@@ -13,12 +13,24 @@
       @before-leave="handleBeforeLeave"
       @leave="handleLeave"
       @after-leave="handleAfterLeave">
-      <div v-show="open" :class="innerClasses" @click="handleClose2">
-        <div class="vx-popup--relative">
-          <rem-to-px :height="0.5" :width="0.5" v-if="showClose" class="vx-popup--close" @click.native="close"></rem-to-px>
+      <flexbox v-show="open" :class="innerClasses" @click="handleClose2" direction="column">
+        <flexbox class="vx-popup--nav" v-if="title && !showClose" align="center">
+          <button type="button" @click="close"><arrow direction="left" color="#666" size="0.24rem"/></button>
+          <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
+        </flexbox>
+        <flexbox v-else-if="showClose" align="center">
+          <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
+          <rem-to-px :height="0.5" :width="0.5" class="vx-popup--close" @click.native="close"></rem-to-px>
+        </flexbox>
+        <slot v-else name="header"></slot>
+        <div class="vx-popup--relative" v-if="direction === 'center'">
           <slot :open="open"></slot>
         </div>
-      </div>
+        <flexbox-item class="vx-popup--relative" v-else>
+          <slot :open="open"></slot>
+        </flexbox-item>
+        <slot name="footer"></slot>
+      </flexbox>
     </transition>
   </div>
 </template>
@@ -27,11 +39,16 @@
 import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
 import RemToPx from '../remtopx'
+import Arrow from '../arrow'
+import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   componentName: 'Popup',
   components: {
     Overlay,
-    RemToPx
+    RemToPx,
+    Arrow,
+    Flexbox,
+    FlexboxItem
   },
   mixins: [historyPush],
   props: {
@@ -54,6 +71,9 @@ export default {
     showClose: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String
     }
   },
   computed: {
@@ -61,6 +81,8 @@ export default {
       let array = ['vx-popup--inner', 'vx-popup--' + this.direction, this.full ? 'vx-full' : '']
       if (this.direction === 'center') {
         array.push('vx-flexbox vx-flexbox--align-center vx-flexbox--content-center')
+      } else {
+        array.push('vx-flexbox vx-flexbox--column')
       }
       return array
     }

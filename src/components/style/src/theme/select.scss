@@ -40,6 +40,10 @@
       .#{$css-prefix}popup--inner{
         overflow:visible;
       }
+      .vx-popup--relative{
+        max-height:8rem;
+        max-height: 65.2vh;
+      }
       .vx-popup--center{
         .vx-popup--relative{
           background:#fff;
@@ -50,10 +54,6 @@
     }
   }
   &option-picker{
-    text-align: left;
-    max-height:8rem;
-    max-height: 65.2vh;
-    overflow:auto;
     .#{$css-prefix}{
       &checkbox{
         &.is-active{

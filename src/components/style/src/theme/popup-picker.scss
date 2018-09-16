@@ -2,9 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &popup-picker{
-    &--wrapper{
-      background:#fff;
-    }
+    background:#fff;
     &--item{
       flex:1;
       min-width:0;

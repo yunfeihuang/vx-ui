@@ -1,29 +1,27 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false">
-    <div class="vx-popup-picker--wrapper">
-      <div :class="['vx-flexbox','vx-datetime-picker--header']">
-        <button type="button" class="vx-datetime-picker--cancel" @click="handleCancel">{{cancelText}}</button>
-        <div :class="['vx-flexbox--item','vx-datetime-picker--today']">
-          <!--
-          <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
-          -->
-        </div>
-        <button type="button" class="vx-datetime-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
+    <div slot="header" :class="['vx-flexbox','vx-datetime-picker--header']">
+      <button type="button" class="vx-datetime-picker--cancel" @click="handleCancel">{{cancelText}}</button>
+      <div :class="['vx-flexbox--item','vx-datetime-picker--today']">
+        <!--
+        <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
+        -->
       </div>
-      <div :class="['vx-flexbox','vx-datetime-picker']">
-        <picker
-          v-if="pickers"
-          v-for="(item,index) in pickers"
-          :class="['vx-flexbox--item','vx-datetime-picker--item']"
-          :index="index+'-'+item.type"
-          :key="index+'-'+item.type"
-          :data-type="item.type"
-          :value="item.value"
-          :placeholder="item.placeholder"
-          :options="item.options"
-          @change="handleChange($event, index, item.type)"
-        />
-      </div>
+      <button type="button" class="vx-datetime-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
+    </div>
+    <div :class="['vx-flexbox','vx-datetime-picker']">
+      <picker
+        v-if="pickers"
+        v-for="(item,index) in pickers"
+        :class="['vx-flexbox--item','vx-datetime-picker--item']"
+        :index="index+'-'+item.type"
+        :key="index+'-'+item.type"
+        :data-type="item.type"
+        :value="item.value"
+        :placeholder="item.placeholder"
+        :options="item.options"
+        @change="handleChange($event, index, item.type)"
+      />
     </div>
   </popup>
 </template>
@@ -96,7 +94,7 @@ export default {
   },
   watch: {
     open (value) {
-      value && this.initial()
+      this.initial()
     }
   },
   data () {
@@ -107,7 +105,7 @@ export default {
   methods: {
     parseValue (value = this.value) {
       if (!/[-\/]/.test(value) && this.format !== 'yyyy') { //eslint-disable-line
-        value = '1900-01-01 ' + value
+        value = '1900/01/0' + value
       }
       let date = new Date(value.replace(/-/g, '/'))
       return {
