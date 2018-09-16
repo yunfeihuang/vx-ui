@@ -38,6 +38,7 @@ export default {
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
+| title     | 标题   | String  |   -       |    -    |
 | isBack     | 是否有后退按钮   | Boolean  |   -       |    true    |
 | to     | 后退地址   | -  |   -       |    -    |
 | onBack     | 默认是后退   | functon  |   -       |    history.back()    |

@@ -10,7 +10,8 @@
         <span v-if="backText">{{props.backText}}</span>
       </button>
       <flexbox-item :class="['vx-nav--title', {'vx-nav--title-center': props.isBack===false}]">
-        <slot name="title"></slot>
+        <slot v-if="$slots.title" name="title"></slot>
+        <template v-else>{{data.attrs.title}}</template>
       </flexbox-item>
       <slot name="pull"></slot>
     </flexbox>
