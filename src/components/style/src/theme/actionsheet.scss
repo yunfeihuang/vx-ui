@@ -38,19 +38,21 @@
         max-width:10rem;
         width:60%;
       }
-      .#{$css-prefix}actionsheet-{
-        &-inner{
+      .#{$css-prefix}actionsheet{
+        &--inner{
           border-radius:0.06rem;
         }
-        &-item{
+        &--item{
           border-left:0;
           border-right:0;
         }
       }
     }
     &.is-not-title{
-      .#{$css-prefix}actionsheet--item:first-child{
-        background-image:none;
+      .#{$css-prefix}actionsheet{
+        &--item:first-child{
+          background-image:none;
+        }
       }
     }
   }

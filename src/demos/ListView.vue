@@ -25,12 +25,17 @@ import { children } from 'utils/mixins/page'
 export default {
   mixins: [children],
   data () {
-    let list = this.getList()
     return {
-      list,
-      loading: false,
+      list: [],
+      loading: true,
       end: false // 是否还没有更多
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.list = this.getList()
+      this.loading = false
+    }, 2000)
   },
   methods: {
     getList () {
@@ -49,7 +54,7 @@ export default {
       setTimeout(() => { // 模拟ajax请求
         this.list = this.list.concat(this.getList())
         this.loading = false
-        if (this.list.length >= 60) {
+        if (this.list.length >= 100) {
           this.end = true // 没有更多了
         }
       }, 1000)

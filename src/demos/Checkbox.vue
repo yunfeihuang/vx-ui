@@ -26,7 +26,7 @@
         </div>
       </group>
       <group title="CheckboxGroup Change Icon style And inline style">
-        <checkbox-group v-model="value" inline>
+        <checkbox-group v-model="value" inline style="padding: 15px 10px;">
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"
