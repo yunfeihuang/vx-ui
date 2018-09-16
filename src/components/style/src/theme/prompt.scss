@@ -7,8 +7,7 @@
     }
     &.is-disabled{
       .#{$css-prefix}confirm--footer button:last-child{
-        opacity:0.6;
-        pointer-events: none;
+        @include _disabled;
       }
     }
     &--message{

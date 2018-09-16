@@ -1,9 +1,12 @@
 @mixin disabled{
   &.is-disabled{
-    opacity:0.6;
-    pointer-events: none;
+    @include _disabled;
     @content;
   }
+}
+@mixin _disabled{
+  opacity:0.6;
+  pointer-events: none;
 }
 @mixin active{
   &:active{
