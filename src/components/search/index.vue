@@ -27,14 +27,14 @@
           <button class="vx-search--button" type="submit" v-if="fixed">搜索</button>
         </flexbox>
       </form>
-      <flexbox-item class="vx-search--container" v-if="fixed">
+      <div class="vx-search--container" v-if="fixed">
         <div v-if="!value" class="keywords">
           <slot name="keywords" v-bind="{search: this.handleKeywordChange}"></slot>
         </div>
         <div v-if="value">
           <slot name="result"></slot>
         </div>
-      </flexbox-item>
+      </div>
     </div>
   </div>
 </template>

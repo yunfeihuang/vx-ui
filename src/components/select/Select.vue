@@ -77,6 +77,12 @@ export default {
       this.updateLabel(this.value)
     })
   },
+  beforeDestroy () {
+    if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
+      this.$root.__popup && this.$root.__popup.$destroy()
+      this.__popup = this.$root.__popup = null
+    }
+  },
   methods: {
     getOptions () {
       let result = []
@@ -108,7 +114,7 @@ export default {
         }
         if (this.$$myOptions.length) {
           /* eslint-disable no-new */
-          this.$root.__popup = new Vue({
+          this.$root.__popup = this.__popup = new Vue({
             el: node,
             render (createElement) {
               return createElement(Picker, {

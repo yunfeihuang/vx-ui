@@ -57,6 +57,12 @@ export default {
       }
     }
   },
+  beforeDestroy () {
+    if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
+      this.$root.__popup && this.$root.__popup.$destroy()
+      this.__popup = this.$root.__popup = null
+    }
+  },
   methods: {
     handleFocusIn (e) {
       let datetime = this
@@ -70,7 +76,7 @@ export default {
         this.$root.__popup && this.$root.__popup.$destroy()
       }
       /* eslint-disable no-new */
-      this.$root.__popup = new Vue({
+      this.$root.__popup = this.__popup = new Vue({
         el: node,
         render (createElement) {
           return createElement(DatetimePicker, {

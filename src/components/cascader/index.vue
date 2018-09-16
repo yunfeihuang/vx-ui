@@ -58,6 +58,12 @@ export default {
       this.myValue = [...value]
     }
   },
+  beforeDestroy () {
+    if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
+      this.$root.__popup && this.$root.__popup.$destroy()
+      this.__popup = this.$root.__popup = null
+    }
+  },
   methods: {
     handleFocusIn () {
       let self = this
@@ -66,7 +72,7 @@ export default {
       if (this.$root && this.$root.__popup) {
         this.$root.__popup && this.$root.__popup.$destroy()
       }
-      this.$root.__popup = new Vue({
+      this.$root.__popup = this.__popup = new Vue({
         el: node,
         render (createElement) {
           return createElement(CascaderPopupPicker, {
@@ -103,7 +109,7 @@ export default {
     },
     handleCloseAfter () {
       this.$nextTick(() => {
-        this.$$cascaderPopupPicker && this.$$cascaderPopupPicker.$destroy()
+        this.__popup && this.__popup.$destroy()
       })
     },
     handleLabel (label) {
