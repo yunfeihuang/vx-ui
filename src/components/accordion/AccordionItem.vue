@@ -80,7 +80,7 @@ export default {
       let self = this
       this.$nextTick(() => {
         let parentNode = self.$el.parentNode
-        if (parentNode && parentNode.children) {
+        if (parentNode && parentNode.children && parentNode.dataset.mutex) {
           Array.from(parentNode.children).forEach(item => {
             if (item.classList.contains('vx-accordion--item') && item !== self.$el) {
               item.querySelector('.vx-accordion--item-bd').style.height = ''
