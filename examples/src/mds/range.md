@@ -46,6 +46,7 @@
 | min     | 最小值   | Number  |     -     |    0    |
 | step     | 步值   | Number  |     -     |    1    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| unit     | 单位   | String,Function  |     -     |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

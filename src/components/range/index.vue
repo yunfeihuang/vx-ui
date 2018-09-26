@@ -34,6 +34,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    unit: {
+      type: [String, Function]
     }
   },
   computed: {
@@ -87,7 +90,10 @@ export default {
     renderRange (value = this.myValue) {
       let left = Math.round((value - this.min) / this.range * this.$$range.maxLeft) + 'px'
       this.$$range.controlNode.style.left = this.$$range.valueNode.style.width = left
-      this.$$range.tipsNode.innerHTML = this.myValue
+      this.$$range.tipsNode.innerHTML = this.getTipsText(this.myValue)
+    },
+    getTipsText (value) {
+      return `${value}${this.unit ? typeof this.unit === 'function' ? this.unit(value) : this.unit : ''}`
     },
     handleChange (val) {
       this.$emit('input', val).$emit('change', val)
@@ -119,7 +125,8 @@ export default {
             left = left > this.$$range.maxLeft ? this.$$range.maxLeft : left
             buttonLeft = left
             this.$$range.controlNode.style.left = this.$$range.valueNode.style.width = left + 'px'
-            this.$$range.tipsNode.innerHTML = value = Math.round((buttonLeft / this.$$range.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
+            value = Math.round((buttonLeft / this.$$range.maxLeft * this.range + this.min) * this.stepRate) / this.stepRate
+            this.$$range.tipsNode.innerHTML = this.getTipsText(value)
             event.preventDefault()
           }
         }
