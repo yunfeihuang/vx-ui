@@ -33,10 +33,11 @@ export default {
 | value     | 值   | Date, Array  |   -       |    -    |
 | isRange     | 是否是区间   | Boolean  |   -       |    false    |
 | isWeekRange     | 是否是周区间   | Boolean  |   -       |    false    |
-| yearText     | 年文字   | String  |   -       |    年    |
-| monthText     | 月文字   | String  |   -       |    月    |
-| weekText     | 周一到五文字   | Array  |   -       |    ['周一', '周二', '周三', '周四', '周五', '周六', '周日']    |
+| yearText     | 年文字   | Object  |   -       |    {EN: ' Year',ZH: '年'}    |
+| monthText     | 月文字   | Object  |   -       |    return {EN: ' Month',ZH: '月'}    |
+| weekText     | 周一到五文字   | Object  |   -       |    {EN: ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Satur'],ZH: ['一', '二', '三', '四', '五', '六', '日']}    |
 | layout     | 年月周日功能   | Array  |   -       |    ['year', 'month', 'week', 'date']    |
+| lang     | 国际化选项   | String  |   ZH,EN       |   ZH    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

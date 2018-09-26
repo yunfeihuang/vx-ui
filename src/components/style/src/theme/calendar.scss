@@ -8,6 +8,7 @@
     &--wrapper{
       text-align:center;
       background:#fff;
+      position:relative;
     }
     &--date{
       width:14.285714285714286%;
@@ -48,6 +49,25 @@
     &--controls{
       button{
         opacity: 0.8;
+      }
+      .vx-flexbox--item{
+        position:relative;
+      }
+      input{
+        font-size:inherit;
+        font-family:inherit;
+        border:0;
+        text-align:center;
+        position:absolute;
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        outline:none;
+        opacity:0;
+        &:focus{
+          opacity:1;
+        }
       }
     }
   }

@@ -7,7 +7,10 @@
             <button :class="{'is-disabled': date.getFullYear() <= 1990}" type="button" @click="handleYearChange(-1)">
               <arrow direction="left" size="0.22rem"/>
             </button>
-            <flexbox-item>{{date.getFullYear()}}{{yearText}}</flexbox-item>
+            <flexbox-item>
+              {{date.getFullYear()}}{{yearText[lang]}}
+              <input type="number" :value="date.getFullYear()" :min="1990" @change="handleYearChange2"/>
+            </flexbox-item>
             <button type="button" @click="handleYearChange(1)">
               <arrow size="0.22rem"/>
             </button>
@@ -18,7 +21,10 @@
             <button :class="{'is-disabled': date.getMonth() === 0}" type="button" @click="handleMonthChange(-1)">
               <arrow direction="left" size="0.22rem"/>
             </button>
-            <flexbox-item>{{date.getMonth() + 1}}{{monthText}}</flexbox-item>
+            <flexbox-item>
+              {{date.getMonth() + 1}}{{monthText[lang]}}
+              <input type="number" :value="date.getMonth() + 1" :min="1" max="12"  @change="handleMonthChange2"/>
+            </flexbox-item>
             <button :class="{'is-disabled': date.getMonth() === 11}" type="button" @click="handleMonthChange(1)">
               <arrow size="0.22rem"/>
             </button>
@@ -26,7 +32,7 @@
         </flexbox-item>
       </flexbox>
       <flexbox v-if="layout.indexOf('week')>-1">
-        <flexbox-item v-for="(item, i) in weekText" :key="i" :class="[ i == 0 || i == 6  ? 'is-weekend' : '']">{{item}}</flexbox-item>
+        <flexbox-item v-for="(item, i) in myWeekText" :key="i" :class="[ (lang == 'ZH' ? i == 5 : i == 0) || i == 6  ? 'is-weekend' : '']">{{item}}</flexbox-item>
       </flexbox>
     </div>
     <flexbox class="vx-calendar"  v-if="layout.indexOf('date')>-1">
@@ -59,18 +65,31 @@ export default {
       type: [Date, Array, String]
     },
     weekText: {
-      type: Array,
+      type: Object,
       default () {
-        return ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+        return {
+          EN: ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Satur'],
+          ZH: ['一', '二', '三', '四', '五', '六', '日']
+        }
       }
     },
     yearText: {
-      type: String,
-      default: '年'
+      type: Object,
+      default () {
+        return {
+          EN: ' Year',
+          ZH: '年'
+        }
+      }
     },
     monthText: {
-      type: String,
-      default: '月'
+      type: Object,
+      default () {
+        return {
+          EN: ' Month',
+          ZH: '月'
+        }
+      }
     },
     isRange: {
       type: Boolean,
@@ -82,12 +101,19 @@ export default {
         return ['year', 'month', 'week', 'date']
       }
     },
+    lang: {
+      type: String,
+      default: 'ZH'
+    },
     isWeekRange: {
       type: Boolean,
       default: false
     }
   },
   computed: {
+    myWeekText () {
+      return this.weekText[this.lang]
+    },
     dateList () {
       return this.getCalendarItems()
     }
@@ -119,9 +145,21 @@ export default {
       this.date = date
       this.$emit('date-change', date)
     },
+    handleYearChange2 (e) {
+      let date = new Date(this.date.getTime())
+      date.setFullYear(Number(e.target.value))
+      this.date = date
+      this.$emit('date-change', date)
+    },
     handleMonthChange (i) {
       let date = new Date(this.date.getTime())
       date.setMonth(date.getMonth() + i)
+      this.date = date
+      this.$emit('date-change', date)
+    },
+    handleMonthChange2 (e) {
+      let date = new Date(this.date.getTime())
+      date.setMonth(Number(e.target.value) - 1)
       this.date = date
       this.$emit('date-change', date)
     },
@@ -173,8 +211,10 @@ export default {
       let firstMonthDate = new Date(year, month, 1)
       let day = firstMonthDate.getDay()
       let today = this.getYMD()
-      if (day !== 0) {
-        for (let i = 1; i < day + 1; i++) {
+      let weekDayStart = this.lang === 'ZH' ? 1 : 0
+      let weekDayEnd = this.lang === 'ZH' ? 0 : 6
+      if (day !== weekDayStart) {
+        for (let i = 1; i < 7; i++) {
           let date = new Date(firstMonthDate.getTime() - this.datetimes * i)
           result.unshift({
             ...this.getDateCalendarStatus(date),
@@ -183,6 +223,9 @@ export default {
             value: date,
             weekend: [0, 6].indexOf(date.getDay()) > -1
           })
+          if (date.getDay() === weekDayStart) {
+            break
+          }
         }
       }
       for (let i = 1; i <= lastMonthDate.getDate(); i++) {
@@ -195,15 +238,20 @@ export default {
           weekend: [0, 6].indexOf(date.getDay()) > -1
         })
       }
-      for (let i = 1; i <= 6 - lastMonthDate.getDay(); i++) {
-        let date = new Date(lastMonthDate.getTime() + this.datetimes * i)
-        result.push({
-          ...this.getDateCalendarStatus(date),
-          today: date.getTime() === today.getTime(),
-          currentMonth: false,
-          value: date,
-          weekend: [0, 6].indexOf(date.getDay()) > -1
-        })
+      if (result[result.length - 1].value.getDay() !== weekDayEnd) {
+        for (let i = 1; i <= 7; i++) {
+          let date = new Date(lastMonthDate.getTime() + this.datetimes * i)
+          result.push({
+            ...this.getDateCalendarStatus(date),
+            today: date.getTime() === today.getTime(),
+            currentMonth: false,
+            value: date,
+            weekend: [0, 6].indexOf(date.getDay()) > -1
+          })
+          if (date.getDay() === weekDayEnd) {
+            break
+          }
+        }
       }
       return result
     },

@@ -3,6 +3,7 @@
 .#{$css-prefix}{
   &daterange-picker{
     &--wrapper{
+      text-align:center;
       .#{$css-prefix}popup--inner{
         max-height:100%;
       }
