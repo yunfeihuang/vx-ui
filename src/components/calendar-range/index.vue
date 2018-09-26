@@ -16,6 +16,7 @@
         :weekText="weekText"
         :yearText="yearText"
         :monthText="monthText"
+        :lang="lang"
         @change="handleChange"/>
       <calendar
         v-if="tabActive==1"
@@ -25,10 +26,12 @@
         :weekText="weekText"
         :yearText="yearText"
         :monthText="monthText"
+        :lang="lang"
         @change="handleChange"/>
       <calendar
         v-if="tabActive==2 || tabActive==3"
         v-model="myValue"
+        :lang="lang"
         @date-change="handleDateChange"
         :layout="['year']"/>
       <flexbox v-if="tabActive===2" align="center" wrap="wrap">
@@ -39,7 +42,7 @@
           :class="calendarClasses(item)"
           @click="handleChange([item.startDate,item.endDate])"
           >
-          {{i+1}}{{monthText}}
+          {{i+1}}
         </div>
       </flexbox>
       <flexbox v-if="tabActive===3" wrap="wrap">
@@ -78,16 +81,7 @@ export default {
         return []
       }
     },
-    weekText: {
-      type: Array
-    },
-    yearText: {
-      type: String
-    },
-    monthText: {
-      type: String,
-      default: '月'
-    },
+    ...Calendar.props,
     tabText: {
       type: Object,
       default () {
