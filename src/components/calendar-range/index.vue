@@ -53,7 +53,7 @@
           :class="calendarClasses(item)"
           @click="handleChange([item.startDate,item.endDate])"
           >
-          {{i+1}}{{tabText['quarter']}}
+          {{i+1}}
         </div>
       </flexbox>
     </div>
