@@ -54,11 +54,11 @@ export default {
   .flexbox-demos{
     padding:10px;
     overflow:hidden;
+    background: #fff;
     .flexbox-item{
-      background:$color-primary;
+      background:#eee;
       border-radius:6px;
       text-align:center;
-      color:#fff;
       line-height:0.8rem;
     }
     .flex-wrap .flexbox-item{
