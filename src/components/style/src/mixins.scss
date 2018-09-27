@@ -90,8 +90,8 @@
   right:0.1rem;
   height:0.2rem;
   margin-top:-2px;
-  border-top:1px solid $border-color-base;
-  border-right:1px solid $border-color-base;
+  border-top:1px solid $color-divider;
+  border-right:1px solid $color-divider;
   transform:rotate($rotate) translateY(-50%);
 }
 @mixin _round-border($border-color : $border-color-base,$border-radius : $border-radius-base,$resolution:1) {
