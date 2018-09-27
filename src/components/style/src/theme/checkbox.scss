@@ -44,10 +44,13 @@
       position:absolute;
       top:50%;
       margin-top:-0.2rem;
+      display:inline-table;
       &.is-checkbox{
         margin-top:-0.18rem;
         @include round-border(darken($border-color-base,10%),3px);
         position: absolute;
+        width:0.36rem;
+        height:0.36rem;
       }
     }
     &--reverse{

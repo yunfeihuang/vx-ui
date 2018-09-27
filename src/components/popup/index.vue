@@ -20,7 +20,7 @@
         </flexbox>
         <flexbox v-else-if="showClose" align="center">
           <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
-          <rem-to-px :height="0.5" :width="0.5" class="vx-popup--close" @click.native="close"></rem-to-px>
+          <i class="vx-popup--close" @click="close"></i>
         </flexbox>
         <slot v-else name="header"></slot>
         <div class="vx-popup--relative" v-if="direction === 'center'">
@@ -38,14 +38,12 @@
 <script>
 import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
-import RemToPx from '../remtopx'
 import Arrow from '../arrow'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   componentName: 'Popup',
   components: {
     Overlay,
-    RemToPx,
     Arrow,
     Flexbox,
     FlexboxItem

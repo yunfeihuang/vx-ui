@@ -49,8 +49,7 @@ export default {
       default () {
         return {
           color: '#999',
-          primaryColor: '#fff',
-          size: 0.72
+          primaryColor: '#fff'
         }
       }
     }

@@ -17,7 +17,7 @@
           class="vx-input--clear-button"
           @click="handleClear"
           >
-          <rem-to-px tag="i" class="vx-input--clear-icon" :height="0.4" :width="0.4"></rem-to-px>
+          <i class="vx-input--clear-icon"></i>
         </button>
       </transition>
       <slot name="append"></slot>
@@ -30,14 +30,12 @@
 import { input } from 'utils/mixins'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
-import RemToPx from '../remtopx'
 export default {
   componentName: 'XInput',
   components: {
     Flexbox,
     FlexboxItem,
-    Arrow,
-    RemToPx
+    Arrow
   },
   mixins: [input],
   props: {

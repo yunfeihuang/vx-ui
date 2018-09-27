@@ -69,8 +69,10 @@
     }
     &--close{
       transform: rotate(45deg);
-      display: inline-block;
+      display: inline-table;
       vertical-align: middle;
+      width:0.5rem;
+      height:0.5rem;
       margin:0.12rem;
       z-index:10;
       &:before{
@@ -116,6 +118,7 @@
         .vx-arrow{
           margin-right: -0.16rem;
           vertical-align: baseline!important;
+          margin-top: 0.05rem;
         }
       }
       &-title{

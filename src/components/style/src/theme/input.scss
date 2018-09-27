@@ -76,7 +76,9 @@
       &-icon{
         position:relative;
         transform: rotate(45deg);
-        display: inline-block;
+        display: inline-table;
+        width:0.4rem;
+        height:0.4rem;
         vertical-align: middle;
         &:before{
           content: '';
