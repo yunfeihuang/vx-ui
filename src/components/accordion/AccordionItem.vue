@@ -29,12 +29,7 @@ export default {
       type: Boolean
     },
     title: {
-      type: String,
-      default: 'title'
-    },
-    duration: {
-      type: Number,
-      default: 300
+      type: String
     }
   },
   data () {
@@ -80,7 +75,7 @@ export default {
       let self = this
       this.$nextTick(() => {
         let parentNode = self.$el.parentNode
-        if (parentNode && parentNode.children && parentNode.dataset.mutex) {
+        if (parentNode && parentNode.children && parentNode.dataset.mutex === 'true') {
           Array.from(parentNode.children).forEach(item => {
             if (item.classList.contains('vx-accordion--item') && item !== self.$el) {
               item.querySelector('.vx-accordion--item-bd').style.height = ''
