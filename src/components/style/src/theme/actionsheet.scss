@@ -33,7 +33,12 @@
       &.is-active{
         color:$color-primary;
       }
-      @include disabled;
+      &.is-disabled{
+        pointer-events: none;
+        div{
+          @include _disabled;
+        }
+      }
     }
     &--menu {
       .vx-popup--relative{
