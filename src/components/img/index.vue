@@ -2,18 +2,13 @@
   <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading}]">
     <img
       :class="['vx-img', {'vx-img--lazyload': lazyload}]"
-      :alt="alt"
+      v-bind="$attrs"
       @error="handleError"
       @load='handleLoad'
     />
     <spinner v-if="loading" class="vx-img--spinner"/>
     <template v-if="!loading">
       <slot name="placeholder" v-if="$slots.placeholder"></slot>
-      <!--
-      <i v-else class="vx-img--icon">
-        <em></em>
-      </i>
-      -->
     </template>
   </div>
 </template>
@@ -31,9 +26,6 @@ export default {
       type: String
     },
     srcset: {
-      type: String
-    },
-    alt: {
       type: String
     },
     lazyload: {
@@ -106,11 +98,11 @@ export default {
       return rect.top < window.innerHeight && rect.left < window.innerWidth
     },
     setSource () {
+      let img = this.$el.querySelector('img')
       if (this.src) {
         let image = new Image()
         image.onload = (e) => {
           let icon = this.$el.querySelector('.vx-img--icon') || this.$el.querySelector('.vx-img--spinner')
-          let img = this.$el.querySelector('img')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
             img.src = this.src
@@ -120,7 +112,10 @@ export default {
         }
         image.src = this.src
       }
-      this.srcset && (this.$el.srcset = this.srcset)
+      if (this.srcset) {
+        img.srcset = this.srcset
+        img.style.opacity = 1
+      }
     },
     handleScroll (e) {
       if (this.inViewPort()) {
