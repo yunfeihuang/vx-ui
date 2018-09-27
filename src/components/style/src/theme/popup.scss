@@ -80,7 +80,7 @@
         height:1px;
         position:absolute;
         width:100%;
-        background:$color-sub;
+        background:rgba(153, 153, 153, 0.6);
         left:50%;
         top:50%;
         transform:translateX(-50%);
@@ -91,7 +91,7 @@
         width:1px;
         position:absolute;
         height:100%;
-        background:$color-sub;
+        background:rgba(153, 153, 153, 0.6);
         left:50%;
         top:50%;
         transform:translateY(-50%);

@@ -97,7 +97,7 @@ export default {
   mounted1 () {
     setTimeout(() => {
       let options = []
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 500; i++) {
         options.push({
           value: i + '',
           label: 'label-' + i
