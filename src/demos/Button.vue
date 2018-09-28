@@ -7,6 +7,7 @@
         <x-button type="primary">primary</x-button>
         <x-button type="danger">danger</x-button>
         <x-button type="warning">warning</x-button>
+        <x-button type="primary" size="small">primary small</x-button>
         <x-button type="primary" plain>plain primary</x-button>
         <x-button type="link">link</x-button>
         <x-button size="large">default large</x-button>

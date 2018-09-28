@@ -21,6 +21,10 @@
         width:100%;
         display:block;
       }
+      &-small{
+        height:0.72rem;
+        padding: 0 0.05rem;
+      }
     }
     &--default{
       @include round-border;
