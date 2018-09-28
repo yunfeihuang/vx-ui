@@ -6,6 +6,8 @@
   <x-button type="primary">primary</x-button>
   <x-button type="danger">danger</x-button>
   <x-button type="warning">warning</x-button>
+  <x-button type="primary" size="small">primary small</x-button>
+  <x-button type="primary" plain>plain primary</x-button>
   <x-button type="link">link</x-button>
   <x-button size="large">default large</x-button>
   <x-button type="primary" size="large">primary large</x-button>
@@ -26,7 +28,7 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | type     | 按钮类型   | String  |   default,primary,dashed,warning       |    default    |
-| size     | 按钮大小型   | String  |   default,large       |    default    |
+| size     | 按钮大小型   | String  |   default,small,large       |    default    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | ripple     | 是否有波纹特效   | Boolean  |   -       |    false    |
 | loading     | 是否加载状态   | Boolean  |   -       |    false    |

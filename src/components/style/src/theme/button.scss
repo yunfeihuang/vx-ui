@@ -22,8 +22,9 @@
         display:block;
       }
       &-small{
-        height:0.72rem;
+        height:0.68rem;
         padding: 0 0.05rem;
+        font-size: $font-size-small;
       }
     }
     &--default{
