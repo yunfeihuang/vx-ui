@@ -142,3 +142,10 @@
     }
   }
 }
+@mixin lineClamp($clamp:1){
+  overflow:hidden;
+  -webkit-line-clamp:$clamp;
+  line-clamp:$clamp;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

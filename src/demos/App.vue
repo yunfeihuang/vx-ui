@@ -16,7 +16,7 @@
               <a target="_blank" href="http://vx2.bittyos.com">
                 <x-img class="friend-link-img" :src="'./static/images/react.png'"/>
                 <br/>
-                React版本
+                react版本
               </a>
             </flexbox-item>
           </flexbox>
@@ -109,6 +109,7 @@ export default {
     text-align:center;
     padding-top:0.3rem;
     margin-bottom: -0.2rem;
+    line-height:1;
     &-img{
       border-radius:50%;
       height:40px;

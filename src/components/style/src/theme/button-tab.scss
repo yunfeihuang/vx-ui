@@ -10,8 +10,7 @@
     &--item{
       position:relative;
       z-index:1;
-      white-space: nowrap;
-      overflow: hidden;
+      @include lineClamp;
       &.is-active{
         background-color:$color-primary;
         color:#fff;

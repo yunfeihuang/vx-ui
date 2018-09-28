@@ -32,6 +32,9 @@ export default {
           let left = activeNode.offsetLeft
           if (this.underlineWidth === 'auto' || this.underlineWidth === 0) {
             width = activeNode.children[0].offsetWidth
+            if (width > activeWidth) {
+              width = activeWidth
+            }
             left = activeNode.offsetLeft + (activeWidth - width) / 2
           } else if (this.underlineWidth) {
             width = this.underlineWidth

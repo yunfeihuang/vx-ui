@@ -14,7 +14,6 @@ export default {
     styles () {
       if (this.scroll) {
         return `
-          white-space: normal;
           overflow: auto;
           -webkit-overflow-scrolling: touch; 
           overflow-scrolling: touch;

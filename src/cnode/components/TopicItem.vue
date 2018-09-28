@@ -44,9 +44,7 @@ export default {
 <style lang="scss">
   .topic-item{
     h4{
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include lineClamp;
     }
   }
 </style>

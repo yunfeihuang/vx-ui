@@ -21,9 +21,7 @@
       &--item{
         line-height:0.92rem;
         position:relative;
-        overflow:hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        @include lineClamp;
         @include divider;
         background-color:transparent;
         &:before{

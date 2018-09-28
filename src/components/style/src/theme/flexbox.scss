@@ -8,9 +8,6 @@
     display: -webkit-flex;
     display: -moz-flex;
     display: flex;
-    &-wrapper{
-      overflow:hidden;
-    }
     &--content{
       &-center{
         -ms-flex-align: center;
@@ -46,8 +43,6 @@
       flex-direction: column;
     }
     &--item{
-      white-space: nowrap;
-      overflow: hidden;
       -ms-flex: 1;
       -webkit-box-flex: 1;
       -moz-box-flex: 1;

@@ -16,9 +16,7 @@
     }
     &--today{
       line-height: 0.92rem;
-      overflow:hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      @include lineClamp;
     }
     &--cancel,&--confirm,&--today{
       @include button;

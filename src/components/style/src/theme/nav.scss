@@ -53,9 +53,8 @@
       }
     }
     &--title{
-      font-size:0.38rem;
-      overflow: hidden;
-      text-overflow:ellipsis;
+      font-size:$font-size-xl;
+      @include lineClamp;
       &-center{
         text-align:center;
       }

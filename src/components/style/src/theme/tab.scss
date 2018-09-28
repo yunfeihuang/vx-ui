@@ -27,6 +27,7 @@
       display:none;
     }
     &--item{
+      @include lineClamp;
       &.is-active{
         color:$color-primary;
         // transition: color $transition-time $ease-in-out;

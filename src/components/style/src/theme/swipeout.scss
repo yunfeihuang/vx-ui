@@ -2,9 +2,8 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &swipeout{
-    white-space: nowrap;
+    @include lineClamp;
     position:relative;
-    overflow:hidden;
     &::-webkit-scrollbar{
       display:none;
     }

@@ -30,10 +30,8 @@
     }
     &--title{
       margin:0.36rem;
-      font-size:0.32rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      font-size:$font-size-large;
+      @include lineClamp;
     }
     &--body{
       max-height: 60vh;

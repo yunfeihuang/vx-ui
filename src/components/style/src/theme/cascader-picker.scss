@@ -48,10 +48,8 @@
       line-height:0.92rem;
       height:0.92rem;
       padding:0 0.16rem;
-      overflow:hidden;
       position:relative;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include lineClamp;
       @include divider;
       background-color:transparent;
       &.is-active{

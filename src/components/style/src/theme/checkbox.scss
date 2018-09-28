@@ -68,9 +68,7 @@
     &--text{
       display:block;
       padding-left:0.6rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include lineClamp;
     }
     input:checked + &--icon{
       &:before{

@@ -8,8 +8,8 @@
     &--inner{
       height:100%;
       .vx-arrow{
-        margin-left:10px;
-        margin-right:10px;
+        margin-left:6px;
+        margin-right:6px;
         margin-top:-0.1rem;
         transition: transform 0.18s ease 0s;
       }
@@ -31,9 +31,7 @@
       width: 100%;
       padding:0 0 0 0.2rem;
       z-index:1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include lineClamp;
       @include placeholder;
     }
     &--picker{
@@ -68,9 +66,7 @@
     &--placeholder{
       line-height: 0.92rem;
       color:$color-sub;
-      overflow:hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      @include lineClamp;
       @include button;
     }
     &--cancel,&--confirm{
