@@ -14,6 +14,9 @@
     }
     &--ft{
       position:relative;
+      .vx-select{
+        margin-right: -0.15rem;
+      }
     }
     &--access{
       @include active;
