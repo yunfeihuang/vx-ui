@@ -2,12 +2,11 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &checker{
-    display:inline-block;
+    display:inline-table;
     vertical-align: middle;
     position:relative;
     margin-right:0.1rem;
     margin-bottom:0.1rem;
-    @include disabled;
     input{
       opacity:0;
       width:100%;
@@ -22,6 +21,14 @@
         color:$color-primary;
         &:before{
           border-color:$color-primary;
+        }
+      }
+    }
+    &.is-disabled{
+      button{
+        &:before{
+          @include _disabled;
+          background:#fff;
         }
       }
     }

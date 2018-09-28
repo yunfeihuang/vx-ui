@@ -10,7 +10,12 @@
     border-radius:$border-radius-base;
     font-size: inherit;
     cursor: default;
-    @include disabled;
+    &.is-disabled{
+      &:before{
+        @include _disabled;
+        background:#fff;
+      }
+    }
     &--size{
       &-large{
         width:100%;

@@ -5,6 +5,7 @@
       :checked="myChecked"
       :name="name"
       :value="value"
+      :disabled="disabled"
       @change="handleChange"
       />
     <button type="button" tabindex="-2">
