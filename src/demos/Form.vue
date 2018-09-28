@@ -72,7 +72,7 @@
         <el-form-item label="年龄：" prop="range" :rules="[
           {required: true, message: '年龄不能为空'}
           ]">
-          <div style="padding-right:40px">
+          <div style="padding-right:0.26rem">
             <range v-model="form.range"/>
           </div>
         </el-form-item>
