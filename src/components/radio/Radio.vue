@@ -1,6 +1,6 @@
 <template>
   <label :class="['vx-radio', {'is-disabled': disabled}]" >
-    <input type="radio" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
+    <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
     <i class="vx-radio--icon"></i>
     <span class="vx-radio--text">
       <slot></slot>

@@ -5,7 +5,11 @@
     display:block;
     position:relative;
     padding:0.25rem 0.15rem;
-    @include disabled;
+    &.is-disabled{
+      .vx-radio--text{
+        @include _disabled;
+      }
+    }
     input{
       position:absolute;
       top:0;
