@@ -1,1 +1,1 @@
-.vx-sticky-box{z-index:100;position:relative}.vx-sticky-fixed .vx-sticky-inner{width:100%;position:fixed;top:0}
+.vx-sticky--box{z-index:100;position:relative}.vx-sticky--box.is-fixed .vx-sticky--inner{width:100%;position:fixed;top:0}
