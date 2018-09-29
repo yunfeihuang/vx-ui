@@ -3,11 +3,11 @@
     <flexbox tag="label" align="center" class="vx-input--inner">
       <slot name="prepend"></slot>
       <flexbox-item>
-      <input
-        v-bind="$$props"
-        :type="nativeType"
-        v-on="$$listeners"
-        />
+        <input
+          v-bind="$$props"
+          :type="nativeType"
+          v-on="$$listeners"
+          />
       </flexbox-item>
       <transition name="input-clear-fade" v-if="!$slots.append">
         <button

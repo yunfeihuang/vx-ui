@@ -47,6 +47,7 @@ export default {
   },
   mounted () {
     this.$$textarea = this.$el.querySelector('textarea')
+    this.$$inner = this.$el.querySelector('.vx-textarea--inner')
     this.$$shadow = this.$el.querySelector('.vx-textarea--shadow')
     this.renderAutoHeight(this.$$textarea.value)
     window.addEventListener('resize', this.handleResize, false)
@@ -67,7 +68,7 @@ export default {
     renderAutoHeight (value) {
       requestAnimationFrame(() => {
         this.$$shadow.innerHTML = value.replace(/(\r|\n)$/, '<br/><span style="color:transparent">s</span>').replace(/(\r|\n)/g, '<br/>')
-        this.$el.querySelector('.vx-textarea--inner').style.height = this.$$shadow.offsetHeight + 'px'
+        this.$$inner.style.height = this.$$shadow.offsetHeight + 'px'
       })
     }
   }
