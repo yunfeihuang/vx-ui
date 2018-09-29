@@ -4,9 +4,9 @@
 <template>
   <div>
     <spinner></spinner>
-    </br>
-    </br>
-    </br>
+    <br/>
+    <br/>
+    <br/>
     <spinner style="width:1rem;height:1rem;">
       <span style="line-height:1rem;">LOGO</span>
     </spinner>

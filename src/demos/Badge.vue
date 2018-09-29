@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Badge"></x-nav>
-    <x-body slot="body" class="badge-demos">
+    <x-body slot="body">
       <group>
         <cell>
           <div slot="title">红点</div>
@@ -9,15 +9,15 @@
         </cell>
         <cell>
           <div slot="title" @click="handleClick">个位数红点(点击累加)</div>
-          <div slot="value" @click="handleClick">新消息<badge class="badge" :text="count"/></div>
+          <div slot="value" @click="handleClick">新消息 <badge class="badge" :text="count"/></div>
         </cell>
         <cell>
           <div slot="title">超出最大值显示(ellipsis)红点</div>
-          <div slot="value">新消息<badge class="badge" :text="Number(20)"/></div>
+          <div slot="value">新消息 <badge class="badge" :text="Number(20)"/></div>
         </cell>
         <cell>
           <div slot="title">多位数红点</div>
-          <div slot="value">新消息<badge class="badge" text="888"/></div>
+          <div slot="value">新消息 <badge class="badge" text="888"/></div>
         </cell>
       </group>
     </x-body>
@@ -42,10 +42,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .badge-demos{
-    .badge{
-      margin-left:5px;
-      margin-right:2px;
-    }
-  }
+
 </style>

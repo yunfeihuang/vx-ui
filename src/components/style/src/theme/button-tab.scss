@@ -7,6 +7,10 @@
     user-select: none;
     line-height:0.8rem;
     @include round-border($border-color-base,1rem);
+    &--small{
+      line-height:0.68rem;
+      font-size:$font-size-small;
+    }
     &--item{
       position:relative;
       z-index:1;

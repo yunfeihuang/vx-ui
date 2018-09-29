@@ -2,9 +2,7 @@
 
 ```
 <template>
-  <div class="qrcode-demo">
-    <qrcode :text="http://vue.bittyos.com/"/>
-  </div>
+  <qrcode text="http://vue.bittyos.com/"/>
 </template>
 <script>
 import Qrcode from 'vx-ui/lib/qrcode'
@@ -14,12 +12,6 @@ export default {
   }
 }
 </script>
-<style lang="css">
-  .qrcode-demo{
-    text-align:center;
-    padding:1rem;
-  }
-</style>
 ```
 
 #### Props

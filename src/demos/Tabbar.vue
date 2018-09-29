@@ -2,25 +2,7 @@
   <layout>
     <x-nav slot="header" back="/" title="Tabbar"></x-nav>
     <x-body slot="body">
-      <!--
-      <swiper :active.sync="active" class="tabbar-swiper">
-        <swiper-item>
-          <div class="tab-content">
-            我是主页
-          </div>
-        </swiper-item>
-        <swiper-item>
-          <div class="tab-content">
-            消息在这
-          </div>
-        </swiper-item>
-        <swiper-item>
-          <div class="tab-content">
-            这里我的
-          </div>
-        </swiper-item>
-      </swiper>
-      -->
+ 
     </x-body>
     <tabbar slot="footer" :ripple="true" :active.sync="active">
       <tabbar-item name="home">
@@ -52,10 +34,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .tabbar-swiper{
-    height:100%;
-    min-height:300px;
-    text-align:center;
-    line-height:40px
-  }
+
 </style>

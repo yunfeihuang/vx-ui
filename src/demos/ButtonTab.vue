@@ -2,12 +2,10 @@
   <layout>
     <x-nav slot="header" back="/">
       <div slot="title" style="text-align:center">
-        <div class="header-tab-button">
-          <button-tab class="tab-button" :active.sync="active1">
-            <button-tab-item name="tab1">选项1</button-tab-item>
-            <button-tab-item name="tab2">选项2</button-tab-item>
-          </button-tab>
-        </div>
+        <button-tab class="tab-button" :active.sync="active1" size="small" style="width:2.8rem;margin:auto">
+          <button-tab-item name="tab1">选项1</button-tab-item>
+          <button-tab-item name="tab2">选项2</button-tab-item>
+        </button-tab>
       </div>
     </x-nav>
     <x-body slot="body" style="padding:15px;background:#fff">
@@ -35,12 +33,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .header-tab-button{
-    width:2.8rem;
-    font-size: $font-size-small;
-    margin: auto;
-    .tab-button{
-      line-height:0.6rem;
-    }
-  }
+
 </style>

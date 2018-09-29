@@ -1,10 +1,8 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Qrcode"></x-nav>
-    <x-body slot="body" v-if="pageState.into">
-      <div class="qrcode-demo">
-        <qrcode text="http://vue.bittyos.com/"/>
-      </div>
+    <x-body slot="body" style="text-align:center;padding:1rem;">
+      <qrcode text="http://vue.bittyos.com/"/>
     </x-body>
   </layout>
 </template>
@@ -19,8 +17,5 @@ export default {
 }
 </script>
 <style lang="scss">
-  .qrcode-demo{
-    text-align:center;
-    padding:1rem;
-  }
+
 </style>

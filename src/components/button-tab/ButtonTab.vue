@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-flexbox', 'vx-button-tab']" onselectstart="return false;">
+  <div :class="['vx-flexbox', 'vx-button-tab', `vx-button-tab--${size}`]" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,12 @@ import { tab } from 'utils/mixins'
 export default {
   componentName: 'ButtonTab',
   mixins: [tab],
+  props: {
+    size: {
+      type: String,
+      default: 'default'
+    }
+  },
   methods: {
     handleChange (value) {
       value !== this.active && this.$emit('update:active', value).$emit('change', value)

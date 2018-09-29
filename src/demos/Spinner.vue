@@ -1,7 +1,10 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Spinner"></x-nav>
-    <x-body slot="body" class="spinner-demo">
+    <x-body slot="body" style="text-align:center;background:#fff">
+      <br/>
+      <br/>
+      <br/>
       <spinner></spinner>
       <br/>
       <br/>
@@ -22,9 +25,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .spinner-demo{
-    background:#fff;
-    padding:20px;
-    text-align:center;
-  }
+
 </style>

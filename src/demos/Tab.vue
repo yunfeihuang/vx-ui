@@ -15,30 +15,7 @@
       </div>
     </div>
     <x-body slot="body" style="background:#fff" :scroll="false" v-if="pageState.into">
-      <!--
-      <swiper :active.sync="active" class="tab-swiper">
-        <swiper-item>
-          <div class="tab-content">
-            内容1
-          </div>
-        </swiper-item>
-        <swiper-item>
-          <div class="tab-content">
-            内容2
-          </div>
-        </swiper-item>
-        <swiper-item>
-          <div class="tab-content">
-            内容3
-          </div>
-        </swiper-item>
-        <swiper-item>
-          <div class="tab-content">
-            内容4
-          </div>
-        </swiper-item>
-      </swiper>
-      -->
+      
     </x-body>
   </layout>
 </template>
@@ -62,11 +39,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .tab-swiper{
-    height:100%;
-    min-height:300px;
-  }
-  .tab-content{
-    padding:10px;
-  }
+
 </style>
