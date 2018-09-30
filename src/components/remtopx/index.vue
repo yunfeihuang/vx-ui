@@ -30,7 +30,7 @@ export default {
   mounted () {
     window.addEventListener('resize', this.handleResize, false)
   },
-  destroyed () {
+  beforeDestroy () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
@@ -42,7 +42,7 @@ export default {
       let width = ''
       let height = ''
       if (fontSize) {
-        fontSize = parseInt(fontSize)
+        fontSize = parseInt(fontSize, 10)
         if (this.width) {
           width = Math.round(fontSize * this.width)
           if (this.even && width % 2) {

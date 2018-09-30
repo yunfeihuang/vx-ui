@@ -92,7 +92,7 @@ export default {
       }
     }
   },
-  destroyed () {
+  beforeDestroy () {
     this.$$timer && clearTimeout(this.$$timer)
     this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
   },

@@ -68,7 +68,7 @@ export default {
       return n
     }
   },
-  destroyed () {
+  beforeDestroy () {
     this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
     this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
     window.removeEventListener('resize', this.handleResize)

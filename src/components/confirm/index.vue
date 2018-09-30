@@ -72,8 +72,13 @@ export default {
       })
     }
   },
+  beforeDestroy () {
+    this.$$timer && clearTimeout(this.$$timer)
+    this.$$timerEvent && clearTimeout(this.$$timerEvent)
+  },
   watch: {
     open (value) {
+      this.$$timer && clearTimeout(this.$$timer)
       if (value) {
         requestAnimationFrame(() => {
           this.pushState()
@@ -81,7 +86,7 @@ export default {
           this.$emit('open')
         })
       } else {
-        setTimeout(() => {
+        this.$$timer = setTimeout(() => {
           requestAnimationFrame(() => {
             this.goBack()
             this.$el.style.display = 'none'
@@ -96,7 +101,8 @@ export default {
     },
     handleConfirm (e) {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
-        setTimeout(() => {
+        this.$$timerEvent && clearTimeout(this.$$timerEvent)
+        this.$$timerEvent = setTimeout(() => {
           this.open && this.$emit('update:open', false).$emit('confirm')
         }, 400)
       } else {

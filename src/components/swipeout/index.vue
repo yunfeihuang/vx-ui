@@ -46,7 +46,7 @@ export default {
     this.$el.addEventListener(startEventName, this.handleTouchStart, false)
     window.addEventListener('resize', this.init, false)
   },
-  destroyed () {
+  beforeDestroy () {
     if (swipeoutVue === this) {
       swipeoutVue = null
     }
@@ -80,7 +80,7 @@ export default {
           let transform = this.$$touch.el.style.transform || this.$$touch.el.style.webkitTransform
           if (transform) {
             transform = transform.replace('translate3d', '')
-            currentTranslateX = -parseInt(transform.match(/(\d+)/g)[0])
+            currentTranslateX = -parseInt(transform.match(/(\d+)/g)[0], 10)
           }
         }
         Object.assign(this.$$touch, this.getPosition(e), {

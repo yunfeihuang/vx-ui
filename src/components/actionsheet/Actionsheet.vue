@@ -65,29 +65,6 @@ export default {
       }
     }
   },
-  mounted () {
-    if (this.open) {
-      requestAnimationFrame(() => {
-        this.$el.style.display = 'block'
-      })
-    }
-  },
-  watch: {
-    open (value) {
-      if (value) {
-        requestAnimationFrame(() => {
-          this.$el.style.display = 'block'
-          this.$emit('open')
-        })
-      } else {
-        setTimeout(() => {
-          requestAnimationFrame(() => {
-            this.$el.style.display = 'none'
-          })
-        }, 300)
-      }
-    }
-  },
   methods: {
     handleAction (value) {
       this.$emit('update:open', false).$emit('action', value)

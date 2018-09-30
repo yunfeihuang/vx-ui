@@ -5,7 +5,7 @@
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
-      @scroll="scrollHandlder"
+      @scroll="handleScroll"
       >
       <div class="vx-picker--scroller">
         <rem-to-px :height="itemHeight" even v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
@@ -87,15 +87,17 @@ export default {
     this.$nextTick(this.computeStyles)
     window.addEventListener('resize', this.computeStyles, false)
   },
-  destroyed () {
+  beforeDestroy () {
     this.$$touch = null
+    this.$$pullTimer && clearTimeout(this.$$pullTimer)
+    this.$$timer && clearTimeout(this.$$timer)
     window.removeEventListener('resize', this.computeStyles)
   },
   methods: {
     computeStyles () {
       let fontSize = document.documentElement.style.fontSize
       if (fontSize && this.itemHeight) {
-        fontSize = parseInt(fontSize)
+        fontSize = parseInt(fontSize, 10)
         let itemHeight = fontSize * this.itemHeight
         if (itemHeight % 2) {
           itemHeight++
@@ -134,15 +136,15 @@ export default {
     },
     handleTouchMove (e) {
       let pageY = e.changedTouches[0].pageY
-      if (this.pageY) {
-        if (this.$$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
+      if (this.$$touch.pageY) {
+        if (this.$$touch.scrollElement.scrollTop === 0 && pageY - this.$$touch.pageY > 0) {
           this.$$pullTimer && clearTimeout(this.$$pullTimer)
           this.$$pullTimer = setTimeout(() => {
             this.$emit('pulldown')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
-        } else if (Math.round(this.$$touch.scrollElement.scrollTop) === this.$$touch.maxScrollTop && pageY - this.pageY < 0) {
+        } else if (Math.round(this.$$touch.scrollElement.scrollTop) === this.$$touch.maxScrollTop && pageY - this.$$touch.pageY < 0) {
           this.$$pullTimer && clearTimeout(this.$$pullTimer)
           this.$$pullTimer = setTimeout(() => {
             this.$emit('pullup')
@@ -151,12 +153,12 @@ export default {
           e.stopPropagation()
         }
       }
-      this.pageY = pageY
+      this.$$touch.pageY = pageY
     },
     handleTouchStart (e) {
       this.$$touch.scrollEnd = false
       this.$$touch.maxScrollTop = this.$$touch.scrollElement.scrollHeight - this.$$touch.scrollElement.offsetHeight
-      this.pageY = e.changedTouches[0].pageY
+      this.$$touch.pageY = e.changedTouches[0].pageY
       this.$$timer && clearTimeout(this.$$timer)
       this.$$pullTimer && clearTimeout(this.$$pullTimer)
       let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
@@ -164,7 +166,7 @@ export default {
         this.$$touch.offsetHeight = node.offsetHeight
       }
     },
-    scrollHandlder () {
+    handleScroll () {
       if (this.$$touch && this.$$touch.scrollEnd) {
         this.computedScrollTop()
       }
@@ -186,10 +188,10 @@ export default {
           let active = this.$el.querySelectorAll('.vx-picker--item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('input', value, this.index).$emit('change', value, this.index)
+            value !== this.value && this.$emit('input', value).$emit('change', value)
           }
         })
-      }, 51)
+      }, 200)
     }
   }
 }

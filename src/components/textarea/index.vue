@@ -52,7 +52,7 @@ export default {
     this.renderAutoHeight(this.$$textarea.value)
     window.addEventListener('resize', this.handleResize, false)
   },
-  destroyed () {
+  beforeDestroy () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {

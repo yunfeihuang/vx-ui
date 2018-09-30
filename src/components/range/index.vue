@@ -71,7 +71,7 @@ export default {
     this.$nextTick(this.renderRange)
     window.addEventListener('resize', this.handleResize, false)
   },
-  destroyed () {
+  beforeDestroy () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {

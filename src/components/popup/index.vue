@@ -93,8 +93,12 @@ export default {
       })
     }
   },
+  beforeDestroy () {
+    this.$$timer && clearTimeout(this.$$timer)
+  },
   watch: {
     open (value) {
+      this.$$timer && clearTimeout(this.$$timer)
       if (value) {
         requestAnimationFrame(() => {
           this.pushState()
@@ -102,7 +106,7 @@ export default {
           this.$emit('open')
         })
       } else {
-        setTimeout(() => {
+        this.$$timer = setTimeout(() => {
           requestAnimationFrame(() => {
             this.goBack()
             this.$el.style.display = 'none'

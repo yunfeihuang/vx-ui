@@ -5,23 +5,23 @@
       <message>注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
-          <div slot="title">地区 picker</div>
-          <x-switch slot="value" v-model="pickerOpen"/>
+          <div slot="title">地区 picker：{{value}}</div>
+          <x-switch slot="value" v-model="open"/>
         </cell>
         <cell :arrow="false">
-          <div slot="title">地址级联 picker</div>
-          <x-switch slot="value" v-model="pickerAddressOpen"/>
+          <div slot="title">地址级联 picker：{{value2}}</div>
+          <x-switch slot="value" v-model="open2"/>
         </cell>
       </group>
     </x-body>
     <popup-picker
-      :open.sync="pickerOpen"
+      :open.sync="open"
       :pickers="pickers"
       @change="handleConfirm"
       />
     <popup-picker
-      :open.sync="pickerAddressOpen"
-      :pickers="addressPickers"
+      :open.sync="open2"
+      :pickers="pickers2"
       @pickerchange="handleChangeAddressPicker"
       @change="handleConfirmAddress"
       />
@@ -181,36 +181,40 @@ export default {
   methods: {
     handleConfirm (value) {
       let val = value.map(item => item.value)
+      this.value = val
       this.$toast({message: '你选中了值：' + val})
     },
     handleChangeAddressPicker (value, index) {
       if (index === 0) {
-        this.addressPickers[1].options = citys[value]
-        this.addressPickers[1].value = citys[value][0].value
-        this.addressPickers[2].options = areas[this.addressPickers[1].value]
-        this.addressPickers[2].value = areas[this.addressPickers[1].value][0].value
+        this.pickers2[1].options = citys[value]
+        this.pickers2[1].value = citys[value][0].value
+        this.pickers2[2].options = areas[this.pickers2[1].value]
+        this.pickers2[2].value = areas[this.pickers2[1].value][0].value
       }
       if (index === 1) {
-        this.addressPickers[2].options = areas[value]
-        this.addressPickers[2].value = areas[value][0].value
+        this.pickers2[2].options = areas[value]
+        this.pickers2[2].value = areas[value][0].value
       }
     },
     handleConfirmAddress (value) {
       let val = value.map(item => item.value)
+      this.value2 = val
       this.$toast({message: '你选中了值：' + val})
     }
   },
   data () {
     return {
-      pickerOpen: false,
+      open: false,
+      value: '',
       pickers: [
         {
           value: '010101',
           options: areas['0101']
         }
       ],
-      pickerAddressOpen: false,
-      addressPickers: [
+      open2: false,
+      value2: '',
+      pickers2: [
         {
           value: '01',
           options: [

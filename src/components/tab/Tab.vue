@@ -14,7 +14,7 @@ export default {
   updated () {
     this.computedStyle()
   },
-  destroyed () {
+  beforeDestroy () {
     window.removeEventListener('resize', this.$computedStyle)
   },
   methods: {

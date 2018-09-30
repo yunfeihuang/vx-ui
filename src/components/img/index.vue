@@ -67,7 +67,7 @@ export default {
       }
     }
   },
-  destroyed () {
+  beforeDestroy () {
     let self = this
     this.$$scrollNode.lazyloadImages = this.$$scrollNode.lazyloadImages.filter((item) => {
       return item !== self

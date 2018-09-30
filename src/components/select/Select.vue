@@ -141,7 +141,7 @@ export default {
               this.open = true
               self.isFocus = true
             },
-            destroyed () {
+            beforeDestroy () {
               this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
             },
             methods: {

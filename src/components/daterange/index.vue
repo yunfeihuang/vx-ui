@@ -121,7 +121,7 @@ export default {
             this.open = true
           })
         },
-        destroyed () {
+        beforeDestroy () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {

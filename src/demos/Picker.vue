@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/" title="Picker"></x-nav>
     <x-body slot="body">
       <message>注意：此示例要在移动设备体验哦~</message>
-      <group>
+      <group :title="'value：'+value">
         <picker placeholder="请选择" v-model="value" :options="options"></picker>
       </group>
     </x-body>

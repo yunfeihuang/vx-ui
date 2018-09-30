@@ -197,8 +197,8 @@ export default {
       let year = parseDate.year
       let month = parseDate.month
       this.pickers.forEach((item) => {
-        item.type === 'yyyy' && item.value && (year = parseInt(item.value))
-        item.type === 'MM' && item.value && (month = parseInt(item.value))
+        item.type === 'yyyy' && item.value && (year = parseInt(item.value, 10))
+        item.type === 'MM' && item.value && (month = parseInt(item.value, 10))
       })
       let date = new Date(year, month, 0)
       let dates = []

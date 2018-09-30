@@ -24,6 +24,10 @@ export default {
       this.$el.addEventListener('touchend', this.handleTouchEnd, false)
     }
   },
+  beforeDestroy () {
+    this.$$destroyTimer && clearTimeout(this.$$destroyTimer)
+    this.$$timer && clearTimeout(this.$$timer)
+  },
   methods: {
     getOffset (rect, {pageX, pageY}) {
       if (this.position === 'center') {
@@ -71,7 +75,7 @@ export default {
       this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s, opacity ${this.$$duration - 0.3}s linear 0s`
       this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(' + (Math.max(this.$$offset.height, this.$$offset.width) / 5) + ')'
       this.$$node.style.opacity = '0'
-      setTimeout(((node) => {
+      this.$$destroyTimer = setTimeout(((node) => {
         node.parentNode && node.parentNode.removeChild(node)
       }).bind(this, this.$$node), this.$$duration * 1000)
     }

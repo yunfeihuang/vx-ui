@@ -91,7 +91,7 @@ export default {
   mounted () {
     this.prop && this.xForm && this.xForm.addField(this)
   },
-  destroyed () {
+  beforeDestroy () {
     this.prop && this.xForm && this.xForm.removeField(this)
   },
   methods: {

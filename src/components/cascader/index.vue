@@ -93,7 +93,7 @@ export default {
         mounted () {
           self.open = true
         },
-        destroyed () {
+        beforeDestroy () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         }
       })

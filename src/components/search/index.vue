@@ -75,7 +75,7 @@ export default {
       }
     }
   },
-  destroyed () {
+  beforeDestroy () {
     this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
   },
   data () {

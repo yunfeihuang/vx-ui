@@ -57,10 +57,9 @@ export default {
     }
   },
   mounted () {
-    let timer = null
     this.$listeners['pullup'] && this.$el.addEventListener('scroll', (e) => {
-      timer && clearTimeout(timer)
-      timer = setTimeout(() => {
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$$timer = setTimeout(() => {
         !this.loading && !this.end && this.handleScroll(e)
       }, 200)
     })
@@ -80,8 +79,9 @@ export default {
       inner: this.$el.querySelector('.vx-list-view--inner')
     }
   },
-  destroyed () {
+  beforeDestroy () {
     this.$$touch = null
+    this.$$timer && clearTimeout(this.$$timer)
   },
   methods: {
     handlePulldown () {
