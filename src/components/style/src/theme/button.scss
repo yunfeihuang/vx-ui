@@ -15,6 +15,9 @@
         @include _disabled;
         background:#fff;
       }
+      &:not(.is-plain){
+        @include disabled;
+      }
     }
     &--size{
       &-large{
@@ -28,7 +31,9 @@
       }
     }
     &--default{
-      @include round-border;
+      &.is-plain{
+        @include round-border;
+      }
     }
     &:active{
       box-shadow:0 0 0 2rem rgba(0,0,0,0.15) inset;
@@ -55,6 +60,9 @@
         color:$color-warning;
         @include round-border($color-warning);
       }
+      .vx-spinner{
+        border-top-color:$color-warning;
+      }
     }
     &--danger{
       background-color:$color-danger;
@@ -64,6 +72,9 @@
         background-color:#fff;
         color:$color-danger;
         @include round-border($color-danger);
+      }
+      .vx-spinner{
+        border-top-color:$color-danger;
       }
     }
     &--link{

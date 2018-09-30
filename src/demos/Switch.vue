@@ -8,16 +8,16 @@
           <x-switch slot="value" v-model="checked"/>
         </cell>
       </group>
+      <group title="small">
+        <cell :arrow="false">
+          <div slot="title">开关（{{checked}}）</div>
+          <x-switch size="small" slot="value" v-model="checked"/>
+        </cell>
+      </group>
       <group title="offValue:0,onValue:1">
         <cell :arrow="false">
           <div slot="title">开关（{{value}}）</div>
           <x-switch slot="value" v-model="value" on-value="1" off-value="0" />
-        </cell>
-      </group>
-      <group title="small">
-        <cell :arrow="false">
-          <div slot="title">开关（{{checked}}）</div>
-          <x-switch small slot="value" v-model="checked"/>
         </cell>
       </group>
     </x-body>

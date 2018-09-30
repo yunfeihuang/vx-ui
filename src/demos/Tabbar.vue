@@ -2,7 +2,6 @@
   <layout>
     <x-nav slot="header" back="/" title="Tabbar"></x-nav>
     <x-body slot="body">
- 
     </x-body>
     <tabbar slot="footer" :ripple="true" :active.sync="active">
       <tabbar-item name="home">

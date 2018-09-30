@@ -6,7 +6,13 @@
     <group title="default">
       <cell :arrow="false">
         <div slot="title">开关（{{checked}}）</div>
-        <x-switch slot="value" v-model="checked" />
+        <x-switch slot="value" v-model="checked"/>
+      </cell>
+    </group>
+    <group title="small">
+      <cell :arrow="false">
+        <div slot="title">开关（{{checked}}）</div>
+        <x-switch size="small" slot="value" v-model="checked"/>
       </cell>
     </group>
     <group title="offValue:0,onValue:1">
@@ -34,7 +40,7 @@
 | -     | -   | -  |   -       |    -    |
 | value     | 值   | String,Boolean  |     -     |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
-| small     | 是否小风格样式   | Boolean  |   -       |    -    |
+| size     | 是否小风格样式   | String  |   default,small       |    default    |
 | onValue     | 选中的value设定值   | String  |   -       |    -    |
 | offValue     | 没有选中的value设定值   | String  |   -       |    -    |
 

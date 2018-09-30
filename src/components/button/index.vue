@@ -30,7 +30,7 @@ export default {
         'vx-btn--' + this.type,
         'vx-btn--size-' + this.size,
         {
-          'is-plain': this.plain,
+          'is-plain': this.plain || this.type === 'default',
           'is-ripple': this.ripple,
           'is-disabled': this.disabled || this.loading
         }

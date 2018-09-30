@@ -53,9 +53,11 @@
         }
       }
     }
-    &--small{
-      width: 0.7427rem;
-      height: 0.46rem;
+    &--size{
+      &-small{
+        width: 0.7427rem;
+        height: 0.46rem;
+      }
     }
   }
 }

@@ -15,7 +15,6 @@
       </div>
     </div>
     <x-body slot="body" style="background:#fff" :scroll="false" v-if="pageState.into">
-      
     </x-body>
   </layout>
 </template>
