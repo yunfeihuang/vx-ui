@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &img{
-    &--lazyload{
+    &.is-lazyload{
       opacity:0;
       transition:opacity 0.168s ease 0s;
       background-color: #fff;

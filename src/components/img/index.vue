@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading}]">
     <img
-      :class="['vx-img', {'vx-img--lazyload': lazyload}]"
+      :class="['vx-img', {'is-lazyload': lazyload}]"
       v-bind="$attrs"
       @error="handleError"
       @load='handleLoad'
