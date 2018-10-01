@@ -3,16 +3,16 @@
 ```
 <template>
   <div>
-    <group class="ripple-demo">
-      <ripple>
+    <group>
+      <ripple style="padding:0.3rem 0.2rem">
         点击我会出现波纹
       </ripple>
       <divider></divider>
-      <ripple>
+      <ripple style="padding:0.3rem 0.2rem">
         点击我会出现波纹
       </ripple>
       <divider></divider>
-      <ripple color="rgba(255,0,0,0.1)">
+      <ripple color="rgba(255,0,0,0.1)" style="padding:0.3rem 0.2rem">
         自定义颜色(prop color:rgba(255,0,0,0.1))
       </ripple>
     </group>
@@ -44,12 +44,6 @@
   }
 </script>
 
-<style lang="css">
-  .ripple-demo{
-    line-height:44px;
-    text-indent:10px;
-  }
-</style>
 ```
 
 #### Props

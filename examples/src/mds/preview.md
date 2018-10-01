@@ -7,6 +7,7 @@
       v-for="(item,index) in images"
       :key="index" :loading="true"
       :src="item.src"
+      style="display:block;width:100%;min-height:150px;"
       @load="handleLoad(index,$event)"
       @click.native="handleClick(index)"/>
     <preview :list="images" ref="preview"/>

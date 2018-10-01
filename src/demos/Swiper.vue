@@ -2,9 +2,9 @@
   <layout>
     <x-nav slot="header" back="/" title="Swiper"></x-nav>
     <x-body slot="body" style="background:#fff" v-if="pageState.into">
-      <swiper :active.sync="active" :options="options" class="swiper-demo">
+      <swiper :active.sync="active" :options="options">
         <swiper-item v-for="(item,index) in images" :key="index">
-          <img :src="item" class="swiper-img" />
+          <img :src="item" style="max-width:100%;min-height:120px;" />
         </swiper-item>
       </swiper>
     </x-body>
@@ -39,12 +39,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .swiper-demo{
-    img{
-      max-width:100%;
-    }
-    .swiper-img{
-      min-height:120px;
-    }
-  }
+
 </style>

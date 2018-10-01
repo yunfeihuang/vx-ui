@@ -1,5 +1,5 @@
 <template>
-  <layout class="demos img-demos">
+  <layout>
     <x-nav slot="header" back="/" title="Img(滚动加载资源)"></x-nav>
     <x-body slot="body" v-if="pageState.into" style="line-height:2;">
       <x-img style="min-height:100px" src="http://assets.bittyos.com/images/swiper/01.jpg" />

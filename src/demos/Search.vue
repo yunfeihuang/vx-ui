@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Search"></x-nav>
-    <x-body slot="body"  class="demos img-demos">
+    <x-body slot="body">
       <search v-model="value" placeholder="搜索商品/商店/用户"
         @submit="handleSubmit">
         <template slot="keywords" slot-scope="scope">

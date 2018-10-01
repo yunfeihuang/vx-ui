@@ -1,11 +1,12 @@
 <template>
-  <layout class="demos img-demos">
+  <layout>
     <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
-    <x-body slot="body" class="img-container" v-if="pageState.into">
+    <x-body slot="body" v-if="pageState.into">
       <x-img
         v-for="(item,index) in images"
         :key="index" :loading="true"
         :src="item.src"
+        style="display:block;width:100%;min-height:150px;"
         @load="handleLoad(index,$event)"
         @click.native="handleClick(index)"/>
     </x-body>
@@ -65,11 +66,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .img-demos img{
-    display:block;
-    width:100%;
-  }
-  .img-container>div{
-    min-height:150px;
-  }
+
 </style>

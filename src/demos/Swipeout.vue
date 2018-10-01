@@ -1,18 +1,18 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Swipeout"></x-nav>
-    <x-body slot="body" class="swipeout-demos" v-if="pageState.into">
+    <x-body slot="body" v-if="pageState.into">
       <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
-        <flexbox align="center" class="list-view-item">
-          <x-img class="avatar" :src="item.src" />
+        <flexbox align="center" style="padding:6px">
+          <x-img style="width:40px;height:40px;margin-right:6px;border-radius:3px;" :src="item.src" />
           <flexbox-item>
-            <h4>{{item.name}}(按我向左滑动)</h4>
+            <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
             <div>{{item.date}}</div>
           </flexbox-item>
         </flexbox>
-        <button @click="handleAction" class="swipeout-button" slot="action" type="button">顶置</button>
-        <button @click="handleAction" class="swipeout-button" slot="action" type="button">收藏</button>
-        <button @click="handleAction" class="swipeout-button" slot="action" type="button">删除</button>
+        <button @click="handleAction" style="background:#1AAD19;color:#fff;" slot="action" type="button">顶置</button>
+        <button @click="handleAction" style="background:#ffe26d;color:#fff;" slot="action" type="button">收藏</button>
+        <button @click="handleAction" style="background:#ff5500;color:#fff;" slot="action" type="button">删除</button>
       </swipeout>
     </x-body>
   </layout>
@@ -56,32 +56,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .swipeout-demos{
-    background:#fff;
-    .avatar{
-      width:40px;
-      height:40px;
-      margin-right:6px;
-      border-radius:3px;
-    }
-    .list-view-item{
-      padding:6px
-    }
-    h4{
-      margin:0;
-      overflow: hidden;
-    }
-  }
-  .swipeout-button{
-    background:#1AAD19!important;
-    color:#fff;
-  }
-  .swipeout-button:nth-child(2){
-    background:#ffe26d!important;
-    color:#fff;
-  }
-  .swipeout-button:nth-child(3){
-    background:#ff5500!important;
-    color:#fff;
-  }
+
 </style>

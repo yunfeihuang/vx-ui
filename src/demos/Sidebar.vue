@@ -2,7 +2,9 @@
   <layout>
     <x-nav slot="header" back="/" title="Sidebar"></x-nav>
     <x-body slot="body" style="background:#fff">
-      <sidebar :active.sync="active" class="sidebar">
+      <sidebar
+        :active.sync="active"
+        style="width:1.6rem;background:#f7f7f7;position:absolute;height:100%;top:0;left:0;">
         <sidebar-item v-for="item in data" :name="item.name" :key="item.name">{{item.label}}</sidebar-item>
       </sidebar>
     </x-body>
@@ -30,12 +32,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .sidebar{
-    width:1.6rem;
-    background:$color-background;
-    position:absolute;
-    height:100%;
-    top:0;
-    left:0;
-  }
+
 </style>

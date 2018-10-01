@@ -3,9 +3,9 @@
 ```
 <template>
   <div>
-    <swiper :active="active" :options="options" class="swiper-demo">
+    <swiper :active.sync="active" :options="options">
       <swiper-item v-for="(item,index) in images" :key="index">
-        <img :src="item" class="swiper-img" />
+        <img :src="item" style="max-width:100%;min-height:120px;" />
       </swiper-item>
     </swiper>
   </div>

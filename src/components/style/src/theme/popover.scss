@@ -35,5 +35,15 @@
         }
       }
     }
+    &--menu{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      &-item{
+        min-width:1.8rem;
+        line-height:0.9rem;
+        padding:0 15px;
+      }
+    }
   }  
 }

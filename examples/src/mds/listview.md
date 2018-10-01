@@ -5,10 +5,10 @@
   <div>
     <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
       <div v-for="(item,index) in list" :key="index">
-        <flexbox align="center" class="list-view-item">
-          <x-img class="avator" :src="item.src" />
+        <flexbox align="center" style="padding:6px">
+          <x-img :src="item.src" style="width:50px;height:50px;margin-right:6px;border-radius:3px;" />
           <flexbox-item>
-            <h4>{{item.name}}</h4>
+            <h4 style="margin:0;overflow: hidden;">{{item.name}}</h4>
             <div>{{item.date}}</div>
           </flexbox-item>
         </flexbox>
@@ -59,29 +59,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  .list-view-demos .v-list-view{
-    height:100%;
-    background:#fff;
-    position: absolute;
-    width: 100%;
-  }
-  .list-view-demos{
-    .avator{
-      width:50px;
-      height:50px;
-      margin-right:6px;
-      border-radius:3px;
-    }
-    .list-view-item{
-      padding:6px
-    }
-    h4{
-      margin:0;
-      overflow: hidden;
-    }
-  }
-</style>
+
 ```
 
 #### Props

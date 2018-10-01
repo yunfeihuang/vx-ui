@@ -2,16 +2,16 @@
   <layout>
     <x-nav slot="header" back="/" title="Ripple"></x-nav>
     <x-body slot="body">
-      <group class="ripple-demo">
-        <ripple>
+      <group>
+        <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
         </ripple>
         <divider></divider>
-        <ripple>
+        <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
         </ripple>
         <divider></divider>
-        <ripple color="rgba(255,0,0,0.1)">
+        <ripple color="rgba(255,0,0,0.1)" style="padding:0.3rem 0.2rem">
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
       </group>
@@ -51,8 +51,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .ripple-demo{
-    line-height:1rem;
-    text-indent:10px;
-  }
+
 </style>
