@@ -9,10 +9,11 @@
       vertical-align: middle;
       //height: 32px;
       //width: 50px;
-      width: 1.052rem;
+      width: 1.0936rem;
       height: 0.672rem;
       button{
-        height:100%;
+        display: inline-table;
+        height:0.672rem;
         border-radius:0.6rem;
         background-color:#fff;
         margin: 0;
@@ -33,6 +34,7 @@
           position:absolute;
           transition:left 0.3s $ease-in-out;
           box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,0.35);
+          display: inline-table;
         }
       }
       input{
@@ -56,7 +58,10 @@
     &--size{
       &-small{
         width: 0.7427rem;
-        height: 0.46rem;
+        height: 0.4616rem;
+        button{
+          height: 0.4616rem;
+        }
       }
     }
   }
