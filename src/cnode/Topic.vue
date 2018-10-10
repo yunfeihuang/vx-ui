@@ -5,7 +5,7 @@
       <div v-if="pageState.into">
         <div class="topic-header">
           <h1><topic-type :type="type"/>{{topic.title}}</h1>
-          <p class="weak small">
+          <p class="assist small">
           发布于 {{topic.create_at}}<span class="space"></span>
           作者 {{topic.author && topic.author.loginname}}<span class="space"></span>
           {{topic.visit_count}} 次浏览<span class="space"></span>
@@ -24,7 +24,7 @@
             </router-link>
             <div slot="content">
               <div v-html="item.content"></div>
-              <div class="weak">
+              <div class="assist">
               {{item.create_at}}
               </div>
             </div>

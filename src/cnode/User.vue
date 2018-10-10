@@ -19,7 +19,7 @@
               </router-link>
               <router-link slot="content" :to="item.href">
                 <h4>{{item.title}}</h4>
-                <div class="weak">
+                <div class="assist">
                 {{item.last_reply_at}}
                 </div>
               </router-link>
@@ -34,7 +34,7 @@
               </router-link>
               <div slot="content">
                 <h4>{{item.title}}</h4>
-                <div class="weak">
+                <div class="assist">
                 {{item.last_reply_at}}
                 </div>
               </div>

@@ -8,7 +8,7 @@
         </button-tab>
       </div>
     </x-nav>
-    <x-body slot="body" style="padding:15px;background:#fff">
+    <x-body slot="body" style="padding:0.2rem;background:#fff">
       <button-tab :active.sync="active2">
         <button-tab-item name="tab1">选项1</button-tab-item>
         <button-tab-item name="tab2">选项2</button-tab-item>

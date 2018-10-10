@@ -5,7 +5,7 @@
     </router-link>
     <router-link slot="content" :to="item.href" :active="false">
       <h4><topic-type :type="type"/>{{item.title}}</h4>
-      <div class="weak">
+      <div class="assist">
       {{item.reply_count}}/{{item.visit_count}}
       {{new Date().toLocaleString()}}
       </div>

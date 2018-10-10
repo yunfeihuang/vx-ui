@@ -38,7 +38,7 @@
         border-radius:3px;
       }
     }
-    .weak{
+    .assist{
       color:#999;
       font-size:0.8em;
     }
