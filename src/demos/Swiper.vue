@@ -7,6 +7,13 @@
           <img :src="item" style="max-width:100%;min-height:120px;" />
         </swiper-item>
       </swiper>
+      <br />
+      <center>渐变切换</center>
+      <swiper :active.sync="active" :options="{effect: 'fade', speed: 500}">
+        <swiper-item v-for="(item,index) in images" :key="index">
+          <img :src="item" style="max-width:100%;min-height:120px;" />
+        </swiper-item>
+      </swiper>
     </x-body>
   </layout>
 </template>
