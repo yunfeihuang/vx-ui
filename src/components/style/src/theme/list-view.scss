@@ -3,7 +3,6 @@
 .#{$css-prefix}{
   &list-view{
     @include scroll;
-    touch-action: pan-y;
     &--inner{
       position: relative;
       backface-visibility: hidden;
