@@ -5,6 +5,7 @@ $unit: px;
 .#{$css-prefix}{
   &picker{
     @include scroll;
+    touch-action: pan-y;
     height:#{$height*7}#{$unit};
     &::-webkit-scrollbar{
       display:none;

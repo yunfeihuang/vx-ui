@@ -7,6 +7,7 @@
       height:0.92rem;
       position:relative;
       min-width:2rem;
+      touch-action: pan-y;
     }
     &--mask{
       @include divider(#ccc);

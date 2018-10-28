@@ -58,7 +58,9 @@
 @import './calendar-range.scss';
 @import './cascader.scss';
 @import './cascader-picker.scss';
-
+html {
+  touch-action: manipulation;//避免浏览器300ms延时问题
+}
 body{
   font-size:$font-size-default;
   -webkit-tap-highlight-color:transparent;
