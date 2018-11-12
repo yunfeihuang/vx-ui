@@ -3,8 +3,10 @@
 .#{$css-prefix}{
   &sticky{
     &--box{
-      z-index:100;
       position: relative;
+      position: webkit-sticky;
+      position: sticky;
+      z-index:100;
       &.is-fixed{
         .#{$css-prefix}{
           &sticky--inner{

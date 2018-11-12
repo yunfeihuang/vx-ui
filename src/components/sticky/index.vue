@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-sticky--box">
+  <div class="vx-sticky--box" :style="`top:${fixedTop||'0px'}`">
     <div class="vx-sticky--inner">
       <slot></slot>
     </div>
@@ -15,15 +15,18 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
-      if (this.$$scrollNode) {
-        this.$$childNode = this.$el.querySelector('.vx-sticky--inner')
-        this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
-        this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
-        window.addEventListener('resize', this.handleResize, false)
-      }
-    })
+    let position = window.getComputedStyle(this.$el)['position']
+    if (position.indexOf('sticky') === -1) {
+      this.$nextTick(() => {
+        this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
+        if (this.$$scrollNode) {
+          this.$$childNode = this.$el.querySelector('.vx-sticky--inner')
+          this.$$scrollNode.addEventListener('touchstart', this.handleTouchStart, false)
+          this.$$scrollNode.addEventListener('scroll', this.handleScroll, false)
+          window.addEventListener('resize', this.handleResize, false)
+        }
+      })
+    }
   },
   methods: {
     handleResize () {
