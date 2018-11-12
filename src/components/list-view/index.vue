@@ -108,6 +108,9 @@ export default {
         }
       }
     },
+    innerCss (text) {
+      this.$$touch.inner.style.cssText = text
+    },
     handleTouchStart (e) {
       if (!this.loading) {
         if (!this.$$touch.pageY && this.$el.scrollTop === 0) {
@@ -127,7 +130,7 @@ export default {
         let markHeight = this.$$touch.markHeight
         top = top > markHeight * 2 ? markHeight * 2 : top
         let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translate3d(0,' + top + 'px,0);transform:translate3d(0,' + top + 'px,0);'
-        this.$$touch.inner.style.cssText = cssText
+        this.innerCss(cssText)
         if (this.$$touch.pageY && pageY - this.$$touch.pageY > (markHeight + 20)) {
           this.$$touch.inner.classList.add('active')
         } else {
@@ -147,7 +150,7 @@ export default {
         if (pageY - this.$$touch.pageY > (markHeight + 20)) {
           setTimeout(() => {
             let cssText = `-webkit-transform:translate3d(0,${markHeight}px,0);transform:translate3d(0,${markHeight}px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;`
-            this.$$touch.inner.style.cssText = cssText
+            this.innerCss(cssText)
             setTimeout(() => {
               this.$$touch.inner.classList.remove('active')
               this.$$touch.inner.classList.add('loading')
@@ -156,10 +159,10 @@ export default {
           }, 600)
         } else {
           let cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
-          this.$$touch.inner.style.cssText = cssText
+          this.innerCss(cssText)
           setTimeout(() => {
             this.$$touch.inner.classList.remove('active')
-            this.$$touch.inner.style.cssText = ''
+            this.innerCss('')
           }, 500)
         }
         if (this.$$touch.pageY !== pageY) {
@@ -172,7 +175,7 @@ export default {
     stopLoading () {
       if (this.$$touch && this.$$touch.inner && this.$$touch.inner.className.indexOf('loading') > -1) {
         let cssText = '-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-        this.$$touch.inner.style.cssText = cssText
+        this.innerCss(cssText)
         this.$$touch.inner.classList.remove('loading')
       }
     }
