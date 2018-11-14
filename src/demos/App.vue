@@ -13,7 +13,7 @@
               </a>
             </flexbox-item>
             <flexbox-item>
-              <a target="_blank" href="http://vx2.bittyos.com">
+              <a target="_blank" href="http://vx.bittyos.com/react/">
                 <x-img class="friend-link-img" :src="'./static/images/react.png'"/>
                 <br/>
                 react版本

@@ -46,7 +46,7 @@ export default {
       if (!location.origin) {
         location.origin = location.protocol + '//' + location.host
       }
-      return location.origin + '/demo.html' + path
+      return location.origin + location.pathname + 'demo.html' + path
     }
   },
   methods: {
