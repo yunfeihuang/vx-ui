@@ -1,16 +1,18 @@
 <template>
-  <div :class="['vx-toast','vx-toast--' + align]">
-    <div class="vx-toast--inner">
-      <div class="vx-toast--content">
-        <template v-if="type != 'default'">
-          <spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
-          <i v-else :class="['vx-toast--icon',`vx-toast--${type}`]"></i>
-          <br />
-        </template>
-        <slot></slot>
+  <transition name="confirm-fade" @enter="handleEnter">
+    <div v-show="open" :class="['vx-toast','vx-toast--' + align]">
+      <div class="vx-toast--inner">
+        <div class="vx-toast--content">
+          <template v-if="type != 'default'">
+            <spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
+            <i v-else :class="['vx-toast--icon',`vx-toast--${type}`]"></i>
+            <br />
+          </template>
+          <slot></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -55,55 +57,22 @@ export default {
     }
   },
   mounted () {
-    this.openChange(this.open)
+    this.open && this.handleEnter(this.$el)
   },
   methods: {
-    css (text) {
-      if (this.$el && this.$el.style) {
-        this.$el.style.cssText = text
-      }
-    },
-    hide () {
-      this.$$timer && clearTimeout(this.$$timer)
-      this.css('display:block;opacity:0;')
+    handleEnter (node) {
+      let width = node.children[0].offsetWidth + 4
+      let height = node.children[0].offsetHeight + 4
       requestAnimationFrame(() => {
-        this.css('display:none;')
-        this.$emit('update:open', false).$emit('close')
-        if (this.destroy) {
-          this.$destroy()
-        }
+        node.style.width = width + 'px'
+        node.style.height = height + 'px'
       })
-    },
-    openChange (value) {
-      if (value) {
-        this.$$timer && clearTimeout(this.$$timer)
-        requestAnimationFrame(() => {
-          this.css('display:block;opacity:0;')
-          requestAnimationFrame(() => {
-            let width = this.$el.children[0].offsetWidth + 4
-            let height = this.$el.children[0].offsetHeight + 4
-            requestAnimationFrame(() => {
-              this.css(`display:block;width:${width + 10}px;height:${height + 10}px;`)
-            })
-          })
-        })
-        if (this.duration) {
-          this.$$timer = setTimeout(() => {
-            this.hide()
-          }, this.duration)
-        }
-      } else {
-        this.hide()
+      this.$$timer && clearTimeout(this.$$timer)
+      if (this.duration) {
+        this.$$timer = setTimeout(() => {
+          this.$emit('update:open', false).$emit('close')
+        }, this.duration)
       }
-    }
-  },
-  beforeDestroy () {
-    this.$$timer && clearTimeout(this.$$timer)
-    this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
-  },
-  watch: {
-    open (value) {
-      this.openChange(value)
     }
   }
 }
