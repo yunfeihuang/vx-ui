@@ -10,8 +10,8 @@
     height:100%;
     overflow:hidden;
     z-index: 1000;
-    display:none;
     user-select:none;
+    display:none;
     &--inner{
       background:#fff;
       position:absolute;
@@ -130,10 +130,10 @@
 }
 
 .popup-fade-enter-active, .popup-fade-leave-active {
-  transition: opacity $transition-time
+  transition: opacity $transition-time ease 0s;
 }
 .popup-fade-enter, .popup-fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {

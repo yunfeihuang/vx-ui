@@ -1,8 +1,6 @@
 <template>
   <div class="vx-popup">
-    <transition name="popup-fade" v-if="!full">
-      <overlay v-show="open" @click="handleClose"></overlay>
-    </transition>
+    <overlay v-if="!full" :open="open" @click="handleClose"></overlay>
     <slot name="inner" v-if="$slots.inner"></slot>
     <transition
       v-else
