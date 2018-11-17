@@ -1,8 +1,6 @@
 <template>
   <div class="vx-confirm">
-    <transition name="confirm-fade">
-      <overlay v-show="open"></overlay>
-    </transition>
+    <overlay :open="open"></overlay>
     <div class="vx-confirm--wrapper">
       <transition name="confirm-scale" @after-leave="handleLeave">
         <div class="vx-confirm--inner" v-show="open">
