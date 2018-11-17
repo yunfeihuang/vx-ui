@@ -72,9 +72,11 @@ export default {
     }
   },
   beforeDestroy () {
-    this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
-    this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
-    window.removeEventListener('resize', this.handleResize)
+    if (this.$$scrollNode) {
+      this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
+      this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)
+      window.removeEventListener('resize', this.handleResize)
+    }
   }
 }
 </script>

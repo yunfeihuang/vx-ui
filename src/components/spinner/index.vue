@@ -4,7 +4,12 @@
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
-      <div class="vx-spinner" :style="`border-color: ${props.primaryColor} ${props.color} ${props.color} ${props.color}`"></div>
+      <div
+        class="vx-spinner"
+        :style="`border-top-color: ${props.primaryColor};
+          border-right-color: ${props.color};
+          border-bottom-color: ${props.color}
+          border-left-color: ${props.color}`"></div>
       <slot></slot>
   </div>
 </template>
@@ -15,11 +20,11 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#eee'
+      default: ''
     },
     primaryColor: {
       type: String,
-      default: '#3399ff'
+      default: ''
     }
   }
 }
