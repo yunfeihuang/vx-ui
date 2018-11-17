@@ -91,25 +91,14 @@ export default {
       })
     }
   },
-  beforeDestroy () {
-    this.$$timer && clearTimeout(this.$$timer)
-  },
   watch: {
     open (value) {
-      this.$$timer && clearTimeout(this.$$timer)
       if (value) {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'block'
           this.$emit('open')
         })
-      } else {
-        this.$$timer = setTimeout(() => {
-          requestAnimationFrame(() => {
-            this.goBack()
-            this.$el.style.display = 'none'
-          })
-        }, 300)
       }
     }
   },
@@ -141,6 +130,8 @@ export default {
       this.$emit('leave')
     },
     handleAfterLeave () {
+      this.goBack()
+      this.$el.style.display = 'none'
       this.$emit('close-after')
     }
   }

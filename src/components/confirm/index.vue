@@ -71,25 +71,16 @@ export default {
     }
   },
   beforeDestroy () {
-    this.$$timer && clearTimeout(this.$$timer)
     this.$$timerEvent && clearTimeout(this.$$timerEvent)
   },
   watch: {
     open (value) {
-      this.$$timer && clearTimeout(this.$$timer)
       if (value) {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'table'
           this.$emit('open')
         })
-      } else {
-        this.$$timer = setTimeout(() => {
-          requestAnimationFrame(() => {
-            this.goBack()
-            this.$el.style.display = 'none'
-          })
-        }, 300)
       }
     }
   },
@@ -109,6 +100,8 @@ export default {
     },
     handleLeave () {
       this.$nextTick(() => {
+        this.goBack()
+        this.$el.style.display = 'none'
         this.$emit('close-after')
       })
     }
