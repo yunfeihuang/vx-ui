@@ -1,5 +1,5 @@
 <template>
-  <transition name="confirm-fade" @enter="handleEnter">
+  <transition name="popup-fade" @enter="handleEnter" @after-leave="handleLeave">
     <div v-show="open" :class="['vx-toast','vx-toast--' + align]">
       <div class="vx-toast--inner">
         <div class="vx-toast--content">
@@ -73,6 +73,9 @@ export default {
           this.$emit('update:open', false).$emit('close')
         }, this.duration)
       }
+    },
+    handleLeave () {
+      this.$emit('after-close')
     }
   }
 }

@@ -8,7 +8,7 @@
     :title="title"
     @close="handleClose"
     @confirm="handleConfirm"
-    @close-after="handleCloseAfter"
+    @after-close="handleAfterClose"
     >
     <div class="vx-prompt--message" v-if="$slots.message">
       <slot name="message"></slot>
@@ -115,8 +115,8 @@ export default {
     handleInput (value) {
       this.$emit('change', value)
     },
-    handleCloseAfter () {
-      this.$emit('close-after')
+    handleAfterClose () {
+      this.$emit('after-close')
     }
   }
 }

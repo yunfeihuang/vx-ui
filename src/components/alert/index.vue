@@ -7,7 +7,7 @@
     :title="title"
     @confirm="handleConfirm"
     @close="handleClose"
-    @close-after="handleCloseAfter">
+    @after-close="handleAfterClose">
     <slot></slot>
   </confirm>
 </template>
@@ -43,8 +43,8 @@ export default {
     handleClose () {
       this.$emit('update:open', false).$emit('close')
     },
-    handleCloseAfter () {
-      this.$emit('close-after')
+    handleAfterClose () {
+      this.$emit('after-close')
     }
   }
 }

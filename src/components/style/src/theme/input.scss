@@ -112,6 +112,6 @@
 .input-clear-fade-enter-active, .input-clear-fade-leave-active {
   transition: opacity $transition-time;
 }
-.input-clear-fade-enter, .confirm-fade-leave-active {
+.input-clear-fade-enter {
   opacity: 0
 }

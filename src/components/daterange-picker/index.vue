@@ -6,8 +6,7 @@
    :fast-close="false"
    direction="top"
    @open="handleOpen"
-   @close="handleClose"
-   @close-after="handleCloseAfter">
+   @close="handleClose">
     <div class="vx-daterange-picker">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
     </div>
@@ -86,9 +85,6 @@ export default {
     },
     handleOpen () {
       this.$refs.calendarRange.$refs.tab.computedStyle()
-    },
-    handleCloseAfter () {
-      this.$emit('close-after')
     }
   }
 }

@@ -1,16 +1,20 @@
 <template>
   <div class="vx-popup">
     <overlay v-if="!full" :open="open" @click="handleClose"></overlay>
-    <slot name="inner" v-if="$slots.inner"></slot>
+    <transition
+      v-if="$slots.inner"
+      name="popup-fade"
+      @after-enter="handleEnter"
+      @after-leave="handleLeave">
+        <div v-show="open">
+          <slot name="inner"></slot>
+        </div>
+    </transition>
     <transition
       v-else
       :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
-      @enter="handleEnter"
-      @before-enter="handleBeforeEnter"
-      @after-enter="handleAfterEnter"
-      @before-leave="handleBeforeLeave"
-      @leave="handleLeave"
-      @after-leave="handleAfterLeave">
+      @after-enter="handleEnter"
+      @after-leave="handleLeave">
       <flexbox v-show="open" :class="innerClasses" @click="handleClose2" direction="column">
         <flexbox class="vx-popup--nav" v-if="title && !showClose" align="center">
           <button type="button" @click="close"><arrow direction="left" color="#666" size="0.24rem"/></button>
@@ -88,6 +92,7 @@ export default {
       requestAnimationFrame(() => {
         this.pushState()
         this.$el.style.display = 'block'
+        this.handleEnter()
       })
     }
   },
@@ -97,23 +102,16 @@ export default {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'block'
-          this.$emit('open')
         })
       }
     }
   },
   methods: {
-    handleBeforeEnter () {
-      this.$emit('before-enter')
-    },
     handleEnter () {
-      this.$emit('enter')
-    },
-    handleAfterEnter () {
-      this.$emit('after-enter')
+      this.$emit('open')
     },
     close () {
-      this.$emit('close').$emit('update:open', false)
+      this.$emit('update:open', false).$emit('close')
     },
     handleClose () {
       this.fastClose && this.close()
@@ -123,16 +121,10 @@ export default {
         this.close()
       }
     },
-    handleBeforeLeave () {
-      this.$emit('before-after')
-    },
     handleLeave () {
-      this.$emit('leave')
-    },
-    handleAfterLeave () {
       this.goBack()
       this.$el.style.display = 'none'
-      this.$emit('close-after')
+      this.$emit('after-close')
     }
   }
 }

@@ -183,7 +183,8 @@ const install = (Vue) => {
         return createElement(Toast, {
           props: props,
           on: {
-            'close': this.handleClose
+            'close': this.handleClose,
+            'after-close': this.handleAfterClose
           },
           scopedSlots: {
             default: props => createElement('div', {domProps: {innerHTML: message}})
@@ -198,9 +199,9 @@ const install = (Vue) => {
       methods: {
         handleClose () {
           props.open = props.onClose() === false
-          !props.open && setTimeout(() => {
-            vue.$destroy()
-          }, 1000)
+        },
+        handleAfterClose () {
+          this.$destroy()
         }
       },
       beforeDestroy () {
@@ -232,7 +233,7 @@ const install = (Vue) => {
             on: {
               'confirm': this.handleConfirm,
               'close': this.handleClose,
-              'close-after': this.handleCloseAfter
+              'after-close': this.handleAfterClose
             },
             scopedSlots: {
               default: props => createElement('div', {domProps: {innerHTML: message}})
@@ -256,7 +257,7 @@ const install = (Vue) => {
             reject()
             props.open = props.onCancel() === false
           },
-          handleCloseAfter () {
+          handleAfterClose () {
             vue.$destroy()
           }
         },
@@ -289,7 +290,7 @@ const install = (Vue) => {
             on: {
               'confirm': this.handleConfirm,
               'close': this.handleClose,
-              'close-after': this.handleCloseAfter
+              'after-close': this.handleAfterClose
             },
             scopedSlots: {
               default: props => createElement('div', {domProps: {innerHTML: message}})
@@ -313,10 +314,8 @@ const install = (Vue) => {
             reject()
             props.open = props.onCancel() === false
           },
-          handleCloseAfter () {
-            this.$nextTick(() => {
-              this.$destroy()
-            })
+          handleAfterClose () {
+            this.$destroy()
           }
         },
         beforeDestroy () {
@@ -354,7 +353,7 @@ const install = (Vue) => {
             on: {
               'confirm': this.handleConfirm,
               'close': this.handleClose,
-              'close-after': this.handleCloseAfter,
+              'after-close': this.handleAfterClose,
               'change': this.handleChange
             }
           })
@@ -379,10 +378,8 @@ const install = (Vue) => {
           handleChange (value) {
             props.disabled = props.onChange(value)
           },
-          handleCloseAfter () {
-            this.$nextTick(() => {
-              this.$destroy()
-            })
+          handleAfterClose () {
+            this.$destroy()
           }
         },
         beforeDestroy () {
@@ -414,7 +411,7 @@ const install = (Vue) => {
             on: {
               'close': this.handleClose,
               'action': this.handleAction,
-              'close-after': this.handleCloseAfter
+              'after-close': this.handleAfterClose
             },
             nativeOn: {
               'action': this.handleAction
@@ -444,10 +441,8 @@ const install = (Vue) => {
             resolve(value)
             props.open = props.onAction(value) === false
           },
-          handleCloseAfter () {
-            this.$nextTick(() => {
-              this.$destroy()
-            })
+          handleAfterClose () {
+            this.$destroy()
           }
         },
         beforeDestroy () {

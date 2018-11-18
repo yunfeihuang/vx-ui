@@ -40,6 +40,13 @@ export default {
   mounted () {
     this.open && this.handleClick()
   },
+  beforeDestroy () {
+    if (this.$$popover) {
+      this.$$popover.open = false
+      this.$$popover.$destroy()
+      this.$$popover = null
+    }
+  },
   methods: {
     handleClick () {
       let popover = this
@@ -60,7 +67,7 @@ export default {
             },
             on: {
               'close': this.handleClose,
-              'close-after': this.handleCloseAfter
+              'after-close': this.handleAfterClose
             }
           }, [
             createElement('div', {
@@ -70,18 +77,21 @@ export default {
               },
               slot: 'inner',
               on: {
-                click: popover.handleClickPopover
+                click: this.handleClose
               }
             }, [...popover.$slots.default])
           ])
         },
         components: {Popup},
-        data: {
-          open: true,
-          opacity: popover.overlayOpacity,
-          histroy: popover.histroy
+        data () {
+          return {
+            open: false,
+            opacity: popover.overlayOpacity,
+            histroy: popover.histroy
+          }
         },
         mounted () {
+          this.open = true
           this.$nextTick(() => {
             let width = window.innerWidth
             let height = window.innerHeight
@@ -112,14 +122,9 @@ export default {
         methods: {
           handleClose () {
             this.open = false
-            this.$nextTick(() => {
-              this.$destroy()
-            })
           },
-          handleCloseAfter () {
-            this.$nextTick(() => {
-              this.$destroy()
-            })
+          handleAfterClose () {
+            popover.$$popover.$destroy()
           }
         }
       })

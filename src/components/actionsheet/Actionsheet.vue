@@ -1,5 +1,13 @@
 <template>
-  <popup :class="classes" :open="open" :history="history" :fast-close="fastClose" :direction="myDirection" @close="handleClosePopup" @close-after="handleCloseAfter" @after-enter="handleAfterEnter">
+  <popup
+    :class="classes"
+    :open="open"
+    :history="history"
+    :fast-close="fastClose"
+    :direction="myDirection"
+    @close="handleClose"
+    @after-close="handleAfterClose"
+    @open="handleOpen">
     <div class="vx-actionsheet--inner" onselectstart="return false;">
       <div v-if="title" class="vx-actionsheet--title">
         {{title}}
@@ -72,13 +80,10 @@ export default {
     handleClose () {
       this.$emit('update:open', false).$emit('close')
     },
-    handleCloseAfter () {
-      this.$emit('close-after')
+    handleAfterClose () {
+      this.$emit('after-close')
     },
-    handleClosePopup () {
-      this.$emit('update:open', false).$emit('close')
-    },
-    handleAfterEnter () {
+    handleOpen () {
       Array.from(this.$el.querySelectorAll('.vx-actionsheet--item')).forEach(item => {
         item.onclick = this.handleAction.bind(this, item.dataset.value)
       })

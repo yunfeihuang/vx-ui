@@ -2,7 +2,7 @@
   <div class="vx-confirm">
     <overlay :open="open"></overlay>
     <div class="vx-confirm--wrapper">
-      <transition name="confirm-scale" @after-leave="handleLeave">
+      <transition name="confirm-scale" @after-enter="handleEnter" @after-leave="handleLeave">
         <div class="vx-confirm--inner" v-show="open">
           <div v-if="title" class="vx-confirm--title">{{title}}</div>
           <div class="vx-confirm--body">
@@ -67,6 +67,7 @@ export default {
       requestAnimationFrame(() => {
         this.pushState()
         this.$el.style.display = 'table'
+        this.handleEnter()
       })
     }
   },
@@ -79,7 +80,6 @@ export default {
         requestAnimationFrame(() => {
           this.pushState()
           this.$el.style.display = 'table'
-          this.$emit('open')
         })
       }
     }
@@ -98,11 +98,14 @@ export default {
         this.open && this.$emit('update:open', false).$emit('confirm')
       }
     },
+    handleEnter () {
+      this.$emit('open')
+    },
     handleLeave () {
       this.$nextTick(() => {
         this.goBack()
         this.$el.style.display = 'none'
-        this.$emit('close-after')
+        this.$emit('after-close')
       })
     }
   }

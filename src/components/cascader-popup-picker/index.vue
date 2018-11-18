@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" @close-after="handleClosed" :fast-close="true" :openRefreshRender="false" class="vx-cascader-popup-picker--wrapper">
+  <popup :open="open" :history="history" @close="handleClose" :fast-close="true" class="vx-cascader-popup-picker--wrapper">
     <div class="vx-cascader-popup-picker">
       <cascader-picker v-bind="$props" @change="handleChange" @update:label="handleLabel" />
     </div>
@@ -43,9 +43,6 @@ export default {
     },
     handleLabel (label) {
       this.$emit('update:label', label)
-    },
-    handleClosed () {
-      this.$emit('close-after')
     }
   }
 }

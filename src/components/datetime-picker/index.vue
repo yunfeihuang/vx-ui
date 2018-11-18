@@ -1,7 +1,7 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" @close-after="handleCloseAfter" :fast-close="false">
+  <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
     <div slot="header" :class="['vx-flexbox','vx-datetime-picker--header']">
-      <button type="button" class="vx-datetime-picker--cancel" @click="handleCancel">{{cancelText}}</button>
+      <button type="button" class="vx-datetime-picker--cancel" @click="handleClose">{{cancelText}}</button>
       <div :class="['vx-flexbox--item','vx-datetime-picker--today']">
         <!--
         <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
@@ -240,9 +240,6 @@ export default {
       }
       return seconds
     },
-    handleCancel () {
-      this.$emit('update:open', false).$emit('close')
-    },
     handleClose () {
       this.$emit('update:open', false).$emit('close')
     },
@@ -300,9 +297,6 @@ export default {
           item.value = String(map[item.type]())
         }
       }
-    },
-    handleCloseAfter () {
-      this.$emit('close-after')
     }
   }
 }

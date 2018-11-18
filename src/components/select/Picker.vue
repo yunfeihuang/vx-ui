@@ -1,7 +1,7 @@
 <template>
-  <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @close-after="handleCloseAfter" @after-enter="handleAfterEnter">
+  <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
     <div slot="header" v-if="max != 1" :class="['vx-flexbox','vx-option-picker--header']">
-      <button type="button" class="vx-option-picker--cancel" @click="handleCancel">{{cancelText}}</button>
+      <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
       <button type="button" :class="['vx-flexbox--item','vx-option-picker--placeholder']">{{myTitle}}</button>
       <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
     </div>
@@ -89,14 +89,8 @@ export default {
     }
   },
   methods: {
-    handleCancel () {
-      this.$emit('close')
-    },
     handleClose () {
       this.$emit('close')
-    },
-    handleCloseAfter () {
-      this.$emit('close-after')
     },
     handleConfirm () {
       this.open && this.$emit('input', this.myValue).$emit('change', this.myValue)
@@ -108,7 +102,7 @@ export default {
         this.myValue = value
       }
     },
-    handleAfterEnter () {
+    handleOpen () {
       requestAnimationFrame(() => {
         this.myOptions = this.options
       })
