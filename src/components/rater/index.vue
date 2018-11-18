@@ -1,13 +1,13 @@
-<template>
-  <div :class="['vx-rater',{'is-disabled': disabled}]">
+<template functional>
+  <div :class="['vx-rater',{'is-disabled': props.disabled}]">
     <span
-      v-for="(item,index) in max"
-      :class="['vx-rater--item',{'is-active':item<=value}]"
-      :style="{color: item <= value && color ? color : '', marginLeft: gutter}"
+      v-for="(item,index) in props.max"
+      :class="['vx-rater--item',{'is-active':item<=props.value}]"
+      :style="{color: item <= props.value && props.color ? props.color : '', marginLeft: props.gutter}"
       :data-value="item"
       :key="index"
-      v-html="star"
-      @click="handleChange(item)"
+      v-html="props.star"
+      @click="$options.methods.handleChange(listeners, item, props.value)"
       >
     </span>
   </div>
@@ -17,7 +17,6 @@
 import { input } from 'utils/mixins'
 export default {
   componentName: 'Rater',
-  mixins: [input],
   props: {
     ...input.props,
     disabled: {
@@ -45,16 +44,10 @@ export default {
     }
   },
   methods: {
-    handleChange (value) {
-      if (!this.disabled) {
-        if (value !== 1 && value === this.value) {
-          return false
-        }
-        value === 1 && this.value === value && (value = 0)
-        this.$emit('input', value).$emit('change', value)
-        this.eDispatch('ElFormItem', 'el.form.blur', [value])
-        this.eDispatch('ElFormItem', 'el.form.change', [value])
-      }
+    handleChange (listeners, value, oldValue) {
+      value === 1 && oldValue === value && (value = 0)
+      listeners['input'] && listeners['input'](value)
+      listeners['change'] && listeners['change'](value)
     }
   }
 }

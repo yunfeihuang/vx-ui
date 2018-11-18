@@ -1,10 +1,10 @@
-<template>
-  <div :class="['vx-switch--wrapper', `vx-switch--size-${size}`, {'is-disabled': disabled, 'vx-switch--small': small}]">
+<template functional>
+  <div :class="['vx-switch--wrapper', `vx-switch--size-${props.size}`, {'is-disabled': props.disabled, 'vx-switch--small': props.small}]">
     <input
-      :name="name"
-      :checked="onValue == value"
+      :name="props.name"
+      :checked="props.onValue == props.value"
       type="checkbox"
-      @change="handleChange"
+      @change="$options.methods.handleChange(listeners,props.onValue,props.offValue,$event)"
       />
     <button type="button" tabindex="-2"></button>
   </div>
@@ -14,7 +14,6 @@
 import { input } from 'utils/mixins'
 export default {
   componentName: 'XSwitch',
-  mixins: [input],
   props: {
     ...input.props,
     value: {
@@ -36,9 +35,10 @@ export default {
     }
   },
   methods: {
-    handleChange (e) {
-      let value = e.target.checked ? this.onValue : this.offValue
-      this.$emit('input', value).$emit('change', value)
+    handleChange (listeners, onValue, offValue, e) {
+      let value = e.target.checked ? onValue : offValue
+      listeners['input'] && listeners['input'](value)
+      listeners['change'] && listeners['change'](value)
     }
   }
 }
