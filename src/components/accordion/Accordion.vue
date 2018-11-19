@@ -1,9 +1,5 @@
-<template functional>
-  <div :class="['vx-accordion', data.staticClass, data.class]"
-    :data-mutex="props.mutex"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners">
+<template>
+  <div :class="['vx-accordion']" :data-mutex="mutex">
     <slot></slot>
   </div>
 </template>

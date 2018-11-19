@@ -27,7 +27,6 @@
       &-bd{
         height:0;
         overflow:hidden;
-        transition: height 0.3s ease 0s;
       }
       &-content{
         padding:0.16rem;
@@ -44,4 +43,10 @@
       }
     }
   }
+}
+.accordion-slide-enter-active, .accordion-slide-leave-active, .aa {
+  transition: height 0.3s ease 0s;
+}
+.accordion-slide-enter, .accordion-slide-leave-active {
+  height: 0!important;
 }
