@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-accordion--item', {'is-open': myOpen}]">
+  <div :class="['vx-accordion--item', {'is-open': $parent.value.indexOf(name) > -1}]">
     <div class="vx-accordion--item-hd" @click="handleOpen">
       <div class="vx-accordion--item-title">
         <slot v-if="$slots.title"></slot>
@@ -10,7 +10,7 @@
       <arrow direction="down" />
     </div>
     <transition name="accordion-slide" @enter="handleEnter">
-      <div v-show="myOpen" class="vx-accordion--item-bd">
+      <div v-show="$parent.value.indexOf(name) > -1" class="vx-accordion--item-bd">
         <div class="vx-accordion--item-content">
           <slot></slot>
         </div>
@@ -32,17 +32,25 @@ export default {
     },
     title: {
       type: String
-    }
-  },
-  data () {
-    return {
-      myOpen: this.open
+    },
+    name: {
+      type: String,
+      default () {
+        return Math.random().toString(36).substr(2)
+      }
     }
   },
   watch: {
     open (value) {
-      this.myOpen = value
+      if (value) {
+        this.$parent.open(this.name)
+      } else {
+        this.$parent.close(this.name)
+      }
     }
+  },
+  beforeMount () {
+    this.open && this.$parent.open(this.name)
   },
   mounted () {
     this.handleResize()
@@ -53,11 +61,9 @@ export default {
   },
   methods: {
     handleResize () {
-      if (this.open) {
+      if (this.$parent.value.indexOf(this.name) > -1) {
         let node = this.$el.querySelector('.vx-accordion--item-bd')
-        requestAnimationFrame(() => {
-          node.style.height = node.children[0].offsetHeight + 'px'
-        })
+        this.handleEnter(node)
       }
     },
     handleEnter (node) {
@@ -66,15 +72,7 @@ export default {
       })
     },
     handleOpen () {
-      this.myOpen = !this.myOpen
-      let self = this
-      if (this.$parent.mutex) {
-        this.$parent.$children.forEach(item => {
-          if (item !== self) {
-            item.myOpen = false
-          }
-        })
-      }
+      this.$parent.open(this.name)
     }
   }
 }
