@@ -7,13 +7,11 @@
   </layout>
 </template>
 <script>
-import { children } from 'utils/mixins/page'
 import Qrcode from '../components/qrcode' // import Qrcode from 'vx-ui/lib/qrcode'
 export default {
   components: {
     Qrcode
-  },
-  mixins: [children]
+  }
 }
 </script>
 <style lang="scss">

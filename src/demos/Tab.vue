@@ -2,7 +2,7 @@
   <layout>
     <div slot="header">
       <x-nav back="/" title="Tab"></x-nav>
-      <div v-if="pageState.into">
+      <div v-if="slideIn">
         <tab :active.sync="active">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
@@ -14,15 +14,13 @@
         </tab>
       </div>
     </div>
-    <x-body slot="body" style="background:#fff" :scroll="false" v-if="pageState.into">
+    <x-body slot="body" style="background:#fff" :scroll="false" v-if="slideIn">
     </x-body>
   </layout>
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   data () {
     return {
       tabs: [

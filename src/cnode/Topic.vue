@@ -2,7 +2,7 @@
   <layout>
     <x-nav slot="header" title="主题详情"></x-nav>
     <x-body slot="body" :class="clas">
-      <div v-if="pageState.into">
+      <div v-if="slideIn">
         <div class="topic-header">
           <h1><topic-type :type="type"/>{{topic.title}}</h1>
           <p class="assist small">
@@ -37,11 +37,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import { children } from 'utils/mixins/page'
 import {BaseItem, TopicType} from './components/index'
 
 export default {
-  mixins: [children],
   components: {
     BaseItem,
     TopicType
@@ -52,7 +50,7 @@ export default {
     }),
     clas () {
       return ['topic', {
-        'topic-placeholder': Object.keys(this.topic).length === 0 || !this.pageState.into
+        'topic-placeholder': Object.keys(this.topic).length === 0 || !this.slideIn
       }]
     },
     type () {

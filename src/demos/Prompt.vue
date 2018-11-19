@@ -39,9 +39,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   methods: {
     handleChangePrompt1 (value) {
       if (value && value.trim()) {

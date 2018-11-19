@@ -12,9 +12,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   data () {
     let data = []
     for (let i = 0; i < 20; i++) {

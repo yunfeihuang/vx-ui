@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
-    <x-body slot="body" v-if="pageState.into">
+    <x-body slot="body" v-if="slideIn">
       <x-img
         v-for="(item,index) in images"
         :key="index" :loading="true"
@@ -15,14 +15,12 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 import Preview from '../components/preview' // import Preview from 'vx-ui/lib/preview'
 let windowWidth = window.innerWidth
 export default {
   components: {
     Preview
   },
-  mixins: [children],
   data () {
     return {
       images: [

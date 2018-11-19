@@ -93,9 +93,7 @@
 </template>
 
 <script>
-import { parent } from 'utils/mixins/page'
 export default {
-  mixins: [parent],
   mounted () {
     // console.log(this.$router.push)
   }

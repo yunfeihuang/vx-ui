@@ -13,9 +13,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   data () {
     return {
       checked: true

@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="ListView (pulldown and pullup)"></x-nav>
-    <x-body slot="body" :scroll="false" v-if="pageState.into">
+    <x-body slot="body" :scroll="false" v-if="slideIn">
       <list-view
         style="height:100%;background:#fff;position: absolute;width: 100%;"
         :loading="loading"
@@ -24,9 +24,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   data () {
     return {
       list: [],

@@ -33,13 +33,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import { parent } from 'utils/mixins/page'
 import { TopicItem } from './components/index'
 
 const tabs = ['all', 'good', 'share', 'ask', 'job']
 
 export default {
-  mixins: [parent],
   components: {
     TopicItem
   },

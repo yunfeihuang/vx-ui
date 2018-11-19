@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 let citys = {
   '01': [
     {
@@ -177,7 +176,6 @@ let areas = {
 }
 
 export default {
-  mixins: [children],
   methods: {
     handleConfirm (value) {
       let val = value.map(item => item.value)

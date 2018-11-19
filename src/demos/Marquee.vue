@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Marquee"></x-nav>
-    <x-body slot="body" style="background:#fff" v-if="pageState.into">
+    <x-body slot="body" style="background:#fff" v-if="slideIn">
       <x-marquee>
         <x-marquee-item>
           天猫双十一优惠！
@@ -22,13 +22,11 @@
   </layout>
 </template>
 <script>
-import { children } from 'utils/mixins/page'
 import {XMarquee, XMarqueeItem} from '../components/marquee' // import {XMarquee, XMarqueeItem} from 'vx-ui/lib/marquee'
 export default {
   components: {
     XMarquee,
     XMarqueeItem
-  },
-  mixins: [children]
+  }
 }
 </script>

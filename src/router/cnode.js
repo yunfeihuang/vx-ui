@@ -1,4 +1,5 @@
 import store from '@/store'
+import page from '@/utils/mixins/page'
 
 export default [
   {
@@ -13,11 +14,23 @@ export default [
     children: [
       {
         path: '/cnode/topic/:id',
-        component: () => import('cnode/Topic')
+        component: () => {
+          return import(`cnode/Topic`).then(res => {
+            !res.default.mixins && (res.default.mixins = [])
+            res.default.mixins.push(page)
+            return res
+          })
+        }
       },
       {
         path: '/cnode/user/:id',
-        component: () => import('cnode/User')
+        component: () => {
+          return import(`cnode/User`).then(res => {
+            !res.default.mixins && (res.default.mixins = [])
+            res.default.mixins.push(page)
+            return res
+          })
+        }
       }
     ]
   }

@@ -2,7 +2,7 @@
   <layout>
     <x-nav slot="header" title="用户详情"></x-nav>
     <x-body slot="body" :class="clas">
-      <div v-if="pageState.into">
+      <div v-if="slideIn">
         <div>
           <div class="userinfo">
             <img :src="user.avatar_url" class="user-avatar" />
@@ -48,11 +48,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import { children } from 'utils/mixins/page'
 import BaseItem from './components/BaseItem'
 
 export default {
-  mixins: [children],
   components: {
     BaseItem
   },
@@ -62,7 +60,7 @@ export default {
     }),
     clas () {
       return ['user', {
-        'topic-placeholder': Object.keys(this.user).length === 0 || !this.pageState.into
+        'topic-placeholder': Object.keys(this.user).length === 0 || !this.slideIn
       }]
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Popover"></x-nav>
-    <x-body slot="body" style="padding:15px;" v-if="pageState.into">
+    <x-body slot="body" style="padding:15px;" v-if="slideIn">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
           <popover :open="true">
@@ -59,9 +59,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   methods: {
     handleClick (value) {
       this.$toast({message: '您点击了：' + value})

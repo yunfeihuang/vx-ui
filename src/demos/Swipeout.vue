@@ -1,7 +1,7 @@
 <template>
   <layout>
     <x-nav slot="header" back="/" title="Swipeout"></x-nav>
-    <x-body slot="body" v-if="pageState.into">
+    <x-body slot="body" v-if="slideIn">
       <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
         <flexbox align="center" style="padding:6px">
           <x-img style="width:40px;height:40px;margin-right:6px;border-radius:3px;" :src="item.src" />
@@ -19,9 +19,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   data () {
     let list = this.getList()
     return {

@@ -91,9 +91,7 @@
 </template>
 
 <script>
-import { children } from 'utils/mixins/page'
 export default {
-  mixins: [children],
   mounted1 () {
     setTimeout(() => {
       let options = []
