@@ -45,3 +45,6 @@
     }
   }
 }
+.accordion-slide-enter, .accordion-slide-leave-active {
+  height: 0!important;
+}
