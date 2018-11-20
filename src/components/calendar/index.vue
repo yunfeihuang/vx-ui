@@ -9,7 +9,7 @@
             </button>
             <flexbox-item>
               {{date.getFullYear()}}{{yearText[lang]}}
-              <input type="number" :value="date.getFullYear()" :min="1990" @change="handleYearChange2"/>
+              <input type="number" :value="date.getFullYear()" :min="1990" :max="date.getFullYear()+100" @change="handleYearChange2"/>
             </flexbox-item>
             <button type="button" @click="handleYearChange(1)">
               <arrow size="0.22rem"/>
