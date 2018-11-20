@@ -1,7 +1,11 @@
 <template>
-  <div :class="['vx-flexbox', 'vx-tab']" onselectstart="return false;">
-    <slot></slot>
-    <div class="vx-tab--underline"></div>
+  <div :class="['vx-tab',`vx-tab--type-${layout}`]" onselectstart="return false;">
+    <div class="vx-tab--scroller">
+      <div :class="[{'vx-flexbox': layout=='default'}, 'vx-tab--inner']">
+        <slot></slot>
+      </div>
+      <div class="vx-tab--underline"></div>
+    </div>
   </div>
 </template>
 
@@ -51,6 +55,21 @@ export default {
         this.$emit('update:active', value).$emit('change', value)
         this.computedStyle()
       }
+      this.layout === 'scroll' && this.$nextTick(() => {
+        let target = this.$el.querySelector('.is-active')
+        let node = this.$el.querySelector('.vx-tab--scroller')
+        requestAnimationFrame(() => {
+          let width = target.offsetWidth
+          let innerWidth = window.innerWidth
+          let rect = target.getBoundingClientRect()
+          let offsetLeft = target.nextElementSibling ? target.nextElementSibling.offsetLeft : 0
+          if (rect.right + width > innerWidth && target.nextElementSibling) {
+            requestAnimationFrame(() => {
+              node.scrollLeft = offsetLeft + target.nextElementSibling.offsetWidth - innerWidth
+            })
+          }
+        })
+      })
     }
   }
 }

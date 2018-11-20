@@ -15,8 +15,8 @@
           <div slot="title">js调用</div>
           <span slot="value" @click="handleOpen">点击我打开</span>
         </cell>
-        密码加密文本：{{cipher}}
       </group>
+      密码加密文本：{{cipher}}
     </x-body>
     <prompt
       v-model="value1"

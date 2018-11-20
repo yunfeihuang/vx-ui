@@ -135,6 +135,10 @@ const tab = {
     active: {
       type: [Number, String, Object],
       required: true
+    },
+    layout: {
+      type: String,
+      default: 'default'
     }
   }
 }

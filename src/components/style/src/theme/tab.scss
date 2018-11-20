@@ -7,6 +7,14 @@
     user-select: none;
     line-height: 0.92rem;
     background:#fff;
+    &--scroller{
+      white-space: nowrap;
+      overflow-x: auto;
+      position: relative;
+      &::-webkit-scrollbar{
+        display:none;
+      }
+    }
     &:before{
       @include divider;
       z-index:1;
@@ -31,6 +39,16 @@
       &.is-active{
         color:$color-primary;
         // transition: color $transition-time $ease-in-out;
+      }
+    }
+    &--type-scroll{
+      .vx-tab{
+        &--item{
+          display:inline-block;
+          vertical-align: middle;
+          min-width:1.5rem;
+          padding:0 0.1rem;
+        }
       }
     }
   }
