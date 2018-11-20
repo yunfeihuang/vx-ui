@@ -6,7 +6,7 @@
       <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
     </div>
     <div class="vx-option-picker">
-      <checkbox-group :max="max" @change="handleChange" :value="myValue">
+      <checkbox-group :validate-event="false" :max="max" @change="handleChange" :value="myValue">
         <checkbox
           v-for="(item,index) in myOptions"
           :value="item.value"
@@ -81,7 +81,7 @@ export default {
   data () {
     let options = this.options
     if (this.options.length > 40) {
-      options = this.options.slice(0, 50)
+      options = this.options.slice(0, 40)
     }
     return {
       myOptions: options,
