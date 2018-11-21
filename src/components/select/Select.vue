@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'is-focus':isFocus,'is-disabled':disabled}]" @focusin.stop.prevent="handleFocusIn">
+  <div :class="['vx-select',{'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
     <flexbox class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -138,8 +138,10 @@ export default {
               open: false
             },
             mounted () {
-              this.open = true
-              self.isFocus = true
+              requestAnimationFrame(() => {
+                this.open = true
+                self.isFocus = true
+              })
             },
             beforeDestroy () {
               this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)

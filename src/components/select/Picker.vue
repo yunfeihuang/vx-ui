@@ -6,12 +6,14 @@
       <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
     </div>
     <div class="vx-option-picker">
-      <checkbox-group :validate-event="false" :max="max" @change="handleChange" :value="myValue">
+      <checkbox-group ref="checkboxGroup" :validate-event="false" :max="max" @change="handleChange" :value="myValue">
         <checkbox
           v-for="(item,index) in myOptions"
           :value="item.value"
           :key="index"
           :disabled="item.disabled"
+          :parentValue="myValue"
+          :max="max"
           >
           <div v-html="item.html || item.label"></div>
         </checkbox>
@@ -22,7 +24,8 @@
 
 <script>
 import Popup from '../popup'
-import {CheckboxGroup, Checkbox} from '../checkbox'
+import {CheckboxGroup} from '../checkbox'
+import Checkbox from './Checkbox'
 
 export default {
   componentName: 'OptionGroupPicker',
@@ -80,13 +83,16 @@ export default {
   },
   data () {
     let options = this.options
-    if (this.options.length > 40) {
-      options = this.options.slice(0, 40)
+    if (this.options.length > 30) {
+      options = this.options.slice(0, 30)
     }
     return {
       myOptions: options,
       myValue: this.value
     }
+  },
+  beforeDestroy () {
+    window.$$$$picker = null
   },
   methods: {
     handleClose () {
@@ -103,6 +109,7 @@ export default {
       }
     },
     handleOpen () {
+      window.$$$$picker = this
       requestAnimationFrame(() => {
         this.myOptions = this.options
       })
