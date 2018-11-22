@@ -38,6 +38,8 @@
           background-color:#fff;
           transition: color $transition-time $ease-in-out;
           position:relative;
+          position:sticky;
+          top:0;
           z-index:1;
           &:before{
             display:none;

@@ -15,8 +15,7 @@ export default {
     }
   },
   mounted () {
-    let position = window.getComputedStyle(this.$el)['position']
-    if (position.indexOf('sticky') === -1) {
+    if (!this.supportSticky()) {
       this.$nextTick(() => {
         this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
         if (this.$$scrollNode) {
@@ -29,6 +28,15 @@ export default {
     }
   },
   methods: {
+    supportSticky () {
+      if (this.$$supportSticky !== undefined) {
+        return this.$$supportSticky
+      }
+      let node = document.createElement('div')
+      node.style.cssText = 'position:-webkit-sticky;position:sticky;'
+      this.$$supportSticky = (node.cssText || '').indexOf('sticky') > -1
+      return this.$$supportSticky
+    },
     handleResize () {
       this.handleTouchStart()
       this.handleScroll()

@@ -19,6 +19,7 @@
       width:0.5rem;
       text-align:center;
       line-height:0.38rem;
+      z-index:10;
       div.is-active{
         color:$color-primary;
         font-weight:bold;
@@ -38,6 +39,9 @@
     &--title,&--fixed{
       padding:0.3rem 0.2rem 0.2rem 0.2rem;
       background:$color-background;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
     &--title+&--item{
       background-image:none;
@@ -47,6 +51,7 @@
       top:0;
       left:0;
       width:100%;
+      display:none;
     }
   }
 }
