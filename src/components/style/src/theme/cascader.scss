@@ -3,7 +3,7 @@
 .#{$css-prefix}{
   &cascader{
     position:relative;
-    height:0.92rem;
+    height:$size-height;
     @include disabled();
     &--inner{
       height:100%;

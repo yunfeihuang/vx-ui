@@ -7,7 +7,7 @@
       @include scroll;
       position: relative;
       &-item{
-        line-height:0.92rem;
+        line-height:$size-height;
         margin-left:0.2rem;
         display:inline-block;
         position:relative;
@@ -45,8 +45,8 @@
       }
     &--item{
       @include active;
-      line-height:0.92rem;
-      height:0.92rem;
+      line-height:$size-height;
+      height:$size-height;
       padding:0 0.16rem;
       position:relative;
       @include lineClamp;

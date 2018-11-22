@@ -5,8 +5,8 @@
     background:#fff;
     &--month,&--quarter{
       width: 33.333333333333336%;
-      line-height: 0.92rem;
-      height: 0.92rem;
+      line-height:$size-height;
+      height:$size-height;
       text-align:center;
       &.is-active{
         color:#fff!important;

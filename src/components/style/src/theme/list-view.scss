@@ -58,7 +58,7 @@
     }
     &--loading{
       text-align:center;
-      line-height:0.92rem;
+      line-height:$size-height;
       color:$color-sub;
     }
     &--spinner{

@@ -5,7 +5,7 @@
     background:#fff;
     position:relative;
     &--inner{
-      height:0.92rem;
+      height:$size-height;
     }
     &--default{
       &:after{

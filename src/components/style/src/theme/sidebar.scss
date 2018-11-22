@@ -19,7 +19,7 @@
         left:auto;
       }
       &--item{
-        line-height:0.92rem;
+        line-height:$size-height;
         position:relative;
         @include lineClamp;
         @include divider;

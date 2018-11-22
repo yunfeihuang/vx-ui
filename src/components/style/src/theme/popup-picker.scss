@@ -13,14 +13,14 @@
       background-position:bottom;
     }
     &--placeholder{
-      line-height: 0.92rem;
+      line-height: $size-height;
       color:$color-sub;
       @include lineClamp;
       @include button;
     }
     &--cancel,&--confirm{
       @include button;
-      height: 0.92rem;
+      height:$size-height;
       width: 1.5rem;
       color:$color-sub;
     }

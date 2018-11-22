@@ -5,7 +5,7 @@
     text-align:center;
     position:relative;
     user-select: none;
-    line-height: 0.92rem;
+    line-height:$size-height;
     background:#fff;
     &--scroller{
       white-space: nowrap;

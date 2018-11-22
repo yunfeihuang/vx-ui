@@ -10,7 +10,7 @@
     }
     &--cancel,&--clear, &--confirm{
       @include button;
-      height: 0.92rem!important;
+      height: $size-height!important;
       width: 1.5rem;
       color:$color-sub
     }

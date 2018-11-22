@@ -44,8 +44,8 @@
       @include divider;
       button, a{
         @include button;
-        padding:$item-padding;
         @include active;
+        height:$size-height;
         user-select:none;
         position:relative;
         font-size:inherit;
@@ -57,6 +57,9 @@
         &:last-child{
           color:$color-primary;
         }
+      }
+      a{
+        line-height:$size-height;
       }
     }
     &--table{

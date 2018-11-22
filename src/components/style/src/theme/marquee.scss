@@ -2,8 +2,8 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &marquee{
-    height:0.92rem;
-    line-height:0.92rem;
+    height:$size-height;
+    line-height:$size-height;
     text-align:center;
     &--item{
       box-sizing: border-box;

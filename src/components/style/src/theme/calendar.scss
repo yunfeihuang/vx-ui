@@ -12,8 +12,8 @@
     }
     &--date{
       width:14.285714285714286%;
-      line-height:0.92rem;
-      height: 0.92rem;
+      line-height:$size-height;
+      height:$size-height;
       &.is-start,&.is-end{
         color:#fff!important;
         background:rgba($color-primary, 0.95);
@@ -41,7 +41,7 @@
       }
       button{
         @include button;
-        height:0.92rem;
+        height:$size-height;
         min-width:1rem;
         @include disabled;
       }

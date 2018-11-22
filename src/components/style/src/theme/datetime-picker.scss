@@ -15,12 +15,12 @@
       background-position:bottom;
     }
     &--today{
-      line-height: 0.92rem;
+      line-height:$size-height;
       @include lineClamp;
     }
     &--cancel,&--confirm,&--today{
       @include button;
-      height: 0.92rem;
+      height:$size-height;
       width: 1.5rem;
       color:$color-sub
     }

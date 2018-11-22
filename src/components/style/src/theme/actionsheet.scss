@@ -16,12 +16,12 @@
       font-size:$font-size-large;
     }
     &--cancel{
-      padding: $item-padding;
+      padding: 0.3rem 0;
       border-top:0.2rem solid #eee;
       color:$color-sub;
     }
     &--item{
-      padding:$item-padding;
+      padding:0.3rem 0;
       position:relative;
       border-left: 0.1rem solid transparent;
       border-right: 0.1rem solid transparent;

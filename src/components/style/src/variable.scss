@@ -19,8 +19,6 @@ $font-size-small        : 0.24rem;
 $font-size-large        : 0.32rem;
 $font-size-xl           : 0.38rem;
 
-$item-padding           : 0.3rem 0;
-
 // Border color
 $border-color-base      : rgb(229, 229, 229);  // outside
 $border-radius-base     : 6px;
@@ -29,3 +27,6 @@ $border-radius-base     : 6px;
 $animation-time         : .3s;
 $transition-time        : .2s;
 $ease-in-out            : ease-in-out;
+
+// size
+$size-height            : 0.92rem;
