@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout type="primary">
     <div slot="header">
       <x-nav back="/" title="Tab"></x-nav>
       <div v-if="slideIn">
@@ -17,7 +17,7 @@
         </tab>
       </div>
     </div>
-    <x-body slot="body" style="background:#fff" :scroll="false" v-if="slideIn">
+    <x-body slot="body" :scroll="false">
     </x-body>
   </layout>
 </template>

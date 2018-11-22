@@ -1,11 +1,20 @@
 @import '../variable.scss';
 @import '../mixins.scss';
-.#{$css-prefix}{
-  &layout--flexbox{
+.#{$css-prefix}layout{
+  &--flexbox{
     position:absolute;
     height:100%;
     width:100%;
-    background:$color-background;
     z-index:10;
+  }
+  &--default{
+    .vx-layout--flexbox{
+      background:$color-background;
+    }
+  }
+  &--primary{
+    .vx-layout--flexbox{
+      background:#fff;
+    }
   }
 }

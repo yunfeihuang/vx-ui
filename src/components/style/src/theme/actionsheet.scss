@@ -38,6 +38,9 @@
           @include _disabled;
         }
       }
+      &-text{
+        display:inline;
+      }
     }
     &--menu {
       .vx-popup--relative{

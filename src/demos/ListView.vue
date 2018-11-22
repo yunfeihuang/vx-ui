@@ -1,9 +1,9 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="ListView (pulldown and pullup)"></x-nav>
     <x-body slot="body" :scroll="false" v-if="slideIn">
       <list-view
-        style="height:100%;background:#fff;position: absolute;width: 100%;"
+        style="height:100%;position: absolute;width: 100%;"
         :loading="loading"
         :end="end"
         @pullup="handlePullup"

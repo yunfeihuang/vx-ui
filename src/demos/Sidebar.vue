@@ -1,7 +1,7 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="Sidebar"></x-nav>
-    <x-body slot="body" style="background:#fff">
+    <x-body slot="body">
       <sidebar
         :active.sync="active"
         style="width:1.6rem;background:#f7f7f7;position:absolute;height:100%;top:0;left:0;">

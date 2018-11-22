@@ -1,7 +1,7 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="Carousel"></x-nav>
-    <x-body slot="body" style="background:#fff">
+    <x-body slot="body">
       <carousel :active="active" :pagination="true" @change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>
           <img src="http://assets.bittyos.com/images/swiper/01.jpg"/>

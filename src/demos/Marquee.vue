@@ -1,7 +1,7 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="Marquee"></x-nav>
-    <x-body slot="body" style="background:#fff" v-if="slideIn">
+    <x-body slot="body" v-if="slideIn">
       <x-marquee>
         <x-marquee-item>
           天猫双十一优惠！

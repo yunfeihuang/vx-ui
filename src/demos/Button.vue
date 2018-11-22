@@ -1,7 +1,7 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="Button"></x-nav>
-    <x-body class="demos" slot="body"  style="background:#fff;padding:0.15rem;">
+    <x-body class="demos" slot="body" style="padding:0.15rem;">
       <x-button>default</x-button>
       <x-button type="primary">primary</x-button>
       <x-button type="danger">danger</x-button>

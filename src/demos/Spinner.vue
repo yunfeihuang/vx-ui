@@ -1,7 +1,7 @@
 <template>
-  <layout>
+  <layout type="primary">
     <x-nav slot="header" back="/" title="Spinner"></x-nav>
-    <x-body slot="body" style="text-align:center;background:#fff">
+    <x-body slot="body" style="text-align:center;">
       <br/>
       <br/>
       <br/>

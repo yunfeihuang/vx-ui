@@ -48,7 +48,6 @@ import Sticky from './sticky'
 import IndexList from './index-list'
 // import QrCode from './qrcode'
 import Message from './message'
-// import {Carousel, CarouselItem} from './carousel'
 import Arrow from './arrow'
 import {Accordion, AccordionItem} from './accordion'
 // import {Step, StepItem} from './step'
@@ -534,8 +533,6 @@ export default {
   IndexList,
   // QrCode,
   Message,
-  // Carousel,
-  // CarouselItem,
   Arrow,
   Accordion,
   AccordionItem,
@@ -613,8 +610,6 @@ export {
   IndexList,
   // QrCode,
   Message,
-  // Carousel,
-  // CarouselItem,
   Arrow,
   Accordion,
   AccordionItem,
