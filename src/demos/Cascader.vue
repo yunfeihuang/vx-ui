@@ -5,7 +5,7 @@
       <group :title="`value:${value}`">
         <cell :arrow="false">
           <div slot="title">级联</div>
-           <cascader slot="value" v-model="value" :options="options"/>
+           <cascader style="margin-right:-0.2rem;" slot="value" v-model="value" :options="options"/>
         </cell>
       </group>
     </x-body>

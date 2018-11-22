@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-cascader',{'is-focus': open}]" @focusin="handleFocusIn">
+  <div :class="['vx-cascader']" @focusin="handleFocusIn">
     <flexbox class="vx-cascader--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
