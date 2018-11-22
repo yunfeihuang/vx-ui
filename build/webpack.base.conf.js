@@ -94,7 +94,6 @@ module.exports = {
           typographer:true,
           linkify:true,
           preprocess: function(markdownIt, source) {
-            console.log('ssssssssss', source)
             var result = source.match(/##:(\w+):##/g)
             if (result && result[0]) {
               var component = result[0].replace(/##:/g, '').replace(/:##/g, '')
