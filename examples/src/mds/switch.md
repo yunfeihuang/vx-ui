@@ -1,38 +1,7 @@
 # Switch开关
 
-``` html
-<template>
-  <div>
-    <group title="default">
-      <cell :arrow="false">
-        <div slot="title">开关（{{checked}}）</div>
-        <x-switch slot="value" v-model="checked"/>
-      </cell>
-    </group>
-    <group title="small">
-      <cell :arrow="false">
-        <div slot="title">开关（{{checked}}）</div>
-        <x-switch size="small" slot="value" v-model="checked"/>
-      </cell>
-    </group>
-    <group title="offValue:0,onValue:1">
-      <cell :arrow="false">
-        <div slot="title">开关（{{value}}）</div>
-        <x-switch slot="value" v-model="value" on-value="1" off-value="0" />
-      </cell>
-    </group>
-  </div>
-</template>
-<script>
-  export default {
-    data () {
-      return {
-        checked: true,
-        value: '0'
-      }
-    }
-  }
-</script>
+```
+##:Switch:##
 ```
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |

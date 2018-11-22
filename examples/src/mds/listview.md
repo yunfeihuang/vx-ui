@@ -1,65 +1,7 @@
 # ListView列表
 
 ```
-<template>
-  <div>
-    <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading" :end="end">
-      <div v-for="(item,index) in list" :key="index">
-        <flexbox align="center" style="padding:6px">
-          <x-img :src="item.src" style="width:50px;height:50px;margin-right:6px;border-radius:3px;" />
-          <flexbox-item>
-            <h4 style="margin:0;overflow: hidden;">{{item.name}}</h4>
-            <div>{{item.date}}</div>
-          </flexbox-item>
-        </flexbox>
-        <divider></divider>
-      </div>
-    </list-view>
-  </div>
-</template>
-<script>
-export default {
-  methods: {
-    getList () {
-      let result = []
-      for (let i = 0; i < 30; i++) {
-        result.push({
-          src: './static/images/github.png',
-          name: `item-${Date.now()}`,
-          date: new Date().toLocaleString()
-        })
-      }
-      return result
-    },
-    handlePullup (e) {
-      this.loading = true
-      setTimeout(() => { // 模拟ajax请求
-        this.list = this.list.concat(this.getList())
-        this.loading = false
-        if (this.list.length >= 60) {
-          this.end = true // 没有更多了
-        }
-      }, 1000)
-    },
-    handlePulldown (e) {
-      this.loading = true
-      setTimeout(() => { // 模拟ajax请求
-        this.list = this.getList().concat(this.list)
-        this.loading = false
-      }, 1000)
-    }
-  },
-  data () {
-    let list = this.getList()
-    return {
-      list,
-      loading: false,
-      end: false // 是否还没有更多
-    }
-  }
-}
-</script>
-
+##:ListView:##
 ```
 
 #### Props

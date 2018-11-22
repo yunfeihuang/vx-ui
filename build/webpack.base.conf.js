@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const fs = require('fs')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -93,6 +94,15 @@ module.exports = {
           typographer:true,
           linkify:true,
           preprocess: function(markdownIt, source) {
+            console.log('ssssssssss', source)
+            var result = source.match(/##:(\w+):##/g)
+            if (result && result[0]) {
+              var component = result[0].replace(/##:/g, '').replace(/:##/g, '')
+              if (component) {
+                var text = fs.readFileSync(resolve('src/demos/'+component+'.vue'), 'utf8')
+                return source.replace(result[0], text)
+              }
+            }
             // do any thing
             return source
           },

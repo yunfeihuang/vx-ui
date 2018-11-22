@@ -1,24 +1,7 @@
 # InputNumber输入框
 
 ```
-<template>
-  <div>
-    <group title="default">
-      <cell title="value" :arrow="false">
-        <input-number slot="value" v-model="value" :step="0.01"/>
-      </cell>
-    </group>
-  </div>
-</template>
-<script>
-export default {
-  data () {
-    return {
-      value: 0
-    }
-  }
-}
-</script>
+##:InputNumber:##
 ```
 
 #### Props

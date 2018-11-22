@@ -1,20 +1,7 @@
 # Daterange日期区间输入框
 
 ```
-<template>
-  <group title="default">
-    <daterange v-model="date" placeholder="请输入日期区间"/>
-  </group>
-</template>
-<script>
-  export default {
-    data () {
-      return {
-        date: null
-      }
-    }
-  }
-</script>
+##:Daterange:##
 ```
 
 #### Props

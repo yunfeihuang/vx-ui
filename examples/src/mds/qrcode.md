@@ -1,17 +1,7 @@
-# Img图片
+# Qrcode 二维码
 
 ```
-<template>
-  <qrcode text="http://vue.bittyos.com/"/>
-</template>
-<script>
-import Qrcode from 'vx-ui/lib/qrcode'
-export default {
-  components: {
-    Qrcode
-  }
-}
-</script>
+##:Qrcode:##
 ```
 
 #### Props

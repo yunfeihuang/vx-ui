@@ -1,15 +1,7 @@
 # Message提示信息
 
-``` html
-<template>
-  <div>
-    <message>注意：此示例要在移动设备体验哦~</message>
-    <br/>
-    <message type="danger">注意：此示例要在移动设备体验哦~</message>
-    <br>
-    <message type="success">注意：此示例要在移动设备体验哦~</message>
-  </div>
-</template>
+```
+##:Message:##
 ```
 
 #### Props

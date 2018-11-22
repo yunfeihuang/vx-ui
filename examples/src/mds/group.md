@@ -1,23 +1,7 @@
 # Group分组
 
 ```
-<template>
-  <group title="default">
-    <cell :arrow="false">
-      <div slot="title">开关（{{checked}}）</div>
-      <x-switch slot="value" v-model="checked" />
-    </cell>
-  </group>
-</template>
-<script>
-  export default {
-    data () {
-      return {
-        checked: true
-      }
-    }
-  }
-</script>
+##:Group:##
 ```
 
 #### Props

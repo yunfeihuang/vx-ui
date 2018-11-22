@@ -1,18 +1,7 @@
 # Spinner旋转
 
 ```
-<template>
-  <div>
-    <spinner></spinner>
-    <br/>
-    <br/>
-    <br/>
-    <spinner style="width:1rem;height:1rem;">
-      <span style="line-height:1rem;">LOGO</span>
-    </spinner>
-  </div>
-</template>
-</script>
+##:Spinner:##
 ```
 
 #### Props

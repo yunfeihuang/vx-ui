@@ -1,28 +1,7 @@
 # Cell单元块
 
 ```
-<template>
-  <group title="default">
-    <cell title="标题">
-      <img style="height:20px;width:20px;border-radius:50%" slot="icon" :src="'/static/images/github.png'">
-      <x-switch slot="value" v-model="checked" />
-    </cell>
-  </group>
-  <group title="no arrow">
-    <cell :arrow="false" title="标题">
-      <x-switch slot="value" v-model="checked" />
-    </cell>
-  </group>
-</template>
-<script>
-  export default {
-    data () {
-      return {
-        checked: true
-      }
-    }
-  }
-</script>
+##:Cell:##
 ```
 
 #### Props

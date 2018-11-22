@@ -1,22 +1,7 @@
-# Picker选择器
+# CalendarRange选择器
 
 ```
-<template>
-  <div>
-    <group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
-      <calendar-range v-model="value"/>
-    </group>
-  </div>
-</template>
-<script>
-export default {
-  data () {
-    return {
-      value: []
-    }
-  }
-}
-</script>
+##:CalendarRange:##
 ```
 
 #### Props

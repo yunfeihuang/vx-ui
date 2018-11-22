@@ -1,35 +1,7 @@
 # Marquee公告提示
 
 ```
-<template>
-  <div>
-    <x-marquee>
-      <x-marquee-item>
-        天猫双十一优惠！
-      </x-marquee-item>
-      <x-marquee-item>
-        京东618优惠！
-      </x-marquee-item>
-    </x-marquee>
-    <x-marquee direction="horizontal">
-      <x-marquee-item>
-        天猫双十一优惠！
-      </x-marquee-item>
-      <x-marquee-item>
-        京东618优惠！
-      </x-marquee-item>
-    </x-marquee>
-  </div>
-</template>
-<script>
-import {XMarquee, XMarqueeItem} from 'vx-ui/lib/marquee'
-export default {
-  components: {
-    XMarquee,
-    XMarqueeItem
-  }
-}
-</script>
+##:Marquee:##
 ```
 ### Marquee
 #### Props

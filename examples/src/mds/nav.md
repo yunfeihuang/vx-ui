@@ -1,36 +1,7 @@
 # Nav导航
 
 ```
-<template>
-  <div>
-    <x-nav back="/" back-text="返回">
-      <button class="btn-pull" slot="pull">
-        更多
-      </button>
-    </x-nav>
-    <br />
-    <x-nav back="/" back-text="返回" type="primary" title="Nav">
-      <button class="btn-pull" slot="pull">
-        更多
-      </button>
-    </x-nav>
-  </div>
-</template>
-<script>
-export default {
-  data () {
-    return {
-      tabs: [
-        {name: 'recommed', label: '推荐'},
-        {name: 'it', label: '科技'},
-        {name: 'active', label: '活动'},
-        {name: 'find', label: '发现'}
-      ],
-      active: 'recommed'
-    }
-  }
-}
-</script>
+##:Nav:##
 ```
 
 #### Props

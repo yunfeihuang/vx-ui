@@ -1,40 +1,7 @@
 # Range滑块输入框
 
-``` html
-<template>
-  <div>
-    <group :title="`default(value:${value1})`">
-      <div style="padding:10px">
-        <range v-model="value1" />
-      </div>
-    </group>
-    <group :title="`step:10(value:${value1})`">
-      <div style="padding:10px">
-        <range v-model="value1" :step="10" />
-      </div>
-    </group>
-    <group :title="`min:10,max:50(value:${value2})`">
-      <div style="padding:10px">
-        <range :min="10" :max="50" v-model="value2" />
-      </div>
-    </group>
-    <group title="disabled">
-      <div style="padding:10px">
-        <range v-model="value1" disabled />
-      </div>
-    </group>
-  </div>
-</template>
-<script>
-  export default {
-    data () {
-      return {
-        checked: true,
-        value: '0'
-      }
-    }
-  }
-</script>
+```
+##:Range:##
 ```
 
 #### Props
