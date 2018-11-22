@@ -2,7 +2,12 @@
   <layout>
     <x-nav slot="header" back="/" title="Swipeout"></x-nav>
     <x-body slot="body" v-if="slideIn">
-      <swipeout v-for="(item,index) in list" :key="index" :open="index===1" @close="handleCloseSwipeout" @open="handleOpenSwipeout">
+      <swipeout
+        v-for="(item,index) in list"
+        :key="index"
+        :open="index===1"
+        @close="handleCloseSwipeout"
+        @open="handleOpenSwipeout">
         <flexbox align="center" style="padding:6px">
           <x-img style="width:40px;height:40px;margin-right:6px;border-radius:3px;" :src="item.src" />
           <flexbox-item>

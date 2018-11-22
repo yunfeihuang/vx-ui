@@ -22,13 +22,31 @@
       </group>
     </x-body>
     <actionsheet :open.sync="open1" @action="handleAction">
-      <actionsheet-item v-for="item in options" :value="item.value" :key="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item>
+      <actionsheet-item
+        v-for="item in options"
+        :value="item.value"
+        :key="item.value"
+        :disabled="item.disabled">
+        {{item.label}}
+      </actionsheet-item>
     </actionsheet>
     <actionsheet :open.sync="open2" :cancel="true" @action="handleAction" title="标题文字">
-      <actionsheet-item v-for="item in options" :value="item.value" :key="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item>
+      <actionsheet-item
+        v-for="item in options"
+        :value="item.value"
+        :key="item.value"
+        :disabled="item.disabled">
+        {{item.label}}
+      </actionsheet-item>
     </actionsheet>
     <actionsheet type="menu" :open.sync="open3" @action="handleAction" >
-      <actionsheet-item v-for="item in options" :value="item.value" :key="item.value" :disabled="item.disabled">{{item.label}}</actionsheet-item>
+      <actionsheet-item
+        v-for="item in options"
+        :value="item.value"
+        :key="item.value"
+        :disabled="item.disabled">
+          {{item.label}}
+      </actionsheet-item>
     </actionsheet>
   </layout>
 </template>

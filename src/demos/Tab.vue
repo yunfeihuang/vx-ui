@@ -4,16 +4,36 @@
       <x-nav back="/" title="Tab"></x-nav>
       <div v-if="slideIn">
         <tab :active.sync="active">
-          <tab-item v-for="item in tabs.slice(0,4)" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+          <tab-item
+            v-for="item in tabs.slice(0,4)"
+            :name="item.name"
+            :key="item.key">
+            {{item.label}}
+          </tab-item>
         </tab>
         <tab :active.sync="active" :underline-width="10">
-          <tab-item v-for="item in tabs.slice(0,4)" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+          <tab-item
+            v-for="item in tabs.slice(0,4)"
+            :name="item.name"
+            :key="item.key">
+            {{item.label}}
+          </tab-item>
         </tab>
         <tab :active.sync="active" underline-width="auto">
-          <tab-item v-for="item in tabs.slice(0,4)" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+          <tab-item
+            v-for="item in tabs.slice(0,4)"
+            :name="item.name"
+            :key="item.key">
+            {{item.label}}
+          </tab-item>
         </tab>
         <tab :active.sync="active" :underline-width="10" layout="scroll">
-          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+          <tab-item
+            v-for="item in tabs"
+            :name="item.name"
+            :key="item.key">
+            {{item.label}}
+          </tab-item>
         </tab>
       </div>
     </div>

@@ -5,7 +5,7 @@
       <group title="default">
         <a href="https://github.com/yunfeihuang/vx-ui" style="color:inherit">
           <cell title="github" >
-            <img style="height:20px;width:20px;border-radius:50%" slot="icon" :src="'./static/images/github.png'">
+            <img slot="icon" :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%">
             <span slot="value">Start me</span>
           </cell>
         </a>
