@@ -26,10 +26,10 @@
         </flexbox>
         <slot v-else name="header"></slot>
         <div class="vx-popup--relative" v-if="direction === 'center'">
-          <slot :open="open"></slot>
+          <slot :open="afterOpen"></slot>
         </div>
         <flexbox-item class="vx-popup--relative" v-else>
-          <slot :open="open"></slot>
+          <slot :open="afterOpen"></slot>
         </flexbox-item>
         <slot name="footer"></slot>
       </flexbox>
@@ -76,6 +76,11 @@ export default {
       type: String
     }
   },
+  data () {
+    return {
+      afterOpen: false
+    }
+  },
   computed: {
     innerClasses () {
       let array = ['vx-popup--inner', 'vx-popup--' + this.direction, this.full ? 'vx-full' : '']
@@ -108,6 +113,7 @@ export default {
   },
   methods: {
     handleEnter () {
+      this.afterOpen = true
       this.$emit('open')
     },
     close () {
@@ -124,6 +130,7 @@ export default {
     handleLeave () {
       this.goBack()
       this.$el.style.display = 'none'
+      this.afterOpen = false
       this.$emit('after-close')
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading}]">
+  <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading,'is-background': isBackground}]">
     <img
       :class="['vx-img', {'is-lazyload': lazyload}]"
       v-bind="$attrs"
@@ -35,6 +35,9 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    isBackground: {
+      type: Boolean
     }
   },
   mounted () {
@@ -105,8 +108,12 @@ export default {
           let icon = this.$el.querySelector('.vx-img--icon') || this.$el.querySelector('.vx-img--spinner')
           requestAnimationFrame(() => {
             icon && (icon.style.display = 'none')
-            img.src = this.src
-            img.style.opacity = 1
+            if (this.isBackground) {
+              this.$el.style.backgroundImage = `url(${this.src})`
+            } else {
+              img.src = this.src
+              img.style.opacity = 1
+            }
             this.$el.classList.remove('vx-img--placeholder')
           })
         }

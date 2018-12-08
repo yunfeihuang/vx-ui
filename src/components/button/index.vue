@@ -3,6 +3,7 @@
     <spinner v-if="loading" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <ripple v-if="ripple" :color="rippleColor" />
+    <slot name="upload"></slot>
   </button>
 </template>
 

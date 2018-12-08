@@ -12,6 +12,10 @@
       font-size:0;
       position:relative;
       overflow:hidden;
+      &.is-background{
+        background: no-repeat center;
+        background-size:cover;
+      }
       img{
         min-height:0.4rem;
         min-width:0.4rem;

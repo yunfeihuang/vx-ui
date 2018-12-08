@@ -73,5 +73,6 @@ a,button,input,textearea,select{
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .vx-scroller {
+  position:relative;
   @include scroll;
 }

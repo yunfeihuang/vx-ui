@@ -15,6 +15,10 @@ export default {
   componentName: 'Tab',
   mixins: [tab],
   props: ['underlineWidth'],
+  mounted () {
+    this.computedStyle()
+    window.addEventListener('resize', this.computedStyle)
+  },
   updated () {
     this.computedStyle()
   },
@@ -22,10 +26,6 @@ export default {
     window.removeEventListener('resize', this.$computedStyle)
   },
   methods: {
-    afterMounted () {
-      this.computedStyle()
-      window.addEventListener('resize', this.computedStyle)
-    },
     computedStyle () {
       this.$nextTick(() => {
         let node = this.$el.querySelector('.vx-tab--underline')
@@ -50,7 +50,7 @@ export default {
         }
       })
     },
-    handleChange (value) {
+    change (value) {
       if (value !== this.active) {
         this.$emit('update:active', value).$emit('change', value)
         this.computedStyle()

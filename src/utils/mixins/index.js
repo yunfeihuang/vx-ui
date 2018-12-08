@@ -124,12 +124,10 @@ const input = {
 }
 
 const tab = {
-  mounted () {
-    if (!this.$children) return
-    this.$children.forEach((item, i) => {
-      this.$children[i].$on('change', this.handleChange)
-    })
-    this.afterMounted && this.afterMounted()
+  methods: {
+    change (name) {
+      this.active !== name && this.$emit('update:active', name).$emit('change', name)
+    }
   },
   props: {
     active: {

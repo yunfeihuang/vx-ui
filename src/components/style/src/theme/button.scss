@@ -85,6 +85,10 @@
     span{
       margin:0 0.1rem;
     }
+    input{
+      @include overlay;
+      opacity:0;
+    }
     .#{$css-prefix}spinner{
       &--wrapper{
         width:0.32rem;

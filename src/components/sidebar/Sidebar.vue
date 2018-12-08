@@ -8,11 +8,6 @@
 import { tab } from 'utils/mixins'
 export default {
   componentName: 'Sidebar',
-  mixins: [tab],
-  methods: {
-    handleChange (value) {
-      value !== this.active && this.$emit('update:active', value).$emit('change', value)
-    }
-  }
+  mixins: [tab]
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-flexbox--item', 'vx-button-tab--item', {'is-active': $parent.active === name}]" @click="handleClick">
+  <div :class="['vx-flexbox--item', 'vx-button-tab--item', {'is-active': $parent.active === name}]" @click="$parent.change(name)">
     <slot></slot>
   </div>
 </template>
@@ -11,11 +11,6 @@ export default {
     name: {
       type: [Number, String, Object],
       required: true
-    }
-  },
-  methods: {
-    handleClick () {
-      this.$emit('change', this.name)
     }
   }
 }

@@ -3,7 +3,7 @@
 ```
 ##:Img:##
 ```
-
+### 注意：设置滚动属性同时要加上position:relative
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
@@ -12,6 +12,7 @@
 | alt     | -   | -  |   -       |    -    |
 | loading     | 是否显示加载状态   | Boolean  |   -       |    false    |
 | lazyload     | 滚屏懒加载   | Boolean  |   -       |    true    |
+| isBackground     | 是否做为背景图片加载   | Boolean  |   -       |    true    |
 
 
 #### Events

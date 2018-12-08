@@ -1,5 +1,8 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'" position="center" :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name}]" @click.native="handleClick">
+  <component :is="$parent.ripple?'ripple':'div'"
+    position="center"
+    :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name}]"
+    @click.native="$parent.change(name)">
     <slot></slot>
   </component>
 </template>
@@ -15,11 +18,6 @@ export default {
     name: {
       type: [Number, String, Object],
       required: true
-    }
-  },
-  methods: {
-    handleClick () {
-      this.$emit('change', this.name)
     }
   }
 }
