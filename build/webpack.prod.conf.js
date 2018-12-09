@@ -22,6 +22,12 @@ if (process.env.EXAMPLE) {
 }
   
 const webpackConfig = merge(baseWebpackConfig, {
+  externals: {
+    "vue": "Vue",
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex',
+    'axios' : 'axios'
+  },
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,

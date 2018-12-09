@@ -24,7 +24,7 @@
         class="vx-prompt--input"
         v-bind="inputProps"
         @input="handleInput"
-      />
+        @keyup.enter.native="handleConfirm"/>
       <x-input
         v-else
         v-model="myValue"
@@ -32,7 +32,8 @@
         class="vx-prompt--input"
         v-bind="inputProps"
         :native-type="inputProps.type"
-        @input="handleInput"/>
+        @input="handleInput"
+        @keyup.enter.native="handleConfirm"/>
     </template>
   </confirm>
 </template>
@@ -110,7 +111,7 @@ export default {
       this.$emit('update:open', false).$emit('close')
     },
     handleConfirm () {
-      this.open && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
+      this.open && !this.disabled && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
     },
     handleInput (value) {
       this.$emit('change', value)

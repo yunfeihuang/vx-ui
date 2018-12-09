@@ -39,6 +39,15 @@
       old_setAttribute.apply(this, arguments);
     };
   </script>
+  <%if (process.env.NODE_ENV=="production") {%>
+    <%var staticfile = "https://cdn.staticfile.org/"%>
+    <%var bootcss = "https://cdn.bootcss.com/"%>
+    <%var cdn = bootcss%>
+    <script src="<%=cdn%>vue/2.5.17/vue.min.js"></script>
+    <script src="<%=cdn%>vue-router/3.0.2/vue-router.min.js"></script>
+    <script src="<%=cdn%>vuex/3.0.1/vuex.min.js"></script>
+    <script src="<%=cdn%>axios/0.18.0/axios.min.js"></script>
+  <%}%>
   </head>
   <body>
     <div id="app"></div>

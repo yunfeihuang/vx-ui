@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import demos from './demos'
 import cnode from './cnode'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-const router = new Router({
+const router = new VueRouter({
   // mode: 'history',
   routes: [
     ...demos,
