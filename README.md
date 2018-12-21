@@ -32,7 +32,7 @@ Vue.use(VxUI)
 import Vue from 'vue'
 import 'vx-ui/lib/style/theme/button.css'
 import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
-Vue.component(Button.name, Button)
+Vue.component(Button.componentName, Button)
 
 
 # 修改UI主题风格
