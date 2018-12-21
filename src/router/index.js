@@ -28,4 +28,5 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
   toast && toast.$destroy()
 })
+
 export default router
