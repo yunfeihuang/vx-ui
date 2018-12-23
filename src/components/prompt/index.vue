@@ -8,10 +8,12 @@
     :title="title"
     @close="handleClose"
     @confirm="handleConfirm"
+    @open="handleOpen"
     @after-close="handleAfterClose"
     >
-    <div class="vx-prompt--message" v-if="$slots.message">
-      <slot name="message"></slot>
+    <div class="vx-prompt--message" v-if="message || $slots.message">
+      <slot v-if="$slots.message" name="message"></slot>
+      <template v-else>{{message}}</template>
     </div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
@@ -85,6 +87,12 @@ export default {
     },
     cipher: {
       type: String
+    },
+    autofocus: {
+      type: Boolean
+    },
+    message: {
+      type: String
     }
   },
   data () {
@@ -118,6 +126,14 @@ export default {
     },
     handleAfterClose () {
       this.$emit('after-close')
+    },
+    handleOpen () {
+      if (this.autofocus) {
+        this.$nextTick(() => {
+          let node = this.$el.querySelector('input')
+          node && node.focus()
+        })
+      }
     }
   }
 }
