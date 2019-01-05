@@ -20,12 +20,13 @@
           <button type="button" @click="close"><arrow direction="left" color="#666" size="0.24rem"/></button>
           <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
         </flexbox>
-        <flexbox v-else-if="showClose" align="center">
+        <flexbox v-else-if="showClose && full" align="center">
           <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
           <i class="vx-popup--close" @click="close"></i>
         </flexbox>
         <slot v-else name="header"></slot>
         <div class="vx-popup--relative" v-if="direction === 'center'">
+          <i v-if="showClose" class="vx-popup--close" @click="close"></i>
           <slot :open="afterOpen"></slot>
         </div>
         <flexbox-item class="vx-popup--relative" v-else>

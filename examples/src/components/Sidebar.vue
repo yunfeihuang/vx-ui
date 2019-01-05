@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <div v-for="(item,index) in navConfig">
+    <div v-for="(item,index) in navConfig" :key="index">
       <template v-if="item.children">
         <h4>{{item.title}}</h4>
         <router-link v-for="(childItem,childIndex) in item.children" class="nav-link" :to="childItem.path" :key="childIndex">{{childItem.title}}</router-link>

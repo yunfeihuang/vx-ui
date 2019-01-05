@@ -102,6 +102,11 @@
       position:relative;
       text-align:left;
       @include scroll;
+      .vx-popup--close{
+        position:absolute;
+        right:0;
+        top:0;
+      }
     }
     &--nav{
       height:0.9rem;
