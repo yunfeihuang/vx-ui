@@ -13,7 +13,7 @@
 | prev     | 是否有上一页   | Boolean  |   -       |    false    |
 | next     | 是否有下一页   | Boolean  |   -       |    false    |
 | scrollbar     | 是否有滚动   | Boolean  |   -       |    false    |
-| options     | swiper选项配置，详细配置参考：https://github.com/nolimits4web/swiper   | -  |   -       |    -    |
+| options     | swiper v3版本选项配置，详细配置参考：https://github.com/nolimits4web/swiper   | -  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

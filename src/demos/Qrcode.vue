@@ -7,11 +7,7 @@
   </layout>
 </template>
 <script>
-import Qrcode from '../components/qrcode' // import Qrcode from 'vx-ui/lib/qrcode'
 export default {
-  components: {
-    Qrcode
-  }
 }
 </script>
 <style lang="scss">

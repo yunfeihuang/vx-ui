@@ -2,25 +2,21 @@
   <layout>
     <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
     <x-body slot="body" v-if="slideIn">
-      <x-img
+      <img
         v-for="(item,index) in images"
-        :key="index" :loading="true"
+        :key="index"
         :src="item.src"
         style="display:block;width:100%;min-height:150px;"
         @load="handleLoad(index,$event)"
-        @click.native="handleClick(index)"/>
+        @click="handleClick(index)"/>
     </x-body>
     <preview :list="images" ref="preview"/>
   </layout>
 </template>
 
 <script>
-import Preview from '../components/preview' // import Preview from 'vx-ui/lib/preview'
 let windowWidth = window.innerWidth
 export default {
-  components: {
-    Preview
-  },
   data () {
     return {
       images: [

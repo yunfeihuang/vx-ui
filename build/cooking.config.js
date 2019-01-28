@@ -11,7 +11,10 @@ Object.keys(Components).forEach(function(key) {
 });
 
 externals = [Object.assign({
-  vue: 'vue'
+  vue: 'vue',
+  swiper: 'swiper',
+  qrcodejs2: 'qrcodejs2',
+  photoswipe: 'photoswipe'
 }, externals), nodeExternals()];
 
 exports.externals = externals;
