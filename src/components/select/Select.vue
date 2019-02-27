@@ -45,8 +45,8 @@ export default {
       type: String,
       default: '请选择'
     },
-    popupDirection: {
-      type: String
+    popupProps: {
+      type: Object
     },
     arrow: {
       type: Boolean,
@@ -124,7 +124,7 @@ export default {
                   options: self.$$myOptions,
                   title: self.title,
                   max: self.max,
-                  direction: self.max === 1 ? self.popupDirection : undefined
+                  ...self.popupProps
                 },
                 class: ['vx-select--picker'],
                 on: {

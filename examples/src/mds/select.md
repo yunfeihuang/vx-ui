@@ -14,6 +14,8 @@
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 | arrow     | 是否显示箭头图标   | Boolean  |   -       |    true    |
 | arrowProps     | 箭头图标props,参考Arrow组件   | Object  |   -       |    -    |
+| popupProps     | 弹框面板的props,参考Popup组件   | Object  |   -       |    -    |
+
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
