@@ -20,6 +20,9 @@ export default {
   },
   mixins: [button],
   props: {
+    round: {
+      type: Boolean
+    },
     rippleColor: {
       type: String
     }
@@ -33,6 +36,7 @@ export default {
         {
           'is-plain': this.plain || this.type === 'default',
           'is-ripple': this.ripple,
+          'is-round': this.round,
           'is-disabled': this.disabled || this.loading
         }
       ]

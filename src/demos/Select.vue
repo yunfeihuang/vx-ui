@@ -38,24 +38,6 @@
           </x-select>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框option含html</div>
-          <x-select
-            slot="value"
-            :label.sync="label"
-            v-model="value"
-            :popup-props="{direction: 'center'}"
-            placeholder="请选择">
-            <x-option
-              v-for="item in options"
-              :value="item.value"
-              :disabled="item.disabled"
-              :label="item.label"
-              :key="item.value">
-              <span style="color:red">red color</span>{{item.label}}
-            </x-option>
-          </x-select>
-        </cell>
-        <cell :arrow="false">
           <div slot="title">下拉框(多选)</div>
           <x-select
             slot="value"

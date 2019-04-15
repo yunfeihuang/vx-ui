@@ -19,6 +19,9 @@
         @include disabled;
       }
     }
+    &.is-round{
+      border-radius: $size-height;
+    }
     &--size{
       &-large{
         width:100%;

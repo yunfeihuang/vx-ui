@@ -15,12 +15,6 @@ const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : require('../config/prod.env')
 
-if (process.env.EXAMPLE) {
-  baseWebpackConfig.entry = {
-    app: './examples/src/main.js'
-  }
-}
-  
 const webpackConfig = merge(baseWebpackConfig, {
   externals: {
     "vue": "Vue",

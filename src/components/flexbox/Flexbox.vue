@@ -42,7 +42,7 @@ export default {
     },
     gutter: {
       type: Number,
-      default: 0
+      default: 8
     },
     tag: {
       type: String,
