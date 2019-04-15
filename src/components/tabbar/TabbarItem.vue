@@ -1,10 +1,11 @@
 <template>
-  <component :is="$parent.ripple?'ripple':'div'"
-    position="center"
-    :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name}]"
-    @click.native="$parent.change(name)">
-    <slot></slot>
-  </component>
+  <div :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name, 'is-ripple': $parent.ripple}]"
+    @click="$parent.change(name)">
+    <ripple v-if="$parent.ripple" position="center">
+      <slot></slot>
+    </ripple>
+    <slot v-else></slot>
+  </div>
 </template>
 
 <script>
