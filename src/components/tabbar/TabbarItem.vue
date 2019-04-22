@@ -2,9 +2,9 @@
   <div :class="['vx-flexbox--item', 'vx-tabbar--item', {'is-active':$parent.active === name, 'is-ripple': $parent.ripple}]"
     @click="$parent.change(name)">
     <ripple v-if="$parent.ripple" position="center">
-      <slot></slot>
+      <slot v-bind="{active: $parent.active === name}"></slot>
     </ripple>
-    <slot v-else></slot>
+    <slot v-else v-bind="{active: $parent.active === name}"></slot>
   </div>
 </template>
 

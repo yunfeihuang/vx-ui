@@ -84,13 +84,17 @@ export default {
         if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1 || styleObject['-webkit-overflow-scrolling'] === 'touch' || styleObject['overflow-scrolling'] === 'touch')) {
           n = n.offsetParent
           if (n === document.body) {
-            n = document.body
+            n = window
           } else {
             n && closest()
           }
         }
       }
-      document.body !== n && closest()
+      if (document.body === n) {
+        n = window
+      } else {
+        closest()
+      }
       return n
     },
     inViewPort () {
