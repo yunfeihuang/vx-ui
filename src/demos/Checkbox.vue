@@ -68,6 +68,25 @@
         value：{{reverseValue}}
         </div>
       </group>
+      <group title="自定义checkbox样式">
+        <checkbox-group :max="1" v-model="reverseValue" :divider="false">
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            <template slot-scope="scope">
+              <span :style="`color:${scope.checked?'red':''}`">
+                {{item.label}}
+              </span>
+            </template>
+          </checkbox>
+        </checkbox-group>
+        <div style="padding:15px 10px;">
+        value：{{reverseValue}}
+        </div>
+      </group>
     </x-body>
   </layout>
 </template>

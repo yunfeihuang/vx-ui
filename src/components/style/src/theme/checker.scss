@@ -32,6 +32,39 @@
         }
       }
     }
+    &.is-icon{
+      &:before{
+        position:absolute;
+        content:'';
+        right:0;
+        bottom:0;
+        border:0.2rem solid transparent;
+        border-right-color:$border-color-base;
+        border-bottom-color:$border-color-base;
+      }
+      &:after{
+        position:absolute;
+        content:'';
+        right:0;
+        bottom:0;
+        border: 0.02rem solid #fff;
+        border-left: 0;
+        border-top: 0;
+        content: " ";
+        position: absolute;
+        width: 0.08rem;
+        height: 0.16rem;
+        margin-right: 0.07rem;
+        margin-bottom: 0.06rem;
+        transform: rotate(45deg);
+      }
+      &.is-checked{
+        &:before{
+          border-right-color:$color-primary;
+          border-bottom-color:$color-primary;
+        }
+      }
+    }
     button{
       vertical-align: middle;
       @include button();

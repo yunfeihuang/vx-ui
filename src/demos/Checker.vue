@@ -20,7 +20,7 @@
       </group>
       <group title="Checker 最多选2个">
         <div style="padding:20px 10px">
-          <checker-group :max="2" v-model="checkboxValue">
+          <checker-group :max="2" v-model="checkboxValue" icon>
             <checker
               v-for="item in options"
               :value="item.value"
@@ -36,7 +36,7 @@
       </group>
       <group title="Checker 单选">
         <div style="padding:20px 10px">
-          <checker-group :max="1" :options="options" v-model="radioValue">
+          <checker-group :max="1" v-model="radioValue">
             <checker
               v-for="item in options"
               :value="item.value"
@@ -48,6 +48,25 @@
           </checker-group>
           <br />
           value：{{radioValue}}
+        </div>
+      </group>
+      <group title="自定义checker样式">
+        <checker-group :max="1" v-model="checkboxValue">
+          <checker
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            <template slot-scope="scope">
+              <span :style="`color:${scope.checked?'red':''}`">
+                {{item.label}}
+              </span>
+            </template>
+          </checker>
+        </checker-group>
+        <div style="padding:15px 10px;">
+        value：{{checkboxValue}}
         </div>
       </group>
     </x-body>

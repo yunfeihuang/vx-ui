@@ -1,5 +1,5 @@
 <template>
-  <label :class="['vx-checker',{'is-disabled': myDisabled}]">
+  <label :class="['vx-checker',{'is-disabled': myDisabled, 'is-checked': myChecked, 'is-icon': myIcon}]">
     <input
       :type="myType"
       :checked="myChecked"
@@ -8,7 +8,8 @@
       :disabled="disabled"
       @change="handleChange"
       />
-    <button type="button" tabindex="-2">
+    <slot v-if="$scopedSlots['default']" v-bind="{checked: myChecked, disabled: myDisabled}"></slot>
+    <button v-else type="button" tabindex="-2">
       <slot></slot>
     </button>
   </label>
@@ -24,6 +25,9 @@ export default {
     ...input.props,
     value: {
       type: [String]
+    },
+    icon: {
+      type: Boolean
     }
   },
   computed: {
@@ -51,6 +55,12 @@ export default {
         return this.$parent.value.indexOf(this.value) === -1
       }
       return disabled
+    },
+    myIcon () {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+        return this.$parent.icon
+      }
+      return this.icon
     }
   },
   methods: {

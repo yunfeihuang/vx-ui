@@ -21,6 +21,9 @@ export default {
     max: {
       type: Number,
       default: 0
+    },
+    icon: {
+      type: Boolean
     }
   },
   methods: {

@@ -1,10 +1,13 @@
 <template>
-  <label :class="classes" >
+  <label :class="classes">
     <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
-    <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
-    <span class="vx-checkbox--text">
-      <slot></slot>
-    </span>
+    <slot v-if="$scopedSlots['default']" v-bind="{checked: myChecked, disabled: myDisabled}"></slot>
+    <template v-else>
+      <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
+      <span class="vx-checkbox--text">
+        <slot></slot>
+      </span>
+    </template>
   </label>
 </template>
 
@@ -41,7 +44,7 @@ export default {
       return [
         'vx-checkbox',
         {
-          'is-active': this.myChecked,
+          'is-checked': this.myChecked,
           'is-disabled': this.myDisabled,
           'is-inline': this.myInline,
           'vx-checkbox--reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
