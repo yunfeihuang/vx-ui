@@ -65,6 +65,19 @@
         }
       }
     }
+    &.is-block{
+      display:block;
+      button{
+        width: 100%;
+      }
+      .vx-checker-text{
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+    }
     button{
       vertical-align: middle;
       @include button();

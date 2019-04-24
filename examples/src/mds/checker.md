@@ -10,6 +10,8 @@
 |---------- |-------- |---------- |------------- |--------- |
 | value     | 值   | Array[String]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
+| block     | 是否块布局模式   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 
 #### Events
@@ -29,6 +31,8 @@
 |---------- |-------- |---------- |------------- |--------- |
 | value     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
+| block     | 是否块布局模式   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

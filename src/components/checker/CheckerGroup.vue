@@ -24,6 +24,9 @@ export default {
     },
     icon: {
       type: Boolean
+    },
+    block: {
+      type: Boolean
     }
   },
   methods: {

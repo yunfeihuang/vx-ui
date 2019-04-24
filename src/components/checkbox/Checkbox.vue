@@ -1,13 +1,13 @@
 <template>
   <label :class="classes">
     <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
-    <slot v-if="$scopedSlots['default']" v-bind="{checked: myChecked, disabled: myDisabled}"></slot>
-    <template v-else>
+    <template v-if="$slots['default']">
       <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
       <span class="vx-checkbox--text">
         <slot></slot>
       </span>
     </template>
+    <slot v-else v-bind="{checked: myChecked, disabled: myDisabled}"></slot>
   </label>
 </template>
 

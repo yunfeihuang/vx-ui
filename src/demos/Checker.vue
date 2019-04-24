@@ -20,7 +20,7 @@
       </group>
       <group title="Checker 最多选2个">
         <div style="padding:20px 10px">
-          <checker-group :max="2" v-model="checkboxValue" icon>
+          <checker-group :max="2" v-model="checkboxValue" icon block>
             <checker
               v-for="item in options"
               :value="item.value"
