@@ -1,6 +1,6 @@
 <template functional>
   <flexbox
-    :class="['vx-cell', {'vx-cell--access': props.arrow}, data.staticClass, data.class]"
+    :class="['vx-cell', {'vx-cell--access': props.arrow, 'is-divider': props.divider}, data.staticClass, data.class]"
     align="center"
     justify="center"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
@@ -17,10 +17,12 @@
       </template>
     </flexbox-item>
     <div class="vx-cell--ft">
-      <slot v-if="!props.value" name="value"></slot>
-      <template v-else>
-        {{props.value}}
-      </template>
+      <div class="vx-cell--value">
+        <slot v-if="!props.value" name="value"></slot>
+        <template v-else>
+          {{props.value}}
+        </template>
+      </div>
     </div>
   </flexbox>
 </template>
@@ -43,6 +45,10 @@ export default {
     },
     value: {
       type: String
+    },
+    divider: {
+      type: Boolean,
+      default: true
     },
     onTo: {
       type: Function,
