@@ -8,7 +8,7 @@
         max-height:100%;
       }
     }
-    &--cancel,&--clear, &--confirm{
+    &--cancel,&--clearable, &--confirm{
       @include button;
       height: $size-height!important;
       width: 1.5rem;

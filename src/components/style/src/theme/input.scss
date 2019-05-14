@@ -67,7 +67,7 @@
     &--inner{
       height:100%;
     }
-    &--clear{
+    &--clearable{
       &-button{
         @include button;
         width:0.8rem;
@@ -103,15 +103,15 @@
           margin-left:-1px;
         }
       }
-      .#{$css-prefix}input--clear-button{
+      .#{$css-prefix}input--clearable-button{
         display:block;
       }
     }
   }
 }
-.input-clear-fade-enter-active, .input-clear-fade-leave-active {
+.input-clearable-fade-enter-active, .input-clearable-fade-leave-active {
   transition: opacity $transition-time;
 }
-.input-clear-fade-enter {
+.input-clearable-fade-enter {
   opacity: 0
 }

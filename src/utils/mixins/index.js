@@ -45,7 +45,7 @@ const input = {
     disabled: {
       type: Boolean
     },
-    clear: {
+    clearable: {
       type: Boolean,
       default: true
     },

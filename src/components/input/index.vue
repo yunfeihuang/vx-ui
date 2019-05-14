@@ -9,15 +9,15 @@
           v-on="$$listeners"
           />
       </flexbox-item>
-      <transition name="input-clear-fade" v-if="!$slots.append">
+      <transition name="input-clearable-fade" v-if="!$slots.append">
         <button
           tabindex="-2"
           type="button"
-          v-show="!!value && clear && !disabled"
-          class="vx-input--clear-button"
+          v-show="!!value && clearable && !disabled"
+          class="vx-input--clearable-button"
           @click="handleClear"
           >
-          <i class="vx-input--clear-icon"></i>
+          <i class="vx-input--clearable-icon"></i>
         </button>
       </transition>
       <slot name="append"></slot>
@@ -47,7 +47,7 @@ export default {
         'vx-input--wrapper',
         {
           'is-focus': this.isFocus,
-          'is-clear': !!this.value && this.clear,
+          'is-clearable': !!this.value && this.clearable,
           'vx-input--prepend': this.$slots.prepend,
           'vx-input--append': this.$slots.append,
           'is-disabled': this.disabled,

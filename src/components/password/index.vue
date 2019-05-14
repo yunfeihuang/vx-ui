@@ -2,7 +2,7 @@
   <x-input
     class="vx-password"
     v-bind="$props"
-    :clear="false"
+    :clearable="false"
     :encrypt="null"
     :icons="null"
     :nativeType="myNativeType"

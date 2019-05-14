@@ -3,34 +3,44 @@
 .#{$css-prefix}{
   &cell{
     padding: 0.12rem 0.2rem;
-    height: 0.68rem;
-    position: relative;
     &.is-divider{
       @include divider;
+    }
+    &--inner{
+      min-height: 0.68rem;
+      position: relative;
     }
     &--hd{
       margin-right:0.1rem;
     }
     &--bd{
       text-align:left;
+      margin-right:5px;
     }
     &--ft{
       position:relative;
+      color:rgba($color-black, 0.75);
       .vx-select{
         margin-right: -0.15rem;
       }
     }
     &--value{
-      overflow: hidden;
       max-width: 50vw;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      input{
+        border:0;
+        text-align:right;
+        font-size:inherit;
+        outline:none;
+        font-family:inherit;
+        color:inherit;
+      }
+    }
+    &--default-slot{
     }
     &--access{
       @include active;
       .#{$css-prefix}cell--ft{
         padding-right:0.24rem;
-        color:$color-sub;
         &:after{
           @include arrow;
         }

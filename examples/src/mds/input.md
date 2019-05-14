@@ -13,7 +13,7 @@
 | border     | 是否显示边框   | Boolean  |   -       |    true    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
-| clear     | 是否有清除按钮   | Boolean  |   -       |    true    |
+| clearable     | 是否有清除按钮   | Boolean  |   -       |    true    |
 | arrow     | 是否显示箭头图标   | Boolean  |   -       |    true    |
 | arrowProps     | 箭头图标props,参考Arrow组件   | Object  |   -       |    -    |
 

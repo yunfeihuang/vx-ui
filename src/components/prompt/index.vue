@@ -20,7 +20,7 @@
       <password
         v-if="inputProps.type === 'password'"
         v-model="myValue"
-        :clear="false"
+        :clearable="false"
         :encrypt="encrypt"
         :cipher.sync="myCipher"
         class="vx-prompt--input"
@@ -30,7 +30,7 @@
       <x-input
         v-else
         v-model="myValue"
-        :clear="false"
+        :clearable="false"
         class="vx-prompt--input"
         v-bind="inputProps"
         :native-type="inputProps.type"

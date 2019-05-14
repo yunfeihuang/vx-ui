@@ -13,7 +13,7 @@
     <flexbox class="vx-daterange-picker--footer" slot="footer">
       <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
       <flexbox-item>
-        <button type="button" class="vx-daterange-picker--clear" @click="handleClear">{{clearText}}</button>
+        <button type="button" class="vx-daterange-picker--clearable" @click="handleClear">{{clearableText}}</button>
       </flexbox-item>
       <button type="button" class="vx-daterange-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
     </flexbox>
@@ -57,7 +57,7 @@ export default {
       type: String,
       default: '确定'
     },
-    clearText: {
+    clearableText: {
       type: String,
       default: '清空'
     }

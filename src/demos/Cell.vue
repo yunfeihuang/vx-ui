@@ -13,6 +13,7 @@
       <group title="no arrow">
         <cell :arrow="false" title="标题">
           <x-switch slot="value" v-model="checked" />
+          <div>其他文字...</div>
         </cell>
       </group>
     </x-body>

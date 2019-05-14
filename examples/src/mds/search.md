@@ -13,7 +13,7 @@
 | fixedTop     | 是否固定顶部   | Boolean  |   -       |    true    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 | native-type     | 原生type属性   | String  |   -       |    -    |
-| clear     | 是否有清除按钮   | Boolean  |   -       |    true    |
+| clearable     | 是否有清除按钮   | Boolean  |   -       |    true    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

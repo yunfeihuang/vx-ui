@@ -17,7 +17,7 @@
             :autofocus="autofocus"
             :maxlength="maxlength"
             :name="name"
-            :clear="clear"
+            :clearable="clearable"
             @focusin.native="handleFocusIn"
             @focusout.native="handleFocusOut"
             @input="handleInput"

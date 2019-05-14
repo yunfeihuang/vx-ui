@@ -30,7 +30,7 @@ export default {
       type: String,
       default: 'yyyy-MM-dd'
     },
-    clear: {
+    clearable: {
       type: Boolean,
       default: false
     },

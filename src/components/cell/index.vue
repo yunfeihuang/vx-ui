@@ -1,30 +1,36 @@
 <template functional>
-  <flexbox
-    :class="['vx-cell', {'vx-cell--access': props.arrow, 'is-divider': props.divider}, data.staticClass, data.class]"
-    align="center"
-    justify="center"
+  <div :class="['vx-cell', {'vx-cell--access': props.arrow, 'is-divider': props.divider}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners"
-    @click.native="props.onTo(parent, props.to)">
-    <div class="vx-cell--hd">
-      <slot name="icon"></slot>
-    </div>
-    <flexbox-item class="vx-cell--bd">
-      <slot v-if="!props.title" name="title"></slot>
-      <template v-else>
-        {{props.title}}
-      </template>
-    </flexbox-item>
-    <div class="vx-cell--ft">
-      <div class="vx-cell--value">
-        <slot v-if="!props.value" name="value"></slot>
-        <template v-else>
-          {{props.value}}
-        </template>
+    @click="props.onTo(parent, props.to)">
+    <flexbox
+      align="center"
+      justify="center"
+      class="vx-cell--inner"
+      :gutter="0">
+      <div class="vx-cell--hd" v-if="$slots['icon']">
+        <slot name="icon"></slot>
       </div>
+      <flexbox-item class="vx-cell--bd">
+        <slot v-if="!props.title" name="title"></slot>
+        <template v-else>
+          {{props.title}}
+        </template>
+      </flexbox-item>
+      <div class="vx-cell--ft">
+        <div class="vx-cell--value">
+          <slot v-if="!props.value" name="value"></slot>
+          <template v-else>
+            {{props.value}}
+          </template>
+        </div>
+      </div>
+    </flexbox>
+    <div class="vx-cell--default-slot" v-if="$slots['default']">
+      <slot></slot>
     </div>
-  </flexbox>
+  </div>
 </template>
 
 <script>
