@@ -287,7 +287,8 @@ const install = (Vue) => {
             on: {
               'confirm': this.handleConfirm,
               'close': this.handleClose,
-              'after-close': this.handleAfterClose
+              'after-close': this.handleAfterClose,
+              'button-click': this.handleButtonClick
             },
             scopedSlots: {
               default: props => createElement('div', {domProps: {innerHTML: message}})
@@ -313,6 +314,9 @@ const install = (Vue) => {
           },
           handleAfterClose () {
             this.$destroy()
+          },
+          handleButtonClick (event) {
+            props.onButtonClick(event)
           }
         },
         beforeDestroy () {

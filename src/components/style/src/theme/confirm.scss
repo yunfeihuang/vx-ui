@@ -54,6 +54,9 @@
         &+button,&+a{
           @include divider-vertical();
         }
+        &.is-cancel-light{
+          color:$color-primary;
+        }
         &:last-child{
           color:$color-primary;
         }

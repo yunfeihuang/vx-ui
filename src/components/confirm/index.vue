@@ -13,7 +13,7 @@
             </div>
           </div>
           <div :class="['vx-confirm--footer','vx-flexbox']" onselectstart="return false;">
-            <button class="vx-flexbox--item" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+            <button :class="['vx-flexbox--item', {'is-cancel-light': cancelLight}]" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
             <component class="vx-flexbox--item" :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
           </div>
         </div>
@@ -46,6 +46,9 @@ export default {
     cancelText: {
       type: String,
       default: '取消'
+    },
+    cancelLight: {
+      type: Boolean
     },
     confirmText: {
       type: String,
@@ -87,6 +90,7 @@ export default {
   methods: {
     handleCancel () {
       this.$emit('update:open', false).$emit('close')
+      this.$emit('button-click', 'cancel')
     },
     handleConfirm (e) {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
@@ -97,6 +101,7 @@ export default {
       } else {
         this.open && this.$emit('update:open', false).$emit('confirm')
       }
+      this.$emit('button-click', 'confirm')
     },
     handleEnter () {
       this.$emit('open')

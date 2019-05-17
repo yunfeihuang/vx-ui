@@ -6,6 +6,7 @@
     vertical-align: middle;
     font-size:0.56rem;
     color:#ddd;
+    white-space: nowrap;
     @include disabled;
     &--item{
       min-width: 0.8rem;

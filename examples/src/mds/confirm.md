@@ -14,6 +14,7 @@
 | confirmTag     | 确定元素标签   | String  |   -       |    button    |
 | confirmProps     | 确定元素props(为了应对打电话a[href="tel:fdafd"]等需求)   | Object  |   -       |    -    |
 | cancelText     | 取消文字   | String  |   -       |    取消    |
+| cancelLight     | 取消文字是否高亮   | Boolean  |   -       |    -    |
 
 
 #### Events
@@ -21,6 +22,7 @@
 |---------|--------|---------|
 | confirm | 确定事件 | - |
 | close | 关闭事件 | - |
+| button-click | 确定取消按钮事件 | event=[cancel,confirm] |
 
 #### Slots
 | 名称 | 说明 | 

@@ -44,7 +44,15 @@ export default {
   },
   methods: {
     handleOpen () {
-      this.$confirm({message: '确认删除？'}).then(() => {
+      this.$confirm({
+        message: '请输入支付方式',
+        cancelText: '支付宝支付',
+        cancelLight: true,
+        confirmText: '微信支付',
+        onButtonClick: event => {
+          console.log('onButtonClick', event)
+        }
+      }).then(() => {
         console.log('confirm')
       }).catch(() => {
         console.log('cancel')
