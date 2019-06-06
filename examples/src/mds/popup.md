@@ -13,6 +13,7 @@
 | showClose     | 是否显示关闭按钮   | Boolean  |   -       |    false    |
 | direction     | 渐入方向   | String  |   bottom,top,left,right,center       |    bottom    |
 | fastClose     | 是否非内容区域关闭   | Boolean  |   -       |    true    |
+| overlayOpacity     | 黑色遮罩层透明度   | Number  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

@@ -45,7 +45,7 @@ export default {
   methods: {
     handleOpen () {
       this.$confirm({
-        message: '请输入支付方式',
+        message: '请选择支付方式',
         cancelText: '支付宝支付',
         cancelLight: true,
         confirmText: '微信支付',

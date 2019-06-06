@@ -1,6 +1,6 @@
 <template>
   <div class="vx-popup">
-    <overlay v-if="!full" :open="open" @click="handleClose"></overlay>
+    <overlay v-if="!full" :opacity="overlayOpacity" :open="open" @click="handleClose"></overlay>
     <transition
       v-if="$slots.inner"
       name="popup-fade"
@@ -75,6 +75,9 @@ export default {
     },
     title: {
       type: String
+    },
+    overlayOpacity: {
+      type: Number
     }
   },
   data () {
