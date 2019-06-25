@@ -94,6 +94,10 @@ const input = {
     border: {
       type: Boolean,
       default: true
+    },
+    autoIntoView: {
+      type: Object,
+      default: true
     }
   },
   data () {
@@ -104,6 +108,14 @@ const input = {
   methods: {
     handleFocusIn (e) {
       this.isFocus = true
+      if (this.autoIntoView) {
+        let node = e.target
+        window.addEventListener('resize', () => {
+          node.scrollIntoView && node.scrollIntoView()
+        }, {
+          once: true
+        })
+      }
     },
     handleFocusOut (e) {
       this.isFocus = false
