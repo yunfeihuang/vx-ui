@@ -96,7 +96,7 @@ const input = {
       default: true
     },
     autoIntoView: {
-      type: Object,
+      type: Boolean,
       default: true
     }
   },
@@ -108,8 +108,8 @@ const input = {
   methods: {
     handleFocusIn (e) {
       this.isFocus = true
-      if (this.autoIntoView) {
-        let node = e.target
+      let node = e.target
+      if (this.autoIntoView && node.ontouchstart !== undefined) {
         window.addEventListener('resize', () => {
           node.scrollIntoView && node.scrollIntoView()
         }, {
