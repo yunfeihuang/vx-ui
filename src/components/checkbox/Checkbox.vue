@@ -37,6 +37,9 @@ export default {
     },
     inline: {
       type: Boolean
+    },
+    exclusive: {
+      type: Boolean
     }
   },
   computed: {
@@ -89,7 +92,7 @@ export default {
   methods: {
     handleChange (e) {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
-        this.$parent.handleChange(e)
+        this.$parent.handleChange(e, this.exclusive)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)
         this.offValue !== undefined && this.onValue !== undefined && this.$emit('input', e.target.checked ? this.onValue : this.offValue)

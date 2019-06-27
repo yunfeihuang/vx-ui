@@ -39,7 +39,7 @@ export default {
     }
   },
   methods: {
-    handleChange (e) {
+    handleChange (e, exclusive) {
       if (this.max === 1) {
         this.$emit('input', [e.target.value]).$emit('change', [e.target.value])
         this.eDispatch('ElFormItem', 'el.form.blur', [[e.target.value]])
@@ -50,7 +50,20 @@ export default {
         } else {
           let value = Object.assign([], this.value)
           if (e.target.checked) {
-            value && value.indexOf && value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+            if (exclusive) {
+              value = [e.target.value]
+            } else {
+              value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+              let exclusiveValue = []
+              if (this.$children && this.$children.forEach) {
+                this.$children.forEach(item => {
+                  item.$props.exclusive && exclusiveValue.push(item.value)
+                })
+                if (exclusiveValue.length > 0) {
+                  value = value.filter(item => exclusiveValue.indexOf(item) === -1)
+                }
+              }
+            }
           } else {
             value && value.indexOf && value.splice(value.indexOf(e.target.value), 1)
           }

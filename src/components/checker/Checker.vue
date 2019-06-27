@@ -31,6 +31,9 @@ export default {
     },
     block: {
       type: Boolean
+    },
+    exclusive: {
+      type: Boolean
     }
   },
   computed: {
@@ -75,7 +78,7 @@ export default {
   methods: {
     handleChange (e) {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
-        this.$parent.handleChange(e)
+        this.$parent.handleChange(e, this.exclusive)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)
       }

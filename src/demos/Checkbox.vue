@@ -68,6 +68,22 @@
         value：{{reverseValue}}
         </div>
       </group>
+      <group title="CheckboxGroup 不限选项">
+        <checkbox-group v-model="value">
+          <checkbox value="" exclusive>不限</checkbox>
+          <checkbox
+             v-for="item in options"
+            :disabled="item.disabled"
+            :value="item.value"
+            :key="item.value"
+            >
+            {{item.label}}
+          </checkbox>
+        </checkbox-group>
+        <div style="padding:15px 10px;">
+          value：{{value}}
+        </div>
+      </group>
       <group title="自定义checkbox样式">
         <checkbox-group :max="1" v-model="reverseValue" :divider="false">
           <checkbox

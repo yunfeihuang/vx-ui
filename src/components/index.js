@@ -316,7 +316,7 @@ const install = (Vue) => {
             this.$destroy()
           },
           handleButtonClick (event) {
-            props.onButtonClick(event)
+            props.onButtonClick && props.onButtonClick(event)
           }
         },
         beforeDestroy () {

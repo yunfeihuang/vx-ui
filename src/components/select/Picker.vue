@@ -13,6 +13,7 @@
           :key="index"
           :disabled="item.disabled"
           :parentValue="myValue"
+          :exclusive="item.exclusive"
           :max="max"
           >
           <div v-html="item.html || item.label"></div>
@@ -71,6 +72,15 @@ export default {
         title = `选项不能超过${this.max}个`
       }
       return title
+    },
+    exclusiveValue () {
+      let result = []
+      this.myOptions.forEach(item => {
+        if (item.exclusive) {
+          result.push(item.value)
+        }
+      })
+      return result
     }
   },
   watch: {
@@ -105,7 +115,11 @@ export default {
       if (this.max === 1) {
         this.open && this.$emit('input', value[0]).$emit('change', value[0])
       } else {
-        this.myValue = value
+        if (this.exclusiveValue.length && value.length > 1) {
+          this.myValue = value.filter(item => this.exclusiveValue.indexOf(item) === -1)
+        } else {
+          this.myValue = value
+        }
       }
     },
     handleOpen () {

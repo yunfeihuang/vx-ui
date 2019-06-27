@@ -1,5 +1,5 @@
 <template functional>
-  <option :disabled="props.disabled" :value="props.value" :label="props.label"><slot></slot></option>
+  <option v-bind="props"><slot></slot></option>
 </template>
 <script>
 export default {
@@ -14,6 +14,9 @@ export default {
     },
     label: {
       type: String
+    },
+    exclusive: {
+      type: Boolean
     }
   }
 }

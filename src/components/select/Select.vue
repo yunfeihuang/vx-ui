@@ -94,6 +94,7 @@ export default {
         result.push({
           value: item.value,
           disabled: item.disabled,
+          exclusive: item.getAttribute('exclusive') ? true : undefined,
           label: item.getAttribute('label') || html,
           html
         })

@@ -71,11 +71,13 @@
           </x-select>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框(选项很多)</div>
+          <div slot="title">下拉框(不限选项)</div>
           <x-select
             slot="value"
             v-model="value4"
+            :max="0"
             placeholder="请选择">
+            <x-option value="" exclusive>不限</x-option>
             <x-option
               v-for="item in options"
               :value="item.value"

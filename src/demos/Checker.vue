@@ -50,6 +50,23 @@
           value：{{radioValue}}
         </div>
       </group>
+      <group title="Checker 不限选项">
+        <div style="padding:20px 10px">
+          <checker-group v-model="checkboxValue">
+            <checker value="" exclusive>不限</checker>
+            <checker
+              v-for="item in options"
+              :value="item.value"
+              :disabled="item.disabled"
+              :key="item.value"
+              >
+              {{item.label}}
+            </checker>
+          </checker-group>
+          <br />
+          value：{{checkboxValue}}
+        </div>
+      </group>
       <group title="自定义checker样式">
         <checker-group :max="1" v-model="checkboxValue">
           <checker
