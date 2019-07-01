@@ -15,7 +15,7 @@
       :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-      <flexbox v-show="open" :class="innerClasses" @click="handleClose2" direction="column">
+      <flexbox v-show="open" :class="innerClasses" @click="handleClose2" :gutter="0" direction="column">
         <flexbox class="vx-popup--nav" v-if="title && !showClose" align="center">
           <button type="button" @click="close"><arrow direction="left" color="#666" size="0.24rem"/></button>
           <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
