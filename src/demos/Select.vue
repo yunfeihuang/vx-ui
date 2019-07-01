@@ -112,7 +112,7 @@ export default {
       value: '',
       value2: [],
       value3: [],
-      value4: '1',
+      value4: [''],
       options: [
         {
           value: '1',

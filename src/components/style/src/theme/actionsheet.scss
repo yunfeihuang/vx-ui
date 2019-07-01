@@ -4,7 +4,7 @@
   &actionsheet{
     &--inner{
       background:#fff;
-      max-height: 80%;
+      max-height: 80vh;
       text-align:center;
       @include scroll;
     }

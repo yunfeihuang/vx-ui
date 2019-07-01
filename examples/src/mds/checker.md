@@ -33,6 +33,7 @@
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
 | block     | 是否块布局模式   | Boolean  |   -       |    false    |
+| exclusive     | 是否排他选项   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

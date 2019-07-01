@@ -32,6 +32,7 @@
 | value     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | inline     | 行内样式   | Boolean  |   -       |    false    |
+| exclusive     | 是否排他选项   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
