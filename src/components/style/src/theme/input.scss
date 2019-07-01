@@ -2,10 +2,17 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &input{
+    &--size{
+      &-default{
+        height:$size-height;
+      }
+      &-small{
+        height:0.68rem;
+      }
+    }
     &--wrapper{
       position:relative;
       display:block;
-      height:$size-height;
       background:#fff;
       @include disabled;
       .vx-arrow{

@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/" title="Form"></x-nav>
     <x-body slot="body">
       <br />
-      <el-form :model="form" ref="form" @submit.native.prevent="handleSubmit">
+      <el-form size="small" :model="form" ref="form" @submit.native.prevent="handleSubmit">
         <el-form-item label="姓名：" prop="name" :rules="[
           {required: true, message: '姓名不能为空'},
           {min: 2, message: '姓名不能小于2字符'}

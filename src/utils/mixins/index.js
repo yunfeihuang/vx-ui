@@ -98,6 +98,10 @@ const input = {
     autoIntoView: {
       type: Boolean,
       default: true
+    },
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   data () {

@@ -5,6 +5,9 @@
       <group title="default">
         <x-input placeholder="请输入帐号" v-model="value"/>
       </group>
+      <group title="size small">
+        <x-input placeholder="请输入帐号" size="small" v-model="value"/>
+      </group>
       <group title="slot prepend&append">
         <x-input placeholder="请输入帐号" v-model="value">
           <span slot="prepend" style="padding:10px;">♡</span>

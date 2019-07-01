@@ -67,8 +67,10 @@
         }
       }
       &.is-error{
-        .vx-input-wrapper:before,.vx-textarea-wrapper:before{
-          @include divider($color-error);
+        .vx-input-wrapper,.vx-textarea-wrapper{
+          &:before{
+            @include divider($color-error);
+          }
         }
       }
     }

@@ -45,6 +45,7 @@ export default {
     classes () {
       return [
         'vx-input--wrapper',
+        `vx-input--size-${this.size}`,
         {
           'is-focus': this.isFocus,
           'is-clearable': !!this.value && this.clearable,
