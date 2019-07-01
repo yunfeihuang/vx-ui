@@ -2,7 +2,7 @@
   <layout>
     <x-nav slot="header" back="/" title="DatetimePicker"></x-nav>
     <x-body slot="body">
-      <message>注意：此示例要在移动设备体验哦~</message>
+      <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
           <div slot="title">{{pickerValue1}}</div>

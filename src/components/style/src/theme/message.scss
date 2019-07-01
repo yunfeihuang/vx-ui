@@ -2,22 +2,21 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &message{
-    padding:0.2rem 0.1rem;
-    border-bottom: 1px solid;
+    padding:0.1rem 0.2rem;
+    line-height:1.75;
+    background-color: #f4f4f5;
+    color: #909399;
     &--warning{
-      color: #856404;
-      background-color: #fff3cd;
-      border-color: #ffeeba;
+      color: #e6a23c;
+      background-color: #fdf6ec;
     }
-    &--danger{
-      color: #721c24;
-      background-color: #f8d7da;
-      border-color: #f5c6cb;
+    &--danger,&--error{
+      color: #f56c6c;
+      background-color: #fef0f0;
     }
     &--success{
-      color: #155724;
-      background-color: #d4edda;
-      border-color: #c3e6cb;
+      color: #67c23a;
+      background-color: #f0f9eb;
     }
   }
 }

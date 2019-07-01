@@ -13,7 +13,7 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'warning'
+      default: 'default'
     }
   }
 }

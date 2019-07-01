@@ -2,7 +2,7 @@
   <layout>
     <x-nav slot="header" back="/" title="Datetime"></x-nav>
     <x-body slot="body">
-      <message>注意：此示例要在移动设备体验哦~</message>
+      <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group title="default">
         <datetime v-model="date" placeholder="请输入年月日"/>
       </group>
