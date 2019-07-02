@@ -8,7 +8,7 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
 | wrap     | css flexbox wrap   | String  |      -    |    -    |
-| direction     | css flexbox wrap   | String |    -      |    -    |
+| direction     | css flexbox direction   | String |    -      |    -    |
 | justify     | css flexbox justify-content   | String  |     -     |    -    |
 | align     | css flexbox align-items   | String  |    -      |    -    |
 | gutter     | 间距   | Number,String  |   -       |    -    |

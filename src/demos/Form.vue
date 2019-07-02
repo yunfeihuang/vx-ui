@@ -79,38 +79,34 @@
         <el-form-item label="开启消息醒：">
           <x-switch v-model="form.enable"/>
         </el-form-item>
-        <group title="兴趣1：">
-          <el-form-item prop="checkboxHobby" :rules="[
-            {required: true, message: '兴趣1不能为空'}
-            ]">
-            <checkbox-group v-model="form.checkboxHobby">
-              <checkbox
-                v-for="item in options"
-                :disabled="item.disabled"
-                :value="item.value"
-                :key="item.value"
-                >
+        <el-form-item block label="兴趣1：" prop="checkboxHobby" :rules="[
+          {required: true, message: '兴趣1不能为空'}
+          ]">
+          <checkbox-group v-model="form.checkboxHobby">
+            <checkbox
+              v-for="item in options"
+              :disabled="item.disabled"
+              :value="item.value"
+              :key="item.value"
+              >
+              {{item.label}}
+            </checkbox>
+          </checkbox-group>
+        </el-form-item>
+        <el-form-item block label="兴趣2：" prop="radioHobby" :rules="[
+          {required: true, message: '兴趣2不能为空'}
+          ]">
+          <radio-group v-model="form.radioHobby">
+            <radio
+              v-for="item in options"
+              :disabled="item.disabled"
+              :key="item.value"
+              :value="item.value"
+              >
                 {{item.label}}
-              </checkbox>
-            </checkbox-group>
-          </el-form-item>
-        </group>
-        <group title="兴趣2：">
-          <el-form-item prop="radioHobby" :rules="[
-            {required: true, message: '兴趣2不能为空'}
-            ]">
-            <radio-group v-model="form.radioHobby">
-              <radio
-                v-for="item in options"
-                :disabled="item.disabled"
-                :key="item.value"
-                :value="item.value"
-                >
-                  {{item.label}}
-              </radio>
-            </radio-group>
-          </el-form-item>
-        </group>
+            </radio>
+          </radio-group>
+        </el-form-item>
         <div style="margin:20px 10px;">
           <x-button type="primary" native-type="submit" size="large">保存</x-button>
         </div>
