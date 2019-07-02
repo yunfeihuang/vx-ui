@@ -19,7 +19,10 @@
       -moz-align-items: center;
       align-items: center;
       min-height: 0.9rem;
-      margin-bottom:0.2rem;
+      margin-bottom:0.4rem;
+      &.is-block{
+        display:block;
+      }
       &.is-divider{
         &:after{
           content:'';
@@ -72,6 +75,9 @@
             @include divider($color-error);
           }
         }
+      }
+      &--small{
+        min-height:0.68rem;
       }
     }
   }
