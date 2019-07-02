@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-select',{'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
-    <flexbox class="vx-select--inner" align="center">
+    <flexbox :gutter="0" class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
         <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>

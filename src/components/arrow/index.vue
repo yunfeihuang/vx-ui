@@ -33,7 +33,7 @@ export default {
     },
     size: {
       type: String,
-      default: '0.2rem'
+      default: '0.18rem'
     },
     color: {
       type: String,
