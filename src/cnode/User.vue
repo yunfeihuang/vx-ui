@@ -5,7 +5,7 @@
       <div v-if="slideIn">
         <div>
           <div class="userinfo">
-            <img :src="user.avatar_url" class="user-avatar" />
+            <x-img lazyload :src="user.avatar_url" class="user-avatar" />
             <h4>{{user.loginname}}</h4>
             积分：{{user.score}}
           </div>

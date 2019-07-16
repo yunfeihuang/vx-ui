@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-tab--item', {'vx-flexbox--item': $parent.layout=='default','is-active': $parent.active === name}]" @click="handleClick(name)">
+  <div :style="{'min-width': $parent.minTabItemWidth}" :class="['vx-tab--item', {'vx-flexbox--item': $parent.layout=='default','is-active': $parent.active === name}]" @click="handleClick(name)">
     <span v-if="$parent.underlineWidth" class="vx-tab--item-text">
       <slot></slot>
     </span>

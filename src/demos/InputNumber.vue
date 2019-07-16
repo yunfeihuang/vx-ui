@@ -4,7 +4,7 @@
     <x-body slot="body">
       <group title="default">
         <cell title="value" :arrow="false">
-          <input-number slot="value" v-model="value" :step="0.01"/>
+          <input-number slot="value" v-model="minValue" :min="1"/>
         </cell>
       </group>
       <group title="disabled">
@@ -20,7 +20,8 @@
 export default {
   data () {
     return {
-      value: 0
+      value: 0,
+      minValue: 1
     }
   }
 }

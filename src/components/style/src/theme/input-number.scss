@@ -36,6 +36,9 @@
         margin-top:-1px;
         border-radius:3rem;
       }
+      &[disabled] {
+        @include _disabled;
+      }
     }
     &--add{
       &:after{

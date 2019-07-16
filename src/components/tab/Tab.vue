@@ -14,7 +14,7 @@ import { tab } from 'utils/mixins'
 export default {
   componentName: 'Tab',
   mixins: [tab],
-  props: ['underlineWidth'],
+  props: ['underlineWidth', 'minTabItemWidth'],
   mounted () {
     this.computedStyle()
     window.addEventListener('resize', this.computedStyle)
@@ -44,8 +44,14 @@ export default {
             width = this.underlineWidth
             left = activeNode.offsetLeft + (activeWidth - this.underlineWidth) / 2
           }
+          let nextElement = activeNode.nextElementSibling
+          let prevElement = activeNode.previousElementSibling
           requestAnimationFrame(() => {
             node.style.cssText = `width: ${width}px;left:${left}px;display:block`
+            requestAnimationFrame(() => {
+              nextElement && nextElement.scrollIntoView()
+              prevElement && prevElement.scrollIntoView()
+            })
           })
         }
       })

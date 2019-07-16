@@ -7,7 +7,7 @@
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div class="vx-list-view--loading" v-if="(!end && $slots.default && $slots.default.length) || loading">
+      <div class="vx-list-view--loading" v-if="(end===false && $slots.default && $slots.default.length) || loading">
         <spinner class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
@@ -41,7 +41,7 @@ export default {
       default: '释放刷新'
     },
     end: {
-      type: Boolean,
+      type: [Boolean, Number],
       default: false
     },
     endText: {
@@ -60,7 +60,7 @@ export default {
     this.$listeners['pullup'] && this.$el.addEventListener('scroll', (e) => {
       this.$$timer && clearTimeout(this.$$timer)
       this.$$timer = setTimeout(() => {
-        !this.loading && !this.end && this.handleScroll(e)
+        !this.loading && this.end === false && this.handleScroll(e)
       }, 200)
     })
     if (this.$listeners['pulldown']) {

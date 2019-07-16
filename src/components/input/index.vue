@@ -1,6 +1,6 @@
 <template>
   <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
-    <flexbox tag="label" align="center" class="vx-input--inner">
+    <flexbox tag="label" align="center" class="vx-input--inner" :gutter="0">
       <slot name="prepend"></slot>
       <flexbox-item>
         <input

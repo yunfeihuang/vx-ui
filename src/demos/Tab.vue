@@ -27,7 +27,7 @@
             {{item.label}}
           </tab-item>
         </tab>
-        <tab :active.sync="active" :underline-width="10" layout="scroll">
+        <tab :active.sync="active" :underline-width="10" minTabItemWidth="20vw">
           <tab-item
             v-for="item in tabs"
             :name="item.name"

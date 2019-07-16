@@ -1,80 +1,48 @@
 <template>
-  <div :class="['vx-img--wrapper',{'vx-img--placeholder': !loading,'is-background': isBackground}]">
-    <img
-      :class="['vx-img', {'is-lazyload': lazyload}]"
-      v-bind="$attrs"
-      @error="handleError"
-      @load='handleLoad'
-    />
-    <spinner v-if="loading" class="vx-img--spinner"/>
-    <template v-if="!loading">
-      <slot name="placeholder" v-if="$slots.placeholder"></slot>
-    </template>
-  </div>
+  <img v-bind="$attrs"
+    class="vx-img"
+    :src="mySrc"
+    :style="`background-image:${background};`"
+    :class="`${status? 'is-' + status : ''}`"
+    v-on="$listeners" />
 </template>
 
 <script>
-import Spinner from '../spinner'
-
+import error from './error.svg'
+import placeholder from './placeholder.svg'
+import loading from './loading.svg'
+const transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=='
 export default {
   componentName: 'XImg',
-  components: {
-    Spinner
-  },
   props: {
     src: {
       type: String
     },
-    srcset: {
+    alt: {
       type: String
     },
     lazyload: {
-      type: Boolean,
-      default: true
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    isBackground: {
       type: Boolean
     }
   },
-  mounted () {
-    this.$$scrollNode = this.getScrollNode(this.$el.offsetParent)
-    if (!this.$$scrollNode.lazyloadImages) {
-      this.$$scrollNode.lazyloadImages = []
-      this.$$scrollNode.scrollTimer = null
-      this.$$scrollNode.onscroll = (e) => {
-        e.target.scrollTimer && clearTimeout(e.target.scrollTimer)
-        e.target.scrollTimer = setTimeout(() => {
-          e.target.lazyloadImages = e.target.lazyloadImages.filter((item, index) => {
-            if (item.loaded === false && item.img.inViewPort()) {
-              item.img.setSource()
-              return false
-            } else {
-              return true
-            }
-          })
-        }, 500)
-      }
+  watch: {
+    src () {
+      this.$nextTick(this.beforeLoading)
     }
-    if (this.lazyload) {
-      if (this.inViewPort()) {
-        this.setSource()
-      } else {
-        this.$$scrollNode.lazyloadImages.push({
-          img: this,
-          loaded: false
-        })
-      }
+  },
+  mounted () {
+    this.beforeLoading()
+  },
+  data () {
+    return {
+      status: '',
+      background: '',
+      mySrc: transparent,
+      isScrollEvent: false
     }
   },
   beforeDestroy () {
-    let self = this
-    this.$$scrollNode.lazyloadImages = this.$$scrollNode.lazyloadImages.filter((item) => {
-      return item !== self
-    })
+    this.isScrollEvent && this.removeScrollEvent()
   },
   methods: {
     getScrollNode (node) {
@@ -104,41 +72,56 @@ export default {
       let rect = this.$el.getBoundingClientRect()
       return rect.top < window.innerHeight && rect.left < window.innerWidth
     },
-    setSource () {
-      let img = this.$el.querySelector('img')
+    handleScroll () {
+      this.$$timer && clearTimeout(this.$$timer)
+      this.$$timer = setTimeout(() => {
+        if (this.inViewPort()) {
+          this.removeScrollEvent()
+          this.loading()
+        }
+      }, 200)
+    },
+    removeScrollEvent () {
+      this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
+      this.isScrollEvent = false
+    },
+    beforeLoading () {
+      this.status = ''
+      if (this.lazyload && !this.isScrollEvent && !this.inViewPort()) {
+        this.$$scrollNode = this.getScrollNode(this.$el.parentNode)
+        this.$$scrollNode.addEventListener('scroll', this.handleScroll)
+        this.isScrollEvent = true
+      } else {
+        this.loading()
+      }
+    },
+    loading () {
       if (this.src) {
+        this.render(undefined, loading)
+        this.status = 'loading'
         let image = new Image()
-        image.onload = (e) => {
-          let icon = this.$el.querySelector('.vx-img--icon') || this.$el.querySelector('.vx-img--spinner')
-          requestAnimationFrame(() => {
-            icon && (icon.style.display = 'none')
-            if (this.isBackground) {
-              this.$el.style.backgroundImage = `url(${this.src})`
-            } else {
-              img.src = this.src
-              img.style.opacity = 1
-            }
-            this.$el.classList.remove('vx-img--placeholder')
-          })
+        image.onload = () => {
+          this.render(this.src, '')
+          this.status = 'success'
+          this.$emit('load')
+        }
+        image.onerror = () => {
+          this.render(undefined, error)
+          this.status = 'error'
+          this.$emit('error')
         }
         image.src = this.src
-      }
-      if (this.srcset) {
-        img.srcset = this.srcset
-        img.style.opacity = 1
-      }
-    },
-    handleScroll (e) {
-      if (this.inViewPort()) {
-        e.currentTarget && e.currentTarget.removeEventListener('scroll', this.handleScroll)
-        this.setSource()
+      } else {
+        this.render(undefined, placeholder)
+        this.status = 'placeholder'
       }
     },
-    handleError (e) {
-      this.$emit('error', e)
-    },
-    handleLoad (e) {
-      this.$emit('load', e)
+    render (src = transparent, background) {
+      if (background) {
+        background = `url(${background})`
+      }
+      this.mySrc = src
+      this.background = background
     }
   }
 }

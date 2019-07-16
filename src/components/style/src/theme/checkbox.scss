@@ -70,24 +70,26 @@
       padding-left:0.6rem;
       @include lineClamp;
     }
-    input:checked + &--icon{
-      &:before{
-        background:$color-primary;
-        border-color:$color-primary;
-      }
-      &:after{
-        border: 0.04rem solid #fff;
-        border-left: 0;
-        border-top: 0;
-        content: " ";
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        width: 0.08rem;
-        height: 0.16rem;
-        margin-left: -0.06rem;
-        margin-top: -0.12rem;
-        transform: rotate(45deg);
+    &.is-checked{
+      .vx-checkbox--icon{
+        &:before{
+          background:$color-primary;
+          border-color:$color-primary;
+        }
+        &:after{
+          border: 0.04rem solid #fff;
+          border-left: 0;
+          border-top: 0;
+          content: " ";
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          width: 0.08rem;
+          height: 0.16rem;
+          margin-left: -0.06rem;
+          margin-top: -0.12rem;
+          transform: rotate(45deg);
+        }
       }
     }
     &.is-inline{

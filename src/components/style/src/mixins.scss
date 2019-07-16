@@ -102,8 +102,8 @@
     height:$resolution*100%;
     transform:scale(1/$resolution);
     border-radius:$resolution*$border-radius;
-    left:if($resolution%2==1,-100%,-50%);
-    top:if($resolution%2==1,-100%,-50%);
+    left:-$resolution/2*100+50%;
+    top:-$resolution/2*100+50%;
   }
   @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
     border-color:darken($border-color,$resolution*$var);
@@ -111,8 +111,8 @@
     height:$resolution*100%;
     transform:scale(1/$resolution);
     border-radius:$resolution*$border-radius;
-    left:if($resolution%2==1,-100%,-50%);
-    top:if($resolution%2==1,-100%,-50%);
+    left:-$resolution/2*100+50%;
+    top:-$resolution/2*100+50%;
   }
 }
 @mixin round-border($border-color : $border-color-base,$border-radius : $border-radius-base) {

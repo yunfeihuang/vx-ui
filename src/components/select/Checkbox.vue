@@ -2,7 +2,7 @@
   <label :class="[
     'vx-checkbox',
     {
-      'is-active': $options.methods.isActive(props),
+      'is-checked': $options.methods.isActive(props),
       'is-disabled': $options.methods.isDisabled(props),
       'is-inline': props.inline
     }]">
