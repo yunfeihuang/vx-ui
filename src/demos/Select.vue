@@ -9,6 +9,7 @@
             slot="value"
             :label.sync="label"
             v-model="value"
+            clearable
             placeholder="请选择">
             <x-option
               v-for="item in options"

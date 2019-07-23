@@ -5,7 +5,20 @@
       <flexbox-item>
         <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
       </flexbox-item>
-      <arrow v-if="arrow && !$slots.append" v-bind="arrowProps" direction="down"/>
+      <template v-if="!$slots.append">
+        <transition v-if="this.clearable && value+''" name="input-clearable-fade">
+          <button
+            tabindex="-2"
+            type="button"
+            v-show="!!value && clearable && !disabled"
+            class="vx-input--clearable-button"
+            @click.stop="handleClear"
+            >
+            <i class="vx-input--clearable-icon"></i>
+          </button>
+        </transition>
+        <arrow v-else-if="arrow" v-bind="arrowProps" direction="down"/>
+      </template>
       <slot name="append"></slot>
     </flexbox>
     <datalist>
@@ -55,6 +68,10 @@ export default {
     separator: {
       type: String,
       default: ','
+    },
+    clearable: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
@@ -198,6 +215,10 @@ export default {
         }
       }
       return result
+    },
+    handleClear () {
+      let value = this.max === 1 ? '' : []
+      this.$emit('input', value).$emit('change', value)
     }
   }
 }

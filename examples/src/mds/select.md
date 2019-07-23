@@ -11,6 +11,7 @@
 | value     | 值   | Array[String]  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
+| clearable     | 是否清空按钮   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 | arrow     | 是否显示箭头图标   | Boolean  |   -       |    true    |
 | arrowProps     | 箭头图标props,参考Arrow组件   | Object  |   -       |    -    |
