@@ -20,8 +20,7 @@ export default {
     }
   },
   mounted () {
-    require.ensure([], (r) => {
-      let QRCode = require('qrcodejs2')
+    import('qrcodejs2').then(QRCode => {
       this.$$qrcode = new QRCode(this.$el, {
         ...this.$props
       })

@@ -162,7 +162,10 @@ let components = [
 
 const install = (Vue) => {
   components.map(component => {
-    component && component.componentName && Vue.component(component.componentName, component)
+    if (component && component.componentName) {
+      component.name = component.componentName
+      Vue.component(component.componentName, component)
+    }
   })
   Vue.prototype.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({

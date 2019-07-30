@@ -35,9 +35,8 @@ export default {
     }
   },
   mounted () {
-    require.ensure([], (r) => {
-      let Swiper = require('swiper/dist/js/swiper.min.js')
-      require('swiper/dist/css/swiper.min.css')
+    import('swiper/dist/css/swiper.min.css')
+    import('swiper').then(Swiper => {
       let options = Object.assign({
         initialSlide: this.active,
         direction: this.direction,

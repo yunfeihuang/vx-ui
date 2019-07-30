@@ -4,7 +4,16 @@
   &select{
     position:relative;
     height:$size-height;
+    box-sizing:border-box;
     @include disabled();
+    &--size{
+      &-default{
+        height:$size-height;
+      }
+      &-small{
+        height:$size-small-height;
+      }
+    }
     &--inner{
       height:100%;
       .vx-arrow{
@@ -38,12 +47,12 @@
       .#{$css-prefix}popup--inner{
         overflow:visible;
       }
-      .vx-popup--relative{
+      .vx-popup--body{
         max-height:8rem;
         max-height: 65.2vh;
       }
       .vx-popup--center{
-        .vx-popup--relative{
+        .vx-popup--body{
           background:#fff;
           width:80%;
         }

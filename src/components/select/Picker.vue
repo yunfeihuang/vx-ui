@@ -14,8 +14,7 @@
           :disabled="item.disabled"
           :parentValue="myValue"
           :exclusive="item.exclusive"
-          :max="max"
-          >
+          :max="max">
           <div v-html="item.html || item.label"></div>
         </checkbox>
       </checkbox-group>

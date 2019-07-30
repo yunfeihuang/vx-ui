@@ -7,13 +7,14 @@
         height:$size-height;
       }
       &-small{
-        height:0.68rem;
+        height:$size-small-height;
       }
     }
     &--wrapper{
       position:relative;
       display:block;
       background:#fff;
+      box-sizing:border-box;
       @include disabled;
       .vx-arrow{
         margin-left:6px;
@@ -24,17 +25,19 @@
       .vx-flexbox--item{
         height:100%;
       }
-      input{
-        border:0;
-        width:100%;
+      .vx-input--control{
         height:100%;
+        padding:0 0.2rem;
         box-sizing:border-box;
+      }
+      input.vx-input--control{
+        vertical-align: middle;
+        background: transparent;
         outline: none;
         text-align: inherit;
         font-size: inherit;
-        padding:0 0.2rem;
-        vertical-align: middle;
-        background: transparent;
+        border:0;
+        width:100%;
       }
       &.is-border{
         &:before{
@@ -74,6 +77,7 @@
     &--inner{
       height:100%;
     }
+    
     &--clearable{
       &-button{
         @include button;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-select',{'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
+  <div :class="['vx-select',`vx-select--size-${size}`, {'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
     <flexbox :gutter="0" class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
       <flexbox-item>
@@ -12,14 +12,13 @@
             type="button"
             v-show="!!value && clearable && !disabled"
             class="vx-input--clearable-button"
-            @click.stop="handleClear"
-            >
+            @click.stop="handleClear">
             <i class="vx-input--clearable-icon"></i>
           </button>
         </transition>
         <arrow v-else-if="arrow" v-bind="arrowProps" direction="down"/>
       </template>
-      <slot name="append"></slot>
+      <slot v-else name="append"></slot>
     </flexbox>
     <datalist>
       <slot></slot>
@@ -85,8 +84,10 @@ export default {
     }
   },
   mounted () {
-    this.$$myOptions = this.getOptions()
-    this.value && this.updateLabel(this.value)
+    this.$nextTick(() => {
+      this.$$myOptions = this.getOptions()
+      this.value && this.updateLabel(this.value)
+    })
   },
   updated () {
     this.$nextTick(() => {

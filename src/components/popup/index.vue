@@ -25,13 +25,13 @@
           <i class="vx-popup--close" @click="close"></i>
         </flexbox>
         <slot v-else name="header"></slot>
-        <div class="vx-popup--relative" v-if="direction === 'center'">
+        <div class="vx-popup--body" :class="bodyClass" v-if="direction === 'center'">
           <i v-if="showClose" class="vx-popup--close" @click="close"></i>
           <slot :open="afterOpen"></slot>
         </div>
-        <flexbox-item class="vx-popup--relative" v-else>
+        <div class="vx-popup--body" :class="bodyClass" v-else>
           <slot :open="afterOpen"></slot>
-        </flexbox-item>
+        </div>
         <slot name="footer"></slot>
       </flexbox>
     </transition>
@@ -74,6 +74,9 @@ export default {
       default: false
     },
     title: {
+      type: String
+    },
+    bodyClass: {
       type: String
     },
     overlayOpacity: {

@@ -3,25 +3,25 @@
     <flexbox tag="label" align="center" class="vx-input--inner" :gutter="0">
       <slot name="prepend"></slot>
       <flexbox-item>
-        <input
+        <slot v-if="$slots.input" name="input"></slot>
+        <input v-else
+          class="vx-input--control"
           v-bind="$$props"
           :type="nativeType"
-          v-on="$$listeners"
-          />
+          v-on="$$listeners"/>
       </flexbox-item>
-      <transition name="input-clearable-fade" v-if="!$slots.append">
+      <template v-if="!$slots.append">
         <button
           tabindex="-2"
           type="button"
           v-show="!!value && clearable && !disabled"
           class="vx-input--clearable-button"
-          @click="handleClear"
-          >
+          @click.stop.prevent="handleClear">
           <i class="vx-input--clearable-icon"></i>
         </button>
-      </transition>
+      </template>
       <slot name="append"></slot>
-      <arrow v-if="arrow && !$slots.append" v-bind="arrowProps" direction="down"/>
+      <arrow v-if="arrow && !$slots.append && !value" v-bind="arrowProps" direction="down"/>
     </flexbox>
   </div>
 </template>
@@ -39,7 +39,10 @@ export default {
   },
   mixins: [input],
   props: {
-    ...input.props
+    ...input.props,
+    onClear: {
+      type: Function
+    }
   },
   computed: {
     classes () {
@@ -72,9 +75,13 @@ export default {
   },
   methods: {
     handleClear (e) {
-      this.$emit('input', '').$emit('change', '')
-      this.eDispatch('ElFormItem', 'el.form.change', [''])
-      this.eDispatch('ElFormItem', 'el.form.blur', [''])
+      if (this.onClear) {
+        this.onClear()
+      } else {
+        this.$emit('input', '').$emit('change', '')
+        this.eDispatch('ElFormItem', 'el.form.change', [''])
+        this.eDispatch('ElFormItem', 'el.form.blur', [''])
+      }
     }
   }
 }
