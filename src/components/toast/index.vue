@@ -11,6 +11,7 @@
           <slot></slot>
         </div>
       </div>
+      <overlay :open="isOverlay && open" :opacity="overlayOpacity"></overlay>
     </div>
   </transition>
 </template>
@@ -18,12 +19,14 @@
 <script>
 import Popup from '../popup'
 import Spinner from '../spinner'
+import Overlay from '../overlay'
 
 export default {
   componentName: 'Toast',
   components: {
     Popup,
-    Spinner
+    Spinner,
+    Overlay
   },
   props: {
     open: {
@@ -54,6 +57,12 @@ export default {
           primaryColor: '#fff'
         }
       }
+    },
+    isOverlay: {
+      type: Boolean
+    },
+    overlayOpacity: {
+      type: Number
     }
   },
   mounted () {

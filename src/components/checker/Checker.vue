@@ -6,7 +6,7 @@
       :name="name"
       :value="value"
       :disabled="disabled"
-      @change="handleChange"
+      @change="handleChange(value, $event)"
       />
     <button v-if="$slots['default']" type="button" tabindex="-2">
       <span class="vx-checker-text"><slot></slot></span>
@@ -24,7 +24,7 @@ export default {
   props: {
     ...input.props,
     value: {
-      type: [String]
+      type: [String, Number]
     },
     icon: {
       type: Boolean
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     myChecked () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.value && this.$parent.value.indexOf) {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
         if (this.$parent.value instanceof Array) {
           return this.$parent.value.indexOf(this.value) > -1
         } else {
@@ -76,9 +76,9 @@ export default {
     }
   },
   methods: {
-    handleChange (e) {
+    handleChange (value, e) {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
-        this.$parent.handleChange(e, this.exclusive)
+        this.$parent.handleChange(e, value, this.exclusive)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)
       }

@@ -94,24 +94,24 @@
 export default {
   data () {
     return {
-      checkboxValue: ['1'],
-      radioValue: [],
+      checkboxValue: [1],
+      radioValue: 1,
       options: [
         {
-          value: '1',
+          value: 1,
           label: '篮球'
         },
         {
-          value: '2',
+          value: 2,
           label: '羽毛球'
         },
         {
-          value: '3',
+          value: 3,
           label: '乒乓球',
           disabled: true
         },
         {
-          value: '4',
+          value: 4,
           label: '高尔夫'
         }
       ]

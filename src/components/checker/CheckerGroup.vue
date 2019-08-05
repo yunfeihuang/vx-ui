@@ -13,10 +13,7 @@ export default {
   props: {
     ...input.props,
     value: {
-      type: [Array, String],
-      default () {
-        return []
-      }
+      type: [String, Number, Array]
     },
     max: {
       type: Number,
@@ -30,11 +27,12 @@ export default {
     }
   },
   methods: {
-    handleChange (e, exclusive) {
+    handleChange (e, $value, exclusive) {
       if (this.max === 1) {
-        this.$emit('input', [e.target.value]).$emit('change', [e.target.value])
-        this.eDispatch('ElFormItem', 'el.form.blur', [[e.target.value]])
-        this.eDispatch('ElFormItem', 'el.form.change', [[e.target.value]])
+        let _value = this.value instanceof Array ? [$value] : $value
+        this.$emit('input', _value).$emit('change', _value)
+        this.eDispatch('ElFormItem', 'el.form.blur', [_value])
+        this.eDispatch('ElFormItem', 'el.form.change', [_value])
       } else {
         if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
           e.target.checked = false
@@ -42,9 +40,9 @@ export default {
           let value = Object.assign([], this.value)
           if (e.target.checked) {
             if (exclusive) {
-              value = [e.target.value]
+              value = [$value]
             } else {
-              value.indexOf(e.target.value) === -1 && value.push(e.target.value)
+              value.indexOf($value) === -1 && value.push($value)
               let exclusiveValue = []
               if (this.$children && this.$children.forEach) {
                 this.$children.forEach(item => {
@@ -56,7 +54,7 @@ export default {
               }
             }
           } else {
-            value.splice(value.indexOf(e.target.value), 1)
+            value.splice(value.indexOf($value), 1)
           }
           this.$emit('input', value).$emit('change', value)
           this.eDispatch('ElFormItem', 'el.form.blur', [value])

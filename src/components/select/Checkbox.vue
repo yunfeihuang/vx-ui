@@ -11,7 +11,7 @@
      :name="props.name"
      :value="props.value"
      :checked="$options.methods.isActive(props)"
-     @change="$options.methods.handleChange($event, props.exclusive)"/>
+     @change="$options.methods.handleChange($event, props.value, props.exclusive)"/>
     <i :class="['vx-checkbox--icon', props.iconStyle ? `is-${props.iconStyle}` : '']" ></i>
     <span class="vx-checkbox--text">
       <slot></slot>
@@ -56,8 +56,8 @@ export default {
     }
   },
   methods: {
-    handleChange (e, exclusive) {
-      window.$$$$picker.$refs.checkboxGroup.handleChange(e, exclusive)
+    handleChange (e, value, exclusive) {
+      window.$$$$picker.$refs.checkboxGroup.handleChange(e, value, exclusive)
     },
     isDisabled (props) {
       if (props.parentValue instanceof Array && props.max > 1 && props.parentValue.length >= props.max) {

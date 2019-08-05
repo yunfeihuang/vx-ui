@@ -2,7 +2,7 @@
   <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
     <flexbox tag="label" align="center" class="vx-input--inner" :gutter="0">
       <slot name="prepend"></slot>
-      <flexbox-item>
+      <flexbox-item class="vx-input--area">
         <slot v-if="$slots.input" name="input"></slot>
         <input v-else
           class="vx-input--control"
@@ -55,7 +55,8 @@ export default {
           'vx-input--prepend': this.$slots.prepend,
           'vx-input--append': this.$slots.append,
           'is-disabled': this.disabled,
-          'is-border': this.border
+          'is-border': this.border,
+          'is-custom': this.$slots.input
         }
       ]
     },

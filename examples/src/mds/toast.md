@@ -11,6 +11,8 @@
 | align     | 提示位置   | String  |   bottom,top,center       |    false    |
 | type     | 提示类型   | String  |   default,error,success,warn,loading       |    bottom    |
 | duration     | 停留时间   | Number  |   -       |    2000    |
+| isOverlay     | 是否有遮罩层   | Boolean  |   -       |    -    |
+| overlayOpacity     | 遮罩层透明值   | Number  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

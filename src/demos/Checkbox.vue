@@ -54,7 +54,7 @@
         </div>
       </group>
       <group title="CheckboxGroup最多选1个(单选框)">
-        <checkbox-group :max="1" v-model="reverseValue">
+        <checkbox-group :max="1" v-model="value2">
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"
@@ -65,7 +65,7 @@
           </checkbox>
         </checkbox-group>
         <div style="padding:15px 10px;">
-        value：{{reverseValue}}
+        value：{{value2}}
         </div>
       </group>
       <group title="CheckboxGroup 不限选项">
@@ -112,27 +112,28 @@ export default {
   data () {
     return {
       checked: false,
-      value: ['1'],
+      value: [1],
+      value2: 1,
       options: [
         {
-          value: '1',
+          value: 1,
           label: '篮球'
         },
         {
-          value: '2',
+          value: 2,
           label: '羽毛球'
         },
         {
-          value: '3',
+          value: 3,
           label: '乒乓球',
           disabled: true
         },
         {
-          value: '4',
+          value: 4,
           label: '高尔夫'
         }
       ],
-      reverseValue: ['1']
+      reverseValue: [1]
     }
   }
 }

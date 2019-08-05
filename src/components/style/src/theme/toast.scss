@@ -13,6 +13,8 @@
     max-width: 80%;
     &--inner{
       display:inline-block;
+      position:relative;
+      z-index:10;
     }
     &--content{
       background:rgba(0,0,0,0.7);
@@ -119,6 +121,10 @@
         margin-left: -0.02rem;
         border-radius: 3rem;
       }
+    }
+    .vx-overlay{
+      position:fixed;
+      display:block;
     }
   }
 }

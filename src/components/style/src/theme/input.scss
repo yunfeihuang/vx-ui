@@ -22,13 +22,16 @@
         margin-top:-0.1rem;
         transition: transform 0.18s ease 0s;
       }
-      .vx-flexbox--item{
+      .vx-input--area{
         height:100%;
       }
       .vx-input--control{
         height:100%;
         padding:0 0.2rem;
         box-sizing:border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       input.vx-input--control{
         vertical-align: middle;
@@ -71,6 +74,11 @@
         .vx-arrow{
           transform:rotate(-135deg)!important;
           margin-top:0.1rem;
+        }
+      }
+      &.is-custom{
+        .vx-input--area{
+          height:auto;
         }
       }
     }

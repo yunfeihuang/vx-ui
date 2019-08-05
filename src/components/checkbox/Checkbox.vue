@@ -1,6 +1,6 @@
 <template>
   <label :class="classes">
-    <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange"/>
+    <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange(value, $event)"/>
     <template v-if="$slots['default']">
       <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
       <span class="vx-checkbox--text">
@@ -58,7 +58,7 @@ export default {
       return this.iconStyle || this.$parent.iconStyle
     },
     myChecked () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.value && this.$parent.value.indexOf) {
+      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
         if (this.$parent.value instanceof Array) {
           return this.$parent.value.indexOf(this.value) > -1
         } else {
@@ -90,9 +90,9 @@ export default {
     }
   },
   methods: {
-    handleChange (e) {
+    handleChange (value, e) {
       if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
-        this.$parent.handleChange(e, this.exclusive)
+        this.$parent.handleChange(e, value, this.exclusive)
       } else {
         this.$emit('update:checked', e.target.checked).$emit('change', e)
         this.offValue !== undefined && this.onValue !== undefined && this.$emit('input', e.target.checked ? this.onValue : this.offValue)

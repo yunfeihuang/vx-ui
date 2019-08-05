@@ -48,7 +48,7 @@
         <group>
           <cell :arrow="false">
             <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="openTop"/>
+            <x-switch slot="value" v-model="openLeft"/>
           </cell>
         </group>
       </div>
