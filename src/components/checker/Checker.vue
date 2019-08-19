@@ -8,7 +8,7 @@
       :disabled="disabled"
       @change="handleChange(value, $event)"
       />
-    <button v-if="$slots['default']" type="button" tabindex="-2">
+    <button class="vx-checker-button" v-if="$slots['default']" type="button" tabindex="-2">
       <span class="vx-checker-text"><slot></slot></span>
     </button>
     <slot v-else v-bind="{checked: myChecked, disabled: myDisabled}"></slot>

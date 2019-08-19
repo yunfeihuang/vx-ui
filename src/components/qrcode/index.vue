@@ -1,5 +1,5 @@
 <template>
-  <div class="qr-code" style="display:inline-block"></div>
+  <div class="vx-qrcode" style="display:inline-block"></div>
 </template>
 
 <script>
@@ -9,19 +9,13 @@ export default {
     text: {
       type: String,
       default: ''
-    },
-    height: {
-      type: Number,
-      default: 200
-    },
-    width: {
-      type: Number,
-      default: 200
     }
   },
   mounted () {
     import('qrcodejs2').then(QRCode => {
       this.$$qrcode = new QRCode(this.$el, {
+        height: this.$el.offsetHeight || 140,
+        width: this.$el.offsetWidth || 140,
         ...this.$props
       })
     })
