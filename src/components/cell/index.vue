@@ -13,14 +13,14 @@
         <slot name="icon"></slot>
       </div>
       <flexbox-item class="vx-cell--bd">
-        <slot v-if="!props.title" name="title"></slot>
+        <slot v-if="$slots['title']" name="title"></slot>
         <template v-else>
           {{props.title}}
         </template>
       </flexbox-item>
       <div class="vx-cell--ft">
         <div class="vx-cell--value">
-          <slot v-if="!props.value" name="value"></slot>
+          <slot v-if="$slots['value']" name="value"></slot>
           <template v-else>
             {{props.value}}
           </template>
