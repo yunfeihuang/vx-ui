@@ -69,14 +69,12 @@ export default {
         import('photoswipe/dist/photoswipe-ui-default').then(UI => {
           let options = Object.assign({
             history: true,
-            shareEl: false,
             tapToClose: true,
-            fullscreenEl: false,
-            zoomEl: true,
+            shareEl: false,
             index: index
           }, this.options)
           this.$el.style.display = 'block'
-          this.$$photoswipe = new PhotoSwipe(this.$el, null, this.list, options)
+          this.$$photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
           this.$$photoswipe.init()
           this.$$photoswipe.listen('close', () => {
             this.$emit('close')
