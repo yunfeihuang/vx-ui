@@ -1,18 +1,20 @@
 <template>
   <div class="vx-index-list">
-     <div class="vx-index-list--each" @scroll="handleScroll">
-        <div class="vx-index-list--group" v-for="(group, gIndex) in data" :key="gIndex">
-          <div class="vx-index-list--title">{{group.label}}</div>
+    <div class="vx-index-list--each" @scroll="handleScroll">
+      <template v-for="(group, gIndex) in data">
+        <div class="vx-index-list--title" :key="gIndex + 'title'">{{group.label}}</div>
+        <div class="vx-index-list--group" :key="gIndex + 'group'">
           <div class="vx-index-list--item" v-for="(item, index) in group.items" :key="index"  @click="handleClick(item.value)">
             <slot v-if="$slots.default"></slot>
             <template>{{item.label}}</template>
           </div>
         </div>
-     </div>
-     <div class="vx-index-list--nav">
-        <div v-for="(item, index) in navList" :key="index" :class="{'is-active': index === 0}" @click="handleGroup(index)">{{item}}</div>
-     </div>
-     <div class="vx-index-list--fixed">{{currentCharAt || ' '}}</div>
+      </template>
+    </div>
+    <div class="vx-index-list--nav">
+      <div v-for="(item, index) in navList" :key="index" :class="{'is-active': index === 0}" @click="handleGroup(index)">{{item}}</div>
+    </div>
+    <div class="vx-index-list--fixed">{{currentCharAt || ' '}}</div>
   </div>
 </template>
 <script>
@@ -71,7 +73,7 @@ export default {
       }
       let node = document.createElement('div')
       node.style.cssText = 'position:-webkit-sticky;position:sticky;'
-      this.$$supportSticky = (node.cssText || '').indexOf('sticky') > -1
+      this.$$supportSticky = (node.style.cssText || '').indexOf('sticky') > -1
       return this.$$supportSticky
     },
     activeNavItem (index) {

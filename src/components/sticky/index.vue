@@ -34,7 +34,7 @@ export default {
       }
       let node = document.createElement('div')
       node.style.cssText = 'position:-webkit-sticky;position:sticky;'
-      this.$$supportSticky = (node.cssText || '').indexOf('sticky') > -1
+      this.$$supportSticky = (node.style.cssText || '').indexOf('sticky') > -1
       return this.$$supportSticky
     },
     handleResize () {

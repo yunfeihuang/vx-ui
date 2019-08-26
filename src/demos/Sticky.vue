@@ -2,7 +2,7 @@
   <layout type="primary">
     <x-nav slot="header" back="/" title="Sticky-往上滚动Tab栏会固定位置"></x-nav>
     <x-body slot="body" v-if="slideIn">
-      <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px"/>
+      <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px;width:100%"/>
       <sticky>
         <tab :active.sync="active" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>

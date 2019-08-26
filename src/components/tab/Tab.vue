@@ -29,6 +29,8 @@ export default {
     computedStyle () {
       this.$nextTick(() => {
         let node = this.$el.querySelector('.vx-tab--underline')
+        let scrollerNode = this.$el.querySelector('.vx-tab--scroller')
+        let innerNode = this.$el.querySelector('.vx-tab--inner')
         let activeNode = this.$el.querySelector('.is-active')
         if (activeNode) {
           let activeWidth = activeNode.offsetWidth
@@ -48,7 +50,7 @@ export default {
           let prevElement = activeNode.previousElementSibling
           requestAnimationFrame(() => {
             node.style.cssText = `width: ${width}px;left:${left}px;display:block`
-            requestAnimationFrame(() => {
+            scrollerNode.offsetWidth < innerNode.offsetWidth && requestAnimationFrame(() => {
               nextElement && nextElement.scrollIntoView()
               prevElement && prevElement.scrollIntoView()
             })
