@@ -40,6 +40,8 @@ module.exports = {
       '@': resolve('src'),
       'assets': resolve('src/assets'),
       'components': resolve('src/components'),
+      'vx-ui/lib/style/theme': resolve('src/components/style/src/theme'),
+      'vx-ui/lib': resolve('src/components'),
       'styles': resolve('src/styles'),
       'utils':resolve('src/utils'),
       'demos':resolve('src/demos'),
@@ -99,7 +101,7 @@ module.exports = {
               var component = result[0].replace(/##:/g, '').replace(/:##/g, '')
               if (component) {
                 var text = fs.readFileSync(resolve('src/demos/'+component+'.vue'), 'utf8')
-                return source.replace(result[0], text)
+                return source.replace(result[0], text).replace(RegExp(`.scss`, 'g'), '.css')
               }
             }
             // do any thing
