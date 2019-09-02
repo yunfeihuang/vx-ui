@@ -69,7 +69,6 @@
           <cell title="Img" to="/demos/img"></cell>
           <cell title="Swiper" to="/demos/swiper"></cell>
           <cell title="Preview" to="/demos/preview"></cell>
-          <cell title="Qrcode" to="/demos/qrcode"></cell>
         </group>
         <group title="其他">
           <cell title="Badge" to="/demos/badge"></cell>
@@ -84,7 +83,6 @@
           <cell title="Swipeout" to="/demos/swipeout"></cell>
           <cell title="Spinner" to="/demos/spinner"></cell>
           <cell title="IndexList" to="/demos/indexlist"></cell>
-          <cell title="Marquee" to="/demos/marquee"></cell>
         </group>
       </x-body>
     </layout>
