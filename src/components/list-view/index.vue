@@ -19,6 +19,7 @@
 <script>
 import Spinner from '../spinner'
 export default {
+  name: 'ListView',
   componentName: 'ListView',
   components: {
     Spinner

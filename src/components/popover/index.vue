@@ -11,6 +11,7 @@
 import Vue from 'vue'
 import Popup from '../popup'
 export default {
+  name: 'Popover',
   componentName: 'Popover',
   props: {
     open: {

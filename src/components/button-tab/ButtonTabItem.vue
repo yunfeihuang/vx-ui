@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'ButtonTabItem',
   componentName: 'ButtonTabItem',
   props: {
     name: {

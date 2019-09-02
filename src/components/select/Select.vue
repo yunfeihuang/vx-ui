@@ -34,6 +34,7 @@ import { Flexbox, FlexboxItem } from '../flexbox'
 import Arrow from '../arrow'
 
 export default {
+  name: 'XSelect',
   componentName: 'XSelect',
   components: {
     Arrow,

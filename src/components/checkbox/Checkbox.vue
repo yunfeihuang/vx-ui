@@ -14,6 +14,7 @@
 <script>
 import { input } from 'utils/mixins'
 export default {
+  name: 'Checkbox',
   componentName: 'Checkbox',
   mixins: [input],
   props: {

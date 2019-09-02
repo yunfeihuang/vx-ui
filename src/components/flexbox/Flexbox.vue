@@ -22,6 +22,7 @@ let flexMap = {
 }
 
 export default {
+  name: 'Flexbox',
   componentName: 'Flexbox',
   props: {
     direction: {

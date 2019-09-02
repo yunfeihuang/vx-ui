@@ -52,6 +52,7 @@ let easeout = (A, B, rate, callback) => {
 }
 
 export default {
+  name: 'Picker',
   componentName: 'Picker',
   components: {
     RemToPx

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'XMarqueeItem',
   componentName: 'XMarqueeItem'
 }
 </script>

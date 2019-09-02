@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Ripple',
   componentName: 'Ripple',
   props: {
     color: {

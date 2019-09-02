@@ -22,6 +22,7 @@ import Spinner from '../spinner'
 import Overlay from '../overlay'
 
 export default {
+  name: 'Toast',
   componentName: 'Toast',
   components: {
     Popup,

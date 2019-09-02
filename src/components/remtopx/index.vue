@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: 'RemToPx',
   componentName: 'RemToPx',
   props: {
     width: {

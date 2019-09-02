@@ -24,6 +24,7 @@
 </template>
 <script>
 export default {
+  name: 'Arrow',
   componentName: 'Arrow',
   functional: true,
   props: {

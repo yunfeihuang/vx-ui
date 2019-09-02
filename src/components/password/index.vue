@@ -27,6 +27,7 @@
 import { input } from 'utils/mixins'
 import XInput from '../input'
 export default {
+  name: 'Password',
   componentName: 'Password',
   mixins: [input],
   props: {

@@ -12,6 +12,7 @@
 <script>
 import { tab } from 'utils/mixins'
 export default {
+  name: 'Tab',
   componentName: 'Tab',
   mixins: [tab],
   props: ['underlineWidth', 'minTabItemWidth'],

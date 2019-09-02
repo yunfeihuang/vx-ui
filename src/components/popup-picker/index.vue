@@ -25,6 +25,7 @@ import Popup from '../popup'
 import Picker from '../picker'
 
 export default {
+  name: 'PopupPicker',
   componentName: 'PopupPicker',
   components: {
     Popup,

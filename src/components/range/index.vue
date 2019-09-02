@@ -11,6 +11,7 @@
 <script>
 import { input } from 'utils/mixins'
 export default {
+  name: 'Range',
   componentName: 'Range',
   mixins: [input],
   props: {

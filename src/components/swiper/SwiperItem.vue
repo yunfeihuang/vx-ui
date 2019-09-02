@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'SwiperItem',
   componentName: 'SwiperItem'
 }
 </script>

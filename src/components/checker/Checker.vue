@@ -19,6 +19,7 @@
 import { input } from 'utils/mixins'
 
 export default {
+  name: 'Checker',
   componentName: 'Checker',
   mixins: [input],
   props: {

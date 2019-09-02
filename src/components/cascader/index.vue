@@ -18,6 +18,7 @@ import { input } from 'utils/mixins'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
+  name: 'Cascader',
   componentName: 'Cascader',
   components: {
     CascaderPopupPicker,

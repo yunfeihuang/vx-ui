@@ -17,6 +17,7 @@
 <script>
 let swipeoutVue = null
 export default {
+  name: 'Swipeout',
   componentName: 'Swipeout',
   props: {
     disabled: {

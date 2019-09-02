@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'FlexboxItem',
   componentName: 'FlexboxItem',
   props: {
     flex: {

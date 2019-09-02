@@ -45,6 +45,7 @@ import XInput from '../input'
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
+  name: 'Search',
   componentName: 'Search',
   mixins: [input, historyPush],
   components: {

@@ -23,6 +23,7 @@
 import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
+  name: 'XNav',
   componentName: 'XNav',
   components: {
     Flexbox,

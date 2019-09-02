@@ -7,6 +7,7 @@
 <script>
 import { tab } from 'utils/mixins'
 export default {
+  name: 'Tabbar',
   componentName: 'Tabbar',
   props: {
     ripple: {

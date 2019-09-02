@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'Group',
   componentName: 'Group',
   props: {
     title: {

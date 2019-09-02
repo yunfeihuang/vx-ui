@@ -7,6 +7,7 @@
 <script>
 import { tab } from 'utils/mixins'
 export default {
+  name: 'ButtonTab',
   componentName: 'ButtonTab',
   mixins: [tab],
   props: {

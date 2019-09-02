@@ -44,6 +44,7 @@ import Overlay from '../overlay'
 import Arrow from '../arrow'
 import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
+  name: 'Popup',
   componentName: 'Popup',
   components: {
     Overlay,

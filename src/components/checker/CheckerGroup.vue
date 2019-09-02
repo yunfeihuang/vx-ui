@@ -8,6 +8,7 @@
 import { input } from 'utils/mixins'
 
 export default {
+  name: 'CheckerGroup',
   componentName: 'CheckerGroup',
   mixins: [input],
   props: {

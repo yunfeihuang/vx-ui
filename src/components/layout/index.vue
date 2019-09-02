@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'Layout',
   componentName: 'Layout',
   props: {
     type: {

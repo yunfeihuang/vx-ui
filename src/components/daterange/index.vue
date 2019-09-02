@@ -19,6 +19,7 @@ import Vue from 'vue'
 import DaterangePicker from '../daterange-picker'
 import XInput from '../input'
 export default {
+  name: 'Daterange',
   componentName: 'Daterange',
   components: {
     XInput

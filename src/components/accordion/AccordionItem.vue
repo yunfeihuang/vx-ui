@@ -22,6 +22,7 @@
 <script>
 import Arrow from '../arrow'
 export default {
+  name: 'AccordionItem',
   componentName: 'AccordionItem',
   components: {
     Arrow

@@ -16,6 +16,7 @@
 <script>
 import { input } from 'utils/mixins'
 export default {
+  name: 'Rater',
   componentName: 'Rater',
   props: {
     ...input.props,

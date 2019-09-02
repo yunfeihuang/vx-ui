@@ -13,6 +13,7 @@
 <script>
 import { input } from 'utils/mixins'
 export default {
+  name: 'XSwitch',
   componentName: 'XSwitch',
   props: {
     ...input.props,

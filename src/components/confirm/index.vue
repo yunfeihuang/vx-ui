@@ -26,6 +26,7 @@
 import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
 export default {
+  name: 'Confirm',
   componentName: 'Confirm',
   mixins: [historyPush],
   components: {

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'TabItem',
   componentName: 'TabItem',
   props: {
     name: {

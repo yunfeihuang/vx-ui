@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'Message',
   componentName: 'Message',
   props: {
     type: {

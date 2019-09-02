@@ -13,6 +13,7 @@ import placeholder from './placeholder.svg'
 import loading from './loading.svg'
 const transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=='
 export default {
+  name: 'XImg',
   componentName: 'XImg',
   props: {
     src: {

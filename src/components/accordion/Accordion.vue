@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Accordion',
   componentName: 'Accordion',
   props: {
     mutex: {

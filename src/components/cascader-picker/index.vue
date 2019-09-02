@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'CascaderPicker',
   componentName: 'CascaderPicker',
   props: {
     value: {

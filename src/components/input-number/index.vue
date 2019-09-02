@@ -13,6 +13,7 @@
 <script>
 import { input } from 'utils/mixins'
 export default {
+  name: 'InputNumber',
   componentName: 'InputNumber',
   mixins: [input],
   props: {

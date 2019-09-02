@@ -11,6 +11,7 @@
 <script>
 import Ripple from '../ripple'
 export default {
+  name: 'TabbarItem',
   componentName: 'TabbarItem',
   components: {
     Ripple

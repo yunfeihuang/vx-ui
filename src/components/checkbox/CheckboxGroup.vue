@@ -9,6 +9,7 @@ import { input } from 'utils/mixins'
 import Checkbox from './Checkbox'
 
 export default {
+  name: 'CheckboxGroup',
   componentName: 'CheckboxGroup',
   mixins: [input],
   components: {

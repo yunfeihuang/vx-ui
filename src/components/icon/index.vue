@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'Icon',
   componentName: 'Icon'
 }
 </script>

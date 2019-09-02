@@ -8,6 +8,7 @@
 import { input } from 'utils/mixins'
 
 export default {
+  name: 'RadioGroup',
   componentName: 'RadioGroup',
   mixins: [input],
   props: {

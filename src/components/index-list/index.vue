@@ -19,6 +19,7 @@
 </template>
 <script>
 export default {
+  name: 'IndexList',
   componentName: 'IndexList',
   props: {
     data: {

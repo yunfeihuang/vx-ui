@@ -26,6 +26,7 @@ import {Flexbox, FlexboxItem} from '../flexbox'
 import CalendarRange from '../calendar-range'
 
 export default {
+  name: 'DateRangePicker',
   componentName: 'DateRangePicker',
   components: {
     Popup,

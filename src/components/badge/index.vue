@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'Badge',
   componentName: 'Badge',
   props: {
     text: {

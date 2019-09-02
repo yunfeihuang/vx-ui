@@ -54,6 +54,7 @@ import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 
 export default {
+  name: 'Calendar',
   componentName: 'Calendar',
   components: {
     Flexbox,

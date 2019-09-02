@@ -33,6 +33,7 @@ import Picker from '../picker'
 let now = new Date()
 
 export default {
+  name: 'DatetimePicker',
   componentName: 'DatetimePicker',
   components: {
     Popup,

@@ -163,7 +163,6 @@ let components = [
 const install = (Vue) => {
   components.map(component => {
     if (component && component.componentName) {
-      component.name = component.componentName
       Vue.component(component.componentName, component)
     }
   })

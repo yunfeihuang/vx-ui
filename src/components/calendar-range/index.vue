@@ -66,6 +66,7 @@ import {Tab, TabItem} from '../tab'
 import Calendar from '../calendar'
 
 export default {
+  name: 'CalendarRange',
   componentName: 'CalendarRange',
   components: {
     Flexbox,
