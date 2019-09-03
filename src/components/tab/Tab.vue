@@ -50,10 +50,21 @@ export default {
           let nextElement = activeNode.nextElementSibling
           let prevElement = activeNode.previousElementSibling
           requestAnimationFrame(() => {
+            let prevRect = null
+            let nextRect = null
             node.style.cssText = `width: ${width}px;left:${left}px;display:block`
-            scrollerNode.offsetWidth < innerNode.offsetWidth && requestAnimationFrame(() => {
-              nextElement && nextElement.scrollIntoView()
-              prevElement && prevElement.scrollIntoView()
+            let scrollerNodeWidth = scrollerNode.offsetWidth
+            innerNode.offsetWidth > scrollerNodeWidth && requestAnimationFrame(() => {
+              if (prevElement) {
+                prevRect = prevElement.getBoundingClientRect()
+              }
+              if (nextElement) {
+                nextRect = nextElement.getBoundingClientRect()
+              }
+              requestAnimationFrame(() => {
+                nextElement && nextRect && nextRect.left > scrollerNodeWidth - activeWidth / 2 && nextElement.scrollIntoView()
+                prevElement && prevRect && prevRect.left < 0 && prevElement.scrollIntoView()
+              })
             })
           })
         }

@@ -15,6 +15,10 @@
         display:none;
       }
     }
+    &--inner{
+      width:fit-content;
+      min-width: 100%;
+    }
     &:before{
       @include divider;
       z-index:1;
