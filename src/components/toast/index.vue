@@ -71,17 +71,19 @@ export default {
   },
   methods: {
     handleEnter (node) {
-      let width = node.children[0].offsetWidth + 4
-      let height = node.children[0].offsetHeight + 4
-      requestAnimationFrame(() => {
-        node.style.width = width + 'px'
-        node.style.height = height + 'px'
-      })
-      this.$$timer && clearTimeout(this.$$timer)
-      if (this.duration) {
-        this.$$timer = setTimeout(() => {
-          this.$emit('update:open', false).$emit('close')
-        }, this.duration)
+      if (node && node.children && node.children[0]) {
+        let width = node.children[0].offsetWidth + 4
+        let height = node.children[0].offsetHeight + 4
+        requestAnimationFrame(() => {
+          node.style.width = width + 'px'
+          node.style.height = height + 'px'
+        })
+        this.$$timer && clearTimeout(this.$$timer)
+        if (this.duration) {
+          this.$$timer = setTimeout(() => {
+            this.$emit('update:open', false).$emit('close')
+          }, this.duration)
+        }
       }
     },
     handleLeave () {
