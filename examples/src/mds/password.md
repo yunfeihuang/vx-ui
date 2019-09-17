@@ -7,7 +7,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array[String]  |   -       |    -    |
+| value     | 值   | String  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |

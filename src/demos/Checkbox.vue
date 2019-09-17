@@ -38,8 +38,8 @@
           value：{{value}}
         </div>
       </group>
-      <group title="CheckboxGroup-Reverse">
-        <checkbox-group direction="reverse" v-model="reverseValue">
+      <group title="CheckboxGroup-IconPosition">
+        <checkbox-group icon-position="right" v-model="reverseValue">
           <checkbox
              v-for="item in options"
             :disabled="item.disabled"

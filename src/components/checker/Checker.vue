@@ -1,6 +1,6 @@
 <template>
   <label :class="['vx-checker',{'is-disabled': myDisabled, 'is-checked': myChecked, 'is-icon': myIcon, 'is-block': myBlock}]">
-    <input
+    <input v-if="!fake"
       :type="myType"
       :checked="myChecked"
       :name="name"
@@ -34,6 +34,9 @@ export default {
       type: Boolean
     },
     exclusive: {
+      type: Boolean
+    },
+    fake: {
       type: Boolean
     }
   },

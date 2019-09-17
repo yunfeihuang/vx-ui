@@ -4,7 +4,7 @@
     <x-body slot="body" style="padding:15px;" v-if="slideIn">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
-          <popover :open="true">
+          <popover open>
             <x-button slot="trigger">left top</x-button>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>

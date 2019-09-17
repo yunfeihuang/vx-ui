@@ -59,7 +59,6 @@
           <x-select
             slot="value"
             v-model="value3"
-            :required="true"
             :max="2"
             placeholder="请选择">
             <x-option

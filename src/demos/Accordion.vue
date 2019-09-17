@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/" title="Accordion"></x-nav>
     <x-body slot="body">
       <accordion>
-        <accordion-item title="标题文字" :open="true">
+        <accordion-item title="标题文字" open>
           如果有一天我能够拥有一个大果园，
           我愿放下所有追求做个农夫去种田，
           每一个早晨我耕耘在绿野田园，
@@ -23,7 +23,7 @@
       <br />
       非互斥状态:mutex="false"
       <accordion :mutex="false">
-        <accordion-item title="标题文字" :open="true">
+        <accordion-item title="标题文字" open>
           如果有一天我能够拥有一个大果园，
           我愿放下所有追求做个农夫去种田，
           每一个早晨我耕耘在绿野田园，

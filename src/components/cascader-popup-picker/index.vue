@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" :fast-close="true" class="vx-cascader-popup-picker--wrapper">
+  <popup :open="open" :history="history" @close="handleClose" fast-close class="vx-cascader-popup-picker--wrapper">
     <div class="vx-cascader-popup-picker">
       <cascader-picker v-bind="$props" @change="handleChange" @update:label="handleLabel" />
     </div>

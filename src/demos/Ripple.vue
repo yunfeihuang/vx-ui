@@ -20,7 +20,7 @@
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
-      <tabbar :ripple="true" :active.sync="active">
+      <tabbar ripple :active.sync="active">
         <tabbar-item :name="0">
           <i style="font-size:0.5rem;margin: -0.1rem;">★</i>
           <small>主页</small>

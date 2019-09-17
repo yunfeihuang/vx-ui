@@ -3,7 +3,7 @@
     :class="{'is-focus': isFocus}"
     v-bind="$$props"
     :type="nativeType"
-    :arrow="true"
+    arrow
     readonly="readonly"
     v-on="$$listeners"
     @focusin.native="handleFocusIn"

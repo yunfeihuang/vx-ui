@@ -54,7 +54,8 @@
       .vx-popup--center{
         .vx-popup--body{
           background:#fff;
-          width:80%;
+          max-width:80%;
+          min-width:60%;
         }
       }
     }

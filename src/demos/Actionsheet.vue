@@ -30,7 +30,7 @@
         {{item.label}}
       </actionsheet-item>
     </actionsheet>
-    <actionsheet :open.sync="open2" :cancel="true" @action="handleAction" title="标题文字">
+    <actionsheet :open.sync="open2" cancel @action="handleAction" title="标题文字">
       <actionsheet-item
         v-for="item in options"
         :value="item.value"

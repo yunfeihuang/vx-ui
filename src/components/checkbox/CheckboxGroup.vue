@@ -24,9 +24,9 @@ export default {
       type: Boolean,
       default: true
     },
-    direction: {
+    iconPosition: {
       type: String,
-      default: 'normal'
+      default: 'left'
     },
     max: {
       type: Number,

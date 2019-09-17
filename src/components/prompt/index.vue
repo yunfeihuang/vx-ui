@@ -2,7 +2,7 @@
   <confirm
     :class="['vx-prompt', {'is-disabled': disabled}]"
     :open="open"
-    :cancel="true"
+    cancel
     :cancel-text="cancelText"
     :confirm-text="confirmText"
     :title="title"

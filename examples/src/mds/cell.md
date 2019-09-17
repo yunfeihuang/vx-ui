@@ -9,7 +9,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | arrow     | 是否显示右箭头   | Boolean  |   -       |    true    |
 | title     | 标题   | String  |   -       |    -    |
-| value     | 值   | String  |   -       |    -    |
+| value     | 值   | String,Number  |   -       |    -    |
 | to     | router-link to prop   | -  |   -       |    -    |
 
 #### Events

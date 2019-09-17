@@ -8,10 +8,11 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array[String]  |   -       |    -    |
+| value     | 值   | String,Number  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 | iconStyle     | 选中图标的风格   | String  |   checkbox       |    -    |
+| iconPosition     | 图标的位置   | Boolean  |   left,right       |    left    |
 | inline     | 行内样式   | Boolean  |   -       |    false    |
 
 #### Events
@@ -29,9 +30,13 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String  |   -       |    -    |
+| value     | 值   | String,Number  |   -       |    -    |
+| onValue     | 值   | String  |   -       |    -    |
+| offValue     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | inline     | 行内样式   | Boolean  |   -       |    false    |
+| iconStyle     | 选中图标的风格   | String  |   checkbox       |    -    |
+| iconPosition     | 图标的位置   | Boolean  |   left,right       |    left    |
 | exclusive     | 是否排他选项   | Boolean  |   -       |    false    |
 
 #### Events

@@ -3,7 +3,7 @@
     <x-nav slot="header" back="/" title="Tabbar"></x-nav>
     <x-body slot="body">
     </x-body>
-    <tabbar slot="footer" :ripple="true" :active.sync="active">
+    <tabbar slot="footer" ripple :active.sync="active">
       <tabbar-item name="home">
         <i style="font-size:0.5rem;margin: -0.1rem;">★</i>
         <small>主页</small>

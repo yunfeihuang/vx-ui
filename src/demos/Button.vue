@@ -29,7 +29,7 @@
       <br />
       <x-button type="primary" size="large" disabled>primary disabled</x-button>
       <br />
-      <x-button type="primary" size="large" :loading="true">primary</x-button>
+      <x-button type="primary" size="large" loading>primary</x-button>
       <br />
       <x-button size="large" ripple>default ripple</x-button>
       <br />

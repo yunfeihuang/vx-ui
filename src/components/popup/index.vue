@@ -6,34 +6,36 @@
       name="popup-fade"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-        <div v-show="open">
-          <slot name="inner"></slot>
-        </div>
+      <div v-show="open">
+        <slot name="inner"></slot>
+      </div>
     </transition>
     <transition
       v-else
       :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-      <flexbox v-show="open" :class="innerClasses" @click="handleClose2" :gutter="0" direction="column">
-        <flexbox class="vx-popup--nav" v-if="title && !showClose" align="center">
-          <button type="button" @click="close"><arrow direction="left" color="#666" size="0.24rem"/></button>
-          <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
-        </flexbox>
-        <flexbox v-else-if="showClose && full" align="center">
-          <flexbox-item class="vx-popup--nav-title">{{title}}</flexbox-item>
+      <div v-show="open" :class="innerClasses" @click="handleClose2">
+        <div class="vx-flexbox vx-flexbox--align-center vx-popup--nav" v-if="title && !showClose">
+          <button type="button" @click="close">
+            <arrow direction="left" color="#666" size="0.24rem"/>
+          </button>
+          <div class="vx-flexbox--item vx-popup--nav-title">{{title}}</div>
+        </div>
+        <div class="vx-flexbox vx-flexbox--align-center vx-popup--nav" v-else-if="showClose && full">
+          <div class="vx-flexbox--item vx-popup--nav-title">{{title}}</div>
           <i class="vx-popup--close" @click="close"></i>
-        </flexbox>
+        </div>
         <slot v-else name="header"></slot>
-        <div class="vx-popup--body" :class="bodyClass" v-if="direction === 'center'">
+        <div class="vx-popup--body" v-if="direction === 'center'">
           <i v-if="showClose" class="vx-popup--close" @click="close"></i>
           <slot :open="afterOpen"></slot>
         </div>
-        <div class="vx-popup--body" :class="bodyClass" v-else>
+        <div class="vx-popup--body is-flex" v-else>
           <slot :open="afterOpen"></slot>
         </div>
         <slot name="footer"></slot>
-      </flexbox>
+      </div>
     </transition>
   </div>
 </template>
@@ -42,15 +44,12 @@
 import { historyPush } from 'utils/mixins'
 import Overlay from '../overlay'
 import Arrow from '../arrow'
-import {Flexbox, FlexboxItem} from '../flexbox'
 export default {
   name: 'Popup',
   componentName: 'Popup',
   components: {
     Overlay,
-    Arrow,
-    Flexbox,
-    FlexboxItem
+    Arrow
   },
   mixins: [historyPush],
   props: {
@@ -77,9 +76,6 @@ export default {
     title: {
       type: String
     },
-    bodyClass: {
-      type: String
-    },
     overlayOpacity: {
       type: Number
     }
@@ -91,12 +87,7 @@ export default {
   },
   computed: {
     innerClasses () {
-      let array = ['vx-popup--inner', 'vx-popup--' + this.direction, this.full ? 'vx-full' : '']
-      if (this.direction === 'center') {
-        array.push('vx-flexbox vx-flexbox--align-center vx-flexbox--content-center')
-      } else {
-        array.push('vx-flexbox vx-flexbox--column')
-      }
+      let array = ['vx-popup--inner', 'vx-popup--' + this.direction, {'is-full': this.full}]
       return array
     }
   },

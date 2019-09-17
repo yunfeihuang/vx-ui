@@ -17,7 +17,7 @@
       </flexbox>
       <br />
       ### 列布局
-      <flexbox direction="column">
+      <flexbox direction="column" :gutter="0">
         <flexbox-item>1</flexbox-item>
         <flexbox-item style="margin:10px 0">2</flexbox-item>
         <flexbox-item>3</flexbox-item>

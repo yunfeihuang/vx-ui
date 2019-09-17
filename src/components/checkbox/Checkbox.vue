@@ -19,9 +19,9 @@ export default {
   mixins: [input],
   props: {
     ...input.props,
-    direction: {
+    iconPosition: {
       type: String,
-      default: 'normal'
+      default: 'left'
     },
     type: {
       type: String,
@@ -51,7 +51,7 @@ export default {
           'is-checked': this.myChecked,
           'is-disabled': this.myDisabled,
           'is-inline': this.myInline,
-          'vx-checkbox--reverse': this.direction === 'reverse' || this.$parent.direction === 'reverse'
+          'is-icon-position-right': this.iconPosition === 'right' || this.$parent.iconPosition === 'right'
         }
       ]
     },

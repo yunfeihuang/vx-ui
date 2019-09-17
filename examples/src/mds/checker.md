@@ -8,10 +8,11 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array[String]  |   -       |    -    |
+| value     | 值   | Array[String, Number]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
 | block     | 是否块布局模式   | Boolean  |   -       |    false    |
+| fake     | 是否伪选择项，用于“更多场景”   | Boolean  |   -       |    -    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 
 #### Events
@@ -29,7 +30,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String  |   -       |    -    |
+| value     | 值   | String, Number  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
 | block     | 是否块布局模式   | Boolean  |   -       |    false    |

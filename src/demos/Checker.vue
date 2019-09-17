@@ -6,13 +6,13 @@
         <div style="padding:20px 10px">
           <checker-group v-model="checkboxValue">
             <checker
-              v-for="item in options"
+              v-for="item in options.slice(0, more ? 2 : options.length)"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value"
               >
               {{item.label}}
-            </checker>
+            </checker><checker fake @click.native="more=!more">{{more ? '更多↓' : '收起 ↑'}}</checker>
           </checker-group>
           <br />
           value：{{checkboxValue}}
@@ -96,6 +96,7 @@ export default {
     return {
       checkboxValue: [1],
       radioValue: 1,
+      more: true,
       options: [
         {
           value: 1,

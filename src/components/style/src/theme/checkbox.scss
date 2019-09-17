@@ -53,7 +53,7 @@
         height:0.36rem;
       }
     }
-    &--reverse{
+    &.is-icon-position-right{
       .#{$css-prefix}checkbox{
         &--icon{
           right:0.15rem;

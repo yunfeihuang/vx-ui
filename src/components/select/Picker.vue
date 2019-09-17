@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :indoc="true" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
+  <popup :open="open" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
     <div slot="header" v-if="max != 1" :class="['vx-flexbox','vx-option-picker--header']">
       <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
       <button type="button" :class="['vx-flexbox--item','vx-option-picker--placeholder']">{{myTitle}}</button>

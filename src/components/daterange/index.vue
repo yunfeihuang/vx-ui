@@ -1,7 +1,7 @@
 <template>
   <x-input
     v-bind="$$props"
-    :arrow="true"
+    arrow
     :value="myValue"
     :type="nativeType"
     readonly="readonly"
