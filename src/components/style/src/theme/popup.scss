@@ -117,8 +117,10 @@
       }
     }
     &--nav{
-      height:0.9rem;
+      min-height:0.9rem;
       position:relative;
+      display:flex;
+      align-items:center;
       button{
         @include button;
         position: relative;
@@ -137,6 +139,7 @@
         font-size: $font-size-xl;
         @include lineClamp;
         text-align:left;
+        flex:auto;
       }
     }
   }

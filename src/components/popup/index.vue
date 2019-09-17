@@ -16,14 +16,14 @@
       @after-enter="handleEnter"
       @after-leave="handleLeave">
       <div v-show="open" :class="innerClasses" @click="handleClose2">
-        <div class="vx-flexbox vx-flexbox--align-center vx-popup--nav" v-if="title && !showClose">
+        <div class="vx-popup--nav" v-if="title && !showClose">
           <button type="button" @click="close">
             <arrow direction="left" color="#666" size="0.24rem"/>
           </button>
-          <div class="vx-flexbox--item vx-popup--nav-title">{{title}}</div>
+          <div class="vx-popup--nav-title">{{title}}</div>
         </div>
-        <div class="vx-flexbox vx-flexbox--align-center vx-popup--nav" v-else-if="showClose && full">
-          <div class="vx-flexbox--item vx-popup--nav-title">{{title}}</div>
+        <div class="vx-popup--nav" v-else-if="showClose && full">
+          <div class="vx-popup--nav-title">{{title}}</div>
           <i class="vx-popup--close" @click="close"></i>
         </div>
         <slot v-else name="header"></slot>
