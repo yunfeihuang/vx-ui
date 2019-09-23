@@ -3,15 +3,15 @@
 .#{$css-prefix}{
   &select{
     position:relative;
-    height:$size-height;
+    @include var-height();
     box-sizing:border-box;
     @include disabled();
     &--size{
       &-default{
-        height:$size-height;
+        @include var-height();
       }
       &-small{
-        height:$size-small-height;
+        @include var-height($box-size-height-small);
       }
     }
     &--inner{
@@ -64,7 +64,7 @@
     .#{$css-prefix}{
       &checkbox{
         &.is-checked{
-          // color:$color-primary;
+          // @include var-color();
         }
       }
     }
@@ -74,21 +74,21 @@
       background-position:bottom;
     }
     &--placeholder{
-      line-height:$size-height;
-      color:$color-sub;
+      @include var-height($box-size-height-default, 'line-height');
       @include lineClamp;
       @include button;
+      @include var-color($color-light);
     }
     &--cancel,&--confirm{
       @include button;
-      height:$size-height;
+      @include var-height();
       width: 1.5rem;
-      color:$color-sub;
+      @include var-color($color-assist);
     }
     &--confirm{
-      color:$color-primary;
+      @include var-color();
       &[disabled]{
-        color:$color-sub;
+        @include var-color($color-assist);
       }
     }
   }

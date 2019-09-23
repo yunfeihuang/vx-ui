@@ -9,7 +9,7 @@
       position:absolute;
       height:100%;
       width:100%;
-      @include scroll;
+      @include scroller;
     }
     &--nav{
       position:absolute;
@@ -21,7 +21,7 @@
       line-height:0.38rem;
       z-index:10;
       div.is-active{
-        color:$color-primary;
+        @include var-color();
         font-weight:bold;
       }
     }
@@ -38,7 +38,7 @@
     }
     &--title,&--fixed{
       padding:0.3rem 0.2rem 0.2rem 0.2rem;
-      background:$color-background;
+      @include var-background-color($color-background);
       position:sticky;
       top:0;
       z-index:10;

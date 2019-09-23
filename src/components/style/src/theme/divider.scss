@@ -5,5 +5,10 @@
     position:relative;
     @include divider;
     min-height:1px;
+    &.is-vertical{
+      min-height:0;
+      min-width:1px;
+      @include divider($color-divider, true);
+    }
   }
 }

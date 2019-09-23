@@ -4,10 +4,10 @@
   &input{
     &--size{
       &-default{
-        height:$size-height;
+        @include var-height();
       }
       &-small{
-        height:$size-small-height;
+        @include var-height($box-size-height-small);
       }
     }
     &--wrapper{
@@ -104,7 +104,7 @@
           height:1px;
           position:absolute;
           width:100%;
-          background:$color-assist;
+          background:rgba(153,153,153,.6);
           left:50%;
           top:50%;
           transform:translateX(-50%);
@@ -115,7 +115,7 @@
           width:1px;
           position:absolute;
           height:100%;
-          background:$color-assist;
+          background:rgba(153,153,153,.6);
           left:50%;
           top:50%;
           transform:translateY(-50%);

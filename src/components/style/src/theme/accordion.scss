@@ -7,8 +7,8 @@
     &--item{
       position:relative;
       &-hd{
-        font-size:$font-size-large;
-        line-height:$size-height;
+        @include var-font-size($font-size-large);
+        @include var-height($box-size-height-default, 'line-height');
         padding:0 0.16rem;
         position:relative;
         @include divider;

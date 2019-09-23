@@ -15,17 +15,17 @@
       background-position:bottom;
     }
     &--today{
-      line-height:$size-height;
+      @include var-height($box-size-height-default, 'line-height');
       @include lineClamp;
     }
     &--cancel,&--confirm,&--today{
       @include button;
-      height:$size-height;
+      @include var-height();
       width: 1.5rem;
-      color:$color-sub
+      @include var-color($color-assist);
     }
     &--confirm{
-      color:$color-primary;
+      @include var-color();
     }
   }
 }

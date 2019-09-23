@@ -47,7 +47,7 @@
         margin:0 0.08rem;
         box-shadow:0 0 2px rgba(0,0,0,0.1);
         &.active{
-          background:$color-primary;
+          @include var-background-color();
         }
       }
     }

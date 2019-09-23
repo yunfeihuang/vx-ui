@@ -2,7 +2,7 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &prompt{
-    input{
+    &--input{
       text-align:left;
     }
     &.is-disabled{

@@ -9,7 +9,7 @@
   }
   &--default{
     .vx-layout--flexbox{
-      background:$color-background;
+      @include var-background-color($color-background);
     }
   }
   &--primary{

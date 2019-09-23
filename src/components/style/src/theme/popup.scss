@@ -85,7 +85,7 @@
         height:1px;
         position:absolute;
         width:100%;
-        background:$color-assist;
+        background:rgba(153,153,153,.6);
         left:50%;
         top:50%;
         transform:translateX(-50%);
@@ -96,7 +96,7 @@
         width:1px;
         position:absolute;
         height:100%;
-        background:$color-assist;
+        background:rgba(153,153,153,.6);
         left:50%;
         top:50%;
         transform:translateY(-50%);
@@ -106,7 +106,7 @@
     &--body{
       position:relative;
       text-align:left;
-      @include scroll;
+      @include scroller;
       &.is-flex{
         flex:auto;
       }
@@ -136,7 +136,7 @@
         }
       }
       &-title{
-        font-size: $font-size-xl;
+        @include var-font-size($font-size-xl);
         @include lineClamp;
         text-align:left;
         flex:auto;

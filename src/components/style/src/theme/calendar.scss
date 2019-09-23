@@ -12,17 +12,27 @@
     }
     &--date{
       width:14.285714285714286%;
-      line-height:$size-height;
-      height:$size-height;
+      @include var-height($box-size-height-default, 'line-height');
+      @include var-height();
       &.is-start,&.is-end{
         color:#fff!important;
-        background:rgba($color-primary, 0.95);
+        @include var-background-color()
       }
       &.is-active{
-        background:rgba($color-primary,0.15);
+        position:relative;
+        &:before{
+          content: '';
+          height:100%;
+          width:100%;
+          position:absolute;
+          top:0;
+          left:0;
+          @include var-background-color();
+          opacity:0.15;
+        }
       }
       &.is-disabled{
-        color:$color-sub;
+        @include var-color($color-assist);
       }
       &.is-weekend{
         color:#F96903;
@@ -31,7 +41,7 @@
         }
       }
       &.is-today{
-        color:$color-primary
+        @include var-color();
       }
     }
     &--header{
@@ -41,7 +51,7 @@
       }
       button{
         @include button;
-        height:$size-height;
+        @include var-height();
         min-width:1rem;
         @include disabled;
       }

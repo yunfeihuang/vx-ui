@@ -6,19 +6,19 @@
       background:#fff;
       max-height: 80vh;
       text-align:center;
-      @include scroll;
+      @include scroller;
     }
     &--title{
       line-height:1rem;
       position:relative;
-      color:$color-sub;
       background-position: bottom;
-      font-size:$font-size-large;
+      @include var-font-size($font-size-large);
+      @include var-color($color-assist);
     }
     &--cancel{
       padding: 0.3rem 0;
       border-top:0.2rem solid #eee;
-      color:$color-sub;
+      @include var-color($color-assist);
     }
     &--item{
       padding:0.3rem 0;
@@ -30,7 +30,7 @@
       @include active;
       @include divider;
       &.is-active{
-        color:$color-primary;
+        @include var-color();
       }
       &.is-disabled{
         pointer-events: none;

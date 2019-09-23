@@ -1,6 +1,8 @@
 <template>
   <div class="vx-sidebar" onselectstart="return false;">
-    <slot></slot>
+    <div class="vx-sidebar--inner">
+      <slot></slot>
+    </div>
   </div>
 </template>
 

@@ -36,10 +36,11 @@
       @include lineClamp;
     }
     input:checked + &--icon{
-      color:$color-primary;
+      @include var-color();
       display:block;
       &:after{
-        border: 0.04rem solid $color-primary;
+        border: 0.04rem solid;
+        @include var-border-color();
         border-left: 0;
         border-top: 0;
         content: " ";

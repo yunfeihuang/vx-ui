@@ -1,50 +1,54 @@
 @import '../variable.scss';
-  @import '../mixins.scss';
-  .#{$css-prefix}{
-    &sidebar{
-      text-align:center;
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &sidebar{
+    text-align:center;
+    position:relative;
+    user-select: none;
+    &:after{
+      position:absolute;
+      content:'';
+      width:1px;
+      height:100%;
+      @include divider($color-divider, true);
+      right:0;
+      top:0;
+    }
+    &--inner{
+      height:100%;
       position:relative;
-      user-select: none;
-      @include scroll;
+      @include scroller;
       &::-webkit-scrollbar{
         display:none;
       }
+    }
+    &--item{
+      @include var-height($box-size-height-default, 'line-height');
+      position:relative;
+      @include lineClamp;
+      @include divider;
+      background-color:transparent;
       &:before{
         position:absolute;
         content:'';
         width:1px;
         height:100%;
-        @include divider-vertical;
+        @include divider($color-divider, true);
         right:0;
         left:auto;
       }
-      &--item{
-        line-height:$size-height;
+      &.is-active{
+        @include var-color();
+        background-color:#fff;
+        transition: color $transition-time $ease-in-out;
         position:relative;
-        @include lineClamp;
-        @include divider;
-        background-color:transparent;
+        position:sticky;
+        top:0;
+        z-index:1;
         &:before{
-          position:absolute;
-          content:'';
-          width:1px;
-          height:100%;
-          @include divider-vertical;
-          right:0;
-          left:auto;
-        }
-        &.is-active{
-          color:$color-primary;
-          background-color:#fff;
-          transition: color $transition-time $ease-in-out;
-          position:relative;
-          position:sticky;
-          top:0;
-          z-index:1;
-          &:before{
-            display:none;
-          }
+          display:none;
         }
       }
     }
   }
+}

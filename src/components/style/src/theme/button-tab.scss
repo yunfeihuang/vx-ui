@@ -7,12 +7,12 @@ $radius: 0.1rem;
     position:relative;
     user-select: none;
     line-height:0.8rem;
-    @include round-border($border-color-base,$radius);
+    @include border-round($color-border,$radius);
     &--size{
       &-small{
-        line-height:0.68rem;
+        @include var-height($box-size-height-small, 'line-height');
         margin: auto;
-        font-size: $font-size-default;
+        @include var-font-size();
       }
     }
     &--item{
@@ -20,9 +20,8 @@ $radius: 0.1rem;
       z-index:1;
       @include lineClamp;
       &.is-active{
-        background-color:$color-primary;
+        @include var-background-color();
         color:#fff;
-        // transition: all $transition-time $ease-in-out;
         &:before{
           display:none;
         }
@@ -40,7 +39,7 @@ $radius: 0.1rem;
       }
       &:before{
         content:'';
-        border-left:1px solid $border-color-base;
+        border-left:1px solid $color-border;
         transform:scaleX(0.5);
         height:100%;
         position:absolute;

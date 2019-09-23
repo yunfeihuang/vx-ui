@@ -5,21 +5,24 @@
     height:0.6rem;
     position:relative;
     background:#fff;
-    border:1px solid $border-color-base;
-    border-radius:$border-radius-base;
+    border:1px solid;
+    @include var-border-color($color-border);
+    @include var-border-radius();
     display: inline-block;
     @include disabled;
     button{
       @include button;
       width:0.6rem;
       height:100%;
-      color:$color-sub;
+      @include var-color($color-assist);
       height:100%;
       &:first-child{
-        border-right:1px solid $border-color-base;
+        border-right:1px solid;
+        @include var-border-color($color-border, 'border-right-color');
       }
       &:last-child{
-        border-left:1px solid $border-color-base;
+        border-left:1px solid;
+        @include var-border-color($color-border, 'border-left-color');
       }
     }
     &--add,&--reduce{
@@ -29,7 +32,7 @@
         height:1px;
         position:absolute;
         width:0.36rem;
-        background:$color-sub;
+        background:rgba(153,153,153,.6);
         left:50%;
         top:50%;
         margin-left:-0.18rem;
@@ -46,7 +49,7 @@
         width:1px;
         position:absolute;
         height:0.36rem;
-        background:$color-sub;
+        background:rgba(153,153,153,.6);
         left:50%;
         top:50%;
         margin-top:-0.18rem;

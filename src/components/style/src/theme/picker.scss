@@ -4,7 +4,7 @@ $height : 42;
 $unit: px;
 .#{$css-prefix}{
   &picker{
-    @include scroll;
+    @include scroller;
     touch-action: pan-y;
     height:#{$height*7}#{$unit};
     &::-webkit-scrollbar{
@@ -26,7 +26,7 @@ $unit: px;
       height:#{$height}#{$unit};
     }
     &.is-active{
-      // color:$color-primary;
+      // @include var-color();
     }
     &--indicator{
       &-top{

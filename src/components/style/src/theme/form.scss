@@ -48,8 +48,8 @@
         min-width:0;
       }
       &__error{
-        color:$color-error;
-        font-size: $font-size-small;
+        @include var-color($color-error);
+        @include var-font-size($font-size-small);
         padding-bottom:0.15rem;
         position: absolute;
         z-index:1;
@@ -64,7 +64,7 @@
       &.is-required{
         .el-form-item__label{
           &:before{
-            color:$color-error;
+            @include var-color($color-error);
             content:'*'
           }
         }

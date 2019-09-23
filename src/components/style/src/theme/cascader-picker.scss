@@ -4,23 +4,24 @@
   &cascader-picker{
     &--value{
       text-align:left;
-      @include scroll;
+      @include scroller;
       position: relative;
       &-item{
-        line-height:$size-height;
+        @include var-height($box-size-height-default, 'line-height');
         margin-left:0.2rem;
         display:inline-block;
         position:relative;
         &.is-active{
-          border-bottom-color:$color-primary;
-          color:$color-primary;
+          @include var-border-color();
+          @include var-color();
           &:after{
             width:0.24rem;
             position:absolute;
             margin-left:-0.12rem;
             bottom:0;
             left:50%;
-            border-bottom:2px solid $color-primary;
+            @include var-border-color();
+            border-bottom:2px solid;
             content:'';
           }
         }
@@ -33,27 +34,26 @@
       @include divider;
     }
     &--panel{
-        @include scroll;
-        text-align:left;
-        position:absolute;
-        height:100%;
-        width:100%;
-        transform: translate3d(100%,0,0);
-        transition: transform 0.2s ease 0s;
-        backface-visibility: hidden;
-        perspective: 1000;
-      }
+      @include scroller;
+      text-align:left;
+      position:absolute;
+      height:100%;
+      width:100%;
+      transform: translate3d(100%,0,0);
+      transition: transform 0.2s ease 0s;
+      backface-visibility: hidden;
+      perspective: 1000;
+    }
     &--item{
       @include active;
-      line-height:$size-height;
-      height:$size-height;
+      @include var-height($box-size-height-default, 'line-height');
       padding:0 0.16rem;
       position:relative;
       @include lineClamp;
       @include divider;
       background-color:transparent;
       &.is-active{
-        color:$color-primary;
+        @include var-color();
       }
       @include disabled;
       &:first-child{

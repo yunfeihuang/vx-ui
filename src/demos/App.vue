@@ -22,6 +22,7 @@
           </flexbox>
         </div>
         <group title="basic">
+          <cell title="Theme" to="/demos/theme"></cell>
           <cell title="Button" to="/demos/button"></cell>
           <cell title="Layout" to="/demos/layout"></cell>
           <cell title="Flexbox" to="/demos/flexbox"></cell>
@@ -99,7 +100,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
   .friend-link{
     width:200px;
@@ -117,6 +117,9 @@ export default {
     }
   }
   .demo-app{
+    max-width:100vw;
+    max-height:100vh;
+    overflow:hidden;
     .react-version{
       text-align:center;
     }

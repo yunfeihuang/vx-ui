@@ -3,11 +3,11 @@
 .#{$css-prefix}{
   &btn{
     @include button;
-    height:$size-height;
+    @include var-height();
     position:relative;
     box-sizing:border-box;
     background-color:#fff;
-    border-radius:$border-radius-base;
+    @include var-border-radius();
     font-size: inherit;
     cursor: default;
     &.is-disabled{
@@ -20,7 +20,7 @@
       }
     }
     &.is-round{
-      border-radius: $size-height;
+      border-radius: $box-size-height-default;
     }
     &--size{
       &-large{
@@ -28,13 +28,13 @@
         display:block;
       }
       &-small{
-        height:0.68rem;
+        @include var-height($box-size-height-small);
         padding: 0 0.05rem;
       }
     }
     &--default{
       &.is-plain{
-        @include round-border;
+        @include border-round;
       }
     }
     &:active{
@@ -46,41 +46,41 @@
       }
     }
     &--primary{
-      background-color:$color-primary;
+      @include var-background-color();
       color:#fff;
       &.is-plain{
         background-color:#fff;
-        color:$color-primary;
-        @include round-border($color-primary);
+        @include var-color();
+        @include border-round($color-primary);
       }
     }
     &--warning{
-      background-color:$color-warning;
+      @include var-background-color($color-warning);
       color:#fff;
       &.is-plain{
         background-color:#fff;
-        color:$color-warning;
-        @include round-border($color-warning);
+        @include var-color($color-warning);
+        @include border-round($color-warning);
       }
       .vx-spinner{
-        border-top-color:$color-warning;
+        @include var-border-color($color-warning,'border-top-color');
       }
     }
     &--danger{
-      background-color:$color-danger;
+      @include var-background-color($color-danger);
       color:#fff;
       border:0;
       &.is-plain{
         background-color:#fff;
-        color:$color-danger;
-        @include round-border($color-danger);
+        @include var-color($color-danger);
+        @include border-round($color-danger);
       }
       .vx-spinner{
-        border-top-color:$color-danger;
+        @include var-border-color($color-danger,'border-top-color');
       }
     }
     &--link{
-      color:$color-primary;
+      @include var-color();
       border-radius:0;
       height:auto;
       background: transparent;

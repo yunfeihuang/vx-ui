@@ -24,13 +24,13 @@
         }
       }
       &.is-active{
-        color:$color-primary;
+        @include var-color();
         transition: color $transition-time $ease-in-out;
       }
       i{
         display:block;
         font-style:normal;
-        font-size: $font-size-large;
+        @include var-font-size($font-size-large);
       }
       small{
         font-size:0.2rem;

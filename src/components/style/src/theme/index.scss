@@ -58,21 +58,47 @@
 @import './calendar-range.scss';
 @import './cascader.scss';
 @import './cascader-picker.scss';
+
 html {
   touch-action: manipulation;//避免浏览器300ms延时问题
 }
 body{
-  font-size:$font-size-default;
+  @include var-font-size();
   -webkit-tap-highlight-color:transparent;
   tap-highlight-color:transparent;
 }
-input::-webkit-input-placeholder {
-	color: $color-placeholder;
+::-webkit-input-placeholder {
+	color: $color-light;
 }
 a,button,input,textearea,select{
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .vx-scroller {
   position:relative;
-  @include scroll;
+  @include scroller;
+}
+
+@each $key, $val in $colors {
+  .vx-#{$key}{
+    @include var-color($val);
+  }
+  .vx-background-#{$key}{
+    @include var-background-color($val);
+  }
+  .vx-border-#{$key}{
+    @include var-border-color($val);
+  }
+}
+@each $key, $val in $font-sizes {
+  .vx-#{$key}{
+    @include var-font-size($val);
+  }
+}
+@each $key, $val in $box-size-heights {
+  .vx-#{$key}{
+    @include var-height($val);
+  }
+  .vx-line-#{$key}{
+    @include var-height($val, 'line-height');
+  }
 }

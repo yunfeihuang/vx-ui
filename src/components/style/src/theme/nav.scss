@@ -5,7 +5,7 @@
     background:#fff;
     position:relative;
     &--inner{
-      height:$size-height;
+      @include var-height();
     }
     &--default{
       &:after{
@@ -23,7 +23,7 @@
     &--primary{
       .vx-nav--inner{
         color:#fff;
-        background-color:$color-primary;
+        @include var-background-color();
       }
     }
     .btn-pull{
@@ -53,7 +53,7 @@
       }
     }
     &--title{
-      font-size:$font-size-xl;
+      @include var-font-size($font-size-xl);
       @include lineClamp;
       &-center{
         text-align:center;

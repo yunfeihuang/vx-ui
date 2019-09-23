@@ -21,7 +21,8 @@
         transition: all 0.4s $ease-in-out 0s;
         width:100%;
         position: relative;
-        border:1px solid $border-color-base;
+        border:1px solid;
+        @include var-border-color($color-border);
         box-sizing: border-box;
         &:before{
           content:'';
@@ -47,10 +48,11 @@
         margin: 0;
         &:checked+button{
           box-shadow:0 0 0 1.2rem $color-primary inset;
-          border-color:$color-primary;
+          box-shadow:0 0 0 1.2rem var(--vx-color-primary, $color-primary) inset;
+          @include var-border-color();
           &:before{
             left:40%;
-            border-color:$color-primary;
+            @include var-border-color();
           }
         }
       }

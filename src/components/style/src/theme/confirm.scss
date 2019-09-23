@@ -30,14 +30,14 @@
     }
     &--title{
       margin:0.36rem;
-      font-size:$font-size-large;
+      @include var-font-size($font-size-large);
       @include lineClamp;
     }
     &--body{
       max-height: 60vh;
       margin:0.36rem;
       position:relative;
-      @include scroll;
+      @include scroller;
     }
     &--footer{
       position:relative;
@@ -45,24 +45,24 @@
       button, a{
         @include button;
         @include active;
-        height:$size-height;
+        @include var-height();
         user-select:none;
         position:relative;
         font-size:inherit;
         line-height:100%;
-        color:$color-sub;
+        @include var-color($color-assist);
         &+button,&+a{
-          @include divider-vertical();
+          @include divider($color-divider, true);
         }
         &.is-cancel-light{
-          color:$color-primary;
+          @include var-color();
         }
         &:last-child{
-          color:$color-primary;
+          @include var-color();
         }
       }
       a{
-        line-height:$size-height;
+        @include var-height($box-size-height-default, 'line-height');
       }
     }
     &--table{

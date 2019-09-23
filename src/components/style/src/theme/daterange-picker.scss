@@ -10,12 +10,12 @@
     }
     &--cancel,&--clearable, &--confirm{
       @include button;
-      height: $size-height!important;
+      @include var-height();
       width: 1.5rem;
-      color:$color-sub
+      @include var-color($color-assist);
     }
     &--confirm{
-      color:$color-primary;
+      @include var-color();
     }
     &--footer{
       position:relative;

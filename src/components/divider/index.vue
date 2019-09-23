@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['vx-divider', data.staticClass, data.class]"
+  <div :class="['vx-divider', {'is-vertical': props.vertical}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: 'Divider',
-  componentName: 'Divider'
+  componentName: 'Divider',
+  props: {
+    vertical: {
+      type: Boolean
+    }
+  }
 }
 </script>

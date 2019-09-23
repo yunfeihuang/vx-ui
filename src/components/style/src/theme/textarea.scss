@@ -30,8 +30,8 @@
     }
     &--inner{
       position:relative;
-      height:$size-height;
-      min-height: $size-height;
+      @include var-height();
+      @include var-height($box-size-height-default, 'min-height');
       line-height: 0.32rem;
       textarea,.#{$css-prefix}textarea--shadow{
         padding:0.26rem 0.15rem;
@@ -73,10 +73,10 @@
         right: 0.1rem;
         bottom: 0.1rem;
         font-style:normal;
-        font-size:$font-size-small;
+        @include var-font-size($font-size-small);
         line-height:1;
         padding:0;
-        color:$color-sub;
+        @include var-color($color-light);
       }
     }
   }

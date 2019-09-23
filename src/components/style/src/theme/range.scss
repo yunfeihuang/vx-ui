@@ -4,7 +4,7 @@
   &range{
     @include disabled;
     &--wrapper{
-      height:$size-height;
+      @include var-height();
       position:relative;
       min-width:2rem;
       touch-action: pan-y;

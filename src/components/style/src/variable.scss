@@ -3,31 +3,89 @@ $css-prefix             : vx-;
 
 // color
 $color-black            : #333;   
+$color-assist           : rgba($color-black,0.55);
+$color-light            : rgba(0,0,0,0.35);
+$color-border           : rgb(229, 229, 229);
+$color-divider          : #ddd;
 $color-primary          : #3399ff;
 $color-error            : #f56c6c;
-$color-sub              : #999;
-$color-assist             : rgba($color-sub,0.6);
-$color-divider          : #ddd;
 $color-warning          : #ff9900;
 $color-danger           : $color-error;
 $color-star             : #f5a623;
-$color-placeholder      : rgba(0,0,0,0.4);
 $color-background       : #f7f7f7;
+$colors : (
+  color-black: $color-black,
+  color-assist: $color-assist,
+  color-light: $color-light,
+  color-divider: $color-divider,
+  color-border: $color-border,
+  color-primary: $color-primary,
+  color-error: $color-error,
+  color-warning: $color-warning,
+  color-danger: $color-danger,
+  color-background: $color-background
+);
 
 $font-size-default      : 0.28rem;
 $font-size-small        : 0.24rem;
 $font-size-large        : 0.32rem;
 $font-size-xl           : 0.38rem;
+$font-sizes: (
+  font-size-default: $font-size-default,
+  font-size-small: $font-size-small,
+  font-size-large: $font-size-large,
+  font-size-xl: $font-size-xl
+);
+
+$box-size-height-default: 0.92rem;
+$box-size-height-small  : 0.68rem;
+$box-size-heights: (
+  box-size-height-default: $box-size-height-default,
+  box-size-height-small: $box-size-height-small
+);
 
 // Border color
-$border-color-base      : rgb(229, 229, 229);  // outside
-$border-radius-base     : 6px;
+$border-radius     : 0.14rem;
+$border-radius-dpr2     : $border-radius * 2;
+$border-radius-dpr3     : $border-radius * 3;
+$border-radius-dpr4     : $border-radius * 4;
+$border-radius-dpr5     : $border-radius * 5;
+$border-radius-dpr6     : $border-radius * 6;
+$border-radius-dprs: (
+  2: $border-radius-dpr2,
+  3: $border-radius-dpr3,
+  4: $border-radius-dpr4,
+  5: $border-radius-dpr5,
+  6: $border-radius-dpr6
+);
 
 // Animation
 $animation-time         : .3s;
 $transition-time        : .2s;
 $ease-in-out            : ease-in-out;
 
-// size
-$size-height            : 0.92rem;
-$size-small-height      : 0.68rem;
+:export {
+  color: {
+    black: $color-black;
+    assist: $color-assist;
+    light: $color-light;
+    primary: $color-primary;
+    warning: $color-warning;
+    danger: $color-danger;
+    error: $color-error;
+    background: $color-background;
+    border: $color-border;
+    divider: $color-divider;
+  };
+  font-size: {
+    default: $font-size-default;
+    small: $font-size-small;
+    large: $font-size-large;
+    xl: $font-size-xl;
+  };
+  box-size-height: {
+    default: $box-size-height-default;
+    small: $box-size-height-small;
+  };
+  border-radius: $border-radius;
+}
