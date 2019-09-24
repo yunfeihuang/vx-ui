@@ -30,17 +30,21 @@ $resolution : 2,3,4,5,6;
   }
 }
 @mixin var-border-radius ($value: $border-radius, $resolution: false) {
-  border-radius: $value;
-  border-radius: var(--vx-border-radius, $value);
-  @if $resolution == true {
-    @each $key, $val in $border-radius-dprs {
-      @media screen and (resolution: #{$key}dppx) {
-        border-radius: var(--vx-border-radius-dpr#{$key}, $border-radius*$key);
+  @if $value {
+    @if $value != 0 {
+      border-radius: $value;
+      border-radius: var(--vx-border-radius, $value);
+      @if $resolution == true {
+        @each $key, $val in $border-radius-dprs {
+          @media screen and (resolution: #{$key}dppx) {
+            border-radius: var(--vx-border-radius-dpr#{$key}, $border-radius*$key);
+          }
+        }
+      }@else if $resolution{
+        @media screen and (resolution: #{$resolution}dppx) {
+          border-radius: var(--vx-border-radius-dpr#{$resolution}, $border-radius*$resolution);
+        }
       }
-    }
-  }@else if $resolution{
-    @media screen and (resolution: #{$resolution}dppx) {
-      border-radius: var(--vx-border-radius-dpr#{$resolution}, $border-radius*$resolution);
     }
   }
 }
