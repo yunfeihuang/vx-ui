@@ -15,7 +15,10 @@ gulp.task('compile', function() {
     .pipe(cssmin())
     .pipe(gulp.dest('../../../lib/style/theme'));
 });
-
+gulp.task('copythemesrc', function() {
+  return gulp.src('./src/**')
+    .pipe(gulp.dest('../../../lib/style/src'));
+});
 /*
 gulp.task('copyfont', function() {
   return gulp.src('./src/iconfont/**')
@@ -24,4 +27,4 @@ gulp.task('copyfont', function() {
 });
 */
 
-gulp.task('build', ['compile']);
+gulp.task('build', ['compile', 'copythemesrc']);

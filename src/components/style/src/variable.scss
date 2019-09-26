@@ -11,6 +11,7 @@ $color-primary          : #3399ff;
 $color-error            : #f56c6c;
 $color-warning          : #ff9900;
 $color-danger           : $color-error;
+$color-touch-active     : rgba(0,0,0,0.1);
 $color-star             : #f5a623;
 $color-background       : #f7f7f7;
 $colors : (
@@ -76,6 +77,7 @@ $ease-in-out            : ease-in-out;
     background: $color-background;
     border: $color-border;
     divider: $color-divider;
+    touch-active: $color-touch-active;
   };
   font-size: {
     default: $font-size-default;

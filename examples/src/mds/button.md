@@ -9,10 +9,11 @@
 |---------- |-------- |---------- |------------- |--------- |
 | type     | 按钮类型   | String  |   default,primary,dashed,warning       |    default    |
 | size     | 按钮大小型   | String  |   default,small,large       |    default    |
-| disabled     | 是否禁用   | Boolean  |   -       |    false    |
-| ripple     | 是否有波纹特效   | Boolean  |   -       |    false    |
-| loading     | 是否加载状态   | Boolean  |   -       |    false    |
-| plain     | 是否plain风格   | Boolean  |   -       |    false    |
+| disabled     | 是否禁用   | Boolean  |   -       |    -    |
+| ripple     | 是否有波纹特效   | Boolean  |   -       |    -    |
+| loading     | 是否加载状态   | Boolean  |   -       |    -    |
+| plain     | 是否plain风格   | Boolean  |   -       |    -    |
+| square     | 是否方块无圆角   | Boolean  |   -       |    -    |
 | nativeType     | 原生type类型   | -  |   -       |    button    |
 | -     | -   | -  |   -       |    -    |
 

@@ -1,0 +1,73 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &list-item{
+    background-color:#fff;
+    margin:0.25rem 0;
+    display:block;
+    line-height:1.4;
+    &.is-divider{
+      margin:0;
+      >.vx-divider{
+        display:none;
+      }
+      &+.is-divider{
+        >.vx-divider{
+          display:block;
+        }
+      }
+    }
+    &--prepend,&--append,&--append-action,&--inner{
+      padding: 0.2rem;
+    }
+    &--inner{
+      &.is-arrow{
+        position:relative;
+        &:after{
+          content: "";
+          display: inline-block;
+          width: .2rem;
+          position: absolute;
+          top: 50%;
+          right: .3rem;
+          height: .2rem;
+          margin-top: -2px;
+          border-top: 1px solid #999;
+          border-right: 1px solid #999;
+          transform: rotate(45deg) translateY(-50%);
+        }
+      }
+      &.is-action{
+        padding-right:0;
+      }
+    }
+    &--image{
+      width: 32vw;
+      object-fit: contain;
+    }
+    &--append-action{
+      padding: 0.15rem 0.2rem;
+      button{
+        min-width:1.2rem;
+        height:0.58rem;
+        margin-left:0.2rem;
+        &.vx-btn--link{
+          margin-left:0;
+        }
+      }
+    }
+    &--content{
+      line-height:1.75;
+    }
+    &--action{
+      background:#fff;
+      position:relative;
+      z-index:10;
+      padding:0.2rem;
+      button{
+        height:0.58rem;
+        min-width:1rem;
+      }
+    }
+  }
+}

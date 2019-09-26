@@ -11,6 +11,7 @@
     font-size: inherit;
     cursor: default;
     &.is-disabled{
+      pointer-events: none;
       &:before{
         @include _disabled;
         background:#fff;
@@ -19,8 +20,17 @@
         @include disabled;
       }
     }
+    &.is-loading{
+      pointer-events: none;
+    }
     &.is-round{
       border-radius: $box-size-height-default;
+    }
+    &.is-square{
+      border-radius:0;
+      &:before{
+        border-radius:0!important;
+      }
     }
     &--size{
       &-large{

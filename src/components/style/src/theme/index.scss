@@ -58,6 +58,8 @@
 @import './calendar-range.scss';
 @import './cascader.scss';
 @import './cascader-picker.scss';
+@import './list-item.scss';
+@import './submit-bar.scss';
 
 html {
   touch-action: manipulation;//避免浏览器300ms延时问题
@@ -101,4 +103,7 @@ a,button,input,textearea,select{
   .vx-line-#{$key}{
     @include var-height($val, 'line-height');
   }
+}
+.vx-border-radius {
+  @include var-border-radius()
 }

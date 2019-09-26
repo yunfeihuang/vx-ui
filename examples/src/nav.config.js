@@ -31,6 +31,14 @@ export default [
         title: 'Cell单元块'
       },
       {
+        path: '/listitem',
+        title: 'ListItem列表项'
+      },
+      {
+        path: '/submitbar',
+        title: 'SubmitBar底部提交'
+      },
+      {
         path: '/divider',
         title: 'Divider分割线'
       },

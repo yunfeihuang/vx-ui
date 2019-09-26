@@ -1,0 +1,35 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &submit-bar{
+    background-color:#fff;
+    &.is-sticky{
+      position: sticky;
+      bottom:0;
+    }
+    &--inner{
+      >button{
+        border-radius:0;
+        min-width:2.2rem;
+      }
+      &.is-buttons{
+        >button{
+          flex:1;
+        }
+        .vx-btn.is-plain{
+          background:transparent;
+          &:before{
+            display:none;
+          }
+        }
+      }
+    }
+    &--content{
+      padding-left:0.2rem;
+      white-space: nowrap;
+      .vx-checkbox{
+        margin-right:0;
+      }
+    }
+  }
+}

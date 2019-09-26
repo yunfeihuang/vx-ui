@@ -56,6 +56,8 @@ import CalendarRange from './calendar-range'
 import Cascader from './cascader'
 import CascaderPicker from './cascader-picker'
 import CascaderPopupPicker from './cascader-popup-picker'
+import ListItem from './list-item'
+import SubmitBar from './submit-bar'
 
 if (!window.requestAnimationFrame) {
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
@@ -157,7 +159,9 @@ let components = [
   CalendarRange,
   Cascader,
   CascaderPicker,
-  CascaderPopupPicker
+  CascaderPopupPicker,
+  ListItem,
+  SubmitBar
 ]
 
 const install = (Vue) => {
@@ -546,7 +550,9 @@ export default {
   CalendarRange,
   Cascader,
   CascaderPicker,
-  CascaderPopupPicker
+  CascaderPopupPicker,
+  ListItem,
+  SubmitBar
 }
 
 export {
@@ -623,5 +629,7 @@ export {
   CalendarRange,
   Cascader,
   CascaderPicker,
-  CascaderPopupPicker
+  CascaderPopupPicker,
+  ListItem,
+  SubmitBar
 }

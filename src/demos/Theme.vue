@@ -52,6 +52,16 @@
         </cell>
         -->
       </group>
+      <group title="主题相关的类">
+        <div style="padding:0.2rem;line-height:1.4">
+          <div v-for="(item,index) in themeClasses" :key="index">
+            {{item}}
+          </div>
+        </div>
+      </group>
+      <group v-if="variableHTML" title="生成的css variables代码">
+        <pre v-html="variableHTML"></pre>
+      </group>
     </x-body>
   </layout>
 </template>
@@ -70,45 +80,57 @@ let fontSizeScale = {
   large: variable['font-size-large'] / variable['font-size-default'],
   xl: variable['font-size-xl'] / variable['font-size-default']
 }
+/*
 let boxSizeHeightScale = {
   small: variable['box-size-height-small'] / variable['box-size-height-default']
 }
+*/
 export default {
+  computed: {
+    themeClasses () {
+      let result = []
+      Object.keys(this.variable).forEach(item => {
+        if (item.indexOf('color-') > -1 || item.indexOf('font-size') > -1) {
+          result.push(`.vx-${item}`)
+        }
+      })
+      return result
+    }
+  },
   watch: {
     variable: {
       deep: true,
       handler (value) {
-        document.querySelector('#theme-style').innerHTML = `
-          :root{
-            --vx-color-black: ${value['color-black']};
-            --vx-color-assist: ${value['color-assist']};
-            --vx-color-light: ${value['color-light']};
-            --vx-color-primary: ${value['color-primary']};
-            --vx-color-warning: ${value['color-warning']};
-            --vx-color-danger: ${value['color-danger']};
-            --vx-color-error: ${value['color-error']};
-            --vx-color-border: ${value['color-border']};
-            --vx-color-divider: ${value['color-divider']};
-            --vx-color-background: ${value['color-background']};
-            --vx-font-size-default: ${value['font-size-default']}rem;
-            --vx-font-size-small: ${value['font-size-default'] * fontSizeScale['small']}rem;
-            --vx-font-size-large: ${value['font-size-default'] * fontSizeScale['large']}rem;
-            --vx-font-size-xl: ${value['font-size-default'] * fontSizeScale['xl']}rem;
-            --vx-border-radius: ${value['border-radius']}rem;
-            --vx-border-radius-dpr2: ${value['border-radius'] * 2}rem;
-            --vx-border-radius-dpr3: ${value['border-radius'] * 3}rem;
-            --vx-border-radius-dpr4: ${value['border-radius'] * 4}rem;
-            --vx-border-radius-dpr5: ${value['border-radius'] * 5}rem;
-            --vx-border-radius-dpr6: ${value['border-radius'] * 6}rem;
-            --vx-box-size-height-default: ${value['box-size-height-default']}rem;
-            --vx-box-size-height-small: ${value['box-size-height-default'] * boxSizeHeightScale['small']}rem;
-          }
-        `
+        document.querySelector('#theme-style').innerHTML = this.variableHTML = `
+:root{
+  --vx-color-black: ${value['color-black']};
+  --vx-color-assist: ${value['color-assist']};
+  --vx-color-light: ${value['color-light']};
+  --vx-color-primary: ${value['color-primary']};
+  --vx-color-warning: ${value['color-warning']};
+  --vx-color-danger: ${value['color-danger']};
+  --vx-color-error: ${value['color-error']};
+  --vx-color-border: ${value['color-border']};
+  --vx-color-divider: ${value['color-divider']};
+  --vx-color-background: ${value['color-background']};
+  --vx-font-size-default: ${value['font-size-default']}rem;
+  --vx-font-size-small: ${value['font-size-default'] * fontSizeScale['small']}rem;
+  --vx-font-size-large: ${value['font-size-default'] * fontSizeScale['large']}rem;
+  --vx-font-size-xl: ${value['font-size-default'] * fontSizeScale['xl']}rem;
+  --vx-border-radius: ${value['border-radius']}rem;
+  --vx-border-radius-dpr2: ${value['border-radius'] * 2}rem;
+  --vx-border-radius-dpr3: ${value['border-radius'] * 3}rem;
+  --vx-border-radius-dpr4: ${value['border-radius'] * 4}rem;
+  --vx-border-radius-dpr5: ${value['border-radius'] * 5}rem;
+  --vx-border-radius-dpr6: ${value['border-radius'] * 6}rem;
+}
+`
       }
     }
   },
   data () {
     return {
+      variableHTML: '',
       variable
     }
   }

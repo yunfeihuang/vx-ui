@@ -1,5 +1,6 @@
 <template>
-  <div class="vx-list-view" @scroll="handleScroll($event)"
+  <div class="vx-list-view"
+    @scroll="handleScroll($event)"
     @touchstart="handleTouchStart($event)"
     @touchmove="handleTouchMove($event)"
     @touchend="handleTouchEnd($event)"

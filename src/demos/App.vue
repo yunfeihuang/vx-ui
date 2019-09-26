@@ -29,6 +29,8 @@
           <cell title="Nav" to="/demos/nav"></cell>
           <cell title="Group" to="/demos/group"></cell>
           <cell title="Cell" to="/demos/cell"></cell>
+          <cell title="ListItem" to="/demos/listitem"></cell>
+          <cell title="SubmitBar" to="/demos/submitbar"></cell>
           <cell title="Divider" to="/demos/divider"></cell>
           <cell title="Message" to="/demos/message"></cell>
         </group>

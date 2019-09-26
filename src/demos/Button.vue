@@ -15,7 +15,7 @@
       <br />
       <x-button type="primary" size="large">primary large</x-button>
       <br />
-      <x-button type="danger" size="large">danger large</x-button>
+      <x-button type="danger" square size="large">danger large</x-button>
       <br />
       <x-button type="warning" size="large" round>warning large</x-button>
       <br />

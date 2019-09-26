@@ -1,6 +1,6 @@
 <template>
   <button :class="classes" :type="nativeType" :disabled="disabled">
-    <spinner v-if="loading" :primary-color="loadingColor[type]"/>
+    <spinner v-if="loading && !disabled" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <ripple v-if="ripple" :color="rippleColor" />
     <slot name="upload"></slot>
@@ -26,6 +26,9 @@ export default {
     },
     rippleColor: {
       type: String
+    },
+    square: {
+      type: Boolean
     }
   },
   computed: {
@@ -37,8 +40,10 @@ export default {
         {
           'is-plain': this.plain || this.type === 'default',
           'is-ripple': this.ripple,
+          'is-square': this.square,
           'is-round': this.round,
-          'is-disabled': this.disabled || this.loading
+          'is-loading': this.loading,
+          'is-disabled': this.disabled
         }
       ]
     }
