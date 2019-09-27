@@ -4,7 +4,6 @@
     v-bind="data.attrs"
     v-on="listeners"
     @click="$options.methods.linkTo(parent, props.to)">
-    <divider v-if="props.divider"></divider>
     <div class="vx-list-item--prepend" v-if="$slots['prepend']">
       <slot name="prepend"></slot>
     </div>
@@ -29,6 +28,7 @@
     <div @click.stop class="vx-list-item--append-action" v-if="$slots['append-action']">
       <slot name="append-action"></slot>
     </div>
+    <divider v-if="props.divider"></divider>
   </div>
 </template>
 

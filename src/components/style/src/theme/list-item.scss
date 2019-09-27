@@ -8,14 +8,6 @@
     line-height:1.4;
     &.is-divider{
       margin:0;
-      >.vx-divider{
-        display:none;
-      }
-      &+.is-divider{
-        >.vx-divider{
-          display:block;
-        }
-      }
     }
     &--prepend,&--append,&--append-action,&--inner{
       padding: 0.2rem;

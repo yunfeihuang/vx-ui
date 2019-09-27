@@ -1,8 +1,8 @@
 <template>
-  <div
-    :class="['vx-swipeout', {'is-divider': divider}]"
+  <div :class="['vx-swipeout', {'is-divider': divider}]"
     onselectstart="return false;"
-    >
+    @touchstart="handleTouchStart"
+    @mousedown="handleTouchStart">
     <div class="vx-swipeout--inner">
       <div class="vx-swipeout--content">
         <slot></slot>
@@ -43,8 +43,6 @@ export default {
   },
   mounted () {
     this.init()
-    let startEventName = window.document.body.ontouchstart === undefined ? 'mousedown' : 'touchstart'
-    this.$el.addEventListener(startEventName, this.handleTouchStart, false)
     window.addEventListener('resize', this.init, false)
   },
   beforeDestroy () {
@@ -59,11 +57,7 @@ export default {
       let node = this.$el.querySelector('.vx-swipeout--action')
       this.$$touch.maxTranslateX = node.offsetWidth
       this.$$touch.el = this.$el.querySelector('.vx-swipeout--inner')
-      if (node.style.height) {
-        node.style.height = ''
-      }
       requestAnimationFrame(() => {
-        node.style.height = node.parentNode.offsetHeight + 'px'
         this.open && this.setTranslateX(-this.$$touch.maxTranslateX, null, false)
       })
     },

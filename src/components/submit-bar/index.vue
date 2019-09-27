@@ -8,7 +8,10 @@
       <template v-else>{{props.tips}}</template>
     </message>
     <flexbox class="vx-submit-bar--inner"
-      :class="{'vx-divider': !props.tips && !$slots['tips'], 'is-buttons': $slots['button'] && $slots['button'].length > 1}"
+      :class="{
+        'vx-divider': !props.tips && !$slots['tips'],
+        'is-buttons': !$slots['default'] || ($slots['button'] && $slots['button'].length > 1)
+      }"
       align="center">
       <flexbox-item class="vx-submit-bar--content" v-if="$slots['default']">
         <slot></slot>

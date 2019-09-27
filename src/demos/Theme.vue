@@ -26,6 +26,10 @@
           <color-picker slot="value" v-model="variable['color-background']"/>
           <div slot="value"></div>
         </cell>
+        <cell :arrow="false" title="active伪类背景色">
+          <color-picker slot="value" v-model="variable['color-touch-active']"/>
+          <div slot="value"></div>
+        </cell>
         <cell :arrow="false" title="主题色">
           <color-picker slot="value" v-model="variable['color-primary']"/>
         </cell>
@@ -113,6 +117,7 @@ export default {
   --vx-color-border: ${value['color-border']};
   --vx-color-divider: ${value['color-divider']};
   --vx-color-background: ${value['color-background']};
+  --vx-color-touch-active: ${value['color-touch-active']};
   --vx-font-size-default: ${value['font-size-default']}rem;
   --vx-font-size-small: ${value['font-size-default'] * fontSizeScale['small']}rem;
   --vx-font-size-large: ${value['font-size-default'] * fontSizeScale['large']}rem;

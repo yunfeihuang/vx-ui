@@ -8,16 +8,12 @@
         :end="end"
         @pullup="handlePullup"
         @pulldown="handlePulldown">
-        <div v-for="(item,index) in list" :key="index">
-          <flexbox align="center" style="padding:6px">
-            <x-img :src="item.src" style="width:50px;height:50px;margin-right:6px;border-radius:3px;" />
-            <flexbox-item>
-              <h4 style="margin:0;overflow: hidden;">{{item.name}}</h4>
-              <div>{{item.date}}</div>
-            </flexbox-item>
-          </flexbox>
-          <divider></divider>
-        </div>
+        <list-item v-for="(item,index) in list" :key="index" divider :image="item.src" image-style="width:1rem;">
+          <template>
+            <h4 style="margin:0;overflow: hidden;">{{item.name}}</h4>
+            <div>{{item.date}}</div>
+          </template>
+        </list-item>
       </list-view>
     </x-body>
   </layout>

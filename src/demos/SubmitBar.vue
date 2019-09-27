@@ -22,6 +22,10 @@
         <x-button slot="button">取消</x-button>
         <x-button slot="button" type="primary">提交</x-button>
       </submit-bar>
+      <br />
+      <submit-bar>
+        <x-button slot="button" type="primary">提交</x-button>
+      </submit-bar>
     </div>
   </layout>
 </template>

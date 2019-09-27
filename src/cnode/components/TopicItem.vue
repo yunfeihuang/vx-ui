@@ -1,25 +1,25 @@
 <template>
-  <base-item class="topic-item">
-    <router-link slot="img" :to="item.user_href">
-      <x-img :src="item.author.avatar_url"/>
+  <list-item divider
+    class="topic-item"
+    :to="item.href">
+    <router-link @click.native.stop slot="image" :to="item.user_href">
+      <x-img :src="item.author.avatar_url" style="width:1rem;border-radius:0.1rem" />
     </router-link>
-    <router-link slot="content" :to="item.href" :active="false">
+    <template>
       <h4><topic-type :type="type"/>{{item.title}}</h4>
       <div class="assist">
       {{item.reply_count}}/{{item.visit_count}}
       {{new Date().toLocaleString()}}
       </div>
-    </router-link>
-  </base-item>
+    </template>
+  </list-item>
 </template>
 
 <script>
-import BaseItem from './BaseItem'
 import TopicType from './TopicType'
 
 export default {
   components: {
-    BaseItem,
     TopicType
   },
   props: {
@@ -44,6 +44,8 @@ export default {
 <style lang="scss">
   .topic-item{
     h4{
+      line-height:1.2;
+      margin:0;
       @include lineClamp;
     }
   }

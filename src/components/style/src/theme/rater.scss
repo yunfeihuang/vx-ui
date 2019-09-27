@@ -15,7 +15,7 @@
       display: inline-block;
       vertical-align: middle;
       &.is-active{
-        @include var-color();
+        @include var-color($color-warning);
       }
       &:first-child{
         margin-left:0!important

@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-cssmin');
+var fs = require('fs')
+var path = require('path')
 
 gulp.task('compile', function() {
   return gulp.src('./src/theme/*.scss')
@@ -27,4 +29,15 @@ gulp.task('copyfont', function() {
 });
 */
 
-gulp.task('build', ['compile', 'copythemesrc']);
+gulp.task('build', ['compile', 'copythemesrc'], function () {
+  /*
+  let dir = '../../../lib/style/src/theme'
+  fs.readdir(dir, function (err,files) {
+    files.forEach(function(filename){
+      var fileDir = path.join(dir, filename);
+      var content = fs.readFileSync(fileDir, 'utf-8');
+      fs.writeFileSync(fileDir, content.replace("@import '../variable.scss';", '').replace("@import '../mixins.scss';", ''))
+    });
+  });
+  */
+});

@@ -18,17 +18,19 @@
         <div style="margin:15px 5px 5px 5px;">主题回复</div>
         <div class="topic-comments">
           <divider></divider>
-          <base-item v-if="topic.replies" v-for="item in topic.replies" :key="item.id">
-            <router-link slot="img" :to="item.user_href">
-              <x-img :src="item.author.avatar_url" />
-            </router-link>
-            <div slot="content">
+          <list-item divider
+            v-if="topic.replies"
+            v-for="item in topic.replies"
+            :key="item.id"
+            :image="item.author.avatar_url"
+            image-style="width:1rem">
+            <div>
               <div v-html="item.content"></div>
               <div class="assist">
               {{item.create_at}}
               </div>
             </div>
-          </base-item>
+          </list-item>
         </div>
       </div>
     </x-body>
@@ -37,11 +39,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import {BaseItem, TopicType} from './components/index'
+import { TopicType } from './components/index'
 
 export default {
   components: {
-    BaseItem,
     TopicType
   },
   computed: {

@@ -28,17 +28,18 @@
           <div class="user-title">最近参与的话题</div>
           <div class="user-comments">
             <divider></divider>
-            <base-item v-for="item in user.recent_replies" :key="item.id+'replies'" >
-              <router-link slot="img" :to="item.user_href">
-                <x-img :src="item.author.avatar_url"/>
-              </router-link>
-              <div slot="content">
-                <h4>{{item.title}}</h4>
+            <list-item divider
+              v-for="item in user.recent_replies"
+              :key="item.id+'replies'"
+              :image="item.author.avatar_url"
+              image-style="width:1rem">
+              <div>
+                <h4 style="margin:0">{{item.title}}</h4>
                 <div class="assist">
                 {{item.last_reply_at}}
                 </div>
               </div>
-            </base-item>
+            </list-item>
           </div>
         </div>
       </div>
@@ -48,12 +49,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import BaseItem from './components/BaseItem'
 
 export default {
-  components: {
-    BaseItem
-  },
   computed: {
     ...mapState({
       user: state => state.cnode.user

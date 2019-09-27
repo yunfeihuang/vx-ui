@@ -8,13 +8,12 @@
         :open="index===1"
         @close="handleCloseSwipeout"
         @open="handleOpenSwipeout">
-        <flexbox align="center" style="padding:6px">
-          <x-img style="width:40px;height:40px;margin-right:6px;border-radius:3px;" :src="item.src" />
-          <flexbox-item>
+        <list-item divider :image="item.src" image-style="width:1rem;">
+          <template>
             <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
             <div>{{item.date}}</div>
-          </flexbox-item>
-        </flexbox>
+          </template>
+        </list-item>
         <button @click="handleAction" style="background:#1AAD19;color:#fff;" slot="action" type="button">顶置</button>
         <button @click="handleAction" style="background:#ffe26d;color:#fff;" slot="action" type="button">收藏</button>
         <button @click="handleAction" style="background:#ff5500;color:#fff;" slot="action" type="button">删除</button>
