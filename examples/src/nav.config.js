@@ -189,10 +189,6 @@ export default [
       {
         path: '/preview',
         title: 'Preview图片浏览'
-      },
-      {
-        path: '/qrcode',
-        title: 'Qrcode二维码'
       }
     ]
   },
@@ -246,10 +242,6 @@ export default [
       {
         path: '/indexlist',
         title: 'IndexList索引列表'
-      },
-      {
-        path: '/marquee',
-        title: 'Marquee公告提示'
       }
     ]
   }

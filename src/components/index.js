@@ -12,8 +12,8 @@ import {Select, Option} from './select'
 import {Checker, CheckerGroup} from './checker'
 import {Form, FormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
-import {Swiper, SwiperItem} from './swiper'
-import {Marquee, MarqueeItem} from './marquee'
+// import {Swiper, SwiperItem} from './swiper'
+// import {Marquee, MarqueeItem} from './marquee'
 import {Tab, TabItem} from './tab'
 import {Tabbar, TabbarItem} from './tabbar'
 import {Sidebar, SidebarItem} from './sidebar'
@@ -33,7 +33,7 @@ import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
 import Nav from './nav'
-import Preview from './preview'
+// import Preview from './preview'
 import Spinner from './spinner'
 import Picker from './picker'
 import Badge from './badge'
@@ -46,7 +46,7 @@ import Daterange from './daterange'
 import Popover from './popover'
 import Sticky from './sticky'
 import IndexList from './index-list'
-import QrCode from './qrcode'
+// import QrCode from './qrcode'
 import Message from './message'
 import Arrow from './arrow'
 import {Accordion, AccordionItem} from './accordion'
@@ -90,10 +90,10 @@ let components = [
   Layout,
   Actionsheet,
   ActionsheetItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem,
+  // Swiper,
+  // SwiperItem,
+  // Marquee,
+  // MarqueeItem,
   Tab,
   TabItem,
   Tabbar,
@@ -135,7 +135,7 @@ let components = [
   Ripple,
   Search,
   Nav,
-  Preview,
+  // Preview,
   Spinner,
   Picker,
   Badge,
@@ -148,7 +148,7 @@ let components = [
   Popover,
   Sticky,
   IndexList,
-  QrCode,
+  // QrCode,
   Message,
   Arrow,
   Accordion,
@@ -481,10 +481,10 @@ export default {
   Layout,
   Actionsheet,
   ActionsheetItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem,
+  // Swiper,
+  // SwiperItem,
+  // Marquee,
+  // MarqueeItem,
   Tab,
   TabItem,
   Tabbar,
@@ -526,7 +526,7 @@ export default {
   Ripple,
   Search,
   Nav,
-  Preview,
+  // Preview,
   Spinner,
   Picker,
   Badge,
@@ -539,7 +539,7 @@ export default {
   Popover,
   Sticky,
   IndexList,
-  QrCode,
+  // QrCode,
   Message,
   Arrow,
   Accordion,
@@ -560,10 +560,10 @@ export {
   Layout,
   Actionsheet,
   ActionsheetItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem,
+  // Swiper,
+  // SwiperItem,
+  // Marquee,
+  // MarqueeItem,
   Tab,
   TabItem,
   Tabbar,
@@ -605,7 +605,7 @@ export {
   Ripple,
   Search,
   Nav,
-  Preview,
+  // Preview,
   Spinner,
   Picker,
   Badge,
@@ -618,7 +618,7 @@ export {
   Popover,
   Sticky,
   IndexList,
-  QrCode,
+  // QrCode,
   Message,
   Arrow,
   Accordion,

@@ -19,7 +19,10 @@
 </template>
 
 <script>
+import 'vx-ui/lib/style/theme/swiper.scss'
+import {Swiper, SwiperItem} from 'vx-ui/lib/swiper'
 export default {
+  components: {Swiper, SwiperItem},
   data () {
     return {
       images: [
