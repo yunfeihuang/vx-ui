@@ -1,7 +1,7 @@
 <template>
   <div class="demo-app">
     <layout :style="`opacity:1;transform:translateX(0)`">
-      <x-nav slot="header" :is-back="false" title="Vx UI Demos"></x-nav>
+      <x-nav slot="header" title-center :is-back="false" title="Vx UI Demos"></x-nav>
       <x-body class="demos" slot="body">
         <div style="text-align:center">
           <flexbox class="friend-link">

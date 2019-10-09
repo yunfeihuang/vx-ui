@@ -2,13 +2,28 @@
   <layout>
     <div slot="header">
       <x-nav back="/" back-text="返回" title="Nav">
-        <button class="btn-pull" slot="pull">
+        <button class="vx-nav--button" slot="append">
+          更多
+        </button>
+      </x-nav>
+      <br />
+      <x-nav back="/" back-text="返回" title-center title="Nav">
+        <button class="vx-nav--button" slot="append">
+          更多
+        </button>
+      </x-nav>
+      <br />
+      <x-nav back="/" title-center title="Nav">
+        <button class="vx-nav--button" slot="append">
+          更多
+        </button>
+        <button class="vx-nav--button" slot="append">
           更多
         </button>
       </x-nav>
       <br />
       <x-nav back="/" back-text="返回" type="primary" title="Nav">
-        <button class="btn-pull" slot="pull">
+        <button class="vx-nav--button" slot="append">
           更多
         </button>
       </x-nav>

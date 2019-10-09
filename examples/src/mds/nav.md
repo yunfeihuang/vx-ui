@@ -9,6 +9,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | title     | 标题   | String  |   -       |    -    |
 | isBack     | 是否有后退按钮   | Boolean  |   -       |    true    |
+| titleCenter     | 标题是否居中显示   | Boolean  |   -       |    -    |
 | to     | 后退地址   | -  |   -       |    -    |
 | onBack     | 默认是后退   | functon  |   -       |    history.back()    |
 | backText     | 后退按钮文字   | String  |   -       |    返回    |
@@ -24,5 +25,6 @@
 | 名称 | 说明 | 
 |---------|--------|
 | title | 标题 |
-| pull | 右侧操作区域 |
+| prepend | 左侧操作区域 |
+| append | 右侧操作区域 |
 | default | 其他区域 |

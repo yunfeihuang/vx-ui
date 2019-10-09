@@ -1,20 +1,26 @@
 <template functional>
-  <div
-    :class="['vx-nav', `vx-nav--${props.type}`, {'is-back-text': !!props.backText}, data.staticClass]"
+  <div :class="['vx-nav', `vx-nav--${props.type}`, {'is-back-text': !!props.backText}, {'is-title-center': props.titleCenter}, data.staticClass]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
     <flexbox class="vx-nav--inner" align="center" :gutter="0">
-      <slot name="prepend"></slot>
-      <button :class="['btn-pull','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack!==false">
+      <button :class="['vx-nav--button','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack">
         <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
         <span v-if="backText">{{props.backText}}</span>
       </button>
-      <flexbox-item :class="['vx-nav--title', {'vx-nav--title-center': props.isBack===false}]">
+      <template v-if="$slots['append'] && props.titleCenter">
+        <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (props.isBack ? 1 : 0)" :key="index"></div>
+      </template>
+      <slot name="prepend"></slot>
+      <flexbox-item :class="['vx-nav--title']">
         <slot v-if="$slots.title" name="title"></slot>
         <template v-else>{{data.attrs.title}}</template>
       </flexbox-item>
-      <slot name="pull"></slot>
+      <template v-if="props.titleCenter">
+        <div class="vx-nav--button" v-if="props.isBack && !$slots['append']"></div>
+        <slot v-else name="append"></slot>
+      </template>
+      <slot v-else name="append"></slot>
     </flexbox>
     <slot></slot>
   </div>
@@ -64,6 +70,9 @@ export default {
           primaryColor: '#fff'
         }
       }
+    },
+    titleCenter: {
+      type: Boolean
     }
   }
 }

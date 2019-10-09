@@ -26,10 +26,10 @@
         @include var-background-color();
       }
     }
-    .btn-pull{
+    &--button{
       color:inherit;
       height:inherit;
-      min-width: 0.8rem;
+      width: $box-size-height-default;
       text-align: center;
       @include button;
       @include active;
@@ -62,6 +62,17 @@
     &.is-back-text{
       .vx-nav-back{
         margin-right:0;
+      }
+    }
+    &.is-title-center{
+      .vx-nav--back{
+        margin-right:0;
+      }
+      .vx-nav--title{
+        text-align:center;
+      }
+      div.vx-nav--button:active{
+        background:transparent;
       }
     }
   }
