@@ -7,6 +7,11 @@
           <input-number slot="value" v-model="minValue" :min="1"/>
         </cell>
       </group>
+      <group title="small">
+        <cell title="value" :arrow="false">
+          <input-number size="small" slot="value" v-model="minValue" :min="1"/>
+        </cell>
+      </group>
       <group title="disabled">
         <cell title="value" :arrow="false">
           <input-number slot="value" v-model="value" :step="0.01" disabled/>

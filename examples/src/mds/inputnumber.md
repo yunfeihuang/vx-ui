@@ -12,6 +12,7 @@
 | max     | 最大值   | Number  |   -       |    -    |
 | min     | 最小值   | Number  |   -       |    -    |
 | step     | 精确位置   | Number  |   -       |    1    |
+| size     | 尺寸大小   | String  |   -       |    default    |
 | buttonStep     | 加减按钮累加减值   | Number  |   -       |    1    |
 
 #### Events

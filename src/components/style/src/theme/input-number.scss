@@ -2,7 +2,6 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &input-number{
-    height:0.6rem;
     position:relative;
     background:#fff;
     border:1px solid;
@@ -10,14 +9,28 @@
     @include var-border-radius();
     display: inline-block;
     @include disabled;
-    width:2.6rem;
     &--inner{
       display:flex;
       height: 100%;
     }
+    &--size{
+      &-default{
+        height:0.6rem;
+        width:2.6rem;
+        button{
+          width:0.6rem;
+        }
+      }
+      &-small{
+        height:0.52rem;
+        width:2rem;
+        button{
+          width: 0.52rem;
+        }
+      }
+    }
     button{
       @include button;
-      width:0.6rem;
       height:100%;
       @include var-color($color-assist);
       height:100%;

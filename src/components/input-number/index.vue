@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-input-number',{'is-disabled': disabled}]">
+  <div :class="['vx-input-number',`vx-input-number--size-${size}`,{'is-disabled': disabled}]">
     <div class="vx-input-number--inner">
       <button :disabled="min !== undefined ? value <= min : false" class="vx-input-number--reduce" type="button" @click="handleChange(value-buttonStep)"></button>
       <input
@@ -37,6 +37,10 @@ export default {
     buttonStep: {
       type: Number,
       default: 1
+    },
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   computed: {
