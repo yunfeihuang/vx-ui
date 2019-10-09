@@ -10,6 +10,11 @@
     @include var-border-radius();
     display: inline-block;
     @include disabled;
+    width:2.6rem;
+    &--inner{
+      display:flex;
+      height: 100%;
+    }
     button{
       @include button;
       width:0.6rem;
@@ -59,7 +64,7 @@
     }
     input{
       @include input;
-      width:1.6rem;
+      flex:1;
       height:100%;
       color:inherit;
       text-align:center;

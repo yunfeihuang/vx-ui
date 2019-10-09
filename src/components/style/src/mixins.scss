@@ -178,6 +178,7 @@ $resolution : 2,3,4,5,6;
     top:0;
     content:'';
     @include var-border-radius($radius);
+    display:table;
     @each $item in 2,3,4,5,6 {
       @include var-border-round($color,$radius,$item);
     }
@@ -192,11 +193,16 @@ $resolution : 2,3,4,5,6;
   }
 }
 @mixin lineClamp($clamp:1){
+  @if $clamp > 1 {
+    -webkit-line-clamp:$clamp;
+    line-clamp:$clamp;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space:nowrap;
+  }
   overflow:hidden;
-  -webkit-line-clamp:$clamp;
-  line-clamp:$clamp;
   text-overflow:ellipsis;
-  white-space:nowrap;
 }
 @mixin overlay{
   position: absolute;

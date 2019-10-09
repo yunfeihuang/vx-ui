@@ -4,7 +4,8 @@
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
-    <flexbox class="vx-nav--inner" align="center">
+    <flexbox class="vx-nav--inner" align="center" :gutter="0">
+      <slot name="prepend"></slot>
       <button :class="['btn-pull','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack!==false">
         <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
         <span v-if="backText">{{props.backText}}</span>
