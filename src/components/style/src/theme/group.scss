@@ -8,10 +8,24 @@
     &--title{
       padding:0.1rem 0.15rem;
       line-height:1;
+      @include lineClamp();
     }
     &--inner{
       position:relative;
       background:#fff;
+    }
+    &--placeholder{
+      text-align:center;
+      @include var-color($color-light);
+      padding:0.2rem 0;
+    }
+    &.is-heading{
+      background:#fff;
+      .vx-group{
+        &--inner{
+          padding:0 0.2rem 0.25rem 0.2rem;
+        }
+      }
     }
   }
 }

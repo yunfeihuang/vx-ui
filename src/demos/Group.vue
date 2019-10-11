@@ -8,6 +8,23 @@
           <x-switch slot="value" v-model="checked" />
         </cell>
       </group>
+      <group title="heading" heading-type="default">
+        <a slot="heading-append" class="link">更多</a>
+        <div>
+          内容... <br />
+          内容...
+        </div>
+      </group>
+      <group title="heading primary" heading-type="primary">
+        <a slot="heading-append" class="link">更多</a>
+        <div>
+          内容... <br />
+          内容...
+        </div>
+      </group>
+      <group title="heading primary" heading-type="primary">
+        <a slot="heading-append" class="link">更多</a>
+      </group>
     </x-body>
   </layout>
 </template>

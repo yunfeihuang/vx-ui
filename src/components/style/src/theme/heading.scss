@@ -1,0 +1,48 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &heading{
+    padding: 0.25rem 0.2rem 0 0.2rem;
+    margin-bottom:0.25rem;
+    &--title{
+      line-height:1;
+      font-size:1.2em;
+      @include lineClamp();
+    }
+    &--primary{
+      .vx-heading{
+        &--title{
+          border-left-width: 0.08rem;
+          border-left-style: solid;
+          padding-left: 0.18rem;
+          @include var-border-color();
+        }
+      }
+    }
+    &--simple{
+      .vx-heading{
+        &--title{
+          text-align:center;
+        }
+      }
+    }
+    &--line{
+      .vx-heading{
+        &--title{
+          text-align:center;
+          &:before,&:after{
+            content: '';
+            height: 1px;
+            background: #777;
+            display: inline-block;
+            width: 0.5rem;
+            font-size: 0;
+            line-height: 0;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}

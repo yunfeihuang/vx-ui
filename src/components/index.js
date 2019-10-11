@@ -20,6 +20,7 @@ import {Sidebar, SidebarItem} from './sidebar'
 import {Flexbox, FlexboxItem} from './flexbox'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import Divider from './divider'
+import Heading from './heading'
 import Group from './group'
 import Cell from './cell'
 import Confirm from './confirm'
@@ -123,6 +124,7 @@ let components = [
   Checker,
   CheckerGroup,
   Divider,
+  Heading,
   Group,
   Cell,
   Confirm,
@@ -516,6 +518,7 @@ export default {
   Checker,
   CheckerGroup,
   Divider,
+  Heading,
   Group,
   Cell,
   Confirm,
@@ -597,6 +600,7 @@ export {
   Checker,
   CheckerGroup,
   Divider,
+  Heading,
   Group,
   Cell,
   Confirm,

@@ -27,6 +27,7 @@
           <cell title="Layout" to="/demos/layout"></cell>
           <cell title="Flexbox" to="/demos/flexbox"></cell>
           <cell title="Nav" to="/demos/nav"></cell>
+          <cell title="Heading" to="/demos/heading"></cell>
           <cell title="Group" to="/demos/group"></cell>
           <cell title="Palace" to="/demos/palace"></cell>
           <cell title="Cell" to="/demos/cell"></cell>

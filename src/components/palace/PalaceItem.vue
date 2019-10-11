@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-palace-item', `is-nth-${$parent.column}`]"
     :style="styles"
-    @click="linkTo(parent, props.to)">
+    @click="linkTo">
     <slot></slot>
   </div>
 </template>
@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    linkTo (parent, value) {
-      value && parent.$router.push(value)
+    linkTo () {
+      this.to && this.$router.push(this.to)
     }
   }
 }
