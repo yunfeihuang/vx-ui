@@ -178,7 +178,6 @@ $resolution : 2,3,4,5,6;
     top:0;
     content:'';
     @include var-border-radius($radius);
-    display:table;
     @each $item in 2,3,4,5,6 {
       @include var-border-round($color,$radius,$item);
     }

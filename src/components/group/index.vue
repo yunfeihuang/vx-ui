@@ -1,15 +1,17 @@
 <template>
-  <div :class="['vx-group', {'is-heading': headingType || $slots['heading']}]">
+  <div :class="['vx-group', {'is-heading': headingType || $slots['heading'], 'is-prepend': $slots['prepend'], 'is-append': $slots['append']}]">
     <slot v-if="$slots['heading']" name="heading"></slot>
-    <heading v-if="headingType" :type="headingType">
-      <slot name="heading-prepend" slot="prepend"></slot>
-      <template>
-        <slot name="title" v-if="$slots['title']"></slot>
-        <template v-else>{{title}}</template>
-      </template>
-      <slot name="heading-append" slot="append"></slot>
-    </heading>
-    <div v-else class="vx-group--title">
+    <template v-else-if="headingType">
+      <heading v-if="title || $slots['title'] || $slots['heading-append']" :type="headingType">
+        <slot name="heading-prepend" slot="prepend"></slot>
+        <template>
+          <slot name="title" v-if="$slots['title']"></slot>
+          <template v-else>{{title}}</template>
+        </template>
+        <slot name="heading-append" slot="append"></slot>
+      </heading>
+    </template>
+    <div v-else-if="$slots['title'] || title" class="vx-group--title">
       <slot name="title" v-if="$slots['title']"></slot>
       <template v-else>{{title}}</template>
     </div>

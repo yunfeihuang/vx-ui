@@ -14,6 +14,8 @@
           内容... <br />
           内容...
         </div>
+        <div slot="prepend">prepend</div>
+        <div slot="append">append</div>
       </group>
       <group title="heading primary" heading-type="primary">
         <a slot="heading-append" class="link">更多</a>

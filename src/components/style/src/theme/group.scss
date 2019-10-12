@@ -13,19 +13,27 @@
     &--inner{
       position:relative;
       background:#fff;
+      &:empty{
+        display:none;
+      }
     }
     &--placeholder{
       text-align:center;
       @include var-color($color-light);
       padding:0.2rem 0;
     }
-    &.is-heading{
+    &.is-prepend,&.is-append,&.is-heading{
       background:#fff;
+    }
+    &.is-heading{
       .vx-group{
         &--inner{
-          padding:0 0.2rem 0.25rem 0.2rem;
+          padding:0.25rem 0.2rem 0.25rem 0.2rem;
         }
       }
+    }
+    .vx-heading+.vx-group--inner{
+      padding-top:0;
     }
   }
 }
