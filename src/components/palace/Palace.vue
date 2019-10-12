@@ -1,6 +1,8 @@
 <template>
   <div :class="['vx-palace']">
-    <slot></slot>
+    <div class="vx-palace--inner">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
@@ -8,7 +10,7 @@ export default {
   name: 'Palace',
   componentName: 'Palace',
   props: {
-    column: {
+    grid: {
       type: Number,
       default: 2
     }

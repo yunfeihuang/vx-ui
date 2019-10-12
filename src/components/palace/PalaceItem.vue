@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-palace-item', `is-nth-${$parent.column}`]"
+  <div :class="['vx-palace--item']"
     :style="styles"
     @click="linkTo">
     <slot></slot>
@@ -13,12 +13,16 @@ export default {
   props: {
     to: {
       type: [String, Object]
+    },
+    col: {
+      type: Number,
+      default: 1
     }
   },
   computed: {
     styles () {
       let result = {
-        width: `${100 / this.$parent.column}%`
+        width: `${100 / this.$parent.grid * this.col}%`
       }
       return result
     }
