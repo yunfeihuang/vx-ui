@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Textarea"></x-nav>
     <x-body slot="body">
       <div style="margin-top:20px;">
@@ -13,7 +13,7 @@
         <div style="padding:10px;word-wrap: break-word;">{{value}}</div>
       </div>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

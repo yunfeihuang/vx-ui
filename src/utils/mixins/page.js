@@ -8,7 +8,7 @@ export default {
   },
   beforeRouteEnter: function (to, from, next) {
     next(function (vm) {
-      let home = document.querySelector('.vx-layout')
+      let home = document.querySelector('.vx-page')
       requestAnimationFrame(() => {
         let node = vm.$el
         node.style.opacity = '1'
@@ -27,7 +27,7 @@ export default {
     })
   },
   beforeRouteLeave: function (to, from, next) {
-    let home = document.querySelector('.vx-layout')
+    let home = document.querySelector('.vx-page')
     requestAnimationFrame(() => {
       home.style.pointerEvents = 'none'
       this.$el.style.transform = 'translate3d(100%, 0, 0)'

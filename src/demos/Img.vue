@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Img(滚动加载资源)"></x-nav>
     <x-body slot="body" v-if="slideIn" style="line-height:2;">
       <x-img lazyload style="min-height:100px;width:100%" src="http://assets.bittyos.com/images/swiper/01.jpg" />
@@ -14,7 +14,7 @@
       <x-img lazyload style="min-height:100px;width:100%" src="http://assets.bittyos.com/imagess/swiper/03.jpg" loading/>
       <x-img lazyload style="min-height:100px;width:100%" src1="http://assets.bittyos.com/imagess/swiper/03.jpg" loading/>
     </x-body>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

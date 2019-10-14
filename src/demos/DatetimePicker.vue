@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="DatetimePicker"></x-nav>
     <x-body slot="body">
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
@@ -33,7 +33,7 @@
       :open.sync="pickerOpen3"
       v-model="pickerValue3"
       />
-  </layout>
+  </page>
 </template>
 
 <script>

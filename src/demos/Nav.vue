@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <div slot="header">
       <x-nav back="/" back-text="返回" title="Nav">
         <button class="vx-nav--button" slot="append">
@@ -32,7 +32,7 @@
       </tab>
     </div>
     <x-body slot="body"></x-body>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

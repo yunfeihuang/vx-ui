@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="ListView (pulldown and pullup)"></x-nav>
     <x-body slot="body" :scroll="false" v-if="slideIn">
       <list-view
@@ -16,7 +16,7 @@
         </list-item>
       </list-view>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

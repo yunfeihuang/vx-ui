@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="SubmitBar"></x-nav>
     <x-body slot="body"></x-body>
     <div slot="footer">
@@ -27,7 +27,7 @@
         <x-button slot="button" type="primary">提交</x-button>
       </submit-bar>
     </div>
-  </layout>
+  </page>
 </template>
 
 <script>

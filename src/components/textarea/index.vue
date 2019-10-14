@@ -7,7 +7,7 @@
         v-on="$$listeners"
         ></textarea>
       </div>
-      <em v-if="enterNumber && maxlength">
+      <em v-if="showWordNumber && maxlength">
         {{value.length}}/{{maxlength}}
       </em>
   </label>
@@ -21,7 +21,7 @@ export default {
   mixins: [input],
   props: {
     ...input.props,
-    enterNumber: {
+    showWordNumber: {
       type: Boolean,
       default: false
     }

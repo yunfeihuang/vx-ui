@@ -2,6 +2,8 @@
 @import '../mixins.scss';
 .#{$css-prefix}{
   &cell{
+    // padding: 0 0.2rem;
+    // margin:0.25rem 0;
     padding: 0.12rem 0.2rem;
     &.is-divider{
       @include divider;
@@ -24,6 +26,9 @@
         margin-right: -0.15rem;
       }
     }
+    .vx-cell--arrow{
+      margin-left:5px;
+    }
     &--value{
       max-width: 50vw;
       input{
@@ -36,17 +41,6 @@
       }
       .vx-select,.vx-cascader{
         height:0.68rem;
-      }
-    }
-    &--default-slot{
-    }
-    &--access{
-      @include active;
-      .#{$css-prefix}cell--ft{
-        padding-right:0.24rem;
-        &:after{
-          @include arrow;
-        }
       }
     }
     &:first-child{

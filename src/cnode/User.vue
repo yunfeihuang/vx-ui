@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" title="用户详情"></x-nav>
     <x-body slot="body" :class="clas">
       <div v-if="slideIn">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

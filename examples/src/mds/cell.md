@@ -7,7 +7,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| arrow     | 是否显示右箭头   | Boolean  |   -       |    true    |
+| arrow     | 是否显示右箭头(配置to会显示)   | Boolean  |   -       |    -    |
 | title     | 标题   | String  |   -       |    -    |
 | value     | 值   | String,Number  |   -       |    -    |
 | to     | router-link to prop   | -  |   -       |    -    |

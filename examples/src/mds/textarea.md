@@ -9,7 +9,7 @@
 |---------- |-------- |---------- |------------- |--------- |
 | value     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
-| enterNumber     | 是否显示输入字数，要有maxlength属性   | Boolean  |   -       |    false    |
+| showWordNumber     | 是否显示输入字数，要有maxlength属性   | Boolean  |   -       |    -    |
 | maxlength     | 最大长度   | Number  |   -       |    -    |
 
 #### Events

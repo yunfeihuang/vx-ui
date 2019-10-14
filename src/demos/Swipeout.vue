@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Swipeout"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <swipeout
@@ -19,7 +19,7 @@
         <button @click="handleAction" style="background:#ff5500;color:#fff;" slot="action" type="button">删除</button>
       </swipeout>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

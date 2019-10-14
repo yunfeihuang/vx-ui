@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Range"></x-nav>
     <x-body slot="body">
       <group :title="`default(value:${value1})`">
@@ -23,7 +23,7 @@
         </div>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

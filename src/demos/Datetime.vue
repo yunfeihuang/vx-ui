@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Datetime"></x-nav>
     <x-body slot="body">
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
@@ -19,7 +19,7 @@
         <datetime format="HH:mm" v-model="time2" placeholder="请输入时间"/>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

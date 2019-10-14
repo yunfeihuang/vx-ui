@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Accordion"></x-nav>
     <x-body slot="body">
       <accordion>
@@ -41,7 +41,7 @@
         </accordion-item>
       </accordion>
     </x-body>
-  </layout>
+  </page>
 </template>
 <script>
 

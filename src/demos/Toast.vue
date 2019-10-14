@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Toast"></x-nav>
     <x-body slot="body">
       <group>
@@ -39,7 +39,7 @@
     <toast :open.sync="warnOpen" type="warn" align="center">已经操作过了</toast>
     <toast :open.sync="loadingOpen" type="loading" align="center">Loading</toast>
     <toast :open.sync="bottomOpen" align="bottom">{{message}}</toast>
-  </layout>
+  </page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="CascaderPopupPicker"></x-nav>
     <x-body slot="body">
       <group :title="`级联选择器弹框：${value}`">
@@ -10,7 +10,7 @@
       </group>
     </x-body>
     <cascader-popup-picker :open.sync="open" v-model="value" :options="options"/>
-  </layout>
+  </page>
 </template>
 
 <script>

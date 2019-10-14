@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Ripple"></x-nav>
     <x-body slot="body">
       <group>
@@ -35,7 +35,7 @@
         </tabbar-item>
       </tabbar>
     </div>
-  </layout>
+  </page>
 </template>
 
 <script>

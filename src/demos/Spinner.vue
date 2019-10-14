@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Spinner"></x-nav>
     <x-body slot="body" style="text-align:center;">
       <br/>
@@ -13,7 +13,7 @@
         <span style="line-height:1rem;">LOGO</span>
       </spinner>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

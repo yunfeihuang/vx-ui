@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Flexbox"></x-nav>
     <x-body slot="body" class="flexbox-demo">
       ### 平均跨度
@@ -23,7 +23,7 @@
         <flexbox-item>3</flexbox-item>
       </flexbox>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

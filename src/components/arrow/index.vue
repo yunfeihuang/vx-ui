@@ -1,6 +1,6 @@
 <template functional>
   <component :is="props.tag"
-    :class="['vx-arrow', data.staticClass, data.class]"
+    :class="['vx-arrow', `vx-arrow--direction-${props.direction}`, data.staticClass, data.class]"
     :style="[Object.assign({
       display: 'inline-block',
       borderWidth: '1px',

@@ -7,9 +7,17 @@ import store from './store'
 import './demos/components'
 import './components/style/src/theme/index.scss'
 import Components from 'components'
+import page from '@/utils/mixins/page'
 
 Vue.use(Components)
 
+window.$import = function (promise, _modules) {
+  return promise.then(res => {
+    !res.default.mixins && (res.default.mixins = [])
+    res.default.mixins.push(page)
+    return res
+  })
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

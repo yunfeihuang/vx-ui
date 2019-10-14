@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Theme"></x-nav>
     <x-body slot="body" class="theme">
       <group title="颜色">
@@ -67,7 +67,7 @@
         <pre v-html="variableHTML"></pre>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

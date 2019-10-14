@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Prompt"></x-nav>
     <x-body slot="body">
       <group>
@@ -35,7 +35,7 @@
       :cipher.sync="cipher"
       @change="handleChangePrompt2">
     </prompt>
-  </layout>
+  </page>
 </template>
 
 <script>

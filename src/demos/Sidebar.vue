@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Sidebar"></x-nav>
     <x-body slot="body">
       <sidebar
@@ -13,7 +13,7 @@
         </sidebar-item>
       </sidebar>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

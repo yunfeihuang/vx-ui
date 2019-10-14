@@ -1,8 +1,8 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="IndexList"></x-nav>
     <index-list slot="body" :data="list" @click="handleClick"/>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

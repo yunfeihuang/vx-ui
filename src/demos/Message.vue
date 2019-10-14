@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Message"></x-nav>
     <x-body slot="body">
       <message>注意：此示例要在移动设备体验哦~</message>
@@ -10,7 +10,7 @@
       <br>
       <message type="error">注意：此示例要在移动设备体验哦~</message>
     </x-body>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

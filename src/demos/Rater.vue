@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Rater"></x-nav>
     <x-body class="demos" slot="body">
       <group>
@@ -25,7 +25,7 @@
         </cell>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

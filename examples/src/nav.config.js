@@ -11,8 +11,8 @@ export default [
         title: 'Button按钮'
       },
       {
-        path: '/layout',
-        title: 'Layout布局'
+        path: '/page',
+        title: 'Page页面布局'
       },
       {
         path: '/flexbox',

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="ListItem"></x-nav>
     <x-body slot="body">
       <list-item
@@ -48,7 +48,7 @@
       </list-item>
       <br />
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Confirm"></x-nav>
     <x-body slot="body">
       <group>
@@ -31,7 +31,7 @@
         容长内容长内容长内容长内容长内容长内容
       </div>
     </confirm>
-  </layout>
+  </page>
 </template>
 
 <script>

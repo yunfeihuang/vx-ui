@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Search"></x-nav>
     <x-body slot="body">
       <search v-model="value" placeholder="搜索商品/商店/用户"
@@ -29,7 +29,7 @@
         <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

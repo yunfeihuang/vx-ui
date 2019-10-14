@@ -1,6 +1,6 @@
 @import '../variable.scss';
 @import '../mixins.scss';
-.#{$css-prefix}layout{
+.#{$css-prefix}page{
   &--flexbox{
     position:absolute;
     height:100%;
@@ -8,12 +8,12 @@
     z-index:10;
   }
   &--default{
-    .vx-layout--flexbox{
+    .vx-page--flexbox{
       @include var-background-color($color-background);
     }
   }
   &--primary{
-    .vx-layout--flexbox{
+    .vx-page--flexbox{
       background:#fff;
     }
   }

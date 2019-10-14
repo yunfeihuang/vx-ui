@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Marquee"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <x-marquee>
@@ -19,7 +19,7 @@
         </x-marquee-item>
       </x-marquee>
     </x-body>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

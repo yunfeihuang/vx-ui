@@ -1,12 +1,12 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="CascaderPicker"></x-nav>
     <x-body slot="body">
       <group :title="`级联：${value}`">
         <cascader-picker v-model="value" :options="options"/>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

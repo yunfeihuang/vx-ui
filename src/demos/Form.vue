@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Form"></x-nav>
     <x-body slot="body">
       <br />
@@ -112,7 +112,7 @@
         </div>
       </el-form>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

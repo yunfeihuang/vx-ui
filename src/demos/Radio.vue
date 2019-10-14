@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Radio"></x-nav>
     <x-body slot="body">
       <group title="Radio" class="radio-wrapper">
@@ -23,7 +23,7 @@
         </div>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

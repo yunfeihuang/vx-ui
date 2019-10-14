@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Alert"></x-nav>
     <x-body slot="body">
       <group>
@@ -14,7 +14,7 @@
       </group>
     </x-body>
     <alert :open.sync="open" title="标题">alert</alert>
-  </layout>
+  </page>
 </template>
 
 <script>

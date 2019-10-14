@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Palace"></x-nav>
     <x-body slot="body">
       <palace :grid="3">
@@ -24,7 +24,7 @@
         </palace-item>
       </palace>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

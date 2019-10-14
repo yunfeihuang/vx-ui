@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/">
       <div slot="title" style="text-align:center">
         <button-tab class="tab-button" :active.sync="active1" size="small" style="width:2.8rem;margin:auto">
@@ -16,7 +16,7 @@
         <button-tab-item name="tab4">选项4</button-tab-item>
       </button-tab>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

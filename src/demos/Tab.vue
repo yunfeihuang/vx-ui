@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <div slot="header">
       <x-nav back="/" title="Tab"></x-nav>
       <div v-if="slideIn">
@@ -39,7 +39,7 @@
     </div>
     <x-body slot="body" :scroll="false">
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

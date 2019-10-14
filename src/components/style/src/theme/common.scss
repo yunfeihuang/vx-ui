@@ -1,0 +1,54 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+html {
+  touch-action: manipulation;//避免浏览器300ms延时问题
+}
+body{
+  @include var-font-size();
+  -webkit-tap-highlight-color:transparent;
+  tap-highlight-color:transparent;
+}
+::-webkit-input-placeholder {
+	color: $color-light;
+}
+a,button,input,textearea,select{
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.vx-scroller {
+  position:relative;
+  @include scroller;
+}
+
+@each $key, $val in $colors {
+  .vx-#{$key}{
+    @include var-color($val);
+  }
+  .vx-background-#{$key}{
+    @include var-background-color($val);
+  }
+  .vx-border-#{$key}{
+    @include var-border-color($val);
+  }
+}
+@each $key, $val in $font-sizes {
+  .vx-#{$key}{
+    @include var-font-size($val);
+  }
+}
+@each $key, $val in $box-size-heights {
+  .vx-#{$key}{
+    @include var-height($val);
+  }
+  .vx-line-#{$key}{
+    @include var-height($val, 'line-height');
+  }
+}
+.vx-border-radius {
+  @include var-border-radius()
+}
+@each $item in 1,2,3,4 {
+  .vx-line-clamp-#{$item}{
+    @include lineClamp($item)
+  }
+}
+

@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Heading"></x-nav>
     <x-body slot="body">
       <heading>
@@ -17,7 +17,7 @@
         heading line
       </heading>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

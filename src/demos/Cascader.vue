@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Cascader"></x-nav>
     <x-body slot="body">
       <group :title="`value:${value}`">
@@ -9,7 +9,7 @@
         </cell>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

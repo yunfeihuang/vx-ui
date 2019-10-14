@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <img
@@ -11,7 +11,7 @@
         @click="handleClick(index)"/>
     </x-body>
     <preview :list="images" ref="preview"/>
-  </layout>
+  </page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Tabbar"></x-nav>
     <x-body slot="body">
     </x-body>
@@ -17,7 +17,7 @@
         <small>我的</small>
       </tabbar-item>
     </tabbar>
-  </layout>
+  </page>
 </template>
 
 <script>

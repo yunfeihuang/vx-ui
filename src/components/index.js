@@ -1,5 +1,5 @@
 import Button from './button'
-import Layout from './layout'
+import {Page, XBody} from './page'
 import Input from './input'
 import InputNumber from './input-number'
 import Password from './password'
@@ -89,7 +89,8 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   return fmt
 }
 let components = [
-  Layout,
+  Page,
+  XBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,
@@ -483,7 +484,8 @@ const install = (Vue) => {
 
 export default {
   install,
-  Layout,
+  Page,
+  XBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,
@@ -565,7 +567,8 @@ export default {
 
 export {
   install,
-  Layout,
+  Page,
+  XBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,

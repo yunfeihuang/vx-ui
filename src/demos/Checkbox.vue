@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Checkbox"></x-nav>
     <x-body slot="body">
       <group title="Checkbox">
@@ -104,7 +104,7 @@
         </div>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

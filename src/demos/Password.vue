@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Password"></x-nav>
     <x-body slot="body">
       <group title="default">
@@ -19,7 +19,7 @@
       </group>
       密文(简单的转成大写)：{{cipher}}
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

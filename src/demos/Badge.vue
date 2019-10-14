@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Badge"></x-nav>
     <x-body slot="body">
       <group>
@@ -21,7 +21,7 @@
         </cell>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

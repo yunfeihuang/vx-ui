@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="InputNumber"></x-nav>
     <x-body slot="body">
       <group title="default">
@@ -18,7 +18,7 @@
         </cell>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Checker"></x-nav>
     <x-body slot="body">
       <group title="Checker 多选">
@@ -87,7 +87,7 @@
         </div>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

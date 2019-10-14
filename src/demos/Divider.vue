@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Divider"></x-nav>
     <x-body slot="body" style="">
       <group>
@@ -29,7 +29,7 @@
         </div>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 <script>
 export default {

@@ -2,6 +2,9 @@
 
 module.exports = {
   root: true,
+  globals: {
+    '$import': true
+  },
   parserOptions: {
     parser: 'babel-eslint'
   },

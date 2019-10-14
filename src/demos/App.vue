@@ -1,6 +1,6 @@
 <template>
   <div class="demo-app">
-    <layout :style="`opacity:1;transform:translateX(0)`">
+    <page :style="`opacity:1;transform:translateX(0)`">
       <x-nav slot="header" title-center :is-back="false" title="Vx UI Demos"></x-nav>
       <x-body class="demos" slot="body">
         <div style="text-align:center">
@@ -24,7 +24,7 @@
         <group title="basic">
           <cell title="Theme" to="/demos/theme"></cell>
           <cell title="Button" to="/demos/button"></cell>
-          <cell title="Layout" to="/demos/layout"></cell>
+          <cell title="Page" to="/demos/page"></cell>
           <cell title="Flexbox" to="/demos/flexbox"></cell>
           <cell title="Nav" to="/demos/nav"></cell>
           <cell title="Heading" to="/demos/heading"></cell>
@@ -90,7 +90,7 @@
           <cell title="IndexList" to="/demos/indexlist"></cell>
         </group>
       </x-body>
-    </layout>
+    </page>
     <router-view></router-view>
   </div>
 </template>
@@ -125,7 +125,7 @@ export default {
     .react-version{
       text-align:center;
     }
-    .vx-layout{
+    .vx-page{
       opacity:0;
       transition: transform 0.32s ease 0s;
       transform: translate3d(100%,0,0);

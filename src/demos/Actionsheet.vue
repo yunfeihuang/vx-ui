@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Actionsheet"></x-nav>
     <x-body slot="body">
       <group>
@@ -48,7 +48,7 @@
           {{item.label}}
       </actionsheet-item>
     </actionsheet>
-  </layout>
+  </page>
 </template>
 
 <script>

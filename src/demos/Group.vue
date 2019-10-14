@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <page>
     <x-nav slot="header" back="/" title="Group"></x-nav>
     <x-body slot="body">
       <group title="default">
@@ -28,7 +28,7 @@
         <a slot="heading-append" class="link">更多</a>
       </group>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

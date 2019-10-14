@@ -1,5 +1,5 @@
 <template>
-  <layout type="primary">
+  <page type="primary">
     <x-nav slot="header" back="/" title="Swiper"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <swiper :active.sync="active" :options="options">
@@ -15,7 +15,7 @@
         </swiper-item>
       </swiper>
     </x-body>
-  </layout>
+  </page>
 </template>
 
 <script>

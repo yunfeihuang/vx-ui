@@ -1,6 +1,6 @@
 <template>
   <div class="cnode-app">
-    <layout v-show="$route.path == '/cnode'" :style="`opacity:1;transform:translateX(0)`">
+    <page v-show="$route.path == '/cnode'" :style="`opacity:1;transform:translateX(0)`">
       <div slot="header">
         <x-nav :back="false" title="CNode-专业中文社区"></x-nav>
         <tab :active="home.active" @change="handleActive" underline-width="auto" style="margin-top:1px;">
@@ -26,7 +26,7 @@
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
         </list-view>
       </x-body>
-    </layout>
+    </page>
     <router-view></router-view>
   </div>
 </template>
@@ -99,7 +99,7 @@ export default {
     position:absolute!important;
   }
   .cnode-app{
-    .vx-layout{
+    .vx-page{
       opacity:0;
       transition: transform 0.32s ease 0s;
       transform: translate3d(100%,0,0);
