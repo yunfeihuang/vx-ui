@@ -4,12 +4,35 @@
   &cell{
     // padding: 0 0.2rem;
     // margin:0.25rem 0;
-    padding: 0.12rem 0.2rem;
+    &--menu{
+      padding: 0.12rem 0.2rem;
+      .vx-cell--inner{
+        min-height: 0.68rem;
+      }
+    }
+    &--info{
+      padding: 0 0.2rem;
+      margin: 0.3rem 0;
+      &:first-child{
+        padding-top:0.3rem;
+        margin-top:0;
+      }
+      &:last-child{
+        padding-bottom:0.3rem;
+        margin-bottom:0;
+      }
+      .vx-cell--value{
+        text-align: right;
+        max-width: 60vw;
+      }
+      .vx-cell--default-slot{
+        margin-top:0.15rem;
+      }
+    }
     &.is-divider{
       @include divider;
     }
     &--inner{
-      min-height: 0.68rem;
       position: relative;
     }
     &--hd{
@@ -45,6 +68,20 @@
     }
     &:first-child{
       background-image:none;
+    }
+  }
+  &group{
+    &.is-heading{
+      .vx-cell--info{
+        padding-left:0;
+        padding-right:0;
+        &:first-child{
+          padding-top:0;
+        }
+        &:last-child{
+          padding-bottom:0;
+        }
+      }
     }
   }
 }

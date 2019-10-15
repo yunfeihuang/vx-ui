@@ -12,8 +12,19 @@
           <span slot="value">Start me</span>
         </cell>
       </group>
-      <group title="no arrow">
-        <cell :arrow="false" title="标题">
+      <group title="type info">
+        <cell title="github" type="info">
+          <span slot="value">Start me</span>
+        </cell>
+        <cell title="github" type="info">
+          <span slot="value">Start me</span>
+        </cell>
+        <cell title="github" type="info">
+          <span slot="value">Start me</span>
+        </cell>
+      </group>
+      <group title="其他内容">
+        <cell title="标题">
           <x-switch slot="value" v-model="checked" />
           <div>其他内容...</div>
         </cell>

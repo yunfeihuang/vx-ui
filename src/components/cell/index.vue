@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['vx-cell', {'is-divider': props.divider}, data.staticClass, data.class]"
+  <div :class="['vx-cell', `vx-cell--${props.type}`, {'is-divider': props.type!='info' && props.divider}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners"
@@ -44,6 +44,10 @@ export default {
     FlexboxItem
   },
   props: {
+    type: {
+      type: String,
+      default: 'menu'
+    },
     arrow: {
       type: Boolean
     },
