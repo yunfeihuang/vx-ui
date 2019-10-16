@@ -1,13 +1,7 @@
 <template>
   <page>
     <div slot="header">
-      <x-nav back="/" back-text="返回" title="Nav">
-        <button class="vx-nav--button" slot="append">
-          更多
-        </button>
-      </x-nav>
-      <br />
-      <x-nav back="/" back-text="返回" title-center title="Nav">
+      <x-nav back="/" title="Nav">
         <button class="vx-nav--button" slot="append">
           更多
         </button>
@@ -22,9 +16,20 @@
         </button>
       </x-nav>
       <br />
-      <x-nav back="/" back-text="返回" type="primary" title="Nav">
+      <x-nav back="/" title-center title="Nav" type="primary">
         <button class="vx-nav--button" slot="append">
           更多
+        </button>
+      </x-nav>
+      <br />
+      <x-nav back="/"
+        title-center
+        type="primary"
+        title="搜索框可展开收起显示"
+        :search-collapse="collapse">
+        <input class="vx-nav--search-input" slot="search" type="text" placeholder="请输入商品名称"/>
+        <button class="vx-nav--button" slot="append" @click="collapse=!collapse">
+          {{collapse ? '展开' : '收起'}}
         </button>
       </x-nav>
       <tab :active.sync="active" :underline-width="10">
@@ -38,6 +43,7 @@
 export default {
   data () {
     return {
+      collapse: false,
       tabs: [
         {name: 'recommed', label: '推荐'},
         {name: 'it', label: '科技'},
