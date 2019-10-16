@@ -12,9 +12,9 @@
         <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (props.isBack ? 1 : 0)" :key="index"></div>
       </template>
       <slot name="prepend"></slot>
-      <flexbox-item :class="['vx-nav--title']">
-        <slot v-if="$slots.title" name="title"></slot>
-        <template v-else>{{data.attrs.title}}</template>
+      <slot v-if="$slots.title" name="title"></slot>
+      <flexbox-item v-else :class="['vx-nav--title']">
+        <template>{{data.attrs.title}}</template>
       </flexbox-item>
       <template v-if="props.titleCenter">
         <div class="vx-nav--button" v-if="props.isBack && !$slots['append']"></div>
