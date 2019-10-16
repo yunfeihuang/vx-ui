@@ -36,6 +36,7 @@
     &--image{
       width: 32vw;
       object-fit: contain;
+      max-height: 32vw;
     }
     &--append-action{
       padding: 0.15rem 0.2rem;
