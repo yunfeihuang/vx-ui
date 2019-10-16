@@ -36,7 +36,12 @@
         <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
       </tab>
     </div>
-    <x-body slot="body"></x-body>
+    <x-body slot="body" @scroll="handleScroll">
+      <cell v-for="(item,index) in 20" :key="index" title="github">
+        <img slot="icon" :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%">
+        <span slot="value">Start me</span>
+      </cell>
+    </x-body>
   </page>
 </template>
 <script>
@@ -51,6 +56,11 @@ export default {
         {name: 'find', label: '发现'}
       ],
       active: 'recommed'
+    }
+  },
+  methods: {
+    handleScroll (e) {
+      this.collapse = e.target.scrollTop > 80
     }
   }
 }

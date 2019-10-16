@@ -94,7 +94,8 @@
         width:100%;
         box-sizing:border-box;
         padding:0 0.2rem;
-        border:0;
+        border:1px solid;
+        @include var-border-color($color-border);
         border-radius:0.1rem;
         font-size: inherit;
       }
@@ -113,6 +114,11 @@
             opacity:0;
           }
         }
+      }
+    }
+    &.vx-nav--primary{
+      .vx-nav--search-input{
+        border:0;
       }
     }
   }
