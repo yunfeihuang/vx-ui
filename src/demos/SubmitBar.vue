@@ -15,6 +15,7 @@
         <template>
           总计：<span class="vx-color-error">￥200</span>
         </template>
+        <x-button slot="button" type="warning">提交</x-button>
         <x-button slot="button" type="primary">提交</x-button>
       </submit-bar>
       <br />
