@@ -26,7 +26,7 @@ export default {
       let result = {
         width: `${100 / this.$parent.grid * this.col}%`,
         borderRightWidth: `${this.$parent.gutter}px`,
-        borderBottomWidth: `${this.$parent.gutter}px`,
+        borderBottomWidth: `${this.$parent.gutter}px`
       }
       return result
     }
