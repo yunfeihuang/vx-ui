@@ -3,29 +3,29 @@
     <div slot="header">
       <x-nav back="/" title="Nav">
         <button class="vx-nav--button" slot="append">
-          更多
+          登录
         </button>
       </x-nav>
       <br />
       <x-nav back="/" title-center title="Nav">
         <button class="vx-nav--button" slot="append">
-          更多
+          注册
         </button>
         <button class="vx-nav--button" slot="append">
-          更多
+          登录
         </button>
       </x-nav>
       <br />
       <x-nav back="/" title-center title="Nav" type="primary">
         <button class="vx-nav--button" slot="append">
-          更多
+          登录
         </button>
       </x-nav>
       <br />
       <x-nav back="/"
         title-center
         type="primary"
-        title="搜索框可展开收起显示"
+        title="含搜索框的Nav"
         :search-collapse="collapse">
         <input class="vx-nav--search-input" slot="search" type="text" placeholder="请输入商品名称"/>
         <button class="vx-nav--button" slot="append" @click="collapse=!collapse">

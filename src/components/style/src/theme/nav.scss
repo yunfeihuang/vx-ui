@@ -34,7 +34,7 @@
     &--button{
       color:inherit;
       height:inherit;
-      width: $box-size-height-default;
+      min-width: $box-size-height-default;
       text-align: center;
       @include button;
       @include active;
@@ -75,6 +75,9 @@
       }
       .vx-nav--title{
         text-align:center;
+      }
+      .vx-nav--button{
+        width: $box-size-height-default;
       }
       div.vx-nav--button:active{
         background:transparent;

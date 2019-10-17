@@ -9,6 +9,16 @@
     &.is-divider{
       margin:0;
     }
+    &.is-half-divider{
+      .vx-list-item{
+        &--inner{
+          padding:0;
+        }
+        &--image{
+          margin:0.2rem 0 0.2rem 0.2rem;
+        }
+      }
+    }
     &--prepend,&--append,&--append-action,&--inner{
       padding: 0.2rem;
     }
@@ -51,6 +61,10 @@
     }
     &--content{
       line-height:1.75;
+      &.vx-divider{
+        background-position:bottom;
+        padding:0.2rem 0.2rem 0.2rem 0;
+      }
     }
     &--action{
       background:#fff;

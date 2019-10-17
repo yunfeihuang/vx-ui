@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['vx-list-item', {'is-divider': props.divider}, data.staticClass, data.class]"
+  <div :class="['vx-list-item', {'is-divider': props.halfDivider || props.divider}, {'is-half-divider': props.halfDivider}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners"
@@ -8,12 +8,12 @@
       <slot name="prepend"></slot>
     </div>
     <divider v-if="$slots['prepend']"></divider>
-    <flexbox align="center"
+    <flexbox :align="!props.halfDivider ? 'center' : undefined"
       class="vx-list-item--inner"
       :class="{'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}">
       <slot name="image" v-if="$slots['image']"></slot>
       <x-img :style="props.imageStyle" class="vx-list-item--image" v-else-if="props.image!==undefined" :src="props.image"></x-img>
-      <flexbox-item class="vx-list-item--content">
+      <flexbox-item :class="['vx-list-item--content', {'vx-divider': props.halfDivider}]">
         <slot></slot>
       </flexbox-item>
       <div @click.stop class="vx-list-item--action" v-if="$slots['action']">
@@ -47,6 +47,9 @@ export default {
       type: [String, Object]
     },
     divider: {
+      type: Boolean
+    },
+    halfDivider: {
       type: Boolean
     },
     to: {
