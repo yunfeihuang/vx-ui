@@ -16,19 +16,28 @@
       float:left;
       background:#fff;
       text-align:center;
-      @include divider($color-divider, true);
-      background-position: right;
       position:relative;
-      padding:0.2rem;
       box-sizing:border-box;
-      &:after{
-        content:'';
-        width:100%;
-        height:1px;
-        position:absolute;
-        left:0;
-        bottom:0;
-        @include divider();
+      background-clip: content-box;
+      border-right:1px solid transparent;
+      border-bottom:1px solid transparent;
+      &-inner{
+        padding:0.2rem;
+      }
+      &.is-divider{
+        @include divider($color-divider, true);
+        background-position: right;
+        border-right:0;
+        border-bottom:0;
+        &:after{
+          content:'';
+          width:100%;
+          height:1px;
+          position:absolute;
+          left:0;
+          bottom:0;
+          @include divider();
+        }
       }
     }
   }

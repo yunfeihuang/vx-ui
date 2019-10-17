@@ -19,6 +19,10 @@ export default [
         title: 'Flexbox布局'
       },
       {
+        path: '/palace',
+        title: 'Palace宫格布局'
+      },
+      {
         path: '/nav',
         title: 'Nav导航'
       },

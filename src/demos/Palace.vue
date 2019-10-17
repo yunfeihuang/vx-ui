@@ -23,6 +23,13 @@
           项目
         </palace-item>
       </palace>
+      <br />
+      <palace :grid="3" :gutter="10">
+        <palace-item v-for="item in 10" :key="item">
+          <strong>{{item}}</strong> <br />
+          项目
+        </palace-item>
+      </palace>
     </x-body>
   </page>
 </template>
