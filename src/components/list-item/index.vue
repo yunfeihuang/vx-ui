@@ -11,8 +11,16 @@
     <flexbox :align="!props.halfDivider ? 'center' : undefined"
       class="vx-list-item--inner"
       :class="{'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}">
-      <slot name="image" v-if="$slots['image']"></slot>
-      <x-img :style="props.imageStyle" class="vx-list-item--image" v-else-if="props.image!==undefined" :src="props.image"></x-img>
+      <template v-if="props.halfDivider">
+        <slot name="image" v-if="$slots['image']"></slot>
+        <div v-else-if="props.image!==undefined">
+          <x-img :style="props.imageStyle" class="vx-list-item--image" :src="props.image"></x-img>
+        </div>
+      </template>
+      <template v-else>
+        <slot name="image" v-if="$slots['image']"></slot>
+        <x-img :style="props.imageStyle" class="vx-list-item--image" v-else-if="props.image!==undefined" :src="props.image"></x-img>
+      </template>
       <flexbox-item :class="['vx-list-item--content', {'vx-divider': props.halfDivider}]">
         <div v-if="props.halfDivider" class="vx-list-item--content-inner">
           <slot></slot>
