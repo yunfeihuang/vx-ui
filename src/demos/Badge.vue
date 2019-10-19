@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Badge"></x-nav>
+    <x-nav slot="header" title="Badge"></x-nav>
     <x-body slot="body">
       <group>
         <cell>

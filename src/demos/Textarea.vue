@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Textarea"></x-nav>
+    <x-nav slot="header" title="Textarea"></x-nav>
     <x-body slot="body">
       <div style="margin-top:20px;">
         <x-textarea v-model="value" placeholder="请输入消息内容" :maxlength="100"/>

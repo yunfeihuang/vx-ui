@@ -1,13 +1,16 @@
 <template>
   <page>
     <div slot="header">
-      <x-nav back="/" title="Nav">
+      <x-nav title="Nav">
         <button class="vx-nav--button" slot="append">
           登录
         </button>
       </x-nav>
       <br />
-      <x-nav back="/" title-center title="Nav">
+      <x-nav title-center title="Nav">
+        <button class="vx-nav--button" slot="prepend">
+          注册
+        </button>
         <button class="vx-nav--button" slot="append">
           注册
         </button>
@@ -16,13 +19,13 @@
         </button>
       </x-nav>
       <br />
-      <x-nav back="/" title-center title="Nav" type="primary">
+      <x-nav title-center title="Nav" type="primary">
         <button class="vx-nav--button" slot="append">
           登录
         </button>
       </x-nav>
       <br />
-      <x-nav back="/"
+      <x-nav
         title-center
         type="primary"
         title="含搜索框的Nav"
@@ -31,10 +34,10 @@
         <button class="vx-nav--button" slot="append" @click="collapse=!collapse">
           {{collapse ? '展开' : '收起'}}
         </button>
+        <tab :active.sync="active" :underline-width="10">
+          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
+        </tab>
       </x-nav>
-      <tab :active.sync="active" :underline-width="10">
-        <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-      </tab>
     </div>
     <x-body slot="body" @scroll="handleScroll">
       <cell v-for="(item,index) in 20" :key="index" title="github">

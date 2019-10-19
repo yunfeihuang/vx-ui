@@ -1,6 +1,6 @@
 <template>
   <page type="primary">
-    <x-nav slot="header" back="/" title="Heading"></x-nav>
+    <x-nav slot="header" title="Heading"></x-nav>
     <x-body slot="body">
       <heading>
         <template>heading</template>

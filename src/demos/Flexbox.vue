@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Flexbox"></x-nav>
+    <x-nav slot="header" title="Flexbox"></x-nav>
     <x-body slot="body" class="flexbox-demo">
       ### 平均跨度
       <flexbox :gutter="10">

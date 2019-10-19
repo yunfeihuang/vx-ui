@@ -3,6 +3,7 @@
 .#{$css-prefix}{
   &divider{
     position:relative;
+    background-color:#fff;
     @include divider;
     min-height:1px;
     &.is-vertical{

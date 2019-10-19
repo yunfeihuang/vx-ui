@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Cell"></x-nav>
+    <x-nav slot="header" title="Cell"></x-nav>
     <x-body slot="body">
       <group title="default">
         <cell title="github" to="https://github.com/yunfeihuang/vx-ui" target="_blank">

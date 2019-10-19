@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Preview(点击图片浏览图片)"></x-nav>
+    <x-nav slot="header" title="Preview(点击图片浏览图片)"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <img
         v-for="(item,index) in images"

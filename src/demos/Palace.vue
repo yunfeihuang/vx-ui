@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Palace"></x-nav>
+    <x-nav slot="header" title="Palace"></x-nav>
     <x-body slot="body">
       <palace :grid="3">
         <palace-item v-for="item in 10" :key="item">

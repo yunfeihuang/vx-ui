@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <div slot="header">
-      <x-nav back="/" title="Tab"></x-nav>
+      <x-nav title="Tab"></x-nav>
       <div v-if="slideIn">
         <tab :active.sync="active">
           <tab-item

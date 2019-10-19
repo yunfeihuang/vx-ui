@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Popover"></x-nav>
+    <x-nav slot="header" title="Popover"></x-nav>
     <x-body slot="body" style="padding:15px;" v-if="slideIn">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>

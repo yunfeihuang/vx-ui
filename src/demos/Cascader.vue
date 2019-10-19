@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Cascader"></x-nav>
+    <x-nav slot="header" title="Cascader"></x-nav>
     <x-body slot="body">
       <group :title="`value:${value}`">
         <cell :arrow="false">

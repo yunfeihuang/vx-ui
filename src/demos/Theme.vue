@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Theme"></x-nav>
+    <x-nav slot="header" title="Theme"></x-nav>
     <x-body slot="body" class="theme">
       <group title="颜色">
         <cell :arrow="false" title="字体色">

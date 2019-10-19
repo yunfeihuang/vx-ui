@@ -9,8 +9,13 @@
           <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
           <span v-if="backText">{{props.backText}}</span>
         </button>
-        <template v-if="$slots['append'] && props.titleCenter">
-          <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (props.isBack ? 1 : 0)" :key="index"></div>
+        <template v-if="props.titleCenter && $slots['append']">
+          <template v-if="$slots['prepend'] && $slots['prepend'].length + props.isBack < $slots['append'].length">
+            <div class="vx-nav--button" v-for="(item,index) in $slots['append'].length - ($slots['prepend'].length + props.isBack)" :key="index"></div>
+          </template>
+          <template v-else-if="!$slots['prepend']">
+            <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (props.isBack ? 1 : 0)" :key="index"></div>
+          </template>
         </template>
         <slot name="prepend"></slot>
         <flexbox-item v-if="$slots.title">
@@ -31,7 +36,9 @@
         </div>
       </div>
     </div>
-    <slot></slot>
+    <div v-if="$slots['default']" class="vx-nav--default-slot">
+      <slot></slot>
+    </div>
   </div>
 </template>
 

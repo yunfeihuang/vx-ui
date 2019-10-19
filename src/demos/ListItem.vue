@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="ListItem"></x-nav>
+    <x-nav slot="header" title="ListItem"></x-nav>
     <x-body slot="body">
       <group title="default">
         <list-item

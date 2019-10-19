@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="IndexList"></x-nav>
+    <x-nav slot="header" title="IndexList"></x-nav>
     <index-list slot="body" :data="list" @click="handleClick"/>
   </page>
 </template>

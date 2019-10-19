@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Radio"></x-nav>
+    <x-nav slot="header" title="Radio"></x-nav>
     <x-body slot="body">
       <group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>

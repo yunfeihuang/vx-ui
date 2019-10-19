@@ -1,6 +1,6 @@
 <template>
   <page type="primary">
-    <x-nav slot="header" back="/" title="Marquee"></x-nav>
+    <x-nav slot="header" title="Marquee"></x-nav>
     <x-body slot="body" v-if="slideIn">
       <x-marquee>
         <x-marquee-item>

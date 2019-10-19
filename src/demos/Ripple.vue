@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Ripple"></x-nav>
+    <x-nav slot="header" title="Ripple"></x-nav>
     <x-body slot="body">
       <group>
         <ripple style="padding:0.3rem 0.2rem">

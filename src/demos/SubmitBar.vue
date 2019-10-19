@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="SubmitBar"></x-nav>
+    <x-nav slot="header" title="SubmitBar"></x-nav>
     <x-body slot="body"></x-body>
     <div slot="footer">
       <submit-bar>

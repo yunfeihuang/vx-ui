@@ -1,6 +1,6 @@
 <template>
   <page type="primary">
-    <x-nav slot="header" back="/" title="Spinner"></x-nav>
+    <x-nav slot="header" title="Spinner"></x-nav>
     <x-body slot="body" style="text-align:center;">
       <br/>
       <br/>

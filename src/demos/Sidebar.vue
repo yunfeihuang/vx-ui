@@ -1,6 +1,6 @@
 <template>
   <page type="primary">
-    <x-nav slot="header" back="/" title="Sidebar"></x-nav>
+    <x-nav slot="header" title="Sidebar"></x-nav>
     <x-body slot="body">
       <sidebar
         :active.sync="active"

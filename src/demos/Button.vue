@@ -1,6 +1,6 @@
 <template>
   <page type="primary">
-    <x-nav slot="header" back="/" title="Button"></x-nav>
+    <x-nav slot="header" title="Button"></x-nav>
     <x-body class="demos" slot="body" style="padding:0.15rem;">
       <x-button>default</x-button>
       <x-button type="primary">primary</x-button>

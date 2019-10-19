@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Img(滚动加载资源)"></x-nav>
+    <x-nav slot="header" title="Img(滚动加载资源)"></x-nav>
     <x-body slot="body" v-if="slideIn" style="line-height:2;">
       <x-img lazyload style="min-height:100px;width:100%" src="http://assets.bittyos.com/images/swiper/01.jpg" />
       <p>新华社北京5月27日电 中共中央政治局5月26日下午就推动形成绿色发展方式和生活方式进行第四十一次集体学习。中共中央总书记习近平在主持学习时强调，推动形成绿色发展方式和生活方式是贯彻新发展理念的必然要求，必须把生态文明建设摆在全局工作的突出地位，坚持节约资源和保护环境的基本国策，坚持节约优先、保护优先、自然恢复为主的方针，形成节约资源和保护环境的空间格局、产业结构、生产方式、生活方式，努力实现经济社会发展和生态环境保护协同共进，为人民群众创造良好生产生活环境。

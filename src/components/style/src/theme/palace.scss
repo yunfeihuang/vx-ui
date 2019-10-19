@@ -3,18 +3,18 @@
 .#{$css-prefix}{
   &palace{
     overflow:hidden;
-    &:after{
-      display:table;
-      font-size:0;
-      content:'';
-      clear: both;
-    }
     &--inner{
       width: calc(100% + 1px);
+      &:after{
+        display:table;
+        font-size:0;
+        content:'';
+        clear: both;
+      }
     }
     &--item{
       float:left;
-      background:#fff;
+      background-color:#fff;
       text-align:center;
       position:relative;
       box-sizing:border-box;
@@ -29,14 +29,9 @@
         background-position: right;
         border-right:0;
         border-bottom:0;
-        &:after{
-          content:'';
-          width:100%;
-          height:1px;
-          position:absolute;
-          left:0;
-          bottom:0;
+        .vx-palace--item-inner{
           @include divider();
+          background-position:bottom;
         }
       }
     }

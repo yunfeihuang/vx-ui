@@ -4,7 +4,10 @@
   &nav{
     background:#fff;
     position:relative;
+    z-index:10;
     &--inner{
+      position:relative;
+      z-index:10;
       .vx-nav--layout{
         @include var-height();
         >.vx-flexbox--item{
@@ -123,6 +126,10 @@
       .vx-nav--search-input{
         border:0;
       }
+    }
+    &--default-slot{
+      background:#fff;
+      box-shadow:0 0 0.15rem rgba(0,0,0,0.1);
     }
   }
 }

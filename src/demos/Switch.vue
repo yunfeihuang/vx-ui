@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Switch"></x-nav>
+    <x-nav slot="header" title="Switch"></x-nav>
     <x-body slot="body">
       <group title="default">
         <cell :arrow="false">

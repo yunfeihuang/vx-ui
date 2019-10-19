@@ -4,10 +4,12 @@
     v-bind="data.attrs"
     v-on="listeners"
     @click="$options.methods.linkTo(parent, props.to)">
-    <div class="vx-list-item--prepend" v-if="$slots['prepend']">
-      <slot name="prepend"></slot>
-    </div>
-    <divider v-if="$slots['prepend']"></divider>
+    <template v-if="$slots['prepend']">
+      <div class="vx-list-item--prepend">
+        <slot name="prepend"></slot>
+      </div>
+      <divider></divider>
+    </template>
     <flexbox :align="!props.halfDivider ? 'center' : undefined"
       class="vx-list-item--inner"
       :class="{'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}">
@@ -31,14 +33,18 @@
         <slot name="action"></slot>
       </div>
     </flexbox>
-    <divider v-if="$slots['append']"></divider>
-    <div class="vx-list-item--append" v-if="$slots['append']">
-      <slot name="append"></slot>
-    </div>
-    <divider v-if="$slots['append-action']"></divider>
-    <div @click.stop class="vx-list-item--append-action" v-if="$slots['append-action']">
-      <slot name="append-action"></slot>
-    </div>
+    <template v-if="$slots['append']">
+      <divider></divider>
+      <div class="vx-list-item--append">
+        <slot name="append"></slot>
+      </div>
+    </template>
+    <template v-if="$slots['append-action']">
+      <divider></divider>
+      <div @click.stop class="vx-list-item--append-action">
+        <slot name="append-action"></slot>
+      </div>
+    </template>
   </div>
 </template>
 

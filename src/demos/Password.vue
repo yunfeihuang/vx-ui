@@ -1,6 +1,6 @@
 <template>
   <page>
-    <x-nav slot="header" back="/" title="Password"></x-nav>
+    <x-nav slot="header" title="Password"></x-nav>
     <x-body slot="body">
       <group title="default">
         <password
