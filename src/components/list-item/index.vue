@@ -13,6 +13,7 @@
     <flexbox :align="!props.halfDivider ? 'center' : undefined"
       class="vx-list-item--inner"
       :class="{'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}">
+      <slot name="checkbox"></slot>
       <template v-if="props.halfDivider">
         <slot name="image" v-if="$slots['image']"></slot>
         <div v-else-if="props.image!==undefined">

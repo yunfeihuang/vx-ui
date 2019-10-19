@@ -29,9 +29,10 @@
           <div slot="append">append</div>
         </list-item>
       </group>
-      <group title="slot action">
+      <group title="slot checkbox && action">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
+          <checkbox slot="checkbox"></checkbox>
           <b>标题</b>
           <div>内容....</div>
           <x-button type="primary" size="small" slot="action">选中</x-button>

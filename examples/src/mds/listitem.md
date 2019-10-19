@@ -23,6 +23,7 @@
 |---------|--------|
 | default | - |
 | image | - |
+| checbox | - |
 | action | - |
 | prepend | - |
 | append | - |
