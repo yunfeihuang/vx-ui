@@ -5,6 +5,11 @@
     @include lineClamp;
     position:relative;
     touch-action: pan-y;
+    @include divider;
+    background-color:#fff;
+    &:first-child{
+      background-image:none;
+    }
     &::-webkit-scrollbar{
       display:none;
     }
@@ -24,11 +29,9 @@
         min-width:1rem;
       }
     }
-    &.is-divider{
-      @include divider;
-      &:first-child{
-        background-image:none;
-      }
+    .vx-list-item{
+      margin:0;
+      background-color:transparent;
     }
   }
 }

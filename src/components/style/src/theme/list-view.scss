@@ -60,6 +60,21 @@
       text-align:center;
       @include var-height($box-size-height-default, 'line-height');
       @include var-color($color-light);
+      &.is-end{
+        &:before,&:after{
+          content:'';
+          display:inline-block;
+          border-top: 1px solid;
+          opacity: 0.5;
+          @include var-border-color($color-light);
+          width:0.5rem;
+          font-size: 0;
+          height: 1px;
+          margin: 0 5px;
+          vertical-align: middle;
+          margin-top: -1px;
+        }
+      }
     }
     &--spinner{
       margin-right:0.08rem;

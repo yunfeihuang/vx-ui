@@ -18,7 +18,7 @@
         <spinner class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
-      <div class="vx-list-view--loading" v-if="end">{{endText}}</div>
+      <div class="vx-list-view--loading is-end" v-if="end" @click.stop="handleGoTop">{{endText}}</div>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     },
     endText: {
       type: String,
-      default: '没有更多'
+      default: '已到底部,点击回到顶部'
     }
   },
   watch: {
@@ -91,9 +91,13 @@ export default {
     },
     getPosition (e) {
       if (document.body.ontouchstart !== undefined) {
-        return {
-          pageY: e.changedTouches[0].pageY,
-          pageX: e.changedTouches[0].pageX
+        if (e.changedTouches) {
+          return {
+            pageY: e.changedTouches[0].pageY,
+            pageX: e.changedTouches[0].pageX
+          }
+        } else {
+          return {}
         }
       } else {
         return {
@@ -118,7 +122,7 @@ export default {
     handleTouchMove (e) {
       if (this.$listeners['pulldown']) {
         let {pageY, pageX} = this.getPosition(e)
-        if (this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
+        if (pageX !== undefined && this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
           e.preventDefault()
           e.stopPropagation()
           let top = pageY - this.$$touch.pageY
@@ -169,6 +173,9 @@ export default {
         }
         this.$$touch.pageY = 0
       }
+    },
+    handleGoTop () {
+      this.$el.scrollTop = 0
     },
     stopLoading () {
       if (this.$$touch && this.$$touch.inner && this.$$touch.inner.className.indexOf('loading') > -1) {

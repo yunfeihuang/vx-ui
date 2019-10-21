@@ -1,7 +1,7 @@
 <template>
   <label :class="['vx-radio', {'is-disabled': disabled, 'is-checked': myChecked}]" >
     <input type="radio" :name="name" :value="value" :disabled="disabled" :checked="myChecked" @change="handleChange"/>
-    <slot v-if="$scopedSlots['default']" v-bind="{checked: myChecked, disabled: disabled}"></slot>
+    <slot v-if="$scopedSlots['default'] && !$slots['default']" v-bind="{checked: myChecked, value: value, disabled: disabled}"></slot>
     <template v-else>
       <i class="vx-radio--icon"></i>
       <span class="vx-radio--text">

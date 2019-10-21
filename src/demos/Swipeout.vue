@@ -8,7 +8,7 @@
         :open="index===1"
         @close="handleCloseSwipeout"
         @open="handleOpenSwipeout">
-        <list-item divider :image="item.src" image-style="width:1rem;">
+        <list-item :image="item.src" image-style="width:1rem;">
           <template>
             <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
             <div>{{item.date}}</div>

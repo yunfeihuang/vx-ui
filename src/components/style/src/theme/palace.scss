@@ -14,13 +14,13 @@
     }
     &--item{
       float:left;
-      background-color:#fff;
       text-align:center;
       position:relative;
       box-sizing:border-box;
       background-clip: content-box;
       border-right:1px solid transparent;
       border-bottom:1px solid transparent;
+      background-color:#fff;
       &-inner{
         padding:0.2rem;
       }
