@@ -4,7 +4,7 @@
     <x-body slot="body">
       <sidebar
         :active.sync="active"
-        style="width:1.6rem;background:#f7f7f7;position:absolute;height:100%;top:0;left:0;">
+        style="width:1.6rem;background-color:#f7f7f7;position:absolute;height:100%;top:0;left:0;">
         <sidebar-item
           v-for="item in data"
           :name="item.name"

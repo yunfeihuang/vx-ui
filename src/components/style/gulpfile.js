@@ -11,7 +11,8 @@ gulp.task('compile', function() {
   return gulp.src('./src/theme/*.scss')
     .pipe(sass.sync())
     .pipe(autoprefixer({
-      browsers: ['ie > 9', 'last 2 versions'],
+      //browsers: ['ie > 9', 'last 2 versions'],
+      overrideBrowserslist: ['> 0.15% in CN'],
       cascade: false
     }))
     .pipe(cssmin())
@@ -28,9 +29,9 @@ gulp.task('copyfont', function() {
     .pipe(gulp.dest('../../../lib/style/iconfont'));
 });
 */
-
+gulp.task('build', gulp.series('compile', 'copythemesrc', done => done()))
+/*
 gulp.task('build', ['compile', 'copythemesrc'], function () {
-  /*
   let dir = '../../../lib/style/src/theme'
   fs.readdir(dir, function (err,files) {
     files.forEach(function(filename){
@@ -39,5 +40,5 @@ gulp.task('build', ['compile', 'copythemesrc'], function () {
       fs.writeFileSync(fileDir, content.replace("@import '../variable.scss';", '').replace("@import '../mixins.scss';", ''))
     });
   });
-  */
 });
+*/

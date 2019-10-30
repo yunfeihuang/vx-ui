@@ -5,15 +5,8 @@
     text-align:center;
     position:relative;
     user-select: none;
-    &:after{
-      position:absolute;
-      content:'';
-      width:1px;
-      height:100%;
-      @include divider($color-divider, true);
-      right:0;
-      top:0;
-    }
+    @include divider($color-divider, true);
+    background-position: right;
     &--inner{
       height:100%;
       position:relative;
@@ -27,16 +20,6 @@
       position:relative;
       @include lineClamp;
       @include divider;
-      background-color:transparent;
-      &:before{
-        position:absolute;
-        content:'';
-        width:1px;
-        height:100%;
-        @include divider($color-divider, true);
-        right:0;
-        left:auto;
-      }
       &.is-active{
         @include var-color();
         background-color:#fff;
@@ -45,9 +28,6 @@
         position:sticky;
         top:0;
         z-index:1;
-        &:before{
-          display:none;
-        }
       }
     }
   }
