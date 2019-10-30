@@ -2,17 +2,17 @@
 $css-prefix             : vx-;
 
 // color
-$color-black            : #333;   
-$color-assist           : rgba($color-black,0.55);
-$color-light            : rgba(0,0,0,0.35);
-$color-border           : rgb(229, 229, 229);
-$color-divider          : #ddd;
-$color-primary          : #3399ff;
-$color-error            : #f56c6c;
-$color-warning          : #ff9900;
-$color-danger           : $color-error;
-$color-touch-active     : rgba(0,0,0,0.1);
-$color-background       : #f7f7f7;
+$color-black            : #333!default;   
+$color-assist           : rgba($color-black,0.55)!default;
+$color-light            : rgba(0,0,0,0.35)!default;
+$color-border           : rgb(229, 229, 229)!default;
+$color-divider          : #ddd!default;
+$color-primary          : #3399ff!default;
+$color-error            : #f56c6c!default;
+$color-warning          : #ff9900!default;
+$color-danger           : $color-error!default;
+$color-touch-active     : rgba(0,0,0,0.1)!default;
+$color-background       : #f7f7f7!default;
 $colors : (
   color-black: $color-black,
   color-assist: $color-assist,
@@ -26,10 +26,10 @@ $colors : (
   color-background: $color-background
 );
 
-$font-size-default      : 0.28rem;
-$font-size-small        : 0.24rem;
-$font-size-large        : 0.32rem;
-$font-size-xl           : 0.38rem;
+$font-size-default      : 0.28rem!default;
+$font-size-small        : 0.24rem!default;
+$font-size-large        : 0.32rem!default;
+$font-size-xl           : 0.38rem!default;
 $font-sizes: (
   font-size-default: $font-size-default,
   font-size-small: $font-size-small,
@@ -37,15 +37,15 @@ $font-sizes: (
   font-size-xl: $font-size-xl
 );
 
-$box-size-height-default: 0.92rem;
-$box-size-height-small  : 0.64rem;
+$box-size-height-default: 0.92rem!default;
+$box-size-height-small  : 0.64rem!default;
 $box-size-heights: (
   box-size-height-default: $box-size-height-default,
   box-size-height-small: $box-size-height-small
 );
 
 // Border color
-$border-radius     : 0.14rem;
+$border-radius     : 0.14rem!default;
 $border-radius-dpr2     : $border-radius * 2;
 $border-radius-dpr3     : $border-radius * 3;
 $border-radius-dpr4     : $border-radius * 4;
@@ -60,9 +60,9 @@ $border-radius-dprs: (
 );
 
 // Animation
-$animation-time         : .3s;
-$transition-time        : .2s;
-$ease-in-out            : ease-in-out;
+$animation-time         : .3s!default;
+$transition-time        : .2s!default;
+$ease-in-out            : ease-in-out!default;
 
 :export {
   color: {
