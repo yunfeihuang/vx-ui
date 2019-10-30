@@ -48,7 +48,7 @@
         margin: 0;
         &:checked+button{
           box-shadow:0 0 0 1.2rem $color-primary inset;
-          box-shadow:0 0 0 1.2rem var(--vx-color-primary, $color-primary) inset;
+          box-shadow:0 0 0 1.2rem var-value-color($color-primary) inset;
           @include var-border-color();
           &:before{
             left:40%;

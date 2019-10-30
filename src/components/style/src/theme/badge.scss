@@ -3,7 +3,7 @@
 .#{$css-prefix}{
   &badge{
     display: inline-block;
-    background: $color-error;
+    @include var-background-color($color-error);
     color: #fff;
     font-size: 0.24rem;
     height: 0.32rem;

@@ -1,5 +1,7 @@
 <template>
-  <div class="color-picker" :style="`background-color:${value}`" @click.stop="handleClick"></div>
+  <div class="color-picker-trigger" @click.stop="handleClick($event)">
+    <div class="color-picker-value" :style="`background-color:${value}`"></div>
+  </div>
 </template>
 
 <script>
@@ -30,21 +32,39 @@ export default {
       document.body.appendChild(el)
       let self = this
       this.destroy()
+      let rect = this.$el.getBoundingClientRect()
+      let position = {}
+      if (rect.left > window.innerWidth - rect.right) {
+        position.right = window.innerWidth - rect.right
+      } else {
+        position.left = rect.left
+      }
+      if (rect.top > window.innerHeight - rect.bottom) {
+        position.bottom = window.innerHeight - rect.bottom
+      } else {
+        position.top = rect.top + rect.height
+      }
       /* eslint-disable no-new */
       $$colorPicker = new Vue({
         el,
         components: {
           SketchPicker
         },
-        template: `<sketch-picker :value="value" @input="handleChange"/>`,
+        template: `<sketch-picker class="color-sketch-picker" :value="value" @input="handleChange"/>`,
         data () {
           return {
             value: self.value
           }
         },
+        mounted () {
+          Object.keys(position).forEach(item => {
+            this.$el.style[item] = position[item] + 'px'
+          })
+        },
         methods: {
           handleChange (value) {
-            self.$emit('input', value.hex).$emit('change', value.hex)
+            let rgba = `rgba(${value.rgba.r},${value.rgba.g},${value.rgba.b},${value.rgba.a})`
+            self.$emit('input', rgba).$emit('change', rgba)
           }
         }
       })
@@ -55,13 +75,26 @@ export default {
 </script>
 <style lang="scss">
   .color-picker{
-    display:inline-block;
-    width:0.6rem;
-    height:0.6rem;
-    border:1px solid;
-    @include var-border-color($color-border);
-    padding:1px;
-    background-clip: content-box;
-    @include var-border-radius($border-radius);
+    &-trigger{
+      display:inline-block;
+      width:0.6rem;
+      height:0.6rem;
+      border:1px solid;
+      @include var-border-color($color-border);
+      padding:1px;
+      background-clip: content-box;
+      @include var-border-radius($border-radius);
+      vertical-align: middle;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2N89uzZfwY8QFJSEp80A+OoAcMiDP7//483HTx//hx/Ohg1gIFx6IcBALl+VXknOCvFAAAAAElFTkSuQmCC");
+    }
+    &-value{
+      width:100%;
+      height:100%;
+      border-radius:inherit;
+    }
+  }
+  div.color-sketch-picker{
+    z-index:10000;
+    position:absolute;
   }
 </style>

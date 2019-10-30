@@ -60,6 +60,7 @@ import CascaderPopupPicker from './cascader-popup-picker'
 import ListItem from './list-item'
 import SubmitBar from './submit-bar'
 import {Palace, PalaceItem} from './palace'
+import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
 if (!window.requestAnimationFrame) {
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
@@ -167,7 +168,9 @@ let components = [
   ListItem,
   SubmitBar,
   Palace,
-  PalaceItem
+  PalaceItem,
+  DropdownMenu,
+  DropdownMenuItem
 ]
 
 const install = (Vue) => {
@@ -562,7 +565,9 @@ export default {
   ListItem,
   SubmitBar,
   Palace,
-  PalaceItem
+  PalaceItem,
+  DropdownMenu,
+  DropdownMenuItem
 }
 
 export {
@@ -645,5 +650,7 @@ export {
   ListItem,
   SubmitBar,
   Palace,
-  PalaceItem
+  PalaceItem,
+  DropdownMenu,
+  DropdownMenuItem
 }

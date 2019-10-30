@@ -63,6 +63,7 @@
           <cell title="Toast" to="/demos/toast"></cell>
           <cell title="Popup" to="/demos/Popup"></cell>
           <cell title="PopupPicker" to="/demos/popuppicker"></cell>
+          <cell title="DropdownMenu" to="/demos/dropdownmenu"></cell>
         </group>
         <group title="选项卡">
           <cell title="Tab" to="/demos/tab"></cell>

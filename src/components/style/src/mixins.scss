@@ -1,11 +1,16 @@
 $resolution : 2,3,4,5,6;
-@mixin var-color ($value: $color-primary, $attr: 'color') {
-  #{$attr}: $value;
+@function var-color-value ($value) {
+  $result: '';
   @each $key, $val in $colors {
     @if $value == $val{
-      #{$attr}: var(--vx-#{$key}, $val);
+       $result: var(--vx-#{$key}, $val);
     }
   }
+  @return $result;
+}
+@mixin var-color ($value: $color-primary, $attr: 'color') {
+  #{$attr}: $value;
+  #{$attr}: var-color-value($value);
 }
 @mixin var-background-color ($value: $color-primary) {
   @include var-color($value, 'background-color');

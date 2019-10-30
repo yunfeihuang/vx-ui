@@ -1,0 +1,31 @@
+@import '../variable.scss';
+@import '../mixins.scss';
+.#{$css-prefix}{
+  &dropdown-menu{
+    &--inner{
+      background:#fff;
+      text-align:center;
+      @include scroller;
+      @include var-height();
+    }
+    &--item{
+      display:flex;
+      &-text{
+        margin:auto;
+      }
+      .vx-arrow--direction{
+        &-up,&-down{
+          margin-left:0.1rem;
+        }
+        &-down{
+          margin-top:-0.1rem;
+        }
+      }
+    }
+    &--picker{
+      .vx-radio{
+        padding:0.25rem 0.2rem;
+      }
+    }
+  }
+}
