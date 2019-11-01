@@ -45,7 +45,8 @@ export default {
   },
   mounted () {
     import('swiper/dist/css/swiper.min.css')
-    import('swiper').then(Swiper => {
+    import('swiper').then(res => {
+      let Swiper = res.default
       let options = Object.assign({
         initialSlide: this.active,
         autoplayDisableOnInteraction: false,

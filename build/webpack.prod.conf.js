@@ -7,15 +7,42 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+// const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const safeParser = require('postcss-safe-parser')
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
+  performance: {
+    hints: false
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: config.build.productionSourceMap,
+      }),
+      new OptimizeCSSPlugin({
+        // 可自己配置，建议第一次升级先不配置
+        cssProcessorOptions: { 
+          parser: safeParser,
+          discardComments: {
+            removeAll: true
+          }
+        }
+      }),
+    ],
+    splitChunks: {
+      // 可自己配置，建议第一次升级先不配置
+    }
+  },
   externals: {
     "vue": "Vue",
     'vue-router': 'VueRouter',
@@ -41,6 +68,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': env,
       '$import': 'window.$import'
     }),
+    new MiniCssExtractPlugin({
+      filename: utils.assetsPath('css/[name].[contenthash:12].css'),
+      allChunks: true,
+    }),
+    /*
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
@@ -59,6 +91,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
+    
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
@@ -66,6 +99,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ? { safe: true, map: { inline: false } }
         : { safe: true }
     }),
+    */
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
@@ -107,6 +141,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    /*
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -136,7 +171,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-
+    */
     // copy custom static assets
     new CopyWebpackPlugin([
       {

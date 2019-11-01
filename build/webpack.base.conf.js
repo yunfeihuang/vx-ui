@@ -4,6 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const fs = require('fs')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -53,12 +54,20 @@ module.exports = {
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        use: [
+          'thread-loader',
+          {
+            loader: 'vue-loader',
+            options: vueLoaderConfig
+          }
+        ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          'thread-loader',
+          'babel-loader'
+        ],
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
@@ -87,34 +96,45 @@ module.exports = {
       },
       {
         test: /\.md$/,
-        loader: 'vue-markdown-loader',
         include: [resolve('examples')],
-        options: {
-          // markdown-it config
-          preset: 'default',
-          breaks: true,
-          typographer:true,
-          linkify:true,
-          preprocess: function(markdownIt, source) {
-            var result = source.match(/##:(\w+):##/g)
-            if (result && result[0]) {
-              var component = result[0].replace(/##:/g, '').replace(/:##/g, '')
-              if (component) {
-                var text = fs.readFileSync(resolve('src/demos/'+component+'.vue'), 'utf8')
-                return source.replace(result[0], text).replace(RegExp(`.scss`, 'g'), '.css')
-              }
-            }
-            // do any thing
-            return source
+        use: [
+          {
+            loader: 'vue-loader'
           },
-          use: [
-            /* markdown-it plugin */
-            require('markdown-it')
-          ]
-        }
+          {
+            loader: 'vue-markdown-loader/lib/markdown-compiler',
+            options: {
+              raw: true,
+              // markdown-it config
+              preset: 'default',
+              breaks: true,
+              typographer:true,
+              linkify:true,
+              preprocess: function(markdownIt, source) {
+                var result = source.match(/##:(\w+):##/g)
+                if (result && result[0]) {
+                  var component = result[0].replace(/##:/g, '').replace(/:##/g, '')
+                  if (component) {
+                    var text = fs.readFileSync(resolve('src/demos/'+component+'.vue'), 'utf8')
+                    return source.replace(result[0], text).replace(RegExp(`.scss`, 'g'), '.css')
+                  }
+                }
+                // do any thing
+                return source
+              },
+              use: [
+                /* markdown-it plugin */
+                require('markdown-it')
+              ]
+            }
+          }
+        ]
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

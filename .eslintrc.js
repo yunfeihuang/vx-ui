@@ -25,6 +25,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     // allow async-await
+    "object-curly-spacing": 0,
     'generator-star-spacing': 'off',
     'no-control-regex': 0,
     'no-multiple-empty-lines': 0,
