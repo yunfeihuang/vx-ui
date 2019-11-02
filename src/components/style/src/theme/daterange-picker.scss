@@ -1,5 +1,5 @@
-@import '../variable.scss';
-@import '../mixins.scss';
+@import 'common/variable.scss';
+@import 'common/mixins.scss';
 .#{$css-prefix}{
   &daterange-picker{
     &--wrapper{
