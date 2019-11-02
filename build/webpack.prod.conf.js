@@ -70,7 +70,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:12].css'),
-      allChunks: true,
+      allChunks: false,
     }),
     /*
     new UglifyJsPlugin({

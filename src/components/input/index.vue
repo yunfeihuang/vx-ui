@@ -21,7 +21,7 @@
         </button>
       </template>
       <slot name="append"></slot>
-      <arrow v-if="arrow && !$slots.append && !value" v-bind="arrowProps" direction="down"/>
+      <arrow v-if="arrow" v-bind="arrowProps" direction="down"/>
     </flexbox>
   </div>
 </template>

@@ -98,6 +98,7 @@ module.exports = {
         test: /\.md$/,
         include: [resolve('examples')],
         use: [
+          // 'thread-loader',
           {
             loader: 'vue-loader'
           },

@@ -10,7 +10,7 @@
           ]">
           <x-input v-model="form.name" placeholder="请输入姓名"/>
         </el-form-item>
-        <el-form-item label="设置密码：" prop="password" :rules="[
+        <el-form-item block label="设置密码：" prop="password" :rules="[
           {required: true, message: '密码不能为空'},
           {min: 6, message: '密码不能小于6字符'}
           ]">

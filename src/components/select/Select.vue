@@ -140,7 +140,7 @@ export default {
               return createElement(Picker, {
                 props: {
                   open: this.open,
-                  value: self.max === 1 ? [self.value] : self.value,
+                  value: self.value,
                   options: self.$$myOptions,
                   title: self.title,
                   max: self.max,
