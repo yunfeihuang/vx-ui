@@ -1,5 +1,5 @@
 <template>
-  <flexbox-item :class="['vx-dropdown-menu--item']" @click.native="handleClick($event)">
+  <flexbox-item :class="['vx-dropdown-menu--item', {'is-checked': checked}]" @click.native="handleClick($event)">
     <div class="vx-dropdown-menu--item-text">
       {{myLabel}}<arrow v-if="options || $slots['default']" :direction="open ? 'up' : 'down'" />
     </div>
@@ -30,6 +30,9 @@ export default {
     },
     value: {
       type: [String, Number]
+    },
+    checked: {
+      type: Boolean
     },
     popupClass: {
       type: [String, Array, Object]

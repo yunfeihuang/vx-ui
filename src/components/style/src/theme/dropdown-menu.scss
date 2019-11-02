@@ -21,6 +21,9 @@
           margin-top:-0.1rem;
         }
       }
+      &.is-checked{
+        @include var-color();
+      }
     }
     &--picker{
       .vx-radio{

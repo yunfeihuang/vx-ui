@@ -1,4 +1,4 @@
-# SubmitBar列表项
+# SubmitBar底部提交栏
 
 ```
 ##:SubmitBar:##

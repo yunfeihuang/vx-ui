@@ -7,7 +7,16 @@
           :options="options"
           v-model="value">
         </dropdown-menu-item>
-        <dropdown-menu-item label="销量"></dropdown-menu-item>
+        <dropdown-menu-item
+          label="销量"
+          :checked="type=='销量'"
+          @click.native="type='销量'">
+        </dropdown-menu-item>
+        <dropdown-menu-item
+          label="新品"
+          :checked="type=='新品'"
+          @click.native="type='新品'">
+        </dropdown-menu-item>
         <dropdown-menu-item ref="custom" popup-class="custom-class" label="自定义">
           <div>
             <div style="padding:0.4rem;text-align:center">自定义弹框</div>
@@ -37,7 +46,8 @@ export default {
         {value: 'msg', label: '消息'},
         {value: 'sns', label: '社区'}
       ],
-      value: 'recommed'
+      value: 'recommed',
+      type: ''
     }
   },
   methods: {
