@@ -2,8 +2,8 @@
   <div :class="['vx-select',`vx-select--size-${size}`, {'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
     <flexbox :gutter="0" class="vx-select--inner" align="center">
       <slot name="prepend"></slot>
-      <flexbox-item>
-        <button type="button" :data-placeholder="placeholder">{{myLabel}}</button>
+      <flexbox-item class="vx-select--placeholder">
+        <span :data-placeholder="placeholder">{{myLabel}}</span>
       </flexbox-item>
       <template v-if="!$slots.append">
         <transition v-if="this.clearable && value+''" name="input-clearable-fade">

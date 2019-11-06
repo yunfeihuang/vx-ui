@@ -66,8 +66,10 @@ export default {
     open (index) {
       import('photoswipe/dist/photoswipe.css')
       import('photoswipe/dist/default-skin/default-skin.css')
-      import('photoswipe').then(PhotoSwipe => {
-        import('photoswipe/dist/photoswipe-ui-default').then(UI => {
+      import('photoswipe').then(res => {
+        let PhotoSwipe = res.default
+        import('photoswipe/dist/photoswipe-ui-default').then(resUI => {
+          let UI = resUI.default
           let options = Object.assign({
             history: true,
             tapToClose: true,
