@@ -1,6 +1,6 @@
 $resolution : 2,3,4,5,6;
 @function var-color-value ($value) {
-  $result: '';
+  $result: $value;
   @each $key, $val in $colors {
     @if $value == $val{
        $result: var(--vx-#{$key}, $val);

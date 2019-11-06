@@ -66,7 +66,11 @@ export default {
       return props.disabled
     },
     isActive (props) {
-      return props.parentValue === props.value || props.parentValue instanceof Array ? props.parentValue.indexOf(props.value) > -1 : props.checked
+      // console.log(props)
+      if (props.parentValue instanceof Array) {
+        return props.parentValue.indexOf(props.value) > -1
+      }
+      return props.parentValue === props.value
     }
   }
 }

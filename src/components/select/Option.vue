@@ -1,12 +1,14 @@
 <template functional>
-  <option v-bind="props"><slot></slot></option>
+  <option :value="JSON.stringify(props)">
+    <slot></slot>
+  </option>
 </template>
 <script>
 export default {
   componentName: 'XOption',
   props: {
     value: {
-      type: String
+      type: [Number, String]
     },
     disabled: {
       type: Boolean,

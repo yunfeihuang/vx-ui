@@ -115,48 +115,48 @@ export default {
       value4: [''],
       options: [
         {
-          value: '1',
+          value: 1,
           label: '篮球'
         },
         {
-          value: '2',
+          value: 2,
           label: '羽毛球'
         },
         {
-          value: '3',
+          value: 3,
           label: '乒乓球'
         },
         {
-          value: '4',
+          value: 4,
           label: '高尔夫',
           disabled: true
         },
         {
-          value: '5',
+          value: 5,
           label: '篮球'
         },
         {
-          value: '6',
+          value: 6,
           label: '羽毛球'
         },
         {
-          value: '7',
+          value: 7,
           label: '乒乓球'
         },
         {
-          value: '8',
+          value: 8,
           label: '篮球'
         },
         {
-          value: '9',
+          value: 9,
           label: '羽毛球'
         },
         {
-          value: '10',
+          value: 10,
           label: '乒乓球'
         },
         {
-          value: '11',
+          value: 11,
           label: '高尔夫'
         }
       ]

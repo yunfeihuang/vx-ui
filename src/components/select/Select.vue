@@ -45,7 +45,7 @@ export default {
   props: {
     ...input.props,
     value: {
-      type: [String, Array]
+      type: [String, Number, Array]
     },
     getPopupMounted: {
       type: Function
@@ -108,13 +108,12 @@ export default {
       let nodes = this.$el.querySelector('datalist').children
       let len = nodes.length
       for (let i = 0; i < len; i++) {
-        let item = nodes[i]
-        let html = item.innerHTML.trim()
+        let node = nodes[i]
+        let item = JSON.parse(node.value)
+        let html = node.innerHTML.trim()
         result.push({
-          value: item.value,
-          disabled: item.disabled,
-          exclusive: item.getAttribute('exclusive') ? true : undefined,
-          label: item.getAttribute('label') || html,
+          label: nodes[i].innerText,
+          ...item,
           html
         })
       }
@@ -178,7 +177,6 @@ export default {
               },
               handleChange (value) {
                 if (self.value !== value) {
-                  this.value = value
                   self.$emit('input', value).$emit('change', value)
                   self.eDispatch('ElFormItem', 'el.form.blur', [value])
                   self.eDispatch('ElFormItem', 'el.form.change', [value])

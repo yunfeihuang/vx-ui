@@ -6,6 +6,7 @@
     @include var-height();
     box-sizing:border-box;
     @include disabled();
+    padding-left:0.2rem;
     &--size{
       &-default{
         @include var-height();
@@ -32,7 +33,7 @@
     &--placeholder{
       display:flex;
       span{
-        margin:auto;
+        margin:auto 0;
         display:block;
         @include lineClamp;
         @include placeholder;

@@ -112,7 +112,8 @@ export default {
     },
     handleChange (value) {
       if (this.max === 1) {
-        this.open && this.$emit('input', value[0]).$emit('change', value[0])
+        this.myValue = value
+        this.open && this.$emit('input', value).$emit('change', value)
       } else {
         if (this.exclusiveValue.length && value.length > 1) {
           this.myValue = value.filter(item => this.exclusiveValue.indexOf(item) === -1)
