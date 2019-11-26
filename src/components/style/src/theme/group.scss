@@ -8,6 +8,7 @@
     &--title{
       padding:0.1rem 0.15rem;
       line-height:1;
+      @include var-color($color-assist);
       @include lineClamp();
     }
     &--inner{
