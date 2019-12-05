@@ -7,6 +7,11 @@
           标题
           <divider></divider>
           内容....
+          <br />
+          <br />
+          <divider title="标题">
+            内容....
+          </divider>
         </div>
       </group>
       <group title="九宫格">

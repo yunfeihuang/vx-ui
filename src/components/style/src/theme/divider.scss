@@ -11,5 +11,16 @@
       min-width:1px;
       @include divider($color-divider, true);
     }
+    &--title{
+      background-color:#fff;
+      transform:translate(-50%, -50%);
+      position:absolute;
+      max-width: 100%;
+      top:0%;
+      left:50%;
+      z-index:10;
+      padding:0 5px;
+      line-height: 1.2;
+    }
   }
 }

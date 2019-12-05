@@ -159,7 +159,6 @@ export default {
             mounted () {
               requestAnimationFrame(() => {
                 this.open = true
-                self.isFocus = true
               })
             },
             beforeDestroy () {
@@ -167,7 +166,6 @@ export default {
             },
             methods: {
               handleClose () {
-                self.isFocus = false
                 this.open = false
               },
               handleCloseAfter () {
