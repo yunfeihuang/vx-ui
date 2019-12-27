@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Flexbox"></x-nav>
-    <x-body slot="body" class="flexbox-demo">
+    <page-body slot="body" class="flexbox-demo">
       ### 平均跨度
       <flexbox :gutter="10">
         <flexbox-item>1</flexbox-item>
@@ -22,7 +22,7 @@
         <flexbox-item style="margin:10px 0">2</flexbox-item>
         <flexbox-item>3</flexbox-item>
       </flexbox>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

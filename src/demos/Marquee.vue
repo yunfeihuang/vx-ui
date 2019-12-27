@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Marquee"></x-nav>
-    <x-body slot="body" v-if="slideIn">
+    <page-body slot="body" v-if="slideIn">
       <x-marquee>
         <x-marquee-item>
           天猫双十一优惠！
@@ -18,7 +18,7 @@
           京东618优惠！
         </x-marquee-item>
       </x-marquee>
-    </x-body>
+    </page-body>
   </page>
 </template>
 <script>

@@ -39,12 +39,12 @@
         </tab>
       </x-nav>
     </div>
-    <x-body slot="body" @scroll="handleScroll">
+    <page-body slot="body" @scroll="handleScroll">
       <cell v-for="(item,index) in 20" :key="index" title="github">
         <img slot="icon" :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%">
         <span slot="value">Start me</span>
       </cell>
-    </x-body>
+    </page-body>
   </page>
 </template>
 <script>

@@ -1,14 +1,14 @@
 <template>
   <page>
     <x-nav slot="header" title="CascaderPopupPicker"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group :title="`级联选择器弹框：${value}`">
         <cell :arrow="false">
           <div slot="title">开关</div>
           <x-switch slot="value" v-model="open" />
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <cascader-popup-picker :open.sync="open" v-model="value" :options="options"/>
   </page>
 </template>

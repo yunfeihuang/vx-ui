@@ -11,9 +11,9 @@
             </div>
           </div>
         </div>
-        <div :class="['vx-confirm--footer','vx-flexbox']" onselectstart="return false;">
-          <button :class="['vx-flexbox--item', {'is-cancel-light': cancelLight}]" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
-          <component class="vx-flexbox--item" :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
+        <div :class="['vx-confirm--footer']" onselectstart="return false;">
+          <button :class="[{'is-cancel-light': cancelLight}]" v-if="cancel" type="button" @click="handleCancel">{{cancelText}}</button>
+          <component :is="confirmTag" v-bind="confirmProps" @click="handleConfirm($event)">{{confirmText}}</component>
         </div>
       </div>
     </transition>

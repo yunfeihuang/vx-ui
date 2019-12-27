@@ -2,12 +2,12 @@
   <div class="vx-search--wrapper">
     <div :class="['vx-search--inner',{'vx-search--fixed' : fixed}]">
       <form @submit="handleSubmit">
-        <flexbox class="vx-search">
+        <div class="vx-search">
           <button class="vx-search--cancel" type="button" @click="handleCancel" v-if="fixed">
             <arrow direction="left" color="#fff" size="0.24rem"/>
           </button>
           <x-input
-            class="vx-flexbox--item"
+            class="vx-search--input"
             native-type="search"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -25,7 +25,7 @@
           >
           </x-input>
           <button class="vx-search--button" type="submit" v-if="fixed">搜索</button>
-        </flexbox>
+        </div>
       </form>
       <div class="vx-search--container" v-if="fixed">
         <div v-if="!value" class="keywords">
@@ -42,7 +42,6 @@
 <script>
 import { input, historyPush } from 'utils/mixins'
 import XInput from '../input'
-import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
   name: 'Search',
@@ -50,8 +49,6 @@ export default {
   mixins: [input, historyPush],
   components: {
     XInput,
-    Flexbox,
-    FlexboxItem,
     Arrow
   },
   props: {

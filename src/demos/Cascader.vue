@@ -1,14 +1,14 @@
 <template>
   <page>
     <x-nav slot="header" title="Cascader"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group :title="`value:${value}`">
         <cell :arrow="false">
           <div slot="title">级联</div>
            <cascader style="margin-right:-0.2rem;" slot="value" v-model="value" :options="options"/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="SubmitBar"></x-nav>
-    <x-body slot="body"></x-body>
+    <page-body slot="body"></page-body>
     <div slot="footer">
       <submit-bar>
         <template>

@@ -1,8 +1,8 @@
 <template>
   <popup :open="open" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
-    <div slot="header" v-if="max != 1" :class="['vx-flexbox','vx-option-picker--header']">
+    <div slot="header" v-if="max != 1" :class="['vx-option-picker--header']">
       <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <button type="button" :class="['vx-flexbox--item','vx-option-picker--placeholder']">{{myTitle}}</button>
+      <button type="button" :class="['vx-option-picker--placeholder']">{{myTitle}}</button>
       <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
     </div>
     <div class="vx-option-picker">

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Badge"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell>
           <div slot="title">红点</div>
@@ -20,7 +20,7 @@
           <div slot="value">新消息 <badge class="badge" text="888"/></div>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

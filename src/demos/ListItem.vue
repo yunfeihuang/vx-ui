@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="ListItem"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
@@ -69,7 +69,7 @@
           <div>内容....</div>
         </list-item>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

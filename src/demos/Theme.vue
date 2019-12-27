@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Theme"></x-nav>
-    <x-body slot="body" class="theme">
+    <page-body slot="body" class="theme">
       <group title="颜色">
         <cell :arrow="false" title="字体色">
           <color-picker slot="value" v-model="variable['color-black']"/>
@@ -66,7 +66,7 @@
       <group v-if="variableHTML" title="生成的css variables代码">
         <pre v-html="variableHTML"></pre>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

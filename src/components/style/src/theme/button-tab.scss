@@ -8,6 +8,7 @@ $radius: 0.1rem;
     user-select: none;
     line-height:0.8rem;
     @include border-round($color-border,$radius);
+    @include flexbox;
     &--size{
       &-small{
         @include var-height($box-size-height-small, 'line-height');
@@ -19,6 +20,7 @@ $radius: 0.1rem;
       position:relative;
       z-index:1;
       @include lineClamp;
+      @include flexbox-item;
       &.is-active{
         @include var-background-color();
         color:#fff;

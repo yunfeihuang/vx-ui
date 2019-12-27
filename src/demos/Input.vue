@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Input"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <x-input placeholder="请输入帐号" v-model="value"/>
       </group>
@@ -18,7 +18,7 @@
       <group title="disabled">
         <x-input placeholder="请输入帐号" v-model="value" disabled/>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

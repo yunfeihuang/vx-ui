@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Heading"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <heading>
         <template>heading</template>
         <a slot="append" class="link">更多</a>
@@ -16,7 +16,7 @@
       <heading type="line">
         heading line
       </heading>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

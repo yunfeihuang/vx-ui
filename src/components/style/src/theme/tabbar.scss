@@ -6,6 +6,7 @@
     position:relative;
     user-select: none;
     background:#fff;
+    @include flexbox;
     &:before{
       @include divider;
       top:-1px;
@@ -17,6 +18,7 @@
     }
     &--item{
       padding:0.15rem 0;
+      @include flexbox-item;
       &.is-ripple{
         padding: 0;
         >.vx-ripple{

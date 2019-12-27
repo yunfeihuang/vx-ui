@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Checkbox"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="Checkbox">
         <checkbox :checked.sync="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
       </group>
@@ -103,7 +103,7 @@
         value：{{reverseValue}}
         </div>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

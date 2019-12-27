@@ -7,6 +7,14 @@
     @include disabled();
     &--inner{
       height:100%;
+      @include flexbox;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      -moz-align-items: center;
+      align-items: center;
+      >div{
+        @include flexbox-item;
+      }
       .vx-arrow{
         margin-left:6px;
         margin-right:0.28rem;

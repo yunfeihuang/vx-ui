@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="主题详情"></x-nav>
-    <x-body slot="body" :class="clas">
+    <page-body slot="body" :class="clas">
       <div v-if="slideIn">
         <div class="topic-header">
           <h1><topic-type :type="type"/>{{topic.title}}</h1>
@@ -33,7 +33,7 @@
           </list-item>
         </div>
       </div>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

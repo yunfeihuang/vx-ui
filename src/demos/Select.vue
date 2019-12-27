@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Select"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">下拉框({{label}})</div>
@@ -88,7 +88,7 @@
           </x-select>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

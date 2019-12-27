@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Prompt"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">开关(用户名称：{{value1}})</div>
@@ -17,7 +17,7 @@
         </cell>
       </group>
       密码加密文本：{{cipher}}
-    </x-body>
+    </page-body>
     <prompt
       v-model="value1"
       title="用户名称"

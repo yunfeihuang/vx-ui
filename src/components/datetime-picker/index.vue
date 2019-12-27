@@ -1,19 +1,19 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
-    <div slot="header" :class="['vx-flexbox','vx-datetime-picker--header']">
+    <div slot="header" :class="['vx-datetime-picker--header']">
       <button type="button" class="vx-datetime-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <div :class="['vx-flexbox--item','vx-datetime-picker--today']">
+      <div :class="['vx-datetime-picker--today']">
         <!--
         <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
         -->
       </div>
       <button type="button" class="vx-datetime-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
     </div>
-    <div :class="['vx-flexbox','vx-datetime-picker']">
+    <div :class="['vx-datetime-picker']">
       <picker
         v-if="pickers"
         v-for="(item,index) in pickers"
-        :class="['vx-flexbox--item','vx-datetime-picker--item']"
+        :class="['vx-datetime-picker--item']"
         :index="index+'-'+item.type"
         :key="index+'-'+item.type"
         :data-type="item.type"

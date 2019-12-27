@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Accordion"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <accordion>
         <accordion-item title="标题文字" open>
           如果有一天我能够拥有一个大果园，
@@ -40,7 +40,7 @@
           让孤独的心等待秋收的欢喜。
         </accordion-item>
       </accordion>
-    </x-body>
+    </page-body>
   </page>
 </template>
 <script>

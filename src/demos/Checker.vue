@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Checker"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="Checker 多选">
         <div style="padding:20px 10px">
           <checker-group v-model="checkboxValue">
@@ -86,7 +86,7 @@
           value：{{checkboxValue}}
         </div>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

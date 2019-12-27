@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Swiper"></x-nav>
-    <x-body slot="body" v-if="slideIn">
+    <page-body slot="body" v-if="slideIn">
       <swiper :active.sync="active" :options="options">
         <swiper-item v-for="(item,index) in images" :key="index">
           <img :src="item" style="max-width:100%;min-height:120px;" />
@@ -14,7 +14,7 @@
           <img :src="item" style="max-width:100%;min-height:120px;" />
         </swiper-item>
       </swiper>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

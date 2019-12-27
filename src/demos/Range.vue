@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Range"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group :title="`default(value:${value1})`">
         <div style="padding:10px">
           <range v-model="value1"/>
@@ -22,7 +22,7 @@
           <range v-model="value1" disabled />
         </div>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

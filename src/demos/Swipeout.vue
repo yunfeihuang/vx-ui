@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Swipeout"></x-nav>
-    <x-body slot="body" v-if="slideIn">
+    <page-body slot="body" v-if="slideIn">
       <swipeout
         v-for="(item,index) in list"
         :key="index"
@@ -18,7 +18,7 @@
         <button @click="handleAction" style="background:#ffe26d;color:#fff;" slot="action" type="button">收藏</button>
         <button @click="handleAction" style="background:#ff5500;color:#fff;" slot="action" type="button">删除</button>
       </swipeout>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

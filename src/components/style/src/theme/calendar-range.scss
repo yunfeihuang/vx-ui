@@ -16,5 +16,14 @@
     &--quarter{
       width:25%;
     }
+    &--pane{
+      @include flexbox;
+      -ms-flex-wrap: wrap;
+      -moz-box-lines: multiple;
+      -webkit-box-lines: multiple;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
   }
 }

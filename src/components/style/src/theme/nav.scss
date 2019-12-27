@@ -15,6 +15,13 @@
         }
       }
     }
+    &--layout{
+      @include flexbox;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      -moz-align-items: center;
+      align-items: center;
+    }
     &--default{
       &:after{
         position:absolute;
@@ -63,8 +70,12 @@
     &--title{
       @include var-font-size($font-size-xl);
       @include lineClamp;
+      @include flexbox-item;
       &-center{
         text-align:center;
+      }
+      &-slot{
+        @include flexbox-item;
       }
     }
     &.is-back-text{

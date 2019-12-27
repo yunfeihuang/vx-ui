@@ -34,7 +34,7 @@
         :lang="lang"
         @date-change="handleDateChange"
         :layout="['year']"/>
-      <flexbox v-if="tabActive===2" align="center" wrap="wrap">
+      <div v-if="tabActive===2" class="vx-calendar-range--pane">
         <div
           v-if="tabActive===2"
           v-for="(item, i) in monthList"
@@ -44,8 +44,8 @@
           >
           {{i+1}}
         </div>
-      </flexbox>
-      <flexbox v-if="tabActive===3" wrap="wrap">
+      </div>
+      <div v-if="tabActive===3" class="vx-calendar-range--pane">
         <div
           v-if="tabActive===3"
           v-for="(item,i) in quarterList"
@@ -55,13 +55,12 @@
           >
           {{i+1}}
         </div>
-      </flexbox>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import {Flexbox, FlexboxItem} from '../flexbox'
 import {Tab, TabItem} from '../tab'
 import Calendar from '../calendar'
 
@@ -69,8 +68,6 @@ export default {
   name: 'CalendarRange',
   componentName: 'CalendarRange',
   components: {
-    Flexbox,
-    FlexboxItem,
     Tab,
     TabItem,
     Calendar

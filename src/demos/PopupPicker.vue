@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="PopupPicker"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
@@ -13,7 +13,7 @@
           <x-switch slot="value" v-model="open2"/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <popup-picker
       :open.sync="open"
       :pickers="pickers"

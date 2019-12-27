@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Sticky-往上滚动Tab栏会固定位置"></x-nav>
-    <x-body slot="body" v-if="slideIn">
+    <page-body slot="body" v-if="slideIn">
       <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px;width:100%"/>
       <sticky>
         <tab :active.sync="active" :underline-width="10">
@@ -16,7 +16,7 @@
 
 学习开始时，播放了有关生态环境保护的专题片。随后，何立峰、姜大明、陈吉宁、陈政高、陈雷同志先后发言，他们结合本部门工作实际谈了对推进生态文明建设、推动绿色发展、加强环境保护等方面的体会和意见。
       </div>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

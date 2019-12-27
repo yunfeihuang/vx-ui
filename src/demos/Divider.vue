@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Divider"></x-nav>
-    <x-body slot="body" style="">
+    <page-body slot="body" style="">
       <group>
         <div style="padding:0 10px;line-height:0.9rem;">
           标题
@@ -33,7 +33,7 @@
           </flexbox>
         </div>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 <script>

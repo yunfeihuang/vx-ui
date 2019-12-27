@@ -34,6 +34,11 @@
     }
     &--inner{
       position: relative;
+      @include flexbox;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      -moz-align-items: center;
+      align-items: center;
     }
     &--hd{
       margin-right:0.1rem;
@@ -41,6 +46,7 @@
     &--bd{
       text-align:left;
       margin-right:5px;
+      @include flexbox-item;
     }
     &--ft{
       position:relative;

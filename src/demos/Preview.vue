@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Preview(点击图片浏览图片)"></x-nav>
-    <x-body slot="body" v-if="slideIn">
+    <page-body slot="body" v-if="slideIn">
       <img
         v-for="(item,index) in images"
         :key="index"
@@ -9,7 +9,7 @@
         style="display:block;width:100%;min-height:150px;"
         @load="handleLoad(index,$event)"
         @click="handleClick(index)"/>
-    </x-body>
+    </page-body>
     <preview :list="images" ref="preview"/>
   </page>
 </template>

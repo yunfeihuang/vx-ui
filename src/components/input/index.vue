@@ -1,15 +1,15 @@
 <template>
   <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
-    <flexbox tag="label" align="center" class="vx-input--inner" :gutter="0">
+    <label class="vx-input--inner">
       <slot name="prepend"></slot>
-      <flexbox-item class="vx-input--area">
+      <div class="vx-input--area">
         <slot v-if="$slots.input" name="input"></slot>
         <input v-else
           class="vx-input--control"
           v-bind="$$props"
           :type="nativeType"
           v-on="$$listeners"/>
-      </flexbox-item>
+      </div>
       <template v-if="!$slots.append">
         <button
           tabindex="-2"
@@ -22,20 +22,17 @@
       </template>
       <slot name="append"></slot>
       <arrow v-if="arrow" v-bind="arrowProps" direction="down"/>
-    </flexbox>
+    </label>
   </div>
 </template>
 
 <script>
 import { input } from 'utils/mixins'
-import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
   name: 'XInput',
   componentName: 'XInput',
   components: {
-    Flexbox,
-    FlexboxItem,
     Arrow
   },
   mixins: [input],

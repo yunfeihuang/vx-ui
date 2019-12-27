@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="DatetimePicker"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
@@ -17,7 +17,7 @@
           <x-switch slot="value" v-model="pickerOpen3"/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <datetime-picker
       format="yyyy-MM-dd"
       :open.sync="pickerOpen1"

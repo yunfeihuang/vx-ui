@@ -3,20 +3,22 @@
 .#{$css-prefix}{
   &popup-picker{
     background:#fff;
+    @include flexbox;
     &--item{
-      flex:1;
-      min-width:0;
+      @include flexbox-item;
     }
     &--header{
       position:relative;
       @include divider;
       background-position:bottom;
+      @include flexbox;
     }
     &--placeholder{
       @include var-height($box-size-height-default, 'line-height');
       @include lineClamp;
       @include button;
       @include var-color($color-light);
+      @include flexbox-item;
     }
     &--cancel,&--confirm{
       @include button;

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Palace"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <palace :grid="3">
         <palace-item v-for="item in 10" :key="item">
           <strong>{{item}}</strong> <br />
@@ -30,7 +30,7 @@
           项目
         </palace-item>
       </palace>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

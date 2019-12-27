@@ -8,14 +8,14 @@
         </button-tab>
       </div>
     </x-nav>
-    <x-body slot="body" style="padding:0.2rem;">
+    <page-body slot="body" style="padding:0.2rem;">
       <button-tab :active.sync="active2">
         <button-tab-item name="tab1">选项1</button-tab-item>
         <button-tab-item name="tab2">选项2</button-tab-item>
         <button-tab-item name="tab3">选项3</button-tab-item>
         <button-tab-item name="tab4">选项4</button-tab-item>
       </button-tab>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

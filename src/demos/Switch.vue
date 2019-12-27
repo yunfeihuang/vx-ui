@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Switch"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <cell :arrow="false">
           <div slot="title">开关（{{checked}}）</div>
@@ -20,7 +20,7 @@
           <x-switch slot="value" v-model="value" on-value="1" off-value="0" />
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

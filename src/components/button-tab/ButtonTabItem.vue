@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-flexbox--item', 'vx-button-tab--item', {'is-active': $parent.active === name}]" @click="$parent.change(name)">
+  <div :class="['vx-button-tab--item', {'is-active': $parent.active === name}]" @click="$parent.change(name)">
     <slot></slot>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Confirm"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">开关</div>
@@ -16,7 +16,7 @@
           <span slot="value" @click="handleOpen">点击我打开</span>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <confirm :open.sync="open1">确认删除？</confirm>
     <confirm :open.sync="open2" title="标题">
       <div style="line-height:2.5;">

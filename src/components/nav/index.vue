@@ -4,7 +4,7 @@
     v-bind="data.attrs"
     v-on="listeners">
     <div class="vx-nav--inner">
-      <flexbox class="vx-nav--layout" align="center" :gutter="0">
+      <div class="vx-nav--layout">
         <button :class="['vx-nav--button','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack">
           <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
           <span v-if="backText">{{props.backText}}</span>
@@ -18,18 +18,18 @@
           </template>
         </template>
         <slot name="prepend"></slot>
-        <flexbox-item v-if="$slots.title">
+        <div v-if="$slots.title" :class="['vx-nav--title-slot']">
           <slot name="title"></slot>
-        </flexbox-item>
-        <flexbox-item v-else :class="['vx-nav--title']">
+        </div>
+        <div v-else :class="['vx-nav--title']">
           <template>{{data.attrs.title}}</template>
-        </flexbox-item>
+        </div>
         <template v-if="props.titleCenter">
           <div class="vx-nav--button" v-if="props.isBack && !$slots['append']"></div>
           <slot v-else name="append"></slot>
         </template>
         <slot v-else name="append"></slot>
-      </flexbox>
+      </div>
       <div v-if="$slots['search']" class="vx-nav--search" :style="$options.methods.searchStyle(props, $slots)">
         <div class="vx-nav--search-inner">
           <slot name="search"></slot>
@@ -43,14 +43,11 @@
 </template>
 
 <script>
-import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 export default {
   name: 'XNav',
   componentName: 'XNav',
   components: {
-    Flexbox,
-    FlexboxItem,
     Arrow
   },
   props: {

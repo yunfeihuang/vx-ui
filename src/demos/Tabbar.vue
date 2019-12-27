@@ -1,8 +1,8 @@
 <template>
   <page>
     <x-nav slot="header" title="Tabbar"></x-nav>
-    <x-body slot="body">
-    </x-body>
+    <page-body slot="body">
+    </page-body>
     <tabbar slot="footer" ripple :active.sync="active">
       <tabbar-item name="home">
         <i style="font-size:0.5rem;margin: -0.1rem;">★</i>

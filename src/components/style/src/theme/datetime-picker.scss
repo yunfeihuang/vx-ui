@@ -2,21 +2,23 @@
 @import 'common/mixins.scss';
 .#{$css-prefix}{
   &datetime-picker{
+    @include flexbox;
     &--wrapper{
       background:#fff;
     }
     &--item{
-      flex:1;
-      min-width:0;
+      @include flexbox-item;
     }
     &--header{
       position:relative;
       @include divider;
       background-position:bottom;
+      @include flexbox;
     }
     &--today{
       @include var-height($box-size-height-default, 'line-height');
       @include lineClamp;
+      @include flexbox-item;
     }
     &--cancel,&--confirm,&--today{
       @include button;

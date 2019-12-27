@@ -18,6 +18,9 @@
     &--inner{
       width:fit-content;
       min-width: 100%;
+      &.is-flexbox{
+        @include flexbox;
+      }
     }
     &:before{
       @include divider;
@@ -44,6 +47,9 @@
       &.is-active{
         @include var-color()
         // transition: color $transition-time $ease-in-out;
+      }
+      &.is-flexbox-item{
+        @include flexbox-item;
       }
     }
     &--type-scroll{

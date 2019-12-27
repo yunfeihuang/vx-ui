@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Form"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <br />
       <el-form size="small" :model="form" ref="form" @submit.native.prevent="handleSubmit">
         <el-form-item label="姓名：" prop="name" :rules="[
@@ -111,7 +111,7 @@
           <x-button type="primary" native-type="submit" size="large">保存</x-button>
         </div>
       </el-form>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Ripple"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
@@ -15,7 +15,7 @@
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
       </group>
-    </x-body>
+    </page-body>
     <div slot="footer">
       <div style="text-align:center;padding:10px">
         ripple prop position:center

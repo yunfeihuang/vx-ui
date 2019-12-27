@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Cell"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <cell title="github" to="https://github.com/yunfeihuang/vx-ui" target="_blank">
           <img slot="icon" :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%">
@@ -29,7 +29,7 @@
           <div>其他内容...</div>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

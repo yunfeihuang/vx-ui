@@ -215,3 +215,48 @@ $resolution : 2,3,4,5,6;
   top: 0;
   left: 0;
 }
+@mixin flexbox{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+}
+@mixin flexbox-item{
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  flex: 1;
+  min-width:0;
+}
+@mixin _flexbox($selector1: '.vx-flexbox', $selector2: '.vx-flexbox--item') {
+  #{selector1}{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+  }
+  #{selector2} {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    flex: 1;
+    min-width:0;
+    &:first-child{
+      margin-left:0!important
+    }
+    &:last-child{
+      margin-right:0!important
+    }
+  }
+  #{selector2} + #{selector2}{
+    margin-left: 0!important
+  }
+}

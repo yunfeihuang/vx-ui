@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Spinner"></x-nav>
-    <x-body slot="body" style="text-align:center;">
+    <page-body slot="body" style="text-align:center;">
       <br/>
       <br/>
       <br/>
@@ -12,7 +12,7 @@
       <spinner style="width:1rem;height:1rem;">
         <span style="line-height:1rem;">LOGO</span>
       </spinner>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

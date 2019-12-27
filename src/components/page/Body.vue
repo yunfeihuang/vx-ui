@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['vx-body', 'vx-flexbox--item', {'vx-scroller': props.scroller}, data.staticClass, data.class]"
+  <div :class="['vx-page--body', {'vx-scroller': props.scroller}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  componentName: 'XBody',
+  componentName: 'PageBody',
   props: {
     scroller: {
       type: Boolean,

@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Toast"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">Toast Top</div>
@@ -32,7 +32,7 @@
           <span slot="value" @click="handleOpen">点击我打开</span>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <toast :open.sync="topOpen">{{message}}</toast>
     <toast :open.sync="centerOpen" type="success" align="center">{{message}}</toast>
     <toast :open.sync="errorOpen" type="error" align="center">操作失败</toast>

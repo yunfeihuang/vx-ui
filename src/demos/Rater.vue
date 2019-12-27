@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Rater"></x-nav>
-    <x-body class="demos" slot="body">
+    <page-body class="demos" slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">评分({{value}})</div>
@@ -24,7 +24,7 @@
           <range style="width:4rem" slot="value" v-model="value" :max="5"/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

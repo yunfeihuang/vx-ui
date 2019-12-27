@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Popup"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">popup default</div>
@@ -32,7 +32,7 @@
           <x-switch slot="value" v-model="openFullTitle"/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <popup :open.sync="open">
       <div style="padding:0.5rem 0;">
         <group>

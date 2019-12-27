@@ -5,14 +5,8 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem } from '../flexbox'
-
 export default {
   componentName: 'Step',
-  components: {
-    Flexbox,
-    FlexboxItem
-  },
   props: {
     active: {
       type: Number,

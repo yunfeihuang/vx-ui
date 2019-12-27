@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Actionsheet"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group>
         <cell :arrow="false">
           <div slot="title">default</div>
@@ -20,7 +20,7 @@
           <span slot="value" @click="handleJSCall">点击我</span>
         </cell>
       </group>
-    </x-body>
+    </page-body>
     <actionsheet :open.sync="open1" @action="handleAction">
       <actionsheet-item
         v-for="item in options"

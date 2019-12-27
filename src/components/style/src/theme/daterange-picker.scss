@@ -20,6 +20,10 @@
     &--footer{
       position:relative;
       @include divider;
+      @include flexbox;
+      >div{
+        @include flexbox-item;
+      }
     }
   }
 }

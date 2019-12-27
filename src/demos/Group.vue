@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Group"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <cell :arrow="false">
           <div slot="title">开关（{{checked}}）</div>
@@ -27,7 +27,7 @@
       <group title="heading primary" heading-type="primary">
         <a slot="heading-append" class="link">更多</a>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

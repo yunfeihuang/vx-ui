@@ -5,6 +5,7 @@
     position:relative;
     background:#ddd;
     padding:1px;
+    @include flexbox;
     .#{$css-prefix}input--wrapper{
       height:0.7rem;
       margin: 4px;
@@ -12,6 +13,9 @@
       &:before,&:after{
         display:none;
       }
+    }
+    &--input{
+      @include flexbox-item;
     }
     input{
       padding-left:0.3rem;

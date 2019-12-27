@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="用户详情"></x-nav>
-    <x-body slot="body" :class="clas">
+    <page-body slot="body" :class="clas">
       <div v-if="slideIn">
         <div>
           <div class="userinfo">
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

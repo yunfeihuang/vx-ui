@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Sidebar"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <sidebar
         :active.sync="active"
         style="width:1.6rem;background-color:#f7f7f7;position:absolute;height:100%;top:0;left:0;">
@@ -12,7 +12,7 @@
           {{item.label}}
         </sidebar-item>
       </sidebar>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

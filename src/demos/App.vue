@@ -2,7 +2,7 @@
   <div class="demo-app">
     <page :style="`opacity:1;transform:translateX(0)`">
       <x-nav slot="header" title-center :is-back="false" title="Vx UI Demos"></x-nav>
-      <x-body class="demos" slot="body">
+      <page-body class="demos" slot="body">
         <div style="text-align:center">
           <flexbox class="friend-link">
             <flexbox-item>
@@ -90,7 +90,7 @@
           <cell title="Spinner" to="/demos/spinner"></cell>
           <cell title="IndexList" to="/demos/indexlist"></cell>
         </group>
-      </x-body>
+      </page-body>
     </page>
     <router-view></router-view>
   </div>

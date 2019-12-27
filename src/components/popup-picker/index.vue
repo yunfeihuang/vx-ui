@@ -1,15 +1,15 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose">
-    <div slot="header" :class="['vx-flexbox','vx-popup-picker--header']">
+    <div slot="header" :class="['vx-popup-picker--header']">
       <button type="button" class="vx-popup-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <button type="button" :class="['vx-flexbox--item','vx-popup-picker--placeholder']">{{placeholder}}</button>
+      <button type="button" :class="['vx-popup-picker--placeholder']">{{placeholder}}</button>
       <button type="button" class="vx-popup-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
     </div>
-    <div :class="['vx-flexbox','vx-popup-picker']">
+    <div :class="['vx-popup-picker']">
       <picker
         v-if="open && myPickers"
         v-for="(item,index) in myPickers"
-        :class="['vx-flexbox--item','vx-popup-picker--item']"
+        :class="['vx-popup-picker--item']"
         :key="index"
         :value="item.value"
         :placeholder="item.placeholder"

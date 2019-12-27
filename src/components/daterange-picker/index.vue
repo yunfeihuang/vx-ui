@@ -10,19 +10,18 @@
     <div class="vx-daterange-picker">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
     </div>
-    <flexbox class="vx-daterange-picker--footer" slot="footer">
+    <div class="vx-daterange-picker--footer" slot="footer">
       <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <flexbox-item>
+      <div>
         <button type="button" class="vx-daterange-picker--clearable" @click="handleClear">{{clearableText}}</button>
-      </flexbox-item>
+      </div>
       <button type="button" class="vx-daterange-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
-    </flexbox>
+    </div>
   </popup>
 </template>
 
 <script>
 import Popup from '../popup'
-import {Flexbox, FlexboxItem} from '../flexbox'
 import CalendarRange from '../calendar-range'
 
 export default {
@@ -30,8 +29,6 @@ export default {
   componentName: 'DateRangePicker',
   components: {
     Popup,
-    Flexbox,
-    FlexboxItem,
     CalendarRange
   },
   props: {

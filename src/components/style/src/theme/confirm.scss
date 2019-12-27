@@ -43,10 +43,12 @@
       position:relative;
       @include divider;
       overflow:hidden;
+      @inlcude flexbox;
       button, a{
         @include button;
         @include active;
         @include var-height();
+        @inlcude flexbox-item;
         user-select:none;
         position:relative;
         font-size:inherit;

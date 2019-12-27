@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="InputNumber"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="default">
         <cell title="value" :arrow="false">
           <input-number slot="value" v-model="minValue" :min="1"/>
@@ -17,7 +17,7 @@
           <input-number slot="value" v-model="value" :step="0.01" disabled/>
         </cell>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

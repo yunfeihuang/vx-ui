@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Calendar"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group :title="`日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">
         <calendar v-model="value1"/>
       </group>
@@ -14,7 +14,7 @@
       <group :title="`国际标准日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">
         <calendar lang="EN" v-model="value1"/>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

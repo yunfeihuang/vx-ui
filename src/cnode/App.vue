@@ -21,11 +21,11 @@
           </tab-item>
         </tab>
       </div>
-      <x-body slot="body" :scroll="false" style="background:#fff">
+      <page-body slot="body" :scroll="false" style="background:#fff">
         <list-view @pullup="handlePullup" @pulldown="handlePulldown" :loading="loading">
           <topic-item v-for="item in topics" :item="item" :key="item.id" />
         </list-view>
-      </x-body>
+      </page-body>
     </page>
     <router-view></router-view>
   </div>

@@ -24,6 +24,7 @@
       }
       .vx-input--area{
         height:100%;
+        @include flexbox-item;
       }
       .vx-input--control{
         height:100%;
@@ -84,6 +85,11 @@
     }
     &--inner{
       height:100%;
+      @include flexbox;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      -moz-align-items: center;
+      align-items: center;
     }
     
     &--clearable{

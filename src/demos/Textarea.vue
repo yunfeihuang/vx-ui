@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Textarea"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <div style="margin-top:20px;">
         <x-textarea v-model="value" placeholder="请输入消息内容" :maxlength="100"/>
         <br/>
@@ -12,7 +12,7 @@
         </div>
         <div style="padding:10px;word-wrap: break-word;">{{value}}</div>
       </div>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

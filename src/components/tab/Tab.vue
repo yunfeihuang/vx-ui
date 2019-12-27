@@ -1,7 +1,7 @@
 <template>
   <div :class="['vx-tab',`vx-tab--type-${layout}`]" onselectstart="return false;">
     <div class="vx-tab--scroller">
-      <div :class="[{'vx-flexbox': layout=='default'}, 'vx-tab--inner']">
+      <div :class="[{'is-flexbox': layout=='default'}, 'vx-tab--inner']">
         <slot></slot>
       </div>
       <div class="vx-tab--underline"></div>

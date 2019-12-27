@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Radio"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>
         <divider></divider>
@@ -22,7 +22,7 @@
           value：{{value}}
         </div>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

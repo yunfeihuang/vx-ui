@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Datetime"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group title="default">
         <datetime v-model="date" placeholder="请输入年月日"/>
@@ -18,7 +18,7 @@
       <group title="时分">
         <datetime format="HH:mm" v-model="time2" placeholder="请输入时间"/>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

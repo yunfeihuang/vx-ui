@@ -37,8 +37,8 @@
         </tab>
       </div>
     </div>
-    <x-body slot="body" :scroll="false">
-    </x-body>
+    <page-body slot="body" :scroll="false">
+    </page-body>
   </page>
 </template>
 

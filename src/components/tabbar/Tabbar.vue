@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-flexbox', 'vx-tabbar']" onselectstart="return false;">
+  <div :class="['vx-tabbar']" onselectstart="return false;">
     <slot></slot>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div :class="['vx-select',`vx-select--size-${size}`, {'is-disabled':disabled}]" @click.stop.prevent="handleFocusIn">
-    <flexbox :gutter="0" class="vx-select--inner" align="center">
+    <div class="vx-select--inner">
       <slot name="prepend"></slot>
-      <flexbox-item class="vx-select--placeholder">
+      <div class="vx-select--placeholder">
         <span :data-placeholder="placeholder">{{myLabel}}</span>
-      </flexbox-item>
+      </div>
       <template v-if="!$slots.append">
         <transition v-if="this.clearable && value+''" name="input-clearable-fade">
           <button
@@ -19,7 +19,7 @@
         <arrow v-else-if="arrow" v-bind="arrowProps" direction="down"/>
       </template>
       <slot v-else name="append"></slot>
-    </flexbox>
+    </div>
     <datalist>
       <slot></slot>
     </datalist>
@@ -30,16 +30,13 @@
 import Vue from 'vue'
 import Picker from './Picker'
 import { input } from 'utils/mixins'
-import { Flexbox, FlexboxItem } from '../flexbox'
 import Arrow from '../arrow'
 
 export default {
   name: 'XSelect',
   componentName: 'XSelect',
   components: {
-    Arrow,
-    Flexbox,
-    FlexboxItem
+    Arrow
   },
   mixins: [input],
   props: {

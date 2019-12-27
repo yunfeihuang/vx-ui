@@ -1,7 +1,7 @@
 <template>
   <page type="primary">
     <x-nav slot="header" title="Button"></x-nav>
-    <x-body class="demos" slot="body" style="padding:0.15rem;">
+    <page-body class="demos" slot="body" style="padding:0.15rem;">
       <x-button>default</x-button>
       <x-button type="primary">primary</x-button>
       <x-button type="danger">danger</x-button>
@@ -34,7 +34,7 @@
       <x-button size="large" ripple>default ripple</x-button>
       <br />
       <x-button size="large" type="primary" ripple>primary ripple</x-button>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

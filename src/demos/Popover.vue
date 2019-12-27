@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Popover"></x-nav>
-    <x-body slot="body" style="padding:15px;" v-if="slideIn">
+    <page-body slot="body" style="padding:15px;" v-if="slideIn">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
           <popover open>
@@ -54,7 +54,7 @@
           </popover>
         </flexbox-item>
       </flexbox>
-    </x-body>
+    </page-body>
   </page>
 </template>
 

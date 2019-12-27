@@ -1,7 +1,7 @@
 <template>
   <page>
     <x-nav slot="header" title="Search"></x-nav>
-    <x-body slot="body">
+    <page-body slot="body">
       <search v-model="value" placeholder="搜索商品/商店/用户"
         @submit="handleSubmit">
         <template slot="keywords" slot-scope="scope">
@@ -28,7 +28,7 @@
       <group title="聚焦不会固定在顶部的">
         <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
       </group>
-    </x-body>
+    </page-body>
   </page>
 </template>
 
