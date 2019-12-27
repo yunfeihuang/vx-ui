@@ -5,11 +5,7 @@
     padding: 0.25rem 0.2rem 0 0.2rem;
     margin-bottom:0.25rem;
     &--inner{
-      @include flexbox;
-      -ms-flex-align: center;
-      -webkit-box-align: center;
-      -moz-align-items: center;
-      align-items: center;
+      @include flexbox('center');
     }
     &--title{
       line-height:1;

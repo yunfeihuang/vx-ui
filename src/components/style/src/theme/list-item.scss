@@ -69,12 +69,7 @@
         padding-right:0;
       }
       &.is-align-center{
-        -ms-flex-align: center;
-        -moz-box-align: center;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        align-items: center;
+        @include flexbox('center');
       }
     }
     &--image{

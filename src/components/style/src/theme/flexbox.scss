@@ -2,12 +2,7 @@
 @import 'common/mixins.scss';
 .#{$css-prefix}{
   &flexbox{
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: flex;
+    @include flexbox;
     &--content{
       &-center{
         -ms-flex-align: center;
@@ -43,13 +38,7 @@
       flex-direction: column;
     }
     &--item{
-      -ms-flex: 1;
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      -webkit-flex: 1;
-      -moz-flex: 1;
-      flex: 1;
-      min-width:0;
+      @include flexbox-item;
       &:first-child{
         margin-left:0!important
       }

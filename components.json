@@ -51,7 +51,6 @@
   "daterange": "./src/components/daterange",
   "popover": "./src/components/popover",
   "sticky": "./src/components/sticky",
-  "carousel": "./src/components/carousel",
   "cascader": "./src/components/cascader",
   "cascader-picker": "./src/components/cascader-picker",
   "heading": "./src/components/heading",

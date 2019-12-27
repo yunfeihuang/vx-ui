@@ -34,11 +34,7 @@
     }
     &--inner{
       position: relative;
-      @include flexbox;
-      -ms-flex-align: center;
-      -webkit-box-align: center;
-      -moz-align-items: center;
-      align-items: center;
+      @include flexbox('center');
     }
     &--hd{
       margin-right:0.1rem;

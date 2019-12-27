@@ -215,13 +215,29 @@ $resolution : 2,3,4,5,6;
   top: 0;
   left: 0;
 }
-@mixin flexbox{
+@mixin flexbox($align: 'normal', $direction: 'normal'){
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: -moz-flex;
   display: flex;
+  @if $align == 'center' {
+    -ms-flex-align: center;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+  }
+  @if $direction == 'column' {
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+  }
 }
 @mixin flexbox-item{
   -ms-flex: 1;

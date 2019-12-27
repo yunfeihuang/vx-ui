@@ -17,11 +17,7 @@
     }
     &--inner{
       height:100%;
-      @include flexbox;
-      -ms-flex-align: center;
-      -webkit-box-align: center;
-      -moz-align-items: center;
-      align-items: center;
+      @include flexbox('center');
       .vx-arrow{
         margin-left:6px;
         margin-right:0.28rem;

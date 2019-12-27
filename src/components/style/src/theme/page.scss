@@ -6,13 +6,7 @@
     height:100%;
     width:100%;
     z-index:10;
-    @include flexbox;
-    -ms-flex-direction: column;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
+    @include flexbox('normal', 'column');
   }
   &--default{
     .vx-page--flexbox{
