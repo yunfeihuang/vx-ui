@@ -1,5 +1,5 @@
 import Button from './button'
-import {Page, XBody} from './page'
+import {Page, PageBody} from './page'
 import Input from './input'
 import InputNumber from './input-number'
 import Password from './password'
@@ -59,7 +59,7 @@ import CascaderPicker from './cascader-picker'
 import CascaderPopupPicker from './cascader-popup-picker'
 import ListItem from './list-item'
 import SubmitBar from './submit-bar'
-import {Palace, PalaceItem} from './palace'
+import {Grid, GridItem} from './Grid'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
 if (!window.requestAnimationFrame) {
@@ -91,7 +91,7 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
 }
 let components = [
   Page,
-  XBody,
+  PageBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,
@@ -167,8 +167,8 @@ let components = [
   CascaderPopupPicker,
   ListItem,
   SubmitBar,
-  Palace,
-  PalaceItem,
+  Grid,
+  GridItem,
   DropdownMenu,
   DropdownMenuItem
 ]
@@ -488,7 +488,7 @@ const install = (Vue) => {
 export default {
   install,
   Page,
-  XBody,
+  PageBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,
@@ -564,8 +564,8 @@ export default {
   CascaderPopupPicker,
   ListItem,
   SubmitBar,
-  Palace,
-  PalaceItem,
+  Grid,
+  GridItem,
   DropdownMenu,
   DropdownMenuItem
 }
@@ -573,7 +573,7 @@ export default {
 export {
   install,
   Page,
-  XBody,
+  PageBody,
   Actionsheet,
   ActionsheetItem,
   // Swiper,
@@ -649,8 +649,8 @@ export {
   CascaderPopupPicker,
   ListItem,
   SubmitBar,
-  Palace,
-  PalaceItem,
+  Grid,
+  GridItem,
   DropdownMenu,
   DropdownMenuItem
 }

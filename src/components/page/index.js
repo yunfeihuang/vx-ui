@@ -1,7 +1,7 @@
 ﻿import Page from './Page'
-import XBody from './Body'
+import PageBody from './Body'
 
 export {
   Page,
-  XBody
+  PageBody
 }

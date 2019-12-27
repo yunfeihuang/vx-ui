@@ -1,7 +1,7 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
 .#{$css-prefix}{
-  &palace{
+  &grid{
     overflow:hidden;
     &--inner{
       width: calc(100% + 1px);
@@ -29,7 +29,7 @@
         background-position: right;
         border-right:0;
         border-bottom:0;
-        .vx-palace--item-inner{
+        .vx-grid--item-inner{
           @include divider();
           background-position:bottom;
         }

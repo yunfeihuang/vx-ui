@@ -29,7 +29,7 @@
           <cell title="Nav" to="/demos/nav"></cell>
           <cell title="Heading" to="/demos/heading"></cell>
           <cell title="Group" to="/demos/group"></cell>
-          <cell title="Palace" to="/demos/palace"></cell>
+          <cell title="Grid" to="/demos/grid"></cell>
           <cell title="Cell" to="/demos/cell"></cell>
           <cell title="ListItem" to="/demos/listitem"></cell>
           <cell title="SubmitBar" to="/demos/submitbar"></cell>

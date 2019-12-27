@@ -1,16 +1,16 @@
 <template>
-  <div :class="['vx-palace']">
-    <div class="vx-palace--inner" :style="`width: calc(100% + ${gutter}px);padding-top: ${gutter > 1 ? gutter : ''}px`">
+  <div :class="['vx-grid']">
+    <div class="vx-grid--inner" :style="`width: calc(100% + ${gutter}px);padding-top: ${gutter > 1 ? gutter : ''}px`">
       <slot></slot>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'Palace',
-  componentName: 'Palace',
+  name: 'Grid',
+  componentName: 'Grid',
   props: {
-    grid: {
+    col: {
       type: Number,
       default: 2
     },

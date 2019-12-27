@@ -19,8 +19,8 @@ export default [
         title: 'Flexbox布局'
       },
       {
-        path: '/palace',
-        title: 'Palace宫格布局'
+        path: '/grid',
+        title: 'Grid宫格布局'
       },
       {
         path: '/nav',

@@ -54,5 +54,7 @@
   "carousel": "./src/components/carousel",
   "cascader": "./src/components/cascader",
   "cascader-picker": "./src/components/cascader-picker",
+  "grid": "./src/components/grid",
+  "list-item": "./src/components/list-item",
   "icon": "./src/components/icon"
 }
