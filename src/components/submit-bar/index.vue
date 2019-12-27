@@ -7,17 +7,16 @@
       <slot name="tips" v-if="$slots['tips']"></slot>
       <template v-else>{{props.tips}}</template>
     </message>
-    <flexbox class="vx-submit-bar--inner"
+    <div class="vx-submit-bar--inner"
       :class="{
         'vx-divider': !props.tips && !$slots['tips'],
         'is-buttons': !$slots['default'] || ($slots['button'] && $slots['button'].length > 1)
-      }"
-      align="center">
-      <flexbox-item class="vx-submit-bar--content" v-if="$slots['default']">
+      }">
+      <div class="vx-submit-bar--content" v-if="$slots['default']">
         <slot></slot>
-      </flexbox-item>
+      </div>
       <slot name="button"></slot>
-    </flexbox>
+    </div>
   </div>
 </template>
 

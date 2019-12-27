@@ -54,7 +54,10 @@
   "carousel": "./src/components/carousel",
   "cascader": "./src/components/cascader",
   "cascader-picker": "./src/components/cascader-picker",
+  "heading": "./src/components/heading",
   "grid": "./src/components/grid",
   "list-item": "./src/components/list-item",
+  "dropdown-menu": "./src/components/dropdown-menu",
+  "submit-bar": "./src/components/submit-bar",
   "icon": "./src/components/icon"
 }

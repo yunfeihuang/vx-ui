@@ -1,8 +1,8 @@
 <template>
   <div class="vx-dropdown-menu">
-    <flexbox class="vx-dropdown-menu--inner" :gutter="0">
+    <div class="vx-dropdown-menu--inner">
       <slot></slot>
-    </flexbox>
+    </div>
   </div>
 </template>
 

@@ -3,13 +3,13 @@
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"
     v-on="listeners">
-    <flexbox align="center">
+    <div class="vx-heading--inner">
       <slot name="prepend"></slot>
-      <flexbox-item class="vx-heading--title">
+      <div class="vx-heading--title">
         <slot></slot>
-      </flexbox-item>
+      </div>
       <slot name="append"></slot>
-    </flexbox>
+    </div>
   </div>
 </template>
 

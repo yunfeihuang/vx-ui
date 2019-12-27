@@ -7,9 +7,11 @@
       text-align:center;
       @include scroller;
       @include var-height();
+      @include flexbox;
     }
     &--item{
-      display:flex;
+      @include flexbox;
+      @include flexbox-item;
       &-text{
         margin:auto;
       }

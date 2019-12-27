@@ -1,10 +1,10 @@
 <template functional>
   <div :class="['vx-page', `vx-page--${props.type}`, data.staticClass, data.class]" :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style" v-bind="data.attrs" v-on="listeners">
-    <flexbox class="vx-page--flexbox" direction="column" :gutter="0">
+    <div class="vx-page--flexbox">
       <slot name="header"></slot>
       <slot name="body"></slot>
       <slot name="footer"></slot>
-    </flexbox>
+    </div>
     <slot></slot>
   </div>
 </template>

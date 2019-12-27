@@ -10,9 +10,8 @@
       </div>
       <divider></divider>
     </template>
-    <flexbox :align="!props.halfDivider ? 'center' : undefined"
-      class="vx-list-item--inner"
-      :class="{'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}">
+    <div
+      :class="['vx-list-item--inner', {'is-align-center': !props.halfDivider,'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}]">
       <slot name="checkbox"></slot>
       <template v-if="props.halfDivider">
         <slot name="image" v-if="$slots['image']"></slot>
@@ -24,16 +23,16 @@
         <slot name="image" v-if="$slots['image']"></slot>
         <x-img :style="props.imageStyle" class="vx-list-item--image" v-else-if="props.image!==undefined" :src="props.image"></x-img>
       </template>
-      <flexbox-item :class="['vx-list-item--content', {'vx-divider': props.halfDivider}]">
+      <div :class="['vx-list-item--content', {'vx-divider': props.halfDivider}]">
         <div v-if="props.halfDivider" class="vx-list-item--content-inner">
           <slot></slot>
         </div>
         <slot v-else></slot>
-      </flexbox-item>
+      </div>
       <div @click.stop class="vx-list-item--action" v-if="$slots['action']">
         <slot name="action"></slot>
       </div>
-    </flexbox>
+    </div>
     <template v-if="$slots['append']">
       <divider></divider>
       <div class="vx-list-item--append">

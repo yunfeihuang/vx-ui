@@ -48,6 +48,7 @@
       padding: 0.2rem;
     }
     &--inner{
+      @include flexbox;
       &.is-arrow{
         position:relative;
         &:after{
@@ -67,6 +68,14 @@
       &.is-action{
         padding-right:0;
       }
+      &.is-align-center{
+        -ms-flex-align: center;
+        -moz-box-align: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+      }
     }
     &--image{
       width: 32vw;
@@ -76,6 +85,8 @@
     }
     &--content{
       line-height:1.75;
+      @include flexbox-item;
+      margin-left:8px;
     }
     &--append-action{
       padding: 0.15rem 0.2rem;
