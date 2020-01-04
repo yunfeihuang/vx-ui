@@ -26,7 +26,6 @@
 export default {
   name: 'Arrow',
   componentName: 'Arrow',
-  functional: true,
   props: {
     direction: {
       type: String,
