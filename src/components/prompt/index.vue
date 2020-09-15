@@ -122,7 +122,7 @@ export default {
       this.open && !this.disabled && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
     },
     handleInput (value) {
-      this.$emit('change', value);
+      this.$emit('change', value)
     },
     handleAfterClose () {
       this.$emit('after-close')
