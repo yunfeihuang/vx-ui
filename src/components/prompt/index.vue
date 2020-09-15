@@ -1,16 +1,16 @@
 <template>
   <confirm
-    :class="['vx-prompt', {'is-disabled': disabled}]"
+    :class="['vx-prompt']"
     :open="open"
     cancel
     :cancel-text="cancelText"
     :confirm-text="confirmText"
     :title="title"
+    :confirm-props="{type: 'button', disabled: disabled}"
     @close="handleClose"
     @confirm="handleConfirm"
     @open="handleOpen"
-    @after-close="handleAfterClose"
-    >
+    @after-close="handleAfterClose">
     <div class="vx-prompt--message" v-if="message || $slots.message">
       <slot v-if="$slots.message" name="message"></slot>
       <template v-else>{{message}}</template>
@@ -77,8 +77,7 @@ export default {
       default: ''
     },
     disabled: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     encrypt: {
       type: Function,
@@ -123,7 +122,7 @@ export default {
       this.open && !this.disabled && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
     },
     handleInput (value) {
-      this.$emit('change', value)
+      this.$emit('change', value);
     },
     handleAfterClose () {
       this.$emit('after-close')

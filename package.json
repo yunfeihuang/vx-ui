@@ -1,6 +1,6 @@
 {
   "name": "vx-ui",
-  "version": "0.6.8-alpha",
+  "version": "0.6.10-alpha",
   "description": "A Component Library for Vue.js",
   "author": "黄运飞 <yunfei.huang@qq.com>",
   "main": "lib/index.js",

@@ -63,6 +63,9 @@
         &:last-child{
           @include var-color();
         }
+        &[disabled]{
+          @include _disabled();
+        }
       }
       a{
         @include var-height($box-size-height-default, 'line-height');
