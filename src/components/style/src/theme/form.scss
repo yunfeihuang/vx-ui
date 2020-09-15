@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &form{
     background:#fff;
     .el-form-item{
@@ -23,7 +23,7 @@
         }
         &.is-error{
           &:after{
-            @include divider($color-error);
+            @include divider($--color-error);
           }
         }
       }
@@ -37,8 +37,8 @@
         min-width:0;
       }
       &__error{
-        @include var-color($color-error);
-        @include var-font-size($font-size-small);
+        @include var-color($--color-error);
+        @include var-font-size($--font-size-small);
         padding-bottom:0.15rem;
         position: absolute;
         z-index:1;
@@ -53,7 +53,7 @@
       &.is-required{
         .el-form-item__label{
           &:before{
-            @include var-color($color-error);
+            @include var-color($--color-error);
             content:'*'
           }
         }
@@ -61,7 +61,7 @@
       &.is-error{
         .vx-input-wrapper,.vx-textarea-wrapper{
           &:before{
-            @include divider($color-error);
+            @include divider($--color-error);
           }
         }
       }

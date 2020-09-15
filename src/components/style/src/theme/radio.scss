@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &radio{
     display:block;
     position:relative;
@@ -58,7 +58,7 @@
       user-select: none;
       @include disabled;
       &.is-divider{
-        .#{$css-prefix}radio{
+        .#{$--css-prefix}radio{
           @include divider;
           &:first-child{
             background-image:none;

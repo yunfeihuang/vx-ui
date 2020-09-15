@@ -80,10 +80,10 @@ export default {
       width:0.6rem;
       height:0.6rem;
       border:1px solid;
-      @include var-border-color($color-border);
+      @include var-border-color($--color-border);
       padding:1px;
       background-clip: content-box;
-      @include var-border-radius($border-radius);
+      @include var-border-radius($--border-radius);
       vertical-align: middle;
       background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVQ4T2N89uzZfwY8QFJSEp80A+OoAcMiDP7//483HTx//hx/Ohg1gIFx6IcBALl+VXknOCvFAAAAAElFTkSuQmCC");
     }

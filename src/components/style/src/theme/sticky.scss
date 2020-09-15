@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &sticky{
     &--box{
       position: relative;
@@ -8,7 +8,7 @@
       position: sticky;
       z-index:100;
       &.is-fixed{
-        .#{$css-prefix}{
+        .#{$--css-prefix}{
           &sticky--inner{
             width: 100%;
             position: fixed;

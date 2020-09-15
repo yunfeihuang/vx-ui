@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &datetime-picker{
     @include flexbox;
     &--wrapper{
@@ -16,7 +16,7 @@
       @include flexbox;
     }
     &--today{
-      @include var-height($box-size-height-default, 'line-height');
+      @include var-height($--box-size-height-default, 'line-height');
       @include lineClamp;
       @include flexbox-item;
     }
@@ -24,7 +24,7 @@
       @include button;
       @include var-height();
       width: 1.5rem;
-      @include var-color($color-assist);
+      @include var-color($--color-assist);
     }
     &--confirm{
       @include var-color();

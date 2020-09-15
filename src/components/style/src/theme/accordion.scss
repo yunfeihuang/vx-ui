@@ -1,14 +1,14 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &accordion{
     margin:0.16rem 0;
     background:#fff;
     &--item{
       position:relative;
       &-hd{
-        @include var-font-size($font-size-large);
-        @include var-height($box-size-height-default, 'line-height');
+        @include var-font-size($--font-size-large);
+        @include var-height($--box-size-height-default, 'line-height');
         padding:0 0.16rem;
         position:relative;
         @include divider;

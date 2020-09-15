@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &btn{
     @include button;
     @include var-height();
@@ -24,7 +24,7 @@
       pointer-events: none;
     }
     &.is-round{
-      border-radius: $box-size-height-default;
+      border-radius: $--box-size-height-default;
     }
     &.is-square{
       border-radius:0;
@@ -38,7 +38,7 @@
         display:block;
       }
       &-small{
-        @include var-height($box-size-height-small);
+        @include var-height($--box-size-height-small);
         padding: 0 0.05rem;
       }
     }
@@ -61,32 +61,32 @@
       &.is-plain{
         background-color:#fff;
         @include var-color();
-        @include border-round($color-primary);
+        @include border-round($--color-primary);
       }
     }
     &--warning{
-      @include var-background-color($color-warning);
+      @include var-background-color($--color-warning);
       color:#fff;
       &.is-plain{
         background-color:#fff;
-        @include var-color($color-warning);
-        @include border-round($color-warning);
+        @include var-color($--color-warning);
+        @include border-round($--color-warning);
       }
       .vx-spinner{
-        @include var-border-color($color-warning,'border-top-color');
+        @include var-border-color($--color-warning,'border-top-color');
       }
     }
     &--danger{
-      @include var-background-color($color-danger);
+      @include var-background-color($--color-danger);
       color:#fff;
       border:0;
       &.is-plain{
         background-color:#fff;
-        @include var-color($color-danger);
-        @include border-round($color-danger);
+        @include var-color($--color-danger);
+        @include border-round($--color-danger);
       }
       .vx-spinner{
-        @include var-border-color($color-danger,'border-top-color');
+        @include var-border-color($--color-danger,'border-top-color');
       }
     }
     &--link{
@@ -102,7 +102,7 @@
       @include overlay;
       opacity:0;
     }
-    .#{$css-prefix}spinner{
+    .#{$--css-prefix}spinner{
       &--wrapper{
         width:0.32rem;
         height:0.32rem;

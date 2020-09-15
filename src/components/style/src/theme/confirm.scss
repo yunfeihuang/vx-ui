@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &confirm{
     position:fixed;
     left:0;
@@ -30,7 +30,7 @@
     }
     &--title{
       margin:0.36rem;
-      @include var-font-size($font-size-large);
+      @include var-font-size($--font-size-large);
       @include lineClamp;
     }
     &--body{
@@ -53,9 +53,9 @@
         position:relative;
         font-size:inherit;
         line-height:100%;
-        @include var-color($color-assist);
+        @include var-color($--color-assist);
         &+button,&+a{
-          @include divider($color-divider, true);
+          @include divider($--color-divider, true);
         }
         &.is-cancel-light{
           @include var-color();
@@ -68,7 +68,7 @@
         }
       }
       a{
-        @include var-height($box-size-height-default, 'line-height');
+        @include var-height($--box-size-height-default, 'line-height');
       }
     }
     &--table{
@@ -83,7 +83,7 @@
   }
 }
 .confirm-scale-enter-active, .confirm-scale-leave-active {
-  transition: transform $transition-time ease 0s,opacity $transition-time ease 0s;
+  transition: transform $--transition-time ease 0s,opacity $--transition-time ease 0s;
 }
 .confirm-scale-enter{
   opacity:0;

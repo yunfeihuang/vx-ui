@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &popup{
     position:fixed;
     left:0;
@@ -68,7 +68,7 @@
         display:block;
         background:#fff;
       }
-      .#{$css-prefix}popup--body{
+      .#{$--css-prefix}popup--body{
         margin:auto;
       }
     }
@@ -136,7 +136,7 @@
         }
       }
       &-title{
-        @include var-font-size($font-size-xl);
+        @include var-font-size($--font-size-xl);
         @include lineClamp;
         text-align:left;
         flex:auto;
@@ -146,21 +146,21 @@
 }
 
 .popup-fade-enter-active, .popup-fade-leave-active {
-  transition: opacity $transition-time ease 0s;
+  transition: opacity $--transition-time ease 0s;
 }
 .popup-fade-enter, .popup-fade-leave-active {
   opacity: 0;
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {
-  transition: opacity $transition-time
+  transition: opacity $--transition-time
 }
 .popup-slide-center-enter, .popup-slide-center-leave-active {
   opacity: 0
 }
 
 .popup-slide-top-enter-active, .popup-slide-top-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
 .popup-slide-top-enter, .popup-slide-top-leave-active {
   transform: translate3d(0,-100%,0);
@@ -173,7 +173,7 @@
 }
 
 .popup-slide-bottom-enter-active, .popup-slide-bottom-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
 .popup-slide-bottom-enter, .popup-slide-bottom-leave-active {
   transform: translate3d(0,100%,0);
@@ -186,7 +186,7 @@
 }
 
 .popup-slide-left-enter-active, .popup-slide-left-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
 .popup-slide-left-enter, .popup-slide-left-leave-active {
   transform: translate3d(-100%,0,0);
@@ -199,7 +199,7 @@
 }
 
 .popup-slide-right-enter-active, .popup-slide-right-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
 .popup-slide-right-enter, .popup-slide-right-leave-active {
   transform: translate3d(100%,0,0);
@@ -212,7 +212,7 @@
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {
-  transition: opacity $transition-time
+  transition: opacity $--transition-time
 }
 .popup-slide-center-enter, .popup-slide-center-leave-active {
   transform: 0;

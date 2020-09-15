@@ -1,17 +1,17 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &list-view{
     @include scroller;
     &--inner{
       position: relative;
       backface-visibility: hidden;
       perspective: 1000;
-      &.active .#{$css-prefix}list-view--refresh span:before{
+      &.active .#{$--css-prefix}list-view--refresh span:before{
         content:attr(data-refresh);
       }
       &.active{
-        .#{$css-prefix}list-view{
+        .#{$--css-prefix}list-view{
           &--refresh{
             @include var-color();
             span:before{
@@ -23,13 +23,13 @@
             @include var-background-color();
             top:0.06rem;
             &:before{
-              @include var-border-color($color-primary, 'border-top-color');
+              @include var-border-color($--color-primary, 'border-top-color');
             }
           }
         }
       }
       &.loading{
-        .#{$css-prefix}list-view{
+        .#{$--css-prefix}list-view{
           &--refresh{
             span:before{
               content:attr(data-loading);
@@ -45,11 +45,11 @@
       }
     }
     &--refresh{
-      @include var-color($color-light);
+      @include var-color($--color-light);
       line-height:0.9rem;
       margin-top:-0.9rem;
       text-align:center;
-      .#{$css-prefix}list-view--spinner{
+      .#{$--css-prefix}list-view--spinner{
         display: none
       }
       span:before{
@@ -58,15 +58,15 @@
     }
     &--loading{
       text-align:center;
-      @include var-height($box-size-height-default, 'line-height');
-      @include var-color($color-light);
+      @include var-height($--box-size-height-default, 'line-height');
+      @include var-color($--color-light);
       &.is-end{
         &:before,&:after{
           content:'';
           display:inline-block;
           border-top: 1px solid;
           opacity: 0.5;
-          @include var-border-color($color-light);
+          @include var-border-color($--color-light);
           width:0.5rem;
           font-size: 0;
           height: 1px;
@@ -92,7 +92,7 @@
         left:50%;
         top:100%;
         border:0.16rem solid transparent;
-        @include var-border-color($color-light, 'border-top-color');
+        @include var-border-color($--color-light, 'border-top-color');
         position:absolute;
         margin-left:-0.16rem;
       }

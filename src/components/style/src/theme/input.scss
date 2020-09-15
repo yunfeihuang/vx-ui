@@ -1,13 +1,13 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &input{
     &--size{
       &-default{
         @include var-height();
       }
       &-small{
-        @include var-height($box-size-height-small);
+        @include var-height($--box-size-height-small);
       }
     }
     &--wrapper{
@@ -56,12 +56,12 @@
           background-color: transparent;
         }
         &:after{
-          @include divider($color-primary);
+          @include divider($--color-primary);
           width:0;
           position:absolute;
           content:'';
           height:1px;
-          transition:width 0.4s $ease-in-out;
+          transition:width 0.4s $--ease-in-out;
           z-index:2;
           left:0;
           bottom:-1px;
@@ -124,14 +124,14 @@
           margin-left:-1px;
         }
       }
-      .#{$css-prefix}input--clearable-button{
+      .#{$--css-prefix}input--clearable-button{
         display:block;
       }
     }
   }
 }
 .input-clearable-fade-enter-active, .input-clearable-fade-leave-active {
-  transition: opacity $transition-time;
+  transition: opacity $--transition-time;
 }
 .input-clearable-fade-enter {
   opacity: 0

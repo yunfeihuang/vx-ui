@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &tabbar{
     text-align:center;
     position:relative;
@@ -27,12 +27,12 @@
       }
       &.is-active{
         @include var-color();
-        transition: color $transition-time $ease-in-out;
+        transition: color $--transition-time $--ease-in-out;
       }
       i{
         display:block;
         font-style:normal;
-        @include var-font-size($font-size-large);
+        @include var-font-size($--font-size-large);
       }
       small{
         font-size:0.2rem;

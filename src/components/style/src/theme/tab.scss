@@ -1,11 +1,11 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &tab{
     text-align:center;
     position:relative;
     user-select: none;
-    @include var-height($box-size-height-default, 'line-height');
+    @include var-height($--box-size-height-default, 'line-height');
     background:#fff;
     &--scroller{
       white-space: nowrap;
@@ -39,14 +39,14 @@
       left:0;
       border-bottom:2px solid;
       @include var-border-color();
-      transition: left $transition-time $ease-in-out,width $transition-time $ease-in-out;
+      transition: left $--transition-time $--ease-in-out,width $--transition-time $--ease-in-out;
       display:none;
     }
     &--item{
       @include lineClamp;
       &.is-active{
         @include var-color()
-        // transition: color $transition-time $ease-in-out;
+        // transition: color $--transition-time $--ease-in-out;
       }
       &.is-flexbox-item{
         @include flexbox-item;

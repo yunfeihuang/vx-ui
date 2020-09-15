@@ -15,10 +15,10 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include var-color($color-black);
+  @include var-color($--color-black);
 }
 a{
-  @include var-color($color-primary);
+  @include var-color($--color-primary);
   text-decoration: none;
   box-sizing: border-box;
   cursor: default;
