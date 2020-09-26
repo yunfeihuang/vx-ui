@@ -17,6 +17,11 @@
           <range :min="10" :max="50" v-model="value2" />
         </div>
       </group>
+      <group :title="`min:10,max:50(value:${value3})`">
+        <div style="padding:10px">
+          <range :min="5" :max="50" v-model="value3" />
+        </div>
+      </group>
       <group title="disabled">
         <div style="padding:10px">
           <range v-model="value1" disabled />
@@ -31,7 +36,8 @@ export default {
   data () {
     return {
       value1: 0,
-      value2: 20
+      value2: 20,
+      value3: [10, 30]
     }
   }
 }

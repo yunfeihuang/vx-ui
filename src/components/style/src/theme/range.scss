@@ -2,15 +2,15 @@
 @import 'common/mixins.scss';
 .#{$--css-prefix}{
   &range{
-    @include disabled;
     &--wrapper{
       @include var-height();
       position:relative;
       min-width:2rem;
       touch-action: pan-y;
+      @include disabled;
     }
     &--mask{
-      @include divider(#ccc);
+      //@include divider(#ccc);
       position:absolute;
       content:'';
       height:1px;
@@ -18,9 +18,10 @@
       left:0;
       z-index:1;
       top:50%;
+      background:#ccc;
     }
-    &--value{
-      @include divider($--color-primary);
+    &--value,&--min-value{
+      //@include divider($--color-primary);
       position:absolute;
       content:'';
       height:1px;
@@ -28,6 +29,10 @@
       width:0;
       z-index:2;
       top:50%;
+      background:$--color-primary;
+    }
+    &--min-value{
+      background:#ccc;
     }
     &--button{
       border:0;
@@ -41,29 +46,29 @@
       left:0;
       margin:-0.35rem 0;
       z-index:100;
-    }
-    &--tips{
-      position:absolute;
-      left:50%;
-      bottom:100%;
-      background:rgba(0,0,0,0.6);
-      color:#fff;
-      padding:0.1rem;
-      line-height:100%;
-      border-radius:0.06rem;
-      margin-bottom:0.16rem;
-      transform:translateX(-50%);
-      min-width:0.4rem;
-      text-align:center;
-      display:none;
-      &:before{
-        content:'';
+      outline: none;
+      span{
         position:absolute;
-        border:0.08rem solid transparent;
-        border-top-color:rgba(0,0,0,0.6);
         left:50%;
-        top:100%;
-        margin-left:-0.08rem;
+        bottom:100%;
+        background:rgba(0,0,0,0.6);
+        color:#fff;
+        padding:0.1rem;
+        line-height:100%;
+        border-radius:0.06rem;
+        margin-bottom:0.16rem;
+        transform:translateX(-50%);
+        min-width:0.4rem;
+        text-align:center;
+        &:before{
+          content:'';
+          position:absolute;
+          border:0.08rem solid transparent;
+          border-top-color:rgba(0,0,0,0.6);
+          left:50%;
+          top:100%;
+          margin-left:-0.08rem;
+        }
       }
     }
   }
