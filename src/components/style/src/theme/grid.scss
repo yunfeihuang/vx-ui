@@ -26,7 +26,7 @@
       }
       &.is-divider{
         @include divider($--color-divider, true);
-        background-position: right;
+        //background-position: right;
         border-right:0;
         border-bottom:0;
         .vx-grid--item-inner{

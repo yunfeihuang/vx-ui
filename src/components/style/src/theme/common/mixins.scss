@@ -106,12 +106,12 @@ $resolution : 2,3,4,5,6;
     background-size: 1px 100%;
     background-repeat: no-repeat;
     background-position: left;
-    background-image: linear-gradient(90deg,$color,$color 50%,transparent 0);
+    background-image: linear-gradient(90deg,$color,$color 50%,transparent 100%);
     @if $color == $--color-primary {
-      background-image: linear-gradient(90deg,var(--vx-color-primary,$color),var(--vx-color-primary,$color) 50%,transparent 0);
+      background-image: linear-gradient(90deg,var(--vx-color-primary,$color),var(--vx-color-primary,$color) 50%,transparent 100%);
     }
     @if $color == $--color-divider {
-      background-image: linear-gradient(90deg,var(--vx-color-divider,$color),var(--vx-color-divider,$color) 50%,transparent 0);
+      background-image: linear-gradient(90deg,var(--vx-color-divider,$color),var(--vx-color-divider,$color) 50%,transparent 100%);
     }
   }@else{
     background-size: 100% 1px;
