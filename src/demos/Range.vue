@@ -14,7 +14,7 @@
       </group>
       <group :title="`min:10,max:50(value:${value2})`">
         <div style="padding:10px">
-          <range :min="10" :max="50" v-model="value2" />
+          <range :min="10" :max="50" v-model="value2" bar-height="5px"/>
         </div>
       </group>
       <group :title="`min:10,max:50(value:${value3})`">

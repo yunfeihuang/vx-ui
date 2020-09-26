@@ -1,6 +1,6 @@
 <template>
   <div :class="['vx-range--wrapper', {'is-disabled': disabled}]">
-    <div class="vx-range--mask"></div>
+    <div class="vx-range--mask" :style="{height:barHeight}"></div>
     <button
       v-if="value.length"
       class="vx-range--button"
@@ -9,8 +9,8 @@
       @touchstart.prevent="handleTouchStart('start', $event)">
       <span v-if="start.moveing">{{changeValueText}}</span>
     </button>
-    <div class="vx-range--value" :style="{width: end.left + 'px'}"></div>
-    <div class="vx-range--min-value" :style="{width: start.left + 'px'}"></div>
+    <div class="vx-range--value" :style="{width: (end.left > 0 ? end.left + 20 : 0) + 'px',height:barHeight}"></div>
+    <div class="vx-range--min-value" :style="{height:barHeight,width: (start.left > 0 ? start.left + 20 : 0) + 'px'}"></div>
     <button
       class="vx-range--button"
       :style="{left: end.left + 'px'}"
@@ -50,6 +50,10 @@ export default {
     },
     unit: {
       type: [String, Function]
+    },
+    barHeight: {
+      type: String,
+      default: '1px'
     }
   },
   computed: {
@@ -137,10 +141,10 @@ export default {
       this.changeValue = this.myValue
       if (this.value instanceof Array) {
         if (type === 'end') {
-          minLeft = this.start.left
+          // minLeft = this.start.left
           this.changeValue = this.myValue[1]
         } else {
-          maxLeft = this.end.left
+          // maxLeft = this.end.left
           this.changeValue = this.myValue[0]
         }
       }
@@ -151,6 +155,15 @@ export default {
           let left = movePosition.pageX - startPosition.pageX + startLeft
           left = left < minLeft ? minLeft : left
           left = left > maxLeft ? maxLeft : left
+          if (type === 'end') {
+            if (left < this.start.left) {
+              this.start.left = left
+            }
+          } else {
+            if (left > this.end.left) {
+              this.end.left = left
+            }
+          }
           _data.left = left
           this.changeValue = this.leftToValue(left)
           event.preventDefault()
@@ -161,9 +174,7 @@ export default {
         document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd)
         _data.moveing = false
         if (this.value instanceof Array) {
-          let value = this.myValue
-          value[type === 'end' ? 1 : 0] = this.changeValue
-          this.handleChange(value)
+          this.handleChange([this.leftToValue(this.start.left), this.leftToValue(this.end.left)])
         } else {
           this.handleChange(this.changeValue)
         }

@@ -9,18 +9,7 @@
       touch-action: pan-y;
       @include disabled;
     }
-    &--mask{
-      //@include divider(#ccc);
-      position:absolute;
-      content:'';
-      height:1px;
-      width:100%;
-      left:0;
-      z-index:1;
-      top:50%;
-      background:#ccc;
-    }
-    &--value,&--min-value{
+    &--mask,&--value,&--min-value{
       //@include divider($--color-primary);
       position:absolute;
       content:'';
@@ -28,11 +17,18 @@
       left:0;
       width:0;
       z-index:2;
-      top:50%;
-      background:$--color-primary;
+      top:0;
+      background:$--color-divider;
+      margin: auto 0;
+      bottom:0;
+      border-radius:20px;
     }
-    &--min-value{
-      background:#ccc;
+    &--mask{
+      z-index:0;
+      width:100%;
+    }
+    &--value{
+      background:$--color-primary;
     }
     &--button{
       border:0;
