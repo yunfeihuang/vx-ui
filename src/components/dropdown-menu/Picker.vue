@@ -1,5 +1,5 @@
 <template>
-  <popup :class="['dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-on="$listeners">
+  <popup :class="['vx-dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-on="$listeners">
     <radio-group v-if="options" :value="value" @change="handleChange">
       <radio v-for="(item,index) in options"
         :value="item.value"
