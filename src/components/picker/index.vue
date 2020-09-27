@@ -6,6 +6,9 @@
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @scroll="handleScroll"
+      @mousedown="handleMouseDown"
+      @mousemove="handleMouseMove"
+      @mouseup="handleMouseUp"
       >
       <div class="vx-picker--scroller">
         <rem-to-px :height="itemHeight" even v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
@@ -167,19 +170,21 @@ export default {
         this.$$touch.offsetHeight = node.offsetHeight
       }
     },
-    handleScroll () {
+    handleScroll (e) {
       if (document.ontouchstart !== undefined) {
         if (this.$$touch && this.$$touch.scrollEnd) {
           this.computedScrollTop()
         }
       } else {
-        if (!this.$$touch.offsetHeight) {
-          let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
-          if (node) {
-            this.$$touch.offsetHeight = node.offsetHeight
+        if (this.$$scrollTop === undefined) {
+          if (!this.$$touch.offsetHeight) {
+            let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
+            if (node) {
+              this.$$touch.offsetHeight = node.offsetHeight
+            }
           }
+          this.computedScrollTop()
         }
-        this.computedScrollTop()
       }
     },
     computedScrollTop () {
@@ -203,6 +208,23 @@ export default {
           }
         })
       }, 200)
+    },
+    handleMouseDown (e) {
+      this.$$scrollTop = this.$$touch.scrollElement.scrollTop
+      this.$$touch.pageY = e.pageY
+    },
+    handleMouseMove (e) {
+      if (this.$$scrollTop !== undefined) {
+        this.$$touch.scrollElement.scrollTop = this.$$scrollTop + this.$$touch.pageY - e.pageY
+      }
+    },
+    handleMouseUp (e) {
+      this.$$scrollTop = undefined
+      let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
+      if (node) {
+        this.$$touch.offsetHeight = node.offsetHeight
+        this.computedScrollTop()
+      }
     }
   }
 }

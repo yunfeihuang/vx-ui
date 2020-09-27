@@ -2,7 +2,6 @@
   <page>
     <x-nav slot="header" title="Picker"></x-nav>
     <page-body slot="body">
-      <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group :title="'value：'+value">
         <picker placeholder="请选择" v-model="value" :options="options"></picker>
       </group>
