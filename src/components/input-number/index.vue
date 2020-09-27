@@ -1,13 +1,27 @@
 <template>
   <div :class="['vx-input-number',`vx-input-number--size-${size}`,{'is-disabled': disabled}]">
     <div class="vx-input-number--inner">
-      <button :disabled="min !== undefined ? value <= min : false" class="vx-input-number--reduce" type="button" @click="handleChange(value-buttonStep)"></button>
+      <button
+        :disabled="min !== undefined ? value <= min : false"
+        class="vx-input-number--reduce"
+        type="button"
+        @click="handleChange(value-buttonStep)">
+        <slot name="reduce"></slot>
+      </button>
+      <slot name="value" v-if="$scopedSlots['value']" v-bind="$$props"></slot>
       <input
+        v-else
         v-bind="$$props"
         type="number"
         :value="myValue"
         v-on="$$listeners"/>
-      <button :disabled="max !== undefined ? max >= value  : false" class="vx-input-number--add" type="button" @click="handleChange(value+buttonStep)"></button>
+      <button
+        :disabled="max !== undefined ? max >= value  : false"
+        class="vx-input-number--add"
+        type="button"
+        @click="handleChange(value+buttonStep)">
+        <slot name="add"></slot>
+      </button>
     </div>
   </div>
 </template>
