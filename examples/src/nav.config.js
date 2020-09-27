@@ -187,6 +187,10 @@ export default [
         title: 'Img图片'
       },
       {
+        path: '/avatargroup',
+        title: 'AvatarGroup头像组'
+      },
+      {
         path: '/swiper',
         title: 'Swiper轮播'
       },

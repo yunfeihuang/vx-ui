@@ -73,6 +73,7 @@
         </group>
         <group title="图片">
           <cell title="Img" to="/demos/img"></cell>
+          <cell title="AvatarGroup" to="/demos/avatargroup"></cell>
           <cell title="Swiper" to="/demos/swiper"></cell>
           <cell title="Preview" to="/demos/preview"></cell>
         </group>

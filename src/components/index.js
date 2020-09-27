@@ -30,6 +30,7 @@ import Popup from './popup'
 import PopupPicker from './popup-picker'
 import Toast from './toast'
 import Img from './img'
+import AvatarGroup from './avatar-group'
 import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
@@ -136,6 +137,7 @@ let components = [
   PopupPicker,
   Toast,
   Img,
+  AvatarGroup,
   ListView,
   Ripple,
   Search,
@@ -618,6 +620,7 @@ export {
   PopupPicker,
   Toast,
   Img,
+  AvatarGroup,
   ListView,
   Ripple,
   Search,

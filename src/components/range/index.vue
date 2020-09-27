@@ -98,7 +98,7 @@ export default {
   },
   mounted () {
     window.addEventListener('resize', this.handleResize, false)
-    this.handleResize()
+    this.$nextTick(this.handleResize)
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.handleResize)

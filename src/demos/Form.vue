@@ -155,7 +155,7 @@ export default {
         datetime: null,
         daterange: null,
         rater: null,
-        range: null,
+        range: 0,
         inputNumber: 0,
         cascader: [],
         enable: false
