@@ -168,7 +168,17 @@ export default {
       }
     },
     handleScroll () {
-      if (this.$$touch && this.$$touch.scrollEnd) {
+      if (document.ontouchstart !== undefined) {
+        if (this.$$touch && this.$$touch.scrollEnd) {
+          this.computedScrollTop()
+        }
+      } else {
+        if (!this.$$touch.offsetHeight) {
+          let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
+          if (node) {
+            this.$$touch.offsetHeight = node.offsetHeight
+          }
+        }
         this.computedScrollTop()
       }
     },
