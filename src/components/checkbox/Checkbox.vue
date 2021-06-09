@@ -1,7 +1,7 @@
 <template>
   <label :class="classes">
-    <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange(value, $event)"/>
-    <slot v-if="$scopedSlots['default'] && !$slots['default']" v-bind="{checked: myChecked, value: value, disabled: myDisabled}"></slot>
+    <input :type="myType" :name="name" :value="value" :checked="myChecked" @change="handleChange($event, value)"/>
+    <slot v-if="!$slots['default']" v-bind="{checked: myChecked, value: value, disabled: myDisabled}"></slot>
     <template v-else>
       <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
       <span class="vx-checkbox--text">
@@ -12,13 +12,12 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
-  name: 'Checkbox',
-  componentName: 'Checkbox',
-  mixins: [input],
+  name: 'VxCheckbox',
   props: {
     ...input.props,
+    value: {},
     iconPosition: {
       type: String,
       default: 'left'
@@ -55,22 +54,25 @@ export default {
         }
       ]
     },
+    isParent () {
+      return this.$parent && this.$parent.$options && this.$parent.$options.name === 'VxCheckboxGroup'
+    },
     getIconStyle () {
       return this.iconStyle || this.$parent.iconStyle
     },
     myChecked () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
-        if (this.$parent.value instanceof Array) {
-          return this.$parent.value.indexOf(this.value) > -1
+      if (this.isParent) {
+        if (this.$parent.modelValue instanceof Array) {
+          return this.$parent.modelValue.indexOf(this.value) > -1
         } else {
-          return this.$parent.value === this.value
+          return this.$parent.modelValue === this.value
         }
       } else {
         return this.checked
       }
     },
     myType () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
+      if (this.isParent) {
         return this.$parent.max === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
@@ -78,25 +80,26 @@ export default {
     },
     myDisabled () {
       let disabled = this.disabled
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup' && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
+      if (this.isParent && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
         return this.$parent.value.indexOf(this.value) === -1
       }
       return disabled
     },
     myInline () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
+      if (this.isParent) {
         return this.inline || this.$parent.inline
       }
       return this.inline
     }
   },
   methods: {
-    handleChange (value, e) {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckboxGroup') {
-        this.$parent.handleChange(e, value, this.exclusive)
+    handleChange (e, val) {
+      if (this.isParent) {
+        this.$parent.handleChange(e, val)
       } else {
-        this.$emit('update:checked', e.target.checked).$emit('change', e)
-        this.offValue !== undefined && this.onValue !== undefined && this.$emit('input', e.target.checked ? this.onValue : this.offValue)
+        this.$emit('update:checked', e.target.checked)
+        this.$emit('change', e)
+        this.offValue !== undefined && this.onValue !== undefined && this.$emit('update:modelValue', e.target.checked ? this.onValue : this.offValue)
       }
     }
   }

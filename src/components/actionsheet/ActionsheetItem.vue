@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-actionsheet--item',{'is-disabled':props.disabled}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     :data-value="props.value"

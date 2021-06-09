@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-submit-bar', {'is-sticky': props.sticky}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

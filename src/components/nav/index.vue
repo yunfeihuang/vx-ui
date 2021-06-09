@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-nav', `vx-nav--${props.type}`, {'is-back-text': !!props.backText}, {'is-title-center': props.titleCenter, 'is-search-collapse': props.searchCollapse}, data.staticClass]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

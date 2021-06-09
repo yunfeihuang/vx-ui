@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { tab } from 'utils/mixins'
+import { tab } from '@/utils/mixins'
 export default {
   name: 'Tab',
   componentName: 'Tab',

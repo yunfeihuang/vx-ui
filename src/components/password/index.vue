@@ -9,26 +9,27 @@
     @change="handleChange"
     @input="handleInput"
   >
-    <slot name="prepend" slot="prepend"></slot>
-    <slot v-if="$slots.append" name="append" slot="append"></slot>
-    <button v-else slot="append"
-      tabindex="-2"
-      class="vx-password--switch"
-      type="button"
-      @click="handleSwitch"
-    >
-      <i v-if="myNativeType!=='text'" v-html="icons[0]"></i>
-      <i v-else v-html="icons[1]"></i>
-    </button>
+    <template v-slot:prepend><slot name="prepend"></slot></template>
+    <template v-if="$slots.append" v-slot:append><slot name="append" ></slot></template>
+    <template v-else v-slot:append>
+      <button
+        tabindex="-2"
+        class="vx-password--switch"
+        type="button"
+        @click="handleSwitch"
+      >
+        <i v-if="myNativeType!=='text'" v-html="icons[0]"></i>
+        <i v-else v-html="icons[1]"></i>
+      </button>
+    </template>
   </x-input>
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 import XInput from '../input'
 export default {
-  name: 'Password',
-  componentName: 'Password',
+  name: 'VxPassword',
   mixins: [input],
   props: {
     ...input.props,

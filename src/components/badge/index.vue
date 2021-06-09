@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <span :class="['vx-badge', {'vx-badge--dot': props.text === ''}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

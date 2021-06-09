@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { historyPush } from 'utils/mixins'
+import { historyPush } from '@/utils/mixins'
 import Overlay from '../overlay'
 import Arrow from '../arrow'
 export default {

@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { input, historyPush } from 'utils/mixins'
+import { input, historyPush } from '@/utils/mixins'
 import XInput from '../input'
 import Arrow from '../arrow'
 export default {

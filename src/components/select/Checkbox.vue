@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <label :class="[
     'vx-checkbox',
     {
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
   componentName: 'Checkbox',
   props: {

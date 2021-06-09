@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <transition name="popup-fade">
     <div v-show="props.open" :class="['vx-overlay', data.staticClass, data.class]"
       :style="Object.assign({opacity:`${props.opacity}`}, data.style)"

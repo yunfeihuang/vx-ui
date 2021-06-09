@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-heading', `vx-heading--${props.type}`, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

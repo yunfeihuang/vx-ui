@@ -1,23 +1,22 @@
-<template functional>
-  <div :class="['vx-switch--wrapper', `vx-switch--size-${props.size}`, {'is-disabled': props.disabled, 'vx-switch--small': props.small}]">
+<template>
+  <div :class="['vx-switch--wrapper', `vx-switch--size-${size}`, {'is-disabled': disabled, 'vx-switch--small': small}]">
     <input
-      :name="props.name"
-      :checked="props.onValue == props.value"
+      :name="name"
+      :checked="onValue == value"
       type="checkbox"
-      @change="$options.methods.handleChange(listeners,props.onValue,props.offValue,$event)"
+      @change="handleChange($event)"
       />
     <button type="button" tabindex="-2"></button>
   </div>
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
-  name: 'XSwitch',
-  componentName: 'XSwitch',
+  name: 'VxSwitch',
   props: {
     ...input.props,
-    value: {
+    modelValue: {
       type: [Boolean, String, Number],
       default: false
     },
@@ -35,11 +34,15 @@ export default {
       default: 'default'
     }
   },
-  methods: {
-    handleChange (listeners, onValue, offValue, e) {
-      let value = e.target.checked ? onValue : offValue
-      listeners['input'] && listeners['input'](value)
-      listeners['change'] && listeners['change'](value)
+  setup (props, context) {
+    const handleChange = e => {
+      let value = e.target.checked ? props.onValue : props.offValue
+      context.emit('input', value)
+      context.emit('change', value)
+      context.emit('update:modelValue', value)
+    }
+    return {
+      handleChange
     }
   }
 }

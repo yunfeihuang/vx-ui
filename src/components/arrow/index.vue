@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <component :is="props.tag"
     :class="['vx-arrow', `vx-arrow--direction-${props.direction}`, data.staticClass, data.class]"
     :style="[Object.assign({

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 import Vue from 'vue'
 import DaterangePicker from '../daterange-picker'
 import XInput from '../input'

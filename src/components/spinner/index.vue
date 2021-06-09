@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div
     :class="['vx-spinner--wrapper', data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"

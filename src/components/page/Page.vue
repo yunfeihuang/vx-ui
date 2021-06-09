@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-page', `vx-page--${props.type}`, data.staticClass, data.class]" :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style" v-bind="data.attrs" v-on="listeners">
     <div class="vx-page--flexbox">
       <slot name="header"></slot>

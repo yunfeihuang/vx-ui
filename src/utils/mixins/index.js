@@ -56,7 +56,7 @@ const input = {
     readonly: {
       type: Boolean
     },
-    value: {
+    modelValue: {
       type: [String, Number]
     },
     placeholder: {

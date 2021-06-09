@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-rater',{'is-disabled': props.disabled}]">
     <span
       v-for="(item,index) in props.max"
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
   name: 'Rater',
   componentName: 'Rater',

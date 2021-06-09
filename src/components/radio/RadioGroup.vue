@@ -5,11 +5,10 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 
 export default {
-  name: 'RadioGroup',
-  componentName: 'RadioGroup',
+  name: 'VxRadioGroup',
   mixins: [input],
   props: {
     ...input.props,
@@ -20,9 +19,9 @@ export default {
   },
   methods: {
     handleChange (value) {
-      this.$emit('input', value).$emit('change', value)
-      this.eDispatch('ElFormItem', 'el.form.blur', [value])
-      this.eDispatch('ElFormItem', 'el.form.change', [value])
+      this.$emit('input', value)
+      this.$emit('change', value)
+      this.$emit('update:modelValue', value)
     }
   }
 }

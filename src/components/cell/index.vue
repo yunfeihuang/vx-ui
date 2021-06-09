@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div :class="['vx-cell', `vx-cell--${props.type}`, {'is-divider': props.type!='info' && props.divider}, data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
   name: 'XTextarea',
   componentName: 'XTextarea',

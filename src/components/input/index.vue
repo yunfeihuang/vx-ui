@@ -6,15 +6,16 @@
         <slot v-if="$slots.input" name="input"></slot>
         <input v-else
           class="vx-input--control"
-          v-bind="$$props"
+          v-bind="$props"
+          :value="modelValue"
           :type="nativeType"
-          v-on="$$listeners"/>
+          v-on="listeners"/>
       </div>
       <template v-if="!$slots.append">
         <button
           tabindex="-2"
           type="button"
-          v-show="!!value && clearable && !disabled"
+          v-show="!!modelValue && clearable && !disabled"
           class="vx-input--clearable-button"
           @click.stop.prevent="handleClear">
           <i class="vx-input--clearable-icon"></i>
@@ -27,60 +28,67 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { computed, ref } from 'vue'
+import { input } from '@/utils/mixins'
 import Arrow from '../arrow'
 export default {
-  name: 'XInput',
-  componentName: 'XInput',
+  name: 'VxInput',
   components: {
     Arrow
   },
-  mixins: [input],
   props: {
     ...input.props,
     onClear: {
       type: Function
     }
   },
-  computed: {
-    classes () {
-      return [
+  setup (props, context) {
+    let isFocus = ref(false)
+    const classes = computed({
+      get () {
+        return [
         'vx-input--wrapper',
-        `vx-input--size-${this.size}`,
+        `vx-input--size-${props.size}`,
         {
-          'is-focus': this.isFocus,
-          'is-clearable': !!this.value && this.clearable,
-          'vx-input--prepend': this.$slots.prepend,
-          'vx-input--append': this.$slots.append,
-          'is-disabled': this.disabled,
-          'is-border': this.border,
-          'is-custom': this.$slots.input
+          'is-focus': isFocus.value,
+          'is-clearable': !!props.modelValue && props.clearable,
+          'vx-input--prepend': context.slots.prepend,
+          'vx-input--append': context.slots.append,
+          'is-disabled': props.disabled,
+          'is-border': props.border,
+          'is-custom': context.slots.input
         }
       ]
-    },
-    $$props () {
-      return {
-        ...this.$props,
-        ...this.$attrs
       }
-    },
-    $$listeners () {
-      return {
-        ...this.$listeners,
-        change: this.handleChange,
-        input: this.handleInput
+    })
+    const emit = val => {
+      context.emit('input', val)
+      context.emit('change', val)
+      context.emit('update:modelValue', val)
+    }
+    const handleClear = () => {
+      if (props.onClear) {
+        props.onClear()
+      } else {
+        emit('')
       }
     }
-  },
-  methods: {
-    handleClear (e) {
-      if (this.onClear) {
-        this.onClear()
-      } else {
-        this.$emit('input', '').$emit('change', '')
-        this.eDispatch('ElFormItem', 'el.form.change', [''])
-        this.eDispatch('ElFormItem', 'el.form.blur', [''])
+    const listeners = {
+      input: e => {
+        emit(e.target.value)
+      },
+      focus: () => {
+        isFocus.value = true
+      },
+      blur: () => {
+        isFocus.value = false
       }
+    }
+
+    return {
+      classes,
+      handleClear,
+      listeners
     }
   }
 }

@@ -1,15 +1,18 @@
 import Button from './button'
-import {Page, PageBody} from './page'
+
 import Input from './input'
 import InputNumber from './input-number'
 import Password from './password'
-import Range from './range'
-import Textarea from './textarea'
 import Switch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
-import {Select, Option} from './select'
 import {Checker, CheckerGroup} from './checker'
+
+//import Range from './range'
+/*
+import Textarea from './textarea'
+
+import {Select, Option} from './select'
 import {Form, FormItem} from './form'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 // import {Swiper, SwiperItem} from './swiper'
@@ -61,7 +64,7 @@ import ListItem from './list-item'
 import SubmitBar from './submit-bar'
 import {Grid, GridItem} from './Grid'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
-
+*/
 if (!window.requestAnimationFrame) {
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
 }
@@ -90,95 +93,26 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   return fmt
 }
 let components = [
-  Page,
-  PageBody,
-  Actionsheet,
-  ActionsheetItem,
-  // Swiper,
-  // SwiperItem,
-  // Marquee,
-  // MarqueeItem,
-  Tab,
-  TabItem,
-  Tabbar,
-  TabbarItem,
-  Sidebar,
-  SidebarItem,
-  Flexbox,
-  FlexboxItem,
-  ButtonTab,
-  ButtonTabItem,
   Button,
   Input,
   InputNumber,
   Password,
-  Range,
-  Form,
-  FormItem,
-  Textarea,
   Switch,
   Checkbox,
   CheckboxGroup,
   Radio,
   RadioGroup,
-  Select,
-  Option,
   Checker,
-  CheckerGroup,
-  Divider,
-  Heading,
-  Group,
-  Cell,
-  Confirm,
-  Prompt,
-  Alert,
-  Popup,
-  PopupPicker,
-  Toast,
-  Img,
-  ListView,
-  Ripple,
-  Search,
-  Nav,
-  // Preview,
-  Spinner,
-  Picker,
-  Badge,
-  Swipeout,
-  Rater,
-  DatetimePicker,
-  DaterangePicker,
-  Datetime,
-  Daterange,
-  Popover,
-  Sticky,
-  IndexList,
-  // QrCode,
-  Message,
-  Arrow,
-  Accordion,
-  AccordionItem,
-  // Step,
-  // StepItem,
-  Calendar,
-  CalendarRange,
-  Cascader,
-  CascaderPicker,
-  CascaderPopupPicker,
-  ListItem,
-  SubmitBar,
-  Grid,
-  GridItem,
-  DropdownMenu,
-  DropdownMenuItem
+  CheckerGroup
 ]
 
-const install = (Vue) => {
+const install = (app) => {
   components.map(component => {
-    if (component && component.componentName) {
-      Vue.component(component.componentName, component)
+    if (component && component.name) {
+      app.component(component.name, component)
     }
   })
+  /*
   Vue.prototype.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({
       open: true,
@@ -483,174 +417,15 @@ const install = (Vue) => {
       parent.$emit.apply(parent, [eventName].concat(params))
     }
   }
-}
-
-export default {
-  install,
-  Page,
-  PageBody,
-  Actionsheet,
-  ActionsheetItem,
-  // Swiper,
-  // SwiperItem,
-  // Marquee,
-  // MarqueeItem,
-  Tab,
-  TabItem,
-  Tabbar,
-  TabbarItem,
-  Sidebar,
-  SidebarItem,
-  Flexbox,
-  FlexboxItem,
-  ButtonTab,
-  ButtonTabItem,
-  Button,
-  Input,
-  InputNumber,
-  Password,
-  Range,
-  Form,
-  FormItem,
-  Textarea,
-  Switch,
-  Checkbox,
-  CheckboxGroup,
-  Radio,
-  RadioGroup,
-  Select,
-  Option,
-  Checker,
-  CheckerGroup,
-  Divider,
-  Heading,
-  Group,
-  Cell,
-  Confirm,
-  Prompt,
-  Alert,
-  Popup,
-  PopupPicker,
-  Toast,
-  Img,
-  ListView,
-  Ripple,
-  Search,
-  Nav,
-  // Preview,
-  Spinner,
-  Picker,
-  Badge,
-  Swipeout,
-  Rater,
-  DatetimePicker,
-  DaterangePicker,
-  Datetime,
-  Daterange,
-  Popover,
-  Sticky,
-  IndexList,
-  // QrCode,
-  Message,
-  Arrow,
-  Accordion,
-  AccordionItem,
-  // Step,
-  // StepItem,
-  Calendar,
-  CalendarRange,
-  Cascader,
-  CascaderPicker,
-  CascaderPopupPicker,
-  ListItem,
-  SubmitBar,
-  Grid,
-  GridItem,
-  DropdownMenu,
-  DropdownMenuItem
+  */
 }
 
 export {
-  install,
-  Page,
-  PageBody,
-  Actionsheet,
-  ActionsheetItem,
-  // Swiper,
-  // SwiperItem,
-  // Marquee,
-  // MarqueeItem,
-  Tab,
-  TabItem,
-  Tabbar,
-  TabbarItem,
-  Sidebar,
-  SidebarItem,
-  Flexbox,
-  FlexboxItem,
-  ButtonTab,
-  ButtonTabItem,
   Button,
   Input,
   InputNumber,
-  Password,
-  Range,
-  Form,
-  FormItem,
-  Textarea,
-  Switch,
-  Checkbox,
-  CheckboxGroup,
-  Radio,
-  RadioGroup,
-  Select,
-  Option,
-  Checker,
-  CheckerGroup,
-  Divider,
-  Heading,
-  Group,
-  Cell,
-  Confirm,
-  Prompt,
-  Alert,
-  Popup,
-  PopupPicker,
-  Toast,
-  Img,
-  ListView,
-  Ripple,
-  Search,
-  Nav,
-  // Preview,
-  Spinner,
-  Picker,
-  Badge,
-  Swipeout,
-  Rater,
-  DatetimePicker,
-  DaterangePicker,
-  Datetime,
-  Daterange,
-  Popover,
-  Sticky,
-  IndexList,
-  // QrCode,
-  Message,
-  Arrow,
-  Accordion,
-  AccordionItem,
-  // Step,
-  // StepItem,
-  Calendar,
-  CalendarRange,
-  Cascader,
-  CascaderPicker,
-  CascaderPopupPicker,
-  ListItem,
-  SubmitBar,
-  Grid,
-  GridItem,
-  DropdownMenu,
-  DropdownMenuItem
+  Password
+}
+export default {
+  install
 }

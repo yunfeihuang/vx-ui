@@ -29,7 +29,7 @@
 <script>
 import Vue from 'vue'
 import Picker from './Picker'
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 import Arrow from '../arrow'
 
 export default {

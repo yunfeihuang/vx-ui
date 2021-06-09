@@ -1,29 +1,26 @@
 <template>
   <div :class="['vx-input-number',`vx-input-number--size-${size}`,{'is-disabled': disabled}]">
     <div class="vx-input-number--inner">
-      <button :disabled="min !== undefined ? value <= min : false" class="vx-input-number--reduce" type="button" @click="handleChange(value-buttonStep)"></button>
+      <button :disabled="min !== undefined ? modelValue <= min : false" class="vx-input-number--reduce" type="button" @click="handleChange(modelValue-buttonStep)"></button>
       <input
-        v-bind="$$props"
+        v-bind="$props"
         type="number"
-        :value="myValue"
-        v-on="$$listeners"/>
-      <button :disabled="max !== undefined ? max >= value  : false" class="vx-input-number--add" type="button" @click="handleChange(value+buttonStep)"></button>
+        :value="modelValue"
+        v-on="$attrs"
+        @input="handleChange($event)"/>
+      <button :disabled="max !== undefined ? max >= modelValue  : false" class="vx-input-number--add" type="button" @click="handleChange(modelValue+buttonStep)"></button>
     </div>
   </div>
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 export default {
-  name: 'InputNumber',
-  componentName: 'InputNumber',
+  name: 'VxInputNumber',
   mixins: [input],
+  emits: ['input', 'change'],
   props: {
     ...input.props,
-    value: {
-      type: Number,
-      default: 0
-    },
     min: {
       type: Number
     },
@@ -43,51 +40,33 @@ export default {
       default: 'default'
     }
   },
-  computed: {
-    myValue () {
-      if (this.value < this.min) {
-        return Math.round(this.min * this.stepRate) / this.stepRate
-      }
-      if (this.value > this.max) {
-        return Math.round(this.max * this.stepRate) / this.stepRate
-      }
-      return Math.round(this.value * this.stepRate) / this.stepRate
-    },
-    stepRate () {
-      return 1 / this.step
-    },
-    $$props () {
-      return {
-        ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$listeners,
-        input: this.handleChange
+  setup (props, context) {
+    /*
+    watch(() => props.modelValue, (val, oldVal) => {
+      console.log(val, oldVal)
+      myValue.value = val
+    })
+    */
+    let handleChange = (e) => {
+      let stepRate = 1 / props.step
+      let value = Number(e.target ? e.target.value : e)
+      if (isNaN(value)) {
+        e.target.value = props.modelValue
+      } else {
+        if (typeof props.max === 'number' && value > props.max) {
+          value = props.max
+        }
+        if (typeof props.min === 'number' && value < props.min) {
+          value = props.min
+        }
+        value = Math.round(value * stepRate) / stepRate
+        context.emit('input', value)
+        context.emit('change', value)
+        context.emit('update:modelValue', value)
       }
     }
-  },
-  methods: {
-    handleChange (e) {
-      let value = Number(e.target ? e.target.value : e)
-      let node = this.$el.querySelector('input')
-      if (isNaN(value)) {
-        node && (node.value = this.value)
-      } else {
-        if (typeof this.max === 'number' && value > this.max) {
-          value = this.max
-        }
-        if (typeof this.min === 'number' && value < this.min) {
-          value = this.min
-        }
-        value = Math.round(value * this.stepRate) / this.stepRate
-        node && (node.value = value)
-        this.$emit('input', value).$emit('change', value).$emit('blur')
-        this.eDispatch('ElFormItem', 'el.form.blur', [value])
-        this.eDispatch('ElFormItem', 'el.form.change', [value])
-      }
+    return {
+      handleChange
     }
   }
 }

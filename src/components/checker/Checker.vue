@@ -8,7 +8,7 @@
       :disabled="disabled"
       @change="handleChange(value, $event)"
       />
-    <slot v-if="$scopedSlots['default'] && !$slots['default']" v-bind="{checked: myChecked, value: value, disabled: myDisabled}"></slot>
+    <slot v-if="!$slots['default']" v-bind="{checked: myChecked, value: value, disabled: myDisabled}"></slot>
     <button class="vx-checker-button" v-else type="button" tabindex="-2">
       <span class="vx-checker-text"><slot></slot></span>
     </button>
@@ -16,12 +16,10 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 
 export default {
-  name: 'Checker',
-  componentName: 'Checker',
-  mixins: [input],
+  name: 'VxChecker',
   props: {
     ...input.props,
     value: {
@@ -41,8 +39,11 @@ export default {
     }
   },
   computed: {
+    isParent () {
+      return this.$parent && this.$parent.$options && this.$parent.$options.name === 'VxCheckerGroup'
+    },
     myChecked () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+      if (this.isParent) {
         if (this.$parent.value instanceof Array) {
           return this.$parent.value.indexOf(this.value) > -1
         } else {
@@ -53,7 +54,7 @@ export default {
       }
     },
     myType () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+      if (this.isParent) {
         return this.$parent.max === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
@@ -61,19 +62,19 @@ export default {
     },
     myDisabled () {
       let disabled = this.disabled
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup' && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
+      if (this.isParent && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
         return this.$parent.value.indexOf(this.value) === -1
       }
       return disabled
     },
     myIcon () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+      if (this.isParent) {
         return this.$parent.icon
       }
       return this.icon
     },
     myBlock () {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+      if (this.isParent) {
         return this.$parent.block
       }
       return this.block
@@ -81,10 +82,11 @@ export default {
   },
   methods: {
     handleChange (value, e) {
-      if (this.$parent && this.$parent.$options && this.$parent.$options.componentName === 'CheckerGroup') {
+      if (this.isParent) {
         this.$parent.handleChange(e, value, this.exclusive)
       } else {
-        this.$emit('update:checked', e.target.checked).$emit('change', e)
+        this.$emit('update:checked', e.target.checked)
+        this.$emit('change', e)
       }
     }
   }

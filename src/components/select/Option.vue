@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <option :value="JSON.stringify(props)">
     <slot></slot>
   </option>

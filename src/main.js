@@ -1,32 +1,9 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
+import { createApp } from 'vue'
+import App from './App.vue'
 import router from './router'
-import store from './store'
-import './demos/components'
 import './components/style/src/theme/index.scss'
-import Components from 'components'
-import page from '@/utils/mixins/page'
+import UI from './components'
 
-
-Vue.use(Components)
-
-window.$import = function (promise, _modules) {
-  return promise.then(res => {
-    !res.default.mixins && (res.default.mixins = [])
-    res.default.mixins.push(page)
-    return res
-  })
-}
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
-})
 let initRootFontSize = function () {
   let deviceWidth = window.innerWidth
   let devicePixelRatio = window.devicePixelRatio || window.webkitDevicePixelRatio || window.mozDevicePixelRatio
@@ -42,3 +19,5 @@ let initRootFontSize = function () {
 }
 window.addEventListener('resize', initRootFontSize)
 initRootFontSize()
+
+createApp(App).use(UI).use(router).mount('#app')

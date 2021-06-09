@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <i :class="['vx-iconfont', data.staticClass, data.class]"
     :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
     v-bind="data.attrs"

@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import { input } from 'utils/mixins'
+import { input } from '@/utils/mixins'
 
 export default {
-  name: 'CheckerGroup',
-  componentName: 'CheckerGroup',
-  mixins: [input],
+  name: 'VxCheckerGroup',
   props: {
     ...input.props,
     value: {
@@ -25,41 +23,29 @@ export default {
     },
     block: {
       type: Boolean
+    },
+    exclusiveValue: {
+      type: Array
     }
   },
   methods: {
-    handleChange (e, $value, exclusive) {
-      if (this.max === 1) {
-        let _value = this.value instanceof Array ? [$value] : $value
-        this.$emit('input', _value).$emit('change', _value)
-        this.eDispatch('ElFormItem', 'el.form.blur', [_value])
-        this.eDispatch('ElFormItem', 'el.form.change', [_value])
-      } else {
-        if (e.target.checked && this.max !== 0 && this.value.length === this.max) {
-          e.target.checked = false
+    handleChange (e, val) {
+      if (!this.exclusiveValue || !this.exclusiveValue.includes(val)) {
+        if (this.max === 1) {
+          let value = this.modelValue instanceof Array ? [val] :val
+          this.$emit('update:modelValue', value)
         } else {
-          let value = Object.assign([], this.value)
-          if (e.target.checked) {
-            if (exclusive) {
-              value = [$value]
-            } else {
-              value.indexOf($value) === -1 && value.push($value)
-              let exclusiveValue = []
-              if (this.$children && this.$children.forEach) {
-                this.$children.forEach(item => {
-                  item.$props.exclusive && exclusiveValue.push(item.value)
-                })
-                if (exclusiveValue.length > 0) {
-                  value = value.filter(item => exclusiveValue.indexOf(item) === -1)
-                }
-              }
-            }
+          if (e.target.checked && this.max !== 0 && this.modelValue.length === this.max) {
+            e.target.checked = false
           } else {
-            value.splice(value.indexOf($value), 1)
+            let value = Object.assign([], this.modelValue)
+            if (e.target.checked) {
+              value.indexOf(val) === -1 && value.push(val)
+            } else {
+              value && value.indexOf && value.splice(value.indexOf(val), 1)
+            }
+            this.$emit('update:modelValue', value)
           }
-          this.$emit('input', value).$emit('change', value)
-          this.eDispatch('ElFormItem', 'el.form.blur', [value])
-          this.eDispatch('ElFormItem', 'el.form.change', [value])
         }
       }
     }
