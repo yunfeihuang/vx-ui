@@ -12,8 +12,7 @@
 
 <script>
 export default {
-  name: 'Swiper',
-  componentName: 'Swiper',
+  name: 'VxSwiper',
   props: {
     active: {
       type: Number,

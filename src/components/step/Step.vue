@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  componentName: 'Step',
+  name: 'VxStep',
   props: {
     active: {
       type: Number,

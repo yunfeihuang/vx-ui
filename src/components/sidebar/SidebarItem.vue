@@ -6,8 +6,7 @@
 
 <script>
 export default {
-  name: 'SidebarItem',
-  componentName: 'SidebarItem',
+  name: 'VxSidebarItem',
   props: {
     name: {
       type: [Number, String, Object],

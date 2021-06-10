@@ -6,8 +6,7 @@
 
 <script>
 export default {
-  name: 'Ripple',
-  componentName: 'Ripple',
+  name: 'VxRipple',
   props: {
     color: {
       type: String
@@ -25,7 +24,7 @@ export default {
       this.$el.addEventListener('touchend', this.handleTouchEnd, false)
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.$$destroyTimer && clearTimeout(this.$$destroyTimer)
     this.$$timer && clearTimeout(this.$$timer)
   },
@@ -64,7 +63,7 @@ export default {
       })
       e.preventDefault()
     },
-    handleTouchEnd (e) {
+    handleTouchEnd () {
       this.$$timer && clearTimeout(this.$$timer)
       let max = Math.max(this.$$offset.height, this.$$offset.width)
       this.$$duration = max / 400

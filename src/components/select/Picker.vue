@@ -1,10 +1,12 @@
 <template>
   <popup :open="open" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
-    <div slot="header" v-if="max != 1" :class="['vx-option-picker--header']">
-      <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <button type="button" :class="['vx-option-picker--placeholder']">{{myTitle}}</button>
-      <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
-    </div>
+    <template v-slot:header>
+      <div v-if="max != 1" :class="['vx-option-picker--header']">
+        <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
+        <button type="button" :class="['vx-option-picker--placeholder']">{{myTitle}}</button>
+        <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!myValue.length}]" @click="handleConfirm">{{confirmText}}</button>
+      </div>
+    </template>
     <div class="vx-option-picker">
       <checkbox-group ref="checkboxGroup" :validate-event="false" :max="max" @change="handleChange" :value="myValue">
         <checkbox
@@ -28,7 +30,7 @@ import {CheckboxGroup} from '../checkbox'
 import Checkbox from './Checkbox'
 
 export default {
-  componentName: 'OptionGroupPicker',
+  name: 'VxOptionGroupPicker',
   components: {
     Popup,
     Checkbox,
@@ -100,7 +102,7 @@ export default {
       myValue: this.value
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     window.$$$$picker = null
   },
   methods: {

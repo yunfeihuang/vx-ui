@@ -15,7 +15,7 @@
           v-for="(item, index) in options"
           :height="itemHeight"
           even
-          :class="['vx-picker--item',{'is-active' : item.value === value}]"
+          :class="['vx-picker--item',{'is-active' : item.value === modelValue}]"
           :data-value="item.value"
           :data-index="index"
           v-html="item.label"
@@ -52,8 +52,7 @@ let easeout = (A, B, rate, callback) => {
 }
 
 export default {
-  name: 'Picker',
-  componentName: 'Picker',
+  name: 'VxPicker',
   components: {
     RemToPx
   },
@@ -62,7 +61,7 @@ export default {
       type: Array,
       reqiured: true
     },
-    value: {
+    modelValue: {
       type: String
     },
     placeholder: {
@@ -75,7 +74,7 @@ export default {
     }
   },
   watch: {
-    options (value) {
+    options () {
       requestAnimationFrame(this.scrollToActive)
     }
   },
@@ -88,7 +87,7 @@ export default {
     this.$nextTick(this.computeStyles)
     window.addEventListener('resize', this.computeStyles, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.$$touch = null
     this.$$pullTimer && clearTimeout(this.$$pullTimer)
     this.$$timer && clearTimeout(this.$$timer)
@@ -189,7 +188,7 @@ export default {
           let active = this.$el.querySelectorAll('.vx-picker--item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('input', value).$emit('change', value)
+            value !== this.modelValue && this.$emit('update:modelValue', value) && this.$emit('input', value) && this.$emit('change', value)
           }
         })
       }, 200)

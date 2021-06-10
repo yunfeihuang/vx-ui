@@ -25,8 +25,7 @@
 <script>
 import Popup from '../popup'
 export default {
-  name: 'Actionsheet',
-  componentName: 'Actionsheet',
+  name: 'VxActionsheet',
   components: {
     Popup
   },

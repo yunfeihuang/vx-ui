@@ -1,28 +1,31 @@
 <template>
-  <x-input
+  <vx-input
     v-bind="$$props"
     arrow
     :value="myValue"
     :type="nativeType"
     readonly="readonly"
-    v-on="$$listeners"
-    @focusin.native="handleFocusIn"
+    @focusin="handleFocusIn"
     >
-    <slot name="prepend" slot="prepend"></slot>
-    <slot name="append" slot="append"></slot>
-  </x-input>
+    <template v-slot:prepend>
+      <slot name="prepend"></slot>
+    </template>
+    <template v-slot:append>
+      <slot name="append"></slot>
+    </template>
+  </vx-input>
 </template>
 
 <script>
 import { input } from '@/utils/mixins'
-import Vue from 'vue'
+import { createApp } from 'vue'
 import DaterangePicker from '../daterange-picker'
-import XInput from '../input'
+import VxInput from '../input'
+
 export default {
-  name: 'Daterange',
-  componentName: 'Daterange',
+  name: 'VxDaterange',
   components: {
-    XInput
+    VxInput
   },
   mixins: [input],
   props: {
@@ -63,18 +66,13 @@ export default {
     $$props () {
       return {
         ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$listeners,
+        ...this.$attrs,
         change: this.handleChange,
         input: this.handleInput
       }
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
       this.$root.__popup && this.$root.__popup.$destroy()
       this.__popup = this.$root.__popup = null
@@ -97,7 +95,7 @@ export default {
         this.$root.__popup && this.$root.__popup.$destroy()
       }
       /* eslint-disable no-new */
-      this.$root.__popup = this.__popup = new Vue({
+      this.$root.__popup = this.__popup = createApp({
         el: node,
         render (createElement) {
           return createElement(DaterangePicker, {
@@ -113,16 +111,18 @@ export default {
           })
         },
         components: { DaterangePicker },
-        data: {
-          open: false,
-          value: value
+        data() {
+          return {
+            open: false,
+            value: value
+          }
         },
         mounted () {
           requestAnimationFrame(() => {
             this.open = true
           })
         },
-        beforeDestroy () {
+        beforeUnmount () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {

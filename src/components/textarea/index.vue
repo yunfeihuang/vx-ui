@@ -4,7 +4,6 @@
       <div class="vx-textarea--shadow"></div>
       <textarea
         v-bind="$$props"
-        v-on="$$listeners"
         ></textarea>
       </div>
       <em v-if="showWordNumber && maxlength">
@@ -16,8 +15,7 @@
 <script>
 import { input } from '@/utils/mixins'
 export default {
-  name: 'XTextarea',
-  componentName: 'XTextarea',
+  name: 'VxTextarea',
   mixins: [input],
   props: {
     ...input.props,
@@ -30,12 +28,7 @@ export default {
     $$props () {
       return {
         ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$listeners,
+        ...this.$attrs,
         change: this.handleChange,
         input: this.handleInput
       }
@@ -53,7 +46,7 @@ export default {
     this.renderAutoHeight(this.$$textarea.value)
     window.addEventListener('resize', this.handleResize, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {

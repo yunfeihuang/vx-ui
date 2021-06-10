@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  name: 'DropdownMenu',
-  componentName: 'DropdownMenu'
+  name: 'VxDropdownMenu'
 }
 </script>

@@ -1,9 +1,8 @@
 <template>
   <transition name="popup-fade">
-    <div v-show="props.open" :class="['vx-overlay', data.staticClass, data.class]"
-      :style="Object.assign({opacity:`${props.opacity}`}, data.style)"
-      v-bind="data.attrs"
-      v-on="listeners">
+    <div v-show="open" :class="['vx-overlay']"
+      :style="Object.assign({opacity:`${opacity}`})"
+      v-bind="$attrs">
       <slot></slot>
     </div>
   </transition>
@@ -11,8 +10,7 @@
 
 <script>
 export default {
-  name: 'Overlay',
-  componentName: 'Overlay',
+  name: 'VxOverlay',
   props: {
     opacity: {
       type: Number

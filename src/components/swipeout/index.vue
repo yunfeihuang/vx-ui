@@ -17,8 +17,7 @@
 <script>
 let swipeoutVue = null
 export default {
-  name: 'Swipeout',
-  componentName: 'Swipeout',
+  name: 'VxSwipeout',
   props: {
     disabled: {
       type: Boolean,
@@ -45,7 +44,7 @@ export default {
     this.init()
     window.addEventListener('resize', this.init, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (swipeoutVue === this) {
       swipeoutVue = null
     }
@@ -102,7 +101,7 @@ export default {
         e.preventDefault()
       }
     },
-    handleTouchEnd (e) {
+    handleTouchEnd () {
       if (this.$$touch.start) {
         this.$$touch.start = false
         if (this.$$touch.diffX === 0) {

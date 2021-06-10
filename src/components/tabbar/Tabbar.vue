@@ -7,8 +7,7 @@
 <script>
 import { tab } from '@/utils/mixins'
 export default {
-  name: 'Tabbar',
-  componentName: 'Tabbar',
+  name: 'VxTabbar',
   props: {
     ripple: {
       type: Boolean,
@@ -19,7 +18,8 @@ export default {
   methods: {
     handleChange (val) {
       if (val !== this.active) {
-        this.$emit('update:active', val).$emit('change', val)
+        this.$emit('update:active', val)
+        this.$emit('change', val)
       }
     }
   }

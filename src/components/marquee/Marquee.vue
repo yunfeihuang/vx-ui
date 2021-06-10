@@ -8,8 +8,7 @@
 
 <script>
 export default {
-  name: 'XMarquee',
-  componentName: 'XMarquee',
+  name: 'VxMarquee',
   props: {
     active: {
       type: Number,

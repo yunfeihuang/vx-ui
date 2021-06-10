@@ -7,13 +7,12 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import { createApp } from 'vue'
 import Picker from './Picker'
 import Arrow from '../arrow'
 
 export default {
-  name: 'DropdownMenuItem',
-  componentName: 'DropdownMenuItem',
+  name: 'VxDropdownMenuItem',
   components: {
     Arrow
   },
@@ -54,7 +53,7 @@ export default {
       open: false
     }
   },
-  destroyed () {
+  beforeUnmount () {
     if (this.__popup) {
       if (this.$root.__popup === this.__popup) {
         this.$root.__popup = null
@@ -74,7 +73,7 @@ export default {
         if (!this.__popup || (this.__popup !== this.$root.__popup)) {
           this.$root.__popup && this.$root.__popup.$destroy()
           document.body.appendChild(el)
-          this.__popup = this.$root.__popup = new Vue({
+          this.__popup = this.$root.__popup = createApp({
             el,
             data () {
               return {

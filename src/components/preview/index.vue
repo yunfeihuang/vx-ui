@@ -47,8 +47,7 @@
 
 <script>
 export default {
-  name: 'Preview',
-  componentName: 'Preview',
+  name: 'VxPreview',
   props: {
     list: {
       type: Array,

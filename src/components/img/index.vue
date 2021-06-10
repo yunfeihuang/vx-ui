@@ -3,8 +3,7 @@
     class="vx-img"
     :src="mySrc"
     :style="`background-image:${background};`"
-    :class="`${status? 'is-' + status : ''}`"
-    v-on="$listeners" />
+    :class="`${status? 'is-' + status : ''}`"/>
 </template>
 
 <script>
@@ -13,8 +12,7 @@ import placeholder from './placeholder.svg'
 import loading from './loading.svg'
 const transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=='
 export default {
-  name: 'XImg',
-  componentName: 'XImg',
+  name: 'VxImg',
   props: {
     src: {
       type: String
@@ -42,7 +40,7 @@ export default {
       isScrollEvent: false
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.isScrollEvent && this.removeScrollEvent()
   },
   methods: {

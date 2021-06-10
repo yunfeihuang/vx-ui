@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  componentName: 'CarouselItem',
+  name: 'VxCarouselItem',
   props: {
     index: {
       type: Number,

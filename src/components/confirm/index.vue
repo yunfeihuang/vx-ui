@@ -24,8 +24,7 @@
 import { historyPush } from '@/utils/mixins'
 import Overlay from '../overlay'
 export default {
-  name: 'Confirm',
-  componentName: 'Confirm',
+  name: 'VxConfirm',
   mixins: [historyPush],
   components: {
     Overlay
@@ -73,7 +72,7 @@ export default {
       })
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.$$timerEvent && clearTimeout(this.$$timerEvent)
   },
   watch: {
@@ -95,10 +94,10 @@ export default {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
         this.$$timerEvent && clearTimeout(this.$$timerEvent)
         this.$$timerEvent = setTimeout(() => {
-          this.open && this.$emit('update:open', false).$emit('confirm')
+          this.open && this.$emit('update:open', false) && this.$emit('confirm')
         }, 400)
       } else {
-        this.open && this.$emit('update:open', false).$emit('confirm')
+        this.open && this.$emit('update:open', false) && this.$emit('confirm')
       }
       this.$emit('button-click', 'confirm')
     },

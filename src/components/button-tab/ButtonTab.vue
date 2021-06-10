@@ -7,8 +7,7 @@
 <script>
 import { tab } from '@/utils/mixins'
 export default {
-  name: 'ButtonTab',
-  componentName: 'ButtonTab',
+  name: 'VxButtonTab',
   mixins: [tab],
   props: {
     size: {
@@ -18,7 +17,7 @@ export default {
   },
   methods: {
     handleChange (value) {
-      value !== this.active && this.$emit('update:active', value).$emit('change', value)
+      value !== this.active && this.$emit('update:active', value) && this.$emit('change', value)
     }
   }
 }

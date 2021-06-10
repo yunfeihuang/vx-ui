@@ -27,14 +27,13 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import { createApp } from 'vue'
 import Picker from './Picker'
 import { input } from '@/utils/mixins'
 import Arrow from '../arrow'
 
 export default {
-  name: 'XSelect',
-  componentName: 'XSelect',
+  name: 'VxSelect',
   components: {
     Arrow
   },
@@ -93,7 +92,7 @@ export default {
       this.updateLabel(this.value)
     })
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
       this.$root.__popup && this.$root.__popup.$destroy()
       this.__popup = this.$root.__popup = null
@@ -130,7 +129,7 @@ export default {
         }
         if (this.$$myOptions.length) {
           /* eslint-disable no-new */
-          this.$root.__popup = this.__popup = new Vue({
+          this.$root.__popup = this.__popup = createApp({
             el: node,
             render (createElement) {
               return createElement(Picker, {
@@ -150,15 +149,17 @@ export default {
                 }
               })
             },
-            data: {
-              open: false
+            data () {
+              return {
+                open: false
+              }
             },
             mounted () {
               requestAnimationFrame(() => {
                 this.open = true
               })
             },
-            beforeDestroy () {
+            beforeUnmount () {
               this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
             },
             methods: {

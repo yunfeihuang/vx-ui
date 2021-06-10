@@ -11,8 +11,7 @@
 <script>
 import { input } from '@/utils/mixins'
 export default {
-  name: 'Range',
-  componentName: 'Range',
+  name: 'VxRange',
   mixins: [input],
   props: {
     ...input.props,
@@ -72,7 +71,7 @@ export default {
     this.$nextTick(this.renderRange)
     window.addEventListener('resize', this.handleResize, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
@@ -97,9 +96,9 @@ export default {
       return `${value}${this.unit ? typeof this.unit === 'function' ? this.unit(value) : this.unit : ''}`
     },
     handleChange (val) {
-      this.$emit('input', val).$emit('change', val)
-      this.eDispatch('ElFormItem', 'el.form.blur', [val])
-      this.eDispatch('ElFormItem', 'el.form.change', [val])
+      this.$emit('update:modelValue', val)
+      this.$emit('input', val)
+      this.$emit('change', val)
     },
     handleResize () {
       this.getRangeInitData()

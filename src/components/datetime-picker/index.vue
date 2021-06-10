@@ -1,17 +1,18 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
-    <div slot="header" :class="['vx-datetime-picker--header']">
-      <button type="button" class="vx-datetime-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <div :class="['vx-datetime-picker--today']">
-        <!--
-        <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
-        -->
+    <template v-slot:header>
+      <div :class="['vx-datetime-picker--header']">
+        <button type="button" class="vx-datetime-picker--cancel" @click="handleClose">{{cancelText}}</button>
+        <div :class="['vx-datetime-picker--today']">
+          <!--
+          <button type="button" class="vx-datetime-picker--today" @click="handleToday">{{todayText}}</button>
+          -->
+        </div>
+        <button type="button" class="vx-datetime-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
       </div>
-      <button type="button" class="vx-datetime-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
-    </div>
+    </template>
     <div :class="['vx-datetime-picker']">
       <picker
-        v-if="pickers"
         v-for="(item,index) in pickers"
         :class="['vx-datetime-picker--item']"
         :index="index+'-'+item.type"
@@ -33,8 +34,7 @@ import Picker from '../picker'
 let now = new Date()
 
 export default {
-  name: 'DatetimePicker',
-  componentName: 'DatetimePicker',
+  name: 'VxDatetimePicker',
   components: {
     Popup,
     Picker
@@ -94,7 +94,7 @@ export default {
     this.open && this.initial()
   },
   watch: {
-    open (value) {
+    open () {
       this.initial()
     }
   },

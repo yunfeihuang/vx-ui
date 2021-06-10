@@ -45,8 +45,7 @@ import { historyPush } from '@/utils/mixins'
 import Overlay from '../overlay'
 import Arrow from '../arrow'
 export default {
-  name: 'Popup',
-  componentName: 'Popup',
+  name: 'VxPopup',
   components: {
     Overlay,
     Arrow

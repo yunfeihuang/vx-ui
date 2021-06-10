@@ -1,5 +1,5 @@
 <template>
-  <popup :class="['dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-on="$listeners">
+  <popup :class="['dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-bind="$attrs">
     <radio-group v-if="options" :value="value" @change="handleChange">
       <radio v-for="(item,index) in options"
         :value="item.value"
@@ -34,12 +34,14 @@ export default {
       type: [String, Array, Object]
     }
   },
-  destroyed () {
+  unmounted () {
     document.body.removeChild(this.$el)
   },
   methods: {
     handleChange (value) {
-      this.$emit('input', value).$emit('change', value)
+      this.$emit('update:modelValue', value)
+      this.$emit('input', value)
+      this.$emit('change', value)
     }
   }
 }

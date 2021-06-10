@@ -22,8 +22,7 @@
 <script>
 import Arrow from '../arrow'
 export default {
-  name: 'AccordionItem',
-  componentName: 'AccordionItem',
+  name: 'VxAccordionItem',
   components: {
     Arrow
   },
@@ -57,7 +56,7 @@ export default {
     this.handleResize()
     window.addEventListener('resize', this.handleResize, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {

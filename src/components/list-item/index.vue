@@ -48,8 +48,7 @@
 
 <script>
 export default {
-  name: 'ListItem',
-  componentName: 'ListItem',
+  name: 'VxListItem',
   props: {
     image: {
       type: String

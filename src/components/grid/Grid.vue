@@ -7,8 +7,7 @@
 </template>
 <script>
 export default {
-  name: 'Grid',
-  componentName: 'Grid',
+  name: 'VxGrid',
   props: {
     col: {
       type: Number,

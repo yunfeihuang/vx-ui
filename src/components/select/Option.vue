@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  componentName: 'XOption',
+  name: 'VxOption',
   props: {
     value: {
       type: [Number, String]

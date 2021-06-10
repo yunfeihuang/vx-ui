@@ -12,15 +12,13 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import { createApp } from 'vue'
 import CascaderPopupPicker from '../cascader-popup-picker'
 import { input } from '@/utils/mixins'
 import Arrow from '../arrow'
 export default {
-  name: 'Cascader',
-  componentName: 'Cascader',
+  name: 'VxCascader',
   components: {
-    CascaderPopupPicker,
     Arrow
   },
   mixins: [input],
@@ -56,7 +54,7 @@ export default {
       this.myValue = [...value]
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
       this.$root.__popup && this.$root.__popup.$destroy()
       this.__popup = this.$root.__popup = null
@@ -70,7 +68,7 @@ export default {
       if (this.$root && this.$root.__popup) {
         this.$root.__popup && this.$root.__popup.$destroy()
       }
-      this.$root.__popup = this.__popup = new Vue({
+      this.$root.__popup = this.__popup = createApp({
         el: node,
         render (createElement) {
           return createElement(CascaderPopupPicker, {
@@ -91,7 +89,7 @@ export default {
         mounted () {
           self.open = true
         },
-        beforeDestroy () {
+        beforeUnmount () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         }
       })

@@ -42,7 +42,7 @@
         :class="calendarClasses(item)"
         @click="handleChange(isWeekRange? index : item.value)"
         >
-        <slot v-if="$scopedSlots.default" v-bind="item"></slot>
+        <slot v-if="$slots.default" v-bind="item"></slot>
         <span v-else class="vx-calendar--date-text">{{item.value.getDate()}}</span>
       </div>
     </flexbox>
@@ -54,8 +54,7 @@ import {Flexbox, FlexboxItem} from '../flexbox'
 import Arrow from '../arrow'
 
 export default {
-  name: 'Calendar',
-  componentName: 'Calendar',
+  name: 'VxCalendar',
   components: {
     Flexbox,
     FlexboxItem,

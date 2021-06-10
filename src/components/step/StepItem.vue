@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  componentName: 'StepItem',
+  name: 'VxStepItem',
   props: {
     title: {
       type: String

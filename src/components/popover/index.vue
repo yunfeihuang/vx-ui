@@ -8,11 +8,10 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import {createApp} from 'vue'
 import Popup from '../popup'
 export default {
-  name: 'Popover',
-  componentName: 'Popover',
+  name: 'VxPopover',
   props: {
     open: {
       type: Boolean,
@@ -41,7 +40,7 @@ export default {
   mounted () {
     this.open && this.handleClick()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$$popover) {
       this.$$popover.open = false
       this.$$popover.$destroy()
@@ -54,7 +53,7 @@ export default {
       let node = document.createElement('div')
       document.body.appendChild(node)
       /* eslint-disable no-new */
-      this.$$popover = new Vue({
+      this.$$popover = createApp({
         el: node,
         render (createElement) {
           return createElement(Popup, {
@@ -117,7 +116,7 @@ export default {
             })
           })
         },
-        beforeDestroy () {
+        beforeUnmount () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {

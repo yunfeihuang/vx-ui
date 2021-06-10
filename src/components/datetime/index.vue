@@ -1,29 +1,31 @@
 <template>
-  <x-input
+  <vx-input
     :class="{'is-focus': isFocus}"
     v-bind="$$props"
     :type="nativeType"
     arrow
     readonly="readonly"
-    v-on="$$listeners"
-    @focusin.native="handleFocusIn"
+    @focusin="handleFocusIn"
     >
-    <slot name="prepend" slot="prepend"></slot>
-    <slot name="append" slot="append"></slot>
-  </x-input>
+    <template v-slot:prepend>
+      <slot name="prepend"></slot>
+    </template>
+    <template v-slot:append>
+      <slot name="append"></slot>
+    </template>
+  </vx-input>
 </template>
 
 <script>
 import { input } from '@/utils/mixins'
-import Vue from 'vue'
-import XInput from '../input'
+import { createApp } from 'vue'
+import VxInput from '../input'
 import DatetimePicker from '../datetime-picker'
 export default {
-  name: 'Datetime',
-  componentName: 'Datetime',
+  name: 'VxDatetime',
   mixins: [input],
   components: {
-    XInput
+    VxInput
   },
   props: {
     ...input.props,
@@ -47,18 +49,13 @@ export default {
     $$props () {
       return {
         ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$listeners,
+        ...this.$attrs,
         change: this.handleChange,
         input: this.handleInput
       }
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
       this.$root.__popup && this.$root.__popup.$destroy()
       this.__popup = this.$root.__popup = null
@@ -77,7 +74,7 @@ export default {
         this.$root.__popup && this.$root.__popup.$destroy()
       }
       /* eslint-disable no-new */
-      this.$root.__popup = this.__popup = new Vue({
+      this.$root.__popup = this.__popup = createApp({
         el: node,
         render (createElement) {
           return createElement(DatetimePicker, {
@@ -108,7 +105,7 @@ export default {
             datetime.isFocus = true
           })
         },
-        beforeDestroy () {
+        beforeUnmount () {
           this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
         },
         methods: {

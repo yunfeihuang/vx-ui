@@ -10,8 +10,7 @@
 
 <script>
 export default {
-  name: 'GridItem',
-  componentName: 'GridItem',
+  name: 'VxGridItem',
   props: {
     to: {
       type: [String, Object]

@@ -1,9 +1,9 @@
 <template>
   <div class="vx-index-list">
     <div class="vx-index-list--each" @scroll="handleScroll">
-      <template v-for="(group, gIndex) in data">
-        <div class="vx-index-list--title" :key="gIndex + 'title'">{{group.label}}</div>
-        <div class="vx-index-list--group" :key="gIndex + 'group'">
+      <template v-for="(group, i) in data" :key="i">
+        <div class="vx-index-list--title">{{group.label}}</div>
+        <div class="vx-index-list--group">
           <div class="vx-index-list--item" v-for="(item, index) in group.items" :key="index"  @click="handleClick(item.value)">
             <slot v-if="$slots.default"></slot>
             <template>{{item.label}}</template>
@@ -19,8 +19,7 @@
 </template>
 <script>
 export default {
-  name: 'IndexList',
-  componentName: 'IndexList',
+  name: 'VxIndexList',
   props: {
     data: {
       type: Array
@@ -51,7 +50,7 @@ export default {
     this.init()
     !this.supportSticky() && window.addEventListener('resize', this.handleResize, false)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     !this.supportSticky() && window.removeEventListener('resize', this.handleResize)
   },
   methods: {

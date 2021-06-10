@@ -17,17 +17,17 @@
     </div>
     <slot v-if="$slots.default"></slot>
     <template v-else>
-      <password
+      <vx-password
         v-if="inputProps.type === 'password'"
         v-model="myValue"
         :clearable="false"
         :encrypt="encrypt"
-        :cipher.sync="myCipher"
+        v-model:cipher="myCipher"
         class="vx-prompt--input"
         v-bind="inputProps"
         @input="handleInput"
-        @keyup.enter.native="handleConfirm"/>
-      <x-input
+        @keyup.enter="handleConfirm"/>
+      <vx-input
         v-else
         v-model="myValue"
         :clearable="false"
@@ -35,22 +35,21 @@
         v-bind="inputProps"
         :native-type="inputProps.type"
         @input="handleInput"
-        @keyup.enter.native="handleConfirm"/>
+        @keyup.enter="handleConfirm"/>
     </template>
   </confirm>
 </template>
 
 <script>
 import Confirm from '../confirm'
-import XInput from '../input'
-import Password from '../password'
+import VxInput from '../input'
+import VxPassword from '../password'
 export default {
-  name: 'Prompt',
-  componentName: 'Prompt',
+  name: 'VxPrompt',
   components: {
     Confirm,
-    XInput,
-    Password
+    VxInput,
+    VxPassword
   },
   props: {
     open: {

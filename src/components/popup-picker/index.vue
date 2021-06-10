@@ -1,13 +1,14 @@
 <template>
   <popup :open="open" :history="history" @close="handleClose">
-    <div slot="header" :class="['vx-popup-picker--header']">
-      <button type="button" class="vx-popup-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <button type="button" :class="['vx-popup-picker--placeholder']">{{placeholder}}</button>
-      <button type="button" class="vx-popup-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
-    </div>
+    <template v-slot:header>
+      <div :class="['vx-popup-picker--header']">
+        <button type="button" class="vx-popup-picker--cancel" @click="handleClose">{{cancelText}}</button>
+        <button type="button" :class="['vx-popup-picker--placeholder']">{{placeholder}}</button>
+        <button type="button" class="vx-popup-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
+      </div>
+    </template>
     <div :class="['vx-popup-picker']">
       <picker
-        v-if="open && myPickers"
         v-for="(item,index) in myPickers"
         :class="['vx-popup-picker--item']"
         :key="index"
@@ -25,8 +26,7 @@ import Popup from '../popup'
 import Picker from '../picker'
 
 export default {
-  name: 'PopupPicker',
-  componentName: 'PopupPicker',
+  name: 'VxPopupPicker',
   components: {
     Popup,
     Picker
@@ -77,7 +77,7 @@ export default {
         }
       })
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
+        this.open && this.$emit('update:open', false) && this.$emit('update:modelValue', value) && this.$emit('input', value).$emit('change', value)
       } else {
         this.handleClose()
       }

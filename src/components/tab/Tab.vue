@@ -12,8 +12,7 @@
 <script>
 import { tab } from '@/utils/mixins'
 export default {
-  name: 'Tab',
-  componentName: 'Tab',
+  name: 'VxTab',
   mixins: [tab],
   props: ['underlineWidth', 'minTabItemWidth'],
   mounted () {
@@ -23,7 +22,7 @@ export default {
   updated () {
     this.computedStyle()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     window.removeEventListener('resize', this.$computedStyle)
   },
   methods: {

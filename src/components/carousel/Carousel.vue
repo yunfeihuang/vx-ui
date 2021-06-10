@@ -19,8 +19,7 @@
 </template>
 <script>
 export default {
-  name: 'Carousel',
-  componentName: 'Carousel',
+  name: 'VxCarousel',
   props: {
     duration: {
       type: Number,

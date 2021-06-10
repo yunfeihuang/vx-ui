@@ -6,8 +6,7 @@
 
 <script>
 export default {
-  name: 'Accordion',
-  componentName: 'Accordion',
+  name: 'VxAccordion',
   props: {
     mutex: {
       type: Boolean,

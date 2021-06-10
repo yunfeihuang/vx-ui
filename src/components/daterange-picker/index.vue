@@ -10,13 +10,15 @@
     <div class="vx-daterange-picker">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
     </div>
-    <div class="vx-daterange-picker--footer" slot="footer">
-      <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
-      <div>
-        <button type="button" class="vx-daterange-picker--clearable" @click="handleClear">{{clearableText}}</button>
+    <template v-slot:footer>
+      <div class="vx-daterange-picker--footer">
+        <button type="button" class="vx-daterange-picker--cancel" @click="handleClose">{{cancelText}}</button>
+        <div>
+          <button type="button" class="vx-daterange-picker--clearable" @click="handleClear">{{clearableText}}</button>
+        </div>
+        <button type="button" class="vx-daterange-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
       </div>
-      <button type="button" class="vx-daterange-picker--confirm" @click="handleConfirm">{{confirmText}}</button>
-    </div>
+    </template>
   </popup>
 </template>
 
@@ -25,8 +27,7 @@ import Popup from '../popup'
 import CalendarRange from '../calendar-range'
 
 export default {
-  name: 'DateRangePicker',
-  componentName: 'DateRangePicker',
+  name: 'VxDateRangePicker',
   components: {
     Popup,
     CalendarRange
@@ -75,7 +76,9 @@ export default {
       this.$emit('close')
     },
     handleConfirm () {
-      this.$emit('input', this.myValue).$emit('change', this.myValue)
+      this.$emit('update:modelValue', this.myValue)
+      this.$emit('input', this.myValue)
+      this.$emit('change', this.myValue)
       this.handleClose()
     },
     handleClear () {

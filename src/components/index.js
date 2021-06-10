@@ -1,5 +1,5 @@
+import Ripple from './ripple'
 import Button from './button'
-
 import Input from './input'
 import InputNumber from './input-number'
 import Password from './password'
@@ -7,6 +7,13 @@ import Switch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import {Checker, CheckerGroup} from './checker'
+import Textarea from './textarea'
+import {Select, Option} from './select'
+import Search from './search'
+import Range from './range'
+import Datetime from './datetime'
+import Daterange from './daterange'
+//import {Form, FormItem} from './form'
 import Divider from './divider'
 import Heading from './heading'
 import Group from './group'
@@ -19,55 +26,58 @@ import Message from './message'
 import Arrow from './arrow'
 import SubmitBar from './submit-bar'
 import ListItem from './list-item'
-
-//import Range from './range'
-/*
-import Textarea from './textarea'
-
-import {Select, Option} from './select'
-import {Form, FormItem} from './form'
-import {Actionsheet, ActionsheetItem} from './actionsheet'
-// import {Swiper, SwiperItem} from './swiper'
-// import {Marquee, MarqueeItem} from './marquee'
-import {Tab, TabItem} from './tab'
-import {Tabbar, TabbarItem} from './tabbar'
-import {Sidebar, SidebarItem} from './sidebar'
-import {Flexbox, FlexboxItem} from './flexbox'
-import {ButtonTab, ButtonTabItem} from './button-tab'
+import ListView from './list-view'
+import Toast from './toast'
 import Confirm from './confirm'
+import Popup from './popup'
 import Prompt from './prompt'
 import Alert from './alert'
-import Popup from './popup'
-import PopupPicker from './popup-picker'
-import Toast from './toast'
-import Img from './img'
-import ListView from './list-view'
-import Ripple from './ripple'
-import Search from './search'
-
-// import Preview from './preview'
-
 import Picker from './picker'
+import Popover from './popover'
+import PopupPicker from './popup-picker'
+import IndexList from './index-list'
+import Sticky from './sticky'
+import Img from './img'
+import {Swiper, SwiperItem} from './swiper'
+import {Marquee, MarqueeItem} from './marquee'
 import Swipeout from './swipeout'
 import DatetimePicker from './datetime-picker'
 import DaterangePicker from './daterange-picker'
-import Datetime from './datetime'
-import Daterange from './daterange'
-import Popover from './popover'
-import Sticky from './sticky'
-import IndexList from './index-list'
-// import QrCode from './qrcode'
-import {Accordion, AccordionItem} from './accordion'
-// import {Step, StepItem} from './step'
 import Calendar from './calendar'
 import CalendarRange from './calendar-range'
+import {Tab, TabItem} from './tab'
+import {Tabbar, TabbarItem} from './tabbar'
+import {Sidebar, SidebarItem} from './sidebar'
+import {ButtonTab, ButtonTabItem} from './button-tab'
+import {Flexbox, FlexboxItem} from './flexbox'
+import {Grid, GridItem} from './grid'
 import Cascader from './cascader'
 import CascaderPicker from './cascader-picker'
 import CascaderPopupPicker from './cascader-popup-picker'
-
-
-import {Grid, GridItem} from './Grid'
+import {Accordion, AccordionItem} from './accordion'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
+
+
+/*
+
+import {Actionsheet, ActionsheetItem} from './actionsheet'
+// 
+
+
+
+
+
+
+
+// import Preview from './preview'
+// import QrCode from './qrcode'
+
+// import {Step, StepItem} from './step'
+
+
+
+
+
 */
 if (!window.requestAnimationFrame) {
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
@@ -97,9 +107,11 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   return fmt
 }
 let components = [
+  Ripple,
   Button,
   Input,
   InputNumber,
+  Textarea,
   Password,
   Switch,
   Checkbox,
@@ -108,6 +120,11 @@ let components = [
   RadioGroup,
   Checker,
   CheckerGroup,
+  Select,
+  Option,
+  Datetime,
+  Daterange,
+  Range,
   Divider,
   Heading,
   Group,
@@ -119,7 +136,48 @@ let components = [
   Message,
   Arrow,
   SubmitBar,
-  ListItem
+  ListItem,
+  ListView,
+  Calendar,
+  CalendarRange,
+  Popup,
+  PopupPicker,
+  DatetimePicker,
+  DaterangePicker,
+  Toast,
+  Confirm,
+  Prompt,
+  Alert,
+  Picker,
+  Popover,
+  IndexList,
+  Sticky,
+  Search,
+  Img,
+  Swipeout,
+  Tab,
+  TabItem,
+  Tabbar,
+  TabbarItem,
+  Sidebar,
+  SidebarItem,
+  ButtonTab,
+  ButtonTabItem,
+  Flexbox,
+  FlexboxItem,
+  Grid,
+  GridItem,
+  Cascader,
+  CascaderPicker,
+  CascaderPopupPicker,
+  Accordion,
+  AccordionItem,
+  DropdownMenu,
+  DropdownMenuItem,
+  Swiper,
+  SwiperItem,
+  Marquee,
+  MarqueeItem
 ]
 
 const install = (app) => {

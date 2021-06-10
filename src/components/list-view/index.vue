@@ -26,8 +26,7 @@
 <script>
 import Spinner from '../spinner'
 export default {
-  name: 'ListView',
-  componentName: 'ListView',
+  name: 'VxListView',
   components: {
     Spinner
   },
@@ -69,7 +68,7 @@ export default {
       inner: this.$el.querySelector('.vx-list-view--inner')
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.$$touch = null
     this.$$timer && clearTimeout(this.$$timer)
   },
@@ -85,7 +84,7 @@ export default {
     },
     handlePullup (e) {
       let loadingNode = this.$el.querySelector('.vx-list-view--loading')
-      if (this.$listeners['pullup'] && loadingNode && this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= loadingNode.offsetHeight) {
+      if (this.$attrs['pullup'] && loadingNode && this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= loadingNode.offsetHeight) {
         this.$emit('pullup', e)
       }
     },
@@ -110,7 +109,7 @@ export default {
       this.$$touch.inner.style.cssText = text
     },
     handleTouchStart (e) {
-      if (this.$listeners['pulldown'] && !this.loading) {
+      if (this.$attrs['pulldown'] && !this.loading) {
         if (!this.$$touch.pageY && this.$el.scrollTop === 0) {
           let {pageX, pageY} = this.getPosition(e)
           this.$$touch.pageY = pageY
@@ -120,7 +119,7 @@ export default {
       }
     },
     handleTouchMove (e) {
-      if (this.$listeners['pulldown']) {
+      if (this.$attrs['pulldown']) {
         let {pageY, pageX} = this.getPosition(e)
         if (pageX !== undefined && this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
           e.preventDefault()
@@ -144,7 +143,7 @@ export default {
       }
     },
     handleTouchEnd (e) {
-      if (this.$listeners['pulldown']) {
+      if (this.$attrs['pulldown']) {
         let {pageY} = this.getPosition(e)
         if (this.$$touch.pageY && this.$$touch.inner && this.$$touch.pageY < pageY) {
           let markHeight = this.$$touch.markHeight

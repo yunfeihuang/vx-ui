@@ -6,8 +6,7 @@
 
 <script>
 export default {
-  name: 'FlexboxItem',
-  componentName: 'FlexboxItem',
+  name: 'VxFlexboxItem',
   props: {
     flex: {
       type: [String, Number],

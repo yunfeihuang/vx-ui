@@ -17,15 +17,12 @@
 </template>
 
 <script>
-import Popup from '../popup'
 import Spinner from '../spinner'
 import Overlay from '../overlay'
 
 export default {
-  name: 'Toast',
-  componentName: 'Toast',
+  name: 'VxToast',
   components: {
-    Popup,
     Spinner,
     Overlay
   },
@@ -81,7 +78,8 @@ export default {
         this.$$timer && clearTimeout(this.$$timer)
         if (this.duration) {
           this.$$timer = setTimeout(() => {
-            this.$emit('update:open', false).$emit('close')
+            this.$emit('update:open', false)
+            this.$emit('close')
           }, this.duration)
         }
       }

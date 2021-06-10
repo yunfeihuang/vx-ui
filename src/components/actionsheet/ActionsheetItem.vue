@@ -1,9 +1,7 @@
 <template>
-  <div :class="['vx-actionsheet--item',{'is-disabled':props.disabled}, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    :data-value="props.value"
-    v-bind="data.attrs"
-    v-on="listeners">
+  <div :class="['vx-actionsheet--item',{'is-disabled':disabled}]"
+    :data-value="value"
+    v-bind="$attrs">
     <div class="vx-actionsheet--item-text">
       <slot></slot>
     </div>
@@ -12,8 +10,7 @@
 
 <script>
 export default {
-  name: 'ActionsheetItem',
-  componentName: 'ActionsheetItem',
+  name: 'VxActionsheetItem',
   props: {
     disabled: {
       type: Boolean,

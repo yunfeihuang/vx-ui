@@ -6,8 +6,7 @@
 
 <script>
 export default {
-  name: 'ButtonTabItem',
-  componentName: 'ButtonTabItem',
+  name: 'VxButtonTabItem',
   props: {
     name: {
       type: [Number, String, Object],

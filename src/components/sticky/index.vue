@@ -8,8 +8,7 @@
 
 <script>
 export default {
-  name: 'Sticky',
-  componentName: 'Sticky',
+  name: 'VxSticky',
   props: {
     fixedTop: {
       type: String
@@ -84,7 +83,7 @@ export default {
       return n
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     if (this.$$scrollNode) {
       this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
       this.$$scrollNode.removeEventListener('touchstart', this.handleTouchStart)

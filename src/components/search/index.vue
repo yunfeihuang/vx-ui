@@ -6,7 +6,7 @@
           <button class="vx-search--cancel" type="button" @click="handleCancel" v-if="fixed">
             <arrow direction="left" color="#fff" size="0.24rem"/>
           </button>
-          <x-input
+          <vx-input
             class="vx-search--input"
             native-type="search"
             :placeholder="placeholder"
@@ -18,12 +18,12 @@
             :maxlength="maxlength"
             :name="name"
             :clearable="clearable"
-            @focusin.native="handleFocusIn"
-            @focusout.native="handleFocusOut"
+            @focusin="handleFocusIn"
+            @focusout="handleFocusOut"
             @input="handleInput"
             @change="handleChange"
           >
-          </x-input>
+          </vx-input>
           <button class="vx-search--button" type="submit" v-if="fixed">搜索</button>
         </div>
       </form>
@@ -41,14 +41,13 @@
 
 <script>
 import { input, historyPush } from '@/utils/mixins'
-import XInput from '../input'
+import VxInput from '../input'
 import Arrow from '../arrow'
 export default {
-  name: 'Search',
-  componentName: 'Search',
+  name: 'VxSearch',
   mixins: [input, historyPush],
   components: {
-    XInput,
+    VxInput,
     Arrow
   },
   props: {
@@ -73,7 +72,7 @@ export default {
       }
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.childFixed && this.childFixed.parentNode.removeChild(this.childFixed)
   },
   data () {
@@ -82,7 +81,7 @@ export default {
     }
   },
   methods: {
-    handleFocusIn (e) {
+    handleFocusIn () {
       this.isFocus = true
       if (this.fixedTop && this.$el.children[0]) {
         this.fixed = true

@@ -20,8 +20,7 @@
 
 <script>
 export default {
-  name: 'TabItem',
-  componentName: 'TabItem',
+  name: 'VxTabItem',
   props: {
     name: {
       type: [Number, String, Object],

@@ -15,8 +15,7 @@
 <script>
 import Confirm from '../confirm'
 export default {
-  name: 'Alert',
-  componentName: 'Alert',
+  name: 'VxAlert',
   components: {
     Confirm
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="vx-calendar-range">
     <div class="vx-calendar-range--header">
-      <tab :active.sync="tabActive" v-if="layout.length" ref="tab" :underline-width="10">
+      <tab v-model:active="tabActive" v-if="layout.length" ref="tab" :underline-width="10">
         <tab-item :name="0" v-show="layout.indexOf('date') > -1">{{tabText['date']}}</tab-item>
         <tab-item :name="1" v-show="layout.indexOf('week') > -1">{{tabText['week']}}</tab-item>
         <tab-item :name="2" v-show="layout.indexOf('month') > -1">{{tabText['month']}}</tab-item>
@@ -36,7 +36,6 @@
         :layout="['year']"/>
       <div v-if="tabActive===2" class="vx-calendar-range--pane">
         <div
-          v-if="tabActive===2"
           v-for="(item, i) in monthList"
           :key="i"
           :class="calendarClasses(item)"
@@ -47,7 +46,6 @@
       </div>
       <div v-if="tabActive===3" class="vx-calendar-range--pane">
         <div
-          v-if="tabActive===3"
           v-for="(item,i) in quarterList"
           :key="i"
           :class="calendarClasses(item)"
@@ -65,8 +63,7 @@ import {Tab, TabItem} from '../tab'
 import Calendar from '../calendar'
 
 export default {
-  name: 'CalendarRange',
-  componentName: 'CalendarRange',
+  name: 'VxCalendarRange',
   components: {
     Tab,
     TabItem,

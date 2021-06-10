@@ -22,7 +22,7 @@
 <script>
 import { input } from '@/utils/mixins'
 export default {
-  componentName: 'Checkbox',
+  name: 'VxCheckbox',
   props: {
     ...input.props,
     direction: {

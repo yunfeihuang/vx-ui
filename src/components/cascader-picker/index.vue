@@ -27,8 +27,7 @@
 
 <script>
 export default {
-  name: 'CascaderPicker',
-  componentName: 'CascaderPicker',
+  name: 'VxCascaderPicker',
   props: {
     value: {
       type: Array,

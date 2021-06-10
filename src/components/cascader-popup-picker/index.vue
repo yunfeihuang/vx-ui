@@ -11,8 +11,7 @@ import Popup from '../popup'
 import CascaderPicker from '../cascader-picker'
 
 export default {
-  name: 'CascaderPopupPicker',
-  componentName: 'CascaderPopupPicker',
+  name: 'VxCascaderPopupPicker',
   components: {
     Popup,
     CascaderPicker
