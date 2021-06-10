@@ -1,9 +1,7 @@
 <template>
-  <div :class="['vx-list-item', {'vx-divider': props.divider}, {'is-half-divider': props.halfDivider}, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners"
-    @click="$options.methods.linkTo(parent, props.to)">
+  <div :class="['vx-list-item', {'vx-divider': divider}, {'is-half-divider': halfDivider}]"
+    v-bind="$attrs"
+    @click="linkTo($parent, to)">
     <template v-if="$slots['prepend']">
       <div class="vx-list-item--prepend">
         <slot name="prepend"></slot>
@@ -11,20 +9,20 @@
       <divider></divider>
     </template>
     <div
-      :class="['vx-list-item--inner', {'is-align-center': !props.halfDivider,'is-arrow': !$slots['action'] && props.arrow, 'is-action': $slots['action']}]">
+      :class="['vx-list-item--inner', {'is-align-center': !halfDivider,'is-arrow': !$slots['action'] && arrow, 'is-action': $slots['action']}]">
       <slot name="checkbox"></slot>
-      <template v-if="props.halfDivider">
+      <template v-if="halfDivider">
         <slot name="image" v-if="$slots['image']"></slot>
-        <div v-else-if="props.image!==undefined">
-          <x-img :style="props.imageStyle" class="vx-list-item--image" :src="props.image"></x-img>
+        <div v-else-if="image!==undefined">
+          <x-img :style="imageStyle" class="vx-list-item--image" :src="image"></x-img>
         </div>
       </template>
       <template v-else>
         <slot name="image" v-if="$slots['image']"></slot>
-        <x-img :style="props.imageStyle" class="vx-list-item--image" v-else-if="props.image!==undefined" :src="props.image"></x-img>
+        <x-img :style="imageStyle" class="vx-list-item--image" v-else-if="image!==undefined" :src="image"></x-img>
       </template>
-      <div :class="['vx-list-item--content', {'vx-divider': props.halfDivider}]">
-        <div v-if="props.halfDivider" class="vx-list-item--content-inner">
+      <div :class="['vx-list-item--content', {'vx-divider': halfDivider}]">
+        <div v-if="halfDivider" class="vx-list-item--content-inner">
           <slot></slot>
         </div>
         <slot v-else></slot>

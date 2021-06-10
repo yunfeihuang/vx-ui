@@ -7,6 +7,18 @@ import Switch from './switch'
 import {Checkbox, CheckboxGroup} from './checkbox'
 import {Radio, RadioGroup} from './radio'
 import {Checker, CheckerGroup} from './checker'
+import Divider from './divider'
+import Heading from './heading'
+import Group from './group'
+import Cell from './cell'
+import Nav from './nav'
+import Spinner from './spinner'
+import Badge from './badge'
+import Rater from './rater'
+import Message from './message'
+import Arrow from './arrow'
+import SubmitBar from './submit-bar'
+import ListItem from './list-item'
 
 //import Range from './range'
 /*
@@ -22,10 +34,6 @@ import {Tabbar, TabbarItem} from './tabbar'
 import {Sidebar, SidebarItem} from './sidebar'
 import {Flexbox, FlexboxItem} from './flexbox'
 import {ButtonTab, ButtonTabItem} from './button-tab'
-import Divider from './divider'
-import Heading from './heading'
-import Group from './group'
-import Cell from './cell'
 import Confirm from './confirm'
 import Prompt from './prompt'
 import Alert from './alert'
@@ -36,13 +44,11 @@ import Img from './img'
 import ListView from './list-view'
 import Ripple from './ripple'
 import Search from './search'
-import Nav from './nav'
+
 // import Preview from './preview'
-import Spinner from './spinner'
+
 import Picker from './picker'
-import Badge from './badge'
 import Swipeout from './swipeout'
-import Rater from './rater'
 import DatetimePicker from './datetime-picker'
 import DaterangePicker from './daterange-picker'
 import Datetime from './datetime'
@@ -51,8 +57,6 @@ import Popover from './popover'
 import Sticky from './sticky'
 import IndexList from './index-list'
 // import QrCode from './qrcode'
-import Message from './message'
-import Arrow from './arrow'
 import {Accordion, AccordionItem} from './accordion'
 // import {Step, StepItem} from './step'
 import Calendar from './calendar'
@@ -60,8 +64,8 @@ import CalendarRange from './calendar-range'
 import Cascader from './cascader'
 import CascaderPicker from './cascader-picker'
 import CascaderPopupPicker from './cascader-popup-picker'
-import ListItem from './list-item'
-import SubmitBar from './submit-bar'
+
+
 import {Grid, GridItem} from './Grid'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 */
@@ -103,7 +107,19 @@ let components = [
   Radio,
   RadioGroup,
   Checker,
-  CheckerGroup
+  CheckerGroup,
+  Divider,
+  Heading,
+  Group,
+  Cell,
+  Nav,
+  Spinner,
+  Badge,
+  Rater,
+  Message,
+  Arrow,
+  SubmitBar,
+  ListItem
 ]
 
 const install = (app) => {

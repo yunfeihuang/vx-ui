@@ -1,13 +1,13 @@
 <template>
-  <div :class="['vx-rater',{'is-disabled': props.disabled}]">
+  <div :class="['vx-rater',{'is-disabled': disabled}]" v-bind="$attrs">
     <span
-      v-for="(item,index) in props.max"
-      :class="['vx-rater--item',{'is-active':item<=props.value}]"
-      :style="{color: item <= props.value && props.color ? props.color : '', marginLeft: props.gutter}"
+      v-for="(item,index) in max"
+      :class="['vx-rater--item',{'is-active':item<=modelValue}]"
+      :style="{color: item <= modelValue && color ? color : '', marginLeft: gutter}"
       :data-value="item"
       :key="index"
-      v-html="props.star"
-      @click="$options.methods.handleChange(listeners, item, props.value)"
+      v-html="star"
+      @click="handleChange(item, modelValue)"
       >
     </span>
   </div>
@@ -16,15 +16,14 @@
 <script>
 import { input } from '@/utils/mixins'
 export default {
-  name: 'Rater',
-  componentName: 'Rater',
+  name: 'VxRater',
   props: {
     ...input.props,
     disabled: {
       type: Boolean,
       default: false
     },
-    value: {
+    modelValue: {
       type: Number,
       default: 1
     },
@@ -45,10 +44,9 @@ export default {
     }
   },
   methods: {
-    handleChange (listeners, value, oldValue) {
+    handleChange (value, oldValue) {
       value === 1 && oldValue === value && (value = 0)
-      listeners['input'] && listeners['input'](value)
-      listeners['change'] && listeners['change'](value)
+      this.$emit('update:modelValue', value)
     }
   }
 }

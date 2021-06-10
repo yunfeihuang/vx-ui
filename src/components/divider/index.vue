@@ -1,12 +1,9 @@
 <template>
-  <div :class="['vx-divider', {'is-vertical': props.vertical}, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners">
-    <div v-if="props.title || $slots['title']" class="vx-divider--title vx-line-clamp-1">
+  <div :class="['vx-divider', {'is-vertical': vertical}]" v-bind="$attrs">
+    <div v-if="title || $slots['title']" class="vx-divider--title vx-line-clamp-1">
       <slot name="title" v-if="$slots['title']"></slot>
-      <template v-else-if="props.title">
-        {{props.title}}
+      <template v-else-if="title">
+        {{title}}
       </template>
     </div>
     <slot></slot>
@@ -14,8 +11,7 @@
 </template>
 <script>
 export default {
-  name: 'Divider',
-  componentName: 'Divider',
+  name: 'VxDivider',
   props: {
     vertical: {
       type: Boolean

@@ -1,20 +1,17 @@
 <template>
-  <div :class="['vx-nav', `vx-nav--${props.type}`, {'is-back-text': !!props.backText}, {'is-title-center': props.titleCenter, 'is-search-collapse': props.searchCollapse}, data.staticClass]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners">
+  <div :class="['vx-nav', `vx-nav--${type}`, {'is-back-text': !!backText}, {'is-title-center': titleCenter, 'is-search-collapse': searchCollapse}]" v-bind="$attrs">
     <div class="vx-nav--inner">
       <div class="vx-nav--layout">
-        <button :class="['vx-nav--button','vx-nav--back']" @click="props.onBack(parent, props.to)" v-if="props.isBack">
-          <arrow direction="left" :color="props.type === 'primary' ? props.arrow.primaryColor : props.arrow.color" :size="props.arrow.size"/>
-          <span v-if="backText">{{props.backText}}</span>
+        <button :class="['vx-nav--button','vx-nav--back']" @click="onBack($parent, to)" v-if="isBack">
+          <arrow direction="left" :color="type === 'primary' ? arrow.primaryColor : arrow.color" :size="arrow.size"/>
+          <span v-if="backText">{{backText}}</span>
         </button>
-        <template v-if="props.titleCenter && $slots['append']">
-          <template v-if="$slots['prepend'] && $slots['prepend'].length + props.isBack < $slots['append'].length">
-            <div class="vx-nav--button" v-for="(item,index) in $slots['append'].length - ($slots['prepend'].length + props.isBack)" :key="index"></div>
+        <template v-if="titleCenter && $slots['append']">
+          <template v-if="$slots['prepend'] && $slots['prepend'].length + isBack < $slots['append'].length">
+            <div class="vx-nav--button" v-for="(item,index) in $slots['append'].length - ($slots['prepend'].length + isBack)" :key="index"></div>
           </template>
           <template v-else-if="!$slots['prepend']">
-            <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (props.isBack ? 1 : 0)" :key="index"></div>
+            <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (isBack ? 1 : 0)" :key="index"></div>
           </template>
         </template>
         <slot name="prepend"></slot>
@@ -24,13 +21,13 @@
         <div v-else :class="['vx-nav--title']">
           <template>{{data.attrs.title}}</template>
         </div>
-        <template v-if="props.titleCenter">
-          <div class="vx-nav--button" v-if="props.isBack && !$slots['append']"></div>
+        <template v-if="titleCenter">
+          <div class="vx-nav--button" v-if="isBack && !$slots['append']"></div>
           <slot v-else name="append"></slot>
         </template>
         <slot v-else name="append"></slot>
       </div>
-      <div v-if="$slots['search']" class="vx-nav--search" :style="$options.methods.searchStyle(props, $slots)">
+      <div v-if="$slots['search']" class="vx-nav--search" :style="searchStyle($slots)">
         <div class="vx-nav--search-inner">
           <slot name="search"></slot>
         </div>
@@ -45,8 +42,7 @@
 <script>
 import Arrow from '../arrow'
 export default {
-  name: 'XNav',
-  componentName: 'XNav',
+  name: 'VxNav',
   components: {
     Arrow
   },
@@ -92,11 +88,11 @@ export default {
     }
   },
   methods: {
-    searchStyle (props, slots) {
-      if (!props.searchCollapse) {
+    searchStyle (slots) {
+      if (!this.searchCollapse) {
         return ''
       } else {
-        let max = props.isBack ? 1 : 0
+        let max = this.isBack ? 1 : 0
         if (slots['prepend']) {
           if (slots['prepend'].length + max > max) {
             max = slots['prepend'].length + max

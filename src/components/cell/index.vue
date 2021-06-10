@@ -1,9 +1,6 @@
 <template>
-  <div :class="['vx-cell', `vx-cell--${props.type}`, {'is-divider': props.type!='info' && props.divider}, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners"
-    @click="props.onTo(parent, props.to, props.replace, props.target)">
+  <div :class="['vx-cell', `vx-cell--${type}`, {'is-divider': type!='info' && divider}]" v-bind="$attrs"
+    @click="onTo($parent, to, replace, target)">
     <div
       class="vx-cell--inner">
       <div class="vx-cell--hd" v-if="$slots['icon']">
@@ -12,18 +9,18 @@
       <div class="vx-cell--bd">
         <slot v-if="$slots['title']" name="title"></slot>
         <template v-else>
-          {{props.title}}
+          {{title}}
         </template>
       </div>
       <div class="vx-cell--ft">
         <div class="vx-cell--value">
           <slot v-if="$slots['value']" name="value"></slot>
           <template v-else>
-            {{props.value}}
+            {{value}}
           </template>
         </div>
       </div>
-      <arrow class="vx-cell--arrow" v-if="props.arrow || props.to" :direction="props.arrowDirection || 'right'" size="0.2rem"></arrow>
+      <arrow class="vx-cell--arrow" v-if="arrow || to" :direction="arrowDirection || 'right'" size="0.2rem"></arrow>
     </div>
     <div class="vx-cell--default-slot" v-if="$slots['default']">
       <slot></slot>
@@ -33,8 +30,7 @@
 
 <script>
 export default {
-  name: 'Cell',
-  componentName: 'Cell',
+  name: 'VxCell',
   props: {
     type: {
       type: String,
@@ -71,9 +67,9 @@ export default {
             }
           } else if (parent.$router) {
             if (replace) {
-              parent.$router.replace(this.to)
+              parent.$router.replace(to)
             } else {
-              parent.$router.push(this.to)
+              parent.$router.push(to)
             }
           }
         }

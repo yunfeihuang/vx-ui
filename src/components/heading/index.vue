@@ -1,8 +1,5 @@
 <template>
-  <div :class="['vx-heading', `vx-heading--${props.type}`, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners">
+  <div :class="['vx-heading', `vx-heading--${type}`]" v-bind="$attrs">
     <div class="vx-heading--inner">
       <slot name="prepend"></slot>
       <div class="vx-heading--title">
@@ -15,8 +12,7 @@
 
 <script>
 export default {
-  name: 'Heading',
-  componentName: 'Heading',
+  name: 'VxHeading',
   props: {
     type: {
       type: String,

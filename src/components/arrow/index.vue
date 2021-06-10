@@ -1,6 +1,6 @@
 <template>
-  <component :is="props.tag"
-    :class="['vx-arrow', `vx-arrow--direction-${props.direction}`, data.staticClass, data.class]"
+  <component :is="tag"
+    :class="['vx-arrow', `vx-arrow--direction-${direction}`]"
     :style="[Object.assign({
       display: 'inline-block',
       borderWidth: '1px',
@@ -8,24 +8,22 @@
       verticalAlign: 'middle',
       boxSizing: 'border-box',
       transform: 'rotate(45deg)',
-      height: props.size,
-      width: props.size,
+      height: size,
+      width: size,
       borderColor: {
-        up: `${props.color} transparent transparent ${props.color}`,
-        right: `${props.color} ${props.color} transparent transparent`,
-        down: `transparent ${props.color} ${props.color} transparent`,
-        left: `transparent transparent ${props.color} ${props.color}`
-      }[props.direction],
-    }, data.style)]"
-    v-bind="data.attrs"
-    v-on="listeners"
+        up: `${color} transparent transparent ${color}`,
+        right: `${color} ${color} transparent transparent`,
+        down: `transparent ${color} ${color} transparent`,
+        left: `transparent transparent ${color} ${color}`
+      }[direction],
+    })]"
+    v-bind="$attrs"
     >
   </component>
 </template>
 <script>
 export default {
-  name: 'Arrow',
-  componentName: 'Arrow',
+  name: 'VxArrow',
   props: {
     direction: {
       type: String,

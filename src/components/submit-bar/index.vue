@@ -1,15 +1,13 @@
 <template>
-  <div :class="['vx-submit-bar', {'is-sticky': props.sticky}, data.staticClass, data.class]"
-    :style="data.staticStyle && data.style ? [data.staticStyle,data.style] : data.staticStyle || data.style"
-    v-bind="data.attrs"
-    v-on="listeners">
-    <message type="error" v-if="props.tips || $slots['tips']">
+  <div :class="['vx-submit-bar', {'is-sticky': sticky}]"
+    v-bind="$attrs">
+    <vx-message type="error" v-if="tips || $slots['tips']">
       <slot name="tips" v-if="$slots['tips']"></slot>
-      <template v-else>{{props.tips}}</template>
-    </message>
+      <template v-else>{{tips}}</template>
+    </vx-message>
     <div class="vx-submit-bar--inner"
       :class="{
-        'vx-divider': !props.tips && !$slots['tips'],
+        'vx-divider': !tips && !$slots['tips'],
         'is-buttons': !$slots['default'] || ($slots['button'] && $slots['button'].length > 1)
       }">
       <div class="vx-submit-bar--content" v-if="$slots['default']">
@@ -22,8 +20,7 @@
 
 <script>
 export default {
-  name: 'SubmitBar',
-  componentName: 'SubmitBar',
+  name: 'VxSubmitBar',
   props: {
     tips: {
       type: String
