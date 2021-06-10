@@ -1,7 +1,7 @@
 <template>
-  <page>
-    <div slot="header">
-      <x-nav title="DropdownMenu"></x-nav>
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="DropdownMenu"></vx-nav>
       <dropdown-menu>
         <dropdown-menu-item
           :options="options"
@@ -10,27 +10,29 @@
         <dropdown-menu-item
           label="销量"
           :checked="type=='销量'"
-          @click.native="type='销量'">
+          @click="type='销量'">
         </dropdown-menu-item>
         <dropdown-menu-item
           label="新品"
           :checked="type=='新品'"
-          @click.native="type='新品'">
+          @click="type='新品'">
         </dropdown-menu-item>
         <dropdown-menu-item ref="custom" popup-class="custom-class" label="自定义">
           <div>
             <div style="padding:0.4rem;text-align:center">自定义弹框</div>
             <submit-bar>
-              <x-button slot="button" @click.native="handleClose">取消</x-button>
-              <x-button slot="button" type="primary" @click.native="handleClose">确定</x-button>
+              <template v-slot:button>
+                <vx-button @click="handleClose">取消</vx-button>
+                <vx-button type="primary" @click="handleClose">确定</vx-button>
+              </template>
             </submit-bar>
           </div>
         </dropdown-menu-item>
       </dropdown-menu>
-    </div>
-    <page-body slot="body" :scroll="false">
-    </page-body>
-  </page>
+    </template>
+    <vx-page-body  :scroll="false">
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

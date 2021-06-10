@@ -1,12 +1,14 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Daterange"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Daterange"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="default">
         <daterange v-model="date" placeholder="请输入日期区间"/>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

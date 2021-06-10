@@ -1,7 +1,9 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Sidebar"></x-nav>
-    <page-body slot="body">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Sidebar"></vx-nav>
+    </template>
+    <vx-page-body>
       <sidebar
         v-model:active="active"
         style="width:1.6rem;background-color:#f7f7f7;position:absolute;height:100%;top:0;left:0;">
@@ -12,8 +14,8 @@
           {{item.label}}
         </sidebar-item>
       </sidebar>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,16 +1,18 @@
 <template>
-  <page>
-    <x-nav slot="header" title="CascaderPopupPicker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="CascaderPopupPicker"></vx-nav>
+    </template>
+    <vx-page-body>
       <group :title="`级联选择器弹框：${value}`">
         <cell :arrow="false">
-          <div slot="title">开关</div>
-          <x-switch slot="value" v-model="open" />
+          <template v-slot:title>开关</template>
+          <template v-slot:value><vx-switch v-model="open" /></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <cascader-popup-picker v-model:open="open" v-model="value" :options="options"/>
-  </page>
+  </vx-page>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Radio"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Radio"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>
         <divider></divider>
@@ -22,8 +24,8 @@
           value：{{value}}
         </div>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

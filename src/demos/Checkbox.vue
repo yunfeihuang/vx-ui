@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Checkbox"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Checkbox"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="Checkbox">
         <checkbox v-model:checked="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
       </group>
@@ -103,8 +105,8 @@
         value：{{reverseValue}}
         </div>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

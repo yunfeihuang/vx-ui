@@ -1,15 +1,17 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Cascader"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Cascader"></vx-nav>
+    </template>
+    <vx-page-body>
       <group :title="`value:${value}`">
         <cell :arrow="false">
-          <div slot="title">级联</div>
-           <cascader style="margin-right:-0.2rem;" slot="value" v-model="value" :options="options"/>
+          <template v-slot:title>级联</template>
+          <template v-slot:value><cascader style="margin-right:-0.2rem;" v-model="value" :options="options"/></template>
         </cell>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

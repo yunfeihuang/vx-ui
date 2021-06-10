@@ -1,7 +1,9 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="ListView (pulldown and pullup)"></x-nav>
-    <page-body slot="body" :scroll="false" v-if="slideIn">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="ListView (pulldown and pullup)"></vx-nav>
+    </template>
+    <vx-page-body  :scroll="false" v-if="slideIn">
       <list-view
         style="height:100%;position: absolute;width: 100%;"
         :loading="loading"
@@ -15,8 +17,8 @@
           </template>
         </list-item>
       </list-view>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>
@@ -46,7 +48,7 @@ export default {
       }
       return result
     },
-    handlePullup (e) {
+    handlePullup () {
       this.loading = true
       setTimeout(() => { // 模拟ajax请求
         this.list = this.list.concat(this.getList())
@@ -56,7 +58,7 @@ export default {
         }
       }, 1000)
     },
-    handlePulldown (e) {
+    handlePulldown () {
       this.loading = true
       setTimeout(() => { // 模拟ajax请求
         this.list = this.getList().concat(this.list)

@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Ripple"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Ripple"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
@@ -15,8 +17,8 @@
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
       </group>
-    </page-body>
-    <div slot="footer">
+    </vx-page-body>
+    <template v-slot:footer>
       <div style="text-align:center;padding:10px">
         ripple prop position:center
       </div>
@@ -34,8 +36,8 @@
           <small>我的</small>
         </tabbar-item>
       </tabbar>
-    </div>
-  </page>
+    </template>
+  </vx-page>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Divider"></x-nav>
-    <page-body slot="body" style="">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Divider"></vx-nav>
+    </template>
+    <vx-page-body  style="">
       <group>
         <div style="padding:0 10px;line-height:0.9rem;">
           标题
@@ -33,8 +35,8 @@
           </flexbox>
         </div>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 <script>
 export default {

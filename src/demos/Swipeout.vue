@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Swipeout"></x-nav>
-    <page-body slot="body" v-if="slideIn">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Swipeout"></vx-nav>
+    </template>
+    <vx-page-body  v-if="slideIn">
       <swipeout
         v-for="(item,index) in list"
         :key="index"
@@ -14,12 +16,14 @@
             <div>{{item.date}}</div>
           </template>
         </list-item>
-        <button @click="handleAction" style="background:#1AAD19;color:#fff;" slot="action" type="button">顶置</button>
-        <button @click="handleAction" style="background:#ffe26d;color:#fff;" slot="action" type="button">收藏</button>
-        <button @click="handleAction" style="background:#ff5500;color:#fff;" slot="action" type="button">删除</button>
+        <template v-slot:action>
+          <button @click="handleAction" style="background:#1AAD19;color:#fff;" type="button">顶置</button>
+          <button @click="handleAction" style="background:#ffe26d;color:#fff;" type="button">收藏</button>
+          <button @click="handleAction" style="background:#ff5500;color:#fff;" type="button">删除</button>
+        </template>
       </swipeout>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

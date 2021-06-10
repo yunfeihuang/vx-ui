@@ -1,31 +1,33 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Rater"></x-nav>
-    <page-body class="demos" slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Rater"></vx-nav>
+    </template>
+    <vx-page-body class="demos" >
       <group>
         <cell :arrow="false">
-          <div slot="title">评分({{value}})</div>
-          <rater slot="value" v-model="value"/>
+          <template v-slot:title>评分({{value}})</template>
+          <template v-slot:value><rater v-model="value"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">评分({{value}})</div>
-          <rater slot="value" color="red" v-model="value"/>
+          <template v-slot:title>评分({{value}})</template>
+          <template v-slot:value><rater color="red" v-model="value"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" v-model="value"/>
+          <template v-slot:title>喜欢({{value}})</template>
+          <template v-slot:value><rater star="♡" v-model="value"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">喜欢({{value}})</div>
-          <rater slot="value" star="♡" color="red" v-model="value"/>
+          <template v-slot:title>喜欢({{value}})</template>
+          <template v-slot:value><rater star="♡" color="red" v-model="value"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">滑块控制</div>
-          <range style="width:4rem" slot="value" v-model="value" :max="5"/>
+          <template v-slot:title>滑块控制</template>
+          <template v-slot:value><range style="width:4rem" v-model="value" :max="5"/></template>
         </cell>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

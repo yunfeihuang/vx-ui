@@ -1,44 +1,46 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Popup"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Popup"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">popup default</div>
-          <x-switch slot="value" v-model="open"/>
+          <template v-slot:title>popup default</template>
+          <template v-slot:value><vx-switch v-model="open"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup top</div>
-          <x-switch slot="value" v-model="openTop"/>
+          <template v-slot:title>popup top</template>
+          <template v-slot:value><vx-switch v-model="openTop"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup left</div>
-          <x-switch slot="value" v-model="openLeft"/>
+          <template v-slot:title>popup left</template>
+          <template v-slot:value><vx-switch v-model="openLeft"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup right</div>
-          <x-switch slot="value" v-model="openRight"/>
+          <template v-slot:title>popup right</template>
+          <template v-slot:value><vx-switch v-model="openRight"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup center</div>
-          <x-switch slot="value" v-model="openCenter"/>
+          <template v-slot:title>popup center</template>
+          <template v-slot:value><vx-switch v-model="openCenter"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup full && show close</div>
-          <x-switch slot="value" v-model="openFull"/>
+          <template v-slot:title>popup full && show close</template>
+          <template v-slot:value><vx-switch v-model="openFull"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">popup full && title</div>
-          <x-switch slot="value" v-model="openFullTitle"/>
+          <template v-slot:title>popup full && title</template>
+          <template v-slot:value><vx-switch v-model="openFullTitle"/></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <popup v-model:open="open">
       <div style="padding:0.5rem 0;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="open"/>
+            <template v-slot:title>popup close</template>
+            <template v-slot:value><vx-switch v-model="open"/></template>
           </cell>
         </group>
       </div>
@@ -47,8 +49,8 @@
       <div style="padding:0.5rem 0;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="openLeft"/>
+            <template v-slot:title>popup close</template>
+            <template v-slot:value><vx-switch v-model="openLeft"/></template>
           </cell>
         </group>
       </div>
@@ -57,8 +59,8 @@
       <div style="padding:0.5rem 0;min-width:200px;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="openLeft"/>
+            <template v-slot:title>popup close</template>
+            <template v-slot:value><vx-switch v-model="openLeft"/></template>
           </cell>
         </group>
       </div>
@@ -67,8 +69,8 @@
       <div style="padding:0.5rem 0;min-width:200px;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="openRight"/>
+            <template v-slot:title>popup close</template>
+            <template v-slot:value><vx-switch v-model="openRight"/></template>
           </cell>
         </group>
       </div>
@@ -77,8 +79,8 @@
       <div style="padding:0.5rem;min-width:200px;background:#fff;border-radius:5px;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup close</div>
-            <x-switch slot="value" v-model="openCenter" />
+            <template v-slot:title>popup close</template>
+            <template v-slot:value><vx-switch v-model="openCenter" /></template>
           </cell>
         </group>
       </div>
@@ -87,8 +89,8 @@
       <div style="padding:0.5rem 0;">
         <group>
           <cell :arrow="false">
-            <div slot="title">popup full close</div>
-            <x-switch slot="value" v-model="openFull"/>
+            <template v-slot:title>popup full close</template>
+            <template v-slot:value><vx-switch v-model="openFull"/></template>
           </cell>
         </group>
       </div>
@@ -99,7 +101,7 @@
       学习开始时，播放了有关生态环境保护的专题片。随后，何立峰、姜大明、陈吉宁、陈政高、陈雷同志先后发言，他们结合本部门工作实际谈了对推进生态文明建设、推动绿色发展、加强环境保护等方面的体会和意见。
       </div>
     </popup>
-  </page>
+  </vx-page>
 </template>
 
 <script>

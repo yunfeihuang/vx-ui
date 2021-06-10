@@ -1,7 +1,9 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Swiper"></x-nav>
-    <page-body slot="body" v-if="slideIn">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Swiper"></vx-nav>
+    </template>
+    <vx-page-body  v-if="slideIn">
       <swiper v-model:active="active" :options="options">
         <swiper-item v-for="(item,index) in images" :key="index">
           <img :src="item" style="max-width:100%;min-height:120px;" />
@@ -14,15 +16,15 @@
           <img :src="item" style="max-width:100%;min-height:120px;" />
         </swiper-item>
       </swiper>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>
-import 'vx-ui/lib/style/theme/swiper.scss'
-import {Swiper, SwiperItem} from 'vx-ui/lib/swiper'
+// import 'vx-ui/lib/style/theme/swiper.scss'
+// import {Swiper, SwiperItem} from 'vx-ui/lib/swiper'
 export default {
-  components: {Swiper, SwiperItem},
+  // components: {Swiper, SwiperItem},
   data () {
     return {
       images: [

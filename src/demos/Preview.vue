@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Preview(点击图片浏览图片)"></x-nav>
-    <page-body slot="body" v-if="slideIn">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Preview"></vx-nav>
+    </template>
+    <vx-page-body  v-if="slideIn">
       <img
         v-for="(item,index) in images"
         :key="index"
@@ -9,18 +11,18 @@
         style="display:block;width:100%;min-height:150px;"
         @load="handleLoad(index,$event)"
         @click="handleClick(index)"/>
-    </page-body>
+    </vx-page-body>
     <preview :list="images" ref="preview"/>
-  </page>
+  </vx-page>
 </template>
 
 <script>
-import 'vx-ui/lib/style/theme/preview.scss'
-import Preview from 'vx-ui/lib/preview'
+//import 'vx-ui/lib/style/theme/preview.scss'
+//import Preview from 'vx-ui/lib/preview'
 let windowWidth = window.innerWidth
 export default {
   components: {
-    Preview
+  //  Preview
   },
   data () {
     return {

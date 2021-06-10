@@ -1,14 +1,16 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Heading"></x-nav>
-    <page-body slot="body">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Heading"></vx-nav>
+    </template>
+    <vx-page-body>
       <heading>
         <template>heading</template>
-        <a slot="append" class="link">更多</a>
+        <template v-slot:append>更多</template>
       </heading>
       <heading type="primary">
         <template>heading</template>
-        <a slot="append" class="link">更多</a>
+        <template v-slot:append>更多</template>
       </heading>
       <heading type="simple">
         heading
@@ -16,8 +18,8 @@
       <heading type="line">
         heading line
       </heading>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

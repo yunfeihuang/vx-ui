@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="ListItem"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="ListItem"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="default">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
@@ -25,17 +27,17 @@
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-          <div slot="prepend">prepend</div>
-          <div slot="append">append</div>
+          <template v-slot:prepend>prepend</template>
+          <template v-slot:append>append</template>
         </list-item>
       </group>
       <group title="slot checkbox && action">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
-          <checkbox slot="checkbox"></checkbox>
+          <template v-slot:checkbox><checkbox></checkbox></template>
           <b>标题</b>
           <div>内容....</div>
-          <x-button type="primary" size="small" slot="action">选中</x-button>
+          <template v-slot:action><vx-button type="primary" size="small">选中</vx-button></template>
         </list-item>
       </group>
       <group title="slot append-action">
@@ -43,10 +45,10 @@
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-          <div slot="append-action" style="text-align:right">
-            <x-button type="primary" size="small">编辑</x-button>
-            <x-button type="primary" size="small">删除</x-button>
-          </div>
+          <template v-slot:append-action>
+            <vx-button type="primary" size="small">编辑</vx-button>
+            <vx-button type="primary" size="small">删除</vx-button>
+          </template>
         </list-item>
       </group>
       <group title="divider">
@@ -69,8 +71,8 @@
           <div>内容....</div>
         </list-item>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

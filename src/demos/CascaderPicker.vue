@@ -1,12 +1,14 @@
 <template>
-  <page>
-    <x-nav slot="header" title="CascaderPicker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="CascaderPicker"></vx-nav>
+    </template>
+    <vx-page-body>
       <group :title="`级联：${value}`">
         <cascader-picker v-model="value" :options="options"/>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,11 +1,13 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Popover"></x-nav>
-    <page-body slot="body" style="padding:15px;" v-if="slideIn">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Popover"></vx-nav>
+    </template>
+    <vx-page-body  style="padding:15px;" v-if="slideIn">
       <flexbox style="margin-bottom:300px">
         <flexbox-item>
           <popover open>
-            <x-button slot="trigger">left top</x-button>
+            <template v-slot:trigger><vx-button>left top</vx-button></template>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>
               <divider></divider>
@@ -17,7 +19,7 @@
         </flexbox-item>
         <flexbox-item style="text-align:right">
           <popover>
-            <x-button slot="trigger">right top</x-button>
+            <template v-slot:trigger><vx-button>right top</vx-button></template>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>
               <divider></divider>
@@ -31,7 +33,7 @@
       <flexbox>
         <flexbox-item>
           <popover>
-            <x-button slot="trigger">left bottom</x-button>
+            <template v-slot:trigger><vx-button>left bottom</vx-button></template>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>
               <divider></divider>
@@ -43,7 +45,7 @@
         </flexbox-item>
         <flexbox-item style="text-align:right">
           <popover>
-            <x-button slot="trigger">right bottom</x-button>
+            <template v-slot:trigger><vx-button>right bottom</vx-button></template>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>
               <divider></divider>
@@ -54,8 +56,8 @@
           </popover>
         </flexbox-item>
       </flexbox>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

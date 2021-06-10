@@ -1,8 +1,10 @@
 <template>
-  <page>
-    <x-nav slot="header" title="IndexList"></x-nav>
-    <index-list slot="body" :data="list" @click="handleClick"/>
-  </page>
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="IndexList"></vx-nav>
+    </template>
+    <index-list  :data="list" @click="handleClick"/>
+  </vx-page>
 </template>
 <script>
 export default {

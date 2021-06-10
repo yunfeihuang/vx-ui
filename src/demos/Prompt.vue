@@ -1,23 +1,25 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Prompt"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Prompt"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">开关(用户名称：{{value1}})</div>
-          <x-switch slot="value" v-model="open1"/>
+          <template v-slot:title>开关(用户名称：{{value1}})</template>
+          <template v-slot:value><vx-switch v-model="open1"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">开关(用户密码：{{value2}})</div>
-          <x-switch slot="value" v-model="open2"/>
+          <template v-slot:title>开关(用户密码：{{value2}})</template>
+          <template v-slot:value><vx-switch v-model="open2"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">js调用</div>
-          <span slot="value" @click="handleOpen">点击我打开</span>
+          <template v-slot:title>js调用</template>
+          <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
         </cell>
       </group>
       密码加密文本：{{cipher}}
-    </page-body>
+    </vx-page-body>
     <prompt
       v-model="value1"
       title="用户名称"
@@ -35,7 +37,7 @@
       v-model:cipher="cipher"
       @change="handleChangePrompt2">
     </prompt>
-  </page>
+  </vx-page>
 </template>
 
 <script>

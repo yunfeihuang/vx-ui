@@ -1,28 +1,26 @@
 <template>
-  <page>
-    <div slot="header">
+  <vx-page>
+    <template v-slot:header>
       <x-nav title="Nav">
-        <button class="vx-nav--button" slot="append">
-          登录
-        </button>
+        <template v-slot:append>
+          <button class="vx-nav--button">登录</button>
+        </template>
       </x-nav>
       <br />
       <x-nav title-center title="Nav">
-        <button class="vx-nav--button" slot="prepend">
-          注册
-        </button>
-        <button class="vx-nav--button" slot="append">
-          注册
-        </button>
-        <button class="vx-nav--button" slot="append">
-          登录
-        </button>
+        <template v-slot:prepend>
+          <button class="vx-nav--button">注册</button>
+        </template>
+        <template v-slot:append>
+          <button class="vx-nav--button">注册</button>
+          <button class="vx-nav--button">登录</button>
+        </template>
       </x-nav>
       <br />
       <x-nav title-center title="Nav" type="primary">
-        <button class="vx-nav--button" slot="append">
-          登录
-        </button>
+        <template v-slot:append>
+          <button class="vx-nav--button">登录</button>
+        </template>
       </x-nav>
       <br />
       <x-nav
@@ -30,22 +28,23 @@
         type="primary"
         title="含搜索框的Nav"
         :search-collapse="collapse">
-        <input class="vx-nav--search-input" slot="search" type="text" placeholder="请输入商品名称"/>
-        <button class="vx-nav--button" slot="append" @click="collapse=!collapse">
-          {{collapse ? '展开' : '收起'}}
-        </button>
+        <template v-slot:search>
+          <input class="vx-nav--search-input" type="text" placeholder="请输入商品名称"/>
+        </template>
+        <template v-slot:append>
+          <button class="vx-nav--button" @click="collapse=!collapse">{{collapse ? '展开' : '收起'}}</button>
+        </template>
         <tab v-model:active="active" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
       </x-nav>
-    </div>
-    <page-body slot="body" @scroll="handleScroll">
-      <cell v-for="(item,index) in 20" :key="index" title="github">
-        <img slot="icon" :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%">
-        <span slot="value">Start me</span>
+    </template>
+    <vx-page-body  @scroll="handleScroll">
+      <cell v-for="(item,index) in 20" :key="index" title="github" value="Start me">
+        <template v-slot:icon><img :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
       </cell>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 <script>
 export default {

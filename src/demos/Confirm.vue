@@ -1,22 +1,24 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Confirm"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Confirm"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">开关</div>
-          <x-switch slot="value" v-model="open1"/>
+          <template v-slot:title>开关</template>
+          <template v-slot:value><vx-switch v-model="open1"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">长内容</div>
-          <x-switch slot="value" v-model="open2"/>
+          <template v-slot:title>长内容</template>
+          <template v-slot:value><vx-switch v-model="open2"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">js调用</div>
-          <span slot="value" @click="handleOpen">点击我打开</span>
+          <template v-slot:title>js调用</template>
+          <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <confirm v-model:open="open1">确认删除？</confirm>
     <confirm v-model:open="open2" title="标题">
       <div style="line-height:2.5;">
@@ -31,7 +33,7 @@
         容长内容长内容长内容长内容长内容长内容
       </div>
     </confirm>
-  </page>
+  </vx-page>
 </template>
 
 <script>

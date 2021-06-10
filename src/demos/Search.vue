@@ -1,10 +1,12 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Search"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Search"></vx-nav>
+    </template>
+    <vx-page-body>
       <search v-model="value" placeholder="搜索商品/商店/用户"
         @submit="handleSubmit">
-        <template slot="keywords" slot-scope="scope">
+        <template v-slot:keywords="scope">
           <span class="keyword" @click="scope.search('上海')">
             上海
           </span>
@@ -21,22 +23,22 @@
             北京
           </span>
         </template>
-        <div slot="result" style="text-align:center;padding:15px">
+        <template v-slot:result style="text-align:center;padding:15px">
           搜索结果显示
-        </div>
+        </template>
       </search>
       <group title="聚焦不会固定在顶部的">
         <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>
 export default {
   methods: {
     handleSubmit (value) {
-      console.log('handleSubmit')
+      console.log('handleSubmit', value)
     },
     handleInput (value) {
       console.log('input:', value)

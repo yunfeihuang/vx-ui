@@ -1,12 +1,14 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Select"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Select"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">下拉框({{label}})</div>
+          <template v-slot:title>下拉框({{label}})</template>
+          <template v-slot:value>
           <x-select
-            slot="value"
             v-model:label="label"
             v-model="value"
             clearable
@@ -19,11 +21,12 @@
               {{item.label}}
             </x-option>
           </x-select>
+          </template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框option含html并且打开框不产生浏览器地址历史记录</div>
+          <template v-slot:title>下拉框option含html并且打开框不产生浏览器地址历史记录</template>
+          <template v-slot:value>
           <x-select
-            slot="value"
             v-model:label="label"
             v-model="value"
             :popup-props="{direction: 'center', history: false}"
@@ -37,11 +40,12 @@
               <span style="color:red">red color</span>{{item.label}}
             </x-option>
           </x-select>
+          </template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框(多选)</div>
+          <template v-slot:title>下拉框(多选)</template>
+          <template v-slot:value>
           <x-select
-            slot="value"
             v-model="value2"
             :max="0"
             placeholder="请选择">
@@ -53,11 +57,12 @@
               {{item.label}}
             </x-option>
           </x-select>
+          </template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框(最多选2个)</div>
+          <template v-slot:title>下拉框(最多选2个)</template>
+          <template v-slot:value>
           <x-select
-            slot="value"
             v-model="value3"
             :max="2"
             placeholder="请选择">
@@ -69,11 +74,12 @@
               {{item.label}}
             </x-option>
           </x-select>
+          </template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">下拉框(不限选项)</div>
+          <template v-slot:title>下拉框(不限选项)</template>
+          <template v-slot:value>
           <x-select
-            slot="value"
             v-model="value4"
             :max="0"
             placeholder="请选择">
@@ -86,10 +92,11 @@
               {{item.label}}
             </x-option>
           </x-select>
+          </template>
         </cell>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

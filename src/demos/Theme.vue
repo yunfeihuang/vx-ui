@@ -1,58 +1,54 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Theme"></x-nav>
-    <page-body slot="body" class="theme">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Theme"></vx-nav>
+    </template>
+    <vx-page-body  class="theme">
       <group title="颜色">
         <cell :arrow="false" title="字体色">
-          <color-picker slot="value" v-model="variable['color-black']"/>
+          <template v-slot:value><color-picker v-model="variable['color-black']"/></template>
         </cell>
         <cell :arrow="false" title="字体辅助色">
-          <color-picker slot="value" v-model="variable['color-assist']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-assist']"/></template>
         </cell>
         <cell :arrow="false" title="字体辅助淡色">
-          <color-picker slot="value" v-model="variable['color-light']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-light']"/></template>
         </cell>
         <cell :arrow="false" title="边框色">
-          <color-picker slot="value" v-model="variable['color-border']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-border']"/></template>
         </cell>
         <cell :arrow="false" title="分割线色">
-          <color-picker slot="value" v-model="variable['color-divider']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-divider']"/></template>
         </cell>
         <cell :arrow="false" title="背景色">
-          <color-picker slot="value" v-model="variable['color-background']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-background']"/></template>
         </cell>
         <cell :arrow="false" title="active伪类背景色">
-          <color-picker slot="value" v-model="variable['color-touch-active']"/>
-          <div slot="value"></div>
+          <template v-slot:value><color-picker v-model="variable['color-touch-active']"/></template>
         </cell>
         <cell :arrow="false" title="主题色">
-          <color-picker slot="value" v-model="variable['color-primary']"/>
+          <template v-slot:value><color-picker v-model="variable['color-primary']"/></template>
         </cell>
         <cell :arrow="false" title="警告色">
-          <color-picker slot="value" v-model="variable['color-warning']"/>
+          <template v-slot:value><color-picker v-model="variable['color-warning']"/></template>
         </cell>
         <cell :arrow="false" title="危险色">
-          <color-picker slot="value" v-model="variable['color-danger']"/>
+          <template v-slot:value><color-picker v-model="variable['color-danger']"/></template>
         </cell>
         <cell :arrow="false" title="错误色">
-          <color-picker slot="value" v-model="variable['color-error']"/>
+          <template v-slot:value><color-picker v-model="variable['color-error']"/></template>
         </cell>
       </group>
       <group title="尺寸大小">
         <cell :arrow="false" title="字体">
-          <range v-model="variable['font-size-default']" :step="0.01" :min="0.2" :max="0.4" slot="value"/>
+          <template v-slot:value><range v-model="variable['font-size-default']" :step="0.01" :min="0.2" :max="0.4"/></template>
         </cell>
         <cell :arrow="false" title="边框圆角">
-          <range v-model="variable['border-radius']" :step="0.01" :min="0" :max="1" slot="value"/>
+          <template v-slot:value><range v-model="variable['border-radius']" :step="0.01" :min="0" :max="1"/></template>
         </cell>
         <!--
         <cell :arrow="false" title="控件高度">
-          <range v-model="variable['box-size-height-default']" :step="0.01" :min="0.5" :max="1.8" slot="value"/>
+          <range v-model="variable['box-size-height-default']" :step="0.01" :min="0.5" :max="1.8"/></template>
         </cell>
         -->
       </group>
@@ -66,8 +62,8 @@
       <group v-if="variableHTML" title="生成的css variables代码">
         <pre v-html="variableHTML"></pre>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

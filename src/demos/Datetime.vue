@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Datetime"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Datetime"></vx-nav>
+    </template>
+    <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group title="default">
         <datetime v-model="date" placeholder="请输入年月日"/>
@@ -18,8 +20,8 @@
       <group title="时分">
         <datetime format="HH:mm" v-model="time2" placeholder="请输入时间"/>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

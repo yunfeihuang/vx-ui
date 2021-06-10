@@ -1,27 +1,29 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Badge"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Badge"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell>
-          <div slot="title">红点</div>
-          <div slot="value">新消息<badge class="badge"/></div>
+          <template v-slot:title>红点</template>
+          <template v-slot:value>新消息<badge class="badge"/></template>
         </cell>
         <cell>
-          <div slot="title" @click="handleClick">个位数红点(点击累加)</div>
-          <div slot="value" @click="handleClick">新消息 <badge class="badge" :text="count"/></div>
+          <template v-slot:title @click="handleClick">个位数红点(点击累加)</template>
+          <template v-slot:value @click="handleClick">新消息 <badge class="badge" :text="count"/></template>
         </cell>
         <cell>
-          <div slot="title">超出最大值显示(ellipsis)红点</div>
-          <div slot="value">新消息 <badge class="badge" :text="Number(20)"/></div>
+          <template v-slot:title>超出最大值显示(ellipsis)红点</template>
+          <template v-slot:value>新消息 <badge class="badge" :text="Number(20)"/></template>
         </cell>
         <cell>
-          <div slot="title">多位数红点</div>
-          <div slot="value">新消息 <badge class="badge" text="888"/></div>
+          <template v-slot:title>多位数红点</template>
+          <template v-slot:value>新消息 <badge class="badge" text="888"/></template>
         </cell>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

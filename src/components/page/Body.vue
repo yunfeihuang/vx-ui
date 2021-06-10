@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'PageBody',
+  name: 'VxPageBody',
   props: {
     scroller: {
       type: Boolean,

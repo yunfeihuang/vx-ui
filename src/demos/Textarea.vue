@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Textarea"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Textarea"></vx-nav>
+    </template>
+    <vx-page-body>
       <div style="margin-top:20px;">
         <x-textarea v-model="value" placeholder="请输入消息内容" :maxlength="100"/>
         <br/>
@@ -12,8 +14,8 @@
         </div>
         <div style="padding:10px;word-wrap: break-word;">{{value}}</div>
       </div>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

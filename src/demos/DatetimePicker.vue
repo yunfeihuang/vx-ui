@@ -1,23 +1,25 @@
 <template>
-  <page>
-    <x-nav slot="header" title="DatetimePicker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="DatetimePicker"></vx-nav>
+    </template>
+    <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
-          <div slot="title">{{pickerValue1}}</div>
-          <x-switch slot="value" v-model="pickerOpen1"/>
+          <template v-slot:title>{{pickerValue1}}</template>
+          <template v-slot:value><vx-switch v-model="pickerOpen1"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">{{pickerValue2}}</div>
-          <x-switch slot="value" v-model="pickerOpen2"/>
+          <template v-slot:title>{{pickerValue2}}</template>
+          <template v-slot:value><vx-switch v-model="pickerOpen2"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">{{pickerValue3}}</div>
-          <x-switch slot="value" v-model="pickerOpen3"/>
+          <template v-slot:title>{{pickerValue3}}</template>
+          <template v-slot:value><vx-switch v-model="pickerOpen3"/></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <datetime-picker
       format="yyyy-MM-dd"
       v-model:open="pickerOpen1"
@@ -33,7 +35,7 @@
       v-model:open="pickerOpen3"
       v-model="pickerValue3"
       />
-  </page>
+  </vx-page>
 </template>
 
 <script>

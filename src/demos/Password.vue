@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Password"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Password"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="default">
         <password
           placeholder="请输入密码"
@@ -18,8 +20,8 @@
           :encrypt="encrypt"/>
       </group>
       密文(简单的转成大写)：{{cipher}}
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

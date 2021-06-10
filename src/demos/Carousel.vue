@@ -1,7 +1,9 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Carousel"></x-nav>
-    <page-body slot="body">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Carousel"></vx-nav>
+    </template>
+    <vx-page-body>
       <carousel :active="active" :pagination="true" @change="handleChange" :options="options" class="swiper-demo">
         <carousel-item>
           <img src="http://assets.bittyos.com/images/swiper/01.jpg"/>
@@ -16,8 +18,8 @@
           <img src="http://assets.bittyos.com/images/swiper/05.jpg"/>
         </carousel-item>
       </carousel>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

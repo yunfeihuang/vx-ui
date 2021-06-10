@@ -1,8 +1,10 @@
 <template>
   <div class="demo-app">
-    <page :style="`opacity:1;transform:translateX(0)`">
-      <x-nav slot="header" title-center :is-back="false" title="Vx UI Demos"></x-nav>
-      <page-body class="demos" slot="body">
+    <vx-page :style="`opacity:1;transform:translateX(0)`">
+      <template v-slot:header>
+        <vx-nav title-center :is-back="false" title="Vx UI Demos"></vx-nav>
+      </template>
+      <vx-page-body class="demos" >
         <div style="text-align:center">
           <flexbox class="friend-link">
             <flexbox-item>
@@ -90,8 +92,8 @@
           <cell title="Spinner" to="/demos/spinner"></cell>
           <cell title="IndexList" to="/demos/indexlist"></cell>
         </group>
-      </page-body>
-    </page>
+      </vx-page-body>
+    </vx-page>
     <router-view></router-view>
   </div>
 </template>

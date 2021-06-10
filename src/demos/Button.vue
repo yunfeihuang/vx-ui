@@ -1,41 +1,43 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Button"></x-nav>
-    <page-body class="demos" slot="body" style="padding:0.15rem;">
-      <x-button>default</x-button>
-      <x-button type="primary">primary</x-button>
-      <x-button type="danger">danger</x-button>
-      <x-button type="warning">warning</x-button>
-      <x-button type="primary" size="small">primary small</x-button>
-      <x-button type="primary" plain>plain primary</x-button>
-      <x-button type="link">link</x-button>
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Button"></vx-nav>
+    </template>
+    <vx-page-body class="demos"  style="padding:0.15rem;">
+      <vx-button>default</vx-button>
+      <vx-button type="primary">primary</vx-button>
+      <vx-button type="danger">danger</vx-button>
+      <vx-button type="warning">warning</vx-button>
+      <vx-button type="primary" size="small">primary small</vx-button>
+      <vx-button type="primary" plain>plain primary</vx-button>
+      <vx-button type="link">link</vx-button>
       <br />
       <br />
-      <x-button size="large">default large</x-button>
+      <vx-button size="large">default large</vx-button>
       <br />
-      <x-button type="primary" size="large">primary large</x-button>
+      <vx-button type="primary" size="large">primary large</vx-button>
       <br />
-      <x-button type="danger" square size="large">danger large</x-button>
+      <vx-button type="danger" square size="large">danger large</vx-button>
       <br />
-      <x-button type="warning" size="large" round>warning large</x-button>
+      <vx-button type="warning" size="large" round>warning large</vx-button>
       <br />
-      <x-button type="primary" size="large" plain>plain primary</x-button>
+      <vx-button type="primary" size="large" plain>plain primary</vx-button>
       <br />
-      <x-button type="danger" size="large" plain>plain danger</x-button>
+      <vx-button type="danger" size="large" plain>plain danger</vx-button>
       <br />
-      <x-button type="warning" size="large" plain>plain warning</x-button>
+      <vx-button type="warning" size="large" plain>plain warning</vx-button>
       <br />
-      <x-button disabled size="large">disabled</x-button>
+      <vx-button disabled size="large">disabled</vx-button>
       <br />
-      <x-button type="primary" size="large" disabled>primary disabled</x-button>
+      <vx-button type="primary" size="large" disabled>primary disabled</vx-button>
       <br />
-      <x-button type="primary" size="large" loading>primary</x-button>
+      <vx-button type="primary" size="large" loading>primary</vx-button>
       <br />
-      <x-button size="large" ripple>default ripple</x-button>
+      <vx-button size="large" ripple>default ripple</vx-button>
       <br />
-      <x-button size="large" type="primary" ripple>primary ripple</x-button>
-    </page-body>
-  </page>
+      <vx-button size="large" type="primary" ripple>primary ripple</vx-button>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

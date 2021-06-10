@@ -1,13 +1,15 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Picker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Picker"></vx-nav>
+    </template>
+    <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group :title="'value：'+value">
         <picker placeholder="请选择" v-model="value" :options="options"></picker>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <page type="primary">
-    <div slot="header">
+  <vx-page type="primary">
+    <template v-slot:header>
       <x-nav title="Tab"></x-nav>
       <div v-if="slideIn">
         <tab v-model:active="active">
@@ -36,10 +36,10 @@
           </tab-item>
         </tab>
       </div>
-    </div>
-    <page-body slot="body" :scroll="false">
-    </page-body>
-  </page>
+    </template>
+    <vx-page-body  :scroll="false">
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <page type="primary">
-    <x-nav slot="header" title="Spinner"></x-nav>
-    <page-body slot="body" style="text-align:center;">
+  <vx-page type="primary">
+    <template v-slot:header>
+      <vx-nav title="Spinner"></vx-nav>
+    </template>
+    <vx-page-body  style="text-align:center;">
       <br/>
       <br/>
       <br/>
@@ -12,8 +14,8 @@
       <spinner style="width:1rem;height:1rem;">
         <span style="line-height:1rem;">LOGO</span>
       </spinner>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

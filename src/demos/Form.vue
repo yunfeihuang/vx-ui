@@ -1,9 +1,11 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Form"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Form"></vx-nav>
+    </template>
+    <vx-page-body>
       <br />
-      <el-form size="small" :model="form" ref="form" @submit.native.prevent="handleSubmit">
+      <el-form size="small" :model="form" ref="form" @submit="handleSubmit">
         <el-form-item label="姓名：" prop="name" :rules="[
           {required: true, message: '姓名不能为空'},
           {min: 2, message: '姓名不能小于2字符'}
@@ -77,7 +79,7 @@
           </div>
         </el-form-item>
         <el-form-item label="开启消息醒：">
-          <x-switch v-model="form.enable"/>
+          <vx-switch v-model="form.enable"/>
         </el-form-item>
         <el-form-item block label="兴趣1：" prop="checkboxHobby" :rules="[
           {required: true, message: '兴趣1不能为空'}
@@ -108,11 +110,11 @@
           </radio-group>
         </el-form-item>
         <div style="margin:20px 10px;">
-          <x-button type="primary" native-type="submit" size="large">保存</x-button>
+          <vx-button type="primary" native-type="submit" size="large">保存</vx-button>
         </div>
       </el-form>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

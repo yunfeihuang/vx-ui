@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Range"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Range"></vx-nav>
+    </template>
+    <vx-page-body>
       <group :title="`default(value:${value1})`">
         <div style="padding:10px">
           <range v-model="value1"/>
@@ -22,8 +24,8 @@
           <range v-model="value1" disabled />
         </div>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,10 +1,12 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Qrcode"></x-nav>
-    <page-body slot="body" style="text-align:center;padding:1rem;">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Qrcode"></vx-nav>
+    </template>
+    <vx-page-body  style="text-align:center;padding:1rem;">
       <qrcode text="http://vue.bittyos.com/"/>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 <script>
 export default {

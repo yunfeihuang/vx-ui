@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Checker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Checker"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="Checker 多选">
         <div style="padding:20px 10px">
           <checker-group v-model="checkboxValue">
@@ -12,7 +14,7 @@
               :key="item.value"
               >
               {{item.label}}
-            </checker><checker fake @click.native="more=!more">{{more ? '更多↓' : '收起 ↑'}}</checker>
+            </checker><checker fake @click="more=!more">{{more ? '更多↓' : '收起 ↑'}}</checker>
           </checker-group>
           <br />
           value：{{checkboxValue}}
@@ -86,8 +88,8 @@
           value：{{checkboxValue}}
         </div>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

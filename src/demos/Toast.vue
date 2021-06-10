@@ -1,45 +1,47 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Toast"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Toast"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">Toast Top</div>
-          <x-switch slot="value" v-model="topOpen"/>
+          <template v-slot:title>Toast Top</template>
+          <template v-slot:value><vx-switch v-model="topOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Center Success</div>
-          <x-switch slot="value" v-model="centerOpen"/>
+          <template v-slot:title>Toast Center Success</template>
+          <template v-slot:value><vx-switch v-model="centerOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Center Error</div>
-          <x-switch slot="value" v-model="errorOpen"/>
+          <template v-slot:title>Toast Center Error</template>
+          <template v-slot:value><vx-switch v-model="errorOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Center Warn</div>
-          <x-switch slot="value" v-model="warnOpen"/>
+          <template v-slot:title>Toast Center Warn</template>
+          <template v-slot:value><vx-switch v-model="warnOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Center Loading</div>
-          <x-switch slot="value" v-model="loadingOpen"/>
+          <template v-slot:title>Toast Center Loading</template>
+          <template v-slot:value><vx-switch v-model="loadingOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">Toast Bottom</div>
-          <x-switch slot="value" v-model="bottomOpen"/>
+          <template v-slot:title>Toast Bottom</template>
+          <template v-slot:value><vx-switch v-model="bottomOpen"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">js调用</div>
-          <span slot="value" @click="handleOpen">点击我打开</span>
+          <template v-slot:title>js调用</template>
+          <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <toast v-model:open="topOpen">{{message}}</toast>
     <toast v-model:open="centerOpen" type="success" align="center">{{message}}</toast>
     <toast v-model:open="errorOpen" type="error" align="center">操作失败</toast>
     <toast v-model:open="warnOpen" type="warn" align="center">已经操作过了</toast>
     <toast v-model:open="loadingOpen" type="loading" align="center">Loading</toast>
     <toast v-model:open="bottomOpen" align="bottom">{{message}}</toast>
-  </page>
+  </vx-page>
 </template>
 
 <script>

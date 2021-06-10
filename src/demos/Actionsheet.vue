@@ -1,26 +1,28 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Actionsheet"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Actionsheet"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">default</div>
-          <x-switch slot="value" v-model="open1"/>
+          <template v-slot:title>default</template>
+          <template v-slot:value><vx-switch v-model="open1"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">cancel item && title</div>
-          <x-switch slot="value" v-model="open2"/>
+          <template v-slot:title>cancel item && title</template>
+          <template><vx-switch v-model="open2"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">menu</div>
-          <x-switch slot="value" v-model="open3"/>
+          <template v-slot:title>menu</template>
+          <template v-slot:value><vx-switch v-model="open3"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">js调用</div>
-          <span slot="value" @click="handleJSCall">点击我</span>
+          <template v-slot:title>js调用</template>
+          <template v-slot:value><span @click="handleJSCall">点击我</span></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <actionsheet v-model:open="open1" @action="handleAction">
       <actionsheet-item
         v-for="item in options"
@@ -48,7 +50,7 @@
           {{item.label}}
       </actionsheet-item>
     </actionsheet>
-  </page>
+  </vx-page>
 </template>
 
 <script>

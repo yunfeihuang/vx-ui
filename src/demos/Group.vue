@@ -1,34 +1,36 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Group"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Group"></vx-nav>
+    </template>
+    <vx-page-body>
       <group title="default">
         <cell :arrow="false">
-          <div slot="title">开关（{{checked}}）</div>
-          <x-switch slot="value" v-model="checked" />
+          <template v-slot:title>开关（{{checked}}）</template>
+          <template v-slot:value><vx-switch v-model="checked" /></template>
         </cell>
       </group>
       <group title="heading" heading-type="default">
-        <a slot="heading-append" class="link">更多</a>
+        <template v-slot:heading-append>更多</template>
         <div>
           内容... <br />
           内容...
         </div>
-        <div slot="prepend">prepend</div>
-        <div slot="append">append</div>
+        <template v-slot:prepend>prepend</template>
+        <template v-slot:append>append</template>
       </group>
       <group title="heading primary" heading-type="primary">
-        <a slot="heading-append" class="link">更多</a>
+        <template v-slot:heading-append>更多</template>
         <div>
           内容... <br />
           内容...
         </div>
       </group>
       <group title="heading primary" heading-type="primary">
-        <a slot="heading-append" class="link">更多</a>
+        <template v-slot:heading-append>更多</template>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

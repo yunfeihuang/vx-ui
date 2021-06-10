@@ -1,10 +1,10 @@
 <template>
-  <page>
+  <vx-page>
     <template v-slot:header>
       <vx-nav title="Accordion"></vx-nav>
     </template>
     <template v-slot:body>
-      <page-body>
+      <vx-page-body>
         <accordion>
           <accordion-item title="标题文字" open>
             如果有一天我能够拥有一个大果园，
@@ -43,9 +43,9 @@
             让孤独的心等待秋收的欢喜。
           </accordion-item>
         </accordion>
-      </page-body>
+      </vx-page-body>
     </template>
-  </page>
+  </vx-page>
 </template>
 <script>
 

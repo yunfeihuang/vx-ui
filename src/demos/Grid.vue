@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Grid"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Grid"></vx-nav>
+    </template>
+    <vx-page-body>
       <grid :col="3">
         <grid-item v-for="item in 10" :key="item">
           <strong>{{item}}</strong> <br />
@@ -30,8 +32,8 @@
           项目
         </grid-item>
       </grid>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

@@ -1,19 +1,21 @@
 <template>
-  <page>
-    <x-nav slot="header" title="PopupPicker"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="PopupPicker"></vx-nav>
+    </template>
+    <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
       <group>
         <cell :arrow="false">
-          <div slot="title">地区 picker：{{value}}</div>
-          <x-switch slot="value" v-model="open"/>
+          <template v-slot:title>地区 picker：{{value}}</template>
+          <template v-slot:value><vx-switch v-model="open"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">地址级联 picker：{{value2}}</div>
-          <x-switch slot="value" v-model="open2"/>
+          <template v-slot:title>地址级联 picker：{{value2}}</template>
+          <template v-slot:value><vx-switch v-model="open2"/></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <popup-picker
       v-model:open="open"
       :pickers="pickers"
@@ -25,7 +27,7 @@
       @pickerchange="handleChangeAddressPicker"
       @change="handleConfirmAddress"
       />
-  </page>
+  </vx-page>
 </template>
 
 <script>

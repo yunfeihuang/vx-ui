@@ -1,7 +1,9 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Calendar"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Calendar"></vx-nav>
+    </template>
+    <vx-page-body>
       <group :title="`日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">
         <calendar v-model="value1"/>
       </group>
@@ -14,8 +16,8 @@
       <group :title="`国际标准日期选择器：${value1 && value1.toLocaleDateString ? value1.toLocaleDateString(): value1}`">
         <calendar lang="EN" v-model="value1"/>
       </group>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 
 <script>

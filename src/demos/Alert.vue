@@ -1,20 +1,22 @@
 <template>
-  <page>
-    <x-nav slot="header" title="Alert"></x-nav>
-    <page-body slot="body">
+  <vx-page>
+    <template v-slot:header>
+      <vx-nav title="Alert"></vx-nav>
+    </template>
+    <vx-page-body>
       <group>
         <cell :arrow="false">
-          <div slot="title">开关</div>
-          <x-switch slot="value" v-model="open"/>
+          <template v-slot:title>开关</template>
+          <template v-slot:value><vx-switch v-model="open"/></template>
         </cell>
         <cell :arrow="false">
-          <div slot="title">js调用</div>
-          <span slot="value" @click="handleOpen">点击我打开</span>
+          <template v-slot:title>js调用</template>
+          <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
         </cell>
       </group>
-    </page-body>
+    </vx-page-body>
     <alert v-model:open="open" title="标题">alert</alert>
-  </page>
+  </vx-page>
 </template>
 
 <script>
