@@ -12,7 +12,6 @@
 <script>
 export default {
   name: 'Page',
-  componentName: 'Page',
   props: {
     type: {
       type: String,

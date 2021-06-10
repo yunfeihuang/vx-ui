@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  componentName: 'PageBody',
+  name: 'PageBody',
   props: {
     scroller: {
       type: Boolean,
