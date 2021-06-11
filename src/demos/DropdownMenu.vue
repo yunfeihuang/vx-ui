@@ -2,22 +2,22 @@
   <vx-page>
     <template v-slot:header>
       <vx-nav title="DropdownMenu"></vx-nav>
-      <dropdown-menu>
-        <dropdown-menu-item
+      <vx-dropdown-menu>
+        <vx-dropdown-menu-item
           :options="options"
           v-model="value">
-        </dropdown-menu-item>
-        <dropdown-menu-item
+        </vx-dropdown-menu-item>
+        <vx-dropdown-menu-item
           label="销量"
           :checked="type=='销量'"
           @click="type='销量'">
-        </dropdown-menu-item>
-        <dropdown-menu-item
+        </vx-dropdown-menu-item>
+        <vx-dropdown-menu-item
           label="新品"
           :checked="type=='新品'"
           @click="type='新品'">
-        </dropdown-menu-item>
-        <dropdown-menu-item ref="custom" popup-class="custom-class" label="自定义">
+        </vx-dropdown-menu-item>
+        <vx-dropdown-menu-item ref="custom" popup-class="custom-class" label="自定义">
           <div>
             <div style="padding:0.4rem;text-align:center">自定义弹框</div>
             <vx-submit-bar>
@@ -27,8 +27,8 @@
               </template>
             </vx-submit-bar>
           </div>
-        </dropdown-menu-item>
-      </dropdown-menu>
+        </vx-dropdown-menu-item>
+      </vx-dropdown-menu>
     </template>
     <vx-page-body  :scroll="false">
     </vx-page-body>

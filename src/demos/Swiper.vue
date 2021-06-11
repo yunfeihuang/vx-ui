@@ -3,19 +3,19 @@
     <template v-slot:header>
       <vx-nav title="Swiper"></vx-nav>
     </template>
-    <vx-page-body  v-if="slideIn">
-      <swiper v-model:active="active" :options="options">
-        <swiper-item v-for="(item,index) in images" :key="index">
+    <vx-page-body>
+      <vx-swiper v-model:active="active" :options="options">
+        <vx-swiper-item v-for="(item,index) in images" :key="index">
           <img :src="item" style="max-width:100%;min-height:120px;" />
-        </swiper-item>
-      </swiper>
+        </vx-swiper-item>
+      </vx-swiper>
       <br />
       <center>渐变切换</center>
-      <swiper v-model:active="active" :options="{effect: 'fade', speed: 500}">
-        <swiper-item v-for="(item,index) in images" :key="index">
+      <vx-swiper v-model:active="active" :options="{effect: 'fade', speed: 500}">
+        <vx-swiper-item v-for="(item,index) in images" :key="index">
           <img :src="item" style="max-width:100%;min-height:120px;" />
-        </swiper-item>
-      </swiper>
+        </vx-swiper-item>
+      </vx-swiper>
     </vx-page-body>
   </vx-page>
 </template>

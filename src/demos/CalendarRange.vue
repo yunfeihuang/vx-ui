@@ -5,7 +5,7 @@
     </template>
     <vx-page-body>
       <vx-group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
-        <calendar-range v-model="value"/>
+        <vx-calendar-range v-model="value"/>
       </vx-group>
     </vx-page-body>
   </vx-page>

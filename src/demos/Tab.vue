@@ -2,39 +2,39 @@
   <vx-page type="primary">
     <template v-slot:header>
       <vx-nav title="Tab"></vx-nav>
-      <div v-if="slideIn">
-        <tab v-model:active="active">
-          <tab-item
+      <div>
+        <vx-tab v-model:active="active">
+          <vx-tab-item
             v-for="item in tabs.slice(0,4)"
             :name="item.name"
             :key="item.key">
             {{item.label}}
-          </tab-item>
-        </tab>
-        <tab v-model:active="active" :underline-width="10">
-          <tab-item
+          </vx-tab-item>
+        </vx-tab>
+        <vx-tab v-model:active="active" :underline-width="10">
+          <vx-tab-item
             v-for="item in tabs.slice(0,4)"
             :name="item.name"
             :key="item.key">
             {{item.label}}
-          </tab-item>
-        </tab>
-        <tab v-model:active="active" underline-width="auto">
-          <tab-item
+          </vx-tab-item>
+        </vx-tab>
+        <vx-tab v-model:active="active" underline-width="auto">
+          <vx-tab-item
             v-for="item in tabs.slice(0,4)"
             :name="item.name"
             :key="item.key">
             {{item.label}}
-          </tab-item>
-        </tab>
-        <tab v-model:active="active" :underline-width="10" minTabItemWidth="20vw">
-          <tab-item
+          </vx-tab-item>
+        </vx-tab>
+        <vx-tab v-model:active="active" :underline-width="10" minTabItemWidth="20vw">
+          <vx-tab-item
             v-for="item in tabs"
             :name="item.name"
             :key="item.key">
             {{item.label}}
-          </tab-item>
-        </tab>
+          </vx-tab-item>
+        </vx-tab>
       </div>
     </template>
     <vx-page-body  :scroll="false">

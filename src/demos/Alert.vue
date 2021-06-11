@@ -15,7 +15,7 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <alert v-model:open="open" title="标题">alert</alert>
+    <vx-alert v-model:open="open" title="标题">alert</vx-alert>
   </vx-page>
 </template>
 

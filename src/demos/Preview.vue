@@ -3,7 +3,7 @@
     <template v-slot:header>
       <vx-nav title="Preview"></vx-nav>
     </template>
-    <vx-page-body  v-if="slideIn">
+    <vx-page-body>
       <img
         v-for="(item,index) in images"
         :key="index"
@@ -12,7 +12,7 @@
         @load="handleLoad(index,$event)"
         @click="handleClick(index)"/>
     </vx-page-body>
-    <preview :list="images" ref="preview"/>
+    <vx-preview :list="images" ref="preview"/>
   </vx-page>
 </template>
 

@@ -3,25 +3,23 @@
     <template v-slot:header>
       <vx-nav title="Swipeout"></vx-nav>
     </template>
-    <vx-page-body  v-if="slideIn">
-      <swipeout
+    <vx-page-body>
+      <vx-swipeout
         v-for="(item,index) in list"
         :key="index"
         :open="index===1"
         @close="handleCloseSwipeout"
         @open="handleOpenSwipeout">
         <vx-list-item :image="item.src" image-style="width:1rem;">
-          <template>
-            <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
-            <div>{{item.date}}</div>
-          </template>
+          <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
+          <div>{{item.date}}</div>
         </vx-list-item>
         <template v-slot:action>
           <button @click="handleAction" style="background:#1AAD19;color:#fff;" type="button">顶置</button>
           <button @click="handleAction" style="background:#ffe26d;color:#fff;" type="button">收藏</button>
           <button @click="handleAction" style="background:#ff5500;color:#fff;" type="button">删除</button>
         </template>
-      </swipeout>
+      </vx-swipeout>
     </vx-page-body>
   </vx-page>
 </template>
@@ -41,7 +39,7 @@ export default {
       let result = []
       for (let i = 0; i < 30; i++) {
         result.push({
-          src: './static/images/github.png',
+          src: '/images/github.png',
           name: `item-${Date.now()}`,
           date: new Date().toLocaleString()
         })

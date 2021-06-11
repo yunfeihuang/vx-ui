@@ -7,13 +7,13 @@
       <br/>
       <br/>
       <br/>
-      <spinner></spinner>
+      <vx-spinner></vx-spinner>
       <br/>
       <br/>
       <br/>
-      <spinner style="width:1rem;height:1rem;">
+      <vx-spinner style="width:1rem;height:1rem;">
         <span style="line-height:1rem;">LOGO</span>
-      </spinner>
+      </vx-spinner>
     </vx-page-body>
   </vx-page>
 </template>

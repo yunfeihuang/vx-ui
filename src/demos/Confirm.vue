@@ -19,8 +19,8 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <confirm v-model:open="open1">确认删除？</confirm>
-    <confirm v-model:open="open2" title="标题">
+    <vx-confirm v-model:open="open1">确认删除？</vx-confirm>
+    <vx-confirm v-model:open="open2" title="标题">
       <div style="line-height:2.5;">
         长内容长内容长内容长内容长内容长内容长长内容长内容长内容长内容长内容长
         内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
@@ -32,7 +32,7 @@
         内容长内容长内容长内容长内容长内容长内容长内容长内容长内容内容长内容长内
         容长内容长内容长内容长内容长内容长内容
       </div>
-    </confirm>
+    </vx-confirm>
   </vx-page>
 </template>
 

@@ -3,20 +3,20 @@
     <template v-slot:header>
       <vx-nav>
         <template v-slot:title>
-          <button-tab class="tab-button" v-model:active="active1" size="small" style="width:2.8rem;margin:auto">
-            <button-tab-item name="tab1">选项1</button-tab-item>
-            <button-tab-item name="tab2">选项2</button-tab-item>
-          </button-tab>
+          <vx-button-tab class="tab-button" v-model:active="active1" size="small" style="width:2.8rem;margin:auto">
+            <vx-button-tab-item name="tab1">选项1</vx-button-tab-item>
+            <vx-button-tab-item name="tab2">选项2</vx-button-tab-item>
+          </vx-button-tab>
         </template>
       </vx-nav>
     </template>
     <vx-page-body  style="padding:0.2rem;">
-      <button-tab v-model:active="active2">
-        <button-tab-item name="tab1">选项1</button-tab-item>
-        <button-tab-item name="tab2">选项2</button-tab-item>
-        <button-tab-item name="tab3">选项3</button-tab-item>
-        <button-tab-item name="tab4">选项4</button-tab-item>
-      </button-tab>
+      <vx-button-tab v-model:active="active2">
+        <vx-button-tab-item name="tab1">选项1</vx-button-tab-item>
+        <vx-button-tab-item name="tab2">选项2</vx-button-tab-item>
+        <vx-button-tab-item name="tab3">选项3</vx-button-tab-item>
+        <vx-button-tab-item name="tab4">选项4</vx-button-tab-item>
+      </vx-button-tab>
     </vx-page-body>
   </vx-page>
 </template>

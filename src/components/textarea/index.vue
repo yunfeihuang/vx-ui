@@ -4,6 +4,8 @@
       <div class="vx-textarea--shadow"></div>
       <textarea
         v-bind="$$props"
+        @change="handleChange"
+        @input="handleInput"
         ></textarea>
       </div>
       <em v-if="showWordNumber && maxlength">
@@ -28,9 +30,7 @@ export default {
     $$props () {
       return {
         ...this.$props,
-        ...this.$attrs,
-        change: this.handleChange,
-        input: this.handleInput
+        ...this.$attrs
       }
     }
   },

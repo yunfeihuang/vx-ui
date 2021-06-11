@@ -6,10 +6,10 @@
     <vx-page-body>
       <vx-group title="default">
         <vx-cell title="github" to="https://github.com/yunfeihuang/vx-ui" target="_blank" value="Start me">
-          <template v-slot:icon><img :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
+          <template v-slot:icon><img :src="'/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
         </vx-cell>
         <vx-cell title="github" arrow arrow-direction="down" value="Start me">
-          <template v-slot:icon><img :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
+          <template v-slot:icon><img :src="'/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
         </vx-cell>
       </vx-group>
       <vx-group title="type info">

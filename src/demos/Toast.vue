@@ -35,12 +35,12 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <toast v-model:open="topOpen">{{message}}</toast>
-    <toast v-model:open="centerOpen" type="success" align="center">{{message}}</toast>
-    <toast v-model:open="errorOpen" type="error" align="center">操作失败</toast>
-    <toast v-model:open="warnOpen" type="warn" align="center">已经操作过了</toast>
-    <toast v-model:open="loadingOpen" type="loading" align="center">Loading</toast>
-    <toast v-model:open="bottomOpen" align="bottom">{{message}}</toast>
+    <vx-toast v-model:open="topOpen">{{message}}</vx-toast>
+    <vx-toast v-model:open="centerOpen" type="success" align="center">{{message}}</vx-toast>
+    <vx-toast v-model:open="errorOpen" type="error" align="center">操作失败</vx-toast>
+    <vx-toast v-model:open="warnOpen" type="warn" align="center">已经操作过了</vx-toast>
+    <vx-toast v-model:open="loadingOpen" type="loading" align="center">Loading</vx-toast>
+    <vx-toast v-model:open="bottomOpen" align="bottom">{{message}}</vx-toast>
   </vx-page>
 </template>
 

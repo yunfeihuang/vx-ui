@@ -16,12 +16,12 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <popup-picker
+    <vx-popup-picker
       v-model:open="open"
       :pickers="pickers"
       @change="handleConfirm"
       />
-    <popup-picker
+    <vx-popup-picker
       v-model:open="open2"
       :pickers="pickers2"
       @pickerchange="handleChangeAddressPicker"

@@ -3,7 +3,7 @@
     <template v-slot:header>
       <vx-nav title="IndexList"></vx-nav>
     </template>
-    <index-list  :data="list" @click="handleClick"/>
+    <vx-index-list  :data="list" @click="handleClick"/>
   </vx-page>
 </template>
 <script>

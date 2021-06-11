@@ -3,23 +3,23 @@
     <template v-slot:header>
       <vx-nav title="Marquee"></vx-nav>
     </template>
-    <vx-page-body  v-if="slideIn">
-      <x-marquee>
-        <x-marquee-item>
+    <vx-page-body>
+      <vx-marquee>
+        <vx-marquee-item>
           天猫双十一优惠！
-        </x-marquee-item>
-        <x-marquee-item>
+        </vx-marquee-item>
+        <vx-marquee-item>
           京东618优惠！
-        </x-marquee-item>
-      </x-marquee>
-      <x-marquee direction="horizontal">
-        <x-marquee-item>
+        </vx-marquee-item>
+      </vx-marquee>
+      <vx-marquee direction="horizontal">
+        <vx-marquee-item>
           天猫双十一优惠！
-        </x-marquee-item>
-        <x-marquee-item>
+        </vx-marquee-item>
+        <vx-marquee-item>
           京东618优惠！
-        </x-marquee-item>
-      </x-marquee>
+        </vx-marquee-item>
+      </vx-marquee>
     </vx-page-body>
   </vx-page>
 </template>

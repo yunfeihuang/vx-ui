@@ -34,14 +34,14 @@
         <template v-slot:append>
           <button class="vx-nav--button" @click="collapse=!collapse">{{collapse ? '展开' : '收起'}}</button>
         </template>
-        <tab v-model:active="active" :underline-width="10">
-          <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
-        </tab>
+        <vx-tab v-model:active="active" :underline-width="10">
+          <vx-tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</vx-tab-item>
+        </vx-tab>
       </vx-nav>
     </template>
     <vx-page-body  @scroll="handleScroll">
       <vx-cell v-for="(item,index) in 20" :key="index" title="github" value="Start me">
-        <template v-slot:icon><img :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
+        <template v-slot:icon><img :src="'/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
       </vx-cell>
     </vx-page-body>
   </vx-page>

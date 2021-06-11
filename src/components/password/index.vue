@@ -1,5 +1,5 @@
 <template>
-  <x-input
+  <vx-input
     class="vx-password"
     v-bind="$props"
     :clearable="false"
@@ -22,14 +22,17 @@
         <i v-else v-html="icons[1]"></i>
       </button>
     </template>
-  </x-input>
+  </vx-input>
 </template>
 
 <script>
 import { input } from '@/utils/mixins'
-import XInput from '../input'
+import VxInput from '../input'
 export default {
   name: 'VxPassword',
+  components: {
+    VxInput
+  },
   mixins: [input],
   props: {
     ...input.props,
@@ -59,9 +62,6 @@ export default {
         ]
       }
     }
-  },
-  components: {
-    XInput
   },
   watch: {
     nativeType (value) {

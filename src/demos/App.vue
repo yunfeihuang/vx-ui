@@ -9,14 +9,14 @@
           <vx-flexbox class="friend-link">
             <vx-flexbox-item>
               <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
-                <vx-img class="friend-link-img" :src="'./static/images/github.png'"/>
+                <vx-img class="friend-link-img" :src="'/images/github.png'"/>
                 <br/>
                 star me
               </a>
             </vx-flexbox-item>
             <vx-flexbox-item>
               <a target="_blank" href="http://vx.bittyos.com/react/">
-                <vx-img class="friend-link-img" :src="'./static/images/react.png'"/>
+                <vx-img class="friend-link-img" :src="'/images/react.png'"/>
                 <br/>
                 react版本
               </a>

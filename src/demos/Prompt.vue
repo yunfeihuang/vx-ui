@@ -20,15 +20,15 @@
       </vx-group>
       密码加密文本：{{cipher}}
     </vx-page-body>
-    <prompt
+    <vx-prompt
       v-model="value1"
       title="用户名称"
       v-model:open="open1"
       :disabled="disabled1"
       :input-props="{placeholder:'请输入用户名称'}"
       @change="handleChangePrompt1">
-    </Prompt>
-    <prompt
+    </vx-prompt>
+    <vx-prompt
       v-model="value2"
       title="Wifi密码"
       v-model:open="open2"
@@ -36,7 +36,7 @@
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
       v-model:cipher="cipher"
       @change="handleChangePrompt2">
-    </prompt>
+    </vx-prompt>
   </vx-page>
 </template>
 
