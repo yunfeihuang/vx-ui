@@ -41,14 +41,14 @@
       </vx-group>
       <vx-group title="尺寸大小">
         <vx-cell :arrow="false" title="字体">
-          <template v-slot:value><range v-model="variable['font-size-default']" :step="0.01" :min="0.2" :max="0.4"/></template>
+          <template v-slot:value><vx-range v-model="variable['font-size-default']" :step="0.01" :min="0.2" :max="0.4"/></template>
         </vx-cell>
         <vx-cell :arrow="false" title="边框圆角">
-          <template v-slot:value><range v-model="variable['border-radius']" :step="0.01" :min="0" :max="1"/></template>
+          <template v-slot:value><vx-range v-model="variable['border-radius']" :step="0.01" :min="0" :max="1"/></template>
         </vx-cell>
         <!--
         <vx-cell :arrow="false" title="控件高度">
-          <range v-model="variable['box-size-height-default']" :step="0.01" :min="0.5" :max="1.8"/></template>
+          <vx-range v-model="variable['box-size-height-default']" :step="0.01" :min="0.5" :max="1.8"/></template>
         </vx-cell>
         -->
       </vx-group>

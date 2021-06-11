@@ -19,7 +19,7 @@
           <slot name="title"></slot>
         </div>
         <div v-else :class="['vx-nav--title']">
-          <template>{{data.attrs.title}}</template>
+          {{title}}
         </div>
         <template v-if="titleCenter">
           <div class="vx-nav--button" v-if="isBack && !$slots['append']"></div>
@@ -48,6 +48,7 @@ export default {
   },
   props: {
     to: {},
+    title: {},
     type: {
       type: String,
       default: 'default'

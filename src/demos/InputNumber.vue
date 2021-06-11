@@ -6,17 +6,17 @@
     <vx-page-body>
       <vx-group title="default">
         <vx-cell title="value" :arrow="false">
-          <template v-slot:value><input-number v-model="minValue" :min="1"/></template>
+          <template v-slot:value><vx-input-number v-model="minValue" :min="1"/></template>
         </vx-cell>
       </vx-group>
       <vx-group title="small">
         <vx-cell title="value" :arrow="false">
-          <template v-slot:value><input-number size="small" v-model="minValue" :min="1"/></template>
+          <template v-slot:value><vx-input-number size="small" v-model="minValue" :min="1"/></template>
         </vx-cell>
       </vx-group>
       <vx-group title="disabled">
         <vx-cell title="value" :arrow="false">
-          <template v-slot:value><input-number v-model="value" :step="0.01" disabled/></template>
+          <template v-slot:value><vx-input-number v-model="value" :step="0.01" disabled/></template>
         </vx-cell>
       </vx-group>
     </vx-page-body>

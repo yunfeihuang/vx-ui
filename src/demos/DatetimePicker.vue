@@ -4,7 +4,7 @@
       <vx-nav title="DatetimePicker"></vx-nav>
     </template>
     <vx-page-body>
-      <message type="warning">注意：此示例要在移动设备体验哦~</message>
+      <vx-message type="warning">注意：此示例要在移动设备体验哦~</vx-message>
       <vx-group>
         <vx-cell :arrow="false">
           <template v-slot:title>{{pickerValue1}}</template>
@@ -20,17 +20,17 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <datetime-picker
+    <vx-datetime-picker
       format="yyyy-MM-dd"
       v-model:open="pickerOpen1"
       v-model="pickerValue1"
       />
-    <datetime-picker
+    <vx-datetime-picker
       format="yyyy-MM-dd HH:mm:ss"
       v-model:open="pickerOpen2"
       v-model="pickerValue2"
       />
-    <datetime-picker
+    <vx-datetime-picker
       format="HH:mm:ss"
       v-model:open="pickerOpen3"
       v-model="pickerValue3"

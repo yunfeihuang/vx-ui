@@ -5,23 +5,23 @@
     </template>
     <vx-page-body>
       <vx-group title="default">
-        <list-item
+        <vx-list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="arrow">
-        <list-item
+        <vx-list-item
           arrow
           image-style="width:24vw"
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="slot prepend&append">
-        <list-item
+        <vx-list-item
           arrow
           image-style="width:24vw"
           image="http://assets.bittyos.com/images/swiper/01.jpg">
@@ -29,19 +29,19 @@
           <div>内容....</div>
           <template v-slot:prepend>prepend</template>
           <template v-slot:append>append</template>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="slot checkbox && action">
-        <list-item
+        <vx-list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
-          <template v-slot:checkbox><checkbox></checkbox></template>
+          <template v-slot:checkbox><vx-checkbox></vx-checkbox></template>
           <b>标题</b>
           <div>内容....</div>
           <template v-slot:action><vx-button type="primary" size="small">选中</vx-button></template>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="slot append-action">
-        <list-item
+        <vx-list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
@@ -49,27 +49,27 @@
             <vx-button type="primary" size="small">编辑</vx-button>
             <vx-button type="primary" size="small">删除</vx-button>
           </template>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="divider">
-        <list-item
+        <vx-list-item
           v-for="(item,index) in 3"
           divider
           :key="index"
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-        </list-item>
+        </vx-list-item>
       </vx-group>
       <vx-group title="half-divider">
-        <list-item
+        <vx-list-item
           v-for="(item,index) in 3"
           half-divider
           :key="index"
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
-        </list-item>
+        </vx-list-item>
       </vx-group>
     </vx-page-body>
   </vx-page>

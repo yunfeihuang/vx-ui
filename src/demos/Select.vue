@@ -8,90 +8,90 @@
         <vx-cell :arrow="false">
           <template v-slot:title>下拉框({{label}})</template>
           <template v-slot:value>
-          <x-select
+          <vx-select
             v-model:label="label"
             v-model="value"
             clearable
             placeholder="请选择">
-            <x-option
+            <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value">
               {{item.label}}
-            </x-option>
-          </x-select>
+            </vx-option>
+          </vx-select>
           </template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>下拉框option含html并且打开框不产生浏览器地址历史记录</template>
           <template v-slot:value>
-          <x-select
+          <vx-select
             v-model:label="label"
             v-model="value"
             :popup-props="{direction: 'center', history: false}"
             placeholder="请选择">
-            <x-option
+            <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :label="item.label"
               :key="item.value">
               <span style="color:red">red color</span>{{item.label}}
-            </x-option>
-          </x-select>
+            </vx-option>
+          </vx-select>
           </template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>下拉框(多选)</template>
           <template v-slot:value>
-          <x-select
+          <vx-select
             v-model="value2"
             :max="0"
             placeholder="请选择">
-            <x-option
+            <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value">
               {{item.label}}
-            </x-option>
-          </x-select>
+            </vx-option>
+          </vx-select>
           </template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>下拉框(最多选2个)</template>
           <template v-slot:value>
-          <x-select
+          <vx-select
             v-model="value3"
             :max="2"
             placeholder="请选择">
-            <x-option
+            <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value">
               {{item.label}}
-            </x-option>
-          </x-select>
+            </vx-option>
+          </vx-select>
           </template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>下拉框(不限选项)</template>
           <template v-slot:value>
-          <x-select
+          <vx-select
             v-model="value4"
             :max="0"
             placeholder="请选择">
-            <x-option value="" exclusive>不限</x-option>
-            <x-option
+            <vx-option value="" exclusive>不限</vx-option>
+            <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value">
               {{item.label}}
-            </x-option>
-          </x-select>
+            </vx-option>
+          </vx-select>
           </template>
         </vx-cell>
       </vx-group>

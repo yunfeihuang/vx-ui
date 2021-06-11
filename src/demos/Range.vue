@@ -6,22 +6,22 @@
     <vx-page-body>
       <vx-group :title="`default(value:${value1})`">
         <div style="padding:10px">
-          <range v-model="value1"/>
+          <vx-range v-model="value1"/>
         </div>
       </vx-group>
       <vx-group :title="`step:10(value:${value1})`">
         <div style="padding:10px">
-          <range v-model="value1" :step="10" />
+          <vx-range v-model="value1" :step="10" />
         </div>
       </vx-group>
       <vx-group :title="`min:10,max:50(value:${value2})`">
         <div style="padding:10px">
-          <range :min="10" :max="50" v-model="value2" />
+          <vx-range :min="10" :max="50" v-model="value2" />
         </div>
       </vx-group>
       <vx-group title="disabled">
         <div style="padding:10px">
-          <range v-model="value1" disabled />
+          <vx-range v-model="value1" disabled />
         </div>
       </vx-group>
     </vx-page-body>

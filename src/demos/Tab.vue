@@ -1,7 +1,7 @@
 <template>
   <vx-page type="primary">
     <template v-slot:header>
-      <x-nav title="Tab"></x-nav>
+      <vx-nav title="Tab"></vx-nav>
       <div v-if="slideIn">
         <tab v-model:active="active">
           <tab-item

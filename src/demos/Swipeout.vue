@@ -10,12 +10,12 @@
         :open="index===1"
         @close="handleCloseSwipeout"
         @open="handleOpenSwipeout">
-        <list-item :image="item.src" image-style="width:1rem;">
+        <vx-list-item :image="item.src" image-style="width:1rem;">
           <template>
             <h4 style="margin:0;overflow: hidden;">{{item.name}}(按我向左滑动)</h4>
             <div>{{item.date}}</div>
           </template>
-        </list-item>
+        </vx-list-item>
         <template v-slot:action>
           <button @click="handleAction" style="background:#1AAD19;color:#fff;" type="button">顶置</button>
           <button @click="handleAction" style="background:#ffe26d;color:#fff;" type="button">收藏</button>

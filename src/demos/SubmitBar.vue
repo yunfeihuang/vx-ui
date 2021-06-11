@@ -5,16 +5,16 @@
     </template>
     <vx-page-body></vx-page-body>
     <template v-slot:footer>
-      <submit-bar>
+      <vx-submit-bar>
         <template>
-          <checkbox>同意xxx协议</checkbox>
+          <vx-checkbox>同意xxx协议</vx-checkbox>
         </template>
         <template v-slot:button>
           <vx-button type="primary">提交</vx-button>
         </template>
-      </submit-bar>
+      </vx-submit-bar>
       <br />
-      <submit-bar
+      <vx-submit-bar
         tips="您的收货地址不支持同城送, 我们已为您推荐快递">
         <template>
           总计：<span class="vx-color-error">￥200</span>
@@ -23,20 +23,20 @@
           <vx-button type="warning">提交</vx-button>
           <vx-button type="primary">提交</vx-button>
         </template>
-      </submit-bar>
+      </vx-submit-bar>
       <br />
-      <submit-bar>
+      <vx-submit-bar>
         <template v-slot:button>
           <vx-button>取消</vx-button>
           <vx-button type="primary">提交</vx-button>
         </template>
-      </submit-bar>
+      </vx-submit-bar>
       <br />
-      <submit-bar>
+      <vx-submit-bar>
         <template v-slot:button>
           <vx-button type="primary">提交</vx-button>
         </template>
-      </submit-bar>
+      </vx-submit-bar>
     </template>
   </vx-page>
 </template>

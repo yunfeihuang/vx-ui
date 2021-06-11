@@ -71,6 +71,7 @@ export default {
       } else if (this.type === 'menu') {
         return 'center'
       }
+      return this.type
     }
   },
   methods: {

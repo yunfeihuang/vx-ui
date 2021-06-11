@@ -4,7 +4,7 @@
       <vx-nav title="Search"></vx-nav>
     </template>
     <vx-page-body>
-      <search v-model="value" placeholder="搜索商品/商店/用户"
+      <vx-search v-model="value" placeholder="搜索商品/商店/用户"
         @submit="handleSubmit">
         <template v-slot:keywords="scope">
           <span class="keyword" @click="scope.search('上海')">
@@ -26,9 +26,9 @@
         <template v-slot:result style="text-align:center;padding:15px">
           搜索结果显示
         </template>
-      </search>
+      </vx-search>
       <vx-group title="聚焦不会固定在顶部的">
-        <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
+        <vx-search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></vx-search>
       </vx-group>
     </vx-page-body>
   </vx-page>

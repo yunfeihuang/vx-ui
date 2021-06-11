@@ -23,33 +23,33 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <actionsheet v-model:open="open1" @action="handleAction">
-      <actionsheet-item
+    <vx-actionsheet v-model:open="open1" @action="handleAction">
+      <vx-actionsheet-item
         v-for="item in options"
         :value="item.value"
         :key="item.value"
         :disabled="item.disabled">
         {{item.label}}
-      </actionsheet-item>
-    </actionsheet>
-    <actionsheet v-model:open="open2" cancel @action="handleAction" title="标题文字">
-      <actionsheet-item
+      </vx-actionsheet-item>
+    </vx-actionsheet>
+    <vx-actionsheet v-model:open="open2" cancel @action="handleAction" title="标题文字">
+      <vx-actionsheet-item
         v-for="item in options"
         :value="item.value"
         :key="item.value"
         :disabled="item.disabled">
         {{item.label}}
-      </actionsheet-item>
-    </actionsheet>
-    <actionsheet type="menu" v-model:open="open3" @action="handleAction" >
-      <actionsheet-item
+      </vx-actionsheet-item>
+    </vx-actionsheet>
+    <vx-actionsheet type="menu" v-model:open="open3" @action="handleAction" >
+      <vx-actionsheet-item
         v-for="item in options"
         :value="item.value"
         :key="item.value"
         :disabled="item.disabled">
           {{item.label}}
-      </actionsheet-item>
-    </actionsheet>
+      </vx-actionsheet-item>
+    </vx-actionsheet>
   </vx-page>
 </template>
 

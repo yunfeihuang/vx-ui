@@ -1,3 +1,5 @@
+
+import {Page, PageBody} from './page'
 import Ripple from './ripple'
 import Button from './button'
 import Input from './input'
@@ -35,6 +37,7 @@ import Alert from './alert'
 import Picker from './picker'
 import Popover from './popover'
 import PopupPicker from './popup-picker'
+import {Actionsheet, ActionsheetItem} from './actionsheet'
 import IndexList from './index-list'
 import Sticky from './sticky'
 import Img from './img'
@@ -60,7 +63,7 @@ import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
 /*
 
-import {Actionsheet, ActionsheetItem} from './actionsheet'
+
 // 
 
 
@@ -107,6 +110,8 @@ Date.prototype.format = function (fmt = 'yyyy-MM-dd') { // author: meizz
   return fmt
 }
 let components = [
+  Page,
+  PageBody,
   Ripple,
   Button,
   Input,
@@ -144,6 +149,8 @@ let components = [
   PopupPicker,
   DatetimePicker,
   DaterangePicker,
+  Actionsheet,
+  ActionsheetItem,
   Toast,
   Confirm,
   Prompt,

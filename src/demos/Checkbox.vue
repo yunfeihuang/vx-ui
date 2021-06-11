@@ -5,90 +5,90 @@
     </template>
     <vx-page-body>
       <vx-group title="Checkbox">
-        <checkbox v-model:checked="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
+        <vx-checkbox v-model:checked="checked" style="margin:0 0.15rem">{{checked}}</vx-checkbox>
       </vx-group>
       <vx-group title="Checkbox icon-style='checkbox'">
-        <checkbox v-model:checked="checked" icon-style="checkbox" style="margin:0 0.15rem">{{checked}}</checkbox>
+        <vx-checkbox v-model:checked="checked" icon-style="checkbox" style="margin:0 0.15rem">{{checked}}</vx-checkbox>
       </vx-group>
       <vx-group title="CheckboxGroup">
-        <checkbox-group v-model="value">
-          <checkbox
+        <vx-checkbox-group v-model="value">
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
             :key="item.value"
             >
             {{item.label}}
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
       </vx-group>
       <vx-group title="CheckboxGroup Change Icon style And inline style">
-        <checkbox-group v-model="value" inline style="padding: 15px 10px;">
-          <checkbox
+        <vx-checkbox-group v-model="value" inline style="padding: 15px 10px;">
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
             :key="item.value"
             >
             {{item.label}}
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
       </vx-group>
       <vx-group title="CheckboxGroup-IconPosition">
-        <checkbox-group icon-position="right" v-model="reverseValue">
-          <checkbox
+        <vx-checkbox-group icon-position="right" v-model="reverseValue">
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
             :key="item.value"
             >
             {{item.label}}
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
       </vx-group>
       <vx-group title="CheckboxGroup最多选1个(单选框)">
-        <checkbox-group :max="1" v-model="value2">
-          <checkbox
+        <vx-checkbox-group :max="1" v-model="value2">
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
             :key="item.value"
             >
             {{item.label}}
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
         value：{{value2}}
         </div>
       </vx-group>
       <vx-group title="CheckboxGroup 不限选项">
-        <checkbox-group v-model="value">
-          <checkbox value="" exclusive>不限</checkbox>
-          <checkbox
+        <vx-checkbox-group v-model="value">
+          <vx-checkbox value="" exclusive>不限</vx-checkbox>
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
             :key="item.value"
             >
             {{item.label}}
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
       </vx-group>
       <vx-group title="自定义checkbox样式">
-        <checkbox-group :max="1" v-model="reverseValue" :divider="false">
-          <checkbox
+        <vx-checkbox-group :max="1" v-model="reverseValue" :divider="false">
+          <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"
             :value="item.value"
@@ -99,8 +99,8 @@
                 {{item.label}}
               </span>
             </template>
-          </checkbox>
-        </checkbox-group>
+          </vx-checkbox>
+        </vx-checkbox-group>
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>

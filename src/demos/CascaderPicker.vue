@@ -5,7 +5,7 @@
     </template>
     <vx-page-body>
       <vx-group :title="`级联：${value}`">
-        <cascader-picker v-model="value" :options="options"/>
+        <vx-cascader-picker v-model="value" :options="options"/>
       </vx-group>
     </vx-page-body>
   </vx-page>

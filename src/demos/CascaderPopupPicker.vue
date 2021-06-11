@@ -11,7 +11,7 @@
         </vx-cell>
       </vx-group>
     </vx-page-body>
-    <cascader-popup-picker v-model:open="open" v-model="value" :options="options"/>
+    <vx-cascader-popup-picker v-model:open="open" v-model="value" :options="options"/>
   </vx-page>
 </template>
 

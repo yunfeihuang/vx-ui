@@ -7,7 +7,7 @@
       <vx-group :title="`value:${value}`">
         <vx-cell :arrow="false">
           <template v-slot:title>级联</template>
-          <template v-slot:value><cascader style="margin-right:-0.2rem;" v-model="value" :options="options"/></template>
+          <template v-slot:value><vx-cascader style="margin-right:-0.2rem;" v-model="value" :options="options"/></template>
         </vx-cell>
       </vx-group>
     </vx-page-body>

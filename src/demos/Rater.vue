@@ -7,23 +7,23 @@
       <vx-group>
         <vx-cell :arrow="false">
           <template v-slot:title>评分({{value}})</template>
-          <template v-slot:value><rater v-model="value"/></template>
+          <template v-slot:value><vx-rater v-model="value"/></template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>评分({{value}})</template>
-          <template v-slot:value><rater color="red" v-model="value"/></template>
+          <template v-slot:value><vx-rater color="red" v-model="value"/></template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>喜欢({{value}})</template>
-          <template v-slot:value><rater star="♡" v-model="value"/></template>
+          <template v-slot:value><vx-rater star="♡" v-model="value"/></template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>喜欢({{value}})</template>
-          <template v-slot:value><rater star="♡" color="red" v-model="value"/></template>
+          <template v-slot:value><vx-rater star="♡" color="red" v-model="value"/></template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>滑块控制</template>
-          <template v-slot:value><range style="width:4rem" v-model="value" :max="5"/></template>
+          <template v-slot:value><vx-range style="width:4rem" v-model="value" :max="5"/></template>
         </vx-cell>
       </vx-group>
     </vx-page-body>

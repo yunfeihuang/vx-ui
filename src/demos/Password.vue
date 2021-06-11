@@ -5,14 +5,14 @@
     </template>
     <vx-page-body>
       <vx-group title="default">
-        <password
+        <vx-password
           placeholder="请输入密码"
           v-model="value"
           v-model:cipher="cipher"
           :encrypt="encrypt"/>
       </vx-group>
       <vx-group title="初始明文">
-        <password
+        <vx-password
           placeholder="请输入密码"
           v-model="value"
           native-type="text"

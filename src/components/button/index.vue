@@ -2,6 +2,7 @@
   <button :class="classes" :type="nativeType" :disabled="disabled">
     <spinner v-if="loading && !disabled" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
+    <ripple v-if="ripple" :color="rippleColor" />
     <slot name="upload"></slot>
   </button>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import { button } from '@/utils/mixins'
 import Spinner from '../spinner'
+import Ripple from '../ripple'
 
 export default {
   name: 'VxButton',
   components: {
-    Spinner
+    Spinner,
+    Ripple
   },
   mixins: [button],
   props: {

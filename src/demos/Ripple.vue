@@ -8,11 +8,11 @@
         <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
         </ripple>
-        <divider></divider>
+        <vx-divider></vx-divider>
         <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
         </ripple>
-        <divider></divider>
+        <vx-divider></vx-divider>
         <ripple color="rgba(255,0,0,0.1)" style="padding:0.3rem 0.2rem">
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>

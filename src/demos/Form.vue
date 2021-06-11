@@ -16,12 +16,12 @@
           {required: true, message: '密码不能为空'},
           {min: 6, message: '密码不能小于6字符'}
           ]">
-          <password v-model="form.password" placeholder="请输入密码"/>
+          <vx-password v-model="form.password" placeholder="请输入密码"/>
         </el-form-item>
         <el-form-item label="金额：" prop="inputNumber" :rules="[
           {min: 10, type: 'number', message: '金额不能小于10'}
           ]">
-          <input-number v-model="form.inputNumber" placeholder="请输入金额"/>
+          <vx-input-number v-model="form.inputNumber" placeholder="请输入金额"/>
         </el-form-item>
         <el-form-item label="手机号码：" prop="mobile" :rules="[
           {required: true, message: '手机号码不能为空'},
@@ -38,44 +38,44 @@
         <el-form-item label="兴趣爱好：" prop="hobby" :rules="[
           {required: true, message: '兴趣爱好不能为空'}
           ]">
-          <x-select v-model="form.hobby">
-            <x-option value="1">篮球</x-option>
-            <x-option value="2">足球</x-option>
-            <x-option value="3">羽毛球</x-option>
-          </x-select>
-          <divider/>
+          <vx-select v-model="form.hobby">
+            <vx-option value="1">篮球</vx-option>
+            <vx-option value="2">足球</vx-option>
+            <vx-option value="3">羽毛球</vx-option>
+          </vx-select>
+          <vx-divider/>
         </el-form-item>
          <el-form-item label="出生日期：" prop="datetime" :rules="[
           {required: true, message: '出生日期不能为空'}
           ]">
-          <datetime v-model="form.datetime"/>
+          <vx-datetime v-model="form.datetime"/>
         </el-form-item>
         <el-form-item label="日期区间：" prop="daterange" :rules="[
           {required: true, message: '日期区间不能为空'}
           ]">
-          <daterange v-model="form.daterange"/>
+          <vx-daterange v-model="form.daterange"/>
         </el-form-item>
         <el-form-item label="级联：" prop="cascader" :rules="[
           {required: true, message: '级联不能为空'}
           ]">
-          <cascader v-model="form.cascader" :options="options1"/>
-          <divider/>
+          <vx-cascader v-model="form.cascader" :options="options1"/>
+          <vx-divider/>
         </el-form-item>
         <el-form-item label="人个介绍：" prop="textarea" :rules="[
           {required: true, message: '人个介绍不能为空'}
           ]">
-          <x-textarea v-model="form.textarea" placeholder="请输入消息内容" enter-number :maxlength="100"/>
+          <vx-textarea v-model="form.textarea" placeholder="请输入消息内容" enter-number :maxlength="100"/>
         </el-form-item>
         <el-form-item label="自我评分：" prop="rater" :rules="[
           {required: true, message: '自我评分不能为空'}
           ]">
-          <rater v-model="form.rater"/>
+          <vx-rater v-model="form.rater"/>
         </el-form-item>
         <el-form-item label="年龄：" prop="range" :rules="[
           {required: true, message: '年龄不能为空'}
           ]">
           <div style="padding-right:0.26rem">
-            <range v-model="form.range"/>
+            <vx-range v-model="form.range"/>
           </div>
         </el-form-item>
         <el-form-item label="开启消息醒：">
@@ -84,30 +84,30 @@
         <el-form-item block label="兴趣1：" prop="checkboxHobby" :rules="[
           {required: true, message: '兴趣1不能为空'}
           ]">
-          <checkbox-group v-model="form.checkboxHobby">
-            <checkbox
+          <vx-checkbox-group v-model="form.checkboxHobby">
+            <vx-checkbox
               v-for="item in options"
               :disabled="item.disabled"
               :value="item.value"
               :key="item.value"
               >
               {{item.label}}
-            </checkbox>
-          </checkbox-group>
+            </vx-checkbox>
+          </vx-checkbox-group>
         </el-form-item>
         <el-form-item block label="兴趣2：" prop="radioHobby" :rules="[
           {required: true, message: '兴趣2不能为空'}
           ]">
-          <radio-group v-model="form.radioHobby">
-            <radio
+          <vx-radio-group v-model="form.radioHobby">
+            <vx-radio
               v-for="item in options"
               :disabled="item.disabled"
               :key="item.value"
               :value="item.value"
               >
                 {{item.label}}
-            </radio>
-          </radio-group>
+            </vx-radio>
+          </vx-radio-group>
         </el-form-item>
         <div style="margin:20px 10px;">
           <vx-button type="primary" native-type="submit" size="large">保存</vx-button>

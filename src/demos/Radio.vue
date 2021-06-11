@@ -5,21 +5,21 @@
     </template>
     <vx-page-body>
       <vx-group title="Radio" class="radio-wrapper">
-        <radio name="radio1">篮球</radio>
-        <divider></divider>
-        <radio name="radio1">羽毛球</radio>
+        <vx-radio name="radio1">篮球</vx-radio>
+        <vx-divider></vx-divider>
+        <vx-radio name="radio1">羽毛球</vx-radio>
       </vx-group>
       <vx-group title="RadioGroup">
-        <radio-group v-model="value">
-          <radio
+        <vx-radio-group v-model="value">
+          <vx-radio
             v-for="item in options"
             :disabled="item.disabled"
             :key="item.value"
             :value="item.value"
             >
               {{item.label}}
-          </radio>
-        </radio-group>
+          </vx-radio>
+        </vx-radio-group>
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>

@@ -4,19 +4,19 @@
       <vx-nav title="ListView (pulldown and pullup)"></vx-nav>
     </template>
     <vx-page-body  :scroll="false" v-if="slideIn">
-      <list-view
+      <vx-list-view
         style="height:100%;position: absolute;width: 100%;"
         :loading="loading"
         :end="end"
         @pullup="handlePullup"
         @pulldown="handlePulldown">
-        <list-item v-for="(item,index) in list" :key="index" divider :image="item.src" image-style="width:1rem;">
+        <vx-list-item v-for="(item,index) in list" :key="index" divider :image="item.src" image-style="width:1rem;">
           <template>
             <h4 style="margin:0;overflow: hidden;">{{item.name}}</h4>
             <div>{{item.date}}</div>
           </template>
-        </list-item>
-      </list-view>
+        </vx-list-item>
+      </vx-list-view>
     </vx-page-body>
   </vx-page>
 </template>

@@ -1,13 +1,13 @@
 <template>
   <vx-page>
     <template v-slot:header>
-      <x-nav title="Nav">
+      <vx-nav title="Nav">
         <template v-slot:append>
           <button class="vx-nav--button">登录</button>
         </template>
-      </x-nav>
+      </vx-nav>
       <br />
-      <x-nav title-center title="Nav">
+      <vx-nav title-center title="Nav">
         <template v-slot:prepend>
           <button class="vx-nav--button">注册</button>
         </template>
@@ -15,15 +15,15 @@
           <button class="vx-nav--button">注册</button>
           <button class="vx-nav--button">登录</button>
         </template>
-      </x-nav>
+      </vx-nav>
       <br />
-      <x-nav title-center title="Nav" type="primary">
+      <vx-nav title-center title="Nav" type="primary">
         <template v-slot:append>
           <button class="vx-nav--button">登录</button>
         </template>
-      </x-nav>
+      </vx-nav>
       <br />
-      <x-nav
+      <vx-nav
         title-center
         type="primary"
         title="含搜索框的Nav"
@@ -37,7 +37,7 @@
         <tab v-model:active="active" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>
         </tab>
-      </x-nav>
+      </vx-nav>
     </template>
     <vx-page-body  @scroll="handleScroll">
       <vx-cell v-for="(item,index) in 20" :key="index" title="github" value="Start me">

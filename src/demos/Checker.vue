@@ -6,73 +6,73 @@
     <vx-page-body>
       <vx-group title="Checker 多选">
         <div style="padding:20px 10px">
-          <checker-group v-model="checkboxValue">
-            <checker
+          <vx-checker-group v-model="checkboxValue">
+            <vx-checker
               v-for="item in options.slice(0, more ? 2 : options.length)"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value"
               >
               {{item.label}}
-            </checker><checker fake @click="more=!more">{{more ? '更多↓' : '收起 ↑'}}</checker>
-          </checker-group>
+            </vx-checker><vx-checker fake @click="more=!more">{{more ? '更多↓' : '收起 ↑'}}</vx-checker>
+          </vx-checker-group>
           <br />
           value：{{checkboxValue}}
         </div>
       </vx-group>
       <vx-group title="Checker 最多选2个">
         <div style="padding:20px 10px">
-          <checker-group :max="2" v-model="checkboxValue" icon block>
-            <checker
+          <vx-checker-group :max="2" v-model="checkboxValue" icon block>
+            <vx-checker
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value"
               >
               {{item.label}}
-            </checker>
-          </checker-group>
+            </vx-checker>
+          </vx-checker-group>
           <br />
           value：{{checkboxValue}}
         </div>
       </vx-group>
       <vx-group title="Checker 单选">
         <div style="padding:20px 10px">
-          <checker-group :max="1" v-model="radioValue">
-            <checker
+          <vx-checker-group :max="1" v-model="radioValue">
+            <vx-checker
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value"
               >
               {{item.label}}
-            </checker>
-          </checker-group>
+            </vx-checker>
+          </vx-checker-group>
           <br />
           value：{{radioValue}}
         </div>
       </vx-group>
       <vx-group title="Checker 不限选项">
         <div style="padding:20px 10px">
-          <checker-group v-model="checkboxValue">
-            <checker value="" exclusive>不限</checker>
-            <checker
+          <vx-checker-group v-model="checkboxValue">
+            <vx-checker value="" exclusive>不限</vx-checker>
+            <vx-checker
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
               :key="item.value"
               >
               {{item.label}}
-            </checker>
-          </checker-group>
+            </vx-checker>
+          </vx-checker-group>
           <br />
           value：{{checkboxValue}}
         </div>
       </vx-group>
       <vx-group title="自定义checker样式">
         <div style="padding:0.2rem">
-          <checker-group :max="1" v-model="checkboxValue">
-            <checker
+          <vx-checker-group :max="1" v-model="checkboxValue">
+            <vx-checker
                v-for="item in options"
               :disabled="item.disabled"
               :value="item.value"
@@ -83,8 +83,8 @@
                   {{item.label}}
                 </span>
               </template>
-            </checker>
-          </checker-group>
+            </vx-checker>
+          </vx-checker-group>
           value：{{checkboxValue}}
         </div>
       </vx-group>

@@ -20,12 +20,12 @@
         <dropdown-menu-item ref="custom" popup-class="custom-class" label="自定义">
           <div>
             <div style="padding:0.4rem;text-align:center">自定义弹框</div>
-            <submit-bar>
+            <vx-submit-bar>
               <template v-slot:button>
                 <vx-button @click="handleClose">取消</vx-button>
                 <vx-button type="primary" @click="handleClose">确定</vx-button>
               </template>
-            </submit-bar>
+            </vx-submit-bar>
           </div>
         </dropdown-menu-item>
       </dropdown-menu>

@@ -1,23 +1,4 @@
 <template>
-    <vx-checker-group v-model="values">
-      <vx-checker v-for="item in 10" :key="item" :value="item">
-        test{{item}}
-      </vx-checker>
-    </vx-checker-group>
-    {{values}}
-    <vx-radio-group v-model="value">
-      <vx-radio v-for="item in 10" :key="item" :value="item">
-        test{{item}}
-      </vx-radio>
-    </vx-radio-group>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <vx-input v-model="value" @input="handleInput"></vx-input>
-    <vx-switch v-model="on"></vx-switch>{{on}}
-    {{value}}
-    
-  </div>
   <router-view/>
 </template>
 <script>
@@ -38,6 +19,9 @@
 </script>
 
 <style>
+body{
+  margin:0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

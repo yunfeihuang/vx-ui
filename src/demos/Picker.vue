@@ -4,7 +4,7 @@
       <vx-nav title="Picker"></vx-nav>
     </template>
     <vx-page-body>
-      <message type="warning">注意：此示例要在移动设备体验哦~</message>
+      <vx-message type="warning">注意：此示例要在移动设备体验哦~</vx-message>
       <vx-group :title="'value：'+value">
         <picker placeholder="请选择" v-model="value" :options="options"></picker>
       </vx-group>
