@@ -4,7 +4,7 @@
       <vx-nav title="Sticky-往上滚动Tab栏会固定位置"></vx-nav>
     </template>
     <vx-page-body  v-if="slideIn">
-      <x-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px;width:100%"/>
+      <vx-img src="http://assets.bittyos.com/images/swiper/01.jpg" style="min-height:100px;width:100%"/>
       <sticky>
         <tab v-model:active="active" :underline-width="10">
           <tab-item v-for="item in tabs" :name="item.name" :key="item.key">{{item.label}}</tab-item>

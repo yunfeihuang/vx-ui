@@ -4,8 +4,8 @@
       <vx-nav title="Select"></vx-nav>
     </template>
     <vx-page-body>
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>下拉框({{label}})</template>
           <template v-slot:value>
           <x-select
@@ -22,8 +22,8 @@
             </x-option>
           </x-select>
           </template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>下拉框option含html并且打开框不产生浏览器地址历史记录</template>
           <template v-slot:value>
           <x-select
@@ -41,8 +41,8 @@
             </x-option>
           </x-select>
           </template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>下拉框(多选)</template>
           <template v-slot:value>
           <x-select
@@ -58,8 +58,8 @@
             </x-option>
           </x-select>
           </template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>下拉框(最多选2个)</template>
           <template v-slot:value>
           <x-select
@@ -75,8 +75,8 @@
             </x-option>
           </x-select>
           </template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>下拉框(不限选项)</template>
           <template v-slot:value>
           <x-select
@@ -93,8 +93,8 @@
             </x-option>
           </x-select>
           </template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

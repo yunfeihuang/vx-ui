@@ -4,12 +4,12 @@
       <vx-nav title="Cascader"></vx-nav>
     </template>
     <vx-page-body>
-      <group :title="`value:${value}`">
-        <cell :arrow="false">
+      <vx-group :title="`value:${value}`">
+        <vx-cell :arrow="false">
           <template v-slot:title>级联</template>
           <template v-slot:value><cascader style="margin-right:-0.2rem;" v-model="value" :options="options"/></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

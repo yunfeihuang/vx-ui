@@ -5,21 +5,21 @@
     </template>
     <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
-      <group title="default">
+      <vx-group title="default">
         <datetime v-model="date" placeholder="请输入年月日"/>
-      </group>
-      <group title="年月">
+      </vx-group>
+      <vx-group title="年月">
         <datetime v-model="date2" format="yyyy-MM" placeholder="请输入年月" />
-      </group>
-      <group title="年份">
+      </vx-group>
+      <vx-group title="年份">
         <datetime v-model="date3" format="yyyy" placeholder="请输入年份" />
-      </group>
-      <group title="时分秒">
+      </vx-group>
+      <vx-group title="时分秒">
         <datetime format="HH:mm:ss" v-model="time" placeholder="请输入时间"/>
-      </group>
-      <group title="时分">
+      </vx-group>
+      <vx-group title="时分">
         <datetime format="HH:mm" v-model="time2" placeholder="请输入时间"/>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

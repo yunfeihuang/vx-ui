@@ -4,14 +4,14 @@
       <vx-nav title="ListItem"></vx-nav>
     </template>
     <vx-page-body>
-      <group title="default">
+      <vx-group title="default">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>
         </list-item>
-      </group>
-      <group title="arrow">
+      </vx-group>
+      <vx-group title="arrow">
         <list-item
           arrow
           image-style="width:24vw"
@@ -19,8 +19,8 @@
           <b>标题</b>
           <div>内容....</div>
         </list-item>
-      </group>
-      <group title="slot prepend&append">
+      </vx-group>
+      <vx-group title="slot prepend&append">
         <list-item
           arrow
           image-style="width:24vw"
@@ -30,8 +30,8 @@
           <template v-slot:prepend>prepend</template>
           <template v-slot:append>append</template>
         </list-item>
-      </group>
-      <group title="slot checkbox && action">
+      </vx-group>
+      <vx-group title="slot checkbox && action">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <template v-slot:checkbox><checkbox></checkbox></template>
@@ -39,8 +39,8 @@
           <div>内容....</div>
           <template v-slot:action><vx-button type="primary" size="small">选中</vx-button></template>
         </list-item>
-      </group>
-      <group title="slot append-action">
+      </vx-group>
+      <vx-group title="slot append-action">
         <list-item
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
@@ -50,8 +50,8 @@
             <vx-button type="primary" size="small">删除</vx-button>
           </template>
         </list-item>
-      </group>
-      <group title="divider">
+      </vx-group>
+      <vx-group title="divider">
         <list-item
           v-for="(item,index) in 3"
           divider
@@ -60,8 +60,8 @@
           <b>标题</b>
           <div>内容....</div>
         </list-item>
-      </group>
-      <group title="half-divider">
+      </vx-group>
+      <vx-group title="half-divider">
         <list-item
           v-for="(item,index) in 3"
           half-divider
@@ -70,7 +70,7 @@
           <b>标题</b>
           <div>内容....</div>
         </list-item>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

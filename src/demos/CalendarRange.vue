@@ -4,9 +4,9 @@
       <vx-nav title="CalendarRange"></vx-nav>
     </template>
     <vx-page-body>
-      <group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
+      <vx-group :title="`日期区间选择器：${value.map(item => item.toLocaleDateString ? item.toLocaleDateString(): item)}`">
         <calendar-range v-model="value"/>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

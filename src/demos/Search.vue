@@ -27,9 +27,9 @@
           搜索结果显示
         </template>
       </search>
-      <group title="聚焦不会固定在顶部的">
+      <vx-group title="聚焦不会固定在顶部的">
         <search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></search>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

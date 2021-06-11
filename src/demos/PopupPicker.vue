@@ -5,16 +5,16 @@
     </template>
     <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>地区 picker：{{value}}</template>
           <template v-slot:value><vx-switch v-model="open"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>地址级联 picker：{{value2}}</template>
           <template v-slot:value><vx-switch v-model="open2"/></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
     <popup-picker
       v-model:open="open"

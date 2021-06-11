@@ -4,36 +4,36 @@
       <vx-nav title="Toast"></vx-nav>
     </template>
     <vx-page-body>
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Top</template>
           <template v-slot:value><vx-switch v-model="topOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Center Success</template>
           <template v-slot:value><vx-switch v-model="centerOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Center Error</template>
           <template v-slot:value><vx-switch v-model="errorOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Center Warn</template>
           <template v-slot:value><vx-switch v-model="warnOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Center Loading</template>
           <template v-slot:value><vx-switch v-model="loadingOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>Toast Bottom</template>
           <template v-slot:value><vx-switch v-model="bottomOpen"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>js调用</template>
           <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
     <toast v-model:open="topOpen">{{message}}</toast>
     <toast v-model:open="centerOpen" type="success" align="center">{{message}}</toast>

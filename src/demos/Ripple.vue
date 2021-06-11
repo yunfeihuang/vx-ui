@@ -4,7 +4,7 @@
       <vx-nav title="Ripple"></vx-nav>
     </template>
     <vx-page-body>
-      <group>
+      <vx-group>
         <ripple style="padding:0.3rem 0.2rem">
           点击我会出现波纹
         </ripple>
@@ -16,7 +16,7 @@
         <ripple color="rgba(255,0,0,0.1)" style="padding:0.3rem 0.2rem">
           自定义颜色(prop color:rgba(255,0,0,0.1))
         </ripple>
-      </group>
+      </vx-group>
     </vx-page-body>
     <template v-slot:footer>
       <div style="text-align:center;padding:10px">

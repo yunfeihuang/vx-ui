@@ -4,9 +4,9 @@
       <vx-nav title="CascaderPicker"></vx-nav>
     </template>
     <vx-page-body>
-      <group :title="`级联：${value}`">
+      <vx-group :title="`级联：${value}`">
         <cascader-picker v-model="value" :options="options"/>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

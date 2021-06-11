@@ -4,12 +4,12 @@
       <vx-nav title="Radio"></vx-nav>
     </template>
     <vx-page-body>
-      <group title="Radio" class="radio-wrapper">
+      <vx-group title="Radio" class="radio-wrapper">
         <radio name="radio1">篮球</radio>
         <divider></divider>
         <radio name="radio1">羽毛球</radio>
-      </group>
-      <group title="RadioGroup">
+      </vx-group>
+      <vx-group title="RadioGroup">
         <radio-group v-model="value">
           <radio
             v-for="item in options"
@@ -23,7 +23,7 @@
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

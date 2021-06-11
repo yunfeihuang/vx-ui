@@ -4,24 +4,24 @@
       <vx-nav title="Switch"></vx-nav>
     </template>
     <vx-page-body>
-      <group title="default">
-        <cell :arrow="false">
+      <vx-group title="default">
+        <vx-cell :arrow="false">
           <template v-slot:title>开关（{{checked}}）</template>
           <template v-slot:value><vx-switch v-model="checked"/></template>
-        </cell>
-      </group>
-      <group title="small">
-        <cell :arrow="false">
+        </vx-cell>
+      </vx-group>
+      <vx-group title="small">
+        <vx-cell :arrow="false">
           <template v-slot:title>开关（{{checked}}）</template>
           <template v-slot:value><vx-switch size="small" v-model="checked"/></template>
-        </cell>
-      </group>
-      <group title="offValue:0,onValue:1">
-        <cell :arrow="false">
+        </vx-cell>
+      </vx-group>
+      <vx-group title="offValue:0,onValue:1">
+        <vx-cell :arrow="false">
           <template v-slot:title>开关（{{value}}）</template>
           <template v-slot:value><vx-switch v-model="value" on-value="1" off-value="0" /></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

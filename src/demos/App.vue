@@ -6,92 +6,92 @@
       </template>
       <vx-page-body class="demos" >
         <div style="text-align:center">
-          <flexbox class="friend-link">
-            <flexbox-item>
+          <vx-flexbox class="friend-link">
+            <vx-flexbox-item>
               <a target="_blank" href="https://github.com/yunfeihuang/vx-ui">
-                <x-img class="friend-link-img" :src="'./static/images/github.png'"/>
+                <vx-img class="friend-link-img" :src="'./static/images/github.png'"/>
                 <br/>
                 star me
               </a>
-            </flexbox-item>
-            <flexbox-item>
+            </vx-flexbox-item>
+            <vx-flexbox-item>
               <a target="_blank" href="http://vx.bittyos.com/react/">
-                <x-img class="friend-link-img" :src="'./static/images/react.png'"/>
+                <vx-img class="friend-link-img" :src="'./static/images/react.png'"/>
                 <br/>
                 react版本
               </a>
-            </flexbox-item>
-          </flexbox>
+            </vx-flexbox-item>
+          </vx-flexbox>
         </div>
-        <group title="basic">
-          <cell title="Theme" to="/demos/theme"></cell>
-          <cell title="Button" to="/demos/button"></cell>
-          <cell title="Page" to="/demos/page"></cell>
-          <cell title="Flexbox" to="/demos/flexbox"></cell>
-          <cell title="Nav" to="/demos/nav"></cell>
-          <cell title="Heading" to="/demos/heading"></cell>
-          <cell title="Group" to="/demos/group"></cell>
-          <cell title="Grid" to="/demos/grid"></cell>
-          <cell title="Cell" to="/demos/cell"></cell>
-          <cell title="ListItem" to="/demos/listitem"></cell>
-          <cell title="SubmitBar" to="/demos/submitbar"></cell>
-          <cell title="Divider" to="/demos/divider"></cell>
-          <cell title="Message" to="/demos/message"></cell>
-        </group>
-        <group title="form表单">
-          <cell title="Input" to="/demos/input"></cell>
-          <cell title="Textarea" to="/demos/textarea"></cell>
-          <cell title="Password" to="/demos/password"></cell>
-          <cell title="InputNumber" to="/demos/inputnumber"></cell>
-          <cell title="Select" to="/demos/select"></cell>
-          <cell title="Switch" to="/demos/switch"></cell>
-          <cell title="Radio" to="/demos/radio"></cell>
-          <cell title="Checkbox" to="/demos/checkbox"></cell>
-          <cell title="Checker" to="/demos/checker"></cell>
-          <cell title="Range" to="/demos/range"></cell>
-          <cell title="Datetime" to="/demos/datetime"></cell>
-          <cell title="Daterange" to="/demos/daterange"></cell>
-          <cell title="Cascader" to="/demos/cascader"></cell>
-          <cell title="Rater" to="/demos/rater"></cell>
-          <cell title="Search" to="/demos/search"></cell>
-          <cell title="Form" to="/demos/form"></cell>
-        </group>
-        <group title="对话弹框">
-          <cell title="Actionsheet" to="/demos/actionsheet"></cell>
-          <cell title="Alert" to="/demos/alert"></cell>
-          <cell title="Confirm" to="/demos/confirm"></cell>
-          <cell title="Prompt" to="/demos/prompt"></cell>
-          <cell title="Popover" to="/demos/popover"></cell>
-          <cell title="Toast" to="/demos/toast"></cell>
-          <cell title="Popup" to="/demos/Popup"></cell>
-          <cell title="PopupPicker" to="/demos/popuppicker"></cell>
-          <cell title="DropdownMenu" to="/demos/dropdownmenu"></cell>
-        </group>
-        <group title="选项卡">
-          <cell title="Tab" to="/demos/tab"></cell>
-          <cell title="Tabbar" to="/demos/tabbar"></cell>
-          <cell title="Sidebar" to="/demos/sidebar"></cell>
-          <cell title="ButtonTab" to="/demos/ButtonTab"></cell>
-        </group>
-        <group title="图片">
-          <cell title="Img" to="/demos/img"></cell>
-          <cell title="Swiper" to="/demos/swiper"></cell>
-          <cell title="Preview" to="/demos/preview"></cell>
-        </group>
-        <group title="其他">
-          <cell title="Badge" to="/demos/badge"></cell>
-          <cell title="Accordion" to="/demos/accordion"></cell>
-          <cell title="Calendar" to="/demos/calendar"></cell>
-          <cell title="CalendarRange" to="/demos/calendarrange"></cell>
-          <cell title="Picker" to="/demos/picker"></cell>
-          <cell title="CascaderPicker" to="/demos/cascaderpicker"></cell>
-          <cell title="Ripple" to="/demos/ripple"></cell>
-          <cell title="ListView" to="/demos/listview"></cell>
-          <cell title="Sticky" to="/demos/sticky"></cell>
-          <cell title="Swipeout" to="/demos/swipeout"></cell>
-          <cell title="Spinner" to="/demos/spinner"></cell>
-          <cell title="IndexList" to="/demos/indexlist"></cell>
-        </group>
+        <vx-group title="basic">
+          <vx-cell title="Theme" to="/demos/theme"></vx-cell>
+          <vx-cell title="Button" to="/demos/button"></vx-cell>
+          <vx-cell title="Page" to="/demos/page"></vx-cell>
+          <vx-cell title="Flexbox" to="/demos/flexbox"></vx-cell>
+          <vx-cell title="Nav" to="/demos/nav"></vx-cell>
+          <vx-cell title="Heading" to="/demos/heading"></vx-cell>
+          <vx-cell title="Group" to="/demos/group"></vx-cell>
+          <vx-cell title="Grid" to="/demos/grid"></vx-cell>
+          <vx-cell title="Cell" to="/demos/cell"></vx-cell>
+          <vx-cell title="ListItem" to="/demos/listitem"></vx-cell>
+          <vx-cell title="SubmitBar" to="/demos/submitbar"></vx-cell>
+          <vx-cell title="Divider" to="/demos/divider"></vx-cell>
+          <vx-cell title="Message" to="/demos/message"></vx-cell>
+        </vx-group>
+        <vx-group title="form表单">
+          <vx-cell title="Input" to="/demos/input"></vx-cell>
+          <vx-cell title="Textarea" to="/demos/textarea"></vx-cell>
+          <vx-cell title="Password" to="/demos/password"></vx-cell>
+          <vx-cell title="InputNumber" to="/demos/inputnumber"></vx-cell>
+          <vx-cell title="Select" to="/demos/select"></vx-cell>
+          <vx-cell title="Switch" to="/demos/switch"></vx-cell>
+          <vx-cell title="Radio" to="/demos/radio"></vx-cell>
+          <vx-cell title="Checkbox" to="/demos/checkbox"></vx-cell>
+          <vx-cell title="Checker" to="/demos/checker"></vx-cell>
+          <vx-cell title="Range" to="/demos/range"></vx-cell>
+          <vx-cell title="Datetime" to="/demos/datetime"></vx-cell>
+          <vx-cell title="Daterange" to="/demos/daterange"></vx-cell>
+          <vx-cell title="Cascader" to="/demos/cascader"></vx-cell>
+          <vx-cell title="Rater" to="/demos/rater"></vx-cell>
+          <vx-cell title="Search" to="/demos/search"></vx-cell>
+          <vx-cell title="Form" to="/demos/form"></vx-cell>
+        </vx-group>
+        <vx-group title="对话弹框">
+          <vx-cell title="Actionsheet" to="/demos/actionsheet"></vx-cell>
+          <vx-cell title="Alert" to="/demos/alert"></vx-cell>
+          <vx-cell title="Confirm" to="/demos/confirm"></vx-cell>
+          <vx-cell title="Prompt" to="/demos/prompt"></vx-cell>
+          <vx-cell title="Popover" to="/demos/popover"></vx-cell>
+          <vx-cell title="Toast" to="/demos/toast"></vx-cell>
+          <vx-cell title="Popup" to="/demos/Popup"></vx-cell>
+          <vx-cell title="PopupPicker" to="/demos/popuppicker"></vx-cell>
+          <vx-cell title="DropdownMenu" to="/demos/dropdownmenu"></vx-cell>
+        </vx-group>
+        <vx-group title="选项卡">
+          <vx-cell title="Tab" to="/demos/tab"></vx-cell>
+          <vx-cell title="Tabbar" to="/demos/tabbar"></vx-cell>
+          <vx-cell title="Sidebar" to="/demos/sidebar"></vx-cell>
+          <vx-cell title="ButtonTab" to="/demos/ButtonTab"></vx-cell>
+        </vx-group>
+        <vx-group title="图片">
+          <vx-cell title="Img" to="/demos/img"></vx-cell>
+          <vx-cell title="Swiper" to="/demos/swiper"></vx-cell>
+          <vx-cell title="Preview" to="/demos/preview"></vx-cell>
+        </vx-group>
+        <vx-group title="其他">
+          <vx-cell title="Badge" to="/demos/badge"></vx-cell>
+          <vx-cell title="Accordion" to="/demos/accordion"></vx-cell>
+          <vx-cell title="Calendar" to="/demos/calendar"></vx-cell>
+          <vx-cell title="CalendarRange" to="/demos/calendarrange"></vx-cell>
+          <vx-cell title="Picker" to="/demos/picker"></vx-cell>
+          <vx-cell title="CascaderPicker" to="/demos/cascaderpicker"></vx-cell>
+          <vx-cell title="Ripple" to="/demos/ripple"></vx-cell>
+          <vx-cell title="ListView" to="/demos/listview"></vx-cell>
+          <vx-cell title="Sticky" to="/demos/sticky"></vx-cell>
+          <vx-cell title="Swipeout" to="/demos/swipeout"></vx-cell>
+          <vx-cell title="Spinner" to="/demos/spinner"></vx-cell>
+          <vx-cell title="IndexList" to="/demos/indexlist"></vx-cell>
+        </vx-group>
       </vx-page-body>
     </vx-page>
     <router-view></router-view>

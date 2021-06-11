@@ -5,9 +5,9 @@
     </template>
     <vx-page-body>
       <message type="warning">注意：此示例要在移动设备体验哦~</message>
-      <group :title="'value：'+value">
+      <vx-group :title="'value：'+value">
         <picker placeholder="请选择" v-model="value" :options="options"></picker>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

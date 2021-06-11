@@ -4,64 +4,64 @@
       <vx-nav title="Theme"></vx-nav>
     </template>
     <vx-page-body  class="theme">
-      <group title="颜色">
-        <cell :arrow="false" title="字体色">
+      <vx-group title="颜色">
+        <vx-cell :arrow="false" title="字体色">
           <template v-slot:value><color-picker v-model="variable['color-black']"/></template>
-        </cell>
-        <cell :arrow="false" title="字体辅助色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="字体辅助色">
           <template v-slot:value><color-picker v-model="variable['color-assist']"/></template>
-        </cell>
-        <cell :arrow="false" title="字体辅助淡色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="字体辅助淡色">
           <template v-slot:value><color-picker v-model="variable['color-light']"/></template>
-        </cell>
-        <cell :arrow="false" title="边框色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="边框色">
           <template v-slot:value><color-picker v-model="variable['color-border']"/></template>
-        </cell>
-        <cell :arrow="false" title="分割线色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="分割线色">
           <template v-slot:value><color-picker v-model="variable['color-divider']"/></template>
-        </cell>
-        <cell :arrow="false" title="背景色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="背景色">
           <template v-slot:value><color-picker v-model="variable['color-background']"/></template>
-        </cell>
-        <cell :arrow="false" title="active伪类背景色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="active伪类背景色">
           <template v-slot:value><color-picker v-model="variable['color-touch-active']"/></template>
-        </cell>
-        <cell :arrow="false" title="主题色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="主题色">
           <template v-slot:value><color-picker v-model="variable['color-primary']"/></template>
-        </cell>
-        <cell :arrow="false" title="警告色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="警告色">
           <template v-slot:value><color-picker v-model="variable['color-warning']"/></template>
-        </cell>
-        <cell :arrow="false" title="危险色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="危险色">
           <template v-slot:value><color-picker v-model="variable['color-danger']"/></template>
-        </cell>
-        <cell :arrow="false" title="错误色">
+        </vx-cell>
+        <vx-cell :arrow="false" title="错误色">
           <template v-slot:value><color-picker v-model="variable['color-error']"/></template>
-        </cell>
-      </group>
-      <group title="尺寸大小">
-        <cell :arrow="false" title="字体">
+        </vx-cell>
+      </vx-group>
+      <vx-group title="尺寸大小">
+        <vx-cell :arrow="false" title="字体">
           <template v-slot:value><range v-model="variable['font-size-default']" :step="0.01" :min="0.2" :max="0.4"/></template>
-        </cell>
-        <cell :arrow="false" title="边框圆角">
+        </vx-cell>
+        <vx-cell :arrow="false" title="边框圆角">
           <template v-slot:value><range v-model="variable['border-radius']" :step="0.01" :min="0" :max="1"/></template>
-        </cell>
+        </vx-cell>
         <!--
-        <cell :arrow="false" title="控件高度">
+        <vx-cell :arrow="false" title="控件高度">
           <range v-model="variable['box-size-height-default']" :step="0.01" :min="0.5" :max="1.8"/></template>
-        </cell>
+        </vx-cell>
         -->
-      </group>
-      <group title="主题相关的类">
+      </vx-group>
+      <vx-group title="主题相关的类">
         <div style="padding:0.2rem;line-height:1.4">
           <div v-for="(item,index) in themeClasses" :key="index">
             {{item}}
           </div>
         </div>
-      </group>
-      <group v-if="variableHTML" title="生成的css variables代码">
+      </vx-group>
+      <vx-group v-if="variableHTML" title="生成的css variables代码">
         <pre v-html="variableHTML"></pre>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

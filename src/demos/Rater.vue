@@ -4,28 +4,28 @@
       <vx-nav title="Rater"></vx-nav>
     </template>
     <vx-page-body class="demos" >
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>评分({{value}})</template>
           <template v-slot:value><rater v-model="value"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>评分({{value}})</template>
           <template v-slot:value><rater color="red" v-model="value"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>喜欢({{value}})</template>
           <template v-slot:value><rater star="♡" v-model="value"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>喜欢({{value}})</template>
           <template v-slot:value><rater star="♡" color="red" v-model="value"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>滑块控制</template>
           <template v-slot:value><range style="width:4rem" v-model="value" :max="5"/></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

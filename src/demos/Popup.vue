@@ -4,95 +4,95 @@
       <vx-nav title="Popup"></vx-nav>
     </template>
     <vx-page-body>
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup default</template>
           <template v-slot:value><vx-switch v-model="open"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup top</template>
           <template v-slot:value><vx-switch v-model="openTop"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup left</template>
           <template v-slot:value><vx-switch v-model="openLeft"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup right</template>
           <template v-slot:value><vx-switch v-model="openRight"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup center</template>
           <template v-slot:value><vx-switch v-model="openCenter"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup full && show close</template>
           <template v-slot:value><vx-switch v-model="openFull"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>popup full && title</template>
           <template v-slot:value><vx-switch v-model="openFullTitle"/></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
     </vx-page-body>
     <popup v-model:open="open">
       <div style="padding:0.5rem 0;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup close</template>
             <template v-slot:value><vx-switch v-model="open"/></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup direction="top" v-model:open="openTop">
       <div style="padding:0.5rem 0;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup close</template>
             <template v-slot:value><vx-switch v-model="openLeft"/></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup direction="left" v-model:open="openLeft">
       <div style="padding:0.5rem 0;min-width:200px;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup close</template>
             <template v-slot:value><vx-switch v-model="openLeft"/></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup direction="right" v-model:open="openRight">
       <div style="padding:0.5rem 0;min-width:200px;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup close</template>
             <template v-slot:value><vx-switch v-model="openRight"/></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup direction="center" v-model:open="openCenter" show-close>
       <div style="padding:0.5rem;min-width:200px;background:#fff;border-radius:5px;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup close</template>
             <template v-slot:value><vx-switch v-model="openCenter" /></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup v-model:open="openFull" full show-close>
       <div style="padding:0.5rem 0;">
-        <group>
-          <cell :arrow="false">
+        <vx-group>
+          <vx-cell :arrow="false">
             <template v-slot:title>popup full close</template>
             <template v-slot:value><vx-switch v-model="openFull"/></template>
-          </cell>
-        </group>
+          </vx-cell>
+        </vx-group>
       </div>
     </popup>
     <popup v-model:open="openFullTitle" full title="title" direction="right">

@@ -40,9 +40,9 @@
       </x-nav>
     </template>
     <vx-page-body  @scroll="handleScroll">
-      <cell v-for="(item,index) in 20" :key="index" title="github" value="Start me">
+      <vx-cell v-for="(item,index) in 20" :key="index" title="github" value="Start me">
         <template v-slot:icon><img :src="'./static/images/github.png'" style="height:20px;width:20px;border-radius:50%"></template>
-      </cell>
+      </vx-cell>
     </vx-page-body>
   </vx-page>
 </template>

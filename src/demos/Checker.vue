@@ -4,7 +4,7 @@
       <vx-nav title="Checker"></vx-nav>
     </template>
     <vx-page-body>
-      <group title="Checker 多选">
+      <vx-group title="Checker 多选">
         <div style="padding:20px 10px">
           <checker-group v-model="checkboxValue">
             <checker
@@ -19,8 +19,8 @@
           <br />
           value：{{checkboxValue}}
         </div>
-      </group>
-      <group title="Checker 最多选2个">
+      </vx-group>
+      <vx-group title="Checker 最多选2个">
         <div style="padding:20px 10px">
           <checker-group :max="2" v-model="checkboxValue" icon block>
             <checker
@@ -35,8 +35,8 @@
           <br />
           value：{{checkboxValue}}
         </div>
-      </group>
-      <group title="Checker 单选">
+      </vx-group>
+      <vx-group title="Checker 单选">
         <div style="padding:20px 10px">
           <checker-group :max="1" v-model="radioValue">
             <checker
@@ -51,8 +51,8 @@
           <br />
           value：{{radioValue}}
         </div>
-      </group>
-      <group title="Checker 不限选项">
+      </vx-group>
+      <vx-group title="Checker 不限选项">
         <div style="padding:20px 10px">
           <checker-group v-model="checkboxValue">
             <checker value="" exclusive>不限</checker>
@@ -68,8 +68,8 @@
           <br />
           value：{{checkboxValue}}
         </div>
-      </group>
-      <group title="自定义checker样式">
+      </vx-group>
+      <vx-group title="自定义checker样式">
         <div style="padding:0.2rem">
           <checker-group :max="1" v-model="checkboxValue">
             <checker
@@ -87,7 +87,7 @@
           </checker-group>
           value：{{checkboxValue}}
         </div>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>

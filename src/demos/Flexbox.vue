@@ -5,25 +5,25 @@
     </template>
     <vx-page-body  class="flexbox-demo">
       ### 平均跨度
-      <flexbox :gutter="10">
-        <flexbox-item>1</flexbox-item>
-        <flexbox-item>2</flexbox-item>
-        <flexbox-item>3</flexbox-item>
-      </flexbox>
+      <vx-flexbox :gutter="10">
+        <vx-flexbox-item>1</vx-flexbox-item>
+        <vx-flexbox-item>2</vx-flexbox-item>
+        <vx-flexbox-item>3</vx-flexbox-item>
+      </vx-flexbox>
       <br />
       ### 跨度
-      <flexbox :gutter="10">
-        <flexbox-item>1</flexbox-item>
-        <flexbox-item :flex="2">2</flexbox-item>
-        <flexbox-item :flex="3">3</flexbox-item>
-      </flexbox>
+      <vx-flexbox :gutter="10">
+        <vx-flexbox-item>1</vx-flexbox-item>
+        <vx-flexbox-item :flex="2">2</vx-flexbox-item>
+        <vx-flexbox-item :flex="3">3</vx-flexbox-item>
+      </vx-flexbox>
       <br />
       ### 列布局
-      <flexbox direction="column" :gutter="0">
-        <flexbox-item>1</flexbox-item>
-        <flexbox-item style="margin:10px 0">2</flexbox-item>
-        <flexbox-item>3</flexbox-item>
-      </flexbox>
+      <vx-flexbox direction="column" :gutter="0">
+        <vx-flexbox-item>1</vx-flexbox-item>
+        <vx-flexbox-item style="margin:10px 0">2</vx-flexbox-item>
+        <vx-flexbox-item>3</vx-flexbox-item>
+      </vx-flexbox>
     </vx-page-body>
   </vx-page>
 </template>

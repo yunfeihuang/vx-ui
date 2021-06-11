@@ -10,7 +10,7 @@
           {required: true, message: '姓名不能为空'},
           {min: 2, message: '姓名不能小于2字符'}
           ]">
-          <x-input v-model="form.name" placeholder="请输入姓名"/>
+          <vx-input v-model="form.name" placeholder="请输入姓名"/>
         </el-form-item>
         <el-form-item block label="设置密码：" prop="password" :rules="[
           {required: true, message: '密码不能为空'},
@@ -27,13 +27,13 @@
           {required: true, message: '手机号码不能为空'},
           {pattern: /^1[3|4|5|7|8][0-9]{9}$/, message: '手机号码格式不正确'}
           ]">
-          <x-input v-model="form.mobile" placeholder="请输入手机号码"/>
+          <vx-input v-model="form.mobile" placeholder="请输入手机号码"/>
         </el-form-item>
         <el-form-item label="邮箱地址：" prop="email" :rules="[
           {required: true, message: '邮箱地址不能为空'},
           {pattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/, message: '邮箱地址格式不正确'}
           ]">
-          <x-input v-model="form.email" placeholder="请输入邮箱地址"/>
+          <vx-input v-model="form.email" placeholder="请输入邮箱地址"/>
         </el-form-item>
         <el-form-item label="兴趣爱好：" prop="hobby" :rules="[
           {required: true, message: '兴趣爱好不能为空'}

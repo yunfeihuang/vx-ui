@@ -4,20 +4,20 @@
       <vx-nav title="Prompt"></vx-nav>
     </template>
     <vx-page-body>
-      <group>
-        <cell :arrow="false">
+      <vx-group>
+        <vx-cell :arrow="false">
           <template v-slot:title>开关(用户名称：{{value1}})</template>
           <template v-slot:value><vx-switch v-model="open1"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>开关(用户密码：{{value2}})</template>
           <template v-slot:value><vx-switch v-model="open2"/></template>
-        </cell>
-        <cell :arrow="false">
+        </vx-cell>
+        <vx-cell :arrow="false">
           <template v-slot:title>js调用</template>
           <template v-slot:value><span @click="handleOpen">点击我打开</span></template>
-        </cell>
-      </group>
+        </vx-cell>
+      </vx-group>
       密码加密文本：{{cipher}}
     </vx-page-body>
     <prompt

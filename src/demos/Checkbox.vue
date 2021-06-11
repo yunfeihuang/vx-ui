@@ -4,13 +4,13 @@
       <vx-nav title="Checkbox"></vx-nav>
     </template>
     <vx-page-body>
-      <group title="Checkbox">
+      <vx-group title="Checkbox">
         <checkbox v-model:checked="checked" style="margin:0 0.15rem">{{checked}}</checkbox>
-      </group>
-      <group title="Checkbox icon-style='checkbox'">
+      </vx-group>
+      <vx-group title="Checkbox icon-style='checkbox'">
         <checkbox v-model:checked="checked" icon-style="checkbox" style="margin:0 0.15rem">{{checked}}</checkbox>
-      </group>
-      <group title="CheckboxGroup">
+      </vx-group>
+      <vx-group title="CheckboxGroup">
         <checkbox-group v-model="value">
           <checkbox
              v-for="item in options"
@@ -24,8 +24,8 @@
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
-      </group>
-      <group title="CheckboxGroup Change Icon style And inline style">
+      </vx-group>
+      <vx-group title="CheckboxGroup Change Icon style And inline style">
         <checkbox-group v-model="value" inline style="padding: 15px 10px;">
           <checkbox
              v-for="item in options"
@@ -39,8 +39,8 @@
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
-      </group>
-      <group title="CheckboxGroup-IconPosition">
+      </vx-group>
+      <vx-group title="CheckboxGroup-IconPosition">
         <checkbox-group icon-position="right" v-model="reverseValue">
           <checkbox
              v-for="item in options"
@@ -54,8 +54,8 @@
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
-      </group>
-      <group title="CheckboxGroup最多选1个(单选框)">
+      </vx-group>
+      <vx-group title="CheckboxGroup最多选1个(单选框)">
         <checkbox-group :max="1" v-model="value2">
           <checkbox
              v-for="item in options"
@@ -69,8 +69,8 @@
         <div style="padding:15px 10px;">
         value：{{value2}}
         </div>
-      </group>
-      <group title="CheckboxGroup 不限选项">
+      </vx-group>
+      <vx-group title="CheckboxGroup 不限选项">
         <checkbox-group v-model="value">
           <checkbox value="" exclusive>不限</checkbox>
           <checkbox
@@ -85,8 +85,8 @@
         <div style="padding:15px 10px;">
           value：{{value}}
         </div>
-      </group>
-      <group title="自定义checkbox样式">
+      </vx-group>
+      <vx-group title="自定义checkbox样式">
         <checkbox-group :max="1" v-model="reverseValue" :divider="false">
           <checkbox
              v-for="item in options"
@@ -104,7 +104,7 @@
         <div style="padding:15px 10px;">
         value：{{reverseValue}}
         </div>
-      </group>
+      </vx-group>
     </vx-page-body>
   </vx-page>
 </template>
