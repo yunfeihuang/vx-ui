@@ -42,7 +42,7 @@ export default {
       type: Boolean,
       default: true
     },
-    value: {
+    modelValue: {
       type: Array,
       default () {
         return []
@@ -63,7 +63,7 @@ export default {
   },
   data () {
     return {
-      myValue: this.value
+      myValue: this.modelValue
     }
   },
   watch: {
@@ -77,7 +77,7 @@ export default {
     },
     handleConfirm () {
       this.$emit('update:modelValue', this.myValue)
-      this.$emit('input', this.myValue)
+      this.$emit('update:modelValue', this.myValue)
       this.$emit('change', this.myValue)
       this.handleClose()
     },

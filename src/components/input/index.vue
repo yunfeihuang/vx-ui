@@ -62,7 +62,7 @@ export default {
       }
     })
     const emit = val => {
-      context.emit('input', val)
+      console.log('valvalval', val)
       context.emit('change', val)
       context.emit('update:modelValue', val)
     }

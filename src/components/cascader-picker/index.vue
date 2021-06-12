@@ -29,7 +29,7 @@
 export default {
   name: 'VxCascaderPicker',
   props: {
-    value: {
+    modelValue: {
       type: Array,
       default () {
         return []
@@ -87,7 +87,7 @@ export default {
           children: item.children
         }
       }))
-      let myValue = [...this.value]
+      let myValue = [...this.modelValue]
       let currentIndex = myValue.length
       if (myValue.length > 0) {
         let array = this.options
@@ -172,8 +172,9 @@ export default {
           myValue.push(value)
         }
         if (!children) {
-          if (JSON.stringify(myValue) !== JSON.stringify(this.value)) {
-            this.$emit('input', myValue).$emit('change', myValue)
+          if (JSON.stringify(myValue) !== JSON.stringify(this.modelValue)) {
+            this.$emit('update:modelValue', myValue)
+            this.$emit('change', myValue)
             if (this.label !== undefined) {
               let label = myValue.map((item, index) => {
                 return myOptions[index].filter(_item => _item.value === item)[0].label

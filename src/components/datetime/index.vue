@@ -111,9 +111,8 @@ export default {
         methods: {
           handleChange (value) {
             this.open = false
-            datetime.$emit('input', value).$emit('change', value)
-            datetime.eDispatch('ElFormItem', 'el.form.blur', [value])
-            datetime.eDispatch('ElFormItem', 'el.form.change', [value])
+            datetime.$emit('update:modelValue', value)
+            datetime.$emit('change', value)
           },
           handleClose () {
             this.open = false

@@ -96,9 +96,8 @@ export default {
     },
     handleChange (value) {
       this.myValue = value
-      this.$emit('input', value).$emit('change', value)
-      this.eDispatch('ElFormItem', 'el.form.blur', [value])
-      this.eDispatch('ElFormItem', 'el.form.change', [value])
+      this.$emit('update:modelValue', value)
+      this.$emit('change', value)
     },
     handleClose () {
       this.open = false

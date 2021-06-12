@@ -33,7 +33,7 @@ export default {
       if (this.$parent && this.$parent.$options && this.$parent.$options.name === 'VxRadioGroup') {
         this.$parent.handleChange(this.value)
       } else {
-        this.$emit('input', this.value)
+        this.$emit('update:modelValue', this.value)
         this.$emit('change', this.value)
       }
     }

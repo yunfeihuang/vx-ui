@@ -61,7 +61,7 @@ export default {
     Arrow
   },
   props: {
-    value: {
+    modelValue: {
       type: [Date, Array, String]
     },
     weekText: {
@@ -126,14 +126,14 @@ export default {
   data () {
     let date = this.getYMD()
     if (this.isRange) {
-      if (this.value && this.value[0]) {
-        date = this.getYMD(this.value[0] || this.value[1])
+      if (this.modelValue && this.modelValue[0]) {
+        date = this.getYMD(this.modelValue[0] || this.modelValue[1])
       }
     } else {
-      date = this.value ? this.getYMD(this.value) : this.getYMD()
+      date = this.modelValue ? this.getYMD(this.modelValue) : this.getYMD()
     }
     return {
-      myValue: this.value,
+      myValue: this.modelValue,
       date,
       datetimes: 1000 * 60 * 60 * 24
     }
@@ -257,7 +257,8 @@ export default {
     },
     setValue (value) {
       this.myValue = value
-      this.$emit('input', value).$emit('change', value)
+      this.$emit('update:modelValue', value)
+      this.$emit('change', value)
     },
     handleChange (value) {
       if (this.isRange) {

@@ -56,7 +56,7 @@ export default {
     handleInput (e) {
       let value = e.target.value
       this.renderAutoHeight(value)
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
       this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     renderAutoHeight (value) {

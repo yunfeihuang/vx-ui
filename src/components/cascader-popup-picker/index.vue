@@ -26,7 +26,7 @@ export default {
       type: Boolean,
       default: true
     },
-    value: {
+    modelValue: {
       type: Array,
       default () {
         return []
@@ -35,10 +35,12 @@ export default {
   },
   methods: {
     handleClose () {
-      this.$emit('close').$emit('update:open', false)
+      this.$emit('close')
+      this.$emit('update:open', false)
     },
     handleChange (value) {
-      this.$emit('input', value).$emit('change', value)
+      this.$emit('update:modelValue', value)
+      this.$emit('change', value)
       this.handleClose()
     },
     handleLabel (label) {

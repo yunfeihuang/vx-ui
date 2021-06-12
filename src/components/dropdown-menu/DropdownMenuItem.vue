@@ -100,7 +100,8 @@ export default {
                 },
                 on: {
                   change (value) {
-                    self.$emit('input', value).$emit('change', value)
+                    self.$emit('update:modelValue', value)
+                    self.$emit('change', value)
                     my.open = self.open = false
                   },
                   close () {

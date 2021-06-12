@@ -40,7 +40,7 @@ export default {
   mixins: [input],
   props: {
     ...input.props,
-    value: {
+    modelValue: {
       type: [String, Number, Array]
     },
     getPopupMounted: {
@@ -83,13 +83,13 @@ export default {
   mounted () {
     this.$nextTick(() => {
       this.$$myOptions = this.getOptions()
-      this.value && this.updateLabel(this.value)
+      this.modelValue && this.updateLabel(this.modelValue)
     })
   },
   updated () {
     this.$nextTick(() => {
       this.$$myOptions = this.getOptions()
-      this.updateLabel(this.value)
+      this.updateLabel(this.modelValue)
     })
   },
   beforeUnmount () {
@@ -173,9 +173,7 @@ export default {
               },
               handleChange (value) {
                 if (self.value !== value) {
-                  self.$emit('input', value).$emit('change', value)
-                  self.eDispatch('ElFormItem', 'el.form.blur', [value])
-                  self.eDispatch('ElFormItem', 'el.form.change', [value])
+                  self.$emit('update:modelValue', value) && self.$emit('change', value)
                   self.updateLabel(value)
                 }
                 this.handleClose()
@@ -214,7 +212,7 @@ export default {
     },
     handleClear () {
       let value = this.max === 1 ? '' : []
-      this.$emit('input', value).$emit('change', value)
+      this.$emit('update:modelValue', value) && this.$emit('change', value)
     }
   }
 }

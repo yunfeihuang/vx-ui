@@ -7,7 +7,6 @@
     :icons="null"
     :nativeType="myNativeType"
     @change="handleChange"
-    @input="handleInput"
   >
     <template v-slot:prepend><slot name="prepend"></slot></template>
     <template v-if="$slots.append" v-slot:append><slot name="append" ></slot></template>
@@ -33,7 +32,6 @@ export default {
   components: {
     VxInput
   },
-  mixins: [input],
   props: {
     ...input.props,
     nativeType: {
@@ -46,7 +44,7 @@ export default {
     },
     encrypt: {
       type: Function,
-      default1 (value, next) {
+      default (value, next) {
         next(value.toUpperCase())
       }
     },
@@ -67,7 +65,7 @@ export default {
     nativeType (value) {
       this.myNativeType = value
     },
-    value (value) {
+    modelValue (value) {
       if (this.encrypt) {
         let self = this
         let next = (v) => {
@@ -84,7 +82,9 @@ export default {
   },
   methods: {
     handleChange (value) {
+      console.log('handleChange', value)
       this.$emit('change', value)
+      this.$emit('update:modelValue', value)
     },
     handleSwitch () {
       this.myNativeType = this.myNativeType === 'password' ? 'text' : 'password'

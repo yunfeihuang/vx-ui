@@ -115,7 +115,8 @@ export default {
       this.$emit('open')
     },
     close () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleClose () {
       this.fastClose && this.close()

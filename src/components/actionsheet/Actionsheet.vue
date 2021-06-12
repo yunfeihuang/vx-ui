@@ -42,7 +42,7 @@ export default {
       type: Boolean,
       default: true
     },
-    value: {
+    modelValue: {
       type: String
     },
     cancel: {
@@ -76,10 +76,12 @@ export default {
   },
   methods: {
     handleAction (value) {
-      this.$emit('update:open', false).$emit('action', value)
+      this.$emit('update:open', false)
+      this.$emit('action', value)
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleAfterClose () {
       this.$emit('after-close')

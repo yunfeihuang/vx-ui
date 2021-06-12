@@ -91,17 +91,18 @@ export default {
       }
     },
     handleInput (value) {
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
     },
     handleChange (value) {
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
     },
     handleCancel () {
       this.fixed = false
       this.childFixed && this.$el.appendChild(this.childFixed)
     },
     handleKeywordChange (value) {
-      this.$emit('input', value).$emit('submit', value)
+      this.$emit('update:modelValue', value)
+      this.$emit('submit', value)
     },
     handleSubmit (e) {
       e.stopPropagation()

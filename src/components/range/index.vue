@@ -27,7 +27,7 @@ export default {
       type: Number,
       default: 1
     },
-    value: {
+    modelValue: {
       type: Number,
       default: 0
     },
@@ -42,17 +42,17 @@ export default {
   computed: {
     offsetWidth () {
       return {
-        width: this.value / this.max * this.$el.offsetWidth + 'px'
+        width: this.modelValue / this.max * this.$el.offsetWidth + 'px'
       }
     },
     myValue () {
-      if (this.value < this.min) {
+      if (this.modelValue < this.min) {
         return Math.round(this.min * this.stepRate) / this.stepRate
       }
-      if (this.value > this.max) {
+      if (this.modelValue > this.max) {
         return Math.round(this.max * this.stepRate) / this.stepRate
       }
-      return Math.round(this.value * this.stepRate) / this.stepRate
+      return Math.round(this.modelValue * this.stepRate) / this.stepRate
     },
     range () {
       return this.max - this.min
@@ -97,7 +97,7 @@ export default {
     },
     handleChange (val) {
       this.$emit('update:modelValue', val)
-      this.$emit('input', val)
+      this.$emit('update:modelValue', val)
       this.$emit('change', val)
     },
     handleResize () {

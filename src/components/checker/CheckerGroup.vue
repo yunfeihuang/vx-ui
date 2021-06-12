@@ -11,7 +11,7 @@ export default {
   name: 'VxCheckerGroup',
   props: {
     ...input.props,
-    value: {
+    modelValue: {
       type: [String, Number, Array]
     },
     max: {

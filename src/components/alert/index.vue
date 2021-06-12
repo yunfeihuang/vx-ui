@@ -38,10 +38,12 @@ export default {
   },
   methods: {
     handleConfirm () {
-      this.$emit('update:open', false).$emit('confirm')
+      this.$emit('update:open', false)
+      this.$emit('confirm')
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleAfterClose () {
       this.$emit('after-close')

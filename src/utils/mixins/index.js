@@ -130,7 +130,7 @@ const input = {
     },
     handleInput (e) {
       let value = e.target ? e.target.value : e
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
       this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     eDispatch (...arg) { // element-ui form表单校验
@@ -142,7 +142,7 @@ const input = {
 const tab = {
   methods: {
     change (name) {
-      this.active !== name && this.$emit('update:active', name).$emit('change', name)
+      this.active !== name && this.$emit('update:active', name) && this.$emit('change', name)
     }
   },
   props: {
@@ -185,7 +185,7 @@ const historyPush = {
     },
     handlePopstate () {
       if (window.location.href.indexOf(this.pushString) === -1) {
-        this.$emit('update:open', false).$emit('close')
+        this.$emit('update:open', false) && this.$emit('close')
         this.popStateBack && this.popStateBack()
         window.removeEventListener('popstate', this.handlePopstate)
       }

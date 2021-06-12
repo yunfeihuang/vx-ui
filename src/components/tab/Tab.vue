@@ -71,7 +71,7 @@ export default {
     },
     change (value) {
       if (value !== this.active) {
-        this.$emit('update:active', value).$emit('change', value)
+        this.$emit('update:active', value) && this.$emit('change', value)
         this.computedStyle()
       }
       this.layout === 'scroll' && this.$nextTick(() => {

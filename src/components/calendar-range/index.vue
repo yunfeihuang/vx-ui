@@ -70,7 +70,7 @@ export default {
     Calendar
   },
   props: {
-    value: {
+    modelValue: {
       type: Array,
       default () {
         return []
@@ -133,7 +133,7 @@ export default {
   },
   data () {
     return {
-      myValue: this.value,
+      myValue: this.modelValue,
       valueTab: 0,
       tabActive: 0,
       date: this.getYMD(),
@@ -172,7 +172,8 @@ export default {
     setValue (value) {
       this.valueTab = this.tabActive
       this.myValue = value
-      this.$emit('input', value).$emit('change', value)
+      this.$emit('update:modelValue', value)
+      this.$emit('change', value)
     },
     handleYearChange (i) {
       let date = new Date(this.date.getTime())

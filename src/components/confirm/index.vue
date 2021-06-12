@@ -87,7 +87,8 @@ export default {
   },
   methods: {
     handleCancel () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
       this.$emit('button-click', 'cancel')
     },
     handleConfirm (e) {

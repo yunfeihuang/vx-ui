@@ -64,7 +64,7 @@ export default {
         methods: {
           handleChange (value) {
             let rgba = `rgba(${value.rgba.r},${value.rgba.g},${value.rgba.b},${value.rgba.a})`
-            self.$emit('input', rgba).$emit('change', rgba)
+            self.$emit('update:modelValue', rgba) && self.$emit('change', rgba)
           }
         }
       })

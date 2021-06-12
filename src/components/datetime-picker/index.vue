@@ -56,7 +56,7 @@ export default {
       type: String,
       default: `${now.getFullYear() + 20}-01-01`
     },
-    value: {
+    modelValue: {
       type: String,
       default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}: ${now.getMinutes()}: ${now.getSeconds()}`
     },
@@ -104,7 +104,7 @@ export default {
     }
   },
   methods: {
-    parseValue (value = this.value) {
+    parseValue (value = this.modelValue) {
       if (!/[-\/]/.test(value) && this.format !== 'yyyy') { //eslint-disable-line
         value = '1900/01/0' + value
       }
@@ -242,14 +242,17 @@ export default {
       return seconds
     },
     handleClose () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleConfirm () {
       let value = this.format
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      this.open && this.$emit('update:open', false).$emit('input', value).$emit('change', value)
+      this.open && this.$emit('update:open', false)
+      this.$emit('update:modelValue', value)
+      this.$emit('change', value)
       this.handleClose()
     },
     handleChange (value, index, type) {

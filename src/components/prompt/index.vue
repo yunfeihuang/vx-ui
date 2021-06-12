@@ -71,7 +71,7 @@ export default {
         return {}
       }
     },
-    value: {
+    modelValue: {
       type: String,
       default: ''
     },
@@ -96,7 +96,7 @@ export default {
   },
   data () {
     return {
-      myValue: this.value,
+      myValue: this.modelValue,
       myCipher: this.cipher
     }
   },
@@ -107,7 +107,7 @@ export default {
       }
     },
     myValue (value) {
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
     },
     myCipher (value) {
       this.$emit('update:cipher', value)
@@ -115,10 +115,11 @@ export default {
   },
   methods: {
     handleClose () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleConfirm () {
-      this.open && !this.disabled && this.$emit('update:open', false).$emit('confirm', this.myValue).$emit('input', this.myValue)
+      this.open && !this.disabled && this.$emit('update:open', false) && this.$emit('confirm', this.myValue) && this.$emit('update:modelValue', this.myValue)
     },
     handleInput (value) {
       this.$emit('change', value);

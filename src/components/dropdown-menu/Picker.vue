@@ -27,7 +27,7 @@ export default {
     options: {
       type: Array
     },
-    value: {
+    modelValue: {
       type: [String, Number]
     },
     popupClass: {
@@ -40,7 +40,7 @@ export default {
   methods: {
     handleChange (value) {
       this.$emit('update:modelValue', value)
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
       this.$emit('change', value)
     }
   }

@@ -38,7 +38,7 @@ export default {
       type: Boolean,
       default: false
     },
-    value: {
+    modelValue: {
       type: Array,
       default () {
         return []
@@ -58,8 +58,8 @@ export default {
   },
   computed: {
     myValue () {
-      if (this.value && this.value[0] && this.value[1]) {
-        return this.value[0].format() + this.separator + this.value[1].format()
+      if (this.modelValue && this.modelValue[0] && this.modelValue[1]) {
+        return this.modelValue[0].format() + this.separator + this.modelValue[1].format()
       }
       return ''
     },
@@ -88,8 +88,8 @@ export default {
         document.body.appendChild(node)
       }
       let value = []
-      if (this.value && this.value[0] && this.value[1]) {
-        value = [new Date(this.value[0].getFullYear(), this.value[0].getMonth(), this.value[0].getDate()), new Date(this.value[1].getFullYear(), this.value[1].getMonth(), this.value[1].getDate())]
+      if (this.modelValue && this.modelValue[0] && this.modelValue[1]) {
+        value = [new Date(this.modelValue[0].getFullYear(), this.modelValue[0].getMonth(), this.modelValue[0].getDate()), new Date(this.modelValue[1].getFullYear(), this.modelValue[1].getMonth(), this.modelValue[1].getDate())]
       }
       if (this.$root && this.$root.__popup) {
         this.$root.__popup && this.$root.__popup.$destroy()
@@ -100,7 +100,7 @@ export default {
         render (createElement) {
           return createElement(DaterangePicker, {
             props: {
-              value: this.value,
+              value: this.modelValue,
               open: this.open
             },
             on: {
@@ -127,7 +127,8 @@ export default {
         },
         methods: {
           handleChange (value) {
-            daterange.$emit('input', value).$emit('change', value)
+            daterange.$emit('update:modelValue', value)
+            daterange.$emit('change', value)
             daterange.eDispatch('ElFormItem', 'el.form.blur', [value])
             daterange.eDispatch('ElFormItem', 'el.form.change', [value])
           },

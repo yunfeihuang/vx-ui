@@ -44,7 +44,8 @@ export default {
         loop: this.loop,
         autoplayDisableOnInteraction: false,
         onSlideChangeStart: (swiper) => {
-          this.$emit('input', swiper.activeIndex).$emit('change', swiper.activeIndex)
+          this.$emit('update:modelValue', swiper.activeIndex)
+          this.$emit('change', swiper.activeIndex)
         }
       }, this.options)
       this.$$swiper = new Swiper(this.$el, options)

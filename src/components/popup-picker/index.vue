@@ -67,7 +67,8 @@ export default {
   },
   methods: {
     handleClose () {
-      this.$emit('update:open', false).$emit('close')
+      this.$emit('update:open', false)
+      this.$emit('close')
     },
     handleConfirm () {
       this.$emit('confirm')
@@ -77,7 +78,7 @@ export default {
         }
       })
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('update:open', false) && this.$emit('update:modelValue', value) && this.$emit('input', value).$emit('change', value)
+        this.open && this.$emit('update:open', false) && this.$emit('update:modelValue', value) && this.$emit('change', value)
       } else {
         this.handleClose()
       }

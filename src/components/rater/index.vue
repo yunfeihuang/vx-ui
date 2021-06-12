@@ -47,6 +47,7 @@ export default {
     handleChange (value, oldValue) {
       value === 1 && oldValue === value && (value = 0)
       this.$emit('update:modelValue', value)
+      this.$emit('change', value)
     }
   }
 }
