@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &checkbox{
     display:block;
     position:relative;
@@ -10,11 +10,11 @@
     &-group{
       user-select: none;
       @include disabled;
-      .#{$css-prefix}checkbox{
+      .#{$--css-prefix}checkbox{
           padding:0.25rem 0.15rem;
       }
       &.is-divider{
-        .#{$css-prefix}checkbox{
+        .#{$--css-prefix}checkbox{
           @include divider;
           &:first-child{
             background-image:none;
@@ -37,24 +37,24 @@
       width:0.4rem;
       height:0.4rem;
       border-radius:50%;
-      //transition:all 0.2s $ease-in-out;
+      //transition:all 0.2s $--ease-in-out;
       margin-right:0.08rem;
       text-align: center;
-      @include border-round(darken($color-border,10%),200px);
+      @include border-round(darken($--color-border,10%),200px);
       position:absolute;
       top:50%;
       margin-top:-0.2rem;
       display:inline-table;
       &.is-checkbox{
         margin-top:-0.18rem;
-        @include border-round(darken($color-border,10%),3px);
+        @include border-round(darken($--color-border,10%),3px);
         position: absolute;
         width:0.36rem;
         height:0.36rem;
       }
     }
     &.is-icon-position-right{
-      .#{$css-prefix}checkbox{
+      .#{$--css-prefix}checkbox{
         &--icon{
           right:0.15rem;
           left:auto;

@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &popup-picker{
     background:#fff;
     @include flexbox;
@@ -14,22 +14,22 @@
       @include flexbox;
     }
     &--placeholder{
-      @include var-height($box-size-height-default, 'line-height');
+      @include var-height($--box-size-height-default, 'line-height');
       @include lineClamp;
       @include button;
-      @include var-color($color-light);
+      @include var-color($--color-light);
       @include flexbox-item;
     }
     &--cancel,&--confirm{
       @include button;
       @include var-height();
       width: 1.5rem;
-      @include var-color($color-assist);
+      @include var-color($--color-assist);
     }
     &--confirm{
       @include var-color();
       &[disabled]{
-        @include var-color($color-assist);
+        @include var-color($--color-assist);
       }
     }
   }

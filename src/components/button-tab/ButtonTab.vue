@@ -17,7 +17,9 @@ export default {
   },
   methods: {
     handleChange (value) {
-      value !== this.active && this.$emit('update:active', value) && this.$emit('change', value)
+      if (value !== this.active) {
+        this.$emit('update:active', value)
+      }
     }
   }
 }

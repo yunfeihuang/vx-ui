@@ -29,6 +29,7 @@ export default {
   components: {
     Overlay
   },
+  emits: ['confirm'],
   props: {
     open: {
       type: Boolean,
@@ -95,10 +96,16 @@ export default {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
         this.$$timerEvent && clearTimeout(this.$$timerEvent)
         this.$$timerEvent = setTimeout(() => {
-          this.open && this.$emit('update:open', false) && this.$emit('confirm')
+          if (this.open) {
+            this.$emit('update:open', false)
+            this.$emit('confirm')
+          }
         }, 400)
       } else {
-        this.open && this.$emit('update:open', false) && this.$emit('confirm')
+        if (this.open) {
+          this.$emit('update:open', false)
+          this.$emit('confirm')
+        }
       }
       this.$emit('button-click', 'confirm')
     },

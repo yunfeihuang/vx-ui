@@ -2,7 +2,7 @@
 @import 'common/mixins.scss';
 $height : 42;
 $unit: px;
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &picker{
     @include scroller;
     touch-action: pan-y;

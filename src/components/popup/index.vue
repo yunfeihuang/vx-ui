@@ -6,7 +6,7 @@
       name="popup-fade"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-      <div v-show="open">
+      <div v-if="open">
         <slot name="inner"></slot>
       </div>
     </transition>
@@ -15,7 +15,7 @@
       :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-      <div v-show="open" :class="innerClasses" @click="handleClose2">
+      <div v-if="open" :class="innerClasses" @click="handleClose2">
         <div class="vx-popup--nav" v-if="title && !showClose">
           <button type="button" @click="close">
             <arrow direction="left" color="#666" size="0.24rem"/>
@@ -93,8 +93,8 @@ export default {
   mounted () {
     if (this.open) {
       requestAnimationFrame(() => {
-        this.pushState()
         this.$el.style.display = 'block'
+        this.pushState()
         this.handleEnter()
       })
     }
@@ -103,8 +103,8 @@ export default {
     open (value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.pushState()
           this.$el.style.display = 'block'
+          this.pushState()
         })
       }
     }

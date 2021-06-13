@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &divider{
     position:relative;
     background-color:#fff;
@@ -9,7 +9,7 @@
     &.is-vertical{
       min-height:0;
       min-width:1px;
-      @include divider($color-divider, true);
+      @include divider($--color-divider, true);
     }
     &--title{
       background-color:#fff;

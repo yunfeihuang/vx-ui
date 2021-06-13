@@ -1,13 +1,13 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &cascader-picker{
     &--value{
       text-align:left;
       @include scroller;
       position: relative;
       &-item{
-        @include var-height($box-size-height-default, 'line-height');
+        @include var-height($--box-size-height-default, 'line-height');
         margin-left:0.2rem;
         display:inline-block;
         position:relative;
@@ -46,7 +46,7 @@
     }
     &--item{
       @include active;
-      @include var-height($box-size-height-default, 'line-height');
+      @include var-height($--box-size-height-default, 'line-height');
       padding:0 0.16rem;
       position:relative;
       @include lineClamp;

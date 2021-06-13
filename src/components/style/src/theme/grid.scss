@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &grid{
     overflow:hidden;
     &--inner{
@@ -25,8 +25,8 @@
         padding:0.2rem;
       }
       &.is-divider{
-        @include divider($color-divider, true);
-        background-position: right;
+        @include divider($--color-divider, true);
+        //background-position: right;
         border-right:0;
         border-bottom:0;
         .vx-grid--item-inner{

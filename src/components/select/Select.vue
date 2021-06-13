@@ -3,14 +3,14 @@
     <div class="vx-select--inner">
       <slot name="prepend"></slot>
       <div class="vx-select--placeholder">
-        <span :data-placeholder="placeholder">{{myLabel}}</span>
+        <span :data-placeholder="placeholder">{{labels}}</span>
       </div>
       <template v-if="!$slots.append">
-        <transition v-if="this.clearable && value+''" name="input-clearable-fade">
+        <transition v-if="this.clearable && modelValue+''" name="input-clearable-fade">
           <button
             tabindex="-2"
             type="button"
-            v-show="!!value && clearable && !disabled"
+            v-show="!!modelValue && clearable && !disabled"
             class="vx-input--clearable-button"
             @click.stop="handleClear">
             <i class="vx-input--clearable-icon"></i>
@@ -20,18 +20,28 @@
       </template>
       <slot v-else name="append"></slot>
     </div>
-    <datalist>
-      <slot></slot>
-    </datalist>
+    <teleport :to="getPopupMounted()">
+      <vx-popup v-bind="popupProps" v-model:open="open" class="vx-select--picker">
+        <template v-slot:header>
+          <div v-if="max != 1" :class="['vx-option-picker--header']">
+            <button type="button" class="vx-option-picker--cancel" @click="open=false">{{popupProps && popupProps.cancelText ? popupProps.cancelText : '取消'}}</button>
+            <button type="button" :class="['vx-option-picker--placeholder']">{{helpPlaceholder}}</button>
+            <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!value.length}]" @click="handleConfirm">{{popupProps && popupProps.confirmText ? popupProps.confirmText : '确定'}}</button>
+          </div>
+        </template>
+        <div class="vx-option-picker">
+          <vx-checkbox-group v-model="value" :max="max" @update:modelValue="handleChange">
+            <slot></slot>
+          </vx-checkbox-group>
+        </div>
+      </vx-popup>
+    </teleport>
   </div>
 </template>
 
 <script>
-import { createApp } from 'vue'
-import Picker from './Picker'
 import { input } from '@/utils/mixins'
 import Arrow from '../arrow'
-
 export default {
   name: 'VxSelect',
   components: {
@@ -44,7 +54,10 @@ export default {
       type: [String, Number, Array]
     },
     getPopupMounted: {
-      type: Function
+      type: Function,
+      default () {
+        return 'body'
+      }
     },
     max: {
       type: Number,
@@ -55,7 +68,14 @@ export default {
       default: '请选择'
     },
     popupProps: {
-      type: Object
+      type: Object,
+      default () {
+        return {
+          placeholder: '请选择',
+          cancelText: '取消',
+          confirmText: '确定'
+        }
+      }
     },
     arrow: {
       type: Boolean,
@@ -70,149 +90,71 @@ export default {
       default: false
     }
   },
-  watch: {
-    value (val) {
-      this.updateLabel(val)
+  computed: {
+    helpPlaceholder () {
+      let result = this.popupProps.placeholder
+      if (this.value.length >= this.max && this.max > 1) {
+        result = `选项不能超过${this.max}个`
+      }
+      return result
+    },
+    labels () {
+      let result = []
+      if (this.max === 1) {
+        if (this.$slots && this.$slots.default) {
+          let vnode = this.$slots.default()[0]
+          if (vnode && vnode.children && vnode.children.find) {
+            let item = vnode.children.find(item => item.props.value === this.modelValue)
+            if (item) {
+              result = [item.props.label]
+            }
+          }
+        }
+      } else {
+        if (this.$slots && this.$slots.default) {
+          let vnode = this.$slots.default()[0]
+          if (vnode && vnode.children && vnode.children.find) {
+            let list = vnode.children.filter(item => this.modelValue.includes(item.props.value))
+            if (list) {
+              result = list.map(item => item.props.label)
+            }
+          }
+        }
+      }
+      result = result.join(this.separator)
+      this.$emit('update:label', result)
+      return result
     }
   },
   data () {
     return {
-      myLabel: this.max === 1 ? '' : []
-    }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.$$myOptions = this.getOptions()
-      this.modelValue && this.updateLabel(this.modelValue)
-    })
-  },
-  updated () {
-    this.$nextTick(() => {
-      this.$$myOptions = this.getOptions()
-      this.updateLabel(this.modelValue)
-    })
-  },
-  beforeUnmount () {
-    if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
-      this.$root.__popup && this.$root.__popup.$destroy()
-      this.__popup = this.$root.__popup = null
+      open: false,
+      value: this.modelValue,
     }
   },
   methods: {
-    getOptions () {
-      let result = []
-      let nodes = this.$el.querySelector('datalist').children
-      let len = nodes.length
-      for (let i = 0; i < len; i++) {
-        let node = nodes[i]
-        let item = JSON.parse(node.value)
-        let html = node.innerHTML.trim()
-        result.push({
-          label: nodes[i].innerText,
-          ...item,
-          html
-        })
-      }
-      return result
-    },
-    handleFocusIn (e) {
+    handleFocusIn () {
       if (!this.disabled) {
-        let self = this
-        let node = document.createElement('div')
-        if (this.getPopupMounted) {
-          this.getPopupMounted(e).appendChild(node)
-        } else {
-          document.body.appendChild(node)
-        }
-        if (this.$root && this.$root.__popup) {
-          this.$root.__popup && this.$root.__popup.$destroy()
-        }
-        if (this.$$myOptions.length) {
-          /* eslint-disable no-new */
-          this.$root.__popup = this.__popup = createApp({
-            el: node,
-            render (createElement) {
-              return createElement(Picker, {
-                props: {
-                  open: this.open,
-                  value: self.value,
-                  options: self.$$myOptions,
-                  title: self.title,
-                  max: self.max,
-                  ...self.popupProps
-                },
-                class: ['vx-select--picker'],
-                on: {
-                  'close': this.handleClose,
-                  'close-after': this.handleCloseAfter,
-                  'change': this.handleChange
-                }
-              })
-            },
-            data () {
-              return {
-                open: false
-              }
-            },
-            mounted () {
-              requestAnimationFrame(() => {
-                this.open = true
-              })
-            },
-            beforeUnmount () {
-              this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
-            },
-            methods: {
-              handleClose () {
-                this.open = false
-              },
-              handleCloseAfter () {
-                this.$nextTick(() => {
-                  this.$destroy()
-                })
-              },
-              handleChange (value) {
-                if (self.value !== value) {
-                  self.$emit('update:modelValue', value) && self.$emit('change', value)
-                  self.updateLabel(value)
-                }
-                this.handleClose()
-              }
-            }
-          })
-        }
+        this.open = true
       }
-    },
-    updateLabel (value) {
-      let label = this.getLabel(value)
-      if (label !== this.$$label) {
-        this.$$label = label
-        this.myLabel = label
-        this.$emit('update:label', label)
-      }
-    },
-    getLabel (value) {
-      let result = ''
-      if (this.$$myOptions && this.$$myOptions.length) {
-        if (this.max === 1) {
-          this.$$myOptions && this.$$myOptions.forEach(item => {
-            if (item.value === value) {
-              result = item.label
-            }
-          })
-        } else {
-          let label = []
-          this.$$myOptions && this.$$myOptions.forEach(item => {
-            value && value.indexOf(item.value) > -1 && label.push(item.label)
-          })
-          result = label.join(this.separator)
-        }
-      }
-      return result
     },
     handleClear () {
-      let value = this.max === 1 ? '' : []
-      this.$emit('update:modelValue', value) && this.$emit('change', value)
+      let val = this.max === 1 ? '' : []
+      this.$emit('update:modelValue', val)
+    },
+    handleConfirm () {
+      this.$emit('update:modelValue', this.value)
+      this.$nextTick(() => {
+        this.open = false
+      })
+    },
+    handleChange (val) {
+      if (this.max === 1) {
+        this.$emit('update:modelValue', val)
+        this.$nextTick(() => {
+          this.open = false
+        })
+      }
     }
   }
 }

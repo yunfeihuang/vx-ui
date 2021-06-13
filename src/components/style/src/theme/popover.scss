@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &popover{
     display: inline-block;
     vertical-align: middle;
@@ -8,7 +8,7 @@
       position:absolute;
       background:#fff;
       border-radius:0.1rem;
-      color:$color-black;
+      color:$--color-black;
       padding: 0.15rem;
       z-index:1001;
       margin: 0.24rem 0;

@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &checker{
     display:inline-table;
     vertical-align: middle;
@@ -41,8 +41,8 @@
         right:0;
         bottom:0;
         border:0.2rem solid transparent;
-        @include var-border-color($color-border, 'border-right-color');
-        @include var-border-color($color-border, 'border-bottom-color');
+        @include var-border-color($--color-border, 'border-right-color');
+        @include var-border-color($--color-border, 'border-bottom-color');
       }
       &:after{
         position:absolute;
@@ -62,8 +62,8 @@
       }
       &.is-checked{
         &:before{
-          @include var-border-color($color-primary, 'border-right-color');
-          @include var-border-color($color-primary, 'border-bottom-color');
+          @include var-border-color($--color-primary, 'border-right-color');
+          @include var-border-color($--color-primary, 'border-bottom-color');
         }
       }
     }
@@ -84,7 +84,7 @@
     &-button{
       vertical-align: middle;
       @include button();
-      @include border-round($color-border,0);
+      @include border-round($--color-border,0);
       min-width:inherit;
       height:100%;
       padding:0 0.15rem;

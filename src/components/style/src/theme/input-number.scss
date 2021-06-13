@@ -1,11 +1,9 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &input-number{
     position:relative;
     background:#fff;
-    border:1px solid;
-    @include var-border-color($color-border);
     @include var-border-radius();
     display: inline-block;
     @include disabled;
@@ -15,6 +13,8 @@
     }
     &--size{
       &-default{
+        border:1px solid;
+        @include var-border-color($--color-border);
         height:0.6rem;
         width:2.6rem;
         button{
@@ -22,6 +22,8 @@
         }
       }
       &-small{
+        border:1px solid;
+        @include var-border-color($--color-border);
         height:0.52rem;
         width:2rem;
         button{
@@ -32,47 +34,53 @@
     button{
       @include button;
       height:100%;
-      @include var-color($color-assist);
+      @include var-color($--color-assist);
       height:100%;
-      &:first-child{
-        border-right:1px solid;
-        @include var-border-color($color-border, 'border-right-color');
-      }
-      &:last-child{
-        border-left:1px solid;
-        @include var-border-color($color-border, 'border-left-color');
+      &:empty{
+        &:first-child{
+          border-right:1px solid;
+          @include var-border-color($--color-border, 'border-right-color');
+        }
+        &:last-child{
+          border-left:1px solid;
+          @include var-border-color($--color-border, 'border-left-color');
+        }
       }
     }
     &--add,&--reduce{
       position:relative;
-      &:before{
-        content: '';
-        height:1px;
-        position:absolute;
-        width:0.36rem;
-        background:rgba(153,153,153,.6);
-        left:50%;
-        top:50%;
-        margin-left:-0.18rem;
-        margin-top:-1px;
-        border-radius:3rem;
+      &:empty{
+        &:before{
+          content: '';
+          height:1px;
+          position:absolute;
+          width:0.36rem;
+          background:rgba(153,153,153,.6);
+          left:50%;
+          top:50%;
+          margin-left:-0.18rem;
+          margin-top:-1px;
+          border-radius:3rem;
+        }
       }
       &[disabled] {
         @include _disabled;
       }
     }
     &--add{
-      &:after{
-        content: '';
-        width:1px;
-        position:absolute;
-        height:0.36rem;
-        background:rgba(153,153,153,.6);
-        left:50%;
-        top:50%;
-        margin-top:-0.18rem;
-        margin-left:-1px;
-        border-radius:3rem;
+      &:empty{
+        &:after{
+          content: '';
+          width:1px;
+          position:absolute;
+          height:0.36rem;
+          background:rgba(153,153,153,.6);
+          left:50%;
+          top:50%;
+          margin-top:-0.18rem;
+          margin-left:-1px;
+          border-radius:3rem;
+        }
       }
     }
     input{

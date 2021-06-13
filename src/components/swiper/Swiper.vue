@@ -51,7 +51,7 @@ export default {
         autoplayDisableOnInteraction: false,
         autoplay: this.autoplay,
         onSlideChangeStart: (swiper) => {
-          this.$emit('change', swiper.activeIndex) && this.$emit('update:active', swiper.activeIndex)
+          this.$emit('update:active', swiper.activeIndex)
         }
       }, this.options)
       if (this.pagination) {

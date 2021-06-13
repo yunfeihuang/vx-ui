@@ -2,7 +2,7 @@
   <div :class="['vx-switch--wrapper', `vx-switch--size-${size}`, {'is-disabled': disabled, 'vx-switch--small': small}]">
     <input
       :name="name"
-      :checked="onValue == value"
+      :checked="onValue == modelValue"
       type="checkbox"
       @change="handleChange($event)"
       />
@@ -37,7 +37,6 @@ export default {
   setup (props, context) {
     const handleChange = e => {
       let value = e.target.checked ? props.onValue : props.offValue
-      context.emit('input', value)
       context.emit('change', value)
       context.emit('update:modelValue', value)
     }

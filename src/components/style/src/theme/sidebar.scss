@@ -1,11 +1,11 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &sidebar{
     text-align:center;
     position:relative;
     user-select: none;
-    @include divider($color-divider, true);
+    @include divider($--color-divider, true);
     background-position: right;
     &--inner{
       height:100%;
@@ -16,14 +16,14 @@
       }
     }
     &--item{
-      @include var-height($box-size-height-default, 'line-height');
+      @include var-height($--box-size-height-default, 'line-height');
       position:relative;
       @include lineClamp;
       @include divider;
       &.is-active{
         @include var-color();
         background-color:#fff;
-        transition: color $transition-time $ease-in-out;
+        transition: color $--transition-time $--ease-in-out;
         position:relative;
         position:sticky;
         top:0;

@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &spinner{
     position:absolute;
     height:100%;
@@ -9,7 +9,7 @@
     top:0;
     animation: loading 0.6s infinite linear;
     border:0.04rem solid #eee;
-    @include var-border-color($color-primary, 'border-top-color');
+    @include var-border-color($--color-primary, 'border-top-color');
     border-radius:50%;
     box-sizing:border-box;
     &--wrapper{

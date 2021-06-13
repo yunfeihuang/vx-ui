@@ -1,12 +1,12 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &search{
     position:relative;
     background:#ddd;
     padding:1px;
     @include flexbox;
-    .#{$css-prefix}input--wrapper{
+    .#{$--css-prefix}input--wrapper{
       height:0.7rem;
       margin: 4px;
       border-radius:1rem;
@@ -48,7 +48,7 @@
       width: 100%;
       flex-direction: column;
       z-index: 100;
-      .#{$css-prefix}search{
+      .#{$--css-prefix}search{
         @include var-background-color();
       }
     }

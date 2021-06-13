@@ -8,17 +8,17 @@ $resolution : 2,3,4,5,6;
   }
   @return $result;
 }
-@mixin var-color ($value: $color-primary, $attr: 'color') {
+@mixin var-color ($value: $--color-primary, $attr: 'color') {
   #{$attr}: $value;
   #{$attr}: var-color-value($value);
 }
-@mixin var-background-color ($value: $color-primary) {
+@mixin var-background-color ($value: $--color-primary) {
   @include var-color($value, 'background-color');
 }
-@mixin var-border-color ($value: $color-primary, $attr: 'border-color') {
+@mixin var-border-color ($value: $--color-primary, $attr: 'border-color') {
   @include var-color($value, $attr);
 }
-@mixin var-font-size ($value: $font-size-default) {
+@mixin var-font-size ($value: $--font-size-default) {
   font-size: $value;
   @each $key, $val in $font-sizes {
     @if $value == $val{
@@ -26,7 +26,7 @@ $resolution : 2,3,4,5,6;
     }
   }
 }
-@mixin var-height ($value: $box-size-height-default, $attr: 'height') {
+@mixin var-height ($value: $--box-size-height-default, $attr: 'height') {
   #{$attr}: $value;
   @each $key, $val in $box-size-heights {
     @if $value == $val{
@@ -34,21 +34,21 @@ $resolution : 2,3,4,5,6;
     }
   }
 }
-@mixin var-border-radius ($value: $border-radius, $resolution: false) {
+@mixin var-border-radius ($value: $--border-radius, $resolution: false) {
   @if $value {
     border-radius: $value;
     @if $value != 0 {
-      @if $value == $border-radius{
+      @if $value == $--border-radius{
         border-radius: var(--vx-border-radius, $value);
         @if $resolution == true {
-          @each $key, $val in $border-radius-dprs {
+          @each $key, $val in $--border-radius-dprs {
             @media screen and (resolution: #{$key}dppx) {
-              border-radius: var(--vx-border-radius-dpr#{$key}, $border-radius*$key);
+              border-radius: var(--vx-border-radius-dpr#{$key}, $--border-radius*$key);
             }
           }
         }@else if $resolution{
           @media screen and (resolution: #{$resolution}dppx) {
-            border-radius: var(--vx-border-radius-dpr#{$resolution}, $border-radius*$resolution);
+            border-radius: var(--vx-border-radius-dpr#{$resolution}, $--border-radius*$resolution);
           }
         }
       }
@@ -67,7 +67,7 @@ $resolution : 2,3,4,5,6;
 }
 @mixin active{
   &:active{
-    @include var-background-color($color-touch-active);
+    @include var-background-color($--color-touch-active);
   }
 }
 @mixin button{
@@ -101,27 +101,27 @@ $resolution : 2,3,4,5,6;
   overflow-scrolling: touch;
 }
 
-@mixin divider ($color:$color-divider, $vertical: false){
+@mixin divider ($color:$--color-divider, $vertical: false){
   @if $vertical {
     background-size: 1px 100%;
     background-repeat: no-repeat;
     background-position: left;
-    background-image: linear-gradient(90deg,$color,$color 50%,transparent 0);
-    @if $color == $color-primary {
-      background-image: linear-gradient(90deg,var(--vx-color-primary,$color),var(--vx-color-primary,$color) 50%,transparent 0);
+    background-image: linear-gradient(90deg,$color,$color 50%,transparent 100%);
+    @if $color == $--color-primary {
+      background-image: linear-gradient(90deg,var(--vx-color-primary,$color),var(--vx-color-primary,$color) 50%,transparent 100%);
     }
-    @if $color == $color-divider {
-      background-image: linear-gradient(90deg,var(--vx-color-divider,$color),var(--vx-color-divider,$color) 50%,transparent 0);
+    @if $color == $--color-divider {
+      background-image: linear-gradient(90deg,var(--vx-color-divider,$color),var(--vx-color-divider,$color) 50%,transparent 100%);
     }
   }@else{
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top;
     background-image: linear-gradient(180deg,$color,$color 50%,transparent 0);
-    @if $color == $color-primary {
+    @if $color == $--color-primary {
       background-image: linear-gradient(180deg,var(--vx-color-primary,$color),var(--vx-color-primary,$color) 50%,transparent 0);
     }
-    @if $color == $color-divider {
+    @if $color == $--color-divider {
       background-image: linear-gradient(180deg,var(--vx-color-divider,$color),var(--vx-color-divider,$color) 50%,transparent 0);
     }
   }
@@ -140,10 +140,10 @@ $resolution : 2,3,4,5,6;
   border-right:1px solid $color;
   transform:rotate($rotate) translateY(-50%);
 }
-@mixin var-border-round($color: $color-border,$radius: $border-radius,$resolution:1) {
+@mixin var-border-round($color: $--color-border,$radius: $--border-radius,$resolution:1) {
   $var : 3%;
   @media screen and (if($resolution == 6,-webkit-min-device-pixel-ratio,-webkit-device-pixel-ratio) : $resolution) {
-    @if $color == $color-border {
+    @if $color == $--color-border {
       border-color:darken($color,$resolution*$var);
     } @else {
       @include var-border-color($color);
@@ -156,7 +156,7 @@ $resolution : 2,3,4,5,6;
     top:-$resolution/2*100+50%;
   }
   @media screen and (if($resolution == 6,min-resolution,resolution): $resolution*1dppx) {
-    @if $color == $color-border {
+    @if $color == $--color-border {
       border-color:darken($color,$resolution*$var);
     } @else {
       @include var-border-color($color);
@@ -169,7 +169,7 @@ $resolution : 2,3,4,5,6;
     top:-$resolution/2*100+50%;
   }
 }
-@mixin border-round($color: $color-border,$radius: $border-radius) {
+@mixin border-round($color: $--color-border,$radius: $--border-radius) {
   position:relative;
   &:before{
     border:1px solid;
@@ -191,7 +191,7 @@ $resolution : 2,3,4,5,6;
   &:empty{
     &:before{
       content: attr(data-placeholder);
-      color:$color-light;
+      color:$--color-light;
     }
   }
 }

@@ -9,7 +9,7 @@ body{
   tap-highlight-color:transparent;
 }
 ::-webkit-input-placeholder {
-	color: $color-light;
+	color: $--color-light;
 }
 a,button,input,textearea,select{
   -webkit-tap-highlight-color:rgba(0,0,0,0);

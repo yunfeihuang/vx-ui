@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &switch{
     &--wrapper{
       position:relative;
@@ -18,11 +18,11 @@
         background-color:#fff;
         margin: 0;
         padding: 0;
-        transition: all 0.4s $ease-in-out 0s;
+        transition: all 0.4s $--ease-in-out 0s;
         width:100%;
         position: relative;
         border:1px solid;
-        @include var-border-color($color-border);
+        @include var-border-color($--color-border);
         box-sizing: border-box;
         &:before{
           content:'';
@@ -33,7 +33,7 @@
           left:0;
           top:0;
           position:absolute;
-          transition:left 0.3s $ease-in-out;
+          transition:left 0.3s $--ease-in-out;
           box-shadow: 0 0.02rem 0.06rem rgba(0,0,0,0.35);
           display: inline-table;
         }
@@ -47,8 +47,8 @@
         padding: 0;
         margin: 0;
         &:checked+button{
-          box-shadow:0 0 0 1.2rem $color-primary inset;
-          box-shadow:0 0 0 1.2rem var-value-color($color-primary) inset;
+          box-shadow:0 0 0 1.2rem $--color-primary inset;
+          box-shadow:0 0 0 1.2rem var-value-color($--color-primary) inset;
           @include var-border-color();
           &:before{
             left:40%;

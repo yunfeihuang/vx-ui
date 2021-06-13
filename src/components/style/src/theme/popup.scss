@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &popup{
     position:fixed;
     left:0;
@@ -68,7 +68,7 @@
         display:block;
         background:#fff;
       }
-      .#{$css-prefix}popup--body{
+      .#{$--css-prefix}popup--body{
         margin:auto;
       }
     }
@@ -136,7 +136,7 @@
         }
       }
       &-title{
-        @include var-font-size($font-size-xl);
+        @include var-font-size($--font-size-xl);
         @include lineClamp;
         text-align:left;
         flex:auto;
@@ -146,80 +146,80 @@
 }
 
 .popup-fade-enter-active, .popup-fade-leave-active {
-  transition: opacity $transition-time ease 0s;
+  transition: opacity $--transition-time ease 0s;
 }
-.popup-fade-enter, .popup-fade-leave-active {
+.popup-fade-enter-from, .popup-fade-leave-active {
   opacity: 0;
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {
-  transition: opacity $transition-time
+  transition: opacity $--transition-time
 }
-.popup-slide-center-enter, .popup-slide-center-leave-active {
+.popup-slide-center-ente-from, .popup-slide-center-leave-active {
   opacity: 0
 }
 
 .popup-slide-top-enter-active, .popup-slide-top-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
-.popup-slide-top-enter, .popup-slide-top-leave-active {
+.popup-slide-top-enter-from, .popup-slide-top-leave-active {
   transform: translate3d(0,-100%,0);
 }
 .popup-full-slide-top-enter-active, .popup-full-slide-top-leave-active {
   transition: transform 0.4s;
 }
-.popup-full-slide-top-enter, .popup-full-slide-top-leave-active {
+.popup-full-slide-top-enter-from, .popup-full-slide-top-leave-active {
   transform: translate3d(0,-100%,0);
 }
 
 .popup-slide-bottom-enter-active, .popup-slide-bottom-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
-.popup-slide-bottom-enter, .popup-slide-bottom-leave-active {
+.popup-slide-bottom-enter-from, .popup-slide-bottom-leave-active {
   transform: translate3d(0,100%,0);
 }
 .popup-full-slide-bottom-enter-active, .popup-full-slide-bottom-leave-active {
   transition: transform 0.4s;
 }
-.popup-full-slide-bottom-enter, .popup-full-slide-bottom-leave-active {
+.popup-full-slide-bottom-enter-from, .popup-full-slide-bottom-leave-active {
   transform: translate3d(0,100%,0);
 }
 
 .popup-slide-left-enter-active, .popup-slide-left-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
-.popup-slide-left-enter, .popup-slide-left-leave-active {
+.popup-slide-left-enter-from, .popup-slide-left-leave-active {
   transform: translate3d(-100%,0,0);
 }
 .popup-full-slide-left-enter-active, .popup-full-slide-left-leave-active {
   transition: transform 0.4s;
 }
-.popup-full-slide-left-enter, .popup-full-slide-left-leave-active {
+.popup-full-slide-left-enter-from, .popup-full-slide-left-leave-active {
   transform: translate3d(-100%,0,0);
 }
 
 .popup-slide-right-enter-active, .popup-slide-right-leave-active {
-  transition: transform $transition-time
+  transition: transform $--transition-time
 }
-.popup-slide-right-enter, .popup-slide-right-leave-active {
+.popup-slide-right-enter-from, .popup-slide-right-leave-active {
   transform: translate3d(100%,0,0);
 }
 .popup-full-slide-right-enter-active, .popup-full-slide-right-leave-active {
   transition: transform 0.4s;
 }
-.popup-full-slide-right-enter, .popup-full-slide-right-leave-active {
+.popup-full-slide-right-enter-from, .popup-full-slide-right-leave-active {
   transform:  translate3d(100%,0,0);
 }
 
 .popup-slide-center-enter-active, .popup-slide-center-leave-active {
-  transition: opacity $transition-time
+  transition: opacity $--transition-time
 }
-.popup-slide-center-enter, .popup-slide-center-leave-active {
+.popup-slide-center-enter-from, .popup-slide-center-leave-active {
   transform: 0;
 }
 .popup-full-slide-center-enter-active, .popup-full-slide-center-leave-active {
   transition: opacity 0.4s;
 }
-.popup-full-slide-center-enter, .popup-full-slide-center-leave-active {
+.popup-full-slide-center-enter-from, .popup-full-slide-center-leave-active {
   transform: 0;
 }

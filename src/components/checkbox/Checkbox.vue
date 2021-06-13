@@ -80,8 +80,8 @@ export default {
     },
     myDisabled () {
       let disabled = this.disabled
-      if (this.isParent && this.$parent.max > 1 && this.$parent.value.length >= this.$parent.max) {
-        return this.$parent.value.indexOf(this.value) === -1
+      if (this.isParent && this.$parent.max > 1 && this.$parent.modelValue.length >= this.$parent.max) {
+        return this.$parent.modelValue.indexOf(this.value) === -1
       }
       return disabled
     },

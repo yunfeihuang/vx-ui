@@ -6,14 +6,6 @@
           <arrow direction="left" :color="type === 'primary' ? arrow.primaryColor : arrow.color" :size="arrow.size"/>
           <span v-if="backText">{{backText}}</span>
         </button>
-        <template v-if="titleCenter && $slots['append']">
-          <template v-if="$slots['prepend'] && $slots['prepend'].length + isBack < $slots['append'].length">
-            <div class="vx-nav--button" v-for="(item,index) in $slots['append'].length - ($slots['prepend'].length + isBack)" :key="index"></div>
-          </template>
-          <template v-else-if="!$slots['prepend']">
-            <div class="vx-nav--button" v-for="(item,index) in Object.keys($slots['append']).length - (isBack ? 1 : 0)" :key="index"></div>
-          </template>
-        </template>
         <slot name="prepend"></slot>
         <div v-if="$slots.title" :class="['vx-nav--title-slot']">
           <slot name="title"></slot>

@@ -1,4 +1,5 @@
 
+import {createApp} from 'vue'
 import {Page, PageBody} from './page'
 import Ripple from './ripple'
 import Button from './button'
@@ -193,8 +194,7 @@ const install = (app) => {
       app.component(component.name, component)
     }
   })
-  /*
-  Vue.prototype.$toast = (_props, mounted = document.body) => {
+  app.config.globalProperties.$toast = (_props, mounted = document.body) => {
     let props = Object.assign({
       open: true,
       onClose: () => {
@@ -203,7 +203,7 @@ const install = (app) => {
     }, _props)
     let node = document.createElement('div')
     mounted.appendChild(node)
-    let vue = new Vue({ //eslint-disable-line
+    let vue = createApp({ //eslint-disable-line
       el: node,
       render (createElement) {
         let message = props.message
@@ -214,7 +214,7 @@ const install = (app) => {
             'after-close': this.handleAfterClose
           },
           scopedSlots: {
-            default: props => createElement('div', {domProps: {innerHTML: message}})
+            default: () => createElement('div', {domProps: {innerHTML: message}})
           }
         })
       },
@@ -231,14 +231,14 @@ const install = (app) => {
           this.$destroy()
         }
       },
-      beforeDestroy () {
+      beforeUnmount () {
         vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
       }
     })
     return vue
   }
 
-  Vue.prototype.$alert = (_props, mounted = document.body) => {
+  app.config.globalProperties.$alert = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
         open: false,
@@ -251,7 +251,7 @@ const install = (app) => {
       }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
+      let vue = createApp({ //eslint-disable-line
         el: node,
         render (createElement) {
           let message = props.message
@@ -263,7 +263,7 @@ const install = (app) => {
               'after-close': this.handleAfterClose
             },
             scopedSlots: {
-              default: props => createElement('div', {domProps: {innerHTML: message}})
+              default: () => createElement('div', {domProps: {innerHTML: message}})
             }
           })
         },
@@ -288,14 +288,14 @@ const install = (app) => {
             vue.$destroy()
           }
         },
-        beforeDestroy () {
+        beforeUnmount () {
           vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
   }
-
-  Vue.prototype.$confirm = (_props, mounted = document.body) => {
+  console.log('app', app)
+  app.config.globalProperties.$confirm = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
         open: false,
@@ -308,7 +308,10 @@ const install = (app) => {
       }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
+      let vue = createApp({ //eslint-disable-line
+        compoennts: {
+          Confirm
+        },
         el: node,
         render (createElement) {
           let message = props.message
@@ -321,7 +324,7 @@ const install = (app) => {
               'button-click': this.handleButtonClick
             },
             scopedSlots: {
-              default: props => createElement('div', {domProps: {innerHTML: message}})
+              default: () => createElement('div', {domProps: {innerHTML: message}})
             }
           })
         },
@@ -349,13 +352,13 @@ const install = (app) => {
             props.onButtonClick && props.onButtonClick(event)
           }
         },
-        beforeDestroy () {
+        beforeUnmount () {
           vue.$el.parentNode.removeChild(vue.$el)
         }
       })
     })
   }
-  Vue.prototype.$prompt = (_props, mounted = document.body) => {
+  app.config.globalProperties.$prompt = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
         open: false,
@@ -376,7 +379,7 @@ const install = (app) => {
       }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
+      let vue = createApp({ //eslint-disable-line
         el: node,
         render (createElement) {
           return createElement(Prompt, {
@@ -413,7 +416,7 @@ const install = (app) => {
             this.$destroy()
           }
         },
-        beforeDestroy () {
+        beforeUnmount () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
@@ -421,20 +424,20 @@ const install = (app) => {
       })
     })
   }
-  Vue.prototype.$actionsheet = (_props, mounted = document.body) => {
+  app.config.globalProperties.$actionsheet = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
         open: false,
         onClose: () => {
           return true
         },
-        onAction: (value) => {
+        onAction: () => {
           return true
         }
       }, _props)
       let node = document.createElement('div')
       mounted.appendChild(node)
-      let vue = new Vue({ //eslint-disable-line
+      let vue = createApp({ //eslint-disable-line
         el: node,
         render (createElement) {
           return createElement(Actionsheet, {
@@ -476,7 +479,7 @@ const install = (app) => {
             this.$destroy()
           }
         },
-        beforeDestroy () {
+        beforeUnmount () {
           requestAnimationFrame(() => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
@@ -485,7 +488,7 @@ const install = (app) => {
     })
   }
   // element ui 表单解决方案要用到的
-  Vue.prototype.dispatch = function (componentName, eventName, params) {
+  app.config.globalProperties.dispatch = function (componentName, eventName, params) {
     let parent = this.$parent || this.$root
     let name = parent.$options.componentName
     while (parent && (!name || name !== componentName)) {
@@ -498,7 +501,6 @@ const install = (app) => {
       parent.$emit.apply(parent, [eventName].concat(params))
     }
   }
-  */
 }
 
 export {

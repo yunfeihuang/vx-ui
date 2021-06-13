@@ -1,0 +1,32 @@
+@import 'common/variable.scss';
+@import 'common/mixins.scss';
+.#{$--css-prefix}{
+  &avatar-group{
+    display:flex;
+    min-width: 0;
+    margin-right:10px;
+    >a{
+      min-width: 0;
+      max-width: 0.9rem;
+      margin-right:-0.06rem;
+      &:last-child{
+        flex-shrink: 0;
+        max-width: none;
+      }
+      img{
+        width:0.9rem;
+        height:0.9rem;
+        border-radius:50%;
+        box-sizing:border-box;
+        border:0.06rem solid #fff;
+        vertical-align: middle;
+      }
+    }
+    
+    &--wrapper{
+      display:flex;
+      align-items:center;
+      min-width: 0;
+    }
+  }
+}

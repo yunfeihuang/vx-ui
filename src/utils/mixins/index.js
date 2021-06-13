@@ -142,7 +142,7 @@ const input = {
 const tab = {
   methods: {
     change (name) {
-      this.active !== name && this.$emit('update:active', name) && this.$emit('change', name)
+      this.active !== name && this.$emit('update:active', name)
     }
   },
   props: {
@@ -185,7 +185,8 @@ const historyPush = {
     },
     handlePopstate () {
       if (window.location.href.indexOf(this.pushString) === -1) {
-        this.$emit('update:open', false) && this.$emit('close')
+        this.$emit('update:open', false)
+        this.$emit('close')
         this.popStateBack && this.popStateBack()
         window.removeEventListener('popstate', this.handlePopstate)
       }

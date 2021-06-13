@@ -9,17 +9,16 @@
           <template v-slot:title>下拉框({{label}})</template>
           <template v-slot:value>
           <vx-select
-            v-model:label="label"
             v-model="value"
+            v-model:label="label"
             clearable
             placeholder="请选择">
             <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
-              :key="item.value">
-              {{item.label}}
-            </vx-option>
+              :label="item.label"
+              :key="item.value"/>
           </vx-select>
           </template>
         </vx-cell>
@@ -27,7 +26,6 @@
           <template v-slot:title>下拉框option含html并且打开框不产生浏览器地址历史记录</template>
           <template v-slot:value>
           <vx-select
-            v-model:label="label"
             v-model="value"
             :popup-props="{direction: 'center', history: false}"
             placeholder="请选择">
@@ -53,9 +51,8 @@
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
-              :key="item.value">
-              {{item.label}}
-            </vx-option>
+              :label="item.label"
+              :key="item.value"/>
           </vx-select>
           </template>
         </vx-cell>
@@ -70,9 +67,8 @@
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
-              :key="item.value">
-              {{item.label}}
-            </vx-option>
+              :label="item.label"
+              :key="item.value"/>
           </vx-select>
           </template>
         </vx-cell>
@@ -83,14 +79,13 @@
             v-model="value4"
             :max="0"
             placeholder="请选择">
-            <vx-option value="" exclusive>不限</vx-option>
+            <vx-option value="-1" exclusive>不限</vx-option>
             <vx-option
               v-for="item in options"
               :value="item.value"
               :disabled="item.disabled"
-              :key="item.value">
-              {{item.label}}
-            </vx-option>
+              :label="item.label"
+              :key="item.value"/>
           </vx-select>
           </template>
         </vx-cell>
@@ -116,7 +111,7 @@ export default {
   data () {
     return {
       label: '',
-      value: '',
+      value: 1,
       value2: [],
       value3: [],
       value4: [''],

@@ -167,7 +167,17 @@ export default {
       }
     },
     handleScroll () {
-      if (this.$$touch && this.$$touch.scrollEnd) {
+      if (document.ontouchstart !== undefined) {
+        if (this.$$touch && this.$$touch.scrollEnd) {
+          this.computedScrollTop()
+        }
+      } else {
+        if (!this.$$touch.offsetHeight) {
+          let node = this.$$touch.scrollElement.querySelector('.vx-picker--item')
+          if (node) {
+            this.$$touch.offsetHeight = node.offsetHeight
+          }
+        }
         this.computedScrollTop()
       }
     },
@@ -188,7 +198,7 @@ export default {
           let active = this.$el.querySelectorAll('.vx-picker--item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.modelValue && this.$emit('update:modelValue', value) && this.$emit('update:modelValue', value) && this.$emit('change', value)
+            value !== this.modelValue && this.$emit('update:modelValue', value)
           }
         })
       }, 200)

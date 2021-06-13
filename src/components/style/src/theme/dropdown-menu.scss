@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &dropdown-menu{
     &--inner{
       background:#fff;
@@ -30,6 +30,16 @@
     &--picker{
       .vx-radio{
         padding:0.25rem 0.2rem;
+        &.is-checked{
+          color:$--color-primary;
+        }
+        &--icon{
+          opacity:0;
+        }
+        &--text{
+          text-align:center;
+          padding-right:0;
+        }
       }
     }
   }

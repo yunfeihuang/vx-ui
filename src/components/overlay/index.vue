@@ -2,6 +2,7 @@
   <transition name="popup-fade">
     <div v-show="open" :class="['vx-overlay']"
       :style="Object.assign({opacity:`${opacity}`})"
+      @touchmove.prevent
       v-bind="$attrs">
       <slot></slot>
     </div>

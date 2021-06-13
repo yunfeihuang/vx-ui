@@ -110,12 +110,12 @@ export default {
       this.$emit('close')
     },
     handleConfirm () {
-      this.open && this.$emit('update:modelValue', this.myValue) && this.$emit('change', this.myValue)
+      this.open && this.$emit('update:modelValue', this.myValue)
     },
     handleChange (value) {
       if (this.max === 1) {
         this.myValue = value
-        this.open && this.$emit('update:modelValue', value) && this.$emit('change', value)
+        this.open && this.$emit('update:modelValue', value)
       } else {
         if (this.exclusiveValue.length && value.length > 1) {
           this.myValue = value.filter(item => this.exclusiveValue.indexOf(item) === -1)

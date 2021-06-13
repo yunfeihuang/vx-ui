@@ -78,7 +78,10 @@ export default {
         }
       })
       if (!this.value || value.toString() !== this.value.toString()) {
-        this.open && this.$emit('update:open', false) && this.$emit('update:modelValue', value) && this.$emit('change', value)
+        if (this.open) {
+          this.$emit('update:open', false)
+          this.$emit('update:modelValue', value)
+        }
       } else {
         this.handleClose()
       }

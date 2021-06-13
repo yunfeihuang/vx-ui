@@ -119,7 +119,11 @@ export default {
       this.$emit('close')
     },
     handleConfirm () {
-      this.open && !this.disabled && this.$emit('update:open', false) && this.$emit('confirm', this.myValue) && this.$emit('update:modelValue', this.myValue)
+      if (this.open && !this.disabled) {
+       this.$emit('update:open', false)
+       this.$emit('confirm', this.myValue)
+       this.$emit('update:modelValue', this.myValue)
+      }
     },
     handleInput (value) {
       this.$emit('change', value);

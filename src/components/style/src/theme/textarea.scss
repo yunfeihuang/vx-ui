@@ -1,6 +1,6 @@
 @import 'common/variable.scss';
 @import 'common/mixins.scss';
-.#{$css-prefix}{
+.#{$--css-prefix}{
   &textarea{
     &--wrapper{
       @include disabled;
@@ -19,8 +19,8 @@
         background-color:transparent;
       }
       &:after{
-        @include divider($color-primary);
-        transition:width 0.4s $ease-in-out;
+        @include divider($--color-primary);
+        transition:width 0.4s $--ease-in-out;
         width:0;
         z-index:2;
       }
@@ -31,9 +31,9 @@
     &--inner{
       position:relative;
       @include var-height();
-      @include var-height($box-size-height-default, 'min-height');
+      @include var-height($--box-size-height-default, 'min-height');
       line-height: 0.32rem;
-      textarea,.#{$css-prefix}textarea--shadow{
+      textarea,.#{$--css-prefix}textarea--shadow{
         padding:0.26rem 0.15rem;
         width:100%;
         text-align: inherit;
@@ -65,7 +65,7 @@
     }
     
     &--enter-number{
-      .#{$css-prefix}textarea-inner{
+      .#{$--css-prefix}textarea-inner{
         padding-bottom:0.2rem;
       }
       em{
@@ -73,10 +73,10 @@
         right: 0.1rem;
         bottom: 0.1rem;
         font-style:normal;
-        @include var-font-size($font-size-small);
+        @include var-font-size($--font-size-small);
         line-height:1;
         padding:0;
-        @include var-color($color-light);
+        @include var-color($--color-light);
       }
     }
   }
