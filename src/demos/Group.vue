@@ -10,17 +10,15 @@
           <template v-slot:value><vx-switch v-model="checked" /></template>
         </vx-cell>
       </vx-group>
-      <transition name="popup-fade">
-        <vx-group title="heading" heading-type="default" v-show="checked">
-          <template v-slot:heading-append>更多</template>
-          <div>
-            内容... <br />
-            内容...
-          </div>
-          <template v-slot:prepend>prepend</template>
-          <template v-slot:append>append</template>
-        </vx-group>
-      </transition>
+      <vx-group title="heading" heading-type="default" v-show="checked">
+        <template v-slot:heading-append>更多</template>
+        <div>
+          内容... <br />
+          内容...
+        </div>
+        <template v-slot:prepend>prepend</template>
+        <template v-slot:append>append</template>
+      </vx-group>
       <vx-group title="heading primary" heading-type="primary">
         <template v-slot:heading-append>更多</template>
         <div>

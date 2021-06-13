@@ -1,5 +1,5 @@
 <template>
-  <transition name="popup-fade" @enter="handleEnter" @after-leave="handleLeave">
+  <transition name="vx--popup-fade" @enter="handleEnter" @after-leave="handleLeave">
     <div v-show="open" :class="['vx-toast','vx-toast--' + align]">
       <div class="vx-toast--inner">
         <div class="vx-toast--content">

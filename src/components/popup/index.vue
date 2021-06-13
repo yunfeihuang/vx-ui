@@ -3,7 +3,7 @@
     <overlay v-if="!full" :opacity="overlayOpacity" :open="open" @click="handleClose"></overlay>
     <transition
       v-if="$slots.inner"
-      name="popup-fade"
+      name="vx--popup-fade"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
       <div v-if="open">
@@ -12,7 +12,7 @@
     </transition>
     <transition
       v-else
-      :name="full?'popup-full-slide-'+direction:'popup-slide-'+direction"
+      :name="full?'vx--popup-full-slide-'+direction:'vx--popup-slide-'+direction"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
       <div v-if="open" :class="innerClasses" @click="handleClose2">

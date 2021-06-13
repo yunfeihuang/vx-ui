@@ -1,5 +1,5 @@
 <template>
-  <transition name="popup-fade">
+  <transition name="vx--popup-fade">
     <div v-show="open" :class="['vx-overlay']"
       :style="Object.assign({opacity:`${opacity}`})"
       @touchmove.prevent
