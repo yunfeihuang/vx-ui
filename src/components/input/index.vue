@@ -22,7 +22,7 @@
         </button>
       </template>
       <slot name="append"></slot>
-      <arrow v-if="arrow" v-bind="arrowProps" direction="down"/>
+      <vx-arrow v-if="arrow" v-bind="arrowProps" direction="down"/>
     </label>
   </div>
 </template>
@@ -30,11 +30,12 @@
 <script>
 import { computed, ref } from 'vue'
 import { input } from '@/utils/mixins'
-import Arrow from '../arrow'
+import VxArrow from '../arrow'
+
 export default {
   name: 'VxInput',
   components: {
-    Arrow
+    VxArrow
   },
   props: {
     ...input.props,

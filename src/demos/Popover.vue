@@ -6,7 +6,7 @@
     <vx-page-body  style="padding:15px;">
       <vx-flexbox style="margin-bottom:300px">
         <vx-flexbox-item>
-          <vx-popover open>
+          <vx-popover>
             <template v-slot:trigger><vx-button>left top</vx-button></template>
             <ul class="vx-popover--menu">
               <li class="vx-popover--menu-item" @click="handleClick('扫一扫')">扫一扫</li>

@@ -67,7 +67,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    modelValue (value) {
       this.myValue = value
     }
   },
@@ -77,8 +77,6 @@ export default {
     },
     handleConfirm () {
       this.$emit('update:modelValue', this.myValue)
-      this.$emit('update:modelValue', this.myValue)
-      this.$emit('change', this.myValue)
       this.handleClose()
     },
     handleClear () {

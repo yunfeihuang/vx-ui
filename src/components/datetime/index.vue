@@ -14,18 +14,26 @@
       <slot name="append"></slot>
     </template>
   </vx-input>
+  <teleport to="body">
+    <vx-datetime-picker
+      v-model:open="open"
+      v-model="value"
+      :format="format"
+      @close="open = false"
+      @update:modelValue="handleChange"/>
+  </teleport>
 </template>
 
 <script>
 import { input } from '@/utils/mixins'
-import { createApp } from 'vue'
 import VxInput from '../input'
-import DatetimePicker from '../datetime-picker'
+import VxDatetimePicker from '../datetime-picker'
 export default {
   name: 'VxDatetime',
   mixins: [input],
   components: {
-    VxInput
+    VxInput,
+    VxDatetimePicker
   },
   props: {
     ...input.props,
@@ -55,74 +63,19 @@ export default {
       }
     }
   },
-  beforeUnmount () {
-    if (this.$root && this.$root.__popup && this.__popup === this.$root.__popup) {
-      this.$root.__popup && this.$root.__popup.$destroy()
-      this.__popup = this.$root.__popup = null
+  data () {
+    return {
+      open: false,
+      value: this.modelValue
     }
   },
   methods: {
-    handleFocusIn (e) {
-      let datetime = this
-      let node = document.createElement('div')
-      if (this.getPopupMounted) {
-        this.getPopupMounted(e).appendChild(node)
-      } else {
-        document.body.appendChild(node)
-      }
-      if (this.$root && this.$root.__popup) {
-        this.$root.__popup && this.$root.__popup.$destroy()
-      }
-      /* eslint-disable no-new */
-      this.$root.__popup = this.__popup = createApp({
-        el: node,
-        render (createElement) {
-          return createElement(DatetimePicker, {
-            props: {
-              open: this.open,
-              value: this.value,
-              format: this.format
-            },
-            on: {
-              'change': this.handleChange,
-              'close': this.handleClose,
-              'close-after': this.handleCloseAfter
-            }
-          })
-        },
-        components: { DatetimePicker },
-        data () {
-          let now = new Date()
-          return {
-            open: false,
-            value: datetime.value || now.format(datetime.format),
-            format: datetime.format
-          }
-        },
-        mounted () {
-          requestAnimationFrame(() => {
-            this.open = true
-            datetime.isFocus = true
-          })
-        },
-        beforeUnmount () {
-          this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
-        },
-        methods: {
-          handleChange (value) {
-            this.open = false
-            datetime.$emit('update:modelValue', value)
-            datetime.$emit('change', value)
-          },
-          handleClose () {
-            this.open = false
-            datetime.isFocus = false
-          },
-          handleCloseAfter () {
-            this.$destroy()
-          }
-        }
-      })
+    handleFocusIn () {
+      this.value = this.modelValue,
+      this.open = true
+    },
+    handleChange () {
+      this.$emit('update:modelValue', this.value)
     }
   }
 }

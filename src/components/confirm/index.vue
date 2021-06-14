@@ -1,7 +1,7 @@
 <template>
   <div class="vx-confirm">
-    <overlay :open="open"></overlay>
-      <transition name="confirm-scale" @after-enter="handleEnter" @after-leave="handleLeave">
+    <vx-overlay :open="open"></vx-overlay>
+    <transition name="confirm-scale" @after-enter="handleEnter" @after-leave="handleLeave">
       <div class="vx-confirm--inner" v-show="open">
         <div v-if="title" class="vx-confirm--title">{{title}}</div>
         <div class="vx-confirm--body">
@@ -22,12 +22,12 @@
 
 <script>
 import { historyPush } from '@/utils/mixins'
-import Overlay from '../overlay'
+import VxOverlay from '../overlay'
 export default {
   name: 'VxConfirm',
   mixins: [historyPush],
   components: {
-    Overlay
+    VxOverlay
   },
   emits: ['confirm'],
   props: {

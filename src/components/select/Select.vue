@@ -16,7 +16,7 @@
             <i class="vx-input--clearable-icon"></i>
           </button>
         </transition>
-        <arrow v-else-if="arrow" v-bind="arrowProps" direction="down"/>
+        <vx-arrow v-else-if="arrow" v-bind="arrowProps" direction="down"/>
       </template>
       <slot v-else name="append"></slot>
     </div>
@@ -41,11 +41,12 @@
 
 <script>
 import { input } from '@/utils/mixins'
-import Arrow from '../arrow'
+import VxArrow from '../arrow'
+
 export default {
   name: 'VxSelect',
   components: {
-    Arrow
+    VxArrow
   },
   mixins: [input],
   props: {

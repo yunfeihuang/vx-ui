@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose">
+  <vx-popup :open="open" :history="history" @close="handleClose">
     <template v-slot:header>
       <div :class="['vx-popup-picker--header']">
         <button type="button" class="vx-popup-picker--cancel" @click="handleClose">{{cancelText}}</button>
@@ -8,7 +8,7 @@
       </div>
     </template>
     <div :class="['vx-popup-picker']">
-      <picker
+      <vx-picker
         v-for="(item,index) in myPickers"
         :class="['vx-popup-picker--item']"
         :key="index"
@@ -18,18 +18,18 @@
         @change="handleChange($event,index)"
       />
     </div>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
-import Picker from '../picker'
+import VxPopup from '../popup'
+import VxPicker from '../picker'
 
 export default {
   name: 'VxPopupPicker',
   components: {
-    Popup,
-    Picker
+    VxPopup,
+    VxPicker
   },
   props: {
     open: {

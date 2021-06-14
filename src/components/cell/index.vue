@@ -20,7 +20,7 @@
           </template>
         </div>
       </div>
-      <arrow class="vx-cell--arrow" v-if="arrow || to" :direction="arrowDirection || 'right'" size="0.2rem"></arrow>
+      <vx-arrow class="vx-cell--arrow" v-if="arrow || to" :direction="arrowDirection || 'right'" size="0.2rem"/>
     </div>
     <div class="vx-cell--default-slot" v-if="$slots['default']">
       <slot></slot>

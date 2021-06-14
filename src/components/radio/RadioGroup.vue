@@ -20,8 +20,6 @@ export default {
   methods: {
     handleChange (value) {
       this.$emit('update:modelValue', value)
-      this.$emit('change', value)
-      this.$emit('update:modelValue', value)
     }
   }
 }

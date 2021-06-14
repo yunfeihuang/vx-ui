@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" :fast-close="false">
+  <vx-popup :open="open" :history="history" @close="handleClose" :fast-close="false">
     <template v-slot:header>
       <div :class="['vx-datetime-picker--header']">
         <button type="button" class="vx-datetime-picker--cancel" @click="handleClose">{{cancelText}}</button>
@@ -12,32 +12,30 @@
       </div>
     </template>
     <div :class="['vx-datetime-picker']">
-      <picker
+      <vx-picker
         v-for="(item,index) in pickers"
         :class="['vx-datetime-picker--item']"
         :index="index+'-'+item.type"
         :key="index+'-'+item.type"
         :data-type="item.type"
-        :value="item.value"
+        :modelValue="item.value"
         :placeholder="item.placeholder"
         :options="item.options"
-        @change="handleChange($event, index, item.type)"
+        @update:modelValue="handleChange($event, index, item.type)"
       />
     </div>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
-import Picker from '../picker'
-
-let now = new Date()
+import VxPopup from '../popup'
+import VxPicker from '../picker'
 
 export default {
   name: 'VxDatetimePicker',
   components: {
-    Popup,
-    Picker
+    VxPopup,
+    VxPicker
   },
   props: {
     open: {
@@ -54,11 +52,17 @@ export default {
     },
     max: {
       type: String,
-      default: `${now.getFullYear() + 20}-01-01`
+      default () {
+        let now = new Date()
+        return `${now.getFullYear() + 20}-01-01`
+      }
     },
     modelValue: {
       type: String,
-      default: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}: ${now.getMinutes()}: ${now.getSeconds()}`
+      default () {
+        let now = new Date()
+        return `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}: ${now.getMinutes()}: ${now.getSeconds()}`
+      }
     },
     format: {
       type: String,
@@ -250,9 +254,9 @@ export default {
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
+      console.log('value', value)
       this.open && this.$emit('update:open', false)
       this.$emit('update:modelValue', value)
-      this.$emit('change', value)
       this.handleClose()
     },
     handleChange (value, index, type) {

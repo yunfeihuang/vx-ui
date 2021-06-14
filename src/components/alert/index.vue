@@ -1,5 +1,5 @@
 <template>
-  <confirm
+  <vx-confirm
     :open="open"
     :confirmText="confirmText"
     :cancel="false"
@@ -9,15 +9,15 @@
     @close="handleClose"
     @after-close="handleAfterClose">
     <slot></slot>
-  </confirm>
+  </vx-confirm>
 </template>
 
 <script>
-import Confirm from '../confirm'
+import VxConfirm from '../confirm'
 export default {
   name: 'VxAlert',
   components: {
-    Confirm
+    VxConfirm
   },
   props: {
     open: {

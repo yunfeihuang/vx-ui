@@ -5,28 +5,28 @@
         <flexbox-item v-if="layout.indexOf('year')>-1">
           <flexbox align="center">
             <button :class="{'is-disabled': date.getFullYear() <= 1990}" type="button" @click="handleYearChange(-1)">
-              <arrow direction="left" size="0.22rem"/>
+              <vx-arrow direction="left" size="0.22rem"/>
             </button>
             <flexbox-item>
               {{date.getFullYear()}}{{yearText[lang]}}
               <input type="number" :value="date.getFullYear()" :min="1990" :max="date.getFullYear()+100" @change="handleYearChange2"/>
             </flexbox-item>
             <button type="button" @click="handleYearChange(1)">
-              <arrow size="0.22rem"/>
+              <vx-arrow size="0.22rem"/>
             </button>
           </flexbox>
         </flexbox-item>
         <flexbox-item v-if="layout.indexOf('month')>-1">
           <flexbox align="center">
             <button :class="{'is-disabled': date.getMonth() === 0}" type="button" @click="handleMonthChange(-1)">
-              <arrow direction="left" size="0.22rem"/>
+              <vx-arrow direction="left" size="0.22rem"/>
             </button>
             <flexbox-item>
               {{date.getMonth() + 1}}{{monthText[lang]}}
               <input type="number" :value="date.getMonth() + 1" :min="1" max="12"  @change="handleMonthChange2"/>
             </flexbox-item>
             <button :class="{'is-disabled': date.getMonth() === 11}" type="button" @click="handleMonthChange(1)">
-              <arrow size="0.22rem"/>
+              <vx-arrow size="0.22rem"/>
             </button>
           </flexbox>
         </flexbox-item>
@@ -51,14 +51,14 @@
 
 <script>
 import {Flexbox, FlexboxItem} from '../flexbox'
-import Arrow from '../arrow'
+import VxArrow from '../arrow'
 
 export default {
   name: 'VxCalendar',
   components: {
     Flexbox,
     FlexboxItem,
-    Arrow
+    VxArrow
   },
   props: {
     modelValue: {

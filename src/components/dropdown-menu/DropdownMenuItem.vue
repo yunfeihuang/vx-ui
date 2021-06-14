@@ -1,20 +1,31 @@
 <template>
-  <div :class="['vx-dropdown-menu--item', {'is-checked': checked}]" @click="handleClick($event)">
+  <div :class="['vx-dropdown-menu--item', {'is-checked': checked}]" @click.stop="handleClick">
     <div class="vx-dropdown-menu--item-text">
-      {{myLabel}}<arrow v-if="options || $slots['default']" :direction="open ? 'up' : 'down'" />
+      {{myLabel}}<vx-arrow v-if="options || $slots['default']" :direction="open ? 'up' : 'down'" />
     </div>
   </div>
+  <teleport to="body">
+    <vx-picker
+      :style="style"
+      v-model:open="open"
+      :modelValue="value"
+      :options="options"
+      :popupClass="popupClass"
+      @update:modelValue="handleChange">
+      <slot></slot>
+    </vx-picker>
+  </teleport>
 </template>
 
 <script>
-import { createApp } from 'vue'
-import Picker from './Picker'
-import Arrow from '../arrow'
+import VxPicker from './Picker'
+import VxArrow from '../arrow'
 
 export default {
   name: 'VxDropdownMenuItem',
   components: {
-    Arrow
+    VxArrow,
+    VxPicker
   },
   props: {
     placeholder: {
@@ -27,7 +38,7 @@ export default {
     options: {
       type: Array
     },
-    value: {
+    modelValue: {
       type: [String, Number]
     },
     checked: {
@@ -40,7 +51,7 @@ export default {
   computed: {
     myLabel () {
       if (this.options) {
-        let result = this.options.filter(item => item.value === this.value)
+        let result = this.options.filter(item => item.value === this.modelValue)
         if (result && result[0] && result[0].label) {
           return result[0].label
         }
@@ -50,79 +61,27 @@ export default {
   },
   data () {
     return {
-      open: false
-    }
-  },
-  beforeUnmount () {
-    if (this.__popup) {
-      if (this.$root.__popup === this.__popup) {
-        this.$root.__popup = null
-      }
-      this.__popup.$destroy()
+      open: false,
+      style: {}
     }
   },
   methods: {
-    close () {
-      this.__popup.open = this.open = !this.__popup.open
-    },
-    handleClick () {
+    handleClick (e) {
       if (this.options || this.$slots['default']) {
-        let el = document.createElement('div')
-        let self = this
-        let rect = this.$el.getBoundingClientRect()
-        if (!this.__popup || (this.__popup !== this.$root.__popup)) {
-          this.$root.__popup && this.$root.__popup.$destroy()
-          document.body.appendChild(el)
-          this.__popup = this.$root.__popup = createApp({
-            el,
-            data () {
-              return {
-                open: false
-              }
-            },
-            mounted () {
-              this.$nextTick(() => {
-                this.open = self.open = true
-              })
-            },
-            render (createElement) {
-              let my = this
-              return createElement(Picker, {
-                style: {
-                  top: `${rect.bottom}px`,
-                  height: `${window.innerHeight - rect.bottom}px`
-                },
-                props: {
-                  options: self.options,
-                  value: self.value,
-                  popupClass: self.popupClass,
-                  open: this.open
-                },
-                on: {
-                  change (value) {
-                    self.$emit('update:modelValue', value)
-                    self.$emit('change', value)
-                    my.open = self.open = false
-                  },
-                  close () {
-                    my.open = self.open = false
-                  },
-                  'after-close': () => {
-                    self.$root.__popup && self.$root.__popup.$destroy()
-                    self.__popup = self.$root.__popup = null
-                  }
-                }
-              }, self.$slots.default)
-            }
-          })
-        } else if (this.__popup === this.$root.__popup) {
-          this.__popup.open = this.open = !this.__popup.open
-        }
-      } else {
-        if (this.$root.__popup) {
-          this.$root.__popup.open = false
+        let rect = e.currentTarget.getBoundingClientRect()
+        this.open = true
+        this.style = {
+          top: `${rect.bottom}px`,
+          height:`${window.innerHeight - rect.bottom}px`
         }
       }
+    },
+    handleChange (value) {
+      this.$emit('update:modelValue', value)
+      this.open = false
+    },
+    close () {
+      this.open = false
     }
   }
 }

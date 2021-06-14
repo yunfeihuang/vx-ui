@@ -4,27 +4,27 @@
       <div class="vx-toast--inner">
         <div class="vx-toast--content">
           <template v-if="type != 'default'">
-            <spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
+            <vx-spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
             <i v-else :class="['vx-toast--icon',`vx-toast--${type}`]"></i>
             <br />
           </template>
           <slot></slot>
         </div>
       </div>
-      <overlay :open="isOverlay && open" :opacity="overlayOpacity"></overlay>
+      <vx-overlay :open="isOverlay && open" :opacity="overlayOpacity"></vx-overlay>
     </div>
   </transition>
 </template>
 
 <script>
-import Spinner from '../spinner'
-import Overlay from '../overlay'
+import VxSpinner from '../spinner'
+import VxOverlay from '../overlay'
 
 export default {
   name: 'VxToast',
   components: {
-    Spinner,
-    Overlay
+    VxSpinner,
+    VxOverlay
   },
   props: {
     open: {

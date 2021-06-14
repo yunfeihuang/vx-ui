@@ -10,8 +10,8 @@
           <template v-slot:value>新消息<vx-badge class="badge"/></template>
         </vx-cell>
         <vx-cell>
-          <template v-slot:title @click="handleClick">个位数红点(点击累加)</template>
-          <template v-slot:value @click="handleClick">新消息 <vx-badge class="badge" :text="count"/></template>
+          <template v-slot:title><span @click="handleClick">个位数红点(点击累加)</span></template>
+          <template v-slot:value>新消息 <vx-badge class="badge" :text="count"/></template>
         </vx-cell>
         <vx-cell>
           <template v-slot:title>超出最大值显示(ellipsis)红点</template>

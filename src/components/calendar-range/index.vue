@@ -12,7 +12,7 @@
       <calendar
         v-if="tabActive==0"
         is-range
-        :value="0 == valueTab ? myValue : []"
+        :modelValue="0 == valueTab ? myValue : []"
         :weekText="weekText"
         :yearText="yearText"
         :monthText="monthText"
@@ -22,7 +22,7 @@
         v-if="tabActive==1"
         is-range
         is-week-range
-        :value="1 == valueTab ? myValue : []"
+        :modelValue="1 == valueTab ? myValue : []"
         :weekText="weekText"
         :yearText="yearText"
         :monthText="monthText"
@@ -141,7 +141,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    modelValue (value) {
       this.myValue = value
     }
   },

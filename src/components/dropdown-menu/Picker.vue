@@ -1,6 +1,6 @@
 <template>
-  <popup :class="['vx-dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-bind="$attrs">
-    <radio-group v-if="options" :value="value" @change="handleChange">
+  <vx-popup :class="['vx-dropdown-menu--picker', popupClass]" direction="top" :open="open" :history="false" v-bind="$attrs">
+    <radio-group v-if="options" :modelValue="modelValue" @update:modelValue="handleChange">
       <radio v-for="(item,index) in options"
         :value="item.value"
         :key="index">
@@ -8,15 +8,15 @@
       </radio>
     </radio-group>
     <slot></slot>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
+import VxPopup from '../popup'
 import {Radio, RadioGroup} from '../radio'
 export default {
   components: {
-    Popup,
+    VxPopup,
     Radio,
     RadioGroup
   },
@@ -34,14 +34,9 @@ export default {
       type: [String, Array, Object]
     }
   },
-  unmounted () {
-    document.body.removeChild(this.$el)
-  },
   methods: {
     handleChange (value) {
       this.$emit('update:modelValue', value)
-      this.$emit('update:modelValue', value)
-      this.$emit('change', value)
     }
   }
 }

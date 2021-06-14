@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
+  <vx-popup :open="open" :history="history" :direction="direction" @close="handleClose" @open="handleOpen">
     <template v-slot:header>
       <div v-if="max != 1" :class="['vx-option-picker--header']">
         <button type="button" class="vx-option-picker--cancel" @click="handleClose">{{cancelText}}</button>
@@ -21,18 +21,18 @@
         </checkbox>
       </checkbox-group>
     </div>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
+import VxPopup from '../popup'
 import {CheckboxGroup} from '../checkbox'
 import Checkbox from './Checkbox'
 
 export default {
   name: 'VxOptionGroupPicker',
   components: {
-    Popup,
+    VxPopup,
     Checkbox,
     CheckboxGroup
   },

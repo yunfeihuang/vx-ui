@@ -47,6 +47,6 @@
 .accordion-slide-enter-active, .accordion-slide-leave-active{
   transition: height 0.3s ease 0s;
 }
-.accordion-slide-enter, .accordion-slide-leave-active {
+.accordion-slide-enter-from, .accordion-slide-leave-active {
   height: 0!important;
 }

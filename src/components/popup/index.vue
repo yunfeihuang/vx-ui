@@ -1,6 +1,6 @@
 <template>
   <div class="vx-popup">
-    <overlay v-if="!full" :opacity="overlayOpacity" :open="open" @click="handleClose"></overlay>
+    <vx-overlay v-if="!full" :opacity="overlayOpacity" :open="open" @click="handleClose"></vx-overlay>
     <transition
       v-if="$slots.inner"
       name="vx--popup-fade"
@@ -18,7 +18,7 @@
       <div v-if="open" :class="innerClasses" @click="handleClose2">
         <div class="vx-popup--nav" v-if="title && !showClose">
           <button type="button" @click="close">
-            <arrow direction="left" color="#666" size="0.24rem"/>
+            <vx-arrow direction="left" color="#666" size="0.24rem"/>
           </button>
           <div class="vx-popup--nav-title">{{title}}</div>
         </div>
@@ -42,13 +42,14 @@
 
 <script>
 import { historyPush } from '@/utils/mixins'
-import Overlay from '../overlay'
-import Arrow from '../arrow'
+import VxOverlay from '../overlay'
+import VxArrow from '../arrow'
+
 export default {
   name: 'VxPopup',
   components: {
-    Overlay,
-    Arrow
+    VxOverlay,
+    VxArrow
   },
   mixins: [historyPush],
   props: {

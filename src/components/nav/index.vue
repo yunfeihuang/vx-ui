@@ -3,7 +3,7 @@
     <div class="vx-nav--inner">
       <div class="vx-nav--layout">
         <button :class="['vx-nav--button','vx-nav--back']" @click="onBack($parent, to)" v-if="isBack">
-          <arrow direction="left" :color="type === 'primary' ? arrow.primaryColor : arrow.color" :size="arrow.size"/>
+          <vx-arrow direction="left" :color="type === 'primary' ? arrow.primaryColor : arrow.color" :size="arrow.size"/>
           <span v-if="backText">{{backText}}</span>
         </button>
         <slot name="prepend"></slot>
@@ -32,11 +32,12 @@
 </template>
 
 <script>
-import Arrow from '../arrow'
+import VxArrow from '../arrow'
+
 export default {
   name: 'VxNav',
   components: {
-    Arrow
+    VxArrow
   },
   props: {
     to: {},

@@ -174,7 +174,6 @@ export default {
         if (!children) {
           if (JSON.stringify(myValue) !== JSON.stringify(this.modelValue)) {
             this.$emit('update:modelValue', myValue)
-            this.$emit('change', myValue)
             if (this.label !== undefined) {
               let label = myValue.map((item, index) => {
                 return myOptions[index].filter(_item => _item.value === item)[0].label

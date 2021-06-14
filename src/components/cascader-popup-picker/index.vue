@@ -1,23 +1,23 @@
 <template>
-  <popup :open="open" :history="history" @close="handleClose" fast-close class="vx-cascader-popup-picker--wrapper">
+  <vx-popup :open="open" :history="history" @close="handleClose" fast-close class="vx-cascader-popup-picker--wrapper">
     <div class="vx-cascader-popup-picker">
-      <cascader-picker v-bind="$props" @change="handleChange" @update:label="handleLabel" />
+      <vx-cascader-picker v-bind="$props" @update:modelValue="handleChange" @update:label="handleLabel" />
     </div>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
-import CascaderPicker from '../cascader-picker'
+import VxPopup from '../popup'
+import VxCascaderPicker from '../cascader-picker'
 
 export default {
   name: 'VxCascaderPopupPicker',
   components: {
-    Popup,
-    CascaderPicker
+    VxPopup,
+    VxCascaderPicker
   },
   props: {
-    ...CascaderPicker.props,
+    ...VxCascaderPicker.props,
     open: {
       type: Boolean,
       default: false
@@ -40,7 +40,6 @@ export default {
     },
     handleChange (value) {
       this.$emit('update:modelValue', value)
-      this.$emit('change', value)
       this.handleClose()
     },
     handleLabel (label) {

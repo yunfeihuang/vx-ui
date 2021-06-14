@@ -1,22 +1,29 @@
 <template>
   <div class="vx-popover" @click="handleClick">
     <slot name="trigger"></slot>
-    <div style="display:none">
-      <slot></slot>
-    </div>
   </div>
+  <teleport to="body">
+    <vx-popup
+      :class="popoverClass"
+      v-model:open="open"
+      :history="histroy"
+      :opacity="overlayOpacity"
+      @close="open = false">
+      <template v-slot:inner>
+        <div class="vx-popover--content" ref="popoverContent">
+          <slot></slot>
+        </div>
+      </template>
+    </vx-popup>
+  </teleport>
 </template>
 
 <script>
 import {createApp} from 'vue'
-import Popup from '../popup'
+import VxPopup from '../popup'
 export default {
   name: 'VxPopover',
   props: {
-    open: {
-      type: Boolean,
-      default: false
-    },
     histroy: {
       type: Boolean,
       default: true
@@ -28,27 +35,41 @@ export default {
       type: String
     }
   },
-  watch: {
-    open (value) {
-      if (value) {
-        this.handleClick()
-      } else {
-        this.handleClickPopover()
-      }
-    }
-  },
-  mounted () {
-    this.open && this.handleClick()
-  },
-  beforeUnmount () {
-    if (this.$$popover) {
-      this.$$popover.open = false
-      this.$$popover.$destroy()
-      this.$$popover = null
+  data () {
+    return {
+      open: false
     }
   },
   methods: {
-    handleClick () {
+    handleClick (e) {
+      this.open = true
+      this.$nextTick(() => {
+        if (this.$refs.popoverContent) {
+          let width = window.innerWidth
+          let height = window.innerHeight
+          let node = this.$refs.popoverContent
+          let rect = e.currentTarget.getBoundingClientRect()
+          let left = rect.left + 'px'
+          let right = 'auto'
+          if (rect.left > width / 2) {
+            left = 'auto'
+            right = width - rect.right + 'px'
+          }
+          let top = rect.bottom + 'px'
+          let bottom = 'auto'
+          if (rect.top > height / 2) {
+            top = 'auto'
+            bottom = height - rect.top + 'px'
+          }
+          requestAnimationFrame(() => {
+            node.style.cssText = `top:${top};left:${left};right:${right};bottom:${bottom};opacity:1`
+            left === 'auto' && node.classList.add('vx-popover--content-right')
+            top === 'auto' && node.classList.add('vx-popover--content-bottom')
+          })
+        }
+      })
+    },
+    handleClick1 () {
       let popover = this
       let node = document.createElement('div')
       document.body.appendChild(node)
@@ -56,7 +77,7 @@ export default {
       this.$$popover = createApp({
         el: node,
         render (createElement) {
-          return createElement(Popup, {
+          return createElement(VxPopup, {
             props: {
               open: this.open,
               histroy: this.histroy,
@@ -82,7 +103,7 @@ export default {
             }, [...popover.$slots.default])
           ])
         },
-        components: {Popup},
+        components: {VxPopup},
         data () {
           return {
             open: false,

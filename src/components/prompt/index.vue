@@ -1,5 +1,5 @@
 <template>
-  <confirm
+  <vx-confirm
     :class="['vx-prompt']"
     :open="open"
     cancel
@@ -37,17 +37,17 @@
         @input="handleInput"
         @keyup.enter="handleConfirm"/>
     </template>
-  </confirm>
+  </vx-confirm>
 </template>
 
 <script>
-import Confirm from '../confirm'
+import VxConfirm from '../confirm'
 import VxInput from '../input'
 import VxPassword from '../password'
 export default {
   name: 'VxPrompt',
   components: {
-    Confirm,
+    VxConfirm,
     VxInput,
     VxPassword
   },

@@ -1,5 +1,5 @@
 <template>
-  <popup
+  <vx-popup
     :class="classes"
     :open="open"
     :history="history"
@@ -19,15 +19,15 @@
         {{cancelText}}
       </div>
     </div>
-  </popup>
+  </vx-popup>
 </template>
 
 <script>
-import Popup from '../popup'
+import VxPopup from '../popup'
 export default {
   name: 'VxActionsheet',
   components: {
-    Popup
+    VxPopup
   },
   props: {
     type: {

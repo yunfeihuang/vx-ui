@@ -7,7 +7,7 @@
           {{title}}
         </template>
       </div>
-      <arrow direction="down" />
+      <vx-arrow direction="down" />
     </div>
     <transition name="accordion-slide" @enter="handleEnter">
       <div v-show="$parent.value.indexOf(name) > -1" class="vx-accordion--item-bd">
@@ -20,11 +20,12 @@
 </template>
 
 <script>
-import Arrow from '../arrow'
+import VxArrow from '../arrow'
+
 export default {
   name: 'VxAccordionItem',
   components: {
-    Arrow
+    VxArrow
   },
   props: {
     open: {

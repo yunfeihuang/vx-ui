@@ -19,13 +19,13 @@
     <vx-popup-picker
       v-model:open="open"
       :pickers="pickers"
-      @change="handleConfirm"
+      @update:modelValue="handleConfirm"
       />
     <vx-popup-picker
       v-model:open="open2"
       :pickers="pickers2"
       @pickerchange="handleChangeAddressPicker"
-      @change="handleConfirmAddress"
+      @update:modelValue="handleConfirmAddress"
       />
   </vx-page>
 </template>

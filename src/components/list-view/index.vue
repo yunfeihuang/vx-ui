@@ -10,12 +10,12 @@
     <div class="vx-list-view--inner">
       <div class="vx-list-view--refresh">
         <i class="vx-list-view--icon"></i>
-        <spinner class="vx-list-view--spinner"/>
+        <vx-spinner class="vx-list-view--spinner"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
       <div class="vx-list-view--loading" v-if="(end===false && $slots.default && $slots.default.length) || loading">
-        <spinner class="vx-list-view--spinner"/>
+        <vx-spinner class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
       <div class="vx-list-view--loading is-end" v-if="end" @click.stop="handleGoTop">{{endText}}</div>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import Spinner from '../spinner'
+import VxSpinner from '../spinner'
 export default {
   name: 'VxListView',
   components: {
-    Spinner
+    VxSpinner
   },
   props: {
     loading: {
@@ -84,7 +84,7 @@ export default {
     },
     handlePullup (e) {
       let loadingNode = this.$el.querySelector('.vx-list-view--loading')
-      if (this.$attrs['pullup'] && loadingNode && this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= loadingNode.offsetHeight) {
+      if (this.$attrs['onPullup'] && loadingNode && this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= loadingNode.offsetHeight) {
         this.$emit('pullup', e)
       }
     },
@@ -109,7 +109,7 @@ export default {
       this.$$touch.inner.style.cssText = text
     },
     handleTouchStart (e) {
-      if (this.$attrs['pulldown'] && !this.loading) {
+      if (this.$attrs['onPulldown'] && !this.loading) {
         if (!this.$$touch.pageY && this.$el.scrollTop === 0) {
           let {pageX, pageY} = this.getPosition(e)
           this.$$touch.pageY = pageY
@@ -119,7 +119,7 @@ export default {
       }
     },
     handleTouchMove (e) {
-      if (this.$attrs['pulldown']) {
+      if (this.$attrs['onPulldown']) {
         let {pageY, pageX} = this.getPosition(e)
         if (pageX !== undefined && this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
           e.preventDefault()
@@ -143,7 +143,7 @@ export default {
       }
     },
     handleTouchEnd (e) {
-      if (this.$attrs['pulldown']) {
+      if (this.$attrs['onPulldown']) {
         let {pageY} = this.getPosition(e)
         if (this.$$touch.pageY && this.$$touch.inner && this.$$touch.pageY < pageY) {
           let markHeight = this.$$touch.markHeight

@@ -6,7 +6,7 @@
         <div class="vx-index-list--group">
           <div class="vx-index-list--item" v-for="(item, index) in group.items" :key="index"  @click="handleClick(item.value)">
             <slot v-if="$slots.default"></slot>
-            <template>{{item.label}}</template>
+            <template v-else>{{item.label}}</template>
           </div>
         </div>
       </template>
