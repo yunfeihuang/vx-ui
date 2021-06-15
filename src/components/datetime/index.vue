@@ -2,6 +2,7 @@
   <vx-input
     :class="{'is-focus': isFocus}"
     v-bind="$$props"
+    v-on="$$props"
     :type="nativeType"
     arrow
     readonly="readonly"
@@ -57,9 +58,14 @@ export default {
     $$props () {
       return {
         ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
         ...this.$attrs,
-        change: this.handleChange,
-        input: this.handleInput
+        'update:modelValue': this.handleChange,
+        'update:modelValue': this.handleInput
       }
     }
   },

@@ -25,7 +25,7 @@
         v-model:cipher="myCipher"
         class="vx-prompt--input"
         v-bind="inputProps"
-        @input="handleInput"
+        @update:modelValue="handleInput"
         @keyup.enter="handleConfirm"/>
       <vx-input
         v-else
@@ -34,7 +34,7 @@
         class="vx-prompt--input"
         v-bind="inputProps"
         :native-type="inputProps.type"
-        @input="handleInput"
+        @update:modelValue="handleInput"
         @keyup.enter="handleConfirm"/>
     </template>
   </vx-confirm>
@@ -101,7 +101,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    modelValue (value) {
       if (this.myValue !== value) {
         this.myValue = value
       }
@@ -120,9 +120,9 @@ export default {
     },
     handleConfirm () {
       if (this.open && !this.disabled) {
-       this.$emit('update:open', false)
-       this.$emit('confirm', this.myValue)
-       this.$emit('update:modelValue', this.myValue)
+        this.$emit('update:open', false)
+        this.$emit('confirm', this.myValue)
+        this.$emit('update:modelValue', this.myValue)
       }
     },
     handleInput (value) {

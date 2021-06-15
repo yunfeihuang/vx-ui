@@ -4,6 +4,7 @@
       <div class="vx-textarea--shadow"></div>
       <textarea
         v-bind="$$props"
+        v-on="$attrs"
         @change="handleChange"
         @input="handleInput"
         ></textarea>

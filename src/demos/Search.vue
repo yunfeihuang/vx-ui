@@ -28,7 +28,7 @@
         </template>
       </vx-search>
       <vx-group title="聚焦不会固定在顶部的">
-        <vx-search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @input="handleInput"></vx-search>
+        <vx-search v-model="value" placeholder="搜索商品/商店/用户" :fixed-top="false" @update:modelValue="handleInput"></vx-search>
       </vx-group>
     </vx-page-body>
   </vx-page>

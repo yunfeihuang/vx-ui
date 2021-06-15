@@ -11,7 +11,7 @@
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>cancel item && title</template>
-          <template><vx-switch v-model="open2"/></template>
+          <template v-slot:value><vx-switch v-model="open2"/></template>
         </vx-cell>
         <vx-cell :arrow="false">
           <template v-slot:title>menu</template>

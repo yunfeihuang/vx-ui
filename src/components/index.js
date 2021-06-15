@@ -1,5 +1,5 @@
 
-import {createApp} from 'vue'
+import {createApp, h} from 'vue'
 import {Page, PageBody} from './page'
 import Ripple from './ripple'
 import Button from './button'
@@ -201,40 +201,37 @@ const install = (app) => {
         return true
       }
     }, _props)
+    let { onClose, ...others} = props
     let node = document.createElement('div')
     mounted.appendChild(node)
     let vue = createApp({ //eslint-disable-line
-      el: node,
-      render (createElement) {
+      render () {
         let message = props.message
-        return createElement(Toast, {
-          props: props,
-          on: {
-            'close': this.handleClose,
-            'after-close': this.handleAfterClose
-          },
-          scopedSlots: {
-            default: () => createElement('div', {domProps: {innerHTML: message}})
-          }
-        })
+        return h(Toast, {
+          ...this.$data,
+          'onClose': this.handleClose,
+          'onAfterClose': this.handleAfterClose
+        },
+        h('div',{}, message)
+        )
       },
       data () {
         return {
-          props
+          ...others
         }
       },
       methods: {
         handleClose () {
-          props.open = props.onClose() === false
+          this.open = onClose() === false
         },
         handleAfterClose () {
-          this.$destroy()
+          this.$destroy && this.$destroy()
         }
       },
       beforeUnmount () {
         vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
       }
-    })
+    }).mount(node)
     return vue
   }
 
@@ -249,52 +246,46 @@ const install = (app) => {
           return true
         }
       }, _props)
+      let { onCancel, onConfirm, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        el: node,
-        render (createElement) {
+        render () {
           let message = props.message
-          return createElement(Alert, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose,
-              'after-close': this.handleAfterClose
-            },
-            scopedSlots: {
-              default: () => createElement('div', {domProps: {innerHTML: message}})
-            }
-          })
+          return h(Alert, {
+            ...this.$data,
+            onConfirm: this.handleConfirm,
+            onClose: this.handleClose,
+            onAfterClose: this.handleAfterClose
+          }, h('div', message))
         },
         data () {
           return {
-            props
+            ...others
           }
         },
         mounted () {
-          props.open = true
+          this.open = true
         },
         methods: {
           handleConfirm () {
             resolve()
-            props.open = props.onConfirm() === false
+            this.open = onConfirm() === false
           },
           handleClose () {
             reject()
-            props.open = props.onCancel() === false
+            this.open = onCancel() === false
           },
           handleAfterClose () {
-            vue.$destroy()
+            vue.$destroy && vue.$destroy()
           }
         },
         beforeUnmount () {
           vue.$el.parentNode.removeChild(vue.$el)
         }
-      })
+      }).mount(node)
     })
   }
-  console.log('app', app)
   app.config.globalProperties.$confirm = (_props, mounted = document.body) => {
     return new Promise((resolve, reject) => {
       let props = Object.assign({
@@ -306,56 +297,48 @@ const install = (app) => {
           return true
         }
       }, _props)
+      let { onCancel, onConfirm, onButtonClick, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        compoennts: {
-          Confirm
-        },
-        el: node,
-        render (createElement) {
+        render () {
           let message = props.message
-          return createElement(Confirm, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose,
-              'after-close': this.handleAfterClose,
-              'button-click': this.handleButtonClick
-            },
-            scopedSlots: {
-              default: () => createElement('div', {domProps: {innerHTML: message}})
-            }
-          })
+          return h(Confirm, {
+            ...this.$data,
+            onConfirm: this.handleConfirm,
+            onClose: this.handleClose,
+            onAfterClose: this.handleAfterClose,
+            onButtonClick: this.handleButtonClick
+          }, h('div', message))
         },
         data () {
           return {
-            props
+            ...others
           }
         },
         mounted () {
-          props.open = true
+          this.open = true
         },
         methods: {
           handleConfirm () {
             resolve()
-            props.open = props.onConfirm() === false
+            this.open = onConfirm() === false
           },
           handleClose () {
             reject()
-            props.open = props.onCancel() === false
+            this.open = onCancel() === false
           },
           handleAfterClose () {
-            this.$destroy()
+            this.$destroy && this.$destroy()
           },
           handleButtonClick (event) {
-            props.onButtonClick && props.onButtonClick(event)
+            onButtonClick && onButtonClick(event)
           }
         },
         beforeUnmount () {
           vue.$el.parentNode.removeChild(vue.$el)
         }
-      })
+      }).mount(node)
     })
   }
   app.config.globalProperties.$prompt = (_props, mounted = document.body) => {
@@ -370,50 +353,48 @@ const install = (app) => {
           return true
         },
         onChange: (value) => {
-          if (value && value.trim()) {
+          if (value && value.trim && value.trim()) {
             return false
           } else {
             return true
           }
         }
       }, _props)
+      let { onCancel, onChange, onConfirm, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          return createElement(Prompt, {
-            props: props,
-            on: {
-              'confirm': this.handleConfirm,
-              'close': this.handleClose,
-              'after-close': this.handleAfterClose,
-              'change': this.handleChange
-            }
+        render () {
+          return h(Prompt, {
+            ...this.$data,
+            onConfirm: this.handleConfirm,
+            onClose: this.handleClose,
+            onAfterClose: this.handleAfterClose,
+            'onUpdate:modelValue': this.handleChange
           })
         },
         data () {
           return {
-            props
+            ...others
           }
         },
         mounted () {
-          props.open = true
+          this.open = true
         },
         methods: {
           handleConfirm (value) {
             resolve(value)
-            props.open = props.onConfirm(value) === false
+            this.open = onConfirm(value) === false
           },
           handleClose () {
             reject()
-            props.open = props.onCancel() === false
+            this.open = onCancel() === false
           },
           handleChange (value) {
-            props.disabled = props.onChange(value)
+            this.disabled = onChange(value)
           },
           handleAfterClose () {
-            this.$destroy()
+            this.$destroy && this.$destroy()
           }
         },
         beforeUnmount () {
@@ -421,7 +402,7 @@ const install = (app) => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
         }
-      })
+      }).mount(node)
     })
   }
   app.config.globalProperties.$actionsheet = (_props, mounted = document.body) => {
@@ -438,45 +419,37 @@ const install = (app) => {
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        el: node,
-        render (createElement) {
-          return createElement(Actionsheet, {
-            props: props,
-            on: {
-              'close': this.handleClose,
-              'action': this.handleAction,
-              'after-close': this.handleAfterClose
-            },
-            nativeOn: {
-              'action': this.handleAction
-            }
+        render () {
+          return h(Actionsheet, {
+            ...this.$data,
+            onClose: this.handleClose,
+            onAction: this.handleAction,
+            onAfterClose: this.handleAfterClose
           }, props.options.map(item => {
-            return createElement(ActionsheetItem, {
-              props: {
-                value: item.value
-              }
+            return h(ActionsheetItem, {
+              value: item.value
             }, item.label)
           }))
         },
         data () {
           return {
-            props
+            ...props
           }
         },
         mounted () {
-          props.open = true
+          this.open = true
         },
         methods: {
           handleClose () {
             reject()
-            props.open = props.onClose() === false
+            this.open = props.onClose() === false
           },
           handleAction (value) {
             resolve(value)
-            props.open = props.onAction(value) === false
+            this.open = props.onAction(value) === false
           },
           handleAfterClose () {
-            this.$destroy()
+            this.$destroy && this.$destroy()
           }
         },
         beforeUnmount () {
@@ -484,7 +457,7 @@ const install = (app) => {
             vue.$el.parentNode.removeChild(vue.$el)
           })
         }
-      })
+      }).mount(node)
     })
   }
   // element ui 表单解决方案要用到的

@@ -1,6 +1,7 @@
 <template>
   <vx-input
     v-bind="$$props"
+    v-on="$$listeners"
     arrow
     :value="myValue"
     :type="nativeType"
@@ -74,6 +75,11 @@ export default {
     $$props () {
       return {
         ...this.$props,
+        ...this.$attrs
+      }
+    },
+    $$listeners () {
+      return {
         ...this.$attrs,
         change: this.handleChange,
         input: this.handleInput

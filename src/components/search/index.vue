@@ -17,7 +17,7 @@
               :clearable="clearable"
               @focusin="handleFocusIn"
               @focusout="handleFocusOut"
-              @input="handleInput"
+              @update:modelValue="handleInput"
               @change="handleChange"
             >
             </vx-input>
@@ -47,7 +47,7 @@
                 :clearable="clearable"
                 @focusin="handleFocusIn"
                 @focusout="handleFocusOut"
-                @input="handleInput"
+                @update:modelValue="handleInput"
                 @change="handleChange">
               </vx-input>
               <button class="vx-search--button" type="submit">搜索</button>
