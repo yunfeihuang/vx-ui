@@ -64,8 +64,7 @@ export default {
     $$listeners () {
       return {
         ...this.$attrs,
-        'update:modelValue': this.handleChange,
-        'update:modelValue': this.handleInput
+        'update:modelValue': this.handleChange
       }
     }
   },
