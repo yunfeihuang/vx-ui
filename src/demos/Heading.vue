@@ -5,11 +5,11 @@
     </template>
     <vx-page-body>
       <vx-heading>
-        <template>heading</template>
+        heading
         <template v-slot:append>更多</template>
       </vx-heading>
       <vx-heading type="primary">
-        <template>heading</template>
+        heading
         <template v-slot:append>更多</template>
       </vx-heading>
       <vx-heading type="simple">

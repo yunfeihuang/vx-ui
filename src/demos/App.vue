@@ -1,6 +1,6 @@
 <template>
   <div class="demo-app">
-    <vx-page :style="`opacity:1;transform:translateX(0)`">
+    <vx-page style="z-index:1">
       <template v-slot:header>
         <vx-nav title-center :is-back="false" title="Vx UI Demos"></vx-nav>
       </template>
@@ -94,7 +94,9 @@
         </vx-group>
       </vx-page-body>
     </vx-page>
-    <router-view></router-view>
+    <transition name="vx--popup-full-slide-right">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -129,16 +131,15 @@ export default {
       text-align:center;
     }
     .vx-page{
-      opacity:0;
-      transition: transform 0.32s ease 0s;
-      transform: translate3d(100%,0,0);
       position:absolute;
       left:0;
       top:0;
       width:100%;
       height:100%;
+      z-index:10;
       backface-visibility: hidden;
       perspective: 1000;
+      transition:transform 0.2s ease 0s;
     }
   }
 </style>

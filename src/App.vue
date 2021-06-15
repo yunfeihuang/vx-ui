@@ -1,5 +1,8 @@
 <template>
   <router-view/>
+  <transition name="">
+    <router-view name="demo"/>
+  </transition>
 </template>
 <script>
   export default {
