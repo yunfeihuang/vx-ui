@@ -1,7 +1,7 @@
 <template>
-  <div :class="['vx-actionsheet--item',{'is-disabled':disabled}]"
-    :data-value="value"
-    v-bind="$attrs">
+  <div 
+    :class="['vx-actionsheet--item',{'is-disabled': disabled}]"
+    @click="handleClick">
     <div class="vx-actionsheet--item-text">
       <slot></slot>
     </div>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 export default {
   name: 'VxActionsheetItem',
   props: {
@@ -19,6 +20,14 @@ export default {
     value: {
       type: String,
       required: true
+    }
+  },
+  setup (props) {
+    const vxActionsheet = inject('vxActionsheet')
+    return {
+      handleClick () {
+        vxActionsheet.change(props.value)
+      }
     }
   }
 }

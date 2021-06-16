@@ -1,15 +1,15 @@
 <template>
   <vx-popup
-    :class="classes"
+    :class="['vx-actionsheet', {'vx-actionsheet--menu': type === 'menu', 'is-not-title': !title}]"
     :open="open"
     :history="history"
     :fast-close="fastClose"
-    :direction="myDirection"
+    :direction="{'default': 'bottom', 'menu': 'center'}[type] || type"
     @close="handleClose"
-    @after-close="handleAfterClose"
-    @open="handleOpen">
+    @after-close="handleAfterClose">
     <div class="vx-actionsheet--inner" onselectstart="return false;">
-      <div v-if="title" class="vx-actionsheet--title">
+      <slot v-if="$slots['title']"></slot>
+      <div v-else-if="title" class="vx-actionsheet--title">
         {{title}}
       </div>
       <div class="vx-actionsheet--items">
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { provide } from 'vue'
 import VxPopup from '../popup'
 export default {
   name: 'VxActionsheet',
@@ -61,35 +62,21 @@ export default {
       default: true
     }
   },
-  computed: {
-    classes () {
-      return ['vx-actionsheet', {'vx-actionsheet--menu': this.type === 'menu', 'is-not-title': !this.title}]
-    },
-    myDirection () {
-      if (this.type === 'default') {
-        return 'bottom'
-      } else if (this.type === 'menu') {
-        return 'center'
+  setup (props, context) {
+    provide('vxActionsheet', {
+      change (value) {
+        context.emit('update:open', false)
+        context.emit('action', value)
       }
-      return this.type
-    }
-  },
-  methods: {
-    handleAction (value) {
-      this.$emit('update:open', false)
-      this.$emit('action', value)
-    },
-    handleClose () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-    },
-    handleAfterClose () {
-      this.$emit('after-close')
-    },
-    handleOpen () {
-      Array.from(this.$el.querySelectorAll('.vx-actionsheet--item')).forEach(item => {
-        item.onclick = this.handleAction.bind(this, item.dataset.value)
-      })
+    })
+    return {
+      handleClose () {
+        context.emit('update:open', false)
+        context.emit('close')
+      },
+      handleAfterClose () {
+        context.emit('after-close')
+      }
     }
   }
 }
