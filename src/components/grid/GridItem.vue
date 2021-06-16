@@ -1,6 +1,10 @@
 <template>
   <div :class="['vx-grid--item', {'is-divider': $parent.gutter == 1}]"
-    :style="styles"
+    :style="{
+        width: `${100 / _col * col}%`,
+        borderRightWidth: `${gutter}px`,
+        borderBottomWidth: `${gutter}px`
+      }"
     @click="linkTo">
     <div class="vx-grid--item-inner">
       <slot></slot>
@@ -9,6 +13,7 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 export default {
   name: 'VxGridItem',
   props: {
@@ -20,14 +25,10 @@ export default {
       default: 1
     }
   },
-  computed: {
-    styles () {
-      let result = {
-        width: `${100 / this.$parent.col * this.col}%`,
-        borderRightWidth: `${this.$parent.gutter}px`,
-        borderBottomWidth: `${this.$parent.gutter}px`
-      }
-      return result
+  setup () {
+    return {
+      gutter: inject('vxGrid') ? inject('vxGrid').gutter : 8,
+      _col: inject('vxGrid') ? inject('vxGrid').col : 2
     }
   },
   methods: {

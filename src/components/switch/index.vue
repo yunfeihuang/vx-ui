@@ -35,13 +35,10 @@ export default {
     }
   },
   setup (props, context) {
-    const handleChange = e => {
-      let value = e.target.checked ? props.onValue : props.offValue
-      context.emit('change', value)
-      context.emit('update:modelValue', value)
-    }
     return {
-      handleChange
+      handleChange (e) {
+        context.emit('update:modelValue', e.target.checked ? props.onValue : props.offValue)
+      }
     }
   }
 }

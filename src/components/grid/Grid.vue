@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+import { provide, ref, watch } from 'vue'
 export default {
   name: 'VxGrid',
   props: {
@@ -17,6 +18,20 @@ export default {
       type: Number,
       default: 1
     }
+  },
+  setup (props) {
+    let gutter = ref(props.gutter)
+    watch(() => props.gutter, (value) => {
+      gutter.value = value
+    })
+    let col = ref(props.col)
+    watch(() => props.col, (value) => {
+      col.value = value
+    })
+    provide('vxGrid', {
+      gutter,
+      col
+    })
   }
 }
 </script>
