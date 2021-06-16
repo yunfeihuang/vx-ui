@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { provide, ref, watch } from 'vue'
 
 let flexMap = {
   direction: {
@@ -61,6 +62,15 @@ export default {
       }
       return array
     }
+  },
+  setup (props) {
+    let gutter = ref(props.gutter)
+    watch(() => props.gutter, (value) => {
+      gutter.value = value
+    })
+    provide('vxFlexbox', {
+      gutter
+    })
   }
 }
 </script>

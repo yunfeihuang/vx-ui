@@ -1,10 +1,22 @@
 <template>
-  <component class="vx-flexbox--item" :style="styles" :is="tag">
+  <component class="vx-flexbox--item" :style="`
+        margin-left: ${gutter}px;
+        margin-right: ${gutter}px;
+        -ms-flex: ${flex};
+        -webkit-box-flex: ${flex};
+        -moz-box-flex: ${flex};
+        -webkit-flex: ${flex};
+        -moz-flex: ${flex};
+        flex: ${flex};
+        min-width: 0;
+        order:${order}
+      `" :is="tag">
     <slot></slot>
   </component>
 </template>
 
 <script>
+import { inject } from 'vue'
 export default {
   name: 'VxFlexboxItem',
   props: {
@@ -20,21 +32,9 @@ export default {
       default: 'div'
     }
   },
-  computed: {
-    styles () {
-      let gutter = typeof this.$parent.gutter === 'number' ? (this.$parent.gutter + 'px') : this.$parent.gutter
-      return `
-        margin-left: ${gutter};
-        margin-right: ${gutter};
-        -ms-flex: ${this.flex};
-        -webkit-box-flex: ${this.flex};
-        -moz-box-flex: ${this.flex};
-        -webkit-flex: ${this.flex};
-        -moz-flex: ${this.flex};
-        flex: ${this.flex};
-        min-width: 0;
-        order:${this.order}
-      `
+  setup () {
+    return {
+      gutter: inject('vxFlexbox') ? inject('vxFlexbox').gutter : 8
     }
   }
 }
