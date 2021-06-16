@@ -30,8 +30,6 @@
 import { input } from '@/utils/mixins'
 export default {
   name: 'VxInputNumber',
-  mixins: [input],
-  emits: ['input', 'change'],
   props: {
     ...input.props,
     min: {
@@ -73,8 +71,6 @@ export default {
           value = props.min
         }
         value = Math.round(value * stepRate) / stepRate
-        context.emit('input', value)
-        context.emit('change', value)
         context.emit('update:modelValue', value)
       }
     }

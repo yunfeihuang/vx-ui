@@ -3,7 +3,7 @@
     v-bind="$$props"
     v-on="$$listeners"
     arrow
-    :value="myValue"
+    :modelValue="myValue"
     :type="nativeType"
     readonly="readonly"
     @focusin="handleFocusIn"
@@ -36,7 +36,6 @@ export default {
     VxInput,
     VxDaterangePicker
   },
-  mixins: [input],
   props: {
     ...input.props,
     format: {
@@ -81,8 +80,7 @@ export default {
     $$listeners () {
       return {
         ...this.$attrs,
-        change: this.handleChange,
-        input: this.handleInput
+        'update:modelValue': this.handleChange,
       }
     }
   },

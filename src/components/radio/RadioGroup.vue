@@ -9,7 +9,6 @@ import { input } from '@/utils/mixins'
 
 export default {
   name: 'VxRadioGroup',
-  mixins: [input],
   props: {
     ...input.props,
     divider: {

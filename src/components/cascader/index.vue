@@ -31,7 +31,6 @@ export default {
     VxArrow,
     VxCascaderPopupPicker
   },
-  mixins: [input],
   props: {
     ...input.props,
     modelValue: VxCascaderPopupPicker.props.modelValue,

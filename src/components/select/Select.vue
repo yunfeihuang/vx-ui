@@ -48,7 +48,6 @@ export default {
   components: {
     VxArrow
   },
-  mixins: [input],
   props: {
     ...input.props,
     modelValue: {

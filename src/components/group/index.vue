@@ -6,10 +6,8 @@
         <template v-slot:prepend>
           <slot name="heading-prepend"></slot>
         </template>
-        <template>
-          <slot name="title" v-if="$slots['title']"></slot>
-          <template v-else>{{title}}</template>
-        </template>
+        <slot name="title" v-if="$slots['title']"></slot>
+        <template v-else>{{title}}</template>
         <template v-slot:append>
           <slot name="heading-append"></slot>
         </template>

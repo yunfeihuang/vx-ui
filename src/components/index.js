@@ -189,6 +189,7 @@ let components = [
 ]
 
 const install = (app) => {
+  console.log('app', app)
   components.map(component => {
     if (component && component.name) {
       app.component(component.name, component)
@@ -201,19 +202,16 @@ const install = (app) => {
         return true
       }
     }, _props)
-    let { onClose, ...others} = props
+    let { onClose, message, ...others} = props
     let node = document.createElement('div')
     mounted.appendChild(node)
     let vue = createApp({ //eslint-disable-line
       render () {
-        let message = props.message
         return h(Toast, {
           ...this.$data,
           'onClose': this.handleClose,
           'onAfterClose': this.handleAfterClose
-        },
-        h('div',{}, message)
-        )
+        }, message)
       },
       data () {
         return {
@@ -225,7 +223,7 @@ const install = (app) => {
           this.open = onClose() === false
         },
         handleAfterClose () {
-          this.$destroy && this.$destroy()
+          vue.unmount && vue.unmount()
         }
       },
       beforeUnmount () {
@@ -246,18 +244,17 @@ const install = (app) => {
           return true
         }
       }, _props)
-      let { onCancel, onConfirm, ...others} = props
+      let { onCancel, onConfirm, message, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
         render () {
-          let message = props.message
           return h(Alert, {
             ...this.$data,
             onConfirm: this.handleConfirm,
             onClose: this.handleClose,
             onAfterClose: this.handleAfterClose
-          }, h('div', message))
+          }, message)
         },
         data () {
           return {
@@ -297,19 +294,18 @@ const install = (app) => {
           return true
         }
       }, _props)
-      let { onCancel, onConfirm, onButtonClick, ...others} = props
+      let { onCancel, onConfirm, onButtonClick, message, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
         render () {
-          let message = props.message
           return h(Confirm, {
             ...this.$data,
             onConfirm: this.handleConfirm,
             onClose: this.handleClose,
             onAfterClose: this.handleAfterClose,
             onButtonClick: this.handleButtonClick
-          }, h('div', message))
+          }, message)
         },
         data () {
           return {
@@ -463,11 +459,11 @@ const install = (app) => {
   // element ui 表单解决方案要用到的
   app.config.globalProperties.dispatch = function (componentName, eventName, params) {
     let parent = this.$parent || this.$root
-    let name = parent.$options.componentName
+    let name = parent.$options.name
     while (parent && (!name || name !== componentName)) {
       parent = parent.$parent
       if (parent) {
-        name = parent.$options.componentName
+        name = parent.$options.name
       }
     }
     if (parent) {

@@ -5,7 +5,7 @@
       <textarea
         v-bind="$$props"
         v-on="$attrs"
-        @change="handleChange"
+        :value="modelValue"
         @input="handleInput"
         ></textarea>
       </div>
@@ -36,7 +36,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
+    modelValue (value) {
       this.$$textarea.value !== value && this.renderAutoHeight(value)
     }
   },
@@ -58,7 +58,6 @@ export default {
       let value = e.target.value
       this.renderAutoHeight(value)
       this.$emit('update:modelValue', value)
-      this.eDispatch('ElFormItem', 'el.form.change', [value])
     },
     renderAutoHeight (value) {
       requestAnimationFrame(() => {

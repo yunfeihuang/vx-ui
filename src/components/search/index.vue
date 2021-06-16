@@ -8,7 +8,7 @@
               native-type="search"
               :placeholder="placeholder"
               :readonly="readonly"
-              :value="value"
+              :modelValue="value"
               :disabled="disabled"
               :autocomplete="autocomplete"
               :autofocus="autofocus"
@@ -38,7 +38,7 @@
                 native-type="search"
                 :placeholder="placeholder"
                 :readonly="readonly"
-                :value="value"
+                :modelValue="value"
                 :disabled="disabled"
                 :autocomplete="autocomplete"
                 :autofocus="autofocus"
@@ -73,12 +73,13 @@ import VxArrow from '../arrow'
 
 export default {
   name: 'VxSearch',
-  mixins: [input, historyPush],
+  mixins: [historyPush],
   components: {
     VxInput,
     VxArrow
   },
   props: {
+    ...input.props,
     history: {
       type: Boolean,
       default: true

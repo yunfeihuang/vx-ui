@@ -31,7 +31,6 @@ import VxInput from '../input'
 import VxDatetimePicker from '../datetime-picker'
 export default {
   name: 'VxDatetime',
-  mixins: [input],
   components: {
     VxInput,
     VxDatetimePicker
