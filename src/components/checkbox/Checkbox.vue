@@ -14,6 +14,7 @@
 <script>
 import { input } from '@/utils/mixins'
 import { inject } from 'vue'
+
 export default {
   name: 'VxCheckbox',
   inject: ['vxCheckboxGroup'],
@@ -44,7 +45,7 @@ export default {
       type: Boolean
     }
   },
-  setup (props, context) {
+  setup (props, { emit }) {
     const vxCheckboxGroup = inject('vxCheckboxGroup')
     return {
       vxCheckboxGroup,
@@ -53,14 +54,11 @@ export default {
         if (vxCheckboxGroup && vxCheckboxGroup.handleChange) {
           vxCheckboxGroup.handleChange(e, props)
         } else {
-          props.offValue !== undefined && props.onValue !== undefined && context.emit('update:modelValue', checked ? props.onValue : props.offValue)
-          context.emit('update:checked', checked)
+          props.offValue !== undefined && props.onValue !== undefined && emit('update:modelValue', checked ? props.onValue : props.offValue)
+          emit('update:checked', checked)
         }
       }
     }
-  },
-  mounted () {
-    console.log(this)
   },
   computed: {
     classes () {

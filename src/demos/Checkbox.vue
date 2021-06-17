@@ -72,7 +72,7 @@
       </vx-group>
       <vx-group title="CheckboxGroup 不限选项">
         <vx-checkbox-group v-model="value">
-          <vx-checkbox value="" exclusive>不限</vx-checkbox>
+          <vx-checkbox exclusive>不限</vx-checkbox>
           <vx-checkbox
              v-for="item in options"
             :disabled="item.disabled"

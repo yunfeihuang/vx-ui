@@ -1,12 +1,12 @@
 <template>
-  <label :class="['vx-checker',{'is-disabled': myDisabled, 'is-checked': myChecked, 'is-icon': myIcon, 'is-block': myBlock}]">
+  <label :class="['vx-checker',{'is-disabled': myDisabled, 'is-checked': myChecked, 'is-icon': myIcon, 'is-block': !myInline}]">
     <input v-if="!fake"
       :type="myType"
       :checked="myChecked"
       :name="name"
       :value="value"
       :disabled="disabled"
-      @change="handleChange(value, $event)"
+      @change="handleChange($event)"
       />
     <slot v-if="!$slots['default']" v-bind="{checked: myChecked, value: value, disabled: myDisabled}"></slot>
     <button class="vx-checker-button" v-else type="button" tabindex="-2">
@@ -17,6 +17,7 @@
 
 <script>
 import { input } from '@/utils/mixins'
+import { inject } from 'vue'
 
 export default {
   name: 'VxChecker',
@@ -38,16 +39,31 @@ export default {
       type: Boolean
     }
   },
+  setup (props, { emit }) {
+    const vxCheckerGroup = inject('vxCheckerGroup')
+    return {
+      vxCheckerGroup,
+      handleChange (e) {
+        let checked = e.target.checked
+        if (vxCheckerGroup && vxCheckerGroup.handleChange) {
+          vxCheckerGroup.handleChange(e, props)
+        } else {
+          props.offValue !== undefined && props.onValue !== undefined && emit('update:modelValue', checked ? props.onValue : props.offValue)
+          emit('update:checked', checked)
+        }
+      }
+    }
+  },
   computed: {
     isParent () {
-      return this.$parent && this.$parent.$options && this.$parent.$options.name === 'VxCheckerGroup'
+      return this.vxCheckerGroup ? true : false
     },
     myChecked () {
       if (this.isParent) {
-        if (this.$parent.value instanceof Array) {
-          return this.$parent.value.indexOf(this.value) > -1
+        if (this.vxCheckerGroup.modelValue.value instanceof Array) {
+          return this.vxCheckerGroup.modelValue.value.indexOf(this.value) > -1
         } else {
-          return this.$parent.value === this.value
+          return this.vxCheckerGroup.modelValue.value === this.value
         }
       } else {
         return this.checked
@@ -55,33 +71,33 @@ export default {
     },
     myType () {
       if (this.isParent) {
-        return this.$parent.max === 1 ? 'radio' : 'checkbox'
+        return this.vxCheckerGroup.max.value === 1 ? 'radio' : 'checkbox'
       } else {
         return this.type
       }
     },
     myDisabled () {
       let disabled = this.disabled
-      if (this.isParent && this.$parent.max > 1 && this.$parent.modelValue.length >= this.$parent.max) {
-        return this.$parent.modelValue.indexOf(this.value) === -1
+      if (this.isParent && this.vxCheckerGroup.max.value > 1 && this.vxCheckerGroup.modelValue.value.length >= this.vxCheckerGroup.max.value) {
+        return this.vxCheckerGroup.modelValue.value.indexOf(this.value) === -1
       }
       return disabled
     },
+    myInline () {
+      if (this.isParent) {
+        return this.inline || this.vxCheckerGroup.inline.value
+      }
+      return this.inline
+    },
     myIcon () {
       if (this.isParent) {
-        return this.$parent.icon
+        return this.vxCheckerGroup.icon.value
       }
       return this.icon
-    },
-    myBlock () {
-      if (this.isParent) {
-        return this.$parent.block
-      }
-      return this.block
     }
   },
   methods: {
-    handleChange (value, e) {
+    handleChange1 (value, e) {
       if (this.isParent) {
         this.$parent.handleChange(e, value, this.exclusive)
       } else {

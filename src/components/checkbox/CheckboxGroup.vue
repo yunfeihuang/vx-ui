@@ -34,7 +34,7 @@ export default {
       type: Boolean
     }
   },
-  setup (props, context) {
+  setup (props, { emit }) {
     let max = ref(props.max)
     let modelValue = ref(props.modelValue)
     let iconStyle = ref(props.iconStyle)
@@ -65,7 +65,7 @@ export default {
         let checked = e.target.checked
         if (props.max === 1) {
           let value = props.modelValue instanceof Array ? [checkbox.value] :checkbox.value
-          context.emit('update:modelValue', value)
+          emit('update:modelValue', value)
         } else {
           if (checked && props.max !== 0 && props.modelValue && props.modelValue.length === props.max) {
             e.target.checked = false
@@ -80,7 +80,7 @@ export default {
             } else {
               value && value.indexOf && value.splice(value.indexOf(checkbox.value), 1)
             }
-            context.emit('update:modelValue', value)
+            emit('update:modelValue', value)
           }
         }
       }
