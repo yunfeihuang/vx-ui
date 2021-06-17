@@ -30,7 +30,6 @@
         @change="handleChange"/>
       <calendar
         v-if="tabActive==2 || tabActive==3"
-        v-model="myValue"
         :lang="lang"
         @date-change="handleDateChange"
         :layout="['year']"/>
