@@ -51,13 +51,7 @@ export default {
       default: 'default'
     }
   },
-  setup (props, context) {
-    /*
-    watch(() => props.modelValue, (val, oldVal) => {
-      console.log(val, oldVal)
-      myValue.value = val
-    })
-    */
+  setup (props, { emit }) {
     let handleChange = (e) => {
       let stepRate = 1 / props.step
       let value = Number(e.target ? e.target.value : e)
@@ -71,7 +65,7 @@ export default {
           value = props.min
         }
         value = Math.round(value * stepRate) / stepRate
-        context.emit('update:modelValue', value)
+        emit('update:modelValue', value)
       }
     }
     return {

@@ -6,7 +6,7 @@
     :encrypt="null"
     :icons="null"
     :nativeType="myNativeType"
-    @change="handleChange"
+    @update:modelValue="handleChange"
   >
     <template v-slot:prepend><slot name="prepend"></slot></template>
     <template v-if="$slots.append" v-slot:append><slot name="append" ></slot></template>

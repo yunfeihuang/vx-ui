@@ -62,20 +62,20 @@ export default {
       default: true
     }
   },
-  setup (props, context) {
+  setup (props, { emit }) {
     provide('vxActionsheet', {
       change (value) {
-        context.emit('update:open', false)
-        context.emit('action', value)
+        emit('update:open', false)
+        emit('action', value)
       }
     })
     return {
       handleClose () {
-        context.emit('update:open', false)
-        context.emit('close')
+        emit('update:open', false)
+        emit('close')
       },
       handleAfterClose () {
-        context.emit('after-close')
+        emit('after-close')
       }
     }
   }

@@ -43,7 +43,7 @@ export default {
       type: Function
     }
   },
-  setup (props, context) {
+  setup (props, { emit }) {
     let isFocus = ref(false)
     const classes = computed({
       get () {
@@ -63,8 +63,7 @@ export default {
       }
     })
     const emit = val => {
-      context.emit('change', val)
-      context.emit('update:modelValue', val)
+      emit('update:modelValue', val)
     }
     const handleClear = () => {
       if (props.onClear) {
@@ -74,7 +73,7 @@ export default {
       }
     }
     const listeners = {
-      input: e => {
+      change: e => {
         emit(e.target.value)
       },
       focus: () => {

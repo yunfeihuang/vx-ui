@@ -18,7 +18,6 @@
               @focusin="handleFocusIn"
               @focusout="handleFocusOut"
               @update:modelValue="handleInput"
-              @change="handleChange"
             >
             </vx-input>
           </div>
@@ -47,8 +46,7 @@
                 :clearable="clearable"
                 @focusin="handleFocusIn"
                 @focusout="handleFocusOut"
-                @update:modelValue="handleInput"
-                @change="handleChange">
+                @update:modelValue="handleInput">
               </vx-input>
               <button class="vx-search--button" type="submit">搜索</button>
             </div>
@@ -112,9 +110,6 @@ export default {
       this.fixed = true
     },
     handleInput (value) {
-      this.$emit('update:modelValue', value)
-    },
-    handleChange (value) {
       this.$emit('update:modelValue', value)
     },
     handleCancel () {

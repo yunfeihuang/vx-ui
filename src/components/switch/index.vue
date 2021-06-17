@@ -34,10 +34,10 @@ export default {
       default: 'default'
     }
   },
-  setup (props, context) {
+  setup (props, { emit }) {
     return {
       handleChange (e) {
-        context.emit('update:modelValue', e.target.checked ? props.onValue : props.offValue)
+        emit('update:modelValue', e.target.checked ? props.onValue : props.offValue)
       }
     }
   }
