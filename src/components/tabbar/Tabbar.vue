@@ -5,23 +5,36 @@
 </template>
 
 <script>
-import { tab } from '@/utils/mixins'
+import { ref, watch, provide } from 'vue'
 export default {
   name: 'VxTabbar',
   props: {
+    active: {
+      type: [Number, String, Object]
+    },
     ripple: {
       type: Boolean,
       default: false
     }
   },
-  mixins: [tab],
-  methods: {
-    handleChange (val) {
-      if (val !== this.active) {
-        this.$emit('update:active', val)
-        this.$emit('change', val)
+  setup (props, { emit }) {
+    let active = ref(props.active)
+    watch(() => props.active, val => {
+      active.value = val
+    })
+    let ripple = ref(props.ripple)
+    watch(() => props.ripple, val => {
+      ripple.value = val
+    })
+    provide('vxTabbar', {
+      active,
+      ripple,
+      handleChange (value) {
+        if (value !== props.active) {
+          emit('update:active', value)
+        }
       }
-    }
+    })
   }
 }
 </script>
