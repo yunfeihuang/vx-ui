@@ -43,7 +43,7 @@ export default {
       type: Function
     }
   },
-  setup (props, { emit }) {
+  setup (props, { emit, slots }) {
     let isFocus = ref(false)
     const classes = computed({
       get () {
@@ -53,28 +53,25 @@ export default {
         {
           'is-focus': isFocus.value,
           'is-clearable': !!props.modelValue && props.clearable,
-          'vx-input--prepend': context.slots.prepend,
-          'vx-input--append': context.slots.append,
+          'vx-input--prepend': slots.prepend,
+          'vx-input--append': slots.append,
           'is-disabled': props.disabled,
           'is-border': props.border,
-          'is-custom': context.slots.input
+          'is-custom': slots.input
         }
       ]
       }
     })
-    const emit = val => {
-      emit('update:modelValue', val)
-    }
     const handleClear = () => {
       if (props.onClear) {
         props.onClear()
       } else {
-        emit('')
+        emit('update:modelValue', '')
       }
     }
     const listeners = {
       change: e => {
-        emit(e.target.value)
+        emit('update:modelValue', e.target.value)
       },
       focus: () => {
         isFocus.value = true
