@@ -5,22 +5,32 @@
 </template>
 
 <script>
-import { tab } from '@/utils/mixins'
+import { provide, ref, watch } from 'vue'
 export default {
   name: 'VxButtonTab',
-  mixins: [tab],
   props: {
+    active: {
+      type: [Number, String, Object],
+      required: true
+    },
     size: {
       type: String,
       default: 'default'
     }
   },
-  methods: {
-    handleChange (value) {
-      if (value !== this.active) {
-        this.$emit('update:active', value)
+  setup (props, { emit }) {
+    let active = ref(props.active)
+    watch(() => props.active, val => {
+      active.value = val
+    })
+    provide('vxButtonTab', {
+      active,
+      handleChange (value) {
+        if (value !== props.active) {
+          emit('update:active', value)
+        }
       }
-    }
+    })
   }
 }
 </script>

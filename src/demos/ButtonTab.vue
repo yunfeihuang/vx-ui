@@ -17,6 +17,7 @@
         <vx-button-tab-item name="tab3">选项3</vx-button-tab-item>
         <vx-button-tab-item name="tab4">选项4</vx-button-tab-item>
       </vx-button-tab>
+      {{active2}}
     </vx-page-body>
   </vx-page>
 </template>
