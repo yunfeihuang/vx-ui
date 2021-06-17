@@ -27,6 +27,7 @@
 <script>
 import { input } from '@/utils/mixins'
 import VxInput from '../input'
+import { watch, ref } from 'vue'
 export default {
   name: 'VxPassword',
   components: {
@@ -61,33 +62,27 @@ export default {
       }
     }
   },
-  watch: {
-    nativeType (value) {
-      this.myNativeType = value
-    },
-    modelValue (value) {
-      if (this.encrypt) {
-        let self = this
+  setup (props, { emit }) {
+    const myNativeType = ref(props.nativeType)
+    watch(() => props.nativeType, val => {
+      myNativeType.value = val
+    })
+    watch(() => props.modelValue, val => {
+      if (props.encrypt) {
         let next = (v) => {
-          self.$emit('update:cipher', v)
+          emit('update:cipher', v)
         }
-        this.encrypt(value, next)
+        props.encrypt(val, next)
       }
-    }
-  },
-  data () {
+    })
     return {
-      myNativeType: this.nativeType
-    }
-  },
-  methods: {
-    handleChange (value) {
-      console.log('handleChange', value)
-      this.$emit('change', value)
-      this.$emit('update:modelValue', value)
-    },
-    handleSwitch () {
-      this.myNativeType = this.myNativeType === 'password' ? 'text' : 'password'
+      myNativeType,
+      handleChange (val) {
+        emit('update:modelValue', val)
+      },
+      handleSwitch () {
+        myNativeType.value = myNativeType.value === 'password' ? 'text' : 'password'
+      }
     }
   }
 }
