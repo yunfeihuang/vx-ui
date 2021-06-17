@@ -10,8 +10,7 @@ export default {
   name: 'VxButtonTab',
   props: {
     active: {
-      type: [Number, String, Object],
-      required: true
+      type: [Number, String, Object]
     },
     size: {
       type: String,
