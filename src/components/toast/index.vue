@@ -1,7 +1,7 @@
 <template>
   <transition name="vx--popup-fade" @enter="handleEnter" @after-leave="handleLeave">
     <div v-show="open" :class="['vx-toast','vx-toast--' + align]">
-      <div class="vx-toast--inner">
+      <div class="vx-toast--inner" ref="inner">
         <div class="vx-toast--content">
           <template v-if="type != 'default'">
             <vx-spinner v-if="type==='loading'" class="vx-toast--loading" v-bind="spinnerProps"/>
@@ -19,6 +19,7 @@
 <script>
 import VxSpinner from '../spinner'
 import VxOverlay from '../overlay'
+import { onMounted, ref } from 'vue'
 
 export default {
   name: 'VxToast',
@@ -63,29 +64,36 @@ export default {
       type: Number
     }
   },
-  mounted () {
-    this.open && this.handleEnter(this.$el)
-  },
-  methods: {
-    handleEnter (node) {
-      if (node && node.children && node.children[0]) {
-        let width = node.children[0].offsetWidth + 4
-        let height = node.children[0].offsetHeight + 4
+  setup (props, { emit }) {
+    const inner = ref(null)
+    let timer = null
+    const handleEnter = () => {
+      const node = inner.value
+      if (node) {
+        let width = node.offsetWidth + 4
+        let height = node.offsetHeight + 4
         requestAnimationFrame(() => {
-          node.style.width = width + 'px'
-          node.style.height = height + 'px'
+          node.parentNode.style.width = width + 'px'
+          node.parentNode.style.height = height + 'px'
         })
-        this.$$timer && clearTimeout(this.$$timer)
-        if (this.duration) {
-          this.$$timer = setTimeout(() => {
-            this.$emit('update:open', false)
-            this.$emit('close')
-          }, this.duration)
+        timer && clearTimeout(timer)
+        if (props.duration) {
+          timer = setTimeout(() => {
+            emit('update:open', false)
+            emit('close')
+          }, props.duration)
         }
       }
-    },
-    handleLeave () {
-      this.$emit('after-close')
+    }
+    onMounted(() => {
+      props.open && handleEnter()
+    })
+    return {
+      inner,
+      handleEnter,
+      handleLeave () {
+        emit('after-close')
+      }
     }
   }
 }

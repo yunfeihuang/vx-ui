@@ -17,12 +17,12 @@
 </template>
 
 <script>
-//import 'vx-ui/lib/style/theme/preview.scss'
-//import Preview from 'vx-ui/lib/preview'
+import '@/components/style/src/theme/preview.scss'
+import VxPreview from '@/components/preview'
 let windowWidth = window.innerWidth
 export default {
   components: {
-  //  Preview
+    VxPreview
   },
   data () {
     return {
