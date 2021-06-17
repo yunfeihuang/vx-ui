@@ -70,7 +70,7 @@ export default {
       }
     }
     const listeners = {
-      change: e => {
+      input: e => {
         emit('update:modelValue', e.target.value)
       },
       focus: () => {
