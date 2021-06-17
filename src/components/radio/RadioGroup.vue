@@ -6,6 +6,7 @@
 
 <script>
 import { input } from '@/utils/mixins'
+import { provide, ref, watch } from 'vue'
 
 export default {
   name: 'VxRadioGroup',
@@ -16,10 +17,17 @@ export default {
       default: true
     }
   },
-  methods: {
-    handleChange (value) {
-      this.$emit('update:modelValue', value)
-    }
+  setup (props, {emit}) {
+    let modelValue = ref(props.modelValue)
+    watch(() => props.modelValue, val => {
+      modelValue.value = val
+    })
+    provide('vxRadioGroup', {
+      modelValue,
+      handleChange (val) {
+        emit('update:modelValue', val)
+      }
+    })
   }
 }
 </script>
