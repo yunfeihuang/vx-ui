@@ -36,17 +36,19 @@ export default {
       default: '确定'
     }
   },
-  methods: {
-    handleConfirm () {
-      this.$emit('update:open', false)
-      this.$emit('confirm')
-    },
-    handleClose () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-    },
-    handleAfterClose () {
-      this.$emit('after-close')
+  setup (props, { emit }) {
+    return {
+      handleConfirm () {
+        emit('update:open', false)
+        emit('confirm')
+      },
+      handleClose () {
+        emit('update:open', false)
+        emit('close')
+      },
+      handleAfterClose () {
+        emit('after-close')
+      }
     }
   }
 }
