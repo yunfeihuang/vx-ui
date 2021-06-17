@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-rater',{'is-disabled': disabled}]" v-bind="$attrs">
+  <div :class="['vx-rater',{'is-disabled': disabled}]" v-bind="$attrs" v-on="$attrs">
     <span
       v-for="(item,index) in max"
       :class="['vx-rater--item',{'is-active':item<=modelValue}]"
@@ -7,8 +7,7 @@
       :data-value="item"
       :key="index"
       v-html="star"
-      @click="handleChange(item, modelValue)"
-      >
+      @click="handleChange(item, modelValue)">
     </span>
   </div>
 </template>
@@ -43,11 +42,12 @@ export default {
       default: ''
     }
   },
-  methods: {
-    handleChange (value, oldValue) {
-      value === 1 && oldValue === value && (value = 0)
-      this.$emit('update:modelValue', value)
-      this.$emit('change', value)
+  setup (props, { emit }) {
+    return {
+      handleChange (value, oldValue) {
+        value === 1 && oldValue === value && (value = 0)
+        emit('update:modelValue', value)
+      }
     }
   }
 }
