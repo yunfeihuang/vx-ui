@@ -82,15 +82,15 @@
     }
   }
 }
-.confirm-scale-enter-active, .confirm-scale-leave-active {
+.vx--confirm-scale-enter-active, .vx--confirm-scale-leave-active {
   transition: transform $--transition-time ease 0s,opacity $--transition-time ease 0s;
 }
-.confirm-scale-enter{
+.vx--confirm-scale-enter-from{
   opacity:0;
   transform:translate3d(0,0,0) scale(1.3);
   pointer-events: none;
 }
-.confirm-scale-leave-active{
+.vx--confirm-scale-leave-active{
   opacity:0;
   transform:translate3d(0,0,0) scale(0.9);
   pointer-events: none

@@ -1,7 +1,7 @@
 <template>
   <div class="vx-confirm">
     <vx-overlay :open="open"></vx-overlay>
-    <transition name="confirm-scale" @after-enter="handleEnter" @after-leave="handleLeave">
+    <transition name="vx--confirm-scale" @before-enter="handleBeforeEnter" @after-enter="handleEnter" @after-leave="handleLeave">
       <div class="vx-confirm--inner" v-show="open">
         <div v-if="title" class="vx-confirm--title">{{title}}</div>
         <div class="vx-confirm--body">
@@ -66,27 +66,14 @@ export default {
   },
   mounted () {
     if (this.open) {
-      requestAnimationFrame(() => {
-        this.pushState()
-        this.$el.classList.add('is-show')
-        this.handleEnter()
-      })
-    }
-  },
-  beforeUnmount () {
-    this.$$timerEvent && clearTimeout(this.$$timerEvent)
-  },
-  watch: {
-    open (value) {
-      if (value) {
-        requestAnimationFrame(() => {
-          this.pushState()
-          this.$el.classList.add('is-show')
-        })
-      }
+      this.handleBeforeEnter()
     }
   },
   methods: {
+    handleBeforeEnter () {
+      this.$el.classList.add('is-show')
+      this.pushState()
+    },
     handleCancel () {
       this.$emit('update:open', false)
       this.$emit('close')
@@ -94,8 +81,8 @@ export default {
     },
     handleConfirm (e) {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
-        this.$$timerEvent && clearTimeout(this.$$timerEvent)
-        this.$$timerEvent = setTimeout(() => {
+        this.$$eventTimer && clearTimeout(this.$$eventTimer)
+        this.$$eventTimer = setTimeout(() => {
           if (this.open) {
             this.$emit('update:open', false)
             this.$emit('confirm')
@@ -113,11 +100,9 @@ export default {
       this.$emit('open')
     },
     handleLeave () {
-      this.$nextTick(() => {
-        this.goBack()
-        this.$el.classList.remove('is-show')
-        this.$emit('after-close')
-      })
+      this.goBack()
+      this.$emit('after-close')
+      this.$el.classList.remove('is-show')
     }
   }
 }

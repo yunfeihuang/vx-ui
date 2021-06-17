@@ -40,7 +40,7 @@
 export default {
   data () {
     return {
-      open1: false,
+      open1: true,
       open2: false
     }
   },
