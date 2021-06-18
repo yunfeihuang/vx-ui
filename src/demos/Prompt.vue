@@ -26,7 +26,7 @@
       v-model:open="open1"
       :disabled="disabled1"
       :input-props="{placeholder:'请输入用户名称'}"
-      @change="handleChangePrompt1">
+      @update:modelValue="handleChangePrompt1">
     </vx-prompt>
     <vx-prompt
       v-model="value2"
@@ -35,7 +35,7 @@
       :disabled="disabled2"
       :input-props="{placeholder:'请输入wifi密码',type:'password'}"
       v-model:cipher="cipher"
-      @change="handleChangePrompt2">
+      @update:modelValue="handleChangePrompt2">
     </vx-prompt>
   </vx-page>
 </template>

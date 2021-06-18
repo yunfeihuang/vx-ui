@@ -9,7 +9,6 @@
     :confirm-props="{type: 'button', disabled: disabled}"
     @close="handleClose"
     @confirm="handleConfirm"
-    @open="handleOpen"
     @after-close="handleAfterClose">
     <div class="vx-prompt--message" v-if="message || $slots.message">
       <slot v-if="$slots.message" name="message"></slot>
@@ -25,6 +24,7 @@
         v-model:cipher="myCipher"
         class="vx-prompt--input"
         v-bind="inputProps"
+        @update:cipher="handleCipher"
         @update:modelValue="handleInput"
         @keyup.enter="handleConfirm"/>
       <vx-input
@@ -41,9 +41,11 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 import VxConfirm from '../confirm'
 import VxInput from '../input'
 import VxPassword from '../password'
+import { watch } from '@vue/runtime-core'
 export default {
   name: 'VxPrompt',
   components: {
@@ -80,7 +82,7 @@ export default {
     },
     encrypt: {
       type: Function,
-      default (value, next) {
+      default1 (value, next) {
         next(value.toUpperCase())
       }
     },
@@ -94,49 +96,33 @@ export default {
       type: String
     }
   },
-  data () {
+  setup (props, { emit }) {
+    const myValue = ref(props.modelValue)
+    const myCipher = ref(props.cipher)
+    watch(() => props.modelValue, val => {
+      myValue.value = val
+    })
     return {
-      myValue: this.modelValue,
-      myCipher: this.cipher
-    }
-  },
-  watch: {
-    modelValue (value) {
-      if (this.myValue !== value) {
-        this.myValue = value
-      }
-    },
-    myValue (value) {
-      this.$emit('update:modelValue', value)
-    },
-    myCipher (value) {
-      this.$emit('update:cipher', value)
-    }
-  },
-  methods: {
-    handleClose () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-    },
-    handleConfirm () {
-      if (this.open && !this.disabled) {
-        this.$emit('update:open', false)
-        this.$emit('confirm', this.myValue)
-        this.$emit('update:modelValue', this.myValue)
-      }
-    },
-    handleInput (value) {
-      this.$emit('change', value);
-    },
-    handleAfterClose () {
-      this.$emit('after-close')
-    },
-    handleOpen () {
-      if (this.autofocus) {
-        this.$nextTick(() => {
-          let node = this.$el.querySelector('input')
-          node && node.focus()
-        })
+      myValue,
+      myCipher,
+      handleClose () {
+        emit('update:open', false)
+        emit('close')
+      },
+      handleConfirm () {
+        if (props.open && !props.disabled) {
+          emit('update:open', false)
+          emit('confirm', myValue.value)
+        }
+      },
+      handleInput (value) {
+        emit('update:modelValue', value)
+      },
+      handleAfterClose () {
+        emit('after-close')
+      },
+      handleCipher (value) {
+        emit('update:cipher', value)
       }
     }
   }
