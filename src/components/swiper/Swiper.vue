@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-swiper', 'swiper-container']" >
+  <div :class="['vx-swiper', 'swiper-container']" ref="el">
     <div class="swiper-wrapper" >
       <slot></slot>
     </div>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { onMounted, ref, watch } from 'vue'
 export default {
   name: 'VxSwiper',
   props: {
@@ -42,41 +43,44 @@ export default {
       default: false
     }
   },
-  mounted () {
-    import('swiper/dist/css/swiper.min.css')
-    import('swiper').then(res => {
-      let Swiper = res.default
-      let options = Object.assign({
-        initialSlide: this.active,
-        autoplayDisableOnInteraction: false,
-        autoplay: this.autoplay,
-        onSlideChangeStart: (swiper) => {
-          this.$emit('update:active', swiper.activeIndex)
+  setup (props, { emit }) {
+    let el = ref(null)
+    let swiper = null
+    onMounted(() => {
+      import('swiper/dist/css/swiper.min.css')
+      import('swiper').then(res => {
+        let Swiper = res.default
+        let options = Object.assign({
+          initialSlide: props.active,
+          autoplayDisableOnInteraction: false,
+          autoplay: props.autoplay,
+          onSlideChangeStart: (swiper) => {
+            emit('update:active', swiper.activeIndex)
+          }
+        }, props.options)
+        if (props.pagination) {
+          options.pagination = '.swiper-pagination'
         }
-      }, this.options)
-      if (this.pagination) {
-        options.pagination = '.swiper-pagination'
-      }
-      if (this.prev) {
-        options.prev = '.swiper-button-prev'
-      }
-      if (this.next) {
-        options.nextButton = '.swiper-button-prev'
-      }
-      if (this.scrollbar) {
-        options.scrollbar = '.swiper-scrollbar'
-      }
-      this.$$swiper = new Swiper(this.$el, options)
+        if (props.prev) {
+          options.prev = '.swiper-button-prev'
+        }
+        if (props.next) {
+          options.nextButton = '.swiper-button-prev'
+        }
+        if (props.scrollbar) {
+          options.scrollbar = '.swiper-scrollbar'
+        }
+        swiper = new Swiper(el.value, options)
+      })
     })
-  },
-  watch: {
-    active (value) {
-      this.$$swiper.activeIndex !== value && this.$$swiper.slideTo(value)
-    }
-  },
-  methods: {
-    getSwiper () {
-      return this.$$swiper
+    watch(() => props.active, val => {
+      swiper.activeIndex !== val && swiper.slideTo(val)
+    })
+    return {
+      el,
+      getSwiper () {
+        return swiper
+      }
     }
   }
 }
