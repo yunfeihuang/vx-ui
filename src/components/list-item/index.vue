@@ -1,7 +1,10 @@
 <template>
-  <div :class="['vx-list-item', {'vx-divider': divider}, {'is-half-divider': halfDivider}]"
-    v-bind="$attrs"
-    @click="linkTo($parent, to)">
+  <component
+    :is="to ? 'router-link': 'div'"
+    tag="div"
+    :to="to"
+    :class="['vx-list-item', {'vx-divider': divider}, {'is-half-divider': halfDivider}]"
+    v-on="$attrs">
     <template v-if="$slots['prepend']">
       <div class="vx-list-item--prepend">
         <slot name="prepend"></slot>
@@ -43,7 +46,7 @@
         <slot name="append-action"></slot>
       </div>
     </template>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -67,11 +70,6 @@ export default {
     },
     to: {
       type: [String, Object]
-    }
-  },
-  methods: {
-    linkTo (parent, value) {
-      value && parent.$router.push(value)
     }
   }
 }

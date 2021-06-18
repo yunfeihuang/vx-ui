@@ -19,7 +19,7 @@
         </template>
         <slot v-else name="append"></slot>
       </div>
-      <div v-if="$slots['search']" class="vx-nav--search" :style="searchStyle($slots)">
+      <div v-if="$slots['search']" class="vx-nav--search" :style="searchStyle">
         <div class="vx-nav--search-inner">
           <slot name="search"></slot>
         </div>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
 import VxArrow from '../arrow'
 
 export default {
@@ -81,28 +82,31 @@ export default {
       type: Boolean
     }
   },
-  methods: {
-    searchStyle (slots) {
-      if (!this.searchCollapse) {
-        return ''
-      } else {
-        let max = this.isBack ? 1 : 0
-        if (slots['prepend']) {
-          if (slots['prepend'].length + max > max) {
-            max = slots['prepend'].length + max
-          }
-        }
-        if (slots['append']) {
-          if (slots['append'].length > max) {
-            max = slots['append'].length
-          }
-        }
-        if (max) {
-          return `margin: -0.92rem ${0.92 * max}rem 0 ${0.92 * max}rem`
+  setup (props, { slots }) {
+    const searchStyle = computed(() => {
+      if (!props.searchCollapse) {
+          return ''
         } else {
-          return `margin: -0.92rem 0.2rem 0 0.2rem`
+          let max = props.isBack ? 1 : 0
+          if (slots['prepend']) {
+            if (slots['prepend'].length + max > max) {
+              max = slots['prepend'].length + max
+            }
+          }
+          if (slots['append']) {
+            if (slots['append'].length > max) {
+              max = slots['append'].length
+            }
+          }
+          if (max) {
+            return `margin: -0.92rem ${0.92 * max}rem 0 ${0.92 * max}rem`
+          } else {
+            return `margin: -0.92rem 0.2rem 0 0.2rem`
+          }
         }
-      }
+    })
+    return {
+      searchStyle
     }
   }
 }

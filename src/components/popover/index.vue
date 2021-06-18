@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-popover" @click="handleClick">
+  <div class="vx-popover" @click="handleClick" ref="el">
     <slot name="trigger"></slot>
   </div>
   <teleport to="body">
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {nextTick, ref, watch} from 'vue'
+import {nextTick, onMounted, ref, watch} from 'vue'
 import VxPopup from '../popup'
 export default {
   name: 'VxPopover',
@@ -43,11 +43,18 @@ export default {
   },
   setup (props, { emit }) {
     const popoverContent = ref(null)
+    const el = ref(null)
     const myOpen = ref(props.open)
     watch(() => props.open, val => {
       myOpen.value = val
     })
+    onMounted(() => {
+      if (props.open && el.value) {
+        el.value.click()
+      }
+    })
     return {
+      el,
       popoverContent,
       myOpen,
       handleClick (e) {
