@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :type="nativeType" :disabled="disabled">
+  <button :class="classes" :type="nativeType" :disabled="disabled" v-bind="$attrs" v-on="$attrs">
     <vx-spinner v-if="loading && !disabled" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <vx-ripple v-if="ripple" :color="rippleColor" />

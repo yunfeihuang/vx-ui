@@ -24,6 +24,7 @@
 import VxCascaderPopupPicker from '../cascader-popup-picker'
 import { input } from '@/utils/mixins'
 import VxArrow from '../arrow'
+import { watch, ref } from 'vue'
 
 export default {
   name: 'VxCascader',
@@ -51,29 +52,28 @@ export default {
       default: true
     }
   },
-  data () {
+  setup (props, { emit }) {
+    const value = ref(props.modelValue)
+    watch(() => props.modelValue, val => {
+      value.value = val
+    })
+    const label = ref([])
+    const open = ref(false)
     return {
-      value: [...this.modelValue],
-      label: [],
-      open: false
-    }
-  },
-  watch: {
-    modelValue (value) {
-      this.myValue = [...value]
-    }
-  },
-  methods: {
-    handleFocusIn () {
-      this.value = [...this.modelValue]
-      this.open = true
-    },
-    handleChange (value) {
-      this.open = false
-      this.$emit('update:modelValue', value)
-    },
-    handleClose () {
-      this.open = false
+      value,
+      label,
+      open,
+      handleFocusIn () {
+        value.value = [...props.modelValue]
+        open.value = true
+      },
+      handleChange (value) {
+        open.value = true
+        emit('update:modelValue', value)
+      },
+      handleClose () {
+        open.value = true
+      }
     }
   }
 }
