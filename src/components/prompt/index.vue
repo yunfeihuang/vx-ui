@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { ref, watch } from 'vue'
 import VxConfirm from '../confirm'
 import VxInput from '../input'
 import VxPassword from '../password'
-import { watch } from '@vue/runtime-core'
+
 export default {
   name: 'VxPrompt',
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-photoswiper" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="vx-photoswiper" tabindex="-1" role="dialog" aria-hidden="true" ref="el">
     <!-- Background of PhotoSwipe.
            It's a separate element as animating opacity is faster than rgba(). -->
       <div class="pswp__bg"></div>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 export default {
   name: 'VxPreview',
   props: {
@@ -61,31 +62,36 @@ export default {
       type: Object
     }
   },
-  methods: {
-    open (index) {
-      import('photoswipe/dist/photoswipe.css')
-      import('photoswipe/dist/default-skin/default-skin.css')
-      import('photoswipe').then(res => {
-        let PhotoSwipe = res.default
-        import('photoswipe/dist/photoswipe-ui-default').then(resUI => {
-          let UI = resUI.default
-          let options = Object.assign({
-            history: true,
-            tapToClose: true,
-            shareEl: false,
-            index: index
-          }, this.options)
-          this.$el.style.display = 'block'
-          this.$$photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
-          this.$$photoswipe.init()
-          this.$$photoswipe.listen('close', () => {
-            this.$emit('close')
+  setup (props, { emit }) {
+    let photoswipe = null
+    let el = ref(null)
+    return {
+      el,
+      open (index) {
+        import('photoswipe/dist/photoswipe.css')
+        import('photoswipe/dist/default-skin/default-skin.css')
+        import('photoswipe').then(res => {
+          let PhotoSwipe = res.default
+          import('photoswipe/dist/photoswipe-ui-default').then(resUI => {
+            let UI = resUI.default
+            let options = Object.assign({
+              history: true,
+              tapToClose: true,
+              shareEl: false,
+              index: index
+            }, props.options)
+            el.value.style.display = 'block'
+            photoswipe = new PhotoSwipe(el.value, UI, props.list, options)
+            photoswipe.init()
+            photoswipe.listen('close', () => {
+              emit('close')
+            })
           })
         })
-      })
-    },
-    close () {
-      this.$$photoswipe.close()
+      },
+      close () {
+        photoswipe.close && photoswipe.close()
+      }
     }
   }
 }
