@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-heading', `vx-heading--${type}`]" v-bind="$attrs">
+  <div :class="['vx-heading', `vx-heading--${type}`]" v-bind="$attrs" v-on="$attrs">
     <div class="vx-heading--inner">
       <slot name="prepend"></slot>
       <div class="vx-heading--title">

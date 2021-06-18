@@ -5,7 +5,7 @@
     </div>
   </div>
   <teleport to="body">
-    <vx-picker
+    <picker
       :style="style"
       v-model:open="open"
       :modelValue="value"
@@ -13,19 +13,19 @@
       :popupClass="popupClass"
       @update:modelValue="handleChange">
       <slot></slot>
-    </vx-picker>
+    </picker>
   </teleport>
 </template>
 
 <script>
-import VxPicker from './Picker'
+import Picker from './Picker'
 import VxArrow from '../arrow'
 
 export default {
   name: 'VxDropdownMenuItem',
   components: {
     VxArrow,
-    VxPicker
+    Picker
   },
   props: {
     placeholder: {

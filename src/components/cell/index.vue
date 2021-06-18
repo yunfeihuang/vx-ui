@@ -1,6 +1,5 @@
 <template>
-  <div :class="['vx-cell', `vx-cell--${type}`, {'is-divider': type!='info' && divider}]" v-bind="$attrs"
-    @click="onTo($parent, to, replace, target)">
+  <component :is="$attrs.to ? 'router-link' : 'div'" tag="'div'" :class="['vx-cell', `vx-cell--${type}`, {'is-divider': type!='info' && divider}]" v-bind="$attrs" v-on="$attrs">
     <div
       class="vx-cell--inner">
       <div class="vx-cell--hd" v-if="$slots['icon']">
@@ -20,12 +19,12 @@
           </template>
         </div>
       </div>
-      <vx-arrow class="vx-cell--arrow" v-if="arrow || to" :direction="arrowDirection || 'right'" size="0.2rem"/>
+      <vx-arrow class="vx-cell--arrow" v-if="arrow || $attrs.to" :direction="arrowDirection || 'right'" size="0.2rem"/>
     </div>
     <div class="vx-cell--default-slot" v-if="$slots['default']">
       <slot></slot>
     </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -55,27 +54,6 @@ export default {
     target: {
       type: String
     },
-    onTo: {
-      type: Function,
-      default (parent, to, replace, target) {
-        if (to) {
-          if (typeof to === 'string' && (to.indexOf('http://') > -1 || to.indexOf('https://') > -1)) {
-            if (target) {
-              window.open(to)
-            } else {
-              location.href = to
-            }
-          } else if (parent.$router) {
-            if (replace) {
-              parent.$router.replace(to)
-            } else {
-              parent.$router.push(to)
-            }
-          }
-        }
-      }
-    },
-    to: {},
     arrowDirection: {
       type: String
     }
