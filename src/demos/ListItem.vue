@@ -6,6 +6,7 @@
     <vx-page-body>
       <vx-group title="default">
         <vx-list-item
+          to="/demos"
           image="http://assets.bittyos.com/images/swiper/01.jpg">
           <b>标题</b>
           <div>内容....</div>

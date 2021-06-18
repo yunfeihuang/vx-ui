@@ -1,9 +1,9 @@
 <template>
   <component
-    :is="to ? 'router-link': 'div'"
+    :is="$attrs.to ? 'router-link': 'div'"
     tag="div"
-    :to="to"
     :class="['vx-list-item', {'vx-divider': divider}, {'is-half-divider': halfDivider}]"
+    v-bind="$attrs"
     v-on="$attrs">
     <template v-if="$slots['prepend']">
       <div class="vx-list-item--prepend">
@@ -67,9 +67,6 @@ export default {
     },
     halfDivider: {
       type: Boolean
-    },
-    to: {
-      type: [String, Object]
     }
   }
 }
