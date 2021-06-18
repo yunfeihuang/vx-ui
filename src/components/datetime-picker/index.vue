@@ -109,6 +109,9 @@ export default {
   },
   methods: {
     parseValue (value = this.modelValue) {
+      if (!value) {
+        value = this.$options.props.modelValue.default()
+      }
       if (!/[-\/]/.test(value) && this.format !== 'yyyy') { //eslint-disable-line
         value = '1900/01/0' + value
       }

@@ -1,9 +1,9 @@
 <template>
   <vx-input
-    v-bind="$$props"
-    v-on="$$listeners"
+    v-bind="$props"
+    v-on="$attrs"
     arrow
-    :modelValue="myValue"
+    :modelValue="label"
     :type="nativeType"
     readonly="readonly"
     @focusin="handleFocusIn"
@@ -18,7 +18,7 @@
   <teleport to="body">
     <vx-daterange-picker
       v-model:open="open"
-      v-model="value"
+      :modelValue="value"
       :format="format"
       @close="open = false"
       @update:modelValue="handleChange"/>
@@ -29,6 +29,7 @@
 import { input } from '@/utils/mixins'
 import VxDaterangePicker from '../daterange-picker'
 import VxInput from '../input'
+import { computed, ref, watch } from 'vue'
 
 export default {
   name: 'VxDaterange',
@@ -64,39 +65,28 @@ export default {
       type: Function
     }
   },
-  computed: {
-    myValue () {
-      if (this.modelValue && this.modelValue[0] && this.modelValue[1]) {
-        return this.modelValue[0].format() + this.separator + this.modelValue[1].format()
+  setup (props, { emit }) {
+    const value = ref(props.modelValue)
+    watch(() => props.modelValue, val => {
+      value.value = val
+    })
+    const label = computed(() => {
+      if (value.value && value.value[0] && value.value[1]) {
+        return value.value[0].format() + props.separator + value.value[1].format()
       }
-      return ''
-    },
-    $$props () {
-      return {
-        ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$attrs,
-        'update:modelValue': this.handleChange,
-      }
-    }
-  },
-  data () {
+      return '' 
+    })
+    const open = ref(false)
     return {
-      open: false,
-      value: this.modelValue
-    }
-  },
-  methods: {
-    handleFocusIn () {
-      this.value = this.modelValue,
-      this.open = true
-    },
-    handleChange () {
-      this.$emit('update:modelValue', this.value)
+      value,
+      open,
+      label,
+      handleFocusIn () {
+        open.value = true
+      },
+      handleChange (value) {
+        emit('update:modelValue', value)
+      }
     }
   }
 }

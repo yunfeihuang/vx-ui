@@ -64,7 +64,6 @@ export default {
       label,
       open,
       handleFocusIn () {
-        value.value = [...props.modelValue]
         open.value = true
       },
       handleChange (value) {

@@ -1,12 +1,13 @@
 <template>
   <vx-input
-    :class="{'is-focus': isFocus}"
-    v-bind="$$props"
-    v-on="$$props"
+    v-bind="$props"
+    v-on="$attrs"
     :type="nativeType"
     arrow
     readonly="readonly"
+    v-model="value"
     @focusin="handleFocusIn"
+    @update:modelValue="handleChange"
     >
     <template v-slot:prepend>
       <slot name="prepend"></slot>
@@ -18,10 +19,10 @@
   <teleport to="body">
     <vx-datetime-picker
       v-model:open="open"
-      v-model="value"
+      :modelValue="value"
       :format="format"
       @close="open = false"
-      @update:modelValue="handleChange"/>
+      @update:modelValue="handlePickerChange"/>
   </teleport>
 </template>
 
@@ -29,6 +30,8 @@
 import { input } from '@/utils/mixins'
 import VxInput from '../input'
 import VxDatetimePicker from '../datetime-picker'
+import { ref } from '@vue/reactivity'
+import { watch } from '@vue/runtime-core'
 export default {
   name: 'VxDatetime',
   components: {
@@ -53,33 +56,24 @@ export default {
       type: Function
     }
   },
-  computed: {
-    $$props () {
-      return {
-        ...this.$props,
-        ...this.$attrs
-      }
-    },
-    $$listeners () {
-      return {
-        ...this.$attrs,
-        'update:modelValue': this.handleChange
-      }
-    }
-  },
-  data () {
+  setup (props, { emit }) {
+    const value = ref(props.modelValue)
+    watch(() => props.modelValue, val => {
+      value.value = val
+    })
+    const open = ref(false)
     return {
-      open: false,
-      value: this.modelValue
-    }
-  },
-  methods: {
-    handleFocusIn () {
-      this.value = this.modelValue,
-      this.open = true
-    },
-    handleChange () {
-      this.$emit('update:modelValue', this.value)
+      value,
+      open,
+      handleFocusIn () {
+        open.value = true
+      },
+      handleChange (value) {
+        emit('update:modelValue', value)
+      },
+      handlePickerChange (val) {
+        value.value = val
+      }
     }
   }
 }
