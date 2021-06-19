@@ -1,15 +1,15 @@
 <template>
-  <div :class="['vx-grid--item', {'is-divider': $parent.gutter == 1}]"
+  <component :is="$attrs.to ? 'router-link' : 'div'" tag="div" v-bind="$attrs" v-on="$attrs"
+    :class="['vx-grid--item', {'is-divider': gutter == 1}]"
     :style="{
-        width: `${100 / _col * col}%`,
-        borderRightWidth: `${gutter}px`,
-        borderBottomWidth: `${gutter}px`
-      }"
-    @click="linkTo">
+      width: `${100 / _col * col}%`,
+      borderRightWidth: `${gutter}px`,
+      borderBottomWidth: `${gutter}px`
+    }">
     <div class="vx-grid--item-inner">
       <slot></slot>
     </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -29,11 +29,6 @@ export default {
     return {
       gutter: inject('vxGrid') ? inject('vxGrid').gutter : 8,
       _col: inject('vxGrid') ? inject('vxGrid').col : 2
-    }
-  },
-  methods: {
-    linkTo () {
-      this.to && this.$router.push(this.to)
     }
   }
 }

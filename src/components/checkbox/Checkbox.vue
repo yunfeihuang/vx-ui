@@ -124,17 +124,6 @@ export default {
       }
       return this.inline
     }
-  },
-  methods: {
-    handleChange1 (e, val) {
-      if (this.isParent) {
-        this.$parent.handleChange(e, val)
-      } else {
-        this.$emit('update:checked', e.target.checked)
-        this.$emit('change', e)
-        this.offValue !== undefined && this.onValue !== undefined && this.$emit('update:modelValue', e.target.checked ? this.onValue : this.offValue)
-      }
-    }
   }
 }
 </script>

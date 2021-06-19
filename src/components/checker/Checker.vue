@@ -95,16 +95,6 @@ export default {
       }
       return this.icon
     }
-  },
-  methods: {
-    handleChange1 (value, e) {
-      if (this.isParent) {
-        this.$parent.handleChange(e, value, this.exclusive)
-      } else {
-        this.$emit('update:checked', e.target.checked)
-        this.$emit('change', e)
-      }
-    }
   }
 }
 </script>

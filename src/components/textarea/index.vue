@@ -1,5 +1,5 @@
 <template>
-  <label ref="el" :class="['vx-textarea--wrapper', `vx-textarea--size-${size}`, {'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea--enter-number': showWordNumber}]" @focusin="handleFocusIn" @focusout="handleFocusOut">
+  <label ref="el" :class="['vx-textarea--wrapper', `vx-textarea--size-${size}`, {'is-disabled':disabled,'is-focus': isFocus, 'vx-textarea--enter-number': showWordNumber}]">
     <div class="vx-textarea--inner">
       <div class="vx-textarea--shadow" v-html="modelValue.replace(/(\r|\n)$/, `<br/><span style='color:transparent'>s</span>`).replace(/(\r|\n)/g, '<br/>')"></div>
         <textarea
@@ -55,6 +55,7 @@ export default {
     })
     return {
       el,
+      isFocus,
       handleFocus,
       handleBlur,
       handleInput
