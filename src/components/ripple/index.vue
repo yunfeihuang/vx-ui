@@ -1,10 +1,20 @@
 <template>
-  <div class="vx-ripple" onselectstart="return false;">
+  <div class="vx-ripple" onselectstart="return false;" ref="el" @mousedown="handleTouchStart">
     <slot></slot>
+    <transition
+      :duration="3000"
+      v-for="(item,index) in shadows"
+      :key="index"
+      @enter="handleEnter"
+      @after-enter="handleAfterEnter($event, item.id)"
+      :css="false">
+      <div class="vx-ripple--shadow" v-show="item.show" :style="item.style"></div>
+    </transition>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   name: 'VxRipple',
   props: {
@@ -15,69 +25,49 @@ export default {
       type: String
     }
   },
-  mounted () {
-    if (document.touchstart === undefined) {
-      this.$el.addEventListener('mousedown', this.handleTouchStart, false)
-      this.$el.addEventListener('mouseup', this.handleTouchEnd, false)
-    } else {
-      this.$el.addEventListener('touchstart', this.handleTouchStart, false)
-      this.$el.addEventListener('touchend', this.handleTouchEnd, false)
-    }
-  },
-  beforeUnmount () {
-    this.$$destroyTimer && clearTimeout(this.$$destroyTimer)
-    this.$$timer && clearTimeout(this.$$timer)
-  },
-  methods: {
-    getOffset (rect, {pageX, pageY}) {
-      if (this.position === 'center') {
-        return {
-          top: rect.height / 2,
-          left: rect.width / 2,
-          width: rect.width,
-          height: rect.height
-        }
-      } else {
-        return {
-          top: pageY - rect.top,
-          left: pageX - rect.left,
-          width: rect.width,
-          height: rect.height
+  setup (props) {
+    const el = ref(null)
+    const shadows = ref([])
+    let rect = null
+    const handleTouchStart = ({pageY, pageX, changedTouches}) => {
+      rect = el.value.getBoundingClientRect()
+      const shadow = {
+        show: false,
+        id: new Date().getTime().toString(),
+        style: props.position === 'center' ? {
+          top: '50%',
+          left: '50%',
+          backgroundColor: props.color
+        } : {
+          top: (changedTouches ? changedTouches[0].pageY : pageY) - rect.top + 'px',
+          left: (changedTouches ? changedTouches[0].pageX : pageX) - rect.left + 'px',
+          backgroundColor: props.color
         }
       }
-    },
-    handleTouchStart (e) {
-      let shadow = this.$el.querySelector('.vx-ripple--shadow')
-      shadow && shadow.parentNode.removeChild(shadow)
-      this.$$offset = this.getOffset(this.$el.getBoundingClientRect(), e.changedTouches ? e.changedTouches[0] : e)
-      this.$$node = document.createElement('div')
-      this.$$node.classList.add('vx-ripple--shadow')
-      this.$$node.style.cssText = 'top:' + this.$$offset.top + 'px;left:' + this.$$offset.left + 'px;'
-      if (this.color) {
-        this.$$node.style.backgroundColor = this.color
-      }
-      this.$el.appendChild(this.$$node)
-      this.$$timer = setTimeout(() => {
-        this.$$node.style.transition = this.$$node.style.webkitTransition = `transform 0.25s ease-in-out 0s`
-        this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(1.4)'
+      shadows.value.push(shadow)
+      requestAnimationFrame(() => {
+        const item = shadows.value.find(item => item.id === shadow.id)
+        item.show = true
       })
-      e.preventDefault()
-    },
-    handleTouchEnd () {
-      this.$$timer && clearTimeout(this.$$timer)
-      let max = Math.max(this.$$offset.height, this.$$offset.width)
-      this.$$duration = max / 400
-      if (this.$$duration < 0.6) {
-        this.$$duration = 0.6
-      } else if (this.$$duration > 2) {
-        this.$$duration = 2
+    }
+    return {
+      el,
+      shadows,
+      handleTouchStart,
+      handleEnter (el, done) {
+        requestAnimationFrame(() => {
+          el.style.transform = `scale(${Math.max(rect.width, rect.height) / 10})`
+          el.style.opacity = 0
+          setTimeout(done, 400)
+        })
+      },
+      handleAfterEnter (el, id) {
+        shadows.value.forEach((item) => {
+          if (item.id === id) {
+            item.show = false
+          }
+        })
       }
-      this.$$node.style.transition = this.$$node.style.webkitTransition = `transform ${this.$$duration}s ease-in-out 0s, opacity ${this.$$duration - 0.3}s linear 0s`
-      this.$$node.style.transform = this.$$node.style.webkitTransform = 'scale(' + (Math.max(this.$$offset.height, this.$$offset.width) / 5) + ')'
-      this.$$node.style.opacity = '0'
-      this.$$destroyTimer = setTimeout(((node) => {
-        node.parentNode && node.parentNode.removeChild(node)
-      }).bind(this, this.$$node), this.$$duration * 1000)
     }
   }
 }

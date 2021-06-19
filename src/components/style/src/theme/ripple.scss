@@ -8,14 +8,13 @@
     &--shadow{
       position:absolute;
       background:rgba(0,0,0,0.08);
-      min-height:1rem;
-      min-width:1rem;
       border-radius:50%;
-      margin:-0.5rem;
-      transition:transform 1s ease-in-out 0s,opacity 0.4s linear 0s;
-      pointer-events: none;
       top:0;
       left:0;
+      width: 10px;
+      height: 10px;
+      margin: -5px;
+      transition: transform 0.3s ease 0s,opacity 0.3s ease 0.15s;
     }
   }
 }
