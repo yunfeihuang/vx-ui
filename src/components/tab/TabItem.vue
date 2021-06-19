@@ -1,17 +1,17 @@
 <template>
   <div
     :style="{
-      'min-width': $parent.minTabItemWidth
+      'min-width': minTabItemWidth
     }"
     :class="[
       'vx-tab--item',
       {
-        'is-flexbox-item': $parent.layout=='default',
-        'is-active': $parent.active === name
+        'is-flexbox-item': layout=='default',
+        'is-active': active === name
       }
     ]"
-    @click="handleClick(name)">
-    <span v-if="$parent.underlineWidth" class="vx-tab--item-text">
+    @click="handleChange(name)">
+    <span v-if="underlineWidth" class="vx-tab--item-text">
       <slot></slot>
     </span>
     <slot v-else></slot>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 export default {
   name: 'VxTabItem',
   props: {
@@ -27,9 +28,14 @@ export default {
       required: true
     }
   },
-  methods: {
-    handleClick (name) {
-      this.$parent.change(name)
+  setup () {
+    const vxTab = inject('vxTab')
+    return {
+      active: vxTab.active,
+      underlineWidth: vxTab.underlineWidth,
+      layout: vxTab.layout,
+      minTabItemWidth: vxTab.minTabItemWidth,
+      handleChange: vxTab.handleChange
     }
   }
 }

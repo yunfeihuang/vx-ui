@@ -139,23 +139,6 @@ const input = {
   }
 }
 
-const tab = {
-  methods: {
-    change (name) {
-      this.active !== name && this.$emit('update:active', name)
-    }
-  },
-  props: {
-    active: {
-      type: [Number, String, Object],
-      required: true
-    },
-    layout: {
-      type: String,
-      default: 'default'
-    }
-  }
-}
 const historyPush = {
   props: {
     history: {
@@ -206,6 +189,5 @@ const historyPush = {
 export {
   button,
   input,
-  tab,
   historyPush
 }
