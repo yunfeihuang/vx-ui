@@ -1,8 +1,9 @@
 <template>
-  <div class="vx-qrcode" style="display:inline-block"></div>
+  <div class="vx-qrcode" style="display:inline-block" ref="el"></div>
 </template>
 
 <script>
+import { onMounted, ref } from 'vue'
 export default {
   name: 'Qrcode',
   props: {
@@ -11,21 +12,24 @@ export default {
       default: ''
     }
   },
-  mounted () {
-    import('qrcodejs2').then(QRCode => {
-      this.$$qrcode = new QRCode(this.$el, {
-        height: this.$el.offsetHeight || 140,
-        width: this.$el.offsetWidth || 140,
-        ...this.$props
+  setup (props) {
+    let el = ref(null)
+    const qrcode = null
+    onMounted(() => {
+      import('qrcodejs2').then(QRCode => {
+        qrcode = new QRCode(el.value, {
+          height: el.value.offsetHeight || 140,
+          width: el.value.offsetWidth || 140,
+          text: props.text
+        })
       })
     })
-  },
-  watch: {
-    text (value) {
-      if (this.$$qrcode) {
-        this.$$qrcode.clear()
-        this.$$qrcode.makeCode(value)
-      }
+    watch(() => props.text, val => {
+      qrcode.clear()
+      qrcode.makeCode(val)
+    })
+    return {
+      el
     }
   }
 }

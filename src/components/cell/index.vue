@@ -1,5 +1,5 @@
 <template>
-  <component :is="$attrs.to ? 'router-link' : 'div'" tag="'div'" :class="['vx-cell', `vx-cell--${type}`, {'is-divider': type!='info' && divider}]" v-bind="$attrs" v-on="$attrs">
+  <component :is="$attrs.to ? 'router-link' : 'div'" :tag="'div'" :class="['vx-cell', `vx-cell--${type}`, {'is-divider': type!='info' && divider}]" v-bind="$attrs" v-on="$attrs">
     <div
       class="vx-cell--inner">
       <div class="vx-cell--hd" v-if="$slots['icon']">

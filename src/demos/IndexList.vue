@@ -3,7 +3,7 @@
     <template v-slot:header>
       <vx-nav title="IndexList"></vx-nav>
     </template>
-    <vx-index-list  :data="list" @click="handleClick"/>
+    <vx-index-list  :data="list" @choose="handleChoose"/>
   </vx-page>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
     let list = []
     let array = ['★', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L']
     array.forEach(item1 => {
-      let items = array.map(item2 => {
+      let options = array.map(item2 => {
         return {
           value: item1 + item2,
           label: `label-${item1 + item2}`
@@ -20,7 +20,7 @@ export default {
       })
       list.push({
         label: item1,
-        items
+        options
       })
     })
     return {
@@ -28,9 +28,9 @@ export default {
     }
   },
   methods: {
-    handleClick (value) {
+    handleChoose (value) {
       this.$toast({
-        message: `点击了"${value}"`
+        message: `点击了"${value.value}"`
       })
     }
   }

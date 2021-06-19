@@ -1,9 +1,10 @@
 <template>
-  <component :is="tag" :style="styles">
+  <component :is="tag" :style="style">
     <slot></slot>
   </component>
 </template>
 <script>
+import { ref, onMounted, onUnmounted } from 'vue'
 export default {
   name: 'RemToPx',
   props: {
@@ -22,41 +23,40 @@ export default {
       default: 'div'
     }
   },
-  data () {
-    return {
-      styles: this.getStyles()
-    }
-  },
-  mounted () {
-    window.addEventListener('resize', this.handleResize, false)
-  },
-  beforeUnmount () {
-    window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    handleResize () {
-      this.styles = this.getStyles()
-    },
-    getStyles () {
+  setup (props) {
+    const style = ref('')
+    const getStyle = () => {
       let fontSize = document.documentElement.style.fontSize
       let width = ''
       let height = ''
       if (fontSize) {
         fontSize = parseInt(fontSize, 10)
-        if (this.width) {
-          width = Math.round(fontSize * this.width)
-          if (this.even && width % 2) {
+        if (props.width) {
+          width = Math.round(fontSize * props.width)
+          if (props.even && width % 2) {
             width++
           }
         }
-        if (this.height) {
-          height = Math.round(fontSize * this.height)
-          if (this.even && height % 2) {
+        if (props.height) {
+          height = Math.round(fontSize * props.height)
+          if (props.even && height % 2) {
             height++
           }
         }
       }
       return `width:${width}px;height:${height}px`
+    }
+    const handleResize = () => {
+      style.value = getStyle()
+    }
+    onMounted(() => {
+      window.addEventListener('resize', handleResize, false)
+    })
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize, false)
+    })
+    return {
+      style
     }
   }
 }
