@@ -7,8 +7,8 @@
               class="vx-search--input"
               native-type="search"
               :placeholder="placeholder"
-              :readonly="readonly"
-              :modelValue="value"
+              
+              :modelValue="modelValue"
               :disabled="disabled"
               :autocomplete="autocomplete"
               :autofocus="autofocus"
@@ -36,16 +36,13 @@
                 class="vx-search--input"
                 native-type="search"
                 :placeholder="placeholder"
-                :readonly="readonly"
-                :modelValue="value"
+                :modelValue="modelValue"
                 :disabled="disabled"
                 :autocomplete="autocomplete"
                 :autofocus="autofocus"
                 :maxlength="maxlength"
                 :name="name"
                 :clearable="clearable"
-                @focusin="handleFocusIn"
-                @focusout="handleFocusOut"
                 @update:modelValue="handleInput">
               </vx-input>
               <button class="vx-search--button" type="submit">搜索</button>
@@ -65,13 +62,13 @@
 </template>
 
 <script>
-import { input, historyPush } from '@/utils/mixins'
+import { input, useHistory } from '@/utils/mixins'
 import VxInput from '../input'
 import VxArrow from '../arrow'
+import { ref, watch } from 'vue'
 
 export default {
   name: 'VxSearch',
-  mixins: [historyPush],
   components: {
     VxInput,
     VxArrow
@@ -87,45 +84,48 @@ export default {
       default: true
     }
   },
-  watch: {
-    isFocus (value) {
-      value && this.fixedTop && (this.fixed = true)
-    },
-    fixed (value) {
-      if (value) {
-        this.pushState()
+  setup (props, { emit }) {
+    const el = ref(null)
+    const isFocus = ref(null)
+    const fixed = ref(false)
+    const handleCancel = () => {
+      isFocus.value = fixed.value = false
+    }
+    const instance = useHistory(props, { emit }, handleCancel)
+    watch(() => isFocus.value, val => {
+      console.log('val', val, props.fixedTop)
+      val && props.fixedTop && (fixed.value = true)
+    })
+    watch(() => fixed.value, val => {
+      if (val) {
+        instance.pushState()
       } else {
-        this.goBack()
+        instance.goBack()
       }
+    })
+    const handleFocusIn = () => {
+      isFocus.value = true
     }
-  },
-  data () {
-    return {
-      fixed: false
+    const handleInput = (value) => {
+      emit('update:modelValue', value)
     }
-  },
-  methods: {
-    handleFocusIn () {
-      this.isFocus = true
-      this.fixed = true
-    },
-    handleInput (value) {
-      this.$emit('update:modelValue', value)
-    },
-    handleCancel () {
-      this.fixed = false
-    },
-    handleKeywordChange (value) {
-      this.$emit('update:modelValue', value)
-      this.$emit('submit', value)
-    },
-    handleSubmit (e) {
+    const handleKeywordChange = (value) => {
+      emit('update:modelValue', value)
+      emit('submit', value)
+    }
+    const handleSubmit = (e) => {
       e.stopPropagation()
       e.preventDefault()
-      this.value && this.$emit('submit', this.value)
-    },
-    popStateBack () {
-      this.handleCancel()
+      props.modelValue && emit('submit', props.modelValue)
+    }
+    return {
+      el,
+      fixed,
+      handleFocusIn,
+      handleInput,
+      handleCancel,
+      handleKeywordChange,
+      handleSubmit
     }
   }
 }

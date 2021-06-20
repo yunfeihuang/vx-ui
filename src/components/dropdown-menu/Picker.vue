@@ -34,9 +34,11 @@ export default {
       type: [String, Array, Object]
     }
   },
-  methods: {
-    handleChange (value) {
-      this.$emit('update:modelValue', value)
+  setup (props, { emit }) {
+    return {
+      handleChange (value) {
+        emit('update:modelValue', value)
+      }
     }
   }
 }

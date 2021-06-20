@@ -38,9 +38,6 @@ const button = {
 }
 
 const input = {
-  inject: {
-    vxFormItem: { default: 'vxFormItem' }
-  },
   props: {
     disabled: {
       type: Boolean
@@ -103,91 +100,55 @@ const input = {
       type: String,
       default: 'default'
     }
-  },
-  data () {
-    return {
-      isFocus: false
-    }
-  },
-  methods: {
-    handleFocusIn (e) {
-      this.isFocus = true
-      let node = e.target
-      if (this.autoIntoView && node.ontouchstart !== undefined) {
-        window.addEventListener('resize', () => {
-          node.scrollIntoView && node.scrollIntoView()
-        }, {
-          once: true
-        })
-      }
-    },
-    handleFocusOut (e) {
-      this.isFocus = false
-      this.eDispatch('ElFormItem', 'el.form.blur', [e.target.value])
-    },
-    handleChange (e) {
-      this.$emit('change', e.target.value)
-    },
-    handleInput (e) {
-      let value = e.target ? e.target.value : e
-      this.$emit('update:modelValue', value)
-      this.eDispatch('ElFormItem', 'el.form.change', [value])
-    },
-    eDispatch (...arg) { // element-ui form表单校验
-      this.validateEvent && this.dispatch && this.dispatch(...arg)
-    }
   }
 }
 
-const historyPush = {
-  props: {
-    history: {
-      type: Boolean,
-      default: true
+const useHistory = (props, { emit }, popStateBack) => {
+  let pushString = ''
+  const getPushURL = () => {
+    let hash = window.location.hash
+    pushString = 'popup=' + Math.random().toString(36).substr(2)
+    let array = [window.location.href.split('#')[0], hash]
+    array.push(hash ? (hash.indexOf('?') === -1 && hash.indexOf('=') === -1 ? '?' : '&') : '#')
+    array.push(pushString)
+    return array.join('')
+  }
+  const isCurrentPopup = () => {
+    return window.location.href.indexOf(pushString) === window.location.href.length - pushString.length
+  }
+  const handlePopstate = () => {
+    if (window.location.href.indexOf(pushString) === -1) {
+      emit('update:open', false)
+      emit('close')
+      popStateBack && popStateBack()
+      window.removeEventListener('popstate', handlePopstate)
     }
-  },
-  methods: {
-    getPushURL () {
-      let hash = window.location.hash
-      this.pushString = 'popup=' + Math.random().toString(36).substr(2)
-      let array = [window.location.href.split('#')[0], hash]
-      array.push(hash ? (hash.indexOf('?') === -1 && hash.indexOf('=') === -1 ? '?' : '&') : '#')
-      array.push(this.pushString)
-      return array.join('')
-    },
-    pushState () {
-      if (this.history) {
-        if (this.pushString && this.isCurrentPopup()) {
-          window.history.back()
-        }
-        setTimeout(() => {
-          window.history.pushState({}, '', this.getPushURL())
-          window.addEventListener('popstate', this.handlePopstate)
-        }, 16)
+  }
+  const pushState = () => {
+    if (props.history) {
+      if (pushString && isCurrentPopup()) {
+        window.history.back()
       }
-    },
-    handlePopstate () {
-      if (window.location.href.indexOf(this.pushString) === -1) {
-        this.$emit('update:open', false)
-        this.$emit('close')
-        this.popStateBack && this.popStateBack()
-        window.removeEventListener('popstate', this.handlePopstate)
-      }
-    },
-    goBack () {
-      if (this.history && this.isCurrentPopup()) {
-        window.removeEventListener('popstate', this.handlePopstate)
-        history.back()
-      }
-    },
-    isCurrentPopup () {
-      return window.location.href.indexOf(this.pushString) === window.location.href.length - this.pushString.length
+      setTimeout(() => {
+        window.history.pushState({}, '', getPushURL())
+        window.addEventListener('popstate', handlePopstate)
+      }, 16)
     }
+  }
+  const goBack = () => {
+    if (props.history && isCurrentPopup()) {
+      window.removeEventListener('popstate', handlePopstate)
+      history.back()
+    }
+  }
+  return {
+    pushState,
+    goBack
   }
 }
 
 export {
   button,
   input,
-  historyPush
+  useHistory
 }

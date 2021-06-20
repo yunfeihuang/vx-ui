@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-confirm">
+  <div class="vx-confirm" ref="el">
     <vx-overlay :open="open"></vx-overlay>
     <transition name="vx--confirm-scale" @before-enter="handleBeforeEnter" @after-enter="handleEnter" @after-leave="handleLeave">
       <div class="vx-confirm--inner" v-show="open">
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import { historyPush } from '@/utils/mixins'
+import { useHistory } from '@/utils/mixins'
 import VxOverlay from '../overlay'
+import { ref, onMounted } from 'vue'
 export default {
   name: 'VxConfirm',
-  mixins: [historyPush],
   components: {
     VxOverlay
   },
@@ -64,45 +64,54 @@ export default {
       }
     }
   },
-  mounted () {
-    if (this.open) {
-      this.handleBeforeEnter()
+  setup (props, { emit }) {
+    const el = ref(null)
+    const instance = useHistory(props, { emit })
+    const handleBeforeEnter = () => {
+      el.value.classList.add('is-show')
+      instance.pushState()
     }
-  },
-  methods: {
-    handleBeforeEnter () {
-      this.$el.classList.add('is-show')
-      this.pushState()
-    },
-    handleCancel () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-      this.$emit('button-click', 'cancel')
-    },
-    handleConfirm (e) {
+    const handleCancel = () => {
+      emit('update:open', false)
+      emit('close')
+      emit('button-click', 'cancel')
+    }
+    let eventTimer = null
+    const handleConfirm = (e) => {
       if (e.target && e.target.nodeName && e.target.nodeName.toLowerCase() === 'a') {
-        this.$$eventTimer && clearTimeout(this.$$eventTimer)
-        this.$$eventTimer = setTimeout(() => {
-          if (this.open) {
-            this.$emit('update:open', false)
-            this.$emit('confirm')
+        eventTimer && clearTimeout(eventTimer)
+        eventTimer = setTimeout(() => {
+          if (props.open) {
+            emit('update:open', false)
+            emit('confirm')
           }
         }, 400)
       } else {
-        if (this.open) {
-          this.$emit('update:open', false)
-          this.$emit('confirm')
+        if (props.open) {
+          emit('update:open', false)
+          emit('confirm')
         }
       }
-      this.$emit('button-click', 'confirm')
-    },
-    handleEnter () {
-      this.$emit('open')
-    },
-    handleLeave () {
-      this.goBack()
-      this.$emit('after-close')
-      this.$el.classList.remove('is-show')
+      emit('button-click', 'confirm')
+    }
+    const handleEnter = () => {
+      emit('open')
+    }
+    const handleLeave = () => {
+      instance.goBack()
+      emit('after-close')
+      el.value.classList.remove('is-show')
+    }
+    onMounted(() => {
+      props.open && handleBeforeEnter()
+    })
+    return {
+      el,
+      handleBeforeEnter,
+      handleCancel,
+      handleConfirm,
+      handleEnter,
+      handleLeave
     }
   }
 }

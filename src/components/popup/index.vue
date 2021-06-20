@@ -1,5 +1,5 @@
 <template>
-  <div class="vx-popup">
+  <div class="vx-popup" ref="el">
     <vx-overlay v-if="!full" :opacity="overlayOpacity" :open="open" @click="handleClose"></vx-overlay>
     <transition
       v-if="$slots.inner"
@@ -15,7 +15,7 @@
       :name="full?'vx--popup-full-slide-'+direction:'vx--popup-slide-'+direction"
       @after-enter="handleEnter"
       @after-leave="handleLeave">
-      <div v-if="open" :class="innerClasses" @click="handleClose2">
+      <div v-if="open" :class="['vx-popup--inner', 'vx-popup--' + direction, {'is-full': full}]" @click="handleClose2">
         <div class="vx-popup--nav" v-if="title && !showClose">
           <button type="button" @click="close">
             <vx-arrow direction="left" color="#666" size="0.24rem"/>
@@ -41,9 +41,10 @@
 </template>
 
 <script>
-import { historyPush } from '@/utils/mixins'
+import { useHistory } from '@/utils/mixins'
 import VxOverlay from '../overlay'
 import VxArrow from '../arrow'
+import { ref, watch, onMounted } from 'vue'
 
 export default {
   name: 'VxPopup',
@@ -51,7 +52,6 @@ export default {
     VxOverlay,
     VxArrow
   },
-  mixins: [historyPush],
   props: {
     open: {
       type: Boolean,
@@ -80,58 +80,56 @@ export default {
       type: Number
     }
   },
-  data () {
-    return {
-      afterOpen: false
+  setup (props, { emit }) {
+    const instance = useHistory(props, { emit })
+    const el = ref(null)
+    const afterOpen = ref(false)
+    const handleEnter = () => {
+      afterOpen.value = true
+      emit('open')
     }
-  },
-  computed: {
-    innerClasses () {
-      let array = ['vx-popup--inner', 'vx-popup--' + this.direction, {'is-full': this.full}]
-      return array
+    const close = () => {
+      emit('update:open', false)
+      emit('close')
     }
-  },
-  mounted () {
-    if (this.open) {
-      requestAnimationFrame(() => {
-        this.$el.style.display = 'block'
-        this.pushState()
-        this.handleEnter()
-      })
+    const handleClose = () => {
+      props.fastClose && close()
     }
-  },
-  watch: {
-    open (value) {
-      if (value) {
+    const handleClose2 = (e) => {
+      if (props.fastClose && e.target === el.value.querySelector('.vx-popup--inner')) {
+        close()
+      }
+    }
+    const handleLeave = () => {
+      instance.goBack()
+      el.value.style.display = 'none'
+      afterOpen.value = false
+      emit('after-close')
+    }
+    watch(() => props.open, val => {
+      if (val) {
         requestAnimationFrame(() => {
-          this.$el.style.display = 'block'
-          this.pushState()
+          el.value.style.display = 'block'
+          instance.pushState()
         })
       }
-    }
-  },
-  methods: {
-    handleEnter () {
-      this.afterOpen = true
-      this.$emit('open')
-    },
-    close () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-    },
-    handleClose () {
-      this.fastClose && this.close()
-    },
-    handleClose2 (e) {
-      if (this.fastClose && e.target === this.$el.querySelector('.vx-popup--inner')) {
-        this.close()
+    })
+    onMounted(() => {
+      if (props.open) {
+        requestAnimationFrame(() => {
+          el.value.style.display = 'block'
+          instance.pushState()
+          handleEnter()
+        })
       }
-    },
-    handleLeave () {
-      this.goBack()
-      this.$el.style.display = 'none'
-      this.afterOpen = false
-      this.$emit('after-close')
+    })
+    return {
+      el,
+      afterOpen,
+      handleClose,
+      handleClose2,
+      handleLeave,
+      close
     }
   }
 }
