@@ -6,7 +6,7 @@
     <vx-page-body  :scroll="false">
       <vx-list-view
         style="height:100%;position: absolute;width: 100%;"
-        :loading="loading"
+        v-model:loading="loading"
         :end="end"
         @pullup="handlePullup"
         @pulldown="handlePulldown">
@@ -57,7 +57,6 @@ export default {
       }, 1000)
     },
     handlePulldown () {
-      this.loading = true
       setTimeout(() => { // 模拟ajax请求
         this.list = this.getList().concat(this.list)
         this.loading = false

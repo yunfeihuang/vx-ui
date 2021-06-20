@@ -1,12 +1,7 @@
 <template>
   <div class="vx-list-view"
-    @scroll="handleScroll($event)"
-    @touchstart="handleTouchStart($event)"
-    @touchmove="handleTouchMove($event)"
-    @touchend="handleTouchEnd($event)"
-    @mousedown="handleTouchStart($event)"
-    @mousemove="handleTouchMove($event)"
-    @mouseup="handleTouchEnd($event)">
+    ref="el"
+    @touchstart="handleTouchStart($event)">
     <div class="vx-list-view--inner">
       <div class="vx-list-view--refresh">
         <i class="vx-list-view--icon"></i>
@@ -14,7 +9,7 @@
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div class="vx-list-view--loading" v-if="(end===false && $slots.default && $slots.default.length) || loading">
+      <div class="vx-list-view--loading" v-if="end===false || loading">
         <vx-spinner class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
@@ -25,6 +20,7 @@
 
 <script>
 import VxSpinner from '../spinner'
+import { ref, onMounted, watch } from 'vue'
 export default {
   name: 'VxListView',
   components: {
@@ -32,7 +28,7 @@ export default {
   },
   props: {
     loading: {
-      type: Boolean,
+      type: [Boolean, Number],
       default: false
     },
     loadingText: {
@@ -56,133 +52,76 @@ export default {
       default: '已到底部,点击回到顶部'
     }
   },
-  watch: {
-    loading (val) {
-      if (val === false) {
-        this.stopLoading()
+  setup (props, { emit, attrs }) {
+    const el = ref(null)
+    let scrollTimer = null
+    let loadingNode = null
+    let innerNode = null
+    watch(() => props.loading, val => {
+      if (val === false && innerNode) {
+        innerNode.classList.remove('loading')
+        innerNode.style.cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
+      }
+    })
+    const handlePullup = (e) => {
+      if (!props.end && attrs['onPullup'] && el.value.scrollHeight - el.value.offsetHeight - el.value.scrollTop <= loadingNode.offsetHeight) {
+        emit('update:loading', 2)
+        emit('pullup', e)
       }
     }
-  },
-  mounted () {
-    this.$$touch = {
-      inner: this.$el.querySelector('.vx-list-view--inner')
+    const handleScroll = (e) => {
+      scrollTimer && clearTimeout(scrollTimer)
+      scrollTimer = setTimeout(() => {
+        !props.loading && props.end === false && handlePullup(e)
+      }, 200)
     }
-  },
-  beforeUnmount () {
-    this.$$touch = null
-    this.$$timer && clearTimeout(this.$$timer)
+    const handleTouchStart = (e) => {
+      if (attrs['onPulldown'] && !props.loading) {
+        let pageY = e.changedTouches ? e.changedTouches[0].pageY : e.pageY
+        let scrollTop = el.value.scrollTop
+        let markHeight = el.value.querySelector('.vx-list-view--refresh').offsetHeight
+        document.body.ontouchmove = (e) => {
+          e.preventDefault()
+          let top = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - pageY - scrollTop
+          if (top > 0) {
+            innerNode.style.cssText = `-webkit-will-change:transform;will-change:transform;-webkit-transform:translate3d(0,${top}px,0);transform:translate3d(0,${top}px,0);`
+            if (top > markHeight) {
+              innerNode.classList.add('active')
+            } else {
+              innerNode.classList.remove('active')
+            }
+          }
+        }
+        document.body.ontouchend = () => {
+          if (innerNode.classList.contains('active')) {
+            innerNode.classList.remove('active')
+            innerNode.classList.add('loading')
+            innerNode.style.cssText = `-webkit-transform:translate3d(0,${markHeight}px,0);transform:translate3d(0,${markHeight}px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;`
+            emit('update:loading', 1)
+            emit('pulldown')
+          } else {
+            innerNode.style.cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
+          }
+          document.body.ontouchmove = null
+        }
+      }
+    }
+    const handleGoTop = () => {
+      el.value.scrollTop = 0
+    }
+    onMounted(() => {
+      innerNode = el.value.querySelector('.vx-list-view--inner')
+      loadingNode = el.value.querySelector('.vx-list-view--loading')
+    })
+    return {
+      el,
+      handleScroll,
+      handleTouchStart,
+      handleGoTop
+    }
   },
   methods: {
-    handleScroll (e) {
-      this.$$timer && clearTimeout(this.$$timer)
-      this.$$timer = setTimeout(() => {
-        !this.loading && this.end === false && this.handlePullup(e)
-      }, 200)
-    },
-    handlePulldown () {
-      this.$emit('pulldown')
-    },
-    handlePullup (e) {
-      let loadingNode = this.$el.querySelector('.vx-list-view--loading')
-      if (this.$attrs['onPullup'] && loadingNode && this.$el.scrollHeight - this.$el.offsetHeight - this.$el.scrollTop <= loadingNode.offsetHeight) {
-        this.$emit('pullup', e)
-      }
-    },
-    getPosition (e) {
-      if (document.body.ontouchstart !== undefined) {
-        if (e.changedTouches) {
-          return {
-            pageY: e.changedTouches[0].pageY,
-            pageX: e.changedTouches[0].pageX
-          }
-        } else {
-          return {}
-        }
-      } else {
-        return {
-          pageY: e.pageY,
-          pageX: e.pageX
-        }
-      }
-    },
-    innerCss (text) {
-      this.$$touch.inner.style.cssText = text
-    },
-    handleTouchStart (e) {
-      if (this.$attrs['onPulldown'] && !this.loading) {
-        if (!this.$$touch.pageY && this.$el.scrollTop === 0) {
-          let {pageX, pageY} = this.getPosition(e)
-          this.$$touch.pageY = pageY
-          this.$$touch.pageX = pageX
-          this.$$touch.markHeight = this.$el.querySelector('.vx-list-view--refresh').offsetHeight
-        }
-      }
-    },
-    handleTouchMove (e) {
-      if (this.$attrs['onPulldown']) {
-        let {pageY, pageX} = this.getPosition(e)
-        if (pageX !== undefined && this.$$touch.pageY && this.$$touch.pageY < pageY && Math.abs(pageY - this.$$touch.pageY) > Math.abs(pageX - this.$$touch.pageX)) {
-          e.preventDefault()
-          e.stopPropagation()
-          let top = pageY - this.$$touch.pageY
-          let markHeight = this.$$touch.markHeight
-          top = top > markHeight * 2 ? markHeight * 2 : top
-          let cssText = '-webkit-will-change:transform;will-change:transform;-webkit-transform:translate3d(0,' + top + 'px,0);transform:translate3d(0,' + top + 'px,0);'
-          this.innerCss(cssText)
-          if (this.$$touch.pageY && pageY - this.$$touch.pageY > (markHeight + 20)) {
-            this.$$touch.inner.classList.add('active')
-          } else {
-            this.$$touch.inner.classList.remove('active')
-          }
-        }
-        if (!this.$$touch.pageY && this.scrollTop <= 0) {
-          this.$$touch.pageY = pageY
-        } else if (this.scrollTop > 0) {
-          this.$$touch.pageY = 0
-        }
-      }
-    },
-    handleTouchEnd (e) {
-      if (this.$attrs['onPulldown']) {
-        let {pageY} = this.getPosition(e)
-        if (this.$$touch.pageY && this.$$touch.inner && this.$$touch.pageY < pageY) {
-          let markHeight = this.$$touch.markHeight
-          if (pageY - this.$$touch.pageY > (markHeight + 20)) {
-            setTimeout(() => {
-              let cssText = `-webkit-transform:translate3d(0,${markHeight}px,0);transform:translate3d(0,${markHeight}px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;`
-              this.innerCss(cssText)
-              setTimeout(() => {
-                this.$$touch.inner.classList.remove('active')
-                this.$$touch.inner.classList.add('loading')
-                this.$emit('pulldown', e)
-              }, 500)
-            }, 600)
-          } else {
-            let cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
-            this.innerCss(cssText)
-            setTimeout(() => {
-              this.$$touch.inner.classList.remove('active')
-              this.innerCss('')
-            }, 500)
-          }
-          if (this.$$touch.pageY !== pageY) {
-            e.stopPropagation()
-            e.preventDefault()
-          }
-        }
-        this.$$touch.pageY = 0
-      }
-    },
-    handleGoTop () {
-      this.$el.scrollTop = 0
-    },
-    stopLoading () {
-      if (this.$$touch && this.$$touch.inner && this.$$touch.inner.className.indexOf('loading') > -1) {
-        let cssText = '-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;'
-        this.innerCss(cssText)
-        this.$$touch.inner.classList.remove('loading')
-      }
-    }
+    
   }
 }
 </script>
