@@ -40,7 +40,6 @@ import Popover from './popover'
 import PopupPicker from './popup-picker'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import IndexList from './index-list'
-import Sticky from './sticky'
 import Img from './img'
 import {Swiper, SwiperItem} from './swiper'
 import {Marquee, MarqueeItem} from './marquee'
@@ -159,7 +158,6 @@ let components = [
   Picker,
   Popover,
   IndexList,
-  Sticky,
   Search,
   Img,
   Swipeout,

@@ -12,10 +12,10 @@
         v-for="(item,index) in myPickers"
         :class="['vx-popup-picker--item']"
         :key="index"
-        :value="item.value"
+        :modelValue="item.value"
         :placeholder="item.placeholder"
         :options="item.options"
-        @change="handleChange($event,index)"
+        @update:modelValue="handleChange($event,index)"
       />
     </div>
   </vx-popup>
@@ -24,6 +24,7 @@
 <script>
 import VxPopup from '../popup'
 import VxPicker from '../picker'
+import { watch, ref } from 'vue'
 
 export default {
   name: 'VxPopupPicker',
@@ -32,6 +33,7 @@ export default {
     VxPicker
   },
   props: {
+    modelValue: {},
     open: {
       type: Boolean,
       default: false
@@ -55,40 +57,38 @@ export default {
       default: '完成'
     }
   },
-  watch: {
-    pickers (value) {
-      this.myPickers = value
+  setup (props, { emit }) {
+    const myPickers = ref(props.pickers)
+    watch(() => props.pickers, val => {
+      this.myPickers.value = val
+    })
+    const handleClose = () => {
+      emit('update:open', false)
+      emit('close')
     }
-  },
-  data () {
     return {
-      myPickers: this.pickers
-    }
-  },
-  methods: {
-    handleClose () {
-      this.$emit('update:open', false)
-      this.$emit('close')
-    },
-    handleConfirm () {
-      this.$emit('confirm')
-      let value = this.myPickers.map(item => {
-        return {
-          value: item.value
+      myPickers,
+      handleClose,
+      handleConfirm () {
+        emit('confirm')
+        let value = myPickers.value.map(item => {
+          return {
+            value: item.value
+          }
+        })
+        if (!props.modelValue || value.toString() !== props.modelValue.toString()) {
+          if (props.open) {
+            emit('update:open', false)
+            emit('update:modelValue', value)
+          }
+        } else {
+          handleClose()
         }
-      })
-      if (!this.value || value.toString() !== this.value.toString()) {
-        if (this.open) {
-          this.$emit('update:open', false)
-          this.$emit('update:modelValue', value)
-        }
-      } else {
-        this.handleClose()
+      },
+      handleChange (value, index) {
+        myPickers.value[index].value = value
+        emit('pickerchange', value, index)
       }
-    },
-    handleChange (value, index) {
-      this.myPickers[index].value = value
-      this.$emit('pickerchange', value, index)
     }
   }
 }

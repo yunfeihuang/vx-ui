@@ -257,7 +257,6 @@ export default {
       for (let item of this.pickers) {
         value = value.replace(item.type, item.value >= 10 ? item.value : '0' + item.value)
       }
-      console.log('value', value)
       this.open && this.$emit('update:open', false)
       this.$emit('update:modelValue', value)
       this.handleClose()

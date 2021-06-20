@@ -33,17 +33,19 @@ export default {
       }
     }
   },
-  methods: {
-    handleClose () {
-      this.$emit('close')
-      this.$emit('update:open', false)
-    },
-    handleChange (value) {
-      this.$emit('update:modelValue', value)
-      this.handleClose()
-    },
-    handleLabel (label) {
-      this.$emit('update:label', label)
+  setup (props, { emit }) {
+    const handleClose = () => {
+      emit('close')
+      emit('update:open', false)
+    }
+    return {
+      handleChange (value) {
+        emit('update:modelValue', value)
+        handleClose()
+      },
+      handleLabel (label) {
+        emit('update:label', label)
+      }
     }
   }
 }

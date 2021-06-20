@@ -110,13 +110,15 @@ export default {
       layout,
       minTabItemWidth,
       underlineWidth,
+      
       handleChange (value) {
         emit('update:active', value)
         updateStyle()
       }
     })
     return {
-      el
+      el,
+      updateStyle
     }
   }
 }

@@ -25,6 +25,7 @@
 <script>
 import Popup from '../popup'
 import CalendarRange from '../calendar-range'
+import { ref, watch } from 'vue'
 
 export default {
   name: 'VxDateRangePicker',
@@ -61,29 +62,28 @@ export default {
       default: '清空'
     }
   },
-  data () {
+  setup (props, { emit }) {
+    const calendarRange = ref(null)
+    const myValue = ref(props.modelValue)
+    watch(() => props.modelValue, val => {
+      myValue.value = val
+    })
     return {
-      myValue: this.modelValue
-    }
-  },
-  watch: {
-    modelValue (value) {
-      this.myValue = value
-    }
-  },
-  methods: {
-    handleClose () {
-      this.$emit('close')
-    },
-    handleConfirm () {
-      this.$emit('update:modelValue', this.myValue)
-      this.handleClose()
-    },
-    handleClear () {
-      this.myValue = []
-    },
-    handleOpen () {
-      this.$refs.calendarRange.$refs.tab.computedStyle()
+      myValue,
+      calendarRange,
+      handleClose () {
+        emit('close')
+      },
+      handleConfirm () {
+        emit('update:modelValue', this.myValue)
+        emit('close')
+      },
+      handleClear () {
+        myValue.value = []
+      },
+      handleOpen () {
+        calendarRange.value.$refs.tab.updateStyle()
+      }
     }
   }
 }
