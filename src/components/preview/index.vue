@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { ref } from 'vue'
 export default {
   name: 'VxPreview',
   props: {

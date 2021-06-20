@@ -30,8 +30,7 @@
 import { input } from '@/utils/mixins'
 import VxInput from '../input'
 import VxDatetimePicker from '../datetime-picker'
-import { ref } from '@vue/reactivity'
-import { watch } from '@vue/runtime-core'
+import { ref, watch } from 'vue'
 export default {
   name: 'VxDatetime',
   components: {

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed } from 'vue'
 import VxArrow from '../arrow'
 
 export default {

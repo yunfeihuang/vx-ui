@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { inject } from '@vue/runtime-core'
+import { inject } from 'vue'
 export default {
   name: 'VxButtonTabItem',
   props: {
