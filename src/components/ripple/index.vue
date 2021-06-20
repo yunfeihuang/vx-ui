@@ -1,20 +1,22 @@
 <template>
-  <div class="vx-ripple" onselectstart="return false;" ref="el" @mousedown="handleTouchStart">
+  <div 
+    class="vx-ripple"
+    onselectstart="return false;"
+    ref="el">
     <slot></slot>
     <transition
-      :duration="3000"
-      v-for="(item,index) in shadows"
-      :key="index"
+      v-for="item in shadows"
+      :key="item.id"
       @enter="handleEnter"
-      @after-enter="handleAfterEnter($event, item.id)"
+      @leave="handleLeave"
       :css="false">
-      <div class="vx-ripple--shadow" v-show="item.show" :style="item.style"></div>
+      <div class="vx-ripple--shadow" v-if="item.show" :style="item.style"></div>
     </transition>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, nextTick, onMounted } from 'vue'
 export default {
   name: 'VxRipple',
   props: {
@@ -29,11 +31,13 @@ export default {
     const el = ref(null)
     const shadows = ref([])
     let rect = null
+    let id = new Date().getTime()
     const handleTouchStart = ({pageY, pageX, changedTouches}) => {
+      id = new Date().getTime()
       rect = el.value.getBoundingClientRect()
       const shadow = {
         show: false,
-        id: new Date().getTime().toString(),
+        id,
         style: props.position === 'center' ? {
           top: '50%',
           left: '50%',
@@ -45,27 +49,34 @@ export default {
         }
       }
       shadows.value.push(shadow)
-      requestAnimationFrame(() => {
+      nextTick(() => {
         const item = shadows.value.find(item => item.id === shadow.id)
         item.show = true
       })
     }
+    const handleTouchEnd = () => {
+      const item = shadows.value.find(item => item.id === id)
+      item.show = false
+    }
+    onMounted(() => {
+      el.value.addEventListener(el.value.ontouchstart !== undefined ? 'touchstart' : 'mousedown', handleTouchStart, false)
+      el.value.addEventListener(el.value.ontouchstart !== undefined ? 'touchend' : 'mouseup', handleTouchEnd, false)
+    })
     return {
       el,
       shadows,
-      handleTouchStart,
       handleEnter (el, done) {
         requestAnimationFrame(() => {
-          el.style.transform = `scale(${Math.max(rect.width, rect.height) / 10})`
-          el.style.opacity = 0
-          setTimeout(done, 400)
+          requestAnimationFrame(() => {
+            el.style.transform = `scale(${Math.max(rect.width * 1.5, rect.height * 1.5) / 10})`
+            setTimeout(done, 300)
+          })
         })
       },
-      handleAfterEnter (el, id) {
-        shadows.value.forEach((item) => {
-          if (item.id === id) {
-            item.show = false
-          }
+      handleLeave (el, done) {
+        requestAnimationFrame(() => {
+          el.style.opacity = 0
+          setTimeout(done, 300)
         })
       }
     }
