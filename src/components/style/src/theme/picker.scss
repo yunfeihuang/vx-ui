@@ -6,7 +6,6 @@ $unit: px;
   &picker{
     @include scroller;
     touch-action: pan-y;
-    height:#{$height*7}#{$unit};
     &::-webkit-scrollbar{
       display:none;
     }
@@ -16,14 +15,9 @@ $unit: px;
       text-align: center;
       overflow:hidden;
     }
-    &--scroller{
-      padding:#{$height*3}#{$unit} 0;
-      line-height:#{$height}#{$unit};
-    }
     &--item{
       @include lineClamp;
       padding: 0px 0.15rem;
-      height:#{$height}#{$unit};
     }
     &.is-active{
       // @include var-color();
@@ -36,7 +30,6 @@ $unit: px;
         height:1px;
         width:100%;
         left:0;
-        top:#{$height*3}#{$unit};
       }
       &-bottom{
         @include divider;
@@ -45,7 +38,6 @@ $unit: px;
         height:1px;
         width:100%;
         left:0;
-        top:#{$height*4}#{$unit};
       }
     }
     &--placeholder{
