@@ -8,7 +8,7 @@
     <picker
       :style="style"
       v-model:open="open"
-      :modelValue="value"
+      :modelValue="modelValue"
       :options="options"
       :popupClass="popupClass"
       @update:modelValue="handleChange">
@@ -20,6 +20,7 @@
 <script>
 import Picker from './Picker'
 import VxArrow from '../arrow'
+import { computed, ref } from 'vue'
 
 export default {
   name: 'VxDropdownMenuItem',
@@ -48,40 +49,39 @@ export default {
       type: [String, Array, Object]
     }
   },
-  computed: {
-    myLabel () {
-      if (this.options) {
-        let result = this.options.filter(item => item.value === this.modelValue)
+  setup (props, { emit, slots }) {
+    const open = ref(null)
+    const style = ref({})
+    const myLabel = computed(() => {
+      if (props.options) {
+        let result = props.options.filter(item => item.value === props.modelValue)
         if (result && result[0] && result[0].label) {
           return result[0].label
         }
       }
-      return this.label || this.placeholder
-    }
-  },
-  data () {
+      return props.label || props.placeholder
+    })
     return {
-      open: false,
-      style: {}
-    }
-  },
-  methods: {
-    handleClick (e) {
-      if (this.options || this.$slots['default']) {
-        let rect = e.currentTarget.getBoundingClientRect()
-        this.open = true
-        this.style = {
-          top: `${rect.bottom}px`,
-          height:`${window.innerHeight - rect.bottom}px`
+      open,
+      style,
+      myLabel,
+      handleClick (e) {
+        if (props.options || slots['default']) {
+          let rect = e.currentTarget.getBoundingClientRect()
+          open.value = true
+          style.value = {
+            top: `${rect.bottom}px`,
+            height:`${window.innerHeight - rect.bottom}px`
+          }
         }
+      },
+      handleChange (value) {
+        emit('update:modelValue', value)
+        open.value = false
+      },
+      close () {
+        open.value = false
       }
-    },
-    handleChange (value) {
-      this.$emit('update:modelValue', value)
-      this.open = false
-    },
-    close () {
-      this.open = false
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['vx-marquee', 'swiper-container']" >
+  <div ref="el" :class="['vx-marquee', 'swiper-container']" >
     <div class="swiper-wrapper" >
       <slot></slot>
     </div>
@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { onMounted, watch, ref } from 'vue'
 export default {
   name: 'VxMarquee',
   props: {
@@ -34,31 +35,34 @@ export default {
       default: true
     }
   },
-  mounted () {
-    import('swiper/dist/css/swiper.min.css')
-    import('swiper').then(Swiper => {
-      let options = Object.assign({
-        initialSlide: this.active,
-        direction: this.direction,
-        autoplay: this.autoplay,
-        loop: this.loop,
-        autoplayDisableOnInteraction: false,
-        onSlideChangeStart: (swiper) => {
-          this.$emit('update:modelValue', swiper.activeIndex)
-          this.$emit('change', swiper.activeIndex)
-        }
-      }, this.options)
-      this.$$swiper = new Swiper(this.$el, options)
+  setup (props, { emit }) {
+    const el = ref(null)
+    let swiper = null
+    onMounted(() => {
+      import('swiper/dist/css/swiper.min.css')
+      import('swiper').then(Swiper => {
+        let options = Object.assign({
+          initialSlide: props.active,
+          direction: props.direction,
+          autoplay: props.autoplay,
+          loop: props.loop,
+          autoplayDisableOnInteraction: false,
+          onSlideChangeStart: (swiper) => {
+            emit('update:modelValue', swiper.activeIndex)
+            emit('change', swiper.activeIndex)
+          }
+        }, props.options)
+        swiper = new Swiper(el.value, options)
+      })
     })
-  },
-  watch: {
-    active (value) {
-      this.$$swiper.activeIndex !== value && this.$$swiper.slideTo(value)
-    }
-  },
-  methods: {
-    getSwiper () {
-      return this.$$swiper
+    watch(() => props.active, val => {
+      swiper.activeIndex !== val && swiper.slideTo(val)
+    })
+    return {
+      el,
+      getSwiper () {
+        return swiper
+      }
     }
   }
 }

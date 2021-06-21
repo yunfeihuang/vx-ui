@@ -13,26 +13,25 @@
 
 <script>
 import { input } from '@/utils/mixins'
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 export default {
   name: 'VxRadio',
   props: {
     ...input.props,
     value: {}
   },
-  computed: {
-    myChecked () {
-      if (this.vxRadioGroup) {
-        return this.vxRadioGroup.modelValue.value === this.value
-      } else {
-        return this.checked
-      }
-    }
-  },
   setup (props, { emit }) {
     const vxRadioGroup = inject('vxRadioGroup')
+    const myChecked = computed(() => {
+      if (vxRadioGroup) {
+        return vxRadioGroup.modelValue.value === props.value
+      } else {
+        return props.checked
+      }
+    })
     return {
       vxRadioGroup,
+      myChecked,
       handleChange () {
         if (vxRadioGroup) {
           vxRadioGroup.handleChange(props.value)

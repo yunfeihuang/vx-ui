@@ -1,7 +1,8 @@
 <template>
   <div class="vx-list-view"
     ref="el"
-    @touchstart="handleTouchStart($event)">
+    @scroll="handleScroll"
+    @touchstart="handleTouchStart">
     <div class="vx-list-view--inner">
       <div class="vx-list-view--refresh">
         <i class="vx-list-view--icon"></i>
@@ -57,10 +58,13 @@ export default {
     let scrollTimer = null
     let loadingNode = null
     let innerNode = null
+    const setTransformTop = (top = 0) => {
+      innerNode.style.cssText = `-webkit-transform:translate3d(0,${top}px,0);transform:translate3d(0,${top}px,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
+    }
     watch(() => props.loading, val => {
       if (val === false && innerNode) {
         innerNode.classList.remove('loading')
-        innerNode.style.cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
+        setTransformTop()
       }
     })
     const handlePullup = (e) => {
@@ -76,9 +80,9 @@ export default {
       }, 200)
     }
     const handleTouchStart = (e) => {
-      if (attrs['onPulldown'] && !props.loading) {
+      let scrollTop = el.value.scrollTop
+      if (attrs['onPulldown'] && !props.loading && scrollTop === 0) {
         let pageY = e.changedTouches ? e.changedTouches[0].pageY : e.pageY
-        let scrollTop = el.value.scrollTop
         let markHeight = el.value.querySelector('.vx-list-view--refresh').offsetHeight
         document.body.ontouchmove = (e) => {
           e.preventDefault()
@@ -96,11 +100,11 @@ export default {
           if (innerNode.classList.contains('active')) {
             innerNode.classList.remove('active')
             innerNode.classList.add('loading')
-            innerNode.style.cssText = `-webkit-transform:translate3d(0,${markHeight}px,0);transform:translate3d(0,${markHeight}px,0);-webkit-transition:transform 0.5s ease 0s;transition:transform 0.5s ease 0s;`
+            setTransformTop(markHeight)
             emit('update:loading', 1)
             emit('pulldown')
           } else {
-            innerNode.style.cssText = `-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
+            setTransformTop()
           }
           document.body.ontouchmove = null
         }
@@ -119,9 +123,6 @@ export default {
       handleTouchStart,
       handleGoTop
     }
-  },
-  methods: {
-    
   }
 }
 </script>
