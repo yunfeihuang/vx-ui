@@ -81,10 +81,14 @@ export default {
     },
     myChecked () {
       if (this.isParent) {
-        if (this.vxCheckboxGroup.modelValue.value instanceof Array) {
-          return this.vxCheckboxGroup.modelValue.value.indexOf(this.value) > -1
+        if (this.exclusive && this.value === undefined && this.vxCheckboxGroup.modelValue.value.length) {
+          return false
         } else {
-          return this.vxCheckboxGroup.modelValue.value === this.value
+          if (this.vxCheckboxGroup.modelValue.value instanceof Array) {
+            return this.vxCheckboxGroup.modelValue.value.indexOf(this.value) > -1
+          } else {
+            return this.vxCheckboxGroup.modelValue.value === this.value
+          }
         }
       } else {
         return this.checked

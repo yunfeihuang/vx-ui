@@ -1,5 +1,22 @@
 <template>
-  <button :class="classes" :type="nativeType" :disabled="disabled" v-bind="$attrs" v-on="$attrs">
+  <button 
+    :class="[
+      'vx-btn',
+      'vx-btn--' + type,
+      'vx-btn--size-' + size,
+      {
+        'is-plain': plain || type === 'default',
+        'is-ripple': ripple,
+        'is-square': square,
+        'is-round': round,
+        'is-loading': loading,
+        'is-disabled': disabled
+      }
+    ]"
+    :type="nativeType"
+    :disabled="disabled"
+    v-bind="$attrs"
+    v-on="$attrs">
     <vx-spinner v-if="loading && !disabled" :primary-color="loadingColor[type]"/>
     <span><slot></slot></span>
     <vx-ripple v-if="ripple" :color="rippleColor" />
@@ -28,23 +45,6 @@ export default {
     },
     square: {
       type: Boolean
-    }
-  },
-  computed: {
-    classes () {
-      return [
-        'vx-btn',
-        'vx-btn--' + this.type,
-        'vx-btn--size-' + this.size,
-        {
-          'is-plain': this.plain || this.type === 'default',
-          'is-ripple': this.ripple,
-          'is-square': this.square,
-          'is-round': this.round,
-          'is-loading': this.loading,
-          'is-disabled': this.disabled
-        }
-      ]
     }
   }
 }
