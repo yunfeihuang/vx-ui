@@ -41,13 +41,9 @@ export default {
       innerNode.style.webkitTransform = innerNode.style.transform = 'translate3d(' + x + 'px, 0, 0)'
     }
     const handleTouchStart = e => {
-      e.stopPropagation()
-      e.preventDefault()
       let pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
-      let maxTranslateX = -actionNode.offsetWidth + currentTranslateX
+      let maxTranslateX = currentTranslateX === 0 ? -actionNode.offsetWidth + currentTranslateX : -actionNode.offsetWidth 
       document.ontouchmove = e => {
-        e.stopPropagation()
-        e.preventDefault()
         let _pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
         let x = currentTranslateX + (_pageX - pageX)
         if (x < maxTranslateX) {
@@ -58,8 +54,6 @@ export default {
         setTranslateX(x, false)
       }
       document.body.ontouchend = e => {
-        e.stopPropagation()
-        e.preventDefault()
         let __pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
         document.body.ontouchmove = null
         if (__pageX === pageX) {
@@ -71,10 +65,14 @@ export default {
       }
     }
     const handleResize = () => {
-      props.open && setTranslateX(-actionNode.offsetWidth)
+      if (props.open) {
+        currentTranslateX = -actionNode.offsetWidth
+        setTranslateX(currentTranslateX)
+      }
     }
     const handleAction = e => {
-      this.setTranslateX(0, 0)
+      currentTranslateX = 0
+      setTranslateX(currentTranslateX)
       emit('close', e)
     }
     onMounted(() => {
@@ -88,7 +86,8 @@ export default {
     })
     watch(() => props.open, val => {
       if (actionNode) {
-        setTranslateX(val ? -actionNode.offsetWidth : 0)
+        currentTranslateX = val ? -actionNode.offsetWidth : 0
+        setTranslateX(currentTranslateX)
       }
     })
     return {
