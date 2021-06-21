@@ -3,7 +3,7 @@
     <div class="vx-select--inner">
       <slot name="prepend"></slot>
       <div class="vx-select--placeholder">
-        <span :data-placeholder="placeholder">{{labels}}</span>
+        <span :data-placeholder="placeholder">{{innerText}}</span>
       </div>
       <template v-if="!$slots.append">
         <transition v-if="this.clearable && modelValue+''" name="input-clearable-fade">
@@ -25,7 +25,7 @@
         <template v-slot:header>
           <div v-if="max != 1" :class="['vx-option-picker--header']">
             <button type="button" class="vx-option-picker--cancel" @click="open=false">{{popupProps && popupProps.cancelText ? popupProps.cancelText : '取消'}}</button>
-            <button type="button" :class="['vx-option-picker--placeholder']">{{helpPlaceholder}}</button>
+            <button type="button" :class="['vx-option-picker--placeholder']">{{popupPlaceholder}}</button>
             <button type="button" :class="['vx-option-picker--confirm',{'is-disabled':!value.length}]" @click="handleConfirm">{{popupProps && popupProps.confirmText ? popupProps.confirmText : '确定'}}</button>
           </div>
         </template>
@@ -42,6 +42,7 @@
 <script>
 import { input } from '@/utils/mixins'
 import VxArrow from '../arrow'
+import { computed, ref } from 'vue'
 
 export default {
   name: 'VxSelect',
@@ -90,70 +91,66 @@ export default {
       default: false
     }
   },
-  computed: {
-    helpPlaceholder () {
-      let result = this.popupProps.placeholder
-      if (this.value.length >= this.max && this.max > 1) {
-        result = `选项不能超过${this.max}个`
+  setup (props, { emit, slots }) {
+    const open = ref(false)
+    const value = ref(props.modelValue)
+    const popupPlaceholder = computed(() => {
+      let result = props.popupProps.placeholder
+      if (value.value.length >= props.max && props.max > 1) {
+        result = `选项不能超过${props.max}个`
       }
       return result
-    },
-    labels () {
+    })
+    const innerText = computed(() => {
+      console.log(slots)
       let result = []
-      if (this.max === 1) {
-        if (this.$slots && this.$slots.default) {
-          let vnode = this.$slots.default()[0]
+      if (props.max === 1) {
+        if (slots && slots.default) {
+          let vnode = slots.default()[0]
           if (vnode && vnode.children && vnode.children.find) {
-            let item = vnode.children.find(item => item.props.value === this.modelValue)
+            let item = vnode.children.find(item => item.props.value === props.modelValue)
             if (item) {
               result = [item.props.label]
             }
           }
         }
       } else {
-        if (this.$slots && this.$slots.default) {
-          let vnode = this.$slots.default()[0]
+        if (slots && slots.default) {
+          let vnode = slots.default()[0]
           if (vnode && vnode.children && vnode.children.find) {
-            let list = vnode.children.filter(item => this.modelValue.includes(item.props.value))
+            let list = vnode.children.filter(item => props.modelValue.includes(item.props.value))
             if (list) {
               result = list.map(item => item.props.label)
             }
           }
         }
       }
-      result = result.join(this.separator)
-      this.$emit('update:label', result)
+      result = result.join(props.separator)
+      emit('update:label', result)
       return result
-    }
-  },
-  data () {
+    })
     return {
-      open: false,
-      value: this.modelValue,
-    }
-  },
-  methods: {
-    handleFocusIn () {
-      if (!this.disabled) {
-        this.open = true
-      }
-    },
-    handleClear () {
-      let val = this.max === 1 ? '' : []
-      this.$emit('update:modelValue', val)
-    },
-    handleConfirm () {
-      this.$emit('update:modelValue', this.value)
-      this.$nextTick(() => {
-        this.open = false
-      })
-    },
-    handleChange (val) {
-      if (this.max === 1) {
-        this.$emit('update:modelValue', val)
-        this.$nextTick(() => {
-          this.open = false
-        })
+      open,
+      value,
+      popupPlaceholder,
+      innerText,
+      handleFocusIn () {
+        if (!props.disabled) {
+          open.value = true
+        }
+      },
+      handleClear () {
+        emit('update:modelValue', props.max === 1 ? '' : [])
+      },
+      handleConfirm () {
+        emit('update:modelValue', value.value)
+        open.value = false
+      },
+      handleChange (val) {
+        if (props.max === 1) {
+          emit('update:modelValue', val)
+          open.value = false
+        }
       }
     }
   }
