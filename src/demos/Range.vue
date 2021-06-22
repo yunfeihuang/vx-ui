@@ -11,12 +11,12 @@
       </vx-group>
       <vx-group :title="`step:10(value:${value1})`">
         <div style="padding:10px">
-          <vx-range v-model="value1" :step="10" />
+          <vx-range v-model="value1" :step="10" barHeight="10px"/>
         </div>
       </vx-group>
       <vx-group :title="`min:10,max:50(value:${value2})`">
         <div style="padding:10px">
-          <vx-range :min="10" :max="50" v-model="value2" />
+          <vx-range :min="10" :max="50" v-model="value2"/>
         </div>
       </vx-group>
       <vx-group title="disabled">
@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       value1: 0,
-      value2: 20
+      value2: [10, 20]
     }
   }
 }

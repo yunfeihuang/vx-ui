@@ -1,28 +1,49 @@
 <template>
-  <div :class="['vx-range--wrapper', {'is-disabled': disabled}]">
-    <div class="vx-range--mask" :style="{height:barHeight}"></div>
-    <button
-      v-if="value.length"
-      class="vx-range--button"
-      :style="{left: start.left + 'px'}"
-      @mousedown.prevent="handleTouchStart('start', $event)"
-      @touchstart.prevent="handleTouchStart('start', $event)">
-      <span v-if="start.moveing">{{changeValueText}}</span>
-    </button>
-    <div class="vx-range--value" :style="{width: (end.left > 0 ? end.left + 20 : 0) + 'px',height:barHeight}"></div>
-    <div class="vx-range--min-value" :style="{height:barHeight,width: (start.left > 0 ? start.left + 20 : 0) + 'px'}"></div>
-    <button
-      class="vx-range--button"
-      :style="{left: end.left + 'px'}"
-      @mousedown.prevent="handleTouchStart('end', $event)"
-      @touchstart.prevent="handleTouchStart('end', $event)">
-      <span v-if="end.moveing">{{changeValueText}}</span>
-    </button>
+  <div ref="el" :class="['vx-range--wrapper', {'is-disabled': disabled}]">
+    <div class="vx-range--mask" :style="{height:barHeight, borderRadius: barHeight}"></div>
+    <div class="vx-range--inner">
+      <div
+        class="vx-range--value"
+        :style="{
+          width: (value.length ? value[1] : value) / max * 100 + '%', 
+          height:barHeight,
+          borderTopLeftRadius: barHeight,
+          borderBottomLeftRadius: barHeight
+        }">
+      </div>
+      <div
+        v-if="value.length"
+        class="vx-range--min-value" 
+        :style="{
+          width: value[0] / max * 100 + '%',
+          height:barHeight,
+          borderTopLeftRadius: barHeight,
+          borderBottomLeftRadius: barHeight
+        }"></div>
+      <button
+        v-if="value.length"
+        class="vx-range--button"
+        :style="{left: value[0] / max * 100 + '%'}"
+        @touchstart.prevent="handleTouchStart('start', $event)">
+        <span v-if="showTips == 'start'">
+          {{`${value.length ? value[0] : value}${unit ? typeof unit === 'function' ? unit(value.length ? value[0] : value) : unit : ''}`}}
+        </span>
+      </button>
+      <button
+        class="vx-range--button"
+        :style="{left: (value.length ? value[1] : value) / max * 100 + '%'}"
+        @touchstart.prevent="handleTouchStart('end', $event)">
+        <span v-if="showTips == 'end'">
+          {{`${value.length ? value[1] : value}${unit ? typeof unit === 'function' ? unit(value.length ? value[1] : value) : unit : ''}`}}
+        </span>
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import { input } from '@/utils/mixins'
+import { ref, watch } from 'vue'
 export default {
   name: 'VxRange',
   props: {
@@ -39,9 +60,9 @@ export default {
       type: Number,
       default: 1
     },
-    value: {
+    modelValue: {
       type: [Number, Array],
-      default: 0
+      default: 40
     },
     disabled: {
       type: Boolean
@@ -54,140 +75,62 @@ export default {
       default: '1px'
     }
   },
-  computed: {
-    myValue () {
-      if (this.value instanceof Array) {
-        return [
-          this.parseValue(this.value[0]),
-          this.parseValue(this.value[1])
-        ]
+  setup (props, { emit }) {
+    const value = ref(props.modelValue)
+    const startLeft = ref(0)
+    const endLeft = ref(0)
+    const showTips = ref('')
+    const stepRate = 1 / props.step
+    const parseValue = (value) => {
+      if (value < props.min) {
+        return Math.round(props.min * stepRate) / stepRate
+      } else if (value > props.max) {
+        return Math.round(props.max * stepRate) / stepRate
       } else {
-        return this.parseValue(this.value)
-      }
-    },
-    rangeValue () {
-      return this.max - this.min
-    },
-    stepRate () {
-      return 1 / this.step
-    },
-    changeValueText () {
-      return `${this.changeValue}${this.unit ? typeof this.unit === 'function' ? this.unit(this.changeValue) : this.unit : ''}`
-    }
-  },
-  watch: {
-    value () {
-      this.handleResize()
-    }
-  },
-  data () {
-    return {
-      changeValue: 0,
-      maxLeft: 0,
-      start: {
-        left: 0,
-        moveing: false
-      },
-      end: {
-        left: 0,
-        moveing: false
+        return Math.round(value * stepRate) / stepRate
       }
     }
-  },
-  mounted () {
-    window.addEventListener('resize', this.handleResize, false)
-    this.handleResize()
-  },
-  beforeUnmount () {
-    window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    parseValue (value) {
-      if (value < this.min) {
-        return Math.round(this.min * this.stepRate) / this.stepRate
-      } else if (value > this.max) {
-        return Math.round(this.max * this.stepRate) / this.stepRate
-      } else {
-        return Math.round(value * this.stepRate) / this.stepRate
+    const handleTouchStart = (type, e) => {
+      showTips.value = type
+      let pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
+      let offsetWidth = e.currentTarget.parentNode.offsetWidth
+      const parseLeft = val => {
+        return parseFloat(val) / 100 * offsetWidth
       }
-    },
-    valueToLeft (value) {
-      return Math.round((value - this.min) / this.rangeValue * this.maxLeft)
-    },
-    leftToValue (left) {
-      return Math.round((left / this.maxLeft * this.rangeValue + this.min) * this.stepRate) / this.stepRate
-    },
-    handleResize () {
-      let maskNode = this.$el.querySelector('.vx-range--mask')
-      let buttonNode = this.$el.querySelector('.vx-range--button')
-      let maskWidth = maskNode.offsetWidth
-      let buttonWidth = buttonNode.offsetWidth
-      this.maxLeft = maskWidth - buttonWidth
-      if (this.value instanceof Array) {
-        this.start.left = this.valueToLeft(this.myValue[0])
-        this.end.left = this.valueToLeft(this.myValue[1])
-      } else {
-        this.end.left = this.valueToLeft(this.myValue)
-      }
-    },
-    handleTouchStart (type, e) {
-      let _data = this[type]
-      _data.moveing = true
-      let startLeft = _data.left
-      let maxLeft = this.maxLeft
+      let _left = parseLeft(e.currentTarget.style.left)
+      let maxLeft = 0
       let minLeft = 0
-      this.changeValue = this.myValue
-      if (this.value instanceof Array) {
-        if (type === 'end') {
-          // minLeft = this.start.left
-          this.changeValue = this.myValue[1]
+      if (type === 'end') {
+        maxLeft = offsetWidth
+        minLeft = value.value.length ? value.value[0] / props.max * offsetWidth : 0
+      } else if (value.value.length) {
+        maxLeft = value.value[1] / props.max * offsetWidth
+      }
+      document.body.ontouchmove = e => {
+        let _pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
+        let left = _left + (_pageX - pageX)
+        left = left < minLeft ? minLeft : left > maxLeft ? maxLeft : left
+        if (!value.value.length) {
+          value.value = parseValue(left / offsetWidth * props.max)
         } else {
-          // maxLeft = this.end.left
-          this.changeValue = this.myValue[0]
+          value.value[type == 'end' ? 1 : 0] = parseValue(left / offsetWidth * props.max)
         }
       }
-      let startPosition = this.getPosition(e)
-      let handleTouchMove = (event) => {
-        if (_data.moveing) {
-          let movePosition = this.getPosition(event)
-          let left = movePosition.pageX - startPosition.pageX + startLeft
-          left = left < minLeft ? minLeft : left
-          left = left > maxLeft ? maxLeft : left
-          if (type === 'end') {
-            if (left < this.start.left) {
-              this.start.left = left
-            }
-          } else {
-            if (left > this.end.left) {
-              this.end.left = left
-            }
-          }
-          _data.left = left
-          this.changeValue = this.leftToValue(left)
-          event.preventDefault()
-        }
+      document.body.ontouchend = () => {
+        document.body.ontouchmove = null
+        showTips.value = ''
+        emit('update:modelValue', value.value)
       }
-      let handleTouchEnd = () => {
-        document.removeEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove)
-        document.removeEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd)
-        _data.moveing = false
-        if (this.value instanceof Array) {
-          this.handleChange([this.leftToValue(this.start.left), this.leftToValue(this.end.left)])
-        } else {
-          this.handleChange(this.changeValue)
-        }
-      }
-      document.addEventListener(document.ontouchmove !== undefined ? 'touchmove' : 'mousemove', handleTouchMove, false)
-      document.addEventListener(document.ontouchend !== undefined ? 'touchend' : 'mouseup', handleTouchEnd, false)
-    },
-    handleChange (val) {
-      this.$emit('update:modelValue', val)
-    },
-    getPosition (e) {
-      return {
-        pageX: e.changedTouches ? e.changedTouches[0].pageX : e.pageX,
-        pageY: e.changedTouches ? e.changedTouches[0].pageY : e.pageY
-      }
+    }
+    watch(() => props.modelValue, val => {
+      value.value = val
+    })
+    return {
+      value,
+      startLeft,
+      endLeft,
+      showTips,
+      handleTouchStart
     }
   }
 }

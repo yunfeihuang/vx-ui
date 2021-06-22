@@ -21,14 +21,21 @@
       background:$--color-divider;
       margin: auto 0;
       bottom:0;
-      border-radius:20px;
+      border-top-left-radius:20px;
+      border-bottom-left-radius:20px;
     }
     &--mask{
       z-index:0;
       width:100%;
+      border-radius:20px;
     }
     &--value{
       background:$--color-primary;
+    }
+    &--inner{
+      margin-right:0.7rem;
+      position: relative;
+      height: 100%;
     }
     &--button{
       border:0;
