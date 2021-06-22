@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:theme": "gulp build --gulpfile src/components/style/gulpfile.js",
+    "build:component": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -23,10 +25,13 @@
     "element-ui": "^2.15.2",
     "eslint": "^7.20.0",
     "eslint-plugin-vue": "^7.2.0",
+    "markdown-it": "^12.0.6",
     "node-sass": "^6.0.0",
-    "sass-loader": "^12.0.0",
     "photoswipe": "^4.1.2",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "sass-loader": "^12.0.0",
     "swiper": "^3.4.2",
-    "vue-color": "^2.7.0"
+    "vue-color": "^2.7.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

@@ -16,7 +16,6 @@ import Search from './search'
 import Range from './range'
 import Datetime from './datetime'
 import Daterange from './daterange'
-//import {Form, FormItem} from './form'
 import Divider from './divider'
 import Heading from './heading'
 import Group from './group'
@@ -60,28 +59,6 @@ import CascaderPopupPicker from './cascader-popup-picker'
 import {Accordion, AccordionItem} from './accordion'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
-
-/*
-
-
-// 
-
-
-
-
-
-
-
-// import Preview from './preview'
-// import QrCode from './qrcode'
-
-// import {Step, StepItem} from './step'
-
-
-
-
-
-*/
 if (!window.requestAnimationFrame) {
   window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || setTimeout
 }
@@ -187,7 +164,6 @@ let components = [
 ]
 
 const install = (app) => {
-  console.log('app', app)
   components.map(component => {
     if (component && component.name) {
       app.component(component.name, component)
@@ -471,10 +447,80 @@ const install = (app) => {
 }
 
 export {
+  Page,
+  PageBody,
+  Ripple,
   Button,
   Input,
   InputNumber,
-  Password
+  Textarea,
+  Password,
+  Switch,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Checker,
+  CheckerGroup,
+  Select,
+  Option,
+  Datetime,
+  Daterange,
+  Range,
+  Divider,
+  Heading,
+  Group,
+  Cell,
+  Nav,
+  Spinner,
+  Badge,
+  Rater,
+  Message,
+  Arrow,
+  SubmitBar,
+  ListItem,
+  ListView,
+  Calendar,
+  CalendarRange,
+  Popup,
+  PopupPicker,
+  DatetimePicker,
+  DaterangePicker,
+  Actionsheet,
+  ActionsheetItem,
+  Toast,
+  Confirm,
+  Prompt,
+  Alert,
+  Picker,
+  Popover,
+  IndexList,
+  Search,
+  Img,
+  Swipeout,
+  Tab,
+  TabItem,
+  Tabbar,
+  TabbarItem,
+  Sidebar,
+  SidebarItem,
+  ButtonTab,
+  ButtonTabItem,
+  Flexbox,
+  FlexboxItem,
+  Grid,
+  GridItem,
+  Cascader,
+  CascaderPicker,
+  CascaderPopupPicker,
+  Accordion,
+  AccordionItem,
+  DropdownMenu,
+  DropdownMenuItem,
+  Swiper,
+  SwiperItem,
+  Marquee,
+  MarqueeItem
 }
 export default {
   install
