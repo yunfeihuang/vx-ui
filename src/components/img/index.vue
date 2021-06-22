@@ -2,7 +2,7 @@
   <img
     v-bind="$attrs"
     class="vx-img"
-    :src="status === 'success' ? source : defaultSrc"
+    :src="source"
     :style="$props[status + 'Style']"
     :class="`${status? 'is-' + status : ''}`"/>
 </template>
@@ -59,10 +59,9 @@ export default {
   },
   setup (props, { emit }) {
     const status = ref('placeholder')
-    const source = ref(null)
+    const source = ref(props.defaultSrc)
     const loadImage = (src) => {
       if (src) {
-        source.value = loading
         status.value = 'loading'
         let image = new Image()
         image.onload = () => {
@@ -71,17 +70,15 @@ export default {
           emit('load')
         }
         image.onerror = () => {
-          source.value = error
           status.value = 'error'
           emit('error')
         }
         image.src = src
       } else {
-        source.value = placeholder
         status.value = 'placeholder'
       }
     }
-    watch(props => props.src, val => {
+    watch(() => props.src, val => {
       loadImage(val)
     })
     onBeforeMount(() => {
