@@ -98,7 +98,9 @@ export default {
       handleResize()
     })
     onMounted(() => {
-      handleResize()
+      setTimeout(() => {
+        handleResize()
+      })
     })
     return {
       el,

@@ -54,7 +54,7 @@ export default {
     const currentIndex = ref(props.modelValue.length ? props.modelValue.length - 1 : 0)
     const panels = computed(() => {
       let list = [props.options]
-      if (value.value && value.value.length && value.value.forEach) {
+      if (value.value && value.value.forEach) {
         let temp = props.options
         value.value.forEach(value => {
           let result = temp.find(item => item.value === value)
