@@ -62,7 +62,7 @@ export default {
     },
     modelValue: {
       type: [Number, Array],
-      default: 40
+      default: 0
     },
     disabled: {
       type: Boolean
@@ -97,7 +97,7 @@ export default {
       const parseLeft = val => {
         return parseFloat(val) / 100 * offsetWidth
       }
-      let _left = parseLeft(e.currentTarget.style.left)
+      let initLeft = parseLeft(e.currentTarget.style.left)
       let maxLeft = 0
       let minLeft = 0
       if (type === 'end') {
@@ -107,8 +107,7 @@ export default {
         maxLeft = value.value[1] / props.max * offsetWidth
       }
       document.body.ontouchmove = e => {
-        let _pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
-        let left = _left + (_pageX - pageX)
+        let left = initLeft + ((e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - pageX)
         left = left < minLeft ? minLeft : left > maxLeft ? maxLeft : left
         if (!value.value.length) {
           value.value = parseValue(left / offsetWidth * props.max)
