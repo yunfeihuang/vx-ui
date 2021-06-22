@@ -6,9 +6,11 @@ $radius: 0.1rem;
     text-align:center;
     position:relative;
     user-select: none;
-    line-height:0.8rem;
-    @include border-round($--color-border,$radius);
+    line-height:0.78rem;
     @include flexbox;
+    border:1px solid $--color-primary;
+    border-radius:0.8rem;
+    overflow: hidden;
     &--size{
       &-small{
         @include var-height($--box-size-height-small, 'line-height');
@@ -41,8 +43,8 @@ $radius: 0.1rem;
       }
       &:before{
         content:'';
-        border-left:1px solid $--color-border;
-        transform:scaleX(0.5);
+        border-left:1px solid $--color-primary;
+        // transform:scaleX(0.5);
         height:100%;
         position:absolute;
         top:0;

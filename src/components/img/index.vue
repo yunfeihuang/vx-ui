@@ -1,8 +1,9 @@
 <template>
-  <img v-bind="$attrs"
+  <img
+    v-bind="$attrs"
     class="vx-img"
-    :src="mySrc"
-    :style="`background-image:${background};`"
+    :src="status === 'success' ? source : defaultSrc"
+    :style="$props[status + 'Style']"
     :class="`${status? 'is-' + status : ''}`"/>
 </template>
 
@@ -10,6 +11,7 @@
 import error from './error.svg'
 import placeholder from './placeholder.svg'
 import loading from './loading.svg'
+import { onBeforeMount, ref, watch } from 'vue'
 const transparent = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=='
 export default {
   name: 'VxImg',
@@ -22,105 +24,72 @@ export default {
     },
     lazyload: {
       type: Boolean
-    }
-  },
-  watch: {
-    src () {
-      this.$nextTick(this.beforeLoading)
-    }
-  },
-  mounted () {
-    this.beforeLoading()
-  },
-  data () {
-    return {
-      status: '',
-      background: '',
-      mySrc: transparent,
-      isScrollEvent: false
-    }
-  },
-  beforeUnmount () {
-    this.isScrollEvent && this.removeScrollEvent()
-  },
-  methods: {
-    getScrollNode (node) {
-      let n = node
-      let closest = () => {
-        let styleObject = window.getComputedStyle(n)
-        if (!(['scroll', 'auto'].indexOf(styleObject['overflow']) > -1 || ['scroll', 'auto'].indexOf(styleObject['overflow-y']) > -1 || styleObject['-webkit-overflow-scrolling'] === 'touch' || styleObject['overflow-scrolling'] === 'touch')) {
-          n = n.offsetParent
-          if (n === document.body) {
-            n = window
-          } else {
-            n && closest()
-          }
+    },
+    loadingStyle: {
+      default () {
+        return {
+          backgroundColor: '#f5f5f5',
+          backgroundImage: `url(${loading})`,
+          backgroundSize: '30'
         }
       }
-      if (document.body === n) {
-        n = window
-      } else {
-        closest()
-      }
-      return n
     },
-    inViewPort () {
-      if (this.$el.offsetWidth === 0 && this.$el.offsetHeight === 0) {
-        return false
-      }
-      let rect = this.$el.getBoundingClientRect()
-      return rect.top < window.innerHeight && rect.left < window.innerWidth
-    },
-    handleScroll () {
-      this.$$timer && clearTimeout(this.$$timer)
-      this.$$timer = setTimeout(() => {
-        if (this.inViewPort()) {
-          this.removeScrollEvent()
-          this.loading()
+    errorStyle: {
+      default () {
+        return {
+          backgroundColor: '#f5f5f5',
+          backgroundImage: `url(${error})`,
+          backgroundSize: '30'
         }
-      }, 200)
-    },
-    removeScrollEvent () {
-      this.$$scrollNode.removeEventListener('scroll', this.handleScroll)
-      this.isScrollEvent = false
-    },
-    beforeLoading () {
-      this.status = ''
-      if (this.lazyload && !this.isScrollEvent && !this.inViewPort()) {
-        this.$$scrollNode = this.getScrollNode(this.$el.parentNode)
-        this.$$scrollNode.addEventListener('scroll', this.handleScroll)
-        this.isScrollEvent = true
-      } else {
-        this.loading()
       }
     },
-    loading () {
-      if (this.src) {
-        this.render(undefined, loading)
-        this.status = 'loading'
+    placeholderStyle: {
+       default () {
+        return {
+          backgroundColor: '#f5f5f5',
+          backgroundImage: `url(${placeholder})`,
+          backgroundSize: '30'
+        }
+      }
+    },
+    defaultSrc: {
+      type: String,
+      default: transparent
+    }
+  },
+  setup (props, { emit }) {
+    const status = ref('placeholder')
+    const source = ref(null)
+    const loadImage = (src) => {
+      if (src) {
+        source.value = loading
+        status.value = 'loading'
         let image = new Image()
         image.onload = () => {
-          this.render(this.src, '')
-          this.status = 'success'
-          this.$emit('load')
+          source.value = src
+          status.value = 'success'
+          emit('load')
         }
         image.onerror = () => {
-          this.render(undefined, error)
-          this.status = 'error'
-          this.$emit('error')
+          source.value = error
+          status.value = 'error'
+          emit('error')
         }
-        image.src = this.src
+        image.src = src
       } else {
-        this.render(undefined, placeholder)
-        this.status = 'placeholder'
+        source.value = placeholder
+        status.value = 'placeholder'
       }
-    },
-    render (src = transparent, background) {
-      if (background) {
-        background = `url(${background})`
-      }
-      this.mySrc = src
-      this.background = background
+    }
+    watch(props => props.src, val => {
+      loadImage(props.val)
+    })
+    onBeforeMount(() => {
+      loadImage(props.src)
+    })
+    return {
+      status,
+      source
     }
   }
 }
