@@ -13,7 +13,7 @@
         :options="options"
         v-model:open="open"
         v-model:label="label"
-        v-model="value"
+        :modelValue="value"
         @close="handleClose"
         @update:modelValue="handleChange"/>
     </teleport>

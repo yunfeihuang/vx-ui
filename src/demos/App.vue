@@ -24,7 +24,9 @@
           </vx-flexbox>
         </div>
         <vx-group title="basic">
+          <!--
           <vx-cell title="Theme" to="/demos/theme"></vx-cell>
+          -->
           <vx-cell title="Button" to="/demos/button"></vx-cell>
           <vx-cell title="Page" to="/demos/page"></vx-cell>
           <vx-cell title="Flexbox" to="/demos/flexbox"></vx-cell>

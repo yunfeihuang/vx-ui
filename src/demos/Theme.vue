@@ -67,7 +67,8 @@
 </template>
 
 <script>
-import variable from '@/components/style/src/theme/common/variable.scss'
+import variable from '../components/style/src/theme/common/variable.scss'
+console.log('variable', variable)
 variable['font-size-default'] = Number(variable['font-size-default'].replace('rem', ''))
 variable['font-size-small'] = Number(variable['font-size-small'].replace('rem', ''))
 variable['font-size-large'] = Number(variable['font-size-large'].replace('rem', ''))

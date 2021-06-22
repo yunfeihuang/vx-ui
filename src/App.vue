@@ -1,8 +1,6 @@
 <template>
   <router-view/>
-  <transition name="">
-    <router-view name="demo"/>
-  </transition>
+  <router-view name="demo"/>
 </template>
 <script>
   export default {
