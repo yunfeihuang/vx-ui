@@ -82,7 +82,7 @@ export default {
       }
     }
     watch(props => props.src, val => {
-      loadImage(props.val)
+      loadImage(val)
     })
     onBeforeMount(() => {
       loadImage(props.src)
