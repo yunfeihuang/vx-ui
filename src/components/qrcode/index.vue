@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 export default {
   name: 'Qrcode',
   props: {
@@ -14,10 +14,10 @@ export default {
   },
   setup (props) {
     let el = ref(null)
-    const qrcode = null
+    let qrcode = null
     onMounted(() => {
       import('qrcodejs2').then(QRCode => {
-        qrcode = new QRCode(el.value, {
+        qrcode = new QRCode.default(el.value, {
           height: el.value.offsetHeight || 140,
           width: el.value.offsetWidth || 140,
           text: props.text
@@ -25,8 +25,8 @@ export default {
       })
     })
     watch(() => props.text, val => {
-      qrcode.clear()
-      qrcode.makeCode(val)
+      qrcode.clear && qrcode.clear()
+      qrcode.clear && qrcode.makeCode(val)
     })
     return {
       el

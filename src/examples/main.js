@@ -1,13 +1,14 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHashHistory } from 'vue-router'
-import './examples/styles/bootstrap.css'
-import './components/style/src/theme/index.scss'
-import routes from './examples/route.config.js'
-import App from './examples/App.vue'
-import UI from './components'
+import { createRouter, createWebHistory } from 'vue-router'
+import './styles/bootstrap.css'
+import '../../src/components/style/src/theme/index.scss'
+import routes from './route.config.js'
+import App from './App.vue'
+import UI from '../../components'
 
+console.log('routes', routes)
 createApp(App).use(UI).use(createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: routes
 })).mount('#app')
 

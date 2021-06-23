@@ -6,7 +6,7 @@ requireComponent.keys().forEach(fileName => {
   let App = 'App'
   if (fileName.indexOf('App.vue') > -1) {
     route.push({
-      path: '/demos',
+      path: '/',
       component: () => import(`@/demos/${App}`),
       children: children
     })

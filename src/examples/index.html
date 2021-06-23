@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vx UI文档</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+  <script>
+    if (navigator.userAgent.indexOf('Trident') > -1) {
+      document.writeln("<script type=\"text/javascript\" src=\"http://libs.cdnjs.net/babel-polyfill/6.0.14/polyfill.min.js\"><\/script>");
+    }
+    // 保存原有接口
+    var old_setAttribute = Element.prototype.setAttribute;
+     
+    // 重写 setAttribute 接口
+    Element.prototype.setAttribute = function(name, value) {
+      // 匹配到 <script src='xxx' > 类型
+      if (this.tagName == 'SCRIPT' && /^src$/i.test(name)) {
+        var node = document.createElement('a')
+        node.href = value
+        if (node.host != location.host) {
+          console.log('拦截可疑模块:', name, value)
+          return;
+        }
+      }
+      // 调用原始接口
+      old_setAttribute.apply(this, arguments);
+    };
+  </script>
+  <%if (process.env.NODE_ENV=="production") {%>
+    <%var staticfile = "https://cdn.staticfile.org/"%>
+    <%var bootcss = "https://cdn.bootcss.com/"%>
+    <%var cdn = bootcss%>
+    <script src="<%=cdn%>vue/2.5.17/vue.min.js"></script>
+    <script src="<%=cdn%>vue-router/3.0.2/vue-router.min.js"></script>
+    <script src="<%=cdn%>vuex/3.0.1/vuex.min.js"></script>
+    <script src="<%=cdn%>axios/0.18.0/axios.min.js"></script>
+  <%}%>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
