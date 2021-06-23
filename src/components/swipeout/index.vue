@@ -43,7 +43,7 @@ export default {
     const handleTouchStart = e => {
       let pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
       let maxTranslateX = currentTranslateX === 0 ? -actionNode.offsetWidth + currentTranslateX : -actionNode.offsetWidth 
-      document.ontouchmove = e => {
+      const handleTouchMove = e => {
         let _pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
         let x = currentTranslateX + (_pageX - pageX)
         if (x < maxTranslateX) {
@@ -53,9 +53,9 @@ export default {
         }
         setTranslateX(x, false)
       }
-      document.body.ontouchend = e => {
+      const handleTouchEnd = e => {
         let __pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
-        document.body.ontouchmove = null
+        document.removeEventListener('touchmove', handleTouchMove, false)
         if (__pageX === pageX) {
           emit('click', e)
         } else {
@@ -63,6 +63,10 @@ export default {
           setTranslateX(currentTranslateX)  
         }
       }
+      document.addEventListener('touchmove', handleTouchMove, false)
+      document.addEventListener('touchend', handleTouchEnd, {
+        once: true
+      })
     }
     const handleResize = () => {
       if (props.open) {

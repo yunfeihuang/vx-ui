@@ -106,7 +106,7 @@ export default {
       } else if (value.value.length) {
         maxLeft = value.value[1] / props.max * offsetWidth
       }
-      document.body.ontouchmove = e => {
+      const handleTouchMove = e => {
         let left = initLeft + ((e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - pageX)
         left = left < minLeft ? minLeft : left > maxLeft ? maxLeft : left
         if (!value.value.length) {
@@ -115,11 +115,15 @@ export default {
           value.value[type == 'end' ? 1 : 0] = parseValue(left / offsetWidth * props.max)
         }
       }
-      document.body.ontouchend = () => {
-        document.body.ontouchmove = null
+      const handleTouchEnd  = () => {
+        document.removeEventListener('touchmove', handleTouchMove, false)
         showTips.value = ''
         emit('update:modelValue', value.value)
       }
+      document.addEventListener('touchmove', handleTouchMove, false)
+      document.addEventListener('touchend', handleTouchEnd, {
+        once: true
+      })
     }
     watch(() => props.modelValue, val => {
       value.value = val

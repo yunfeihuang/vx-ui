@@ -84,7 +84,7 @@ export default {
       if (attrs['onPulldown'] && !props.loading && scrollTop === 0) {
         let pageY = e.changedTouches ? e.changedTouches[0].pageY : e.pageY
         let markHeight = el.value.querySelector('.vx-list-view--refresh').offsetHeight
-        document.body.ontouchmove = (e) => {
+        const handleTouchMove = (e) => {
           e.preventDefault()
           let top = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - pageY - scrollTop
           if (top > 0) {
@@ -96,7 +96,8 @@ export default {
             }
           }
         }
-        document.body.ontouchend = () => {
+        const handleTouchEnd = () => {
+          document.removeEventListener('touchmove', handleTouchMove, false)
           if (innerNode.classList.contains('active')) {
             innerNode.classList.remove('active')
             innerNode.classList.add('loading')
@@ -106,8 +107,11 @@ export default {
           } else {
             setTransformTop()
           }
-          document.body.ontouchmove = null
         }
+        document.addEventListener('touchmove', handleTouchMove, false)
+        document.addEventListener('touchend', handleTouchEnd, {
+          once: true
+        })
       }
     }
     const handleGoTop = () => {

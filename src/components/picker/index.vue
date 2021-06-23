@@ -66,8 +66,7 @@ export default {
     let el = ref(null)
     const handleTouchStart = e => {
       let node = e.currentTarget
-      document.body.ontouchend = () => {
-        document.body.ontouchend = null
+      const handleTouchEnd = () => {
         let timer = null
         node.onscroll = () => {
           timer && clearTimeout(timer)
@@ -87,6 +86,9 @@ export default {
           }, 500)
         }
       }
+      document.addEventListener('touchend', handleTouchEnd, {
+        once: true
+      })
     }
     const handleResize = () => {
       let index = props.options.findIndex(item => item.value === props.modelValue)
