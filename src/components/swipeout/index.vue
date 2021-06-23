@@ -16,6 +16,7 @@
 
 <script>
 import { onMounted, onUnmounted, ref, watch } from 'vue'
+let swipeoutReset = null
 export default {
   name: 'VxSwipeout',
   props: {
@@ -40,10 +41,21 @@ export default {
     const setTranslateX = (x, transition = true) => {
       innerNode.style.webkitTransition = innerNode.style.transition = transition ? '' : 'none'
       innerNode.style.webkitTransform = innerNode.style.transform = 'translate3d(' + x + 'px, 0, 0)'
+      if (transition && x) {
+        swipeoutReset = handleReset
+      }
+    }
+    const handleReset = () => {
+      currentTranslateX = 0
+      setTranslateX(currentTranslateX)
     }
     const handleTouchStart = e => {
       let pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
       let maxTranslateX = currentTranslateX === 0 ? -actionNode.offsetWidth + currentTranslateX : -actionNode.offsetWidth 
+      if (swipeoutReset) {
+        swipeoutReset()
+        swipeoutReset = null
+      }
       const handleTouchMove = e => {
         let _pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
         let x = currentTranslateX + (_pageX - pageX)
@@ -61,7 +73,7 @@ export default {
           emit('click', e)
         } else {
           currentTranslateX = __pageX - pageX < -40 ? -actionNode.offsetWidth : 0
-          setTranslateX(currentTranslateX)  
+          setTranslateX(currentTranslateX)
         }
       }
       document.addEventListener(e.changedTouches ? 'touchmove': 'mousemove', handleTouchMove, false)
@@ -75,9 +87,9 @@ export default {
         setTranslateX(currentTranslateX)
       }
     }
+    
     const handleAction = e => {
-      currentTranslateX = 0
-      setTranslateX(currentTranslateX)
+      handleReset
       emit('close', e)
     }
     onMounted(() => {
