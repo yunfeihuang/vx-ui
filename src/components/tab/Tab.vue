@@ -103,7 +103,9 @@ export default {
       })
     })
     onMounted(() => {
-      updateStyle()
+      setTimeout(() => {
+        updateStyle()
+      })
     })
     provide('vxTab', {
       active,

@@ -85,7 +85,7 @@ export default {
           let item = props.options[props.placeholder ? index - 1 : index]
           emit('update:modelValue', item ? item.value : '')
         })
-      }, 500)
+      }, 200)
     }
     const handleTouchStart = e => {
       let node = e.currentTarget

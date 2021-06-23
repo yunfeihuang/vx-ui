@@ -5,7 +5,6 @@
    :history="history"
    :fast-close="false"
    direction="top"
-   @open="handleOpen"
    @close="handleClose">
     <div class="vx-daterange-picker">
       <calendar-range ref="calendarRange" v-bind="$props" v-model="myValue" />
@@ -80,9 +79,6 @@ export default {
       },
       handleClear () {
         myValue.value = []
-      },
-      handleOpen () {
-        calendarRange.value.$refs.tab.updateStyle()
       }
     }
   }
