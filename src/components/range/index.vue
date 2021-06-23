@@ -24,7 +24,8 @@
         v-if="value.length"
         class="vx-range--button"
         :style="{left: value[0] / max * 100 + '%'}"
-        @touchstart.prevent="handleTouchStart('start', $event)">
+        @touchstart.prevent="handleTouchStart('start', $event)"
+        @mousedown.prevent="handleTouchStart('start', $event)">
         <span v-if="showTips == 'start'">
           {{`${value.length ? value[0] : value}${unit ? typeof unit === 'function' ? unit(value.length ? value[0] : value) : unit : ''}`}}
         </span>
@@ -32,7 +33,8 @@
       <button
         class="vx-range--button"
         :style="{left: (value.length ? value[1] : value) / max * 100 + '%'}"
-        @touchstart.prevent="handleTouchStart('end', $event)">
+        @touchstart.prevent="handleTouchStart('end', $event)"
+        @mousedown.prevent="handleTouchStart('end', $event)">
         <span v-if="showTips == 'end'">
           {{`${value.length ? value[1] : value}${unit ? typeof unit === 'function' ? unit(value.length ? value[1] : value) : unit : ''}`}}
         </span>
@@ -116,12 +118,12 @@ export default {
         }
       }
       const handleTouchEnd  = () => {
-        document.removeEventListener('touchmove', handleTouchMove, false)
+        document.removeEventListener(e.changedTouches ? 'touchmove' : 'mousemove', handleTouchMove, false)
         showTips.value = ''
         emit('update:modelValue', value.value)
       }
-      document.addEventListener('touchmove', handleTouchMove, false)
-      document.addEventListener('touchend', handleTouchEnd, {
+      document.addEventListener(e.changedTouches ? 'touchmove': 'mousemove', handleTouchMove, false)
+      document.addEventListener(e.changedTouches ? 'touchend' : 'mouseup', handleTouchEnd, {
         once: true
       })
     }

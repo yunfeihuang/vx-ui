@@ -1,7 +1,8 @@
 <template>
   <div ref="el" :class="['vx-swipeout', {'is-divider': divider}]"
     onselectstart="return false;"
-    @touchstart="handleTouchStart">
+    @touchstart="handleTouchStart"
+    @mousedown="handleTouchStart">
     <div class="vx-swipeout--inner">
       <div class="vx-swipeout--content">
         <slot></slot>
@@ -55,7 +56,7 @@ export default {
       }
       const handleTouchEnd = e => {
         let __pageX = e.changedTouches ? e.changedTouches[0].pageX : e.pageX
-        document.removeEventListener('touchmove', handleTouchMove, false)
+        document.removeEventListener(e.changedTouches ? 'touchmove': 'mousemove', handleTouchMove, false)
         if (__pageX === pageX) {
           emit('click', e)
         } else {
@@ -63,8 +64,8 @@ export default {
           setTranslateX(currentTranslateX)  
         }
       }
-      document.addEventListener('touchmove', handleTouchMove, false)
-      document.addEventListener('touchend', handleTouchEnd, {
+      document.addEventListener(e.changedTouches ? 'touchmove': 'mousemove', handleTouchMove, false)
+      document.addEventListener(e.changedTouches ? 'touchend': 'mouseup', handleTouchEnd, {
         once: true
       })
     }

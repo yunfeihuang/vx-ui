@@ -2,7 +2,8 @@
   <div class="vx-list-view"
     ref="el"
     @scroll="handleScroll"
-    @touchstart="handleTouchStart">
+    @touchstart="handleTouchStart"
+    @mousedown="handleTouchStart">
     <div class="vx-list-view--inner">
       <div class="vx-list-view--refresh">
         <i class="vx-list-view--icon"></i>
@@ -97,7 +98,7 @@ export default {
           }
         }
         const handleTouchEnd = () => {
-          document.removeEventListener('touchmove', handleTouchMove, false)
+          document.removeEventListener(e.changedTouches ? 'touchmove' : 'mousemove', handleTouchMove, false)
           if (innerNode.classList.contains('active')) {
             innerNode.classList.remove('active')
             innerNode.classList.add('loading')
@@ -108,8 +109,8 @@ export default {
             setTransformTop()
           }
         }
-        document.addEventListener('touchmove', handleTouchMove, false)
-        document.addEventListener('touchend', handleTouchEnd, {
+        document.addEventListener(e.changedTouches ? 'touchmove' : 'mousemove', handleTouchMove, false)
+        document.addEventListener(e.changedTouches ? 'touchend' : 'mouseup', handleTouchEnd, {
           once: true
         })
       }

@@ -1,9 +1,11 @@
 <template>
   <div ref="el" class="vx-picker--wrapper" onselectstart="return false;">
     <div
+      :class="{'is-touch': isTouch}"
       class="vx-picker"
       :style="`height:${viewItem * itemHeight}px`"
-      @touchstart="handleTouchStart">
+      @touchstart="handleTouchStart"
+      @scroll="handleScroll">
       <div class="vx-picker--scroller" :style="`padding:${Math.floor(viewItem / 2) * itemHeight}px 0`">
         <div :style="`height:${itemHeight}px;line-height:${itemHeight}px`" v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
           {{placeholder}}
@@ -63,37 +65,42 @@ export default {
     }
   },
   setup (props, { emit }) {
-    let el = ref(null)
+    const el = ref(null)
+    const isTouch = document.ontouchstart !== undefined
+    let timer = null
+    let node = null
+    const handleScroll = (e) => {
+      node = e.target
+      timer && clearTimeout(timer)
+      timer = setTimeout(() => {
+        let index = Math.round(node.scrollTop / props.itemHeight)
+        let scrollTop = index * props.itemHeight
+        requestAnimationFrame(() => {
+          node.onscroll = null
+          node.scrollTo({
+            top: scrollTop,
+            left: 0,
+            behavior: 'smooth'
+          })
+          let item = props.options[props.placeholder ? index - 1 : index]
+          emit('update:modelValue', item ? item.value : '')
+        })
+      }, 500)
+    }
     const handleTouchStart = e => {
       let node = e.currentTarget
       const handleTouchEnd = () => {
-        let timer = null
-        node.onscroll = () => {
-          timer && clearTimeout(timer)
-          timer = setTimeout(() => {
-            let index = Math.round(node.scrollTop / props.itemHeight)
-            let scrollTop = index * props.itemHeight
-            requestAnimationFrame(() => {
-              node.onscroll = null
-              node.scrollTo({
-                top: scrollTop,
-                left: 0,
-                behavior: 'smooth'
-              })
-              let item = props.options[props.placeholder ? index - 1 : index]
-              emit('update:modelValue', item ? item.value : '')
-            })
-          }, 500)
-        }
+        node.onscroll = handleScroll
       }
       document.addEventListener('touchend', handleTouchEnd, {
         once: true
       })
     }
     const handleResize = () => {
+      node = el.value.querySelector('.vx-picker')
       let index = props.options.findIndex(item => item.value === props.modelValue)
       if (index >= 0) {
-        el.value.querySelector('.vx-picker').scrollTop = (props.placeholder ? index + 1 : index) * props.itemHeight
+        node.scrollTop = (props.placeholder ? index + 1 : index) * props.itemHeight
       }
     }
     watch(() => props.itemHeight, () => {
@@ -106,7 +113,13 @@ export default {
     })
     return {
       el,
-      handleTouchStart
+      isTouch,
+      handleTouchStart,
+      handleScroll (e) {
+        if (!isTouch) {
+          handleScroll(e)
+        }
+      }
     }
   }
 }

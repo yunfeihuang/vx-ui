@@ -2,7 +2,10 @@
   <div 
     class="vx-ripple"
     onselectstart="return false;"
-    ref="el">
+    @touchstart="handleTouchStart"
+    @mousedown="handleTouchStart"
+    @touchend="handleTouchEnd"
+    @mouseup="handleTouchEnd">
     <slot></slot>
     <transition
       v-for="item in shadows"
@@ -16,7 +19,7 @@
 </template>
 
 <script>
-import { ref, nextTick, onMounted } from 'vue'
+import { ref, nextTick } from 'vue'
 export default {
   name: 'VxRipple',
   props: {
@@ -28,13 +31,12 @@ export default {
     }
   },
   setup (props) {
-    const el = ref(null)
     const shadows = ref([])
     let rect = null
     let id = new Date().getTime()
-    const handleTouchStart = ({pageY, pageX, changedTouches}) => {
+    const handleTouchStart = ({pageY, pageX, changedTouches, currentTarget}) => {
       id = new Date().getTime()
-      rect = el.value.getBoundingClientRect()
+      rect = currentTarget.getBoundingClientRect()
       const shadow = {
         show: false,
         id,
@@ -58,13 +60,10 @@ export default {
       const item = shadows.value.find(item => item.id === id)
       item.show = false
     }
-    onMounted(() => {
-      el.value.addEventListener(el.value.ontouchstart !== undefined ? 'touchstart' : 'mousedown', handleTouchStart, false)
-      el.value.addEventListener(el.value.ontouchstart !== undefined ? 'touchend' : 'mouseup', handleTouchEnd, false)
-    })
     return {
-      el,
       shadows,
+      handleTouchStart,
+      handleTouchEnd,
       handleEnter (el, done) {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {

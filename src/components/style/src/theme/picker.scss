@@ -6,8 +6,10 @@ $unit: px;
   &picker{
     @include scroller;
     touch-action: pan-y;
-    &::-webkit-scrollbar{
-      display:none;
+    &.is-touch{
+      &::-webkit-scrollbar{
+        display:none;
+      }
     }
     &--wrapper{
       position:relative;
