@@ -96,7 +96,8 @@
         </vx-group>
       </vx-page-body>
     </vx-page>
-    <transition name="vx--popup-full-slide-right">
+    <router-view v-if="isFrame"></router-view>
+    <transition v-else name="vx--popup-full-slide-right">
       <router-view></router-view>
     </transition>
   </div>
@@ -104,6 +105,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isFrame: window.top !== window
+    }
+  },
   mounted () {
     // console.log(this.$router.push)
   }

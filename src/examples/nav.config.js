@@ -11,10 +11,6 @@ export default [
         title: 'Button按钮'
       },
       {
-        path: '/page',
-        title: 'Page页面布局'
-      },
-      {
         path: '/flexbox',
         title: 'Flexbox布局'
       },
@@ -114,11 +110,13 @@ export default [
       {
         path: '/search',
         title: 'Search搜索'
-      },
+      }
+      /*,
       {
         path: '/form',
         title: 'Form表单'
       }
+      */
     ]
   },
   {
