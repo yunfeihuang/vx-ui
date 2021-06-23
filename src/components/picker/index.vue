@@ -88,6 +88,7 @@ export default {
       }, 200)
     }
     const handleTouchStart = e => {
+      timer && clearTimeout(timer)
       let node = e.currentTarget
       const handleTouchEnd = () => {
         node.onscroll = handleScroll

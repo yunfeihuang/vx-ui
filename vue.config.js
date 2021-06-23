@@ -74,7 +74,6 @@ module.exports = {
       config.output.chunkFilename = '[id].js'
       config.output.libraryTarget = 'commonjs2'
     }
-    
     // console.log('plugins', config.module.rules)
   },
   chainWebpack: config => {
