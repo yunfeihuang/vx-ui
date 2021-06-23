@@ -26,7 +26,7 @@ export default {
     })
     watch(() => props.text, val => {
       qrcode.clear && qrcode.clear()
-      qrcode.clear && qrcode.makeCode(val)
+      qrcode.makeCode && qrcode.makeCode(val)
     })
     return {
       el
