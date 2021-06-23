@@ -93,7 +93,6 @@ export default {
     }
     const instance = useHistory(props, { emit }, handleCancel)
     watch(() => isFocus.value, val => {
-      console.log('val', val, props.fixedTop)
       val && props.fixedTop && (fixed.value = true)
     })
     watch(() => fixed.value, val => {

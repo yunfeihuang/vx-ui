@@ -1,6 +1,5 @@
 {
-  "index": "./src/components",
-  "page": "./src/components/page",
+  "index": "./src/components/index.js",
   "actionsheet": "./src/components/actionsheet",
   "accordion": "./src/components/accordion",
   "swiper": "./src/components/swiper",
@@ -15,7 +14,6 @@
   "input-number": "./src/components/input-number",
   "password": "./src/components/password",
   "range": "./src/components/range",
-  "form": "./src/components/form",
   "textarea": "./src/components/textarea",
   "switch": "./src/components/switch",
   "checkbox": "./src/components/checkbox",
@@ -50,7 +48,6 @@
   "calendar-range": "./src/components/calendar-range",
   "daterange": "./src/components/daterange",
   "popover": "./src/components/popover",
-  "sticky": "./src/components/sticky",
   "cascader": "./src/components/cascader",
   "cascader-picker": "./src/components/cascader-picker",
   "heading": "./src/components/heading",

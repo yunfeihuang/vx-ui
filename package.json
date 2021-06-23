@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:theme": "gulp build --gulpfile src/components/style/gulpfile.js",
-    "build:component": "vue-cli-service build --target lib --name button src/components/button/index.vue"
+    "build:components": "vue-cli-service build --mode components"
   },
   "dependencies": {
     "core-js": "^3.8.3",

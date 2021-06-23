@@ -102,7 +102,6 @@ export default {
       return result
     })
     const innerText = computed(() => {
-      console.log(slots)
       let result = []
       if (props.max === 1) {
         if (slots && slots.default) {
