@@ -10,6 +10,8 @@
 | modelValue     | 值   | String  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    请选择    |
 | options     | 选项列表   | Array[{value,label}]  |   -       |    -    |
+| rows     | 值   | Number  |   -       |    -7    |
+| rowHeight     | 值   | Number  |   -       |    -    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |

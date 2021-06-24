@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" @focusin="handleFocusIn" @focusout="handleFocusOut">
+  <div :class="classes">
     <label class="vx-input--inner">
       <slot name="prepend"></slot>
       <div class="vx-input--area">
@@ -75,9 +75,11 @@ export default {
       },
       focus: () => {
         isFocus.value = true
+        emit('focus')
       },
       blur: () => {
         isFocus.value = false
+        emit('blur')
       }
     }
 

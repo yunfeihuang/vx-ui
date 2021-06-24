@@ -3,16 +3,16 @@
     <div
       :class="{'is-touch': isTouch}"
       class="vx-picker"
-      :style="`height:${viewItem * itemHeight}px`"
+      :style="`height:${rows * rowHeight}px`"
       @touchstart="handleTouchStart"
       @scroll="handleScroll">
-      <div class="vx-picker--scroller" :style="`padding:${Math.floor(viewItem / 2) * itemHeight}px 0`">
-        <div :style="`height:${itemHeight}px;line-height:${itemHeight}px`" v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
+      <div class="vx-picker--scroller" :style="`padding:${Math.floor(rows / 2) * rowHeight}px 0`">
+        <div :style="`height:${rowHeight}px;line-height:${rowHeight}px`" v-if="placeholder" :class="['vx-picker--item','vx-picker--placeholder']">
           {{placeholder}}
         </div>
         <div
           v-for="(item, index) in options"
-          :style="`height:${itemHeight}px;line-height:${itemHeight}px`"
+          :style="`height:${rowHeight}px;line-height:${rowHeight}px`"
           :class="['vx-picker--item',{'is-active' : item.value === modelValue}]"
           v-html="item.label"
           :key="index">
@@ -23,15 +23,15 @@
       <div
         class="vx-picker--indicator-top"
         :style="{
-          top: `${Math.floor(viewItem / 2) * itemHeight}px`,
-          boxShadow: `rgba(255, 255, 255, 0.45) 0px -${Math.floor(viewItem / 2) * itemHeight}px 0px ${Math.floor(viewItem / 2) * itemHeight}px`
+          top: `${Math.floor(rows / 2) * rowHeight}px`,
+          boxShadow: `rgba(255, 255, 255, 0.45) 0px -${Math.floor(rows / 2) * rowHeight}px 0px ${Math.floor(rows / 2) * rowHeight}px`
         }">
       </div>
       <div
         class="vx-picker--indicator-bottom"
         :style="{
-          top: `${Math.floor(viewItem / 2) * itemHeight + itemHeight}px`,
-          boxShadow: `rgba(255, 255, 255, 0.45) 0px ${Math.floor(viewItem / 2) * itemHeight}px 0px ${Math.floor(viewItem / 2) * itemHeight}px`
+          top: `${Math.floor(rows / 2) * rowHeight + rowHeight}px`,
+          boxShadow: `rgba(255, 255, 255, 0.45) 0px ${Math.floor(rows / 2) * rowHeight}px 0px ${Math.floor(rows / 2) * rowHeight}px`
         }">
       </div>
     </div>
@@ -53,11 +53,11 @@ export default {
     placeholder: {
       type: String
     },
-    viewItem: {
+    rows: {
       type: Number,
       default: 7
     },
-    itemHeight: {
+    rowHeight: {
       type: Number,
       default () {
         return parseInt(parseInt(document.documentElement.style.fontSize, 10) * 0.9)
@@ -73,8 +73,8 @@ export default {
       node = e.target
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
-        let index = Math.round(node.scrollTop / props.itemHeight)
-        let scrollTop = index * props.itemHeight
+        let index = Math.round(node.scrollTop / props.rowHeight)
+        let scrollTop = index * props.rowHeight
         requestAnimationFrame(() => {
           node.onscroll = null
           node.scrollTo({
@@ -101,10 +101,10 @@ export default {
       node = el.value.querySelector('.vx-picker')
       let index = props.options.findIndex(item => item.value === props.modelValue)
       if (index >= 0) {
-        node.scrollTop = (props.placeholder ? index + 1 : index) * props.itemHeight
+        node.scrollTop = (props.placeholder ? index + 1 : index) * props.rowHeight
       }
     }
-    watch(() => props.itemHeight, () => {
+    watch(() => props.rowHeight, () => {
       handleResize()
     })
     onMounted(() => {

@@ -39,9 +39,11 @@ export default {
     }
     const handleFocus = () => {
       isFocus.value = true
+      emit('focus')
     }
     const handleBlur = () => {
       isFocus.value = false
+      emit('blur')
     }
     const handleInput = (e) => {
       let value = e.target.value
@@ -51,7 +53,9 @@ export default {
       autoHeight()
     })
     onMounted(() => {
-      autoHeight()
+      setTimeout(() => {
+        autoHeight()
+      })
     })
     return {
       el,

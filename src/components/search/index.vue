@@ -7,7 +7,6 @@
               class="vx-search--input"
               native-type="search"
               :placeholder="placeholder"
-              
               :modelValue="modelValue"
               :disabled="disabled"
               :autocomplete="autocomplete"
