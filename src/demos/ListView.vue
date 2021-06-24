@@ -24,14 +24,14 @@ export default {
   data () {
     return {
       list: [],
-      loading: true,
+      loading: 0,
       end: false // 是否还没有更多
     }
   },
   mounted () {
     setTimeout(() => {
       this.list = this.getList()
-      this.loading = false
+      this.loading = 0
     }, 2000)
   },
   methods: {
@@ -47,10 +47,9 @@ export default {
       return result
     },
     handlePullup () {
-      this.loading = true
       setTimeout(() => { // 模拟ajax请求
         this.list = this.list.concat(this.getList())
-        this.loading = false
+        this.loading = 0
         if (this.list.length >= 100) {
           this.end = true // 没有更多了
         }
@@ -59,7 +58,7 @@ export default {
     handlePulldown () {
       setTimeout(() => { // 模拟ajax请求
         this.list = this.getList().concat(this.list)
-        this.loading = false
+        this.loading = 0
       }, 1000)
     }
   }

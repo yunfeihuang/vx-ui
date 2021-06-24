@@ -4,14 +4,14 @@
     @scroll="handleScroll"
     @touchstart="handleTouchStart"
     @mousedown="handleTouchStart">
-    <div class="vx-list-view--inner">
+    <div class="vx-list-view--inner" :class="{'loading': loading === 1}">
       <div class="vx-list-view--refresh">
         <i class="vx-list-view--icon"></i>
         <vx-spinner class="vx-list-view--spinner"/>
         <span :data-loading="loadingText" :data-pulldown="pullDownText" :data-refresh="refreshText"></span>
       </div>
       <slot></slot>
-      <div class="vx-list-view--loading" v-if="end===false || loading">
+      <div class="vx-list-view--loading" v-if="end===false && loading === 2">
         <vx-spinner class="vx-list-view--spinner"/>
         {{loadingText}}
       </div>
@@ -30,8 +30,8 @@ export default {
   },
   props: {
     loading: {
-      type: [Boolean, Number],
-      default: false
+      type: Number,
+      default: 0
     },
     loadingText: {
       type: String,
@@ -63,8 +63,7 @@ export default {
       innerNode.style.cssText = `-webkit-transform:translate3d(0,${top}px,0);transform:translate3d(0,${top}px,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
     }
     watch(() => props.loading, val => {
-      if (val === false && innerNode) {
-        innerNode.classList.remove('loading')
+      if (val === false) {
         setTransformTop()
       }
     })
@@ -101,7 +100,6 @@ export default {
           document.removeEventListener(e.changedTouches ? 'touchmove' : 'mousemove', handleTouchMove, false)
           if (innerNode.classList.contains('active')) {
             innerNode.classList.remove('active')
-            innerNode.classList.add('loading')
             setTransformTop(markHeight)
             emit('update:loading', 1)
             emit('pulldown')

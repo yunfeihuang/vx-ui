@@ -7,7 +7,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| loading     | 数据加载状态   | Boolean  |   -       |    false    |
+| loading     | 数据加载状态 1:下拉刷新，2：上拉加载更多   | Number  |   -       |    0    |
 | end     | 是否有更多   | Boolean  |   -       |    false    |
 | loadingText     | 加载中的提示文字   | String  |   -       |    数据加载...    |
 | pullDownText     | 下拉刷新的提示文字   | String  |   -       |    下拉刷新    |
