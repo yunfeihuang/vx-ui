@@ -8,7 +8,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String,Number  |   -       |    -    |
+| modelValue     | 值   | String,Number  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | max     | 最大选中数,0为不限制，1为单选   | Number  |   -       |    0    |
 | iconStyle     | 选中图标的风格   | String  |   checkbox       |    -    |
@@ -18,7 +18,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 值改变触发 | value |
+| update:modelValue| 值改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 
@@ -30,7 +30,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String,Number  |   -       |    -    |
+| modelValue     | 值   | String,Number  |   -       |    -    |
 | onValue     | 值   | String  |   -       |    -    |
 | offValue     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
@@ -42,7 +42,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 选中改变触发 | value |
+| update:modelValue| 选中改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 

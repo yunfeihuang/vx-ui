@@ -8,7 +8,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array[String, Number]  |   -       |    -    |
+| modelValue     | 值   | Array[String, Number]  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
 | block     | 是否块布局模式   | Boolean  |   -       |    false    |
@@ -18,7 +18,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 值改变触发 | value |
+| update:modelValue| 值改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 
@@ -30,7 +30,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String, Number  |   -       |    -    |
+| modelValue     | 值   | String, Number  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | icon     | 是否显示勾选icon   | Boolean  |   -       |    false    |
 | block     | 是否块布局模式   | Boolean  |   -       |    false    |
@@ -39,7 +39,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 选中改变触发 | value |
+| update:modelValue| 选中改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 

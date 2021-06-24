@@ -67,11 +67,11 @@ export default {
     font-weight:normal;
   }
   a{
-    // color:$--color-primary;
+    color:$--color-primary;
     text-decoration: none!important;
     box-sizing: border-box;
     &.router-link-active{
-      // @include active;
+      @include active;
     }
   }
   .wrapper{

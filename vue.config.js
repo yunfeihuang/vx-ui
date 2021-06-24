@@ -44,10 +44,6 @@ module.exports = {
       config.plugins = config.plugins.filter(item  => {
         return ['HtmlWebpackPlugin', 'CopyPlugin', 'ESLintWebpackPlugin'].indexOf(item.constructor.name) === -1
       })
-      config.module.rules.push({
-        test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
-        loader: 'url-loader'
-      })
       config.performance = {
         hints: false
       }
@@ -100,6 +96,17 @@ module.exports = {
         // do any thing
         return source
       }
+    })
+    const oneOfsMap = config.module.rule('scss').oneOfs.store
+    oneOfsMap.forEach(item => {
+      item
+        .use('sass-resources-loader')
+        .loader('sass-resources-loader')
+        .options({
+          // Or array of paths
+          resources: ['./src/components/style/src/theme/common/variable.scss', './src/components/style/src/theme/common/mixins.scss']
+        })
+        .end()
     })
   }
 }

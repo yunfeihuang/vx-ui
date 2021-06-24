@@ -11,7 +11,7 @@
 | arrowDirection     | 箭头方向   | right,down,up  |   -       |    -    |
 | type     | 显示类型   | String  |   menu,info       |    menu    |
 | title     | 标题   | String  |   -       |    -    |
-| value     | 值   | String,Number  |   -       |    -    |
+| modelValue     | 值   | String,Number  |   -       |    -    |
 | to     | router-link to prop   | -  |   -       |    -    |
 
 #### Events

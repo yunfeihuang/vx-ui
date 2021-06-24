@@ -18,7 +18,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | active改变事件 | value |
+| update:modelValue| active改变事件 | value |
 
 #### Slots
 | 名称 | 说明 | 

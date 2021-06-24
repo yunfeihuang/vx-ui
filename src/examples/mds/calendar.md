@@ -7,7 +7,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Date, Array  |   -       |    -    |
+| modelValue     | 值   | Date, Array  |   -       |    -    |
 | isRange     | 是否是区间   | Boolean  |   -       |    false    |
 | isWeekRange     | 是否是周区间   | Boolean  |   -       |    false    |
 | yearText     | 年文字   | Object  |   -       |    {EN: ' Year',ZH: '年'}    |
@@ -19,7 +19,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 值改变触发事件 | value |
+| update:modelValue| 值改变触发事件 | value |
 
 #### Slots
 | 名称 | 说明 | 

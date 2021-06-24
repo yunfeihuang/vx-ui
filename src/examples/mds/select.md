@@ -8,7 +8,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array[String,Number]  |   -       |    -    |
+| modelValue     | 值   | Array[String,Number]  |   -       |    -    |
 | placeholder     | 占位文本   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | clearable     | 是否清空按钮   | Boolean  |   -       |    false    |
@@ -21,7 +21,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 值改变触发 | value |
+| update:modelValue| 值改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 
@@ -33,14 +33,14 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | String  |   -       |    -    |
+| modelValue     | 值   | String  |   -       |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | exclusive     | 是否排他选项   | Boolean  |   -       |    false    |
 
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 选中改变触发 | value |
+| update:modelValue| 选中改变触发 | value |
 
 #### Slots
 | 名称 | 说明 | 

@@ -7,7 +7,7 @@
 #### Props
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |------------- |--------- |
-| value     | 值   | Array  |     -     |    -    |
+| modelValue     | 值   | Array  |     -     |    -    |
 | placeholder     | 占位文字   | String  |     -     |    -    |
 | disabled     | 是否禁用   | Boolean  |   -       |    false    |
 | options     | 选项   | Array  |   -       |        |
@@ -18,7 +18,7 @@
 #### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
-| change | 值改变触发事件 | value |
+| update:modelValue| 值改变触发事件 | value |
 
 #### Slots
 | 名称 | 说明 | 

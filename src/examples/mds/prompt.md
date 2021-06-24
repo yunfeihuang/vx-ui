@@ -13,7 +13,7 @@
 | cancelText     | 取消文字   | String  |   -       |    取消    |
 | title     | 标题文字   | String  |   -       |    -    |
 | disabled     | 控制确定按钮禁用状态   | Boolean  |   -       |    false    |
-| value     | 值   | String  |   -       |    -    |
+| modelValue     | 值   | String  |   -       |    -    |
 | inputProps     | 输入框组件props   | Object  |   -       |    -    |
 
 #### Events
@@ -21,7 +21,7 @@
 |---------|--------|---------|
 | confirm | 确定事件 | - |
 | close | 关闭事件 | - |
-| change | 值改变触发事件 | - |
+| update:modelValue| 值改变触发事件 | - |
 
 #### Slots
 | 名称 | 说明 | 
