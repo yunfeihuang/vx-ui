@@ -17,4 +17,5 @@ requireComponent.keys().forEach(fileName => {
     })
   }
 })
+console.log('route', route)
 export default route

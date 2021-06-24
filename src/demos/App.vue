@@ -79,6 +79,7 @@
         </vx-group>
         <vx-group title="图片">
           <vx-cell title="Img" to="/demos/img"></vx-cell>
+          <vx-cell title="AvatarGroup" to="/demos/avatargroup"></vx-cell>
           <vx-cell title="Swiper" to="/demos/swiper"></vx-cell>
           <vx-cell title="Preview" to="/demos/preview"></vx-cell>
         </vx-group>

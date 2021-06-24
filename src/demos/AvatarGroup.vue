@@ -1,27 +1,27 @@
 <template>
-  <page>
+  <vx-page>
     <template v-slot:header>
-      <x-nav title="AvatarGroup"></x-nav>
+      <vx-nav title="AvatarGroup"></vx-nav>
     </template>
-    <page-body>
+    <vx-page-body>
       <div style="padding:0.3rem">
-        <avatar-group>
+        <vx-avatar-group>
           <!--需要a>img 标签结构-->
           <a v-for="item in 5" :key="item">
-            <img src="/static/images/avatar.png"/>
+            <img src="/images/github.png"/>
           </a>
           <template v-slot:append>+888</template>
-        </avatar-group>
+        </vx-avatar-group>
         <br />
-        <avatar-group>
+        <vx-avatar-group>
           <a v-for="item in 15" :key="item">
-            <img src="/static/images/avatar.png"/>
+            <img src="/images/github.png"/>
           </a>
           <template v-slot:append>+888</template>
-        </avatar-group>
+        </vx-avatar-group>
       </div>
-    </page-body>
-  </page>
+    </vx-page-body>
+  </vx-page>
 </template>
 <script>
 export default {

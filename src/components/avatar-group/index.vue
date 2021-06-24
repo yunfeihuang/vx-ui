@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="vx-avatar-group--wrapper">
     <slot name="prepend"></slot>
     <div class="vx-avatar-group">

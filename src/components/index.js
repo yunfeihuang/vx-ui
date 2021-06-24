@@ -40,6 +40,7 @@ import PopupPicker from './popup-picker'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import IndexList from './index-list'
 import Img from './img'
+import AvatarGroup from './avatar-group'
 import {Swiper, SwiperItem} from './swiper'
 import {Marquee, MarqueeItem} from './marquee'
 import Swipeout from './swipeout'
@@ -137,6 +138,7 @@ let components = [
   IndexList,
   Search,
   Img,
+  AvatarGroup,
   Swipeout,
   Tab,
   TabItem,
@@ -497,6 +499,7 @@ export {
   IndexList,
   Search,
   Img,
+  AvatarGroup,
   Swipeout,
   Tab,
   TabItem,
