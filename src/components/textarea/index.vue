@@ -11,9 +11,9 @@
           @blur="handleBlur"
           ></textarea>
       </div>
-      <em v-if="showWordNumber && maxlength">
+      <span v-if="showWordNumber && maxlength">
         {{modelValue.length}}/{{maxlength}}
-      </em>
+      </span>
   </label>
 </template>
 
