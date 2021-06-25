@@ -35,8 +35,8 @@ export default {
     VxSpinner,
     VxRipple
   },
-  mixins: [button],
   props: {
+    ...button.props,
     round: {
       type: Boolean
     },
