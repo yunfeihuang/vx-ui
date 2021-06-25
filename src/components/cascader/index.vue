@@ -9,19 +9,19 @@
       <slot name="append"></slot>
     </div>
     <teleport to="body">
-      <vx-cascader-popup-picker
-        :options="options"
+      <vx-cascader-picker
         v-model:open="open"
-        v-model:label="label"
+        :options="options"
+        :label="label"
         :modelValue="value"
-        @close="handleClose"
-        @update:modelValue="handleChange"/>
+        @update:modelValue="handleChange"
+        @update:label="handleLabel" />
     </teleport>
   </div>
 </template>
 
 <script>
-import VxCascaderPopupPicker from '../cascader-popup-picker'
+import VxCascaderPicker from '../cascader-picker'
 import { input } from '@/utils/mixins'
 import VxArrow from '../arrow'
 import { watch, ref } from 'vue'
@@ -30,12 +30,12 @@ export default {
   name: 'VxCascader',
   components: {
     VxArrow,
-    VxCascaderPopupPicker
+    VxCascaderPicker
   },
   props: {
     ...input.props,
-    modelValue: VxCascaderPopupPicker.props.modelValue,
-    options: VxCascaderPopupPicker.props.options,
+    modelValue: VxCascaderPicker.props.modelValue,
+    options: VxCascaderPicker.props.options,
     placeholder: {
       type: String,
       default: '请选择'
@@ -48,6 +48,10 @@ export default {
       default: '/'
     },
     arrow: {
+      type: Boolean,
+      default: true
+    },
+    history: {
       type: Boolean,
       default: true
     }
@@ -67,11 +71,11 @@ export default {
         open.value = true
       },
       handleChange (value) {
-        open.value = true
+        open.value = false
         emit('update:modelValue', value)
       },
-      handleClose () {
-        open.value = true
+      handleLabel (val) {
+        label.value = val
       }
     }
   }

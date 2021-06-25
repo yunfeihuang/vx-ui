@@ -54,7 +54,6 @@ import {Flexbox, FlexboxItem} from './flexbox'
 import {Grid, GridItem} from './grid'
 import Cascader from './cascader'
 import CascaderPicker from './cascader-picker'
-import CascaderPopupPicker from './cascader-popup-picker'
 import {Accordion, AccordionItem} from './accordion'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
@@ -150,7 +149,6 @@ let components = [
   GridItem,
   Cascader,
   CascaderPicker,
-  CascaderPopupPicker,
   Accordion,
   AccordionItem,
   DropdownMenu,
@@ -509,7 +507,6 @@ export {
   GridItem,
   Cascader,
   CascaderPicker,
-  CascaderPopupPicker,
   Accordion,
   AccordionItem,
   DropdownMenu,
