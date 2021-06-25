@@ -49,7 +49,6 @@ export default {
     onMounted(() => {
       import('swiper/dist/css/swiper.min.css')
       import('swiper').then(res => {
-        let Swiper = res.default
         let options = Object.assign({
           initialSlide: props.active,
           autoplayDisableOnInteraction: false,
@@ -70,7 +69,7 @@ export default {
         if (props.scrollbar) {
           options.scrollbar = '.swiper-scrollbar'
         }
-        swiper = new Swiper(el.value, options)
+        swiper = new res.default(el.value, options)
       })
     })
     watch(() => props.active, val => {

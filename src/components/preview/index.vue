@@ -63,28 +63,66 @@ export default {
     }
   },
   setup (props, { emit }) {
+    // https://photoswipe.com/documentation/getting-started.html
     let photoswipe = null
     let el = ref(null)
+    const loadImages = (array) => {
+      let windowWidth = window.innerWidth
+      return new Promise((resolve) => {
+        let i = 0
+        let result = []
+        const fn = () => {
+          if (array[i]) {
+            let image = new Image()
+            image.onload = () => {
+              let natural = {
+                w: image.naturalWidth,
+                h: image.naturalHeight
+              }
+              result.push({
+                src: image.src,
+                w: natural.w > windowWidth ? windowWidth : natural.w,
+                h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : natural.h
+              })
+              i++
+              fn()
+            }
+            image.onerror = () => {
+              result.push({})
+              i++
+              fn()
+            }
+            image.src = array[i]
+          } else {
+            resolve(result)
+          }
+        }
+        fn()
+      })
+    }
     return {
       el,
       open (index) {
-        import('photoswipe/dist/photoswipe.css')
-        import('photoswipe/dist/default-skin/default-skin.css')
-        import('photoswipe').then(res => {
-          let PhotoSwipe = res.default
-          import('photoswipe/dist/photoswipe-ui-default').then(resUI => {
-            let UI = resUI.default
-            let options = Object.assign({
-              history: true,
-              tapToClose: true,
-              shareEl: false,
-              index: index
-            }, props.options)
-            el.value.style.display = 'block'
-            photoswipe = new PhotoSwipe(el.value, UI, props.list, options)
-            photoswipe.init()
-            photoswipe.listen('close', () => {
-              emit('close')
+        loadImages(props.list).then(list => {
+          import('photoswipe/dist/photoswipe.css')
+          import('photoswipe/dist/default-skin/default-skin.css')
+          import('photoswipe').then(res => {
+            let PhotoSwipe = res.default
+            import('photoswipe/dist/photoswipe-ui-default').then(resUI => {
+              let UI = resUI.default
+              let options = Object.assign({
+                history: true,
+                tapToClose: true,
+                shareEl: false,
+                index: index
+              }, props.options)
+              el.value.style.display = 'block'
+              photoswipe = new PhotoSwipe(el.value, UI, list, options)
+              photoswipe.init()
+              photoswipe.listen('close', () => {
+                emit('close')
+              })
+              console.log('photoswipe', photoswipe)
             })
           })
         })

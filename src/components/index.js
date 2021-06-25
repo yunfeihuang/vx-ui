@@ -36,12 +36,12 @@ import Prompt from './prompt'
 import Alert from './alert'
 import Picker from './picker'
 import Popover from './popover'
+import Preview from './preview'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import IndexList from './index-list'
 import Img from './img'
 import AvatarGroup from './avatar-group'
 import {Swiper, SwiperItem} from './swiper'
-import {Marquee, MarqueeItem} from './marquee'
 import Swipeout from './swipeout'
 import DaterangePicker from './daterange-picker'
 import Calendar from './calendar'
@@ -129,6 +129,9 @@ let components = [
   Alert,
   Picker,
   Popover,
+  Preview,
+  Swiper,
+  SwiperItem,
   IndexList,
   Search,
   Img,
@@ -150,11 +153,7 @@ let components = [
   Accordion,
   AccordionItem,
   DropdownMenu,
-  DropdownMenuItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem
+  DropdownMenuItem
 ]
 
 const install = (app) => {
@@ -424,20 +423,23 @@ const install = (app) => {
       }).mount(node)
     })
   }
-  // element ui 表单解决方案要用到的
-  app.config.globalProperties.dispatch = function (componentName, eventName, params) {
-    let parent = this.$parent || this.$root
-    let name = parent.$options.name
-    while (parent && (!name || name !== componentName)) {
-      parent = parent.$parent
-      if (parent) {
-        name = parent.$options.name
+  app.config.globalProperties.$preview = (props, close) => {
+    createApp({
+      render () {
+        return h(Preview, {
+          ...props,
+          onClose: close
+        })
       }
-    }
-    if (parent) {
-      parent.$emit.apply(parent, [eventName].concat(params))
-    }
+    })
   }
+  app.directive('vx-preview', {
+    mounted (el, binding) {
+      binding.instance && binding.$preview && el.addEventListener('click', () => {
+        binding.$preview({index: 0, list: [binding.value]})
+      })
+    }
+  })
 }
 
 export {
@@ -486,6 +488,9 @@ export {
   Alert,
   Picker,
   Popover,
+  Preview,
+  Swiper,
+  SwiperItem,
   IndexList,
   Search,
   Img,
@@ -507,11 +512,7 @@ export {
   Accordion,
   AccordionItem,
   DropdownMenu,
-  DropdownMenuItem,
-  Swiper,
-  SwiperItem,
-  Marquee,
-  MarqueeItem
+  DropdownMenuItem
 }
 export default {
   install

@@ -3,7 +3,6 @@
   "actionsheet": "./src/components/actionsheet",
   "accordion": "./src/components/accordion",
   "swiper": "./src/components/swiper",
-  "marquee": "./src/components/marquee",
   "tab": "./src/components/tab",
   "tabbar": "./src/components/tabbar",
   "sidebar": "./src/components/sidebar",
@@ -27,7 +26,6 @@
   "prompt": "./src/components/prompt",
   "alert": "./src/components/alert",
   "popup": "./src/components/popup",
-  "popup-picker": "./src/components/popup-picker",
   "toast": "./src/components/toast",
   "img": "./src/components/img",
   "index-list": "./src/components/index-list",
@@ -41,7 +39,6 @@
   "badge": "./src/components/badge",
   "swipeout": "./src/components/swipeout",
   "rater": "./src/components/rater",
-  "datetime-picker": "./src/components/datetime-picker",
   "daterange-picker": "./src/components/daterange-picker",
   "datetime": "./src/components/datetime",
   "calendar": "./src/components/calendar",
@@ -54,6 +51,5 @@
   "grid": "./src/components/grid",
   "list-item": "./src/components/list-item",
   "dropdown-menu": "./src/components/dropdown-menu",
-  "submit-bar": "./src/components/submit-bar",
-  "icon": "./src/components/icon"
+  "submit-bar": "./src/components/submit-bar"
 }

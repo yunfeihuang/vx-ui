@@ -40,7 +40,7 @@ export default {
     let swiper = null
     onMounted(() => {
       import('swiper/dist/css/swiper.min.css')
-      import('swiper').then(Swiper => {
+      import('swiper').then(res => {
         let options = Object.assign({
           initialSlide: props.active,
           direction: props.direction,
@@ -52,7 +52,7 @@ export default {
             emit('change', swiper.activeIndex)
           }
         }, props.options)
-        swiper = new Swiper(el.value, options)
+        swiper = new res.default(el.value, options)
       })
     })
     watch(() => props.active, val => {

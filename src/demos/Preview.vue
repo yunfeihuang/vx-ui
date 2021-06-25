@@ -7,9 +7,8 @@
       <img
         v-for="(item,index) in images"
         :key="index"
-        :src="item.src"
+        :src="item"
         style="display:block;width:100%;min-height:150px;"
-        @load="handleLoad(index,$event)"
         @click="handleClick(index)"/>
     </vx-page-body>
     <vx-preview :list="images" ref="preview"/>
@@ -27,21 +26,11 @@ export default {
   data () {
     return {
       images: [
-        {
-          src: 'http://assets.bittyos.com/images/swiper/01.jpg'
-        },
-        {
-          src: 'http://assets.bittyos.com/images/swiper/02.jpg'
-        },
-        {
-          src: 'http://assets.bittyos.com/images/swiper/03.jpg'
-        },
-        {
-          src: 'http://assets.bittyos.com/images/swiper/04.jpg'
-        },
-        {
-          src: 'http://assets.bittyos.com/images/swiper/05.jpg'
-        }
+        'http://assets.bittyos.com/images/swiper/01.jpg',
+        'http://assets.bittyos.com/images/swiper/02.jpg',
+        'http://assets.bittyos.com/images/swiper/03.jpg',
+        'http://assets.bittyos.com/images/swiper/04.jpg',
+        'http://assets.bittyos.com/images/swiper/05.jpg',
       ]
     }
   },
