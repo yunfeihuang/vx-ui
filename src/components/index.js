@@ -36,7 +36,6 @@ import Prompt from './prompt'
 import Alert from './alert'
 import Picker from './picker'
 import Popover from './popover'
-import PopupPicker from './popup-picker'
 import {Actionsheet, ActionsheetItem} from './actionsheet'
 import IndexList from './index-list'
 import Img from './img'
@@ -44,7 +43,6 @@ import AvatarGroup from './avatar-group'
 import {Swiper, SwiperItem} from './swiper'
 import {Marquee, MarqueeItem} from './marquee'
 import Swipeout from './swipeout'
-import DatetimePicker from './datetime-picker'
 import DaterangePicker from './daterange-picker'
 import Calendar from './calendar'
 import CalendarRange from './calendar-range'
@@ -124,8 +122,6 @@ let components = [
   Calendar,
   CalendarRange,
   Popup,
-  PopupPicker,
-  DatetimePicker,
   DaterangePicker,
   Actionsheet,
   ActionsheetItem,
@@ -485,8 +481,6 @@ export {
   Calendar,
   CalendarRange,
   Popup,
-  PopupPicker,
-  DatetimePicker,
   DaterangePicker,
   Actionsheet,
   ActionsheetItem,

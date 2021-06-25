@@ -5,7 +5,7 @@
   "author": "黄运飞 <yunfei.huang@qq.com>",
   "main": "lib/index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:theme": "gulp build --gulpfile src/components/style/gulpfile.js",

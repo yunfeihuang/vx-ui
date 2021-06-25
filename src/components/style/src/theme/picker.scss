@@ -6,6 +6,7 @@ $unit: px;
   &picker{
     @include scroller;
     touch-action: pan-y;
+    flex: 1;
     &.is-touch{
       &::-webkit-scrollbar{
         display:none;
@@ -16,6 +17,32 @@ $unit: px;
       background:#fff;
       text-align: center;
       overflow:hidden;
+    }
+    &--header{
+      @include flexbox;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    &--placeholder{
+      text-align: center;
+      flex:auto;
+    }
+    &--cancel,&--confirm{
+      background:none;
+      border:0;
+      height:$--box-size-height-default;
+      padding:0 0.4rem;
+    }
+    &--confirm{
+      color:$--color-primary;
+    }
+    &--body{
+      position: relative;
+      overflow: hidden;
+    }
+    &--columns{
+      @include flexbox;
     }
     &--item{
       @include lineClamp;

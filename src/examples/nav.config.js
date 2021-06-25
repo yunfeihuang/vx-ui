@@ -149,10 +149,6 @@ export default [
       {
         path: '/popup',
         title: 'Popup自定义弹框'
-      },
-      {
-        path: '/popuppicker',
-        title: 'PopupPicker选择器'
       }
     ]
   },
