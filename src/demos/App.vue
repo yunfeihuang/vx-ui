@@ -68,7 +68,6 @@
           <vx-cell title="Popover" to="/demos/popover"></vx-cell>
           <vx-cell title="Toast" to="/demos/toast"></vx-cell>
           <vx-cell title="Popup" to="/demos/Popup"></vx-cell>
-          <vx-cell title="PopupPicker" to="/demos/popuppicker"></vx-cell>
           <vx-cell title="DropdownMenu" to="/demos/dropdownmenu"></vx-cell>
         </vx-group>
         <vx-group title="选项卡">
@@ -89,10 +88,8 @@
           <vx-cell title="Calendar" to="/demos/calendar"></vx-cell>
           <vx-cell title="CalendarRange" to="/demos/calendarrange"></vx-cell>
           <vx-cell title="Picker" to="/demos/picker"></vx-cell>
-          <vx-cell title="CascaderPicker" to="/demos/cascaderpicker"></vx-cell>
           <vx-cell title="Ripple" to="/demos/ripple"></vx-cell>
           <vx-cell title="ListView" to="/demos/listview"></vx-cell>
-          <vx-cell title="Sticky" to="/demos/sticky"></vx-cell>
           <vx-cell title="Swipeout" to="/demos/swipeout"></vx-cell>
           <vx-cell title="Spinner" to="/demos/spinner"></vx-cell>
           <vx-cell title="IndexList" to="/demos/indexlist"></vx-cell>

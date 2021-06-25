@@ -53,7 +53,6 @@ import {ButtonTab, ButtonTabItem} from './button-tab'
 import {Flexbox, FlexboxItem} from './flexbox'
 import {Grid, GridItem} from './grid'
 import Cascader from './cascader'
-import CascaderPicker from './cascader-picker'
 import {Accordion, AccordionItem} from './accordion'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
 
@@ -148,7 +147,6 @@ let components = [
   Grid,
   GridItem,
   Cascader,
-  CascaderPicker,
   Accordion,
   AccordionItem,
   DropdownMenu,
@@ -506,7 +504,6 @@ export {
   Grid,
   GridItem,
   Cascader,
-  CascaderPicker,
   Accordion,
   AccordionItem,
   DropdownMenu,
