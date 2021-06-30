@@ -11,18 +11,11 @@
         style="display:block;width:100%;min-height:150px;"
         @click="handleClick(index)"/>
     </vx-page-body>
-    <vx-preview :list="images" ref="preview"/>
   </vx-page>
 </template>
 
 <script>
-import '@/components/style/src/theme/preview.scss'
-import VxPreview from '@/components/preview'
-let windowWidth = window.innerWidth
 export default {
-  components: {
-    VxPreview
-  },
   data () {
     return {
       images: [
@@ -35,21 +28,11 @@ export default {
     }
   },
   methods: {
-    handleLoad (index, e) {
-      let img = e.target
-      let natural = {
-        w: img.naturalWidth,
-        h: img.naturalHeight
-      }
-      let item = {
-        src: img.src,
-        w: natural.w > windowWidth ? windowWidth : natural.w,
-        h: natural.w > windowWidth ? natural.h / natural.w * windowWidth : natural.h
-      }
-      this.images[index] = item
-    },
     handleClick (index) {
-      this.$refs.preview.open(index)
+      this.$preview({
+        index,
+        list: this.images
+      })
     }
   }
 }
