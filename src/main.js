@@ -4,9 +4,9 @@ import './examples/styles/bootstrap.css'
 import './components/style/src/theme/index.scss'
 import routes from './examples/route.config.js'
 import App from './examples/App.vue'
-import UI from './components'
+import Vx from './components'
 
-createApp(App).use(UI).use(createRouter({
+createApp(App).use(Vx).use(createRouter({
   history: createWebHashHistory(),
   routes: routes
 })).mount('#app')

@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './components/style/src/theme/index.scss'
-import UI from './components'
+import Vx from './components'
+// import 'vx-ui/lib/style/theme/index.css'
+// import Vx from 'vx-ui/lib/index.js'
 
 let initRootFontSize = function () {
   let deviceWidth = window.innerWidth
@@ -20,4 +22,4 @@ let initRootFontSize = function () {
 window.addEventListener('resize', initRootFontSize)
 initRootFontSize()
 
-createApp(App).use(UI).use(router).mount('#app')
+createApp(App).use(Vx).use(router).mount('#app')
