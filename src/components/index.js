@@ -1,5 +1,5 @@
 
-import {createApp, h} from 'vue'
+import {createApp, h, onMounted, reactive} from 'vue'
 import {Page, PageBody} from './page'
 import Ripple from './ripple'
 import Button from './button'
@@ -173,30 +173,27 @@ const install = (app) => {
     let node = document.createElement('div')
     mounted.appendChild(node)
     let vue = createApp({ //eslint-disable-line
-      render () {
-        return h(Toast, {
-          ...this.$data,
-          'onClose': this.handleClose,
-          'onAfterClose': this.handleAfterClose
-        }, message)
-      },
-      data () {
-        return {
-          ...others
+      setup () {
+        let data = reactive(others)
+        const handleClose = () => {
+          data.open = onClose() === false
         }
-      },
-      methods: {
-        handleClose () {
-          this.open = onClose() === false
-        },
-        handleAfterClose () {
+        const handleAfterClose = () => {
           vue.unmount && vue.unmount()
+        }
+        return () => {
+          return h(Toast, {
+            ...data,
+            'onClose': handleClose,
+            'onAfterClose': handleAfterClose
+          }, message)
         }
       },
       beforeUnmount () {
-        vue.$el.parentNode && vue.$el.parentNode.removeChild(vue.$el)
+        node.parentNode.removeChild(node)
       }
-    }).mount(node)
+    })
+    vue.mount(node)
     return vue
   }
 
@@ -215,39 +212,37 @@ const install = (app) => {
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        render () {
-          return h(Alert, {
-            ...this.$data,
-            onConfirm: this.handleConfirm,
-            onClose: this.handleClose,
-            onAfterClose: this.handleAfterClose
-          }, message)
-        },
-        data () {
-          return {
-            ...others
-          }
-        },
-        mounted () {
-          this.open = true
-        },
-        methods: {
-          handleConfirm () {
+        setup () {
+          const data = reactive(others)
+          onMounted(() => {
+            data.open = true
+          })
+          const handleConfirm = () => {
             resolve()
-            this.open = onConfirm() === false
-          },
-          handleClose () {
-            reject()
-            this.open = onCancel() === false
-          },
-          handleAfterClose () {
-            vue.$destroy && vue.$destroy()
+            data.open = onConfirm() === false
+          }
+          const handleClose = () => {
+            data.open = onCancel() === false
+            !data.open && reject()
+          }
+          const handleAfterClose = () => {
+            vue.unmount && vue.unmount()
+          }
+          
+          return () => {
+            return h(Alert, {
+              ...data,
+              onConfirm: handleConfirm,
+              onClose: handleClose,
+              onAfterClose: handleAfterClose
+            }, message)
           }
         },
         beforeUnmount () {
-          vue.$el.parentNode.removeChild(vue.$el)
+          node.parentNode.removeChild(node)
         }
-      }).mount(node)
+      })
+      vue.mount(node)
     })
   }
   app.config.globalProperties.$confirm = (_props, mounted = document.body) => {
@@ -265,41 +260,37 @@ const install = (app) => {
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        render () {
-          return h(Confirm, {
-            ...this.$data,
-            onConfirm: this.handleConfirm,
-            onClose: this.handleClose,
-            onAfterClose: this.handleAfterClose,
-            onButtonClick: this.handleButtonClick
-          }, message)
-        },
-        data () {
-          return {
-            ...others
-          }
-        },
-        mounted () {
-          this.open = true
-        },
-        methods: {
-          handleConfirm () {
+        setup () {
+          const data = reactive(others)
+          onMounted(() => {
+            data.open = true
+          })
+          const handleConfirm = () => {
             resolve()
-            this.open = onConfirm() === false
-          },
-          handleClose () {
-            reject()
-            this.open = onCancel() === false
-          },
-          handleAfterClose () {
-            this.$destroy && this.$destroy()
-          },
-          handleButtonClick (event) {
+            data.open = onConfirm() === false
+          }
+          const handleClose = () => {
+            data.open = onCancel() === false
+            !data.open && reject()
+          }
+          const handleAfterClose = () => {
+            vue.unmount && vue.unmount()
+          }
+          const handleButtonClick = (event) => {
             onButtonClick && onButtonClick(event)
+          }
+          return () => {
+            return h(Confirm, {
+              ...data,
+              onConfirm: handleConfirm,
+              onClose: handleClose,
+              onAfterClose: handleAfterClose,
+              onButtonClick: handleButtonClick
+            }, message)
           }
         },
         beforeUnmount () {
-          vue.$el.parentNode.removeChild(vue.$el)
+          node.parentNode.removeChild(node)
         }
       }).mount(node)
     })
@@ -327,45 +318,40 @@ const install = (app) => {
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        render () {
-          return h(Prompt, {
-            ...this.$data,
-            onConfirm: this.handleConfirm,
-            onClose: this.handleClose,
-            onAfterClose: this.handleAfterClose,
-            'onUpdate:modelValue': this.handleChange
+        setup () {
+          const data = reactive(others)
+          onMounted(() => {
+            data.open = true
           })
-        },
-        data () {
-          return {
-            ...others
-          }
-        },
-        mounted () {
-          this.open = true
-        },
-        methods: {
-          handleConfirm (value) {
+          const handleConfirm = (value) => {
             resolve(value)
-            this.open = onConfirm(value) === false
-          },
-          handleClose () {
-            reject()
-            this.open = onCancel() === false
-          },
-          handleChange (value) {
-            this.disabled = onChange(value)
-          },
-          handleAfterClose () {
-            this.$destroy && this.$destroy()
+            data.open = onConfirm(value) === false
+          }
+          const handleClose = () => {
+            data.open = onCancel() === false
+            !data.open && reject()
+          }
+          const handleChange = (value) => {
+            data.disabled = onChange(value)
+          }
+          const handleAfterClose = () => {
+            vue.unmount && vue.unmount()
+          }
+          return () => {
+            return h(Prompt, {
+              ...data,
+              onConfirm: handleConfirm,
+              onClose: handleClose,
+              onAfterClose: handleAfterClose,
+              'onUpdate:modelValue': handleChange
+            })
           }
         },
         beforeUnmount () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          node.parentNode.removeChild(node)
         }
-      }).mount(node)
+      })
+      vue.mount(node)
     })
   }
   app.config.globalProperties.$actionsheet = (_props, mounted = document.body) => {
@@ -379,59 +365,67 @@ const install = (app) => {
           return true
         }
       }, _props)
+      let { onClose, onAction, options, ...others} = props
       let node = document.createElement('div')
       mounted.appendChild(node)
       let vue = createApp({ //eslint-disable-line
-        render () {
-          return h(Actionsheet, {
-            ...this.$data,
-            onClose: this.handleClose,
-            onAction: this.handleAction,
-            onAfterClose: this.handleAfterClose
-          }, props.options.map(item => {
-            return h(ActionsheetItem, {
-              value: item.value
-            }, item.label)
-          }))
-        },
-        data () {
-          return {
-            ...props
+        setup () {
+          const data = reactive(others)
+          onMounted(() => {
+            data.open = true
+          })
+          const handleClose = () => {
+            data.open = onClose() === false
+            !data.open && reject()
           }
-        },
-        mounted () {
-          this.open = true
-        },
-        methods: {
-          handleClose () {
-            reject()
-            this.open = props.onClose() === false
-          },
-          handleAction (value) {
+          const handleAction = (value) => {
             resolve(value)
-            this.open = props.onAction(value) === false
-          },
-          handleAfterClose () {
-            this.$destroy && this.$destroy()
+            data.open = onAction(value) === false
+          }
+          const handleAfterClose = () => {
+            vue.unmount && vue.unmount()
+          }
+          return () => {
+            return h(Actionsheet, {
+              ...data,
+              onClose: handleClose,
+              onAction: handleAction,
+              onAfterClose: handleAfterClose
+            }, options.map(item => {
+              return h(ActionsheetItem, {
+                value: item.value
+              }, item.label)
+            }))
           }
         },
         beforeUnmount () {
-          requestAnimationFrame(() => {
-            vue.$el.parentNode.removeChild(vue.$el)
-          })
+          node.parentNode.removeChild(node)
         }
-      }).mount(node)
+      })
+      vue.mount(node)
     })
   }
   app.config.globalProperties.$preview = (props, close) => {
-    createApp({
-      render () {
-        return h(Preview, {
-          ...props,
-          onClose: close
-        })
+    let node = document.createElement('div')
+    document.body.appendChild(node)
+    let vue = createApp({
+      setup () {
+        const handleClose = () => {
+          vue.unmount()
+          close && close()
+        }
+        return () => {
+          return h(Preview, {
+            ...props,
+            onClose: handleClose
+          })
+        }
+      },
+      beforeUnmount () {
+        node.parentNode.removeChild(node)
       }
     })
+    vue.mount(node)
   }
   app.directive('vx-preview', {
     mounted (el, binding) {
