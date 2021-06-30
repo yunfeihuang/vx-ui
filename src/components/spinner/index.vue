@@ -4,8 +4,8 @@
         class="vx-spinner"
         :style="`border-top-color: ${primaryColor};
           border-right-color: ${color};
-          border-bottom-color: ${color}
-          border-left-color: ${color}`"></div>
+          border-bottom-color: ${color};
+          border-left-color: ${color};`"></div>
       <slot></slot>
   </div>
 </template>

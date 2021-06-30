@@ -7,18 +7,20 @@
 
 ### 全局注册组件
 ```
-  import Vue from 'vue'
+  import {createApp} from 'vue'
+  import App from './App'
   import 'vx-ui/lib/style/theme/index.css'
   import VxUI from 'vx-ui'
-  Vue.use(VxUI)
+  createApp(App).use(VxUI)
 ```
 
 ### 单个注册组件(Button示例)
 ```
   import Vue from 'vue'
+  import App from './App'
   import 'vx-ui/lib/style/theme/button.css'
   import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
-  Vue.component(Button.componentName, Button)
+  createApp(App).component(Button.componentName, Button)
 ```
 
 ### 修改UI主题风格
