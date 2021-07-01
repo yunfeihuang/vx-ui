@@ -100,6 +100,22 @@ $resolution : 2,3,4,5,6;
   -webkit-overflow-scrolling: touch; 
   overflow-scrolling: touch;
 }
+@mixin scroller2($color: #ccc,$width: 4px){
+  &::-webkit-scrollbar{  
+    width: $width;
+    height:$width;
+  }  
+  &::-webkit-scrollbar-track{
+    background-color:transparent;
+  }
+  &::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color:$color;
+  }
+  &:hover::-webkit-scrollbar-thumb{
+    background-color:$color;
+  }
+}
 
 @mixin divider ($color:$--color-divider, $vertical: false){
   @if $vertical {

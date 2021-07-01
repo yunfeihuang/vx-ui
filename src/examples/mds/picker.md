@@ -17,6 +17,8 @@
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
 | update:modelValue| 值改变触发事件 | value |
+| confirm| 确定事件 | value |
+| cancel| 取消事件 | - |
 
 #### Slots
 | 名称 | 说明 | 

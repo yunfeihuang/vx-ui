@@ -146,9 +146,9 @@ export default {
       el,
       isTouch,
       handleTouchStart,
-      handleScroll (e) {
+      handleScroll (e, i) {
         if (!isTouch) {
-          handleScroll(e)
+          handleScroll(e, i)
         }
       },
       handleConfirm () {

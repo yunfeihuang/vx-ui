@@ -63,7 +63,7 @@ export default {
       innerNode.style.cssText = `-webkit-transform:translate3d(0,${top}px,0);transform:translate3d(0,${top}px,0);-webkit-transition:transform 0.36s ease 0s;transition:transform 0.36s ease 0s;`
     }
     watch(() => props.loading, val => {
-      if (val === false) {
+      if (!val) {
         setTransformTop()
       }
     })

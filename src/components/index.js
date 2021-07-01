@@ -228,7 +228,6 @@ const install = (app) => {
           const handleAfterClose = () => {
             vue.unmount && vue.unmount()
           }
-          
           return () => {
             return h(Alert, {
               ...data,
@@ -430,7 +429,13 @@ const install = (app) => {
   app.directive('vx-preview', {
     mounted (el, binding) {
       binding.instance && binding.$preview && el.addEventListener('click', () => {
-        binding.$preview({index: 0, list: [binding.value]})
+        if (binding.value) {
+          if (typeof binding.value === 'string') {
+            binding.$preview({index: 0, list: [binding.value]})
+          } else if (binding.value.images) {
+            binding.$preview({index: binding.value.index, list: binding.value.images})
+          }
+        }
       })
     }
   })

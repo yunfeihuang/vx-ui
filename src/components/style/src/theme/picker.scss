@@ -7,6 +7,7 @@ $unit: px;
     @include scroller;
     touch-action: pan-y;
     flex: 1;
+    @include scroller2;
     &.is-touch{
       &::-webkit-scrollbar{
         display:none;
@@ -29,8 +30,7 @@ $unit: px;
       flex:auto;
     }
     &--cancel,&--confirm{
-      background:none;
-      border:0;
+      @include button;
       height:$--box-size-height-default;
       padding:0 0.4rem;
     }
