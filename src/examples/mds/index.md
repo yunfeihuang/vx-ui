@@ -10,8 +10,8 @@
   import {createApp} from 'vue'
   import App from './App'
   import 'vx-ui/lib/style/theme/index.css'
-  import VxUI from 'vx-ui'
-  createApp(App).use(VxUI)
+  import Vx from 'vx-ui'
+  createApp(App).use(Vx)
 ```
 
 ### 单个注册组件(Button示例)
@@ -26,7 +26,7 @@
 ### 修改UI主题风格
 
 ```
-  #修改src/components/style/src/variable.scss变量后运行以下命令即可
+  #修改packages/style/src/variable.scss变量后运行以下命令即可
   npm run build:theme
 ```
 

@@ -1,13 +1,12 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import './styles/bootstrap.css'
-import '../../src/components/style/src/theme/index.scss'
+import '../../packages/style/src/theme/index.scss'
 import routes from './route.config.js'
 import App from './App.vue'
-import UI from '../../components'
+import Vx from '../../packages'
 
-console.log('routes', routes)
-createApp(App).use(UI).use(createRouter({
+createApp(App).use(Vx).use(createRouter({
   history: createWebHistory(),
   routes: routes
 })).mount('#app')
