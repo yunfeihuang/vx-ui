@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import './components/style/src/theme/index.scss'
-import Vx from './components'
+import '../packages/style/src/theme/index.scss'
+import Vx from '../packages'
 // import 'vx-ui/lib/style/theme/index.css'
 // import Vx from 'vx-ui/lib/index.js'
 

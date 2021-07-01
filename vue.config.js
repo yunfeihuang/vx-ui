@@ -104,7 +104,7 @@ module.exports = {
         .loader('sass-resources-loader')
         .options({
           // Or array of paths
-          resources: ['./src/components/style/src/theme/common/variable.scss', './src/components/style/src/theme/common/mixins.scss']
+          resources: ['./packages/style/src/theme/common/variable.scss', './packages/style/src/theme/common/mixins.scss']
         })
         .end()
     })

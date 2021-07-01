@@ -31,7 +31,7 @@
 import XHeader from './components/XHeader'
 import XFooter from './components/XFooter'
 import Sidebar from './components/Sidebar'
-import Qrcode from '@/components/qrcode'
+import Qrcode from '../../packages/qrcode'
 
 export default {
   components: {

@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import './examples/styles/bootstrap.css'
-import './components/style/src/theme/index.scss'
+import '../packages/style/src/theme/index.scss'
 import routes from './examples/route.config.js'
 import App from './examples/App.vue'
-import Vx from './components'
+import Vx from '../packages'
 
 createApp(App).use(Vx).use(createRouter({
   history: createWebHashHistory(),
