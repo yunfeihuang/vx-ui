@@ -1,10 +1,9 @@
-import Form from 'element-ui/lib/form'
-import FormItem from 'element-ui/lib/form-item'
-
-if (!Form.mixins) {
-  Form.mixins = []
+import ElForm from 'element-plus/lib/el-form'
+import ElFormItem from 'element-plus/lib/el-form-item'
+if (!ElForm.mixins) {
+  ElForm.mixins = []
 }
-Form.mixins.push({
+ElForm.mixins.push({
   mounted () {
     let self = this
     requestAnimationFrame(function () {
@@ -19,11 +18,11 @@ Form.mixins.push({
   }
 })
 
-if (!FormItem.mixins) {
-  FormItem.mixins = []
+if (!ElFormItem.mixins) {
+  ElFormItem.mixins = []
 }
 
-FormItem.mixins.push({
+ElFormItem.mixins.push({
   props: {
     divider: {
       type: Boolean
@@ -51,8 +50,7 @@ FormItem.mixins.push({
     })
   }
 })
-
 export {
-  Form,
-  FormItem
+  ElForm,
+  ElFormItem
 }

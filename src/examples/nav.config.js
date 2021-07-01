@@ -110,13 +110,11 @@ export default [
       {
         path: '/search',
         title: 'Search搜索'
-      }
-      /*,
+      },
       {
         path: '/form',
         title: 'Form表单'
       }
-      */
     ]
   },
   {

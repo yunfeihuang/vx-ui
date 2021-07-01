@@ -52,6 +52,7 @@ import {Sidebar, SidebarItem} from './sidebar'
 import {ButtonTab, ButtonTabItem} from './button-tab'
 import {Flexbox, FlexboxItem} from './flexbox'
 import {Grid, GridItem} from './grid'
+import {ElForm, ElFormItem} from './form'
 import Cascader from './cascader'
 import {Accordion, AccordionItem} from './accordion'
 import {DropdownMenu, DropdownMenuItem} from './dropdown-menu'
@@ -108,6 +109,8 @@ let components = [
   Heading,
   Group,
   Cell,
+  ElForm,
+  ElFormItem,
   Nav,
   Spinner,
   Badge,
@@ -466,6 +469,8 @@ export {
   Heading,
   Group,
   Cell,
+  ElForm,
+  ElFormItem,
   Nav,
   Spinner,
   Badge,

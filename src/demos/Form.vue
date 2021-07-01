@@ -4,8 +4,7 @@
       <vx-nav title="Form"></vx-nav>
     </template>
     <vx-page-body>
-      <br />
-      <el-form size="small" :model="form" ref="form" @submit="handleSubmit">
+      <el-form size="small" :model="form" ref="form" @submit.prevent="handleSubmit">
         <el-form-item label="姓名：" prop="name" :rules="[
           {required: true, message: '姓名不能为空'},
           {min: 2, message: '姓名不能小于2字符'}
@@ -39,9 +38,7 @@
           {required: true, message: '兴趣爱好不能为空'}
           ]">
           <vx-select v-model="form.hobby">
-            <vx-option value="1">篮球</vx-option>
-            <vx-option value="2">足球</vx-option>
-            <vx-option value="3">羽毛球</vx-option>
+            <vx-option v-for="(item,index) in options" :value="item.value" :label="item.label" :key="index"></vx-option>
           </vx-select>
           <vx-divider/>
         </el-form-item>
@@ -118,7 +115,14 @@
 </template>
 
 <script>
+import ElForm from 'element-plus/lib/el-form'
+import ElFormItem from 'element-plus/lib/el-form-item'
+console.log('ElForm, ElFormItem', ElFormItem)
 export default {
+  components: {
+    ElForm,
+    ElFormItem,
+  },
   methods: {
     handleSubmit () {
       this.$refs.form.validate((valid) => {
@@ -151,13 +155,13 @@ export default {
         textarea: '',
         mobile: '',
         email: '',
-        hobby: '',
+        hobby: '1',
         radioHobby: '',
         checkboxHobby: [],
         datetime: null,
-        daterange: null,
+        daterange: [],
         rater: null,
-        range: null,
+        range: 0,
         inputNumber: 0,
         cascader: [],
         enable: false
