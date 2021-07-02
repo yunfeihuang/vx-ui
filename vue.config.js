@@ -1,14 +1,14 @@
 const path = require('path')
 const fs = require('fs')
-var Components = require('./components.json');
+// var Components = require('./components.json');
 
 function resolve (dir) {
   return path.join(__dirname, './', dir)
 }
 
 module.exports = {
-  productionSourceMap: process.env.Components === 'components' ? false : true,
-  outputDir: process.env.Components === 'components' ? 'lib' : 'dist',
+  productionSourceMap: process.env.Component === 'component' ? false : true,
+  outputDir: process.env.Component === 'component' ? 'lib' : 'dist',
   pages: {
     app: {
        // page 的入口
@@ -40,7 +40,7 @@ module.exports = {
     }
   },
   configureWebpack: config => {
-    if (process.env.Components === 'components') {
+    if (process.env.Component === 'component') {
       config.plugins = config.plugins.filter(item  => {
         return ['HtmlWebpackPlugin', 'CopyPlugin', 'ESLintWebpackPlugin'].indexOf(item.constructor.name) === -1
       })
@@ -53,16 +53,28 @@ module.exports = {
       config.optimization = {
         minimize: true
       }
+      var Components = {
+        "index": "./packages"
+      }
+      var ComponentsPath = './packages'
+      const files = fs.readdirSync(ComponentsPath)
+      files.forEach(function (item) {
+          let p = ComponentsPath + "/" + item
+          let stat = fs.lstatSync(p)
+          if (stat.isDirectory() === true && ['style'].indexOf(item) == -1) { 
+            Components[item] = p
+          }
+      })
       config.entry = Components
 
       config.externals = {
         vue: 'vue',
         qrcodejs2: 'qrcodejs2',
+        swiper: 'swiper',
         photoswipe: 'photoswipe',
         'photoswipe/dist/photoswipe-ui-default': 'photoswipe/dist/photoswipe-ui-default',
         'photoswipe/dist/photoswipe.css': 'photoswipe/dist/photoswipe.css',
         'photoswipe/dist/default-skin/default-skin.css': 'photoswipe/dist/default-skin/default-skin.css',
-        swiper: 'swiper',
         'swiper/dist/css/swiper.min.css': 'swiper/dist/css/swiper.min.css',
         ...config.externals
       }

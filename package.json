@@ -9,7 +9,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:theme": "gulp build --gulpfile packages/style/gulpfile.js",
-    "build:components": "vue-cli-service build --mode components"
+    "build:component": "vue-cli-service build --mode component"
   },
   "files": [
     "lib"
