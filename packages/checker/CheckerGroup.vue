@@ -28,10 +28,11 @@ export default {
     }
   },
   setup (props, { emit }) {
-    let max = ref(props.max)
-    let modelValue = ref(props.modelValue)
-    let icon = ref(props.icon)
-    let inline = ref(props.inline)
+    const max = ref(props.max)
+    const modelValue = ref(props.modelValue)
+    const icon = ref(props.icon)
+    const inline = ref(props.inline)
+    const exclusives = []
     watch(() => props.max, val => {
       max.value = val
     })
@@ -49,6 +50,7 @@ export default {
       modelValue,
       icon,
       inline,
+      exclusives,
       handleChange (e, checkbox) {
         let checked = e.target.checked
         if (props.max === 1) {
@@ -63,6 +65,9 @@ export default {
               if (checkbox.exclusive) {
                 value = checkbox.value === undefined ? [] : [checkbox.value] 
               } else {
+                if (exclusives.length) {
+                  value = value.filter(item => exclusives.indexOf(item) === -1)
+                }
                 value.indexOf(checkbox.value) === -1 && value.push(checkbox.value)
               }
             } else {

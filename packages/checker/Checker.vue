@@ -17,7 +17,7 @@
 
 <script>
 import { input } from '@/utils/mixins'
-import { inject } from 'vue'
+import { inject, watch } from 'vue'
 
 export default {
   name: 'VxChecker',
@@ -41,6 +41,16 @@ export default {
   },
   setup (props, { emit }) {
     const vxCheckerGroup = inject('vxCheckerGroup')
+    if (props.exclusive) {
+      vxCheckerGroup.exclusives.push(props.value)
+    }
+    watch(() => props.exclusive, val => {
+      if (val) {
+        vxCheckerGroup.exclusives.push(props.value)
+      } else {
+        vxCheckerGroup.exclusives = vxCheckerGroup.exclusives.filter(item => item !== val)
+      }
+    })
     return {
       vxCheckerGroup,
       handleChange (e) {

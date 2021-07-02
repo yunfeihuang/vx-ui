@@ -55,7 +55,7 @@
       <vx-group title="Checker 不限选项">
         <div style="padding:20px 10px">
           <vx-checker-group v-model="checkboxValue">
-            <vx-checker exclusive>不限</vx-checker>
+            <vx-checker exclusive value="">不限</vx-checker>
             <vx-checker
               v-for="item in options"
               :value="item.value"

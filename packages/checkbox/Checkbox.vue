@@ -13,7 +13,7 @@
 
 <script>
 import { input } from '@/utils/mixins'
-import { inject } from 'vue'
+import { inject, watch } from 'vue'
 
 export default {
   name: 'VxCheckbox',
@@ -47,6 +47,16 @@ export default {
   },
   setup (props, { emit }) {
     const vxCheckboxGroup = inject('vxCheckboxGroup')
+    if (props.exclusive) {
+      vxCheckboxGroup.exclusives.push(props.value)
+    }
+    watch(() => props.exclusive, val => {
+      if (val) {
+        vxCheckboxGroup.exclusives.push(props.value)
+      } else {
+        vxCheckboxGroup.exclusives = vxCheckboxGroup.exclusives.filter(item => item !== val)
+      }
+    })
     return {
       vxCheckboxGroup,
       handleChange (e) {
