@@ -240,10 +240,9 @@ export default {
         if (formatMethods[keys[e.index]]) {
           let date = new Date(currentDate.value.getTime())
           date['set' + formatMethods[keys[e.index]]](e.value)
-          console.log(e, date.toLocaleString())
           currentDate.value = date
         }
-        if (keys[e.index] === 'MM') {
+        if (keys[e.index] === 'MM' && props.format.indexOf('dd') > -1) {
           let date = currentDate.value.getDate()
           let _columns = [...columns.value]
           _columns[e.index + 1] = getDatesColumn(currentDate.value.getFullYear(), e.value)

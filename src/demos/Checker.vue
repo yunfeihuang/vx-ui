@@ -14,7 +14,8 @@
               :key="item.value"
               >
               {{item.label}}
-            </vx-checker><vx-checker fake @click="more=!more">{{more ? '更多↓' : '收起 ↑'}}</vx-checker>
+            </vx-checker>
+            <vx-checker fake @click="more=!more">{{more ? '更多↓' : '收起 ↑'}}</vx-checker>
           </vx-checker-group>
           <br />
           value：{{checkboxValue}}

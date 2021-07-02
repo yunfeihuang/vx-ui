@@ -33,6 +33,7 @@ $unit: px;
       @include button;
       height:$--box-size-height-default;
       padding:0 0.4rem;
+      color:$--color-assist;
     }
     &--confirm{
       color:$--color-primary;
