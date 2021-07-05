@@ -6,10 +6,12 @@ import routes from './examples/route.config.js'
 import App from './examples/App.vue'
 import Vx from '../packages'
 
-createApp(App).use(Vx).use(createRouter({
+const app = createApp(App).use(Vx).use(createRouter({
   history: createWebHashHistory(),
   routes: routes
-})).mount('#app')
+}))
+app.config.performance = true
+app.mount('#app')
 
 let initRootFontSize = () => {
   let deviceWidth = window.innerWidth

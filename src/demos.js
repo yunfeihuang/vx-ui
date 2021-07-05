@@ -22,4 +22,6 @@ let initRootFontSize = function () {
 window.addEventListener('resize', initRootFontSize)
 initRootFontSize()
 
-createApp(App).use(Vx).use(router).mount('#app')
+const app = createApp(App).use(Vx).use(router)
+app.config.performance = true
+app.mount('#app')

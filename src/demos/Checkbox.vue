@@ -94,7 +94,7 @@
             :value="item.value"
             :key="item.value"
             >
-            <template v-slot:custom="scope">
+            <template v-slot="scope">
               <span :style="`color:${scope.checked?'red':''}`">
                 {{item.label}}
               </span>

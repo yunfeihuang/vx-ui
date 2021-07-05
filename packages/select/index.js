@@ -1,5 +1,10 @@
 ﻿import Select from './Select'
-import Option from './Option'
+import Checkbox from '../checkbox/Checkbox'
+
+const Option = {
+  ...Checkbox,
+  name: 'VxOption'
+}
 
 export {
   Select,

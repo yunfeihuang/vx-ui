@@ -5,7 +5,8 @@
     <template v-else>
       <i :class="['vx-checkbox--icon', getIconStyle ? `is-${getIconStyle}` : '']" ></i>
       <span class="vx-checkbox--text">
-        <slot></slot>
+        <slot v-if="$slots.default"></slot>
+        <template v-else>{{label}}</template>
       </span>
     </template>
   </label>
@@ -43,9 +44,11 @@ export default {
     },
     exclusive: {
       type: Boolean
-    }
+    },
+    label: {}
   },
-  setup (props, { emit }) {
+  setup (props, { emit, slots }) {
+    console.log(slots)
     const vxCheckboxGroup = inject('vxCheckboxGroup')
     if (props.exclusive) {
       vxCheckboxGroup.exclusives.push(props.value)
