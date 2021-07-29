@@ -21,7 +21,7 @@
 import Picker from './Picker'
 import VxArrow from '../arrow'
 import { computed, ref } from 'vue'
-
+let dropdownOpen = null
 export default {
   name: 'VxDropdownMenuItem',
   components: {
@@ -68,7 +68,11 @@ export default {
       handleClick (e) {
         if (props.options || slots['default']) {
           let rect = e.currentTarget.getBoundingClientRect()
+          if (dropdownOpen && dropdownOpen.value) {
+            dropdownOpen.value = false
+          }
           open.value = true
+          dropdownOpen = open
           style.value = {
             top: `${rect.bottom}px`,
             height:`${window.innerHeight - rect.bottom}px`
