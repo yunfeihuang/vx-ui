@@ -67,7 +67,7 @@ export default {
       active,
       handleGroup (index) {
         let node = el.value.querySelectorAll('.vx-index-list--group')[index]
-        node && node.scrollIntoView()
+        node && node.scrollIntoView({behavior: 'smooth'})
       },
       handleScroll,
       handleClick (value) {

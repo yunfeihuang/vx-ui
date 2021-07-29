@@ -155,7 +155,7 @@ export default {
         textarea: '',
         mobile: '',
         email: '',
-        hobby: '1',
+        hobby: '',
         radioHobby: '',
         checkboxHobby: [],
         datetime: null,

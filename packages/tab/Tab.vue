@@ -75,8 +75,8 @@ export default {
                 nextRect = nextElement.getBoundingClientRect()
               }
               requestAnimationFrame(() => {
-                nextElement && nextRect && nextRect.left > scrollerNodeWidth - activeWidth / 2 && nextElement.scrollIntoView()
-                prevElement && prevRect && prevRect.left < 0 && prevElement.scrollIntoView()
+                nextElement && nextRect && nextRect.left > scrollerNodeWidth - activeWidth / 2 && nextElement.scrollIntoView({behavior: 'smooth'})
+                prevElement && prevRect && prevRect.left < 0 && prevElement.scrollIntoView({behavior: 'smooth'})
               })
             })
           })
