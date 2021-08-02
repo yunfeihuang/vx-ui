@@ -1,4 +1,12 @@
 # vx-ui
+> vue3.X 移动端UI组件库
+>
+
+## 中文文档：
+http://vx.bittyos.com/v3/
+
+## 示例浏览地址：
+http://vx.bittyos.com/v3/demo.html
 
 ## 安装
 ```
@@ -23,11 +31,13 @@ import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
 createApp(App).component(Button.componentName, Button)
 ```
 
-修改UI主题风格
+### 修改UI主题风格
 ```
 #修改packages/style/src/variable.scss变量后运行以下命令即可
 npm run build:theme
 ```
+### vx-ui vue2.x版本的
+https://github.com/yunfeihuang/vx-ui/tree/master
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
