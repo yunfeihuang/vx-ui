@@ -2,22 +2,31 @@
 
 ## Project setup
 ```
-npm install
+npm install vx-ui --save-dev
 ```
 
-### Compiles and hot-reloads for development
+### 全局注册组件
 ```
-npm run serve
+import {createApp} from 'vue'
+import App from './App'
+import 'vx-ui/lib/style/theme/index.css'
+import Vx from 'vx-ui'
+createApp(App).use(Vx)
 ```
 
-### Compiles and minifies for production
+### 单个注册组件(Button示例)
 ```
-npm run build
+import Vue from 'vue'
+import App from './App'
+import 'vx-ui/lib/style/theme/button.css'
+import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
+createApp(App).component(Button.componentName, Button)
 ```
 
-### Lints and fixes files
+修改UI主题风格
 ```
-npm run lint
+#修改packages/style/src/variable.scss变量后运行以下命令即可
+npm run build:theme
 ```
 
 ### Customize configuration
