@@ -1,6 +1,6 @@
 # vx-ui
 
-## Project setup
+## 安装
 ```
 npm install vx-ui --save-dev
 ```
