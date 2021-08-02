@@ -39,5 +39,8 @@ npm run build:theme
 ### vx-ui vue2.x版本的
 https://github.com/yunfeihuang/vx-ui/tree/master
 
+#### 打赏赞助，请扫以下二维码，谢谢！
+![Minion](http://vx.bittyos.com/static/images/pay-code.png?v=0.1)
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
