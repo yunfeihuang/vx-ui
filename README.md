@@ -28,7 +28,7 @@ import Vue from 'vue'
 import App from './App'
 import 'vx-ui/lib/style/theme/button.css'
 import { Button } from 'vx-ui' // or import Button from 'vx-ui/lib/button'
-createApp(App).component(Button.componentName, Button)
+createApp(App).component(Button.name, Button)
 ```
 
 ### 修改UI主题风格
