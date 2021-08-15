@@ -16,23 +16,23 @@ gulp.task('compile', function() {
       cascade: false
     }))
     .pipe(cssmin())
-    .pipe(gulp.dest('../../../lib/style/theme'));
+    .pipe(gulp.dest('../../lib/style/theme'));
 });
 gulp.task('copythemesrc', function() {
   return gulp.src('./src/**')
-    .pipe(gulp.dest('../../../lib/style/src'));
+    .pipe(gulp.dest('../../lib/style/src'));
 });
 /*
 gulp.task('copyfont', function() {
   return gulp.src('./src/iconfont/**')
     .pipe(cssmin())
-    .pipe(gulp.dest('../../../lib/style/iconfont'));
+    .pipe(gulp.dest('../../lib/style/iconfont'));
 });
 */
 gulp.task('build', gulp.series('compile', 'copythemesrc', done => done()))
 /*
 gulp.task('build', ['compile', 'copythemesrc'], function () {
-  let dir = '../../../lib/style/src/theme'
+  let dir = '../../lib/style/src/theme'
   fs.readdir(dir, function (err,files) {
     files.forEach(function(filename){
       var fileDir = path.join(dir, filename);
