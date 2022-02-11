@@ -45,7 +45,7 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^4.0.2",
     "markdown-it": "^12.0.6",
-    "node-sass": "^6.0.0",
+    "node-sass": "^7.0.0",
     "photoswipe": "^4.1.2",
     "progress-bar-webpack-plugin": "^2.1.0",
     "qrcodejs2": "^0.0.2",
